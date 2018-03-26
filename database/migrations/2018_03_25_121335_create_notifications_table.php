@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddNotificationsTable extends Migration
+class CreateNotificationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -24,6 +24,10 @@ class AddNotificationsTable extends Migration
             $table->enum('type',['info','warning','important'])->default('info');
             // texto de la notificación
             $table->string('notification')->nullable(false);
+
+            // Claves externas
+            // En caso de que se borre el usuario al que va destinada se elimina la notificación
+            $table->foreign('recipient')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

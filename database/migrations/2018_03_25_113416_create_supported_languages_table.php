@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddSupportedLanguagesTable extends Migration
+class CreateSupportedLanguagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,11 @@ class AddSupportedLanguagesTable extends Migration
     public function up()
     {
         Schema::create('supported_languages', function (Blueprint $table) {
-            $table->increments('id');
+        
             // código del idioma soportado
-            $table->string("language", 2);
+            $table->string('language', 2);
+            $table->primary('language');
+            $table->string('name',20);
         });
     }
 

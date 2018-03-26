@@ -29,7 +29,7 @@ class CreateUsersTable extends Migration
             // pais del jugador
             $table->string('country', 2)->default('ES');
             // lenguaje preferido para jugar
-            $table->string('favourite_language', 2)->default('ES');
+            $table->string('favourite_language', 2)->default('ES')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
