@@ -16,7 +16,7 @@ class CreateSupportedLanguagesTable extends Migration
         Schema::create('supported_languages', function (Blueprint $table) {
         
             // código del idioma soportado
-            $table->string('language', 2);
+            $table->string('language', 2)->nullable(false);
             $table->primary('language');
             $table->string('name',20);
         });
