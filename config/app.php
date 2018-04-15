@@ -95,6 +95,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Faker Locale
+    |--------------------------------------------------------------------------
+    |
+    | Esta confiuracion determina en que idioma se van generar los datos de prueba
+    | mediante la libreria Faker
+    |
+    */
+
+    'faker_locale' => 'es_ES',
+
+    /*
+    |--------------------------------------------------------------------------
     | Encryption Key
     |--------------------------------------------------------------------------
     |
@@ -210,5 +222,4 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
-
 ];
