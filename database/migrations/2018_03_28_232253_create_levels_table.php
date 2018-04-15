@@ -26,6 +26,10 @@ class CreateLevelsTable extends Migration
             $table->unsignedInteger('user_id')->nullable(false);;
             // level
             $table->tinyInteger('level')->default(0);
+            // Partidas ganadas
+            $table->integer('won')->default(0);
+            // Partidas perdidas
+            $table->integer('lost')->default(0);
 
             // Claves externa
             $table->foreign('language_code')->references('language')->on('supported_languages')->onDelete('cascade');

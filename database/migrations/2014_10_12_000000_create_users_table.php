@@ -22,14 +22,10 @@ class CreateUsersTable extends Migration
             $table->enum('type',['player','admin'])->default('player');
             // estado del usuario: desactivado, offline, online
             $table->enum('state',['disable','offline','online'])->default('offline');
-            // Partidas ganadas
-            $table->integer('won')->default(0);
-            // Partidas perdidas
-            $table->integer('lost')->default(0);
             // pais del jugador
             $table->string('country', 2)->default('ES');
             // lenguaje preferido para jugar
-            $table->string('favourite_language', 2)->default('ES')->nullable();
+            $table->string('favourite_language', 2)->default('es')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

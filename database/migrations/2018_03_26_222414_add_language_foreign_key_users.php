@@ -15,7 +15,7 @@ class AddLanguageForeignKeyUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             // Clave externa
-            // En caso de que se borre el lenguaje (muuy raro) el lenguaje preferido se pone a null
+            // En caso de que se borre el lenguaje (muy raro) el lenguaje preferido se pone a null
             $table->foreign('favourite_language')->references('language')->on('supported_languages')->onDelete('set null');
         });
     }
