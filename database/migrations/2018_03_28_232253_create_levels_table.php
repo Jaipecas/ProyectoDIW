@@ -20,10 +20,10 @@ class CreateLevelsTable extends Migration
     {
         Schema::create('levels', function (Blueprint $table) {
             
-            // código del idioma soportado
-            $table->string('language_code', 2)->nullable(false);
             // usuario
             $table->unsignedInteger('user_id')->nullable(false);;
+             // código del idioma soportado
+            $table->string('language_code', 2)->nullable(false);
             // level
             $table->tinyInteger('level')->default(0);
             // Partidas ganadas

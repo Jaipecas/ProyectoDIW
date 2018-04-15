@@ -28,17 +28,19 @@ class UsersSeeder extends Seeder
             'favourite_language' => 'es'
         ]);
 
-        // creo notificaciones para los dos usuarios específicos
+        // creo notificaciones y niveles para los dos usuarios específicos
         factory(App\Notification::class, 7)
             ->make()
             ->each(function($n) use($id1) {
                 User::find($id1)->notifications()->save($n);
+                User::find($id1)->levels()->sync(['es' => $this->randomLevel(), 'en' => $this->randomLevel()]);
             });
 
         factory(App\Notification::class, 3)
             ->make()
             ->each(function($n) use($id2) {
                 User::find($id2)->notifications()->save($n);
+                User::find($id2)->levels()->sync(['es' => $this->randomLevel(), 'en' => $this->randomLevel()]);
             });
 
         // creo 20 usuarios aleatorios y los almacena en la BD y les asigna notificaciones
@@ -55,15 +57,34 @@ class UsersSeeder extends Seeder
                             $u->notifications()->save($n);
                         });
                 }
+
+                $u->levels()->sync(['es' => $this->randomLevel(), 'en' => $this->randomLevel()]);
             });
 
         // creo 2 usuarios desactivados
-        factory(App\User::class, 2)->states('disable')->create();
+        factory(App\User::class, 2)->states('disable')
+            ->create()
+            ->each(function($u) {
+                $u->levels()->sync(['es' => $this->randomLevel(), 'en' => $this->randomLevel()]);
+            });
 
         // creo un administrador (podría crear un state, pero, por variar, 
         // lo hago sobreescribiendo el valor de type)
         factory(App\User::class)->create([
             'type' => 'admin',
         ]);
+    }
+
+    private function randomLevel() {
+        $won = mt_rand(1, 100);
+        $lost = mt_rand(1, 100);
+        $played = $won + $lost;
+
+        if ($played == 0) 
+            $level = 1;
+        else 
+            $level = round(($won * 4 / $played) + 1, 0, PHP_ROUND_HALF_DOWN);
+
+        return ['level' => $level, 'won' => $won, 'lost' => $lost];
     }
 }
