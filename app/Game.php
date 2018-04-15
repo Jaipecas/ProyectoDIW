@@ -14,7 +14,7 @@ class Game extends Model
      * puede ser jugador 1 en muchas patidas
      */
     public function player1() {
-        return $this->belongsTo('/App/User', 'player_1');
+        return $this->belongsTo('App\User', 'player_1');
     }
 
     /**
@@ -22,7 +22,7 @@ class Game extends Model
      * puede ser jugador 2 en muchas patidas
      */
     public function player2() {
-        return $this->belongsTo('/App/User', 'player_2');
+        return $this->belongsTo('App\User', 'player_2');
     }
 
     /**
@@ -30,6 +30,6 @@ class Game extends Model
      * puede estar asociado a muchas partidas
      */
     public function language() {
-        return $this->belongsTo('/App/Language', 'language');
+        return $this->belongsTo('App\Language', 'language');
     }
 }

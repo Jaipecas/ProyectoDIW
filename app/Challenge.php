@@ -17,7 +17,7 @@ class Challenge extends Model
         // se le indica el modelo y, opcionalmente, la clave externa que se utiliza
         // en el caso de que no sea language_id (nombre del metodo + _id) y 
         // la clave primaria del padre (language) en el caso de que no sea id
-        return $this->belongsTo('/App/Language', 'language', 'language');
+        return $this->belongsTo('App\Language', 'language', 'language');
     }
 
     /**
@@ -25,7 +25,7 @@ class Challenge extends Model
      * puede ser retador en muchos retos
      */
     public function requestPlayer() {
-        return $this->belongsTo('/App/User', 'requesting_player');
+        return $this->belongsTo('App\User', 'requesting_player');
     }
 
     /**
@@ -33,6 +33,6 @@ class Challenge extends Model
      * puede ser oponente en muchos retos
      */
     public function opponentPlayer() {
-        return $this->belongsTo('/App/User', 'opposing_player');
+        return $this->belongsTo('App\User', 'opposing_player');
     }
 }

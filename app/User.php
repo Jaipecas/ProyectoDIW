@@ -44,7 +44,7 @@ class User extends Authenticatable
      * una partida sólo tiene un jugador 1
      */
     public function player1Games() {
-        return $this->hasMany('/App/Game', 'player_1');
+        return $this->hasMany('App\Game', 'player_1');
     }
 
     /**
@@ -52,7 +52,7 @@ class User extends Authenticatable
      * una partida sólo tiene un jugador 2
      */
     public function player2Games() {
-        return $this->hasMany('/App/Game', 'player_2');
+        return $this->hasMany('App\Game', 'player_2');
     }
 
     /**
@@ -60,7 +60,7 @@ class User extends Authenticatable
      * Devuelve los retos en los que el usuario es el retador
      */
     public function requestChallenges() {
-        return $this->hasMany('/App/Challenge', 'requesting_player');
+        return $this->hasMany('App\Challenge', 'requesting_player');
     }
 
     /**
@@ -68,7 +68,7 @@ class User extends Authenticatable
      * Devuelve los retos en los que el usuario es el oponente
      */
     public function opponentChallenges() {
-        return $this->hasMany('/App/Challenge', 'opposing_player');
+        return $this->hasMany('App\Challenge', 'opposing_player');
     }
 
     /**
@@ -76,16 +76,15 @@ class User extends Authenticatable
      * asignado a muchos jugadores
      */
     public function favouriteLanguage() {
-        return $this->belongsTo('/App/Language', 'favourite_language');
+        return $this->belongsTo('App\Language', 'favourite_language');
     }
 
     /**
      * Relación con Notification. Un usuario puede tener muchas notificaciones, pero 
      * una notificación sólo pertenece a un usuario
-     * Devuelve las notificaciones de un usuario
      */
     public function notifications() {
-        return $this->hasMany('/App/Notification', 'recipient');
+        return $this->hasMany('App\Notification', 'recipient');
     }
 
     /**

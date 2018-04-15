@@ -14,6 +14,6 @@ class Notification extends Model
      * sólo pertenece a un usuario
      */
     public function user() {
-        return $this->belongsTo('/App/User', 'recipient');
+        return $this->belongsTo('App\User', 'recipient');
     }
 }
