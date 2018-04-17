@@ -28,21 +28,23 @@ class UsersSeeder extends Seeder
             'favourite_language' => 'es'
         ]);
 
-        // creo notificaciones y niveles para los dos usuarios específicos
+        // creo notificaciones para los dos usuarios específicos
         factory(App\Notification::class, 7)
             ->make()
             ->each(function($n) use($id1) {
                 User::find($id1)->notifications()->save($n);
-                User::find($id1)->levels()->sync(['es' => $this->randomLevel(), 'en' => $this->randomLevel()]);
             });
-
+        
         factory(App\Notification::class, 3)
             ->make()
             ->each(function($n) use($id2) {
                 User::find($id2)->notifications()->save($n);
-                User::find($id2)->levels()->sync(['es' => $this->randomLevel(), 'en' => $this->randomLevel()]);
             });
 
+        // creo niveles para los dos usuarios específicos
+        User::find($id1)->levels()->sync(['es' => $this->randomLevel(), 'en' => $this->randomLevel()]);
+        User::find($id2)->levels()->sync(['es' => $this->randomLevel(), 'en' => $this->randomLevel()]);
+    
         // creo 20 usuarios aleatorios y los almacena en la BD y les asigna notificaciones
         factory(App\User::class, 20)
             ->create()
@@ -57,6 +59,16 @@ class UsersSeeder extends Seeder
                             $u->notifications()->save($n);
                         });
                 }
+
+                // a un 20% les creo retos
+                if (mt_rand(1, 100) <= 20) {
+                    // creo entre 1 y 2 retos. Los creo por nivel
+                    factory(App\Challenge::class, mt_rand(1, 2))
+                        ->make()
+                        ->each(function($c) use($u) {
+                            $u->requestChallenges()->save($c);
+                        });
+                    }
 
                 $u->levels()->sync(['es' => $this->randomLevel(), 'en' => $this->randomLevel()]);
             });
@@ -73,6 +85,14 @@ class UsersSeeder extends Seeder
         factory(App\User::class)->create([
             'type' => 'admin',
         ]);
+
+        // creo retos para los usuarios específicos
+        // contra otra jugador
+        $c1 = factory(App\Challenge::class)->states('against_user')->make();
+        User::find($id1)->requestChallenges()->save($c1);      
+
+        $c2 = factory(App\Challenge::class)->make();
+        User::find($id2)->requestChallenges()->save($c2);
     }
 
     private function randomLevel() {
