@@ -45,7 +45,10 @@ class CreateLevelsTable extends Migration
     public function down()
     {
         Schema::table('levels', function (Blueprint $table) {
-            //
+            $table->dropForeign('levels_language_code_foreign');
+            $table->dropForeign('levels_user_id_foreign');
         });
+
+        Schema::dropIfExists('levels');
     }
 }

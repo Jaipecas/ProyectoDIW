@@ -38,6 +38,10 @@ class CreateNotificationsTable extends Migration
      */
     public function down()
     {
+        Schema::table('notifications', function (Blueprint $table) {
+            $table->dropForeign('notifications_recipient_foreign');
+        });
+
         Schema::dropIfExists('notifications');
     }
 }

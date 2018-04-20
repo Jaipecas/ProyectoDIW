@@ -57,6 +57,12 @@ class CreateGamesTable extends Migration
      */
     public function down()
     {
+        Schema::table('games', function (Blueprint $table) {
+            $table->dropForeign('games_player_1_foreign');
+            $table->dropForeign('games_player_2_foreign');
+            $table->dropForeign('games_language_foreign'); 
+        });
+
         Schema::dropIfExists('games');
     }
 }

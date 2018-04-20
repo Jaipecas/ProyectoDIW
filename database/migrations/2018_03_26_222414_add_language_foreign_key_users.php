@@ -29,7 +29,8 @@ class AddLanguageForeignKeyUsers extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             // Se elimina la clave externa
-            $table->dropForeign('favourite_language');
+            // el nombre de la relacion es tabla_columna_foreign
+            $table->dropForeign('users_favourite_language_foreign');
         });
     }
 }

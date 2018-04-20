@@ -42,6 +42,12 @@ class CreateChallengesTable extends Migration
      */
     public function down()
     {
+        Schema::table('challenges', function (Blueprint $table) {
+            $table->dropForeign('challenges_requesting_player_foreign');
+            $table->dropForeign('challenges_opposing_player_foreign');
+            $table->dropForeign('challenges_language_foreign'); 
+        });
+        
         Schema::dropIfExists('challenges');
     }
 }
