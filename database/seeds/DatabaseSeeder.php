@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             SupportedLanguagesSeeder::class,
             UsersSeeder::class,
-            //ChallengeSeeder::class,
+            GamesSeeder::class,
         ]);
     }
 }

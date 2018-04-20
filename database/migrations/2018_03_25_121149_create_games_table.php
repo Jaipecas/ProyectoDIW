@@ -36,6 +36,10 @@ class CreateGamesTable extends Migration
             $table->string('tableboard',225);
             // letras restantes
             $table->string('remaining_letters', 100);
+            // tiradas. Formato: PLLLWWWWWWWWWW|PLLLWWWWWWWWW|... P : jugador 1 o 2, L posicion: 06D, J11. 
+            // Si el número va delante será vertical y si va la letra será horizontal, W palabra
+            // se separan por |
+            $table->text('throw')->nullable();
 
             // Claves externas
             // En caso de que se borre el jugador se pone a null su id
