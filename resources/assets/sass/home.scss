@@ -1,0 +1,99 @@
+// Variables
+@import "variables";
+
+html,
+body {
+    background-color: $body-bg;
+    color: $text-color;
+    font-family: $font-family-sans-serif;
+    font-weight: 100;
+    height: 100vh;
+    margin: 0;
+    line-height: $line-height-base;
+}
+
+.title {
+    padding: $title-padding 0 $title-padding $title-padding;
+    font-size: 55px;
+}
+
+li {
+    list-style-type: none;
+}
+
+.wrapper {
+    max-width: 100%;
+    display: grid;
+    grid-gap: 0px;
+    grid-template-columns: 1fr 6fr;
+}
+
+.sidebar {
+    float: left;
+}
+
+.header {
+    grid-column: 1 / -1;
+    clear: both;
+}
+
+/* Area de mensajes */
+.content {
+    text-align: center;
+    min-width: 100%;
+    min-height: 200px;
+    display: flex;
+    float: right;
+    overflow-x: auto;
+}
+
+.card--result {
+    background-color: $card-bg;
+    min-width: 400px;
+    max-width: 600px;
+    margin: 15px;
+    position: relative;
+    top:0;
+    left: 0;
+
+    .info {
+        position: absolute;
+        top: 0;
+        font-size: 1em;
+        padding-top: 0.4em;
+    }
+     
+    .text {
+        right: 0;
+        color: rgb(66, 129, 152);
+        padding-right: 0.6em;
+        font-weight: 300;
+    }
+
+    .number {
+        left: 0;
+        color: rgb(101, 87, 162);
+        padding-left: 0.4em;
+        font-weight: 700;
+    }
+}
+
+/* Menu */
+.input-menu {
+    line-height: 1.4em;
+
+    a {
+        padding: 5px 0px;
+        font-size: 1.1em;
+        color: rgb(162, 156, 156);
+
+        &:hover {
+            color:rgb(142, 118, 118);
+        }
+    }
+}
+
+.upper-margin {
+    margin-top: 0.6em;
+}
+

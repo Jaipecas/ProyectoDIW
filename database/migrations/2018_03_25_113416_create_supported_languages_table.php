@@ -29,8 +29,6 @@ class CreateSupportedLanguagesTable extends Migration
      */
     public function down()
     {
-        //Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('supported_languages');
-        //Schema::enableForeignKeyConstraints();
     }
 }
