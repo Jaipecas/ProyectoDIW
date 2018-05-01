@@ -5,8 +5,6 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
-
 window.Vue = require('vue');
 
 /**
@@ -15,8 +13,30 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('card-container-component', require('./components/CardContainerComponent.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: { 
+        cards: [{
+            order: 1,
+            type: 'Registro',
+            erroCode: 200,
+            statusCode: 'OK',
+            output: {
+                hola: "w",
+                carcola: 2
+            }
+        },
+        {
+            order: 2,
+            type: 'listaaddddf',
+            erroCode: 400,
+            statusCode: 'ERROR',
+            output: {
+                hola: "wkilo",
+                carcola: 224
+            }
+        }]
+    }
 });

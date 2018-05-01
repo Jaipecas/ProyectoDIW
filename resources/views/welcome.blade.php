@@ -14,7 +14,7 @@
         <link href="css/home.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <div class="wrapper">
+        <div class="wrapper" id="app">
             <header class="header title">Scrabble. Home</header>
             <aside class="sidebar">
                 <ul>
@@ -28,43 +28,8 @@
                     <li class="input-menu" id="b06"><a>Últimas partidas en juego</a></li>
                 </ul>
             </aside>
-            <div class="content">
-                <div class="card--result">
-                    <div class="info number">1</div>
-                    <div class="info text">Registro</div>
-                </div>
-                <div class="card--result">
-                    <div class="info number">2</div>
-                    <div class="info text">Login user1</div>
-                </div>
-                <div class="card--result">
-                    <div class="info number">3</div>
-                    <div class="info text">Login user2</div>
-                </div>
-                <div class="card--result">
-                    <div class="info number">4</div>
-                    <div class="info text">Dashboard</div>
-                </div>
-                <div class="card--result">
-                    <div class="info number">5</div>
-                    <div class="info text">Estadísticas usuarios</div>
-                </div>
-            </div>
+            <card-container-component :cards="cards"></card-container-component> 
         </div>
-<!--
-    
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-        </div>
--->
     </body>
+    <script src="js/app.js"></script>
 </html>

@@ -37,47 +37,6 @@ li {
     clear: both;
 }
 
-/* Area de mensajes */
-.content {
-    text-align: center;
-    min-width: 100%;
-    min-height: 200px;
-    display: flex;
-    float: right;
-    overflow-x: auto;
-}
-
-.card--result {
-    background-color: $card-bg;
-    min-width: 400px;
-    max-width: 600px;
-    margin: 15px;
-    position: relative;
-    top:0;
-    left: 0;
-
-    .info {
-        position: absolute;
-        top: 0;
-        font-size: 1em;
-        padding-top: 0.4em;
-    }
-     
-    .text {
-        right: 0;
-        color: rgb(66, 129, 152);
-        padding-right: 0.6em;
-        font-weight: 300;
-    }
-
-    .number {
-        left: 0;
-        color: rgb(101, 87, 162);
-        padding-left: 0.4em;
-        font-weight: 700;
-    }
-}
-
 /* Menu */
 .input-menu {
     line-height: 1.4em;
