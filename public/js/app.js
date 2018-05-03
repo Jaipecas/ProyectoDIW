@@ -544,22 +544,25 @@ var app = new Vue({
         cards: [{
             order: 1,
             type: 'Registro',
-            erroCode: 200,
+            errorCode: 200,
             statusCode: 'OK',
-            output: {
-                hola: "w",
-                carcola: 2
-            }
+            output: "4"
         }, {
             order: 2,
             type: 'listaaddddf',
-            erroCode: 400,
+            errorCode: 400,
             statusCode: 'ERROR',
             output: {
                 hola: "wkilo",
-                carcola: 224
+                carcola: 224,
+                pepsi: "milenial"
             }
         }]
+    },
+    filters: {
+        json: function json(value) {
+            return JSON.stringify(value, null, 2);
+        }
     }
 });
 
@@ -12068,7 +12071,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "/* Area de mensajes */\n.card-container[data-v-04fdc5a3] {\n  text-align: center;\n  min-width: 100%;\n  min-height: 200px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  float: right;\n  overflow-x: auto;\n}\n", ""]);
+exports.push([module.i, "/* Area de mensajes */\n.card-container[data-v-04fdc5a3] {\n  text-align: center;\n  min-width: 100%;\n  min-height: 200px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: start;\n      -ms-flex-align: start;\n          align-items: flex-start;\n  float: right;\n  overflow-x: auto;\n}\n", ""]);
 
 // exports
 
@@ -12230,7 +12233,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.output-card[data-v-109490e5] {\n  background-color: #27322c;\n  min-width: 400px;\n  max-width: 600px;\n  margin: 15px;\n  position: relative;\n  top: 0;\n  left: 0;\n}\n.output-card .info[data-v-109490e5] {\n    position: absolute;\n    top: 0;\n    font-size: 1em;\n    padding-top: 0.4em;\n}\n.output-card .type[data-v-109490e5] {\n    right: 0;\n    color: #4f90a7;\n    padding-right: 0.6em;\n    font-weight: 300;\n}\n.output-card .number[data-v-109490e5] {\n    left: 0;\n    color: #6f61aa;\n    padding-left: 0.4em;\n    font-weight: 700;\n}\n", ""]);
+exports.push([module.i, "\n.output-card[data-v-109490e5] {\n  background-color: #27322c;\n  min-width: 400px;\n  max-width: 600px;\n  margin: 15px;\n}\n.output-card .info[data-v-109490e5] {\n    font-size: 1em;\n    padding-top: 0.4em;\n    margin-bottom: 0.65em;\n}\n.output-card .type[data-v-109490e5] {\n    float: right;\n    color: #4f90a7;\n    padding-right: 0.6em;\n    font-weight: 300;\n}\n.output-card .number[data-v-109490e5] {\n    float: left;\n    color: #6f61aa;\n    padding-left: 0.4em;\n    font-weight: 700;\n}\n.output-card .data[data-v-109490e5] {\n    padding-left: 0.4em;\n    text-align: left;\n    clear: both;\n}\n.output-card .data p[data-v-109490e5] {\n      margin-top: 0.6em;\n      margin-bottom: 0.3em;\n}\n.output-card .data .status[data-v-109490e5] {\n      color: #18dd4a;\n      padding-left: 0.9em;\n}\n.output-card .data .error[data-v-109490e5] {\n      color: #df2914ee;\n}\n.output-card .output[data-v-109490e5] {\n    color: #9b9ba5;\n    padding-left: 0.9em;\n}\n.output-card .output table[data-v-109490e5] {\n      border-collapse: collapse;\n      width: 80%;\n}\n.output-card .output td[data-v-109490e5] {\n      text-align: left;\n}\n", ""]);
 
 // exports
 
@@ -12241,6 +12244,59 @@ exports.push([module.i, "\n.output-card[data-v-109490e5] {\n  background-color: 
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -12318,6 +12374,36 @@ var render = function() {
     _vm._v(" "),
     _c("div", { staticClass: "info type" }, [
       _vm._v(" " + _vm._s(_vm.pcard.type))
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "data" }, [
+      _c("p", [_vm._v("Estado")]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "status", class: { error: _vm.pcard.errorCode > 204 } },
+        [
+          _vm._v(
+            "\n            " +
+              _vm._s(_vm.pcard.errorCode) +
+              " " +
+              _vm._s(_vm.pcard.statusCode) +
+              "\n        "
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c("p", [_vm._v("Salida")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "output" }, [
+        _vm.pcard.output instanceof Object
+          ? _c("div", { staticClass: "json" }, [
+              _c("pre", [_vm._v(_vm._s(_vm.pcard.output))])
+            ])
+          : _c("div", { staticClass: "string" }, [
+              _vm._v(_vm._s(_vm.pcard.output))
+            ])
+      ])
     ])
   ])
 }

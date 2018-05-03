@@ -21,22 +21,23 @@ const app = new Vue({
         cards: [{
             order: 1,
             type: 'Registro',
-            erroCode: 200,
+            errorCode: 200,
             statusCode: 'OK',
-            output: {
-                hola: "w",
-                carcola: 2
-            }
+            output: "4"
         },
         {
             order: 2,
             type: 'listaaddddf',
-            erroCode: 400,
+            errorCode: 400,
             statusCode: 'ERROR',
             output: {
                 hola: "wkilo",
-                carcola: 224
+                carcola: 224,
+                pepsi: "milenial"
             }
         }]
+    },
+    filters: {
+        json: (value) => { return JSON.stringify(value, null, 2) }
     }
 });

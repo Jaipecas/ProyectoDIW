@@ -2,6 +2,29 @@
     <div class="output-card"> 
         <div class="info number">{{ pcard.order }}</div>
         <div class="info type"> {{ pcard.type }}</div>
+        <div class="data">
+            <p>Estado</p>
+            <!-- hago un bind a la propiedad class, de manera que activo la
+                clase error en el caso de que el error sea mayor de 204 -->
+            <div class="status" :class="{ 'error': pcard.errorCode > 204 }">
+                {{ pcard.errorCode }} {{ pcard.statusCode }}
+            </div>
+            <p>Salida</p>
+            <div class="output">
+                <div class="json" v-if="pcard.output instanceof Object">
+                    <!-- <table>
+                        <tr v-for="(value, key) in pcard.output" v-bind:key="value">
+                            <td class="key">{{ key }}: </td>
+                            <td class="value">{{ value }}</td>
+                        </tr>
+                     </table> -->
+                     <!-- No es necesario añadir un filtro para formatear los datos
+                          En versiones previas de vue si que era necesario | json -->
+                   <pre>{{ pcard.output }}</pre>
+                </div>
+                <div class="string" v-else>{{ pcard.output }}</div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -15,29 +38,59 @@
         min-width: 400px;
         max-width: 600px;
         margin: 15px;
-        position: relative;
-        top:0;
-        left: 0;
 
         .info {
-            position: absolute;
-            top: 0;
             font-size: 1em;
             padding-top: 0.4em;
+            margin-bottom: 0.65em;
         }
         
         .type {
-            right: 0;
+            float: right;
             color: $info-type-color;
             padding-right: 0.6em;
             font-weight: 300;
         }
 
         .number {
-            left: 0;
+            float: left;
             color: rgb(111, 97, 170);
-            padding-left: 0.4em;
+            padding-left: $padding-left;
             font-weight: 700;
+        }
+
+        .data {
+            padding-left: $padding-left;
+            text-align: left;
+            clear: both;
+
+            p {
+                margin-top: 0.6em;
+                margin-bottom: 0.3em;
+            }
+
+            .status {
+                color: #18dd4a;
+                padding-left: $padding-left-output;
+            }
+
+            .error {
+                color: #df2914ee;
+            }
+        }
+
+        .output {
+            color:#9b9ba5;
+            padding-left: $padding-left-output;
+
+            table {
+                border-collapse: collapse;
+                width: 80%;
+            }
+
+            td {
+                text-align: left;
+            }
         }
     }
 </style>

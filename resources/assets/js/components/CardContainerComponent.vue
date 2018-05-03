@@ -36,6 +36,7 @@ export default {
     min-width: 100%;
     min-height: 200px;
     display: flex;
+    align-items: flex-start;
     float: right;
     overflow-x: auto;
 }

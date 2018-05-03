@@ -13,6 +13,10 @@ $title-padding: 0.3em;
 
 // Output-card
 $card-bg: #27322c;
+$table-lighter1: lighten($card-bg,10%);
+$table-lighter2: lighten($card-bg,20%);
 $info-type-color: rgb(79, 144, 167);
-$info-order-color: rgb(111, 97, 170);;
+$info-order-color: rgb(111, 97, 170);
+$padding-left: 0.4em;
+$padding-left-output: 0.9em;
 
