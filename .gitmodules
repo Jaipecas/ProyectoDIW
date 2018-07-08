@@ -1,0 +1,3 @@
+[submodule "laradock"]
+	path = laradock
+	url = https://gitlab.com/PRACTICE_SERVERS_4_DAW/Dockers/laradock.git
