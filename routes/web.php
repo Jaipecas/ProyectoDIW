@@ -18,3 +18,23 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/difusion_imprenta', function () {
+    return view('printer2');
+});
+
+Route::get('/difusion_imprenta', function () {
+    return view('printer3');
+});
+
+Route::get('/primeros_libros', function () {
+    return view('printer4');
+});
+
+Route::get('/imprenta_valenciana', function () {
+    return view('printer5');
+});
+
+Route::get('/scrabble', function () {
+    return view('welcome_scrabble');
+});
