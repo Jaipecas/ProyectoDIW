@@ -15,6 +15,11 @@
 |   la protección CSRF; 
 */
 
+/*
+ |------------------
+ |  Rutas imprenta 
+ |------------------
+ */
 Route::get('/', function () {
     return view('welcome');
 });
@@ -38,3 +43,17 @@ Route::get('/imprenta_valenciana', function () {
 Route::get('/scrabble', function () {
     return view('welcome_scrabble');
 });
+
+/*
+ |-----------------------
+ |  Rutas autenticación 
+ |-----------------------
+ */
+Auth::routes();
+
+/*
+ |-------------
+ |  Dashboard
+ |-------------
+ */
+Route::get('/dashboard', 'HomeController@index')->name('dashboard');
