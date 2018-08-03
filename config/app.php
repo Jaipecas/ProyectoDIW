@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Scrabble'),
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -98,7 +98,7 @@ return [
     | Faker Locale
     |--------------------------------------------------------------------------
     |
-    | Esta confiuracion determina en que idioma se van generar los datos de prueba
+    | Esta configuración determina en que idioma se van generar los datos de prueba
     | mediante la libreria Faker
     |
     */
