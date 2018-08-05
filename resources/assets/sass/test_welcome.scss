@@ -1,0 +1,88 @@
+// Variables
+@import "variables";
+
+main {
+    margin: 10px 60px 0 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, $alto_div);
+    grid-template-areas: 
+        "printer2  printer3"
+        "printer4  printer5"
+        "scrabble  login"
+        "scrabble  register";
+    grid-gap: $gap;
+}
+
+main > div {
+
+    a {
+        color: #2b151e;
+
+        &:hover {
+            color: rgb(77, 66, 77);
+            text-decoration: none;
+        }
+    }
+    font: {
+        size: 1.5em;
+        weight: 650;
+    }
+
+    &.printer {
+
+        background-color: $color_printer;
+    
+        &:hover {
+            background-color: darken($color_printer, 6%);
+        }
+    }
+    
+    text-align: center;
+    vertical-align: middle;
+    line-height: $alto_div; 
+}
+
+.printer2 {
+    grid-area: printer2;
+}
+
+.printer3 {
+    grid-area: printer3;
+}
+    
+.printer4 {
+    grid-area: printer4;
+}
+
+.printer5 {
+    grid-area: printer5;
+}
+
+.scrabble {
+    grid-area: scrabble;
+    background-color: $color_scrabble;
+    line-height: $alto_div*2 + $gap; 
+
+    &:hover {
+        background-color: darken($color_scrabble, 6%);
+    }
+}
+
+.login {
+    grid-area: login;
+    background-color: lighten($color_scrabble, 15%);
+    
+    &:hover {
+        background-color: lighten($color_scrabble, 9%);
+    }
+}
+
+.register {
+    grid-area: register;
+    background-color: lighten($color_scrabble, 30%);
+        
+    &:hover {
+        background-color: lighten($color_scrabble, 9%);
+    }
+}

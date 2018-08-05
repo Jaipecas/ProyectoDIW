@@ -1,0 +1,78 @@
+main {
+  margin: 10px 60px 0 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4, 70px);
+  grid-template-areas: "printer2  printer3" "printer4  printer5" "scrabble  login" "scrabble  register";
+  grid-gap: 30px;
+}
+
+main > div {
+  font-size: 1.5em;
+  font-weight: 650;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 70px;
+}
+
+main > div a {
+  color: #2b151e;
+}
+
+main > div a:hover {
+  color: #4d424d;
+  text-decoration: none;
+}
+
+main > div.printer {
+  background-color: coral;
+}
+
+main > div.printer:hover {
+  background-color: #ff6931;
+}
+
+.printer2 {
+  grid-area: printer2;
+}
+
+.printer3 {
+  grid-area: printer3;
+}
+
+.printer4 {
+  grid-area: printer4;
+}
+
+.printer5 {
+  grid-area: printer5;
+}
+
+.scrabble {
+  grid-area: scrabble;
+  background-color: indianred;
+  line-height: 170px;
+}
+
+.scrabble:hover {
+  background-color: #c64545;
+}
+
+.login {
+  grid-area: login;
+  background-color: #df9797;
+}
+
+.login:hover {
+  background-color: #d87f7f;
+}
+
+.register {
+  grid-area: register;
+  background-color: #f1d1d1;
+}
+
+.register:hover {
+  background-color: #d87f7f;
+}
+

@@ -16,7 +16,12 @@ body {
 
 .title {
   padding: 0.3em 0 0.3em 0.3em;
-  font-size: 55px;
+  font-size: 3em;
+}
+
+header {
+  grid-column: 1 / -1;
+  clear: both;
 }
 
 li {
@@ -32,11 +37,6 @@ li {
 
 .sidebar {
   float: left;
-}
-
-header {
-  grid-column: 1 / -1;
-  clear: both;
 }
 
 /* Menu */
