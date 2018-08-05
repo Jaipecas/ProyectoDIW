@@ -49,7 +49,9 @@ Route::get('/scrabble', function () {
  |  Rutas autenticación 
  |-----------------------
  */
-Auth::routes();
+Route::prefix('scrabble')->group(function () {
+    Auth::routes();
+});
 
 /*
  |-------------
