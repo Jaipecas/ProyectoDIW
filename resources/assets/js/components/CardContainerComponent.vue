@@ -1,5 +1,4 @@
 <template>
-    <div>
         <div class="card-container">
             <!-- Quiero repetir output-card-component. -->
             <!-- Un hijo no puede acceder directamente a los datos del padre 
@@ -9,7 +8,6 @@
             <output-card-component v-for='card in cards' :key='card.order' v-bind:pcard='card'>
             </output-card-component>
         </div>
-    </div>  
 </template>
 
 <script>
@@ -37,7 +35,6 @@ export default {
     min-height: 200px;
     display: flex;
     align-items: flex-start;
-    float: right;
     overflow-x: auto;
 }
 </style>
