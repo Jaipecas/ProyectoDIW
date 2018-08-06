@@ -40,17 +40,19 @@ Route::get('/imprenta_valenciana', function () {
     return view('printer5');
 });
 
-Route::get('/scrabble', function () {
-    return view('welcome_scrabble');
-});
-
 /*
- |-----------------------
- |  Rutas autenticación 
- |-----------------------
- */
+|-----------------------
+|  Scrabble
+|-----------------------
+*/
 Route::prefix('scrabble')->group(function () {
+
+    /* Rutas autenticación */
     Auth::routes();
+
+    Route::get('/', function () {
+        return view('scr_index');
+    });
 });
 
 /*

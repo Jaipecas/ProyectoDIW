@@ -1,0 +1,37 @@
+// Variables
+@import "variables";
+
+main {
+    max-width: 100%;
+    display: grid;
+    grid-gap: 2px;
+    grid-template-columns: 1fr 6fr;
+}
+
+.sidebar {
+   padding: 1em;
+}
+
+/* Menu */
+.input-menu {
+    line-height: 1.4em;
+
+    li {
+        padding: 5px 0px;
+        font-size: 1.2em;
+        color: $color_menu;   
+    }
+
+    &:hover {
+        color:darken($color_menu,10%);
+    }
+}
+
+li {
+    list-style-type: none;
+}
+
+.upper-margin {
+    margin-top: 0.6em;
+}
+

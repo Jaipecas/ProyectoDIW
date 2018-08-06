@@ -1,0 +1,35 @@
+main {
+  max-width: 100%;
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: 1fr 6fr;
+}
+
+.sidebar {
+  padding: 1em;
+}
+
+/* Menu */
+
+.input-menu {
+  line-height: 1.4em;
+}
+
+.input-menu li {
+  padding: 5px 0px;
+  font-size: 1.2em;
+  color: #a29c9c;
+}
+
+.input-menu:hover {
+  color: #898282;
+}
+
+li {
+  list-style-type: none;
+}
+
+.upper-margin {
+  margin-top: 0.6em;
+}
+

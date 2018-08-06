@@ -1,5 +1,6 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/test.css": "/css/test.css",
-    "/css/test_welcome.css": "/css/test_welcome.css"
+    "/css/test_welcome.css": "/css/test_welcome.css",
+    "/css/test_scr_index.css": "/css/test_scr_index.css"
 }
