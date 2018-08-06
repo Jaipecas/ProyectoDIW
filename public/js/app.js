@@ -515,7 +515,9 @@ module.exports = function normalizeComponent (
 
 __webpack_require__(5);
 __webpack_require__(21);
-module.exports = __webpack_require__(22);
+__webpack_require__(22);
+__webpack_require__(23);
+module.exports = __webpack_require__(29);
 
 
 /***/ }),
@@ -12072,7 +12074,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "/* Area de mensajes */\n.card-container[data-v-04fdc5a3] {\n  text-align: center;\n  min-width: 100%;\n  min-height: 200px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: start;\n      -ms-flex-align: start;\n          align-items: flex-start;\n  float: right;\n  overflow-x: auto;\n}\n", ""]);
+exports.push([module.i, "/* Area de mensajes */\n.card-container[data-v-04fdc5a3] {\n  text-align: center;\n  min-width: 100%;\n  min-height: 200px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: start;\n      -ms-flex-align: start;\n          align-items: flex-start;\n  overflow-x: auto;\n}\n", ""]);
 
 // exports
 
@@ -12118,8 +12120,6 @@ module.exports = function listToStyles (parentId, list) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__OutputCardComponent__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__OutputCardComponent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__OutputCardComponent__);
-//
-//
 //
 //
 //
@@ -12234,7 +12234,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.output-card[data-v-109490e5] {\n  background-color: #27322c;\n  min-width: 400px;\n  max-width: 600px;\n  margin: 15px;\n}\n.output-card .info[data-v-109490e5] {\n    font-size: 1em;\n    padding-top: 0.4em;\n    margin-bottom: 0.65em;\n}\n.output-card .type[data-v-109490e5] {\n    float: right;\n    color: #4f90a7;\n    padding-right: 0.6em;\n    font-weight: 300;\n}\n.output-card .number[data-v-109490e5] {\n    float: left;\n    color: #6f61aa;\n    padding-left: 0.4em;\n    font-weight: 700;\n}\n.output-card .data[data-v-109490e5] {\n    padding-left: 0.4em;\n    text-align: left;\n    clear: both;\n}\n.output-card .data p[data-v-109490e5] {\n      margin-top: 0.6em;\n      margin-bottom: 0.3em;\n}\n.output-card .data .status[data-v-109490e5] {\n      color: #18dd4a;\n      padding-left: 0.9em;\n}\n.output-card .data .error[data-v-109490e5] {\n      color: #df2914ee;\n}\n.output-card .output[data-v-109490e5] {\n    color: #9b9ba5;\n    padding-left: 0.9em;\n}\n.output-card .output table[data-v-109490e5] {\n      border-collapse: collapse;\n      width: 80%;\n}\n.output-card .output td[data-v-109490e5] {\n      text-align: left;\n}\n", ""]);
+exports.push([module.i, "\n.output-card[data-v-109490e5] {\n  background-color: #27322c;\n  min-width: 400px;\n  max-width: 600px;\n  margin: 15px;\n}\n.output-card .info[data-v-109490e5] {\n    font-size: 1em;\n    padding-top: 0.4em;\n    margin-bottom: 0.65em;\n}\n.output-card .type[data-v-109490e5] {\n    float: right;\n    color: #4f90a7;\n    padding-right: 0.6em;\n    font-weight: 300;\n}\n.output-card .number[data-v-109490e5] {\n    float: left;\n    color: #6f61aa;\n    padding-left: 0.4em;\n    font-weight: 700;\n}\n.output-card .data[data-v-109490e5] {\n    padding-left: 0.4em;\n    text-align: left;\n    clear: both;\n}\n.output-card .data p[data-v-109490e5] {\n      margin-top: 0.6em;\n      margin-bottom: 0.3em;\n}\n.output-card .data .status[data-v-109490e5] {\n      color: #18dd4a;\n      padding-left: 0.9em;\n}\n.output-card .data .error[data-v-109490e5] {\n      color: #df2914ee;\n}\n.output-card .output[data-v-109490e5] {\n    color: #9b9ba5;\n    padding-left: 0.9em;\n}\n.output-card .output *[data-v-109490e5] {\n      color: #9b9ba5;\n}\n.output-card .output table[data-v-109490e5] {\n      border-collapse: collapse;\n      width: 80%;\n}\n.output-card .output td[data-v-109490e5] {\n      text-align: left;\n}\n", ""]);
 
 // exports
 
@@ -12245,6 +12245,10 @@ exports.push([module.i, "\n.output-card[data-v-109490e5] {\n  background-color: 
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
 //
 //
 //
@@ -12426,18 +12430,16 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      { staticClass: "card-container" },
-      _vm._l(_vm.cards, function(card) {
-        return _c("output-card-component", {
-          key: card.order,
-          attrs: { pcard: card }
-        })
+  return _c(
+    "div",
+    { staticClass: "card-container" },
+    _vm._l(_vm.cards, function(card) {
+      return _c("output-card-component", {
+        key: card.order,
+        attrs: { pcard: card }
       })
-    )
-  ])
+    })
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -12457,6 +12459,23 @@ if (false) {
 
 /***/ }),
 /* 22 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 24 */,
+/* 25 */,
+/* 26 */,
+/* 27 */,
+/* 28 */,
+/* 29 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

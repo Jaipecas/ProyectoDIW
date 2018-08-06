@@ -15,4 +15,5 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/test.scss', 'public/css')
    .sass('resources/assets/sass/test_welcome.scss', 'public/css')
    .sass('resources/assets/sass/test_scr_index.scss', 'public/css')
+   .sass('resources/assets/sass/test_scr_login.scss', 'public/css')
  //mix.sass('resources/assets/sass/home.scss', 'public/css');

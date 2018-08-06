@@ -19,3 +19,33 @@ body {
     font-size: 3em;
 }
 
+.sidebar {
+    padding: 1em;
+ }
+
+.input-menu {
+    line-height: 1.4em;
+
+    a {
+        padding: 5px 0px;
+        font-size: 1.3em;
+        text-decoration: none;
+        color: $color_menu;  
+        
+        &:hover {
+            color:darken($color_menu,10%);
+        }
+    }    
+}
+
+li {
+    list-style-type: none;
+}
+
+.upper-margin {
+    margin-top: 0.6em;
+}
+
+
+
+
