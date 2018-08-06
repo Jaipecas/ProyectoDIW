@@ -83,6 +83,10 @@
             color:#9b9ba5;
             padding-left: $padding-left-output;
 
+            * {
+                color:#9b9ba5;
+            }
+
             table {
                 border-collapse: collapse;
                 width: 80%;
