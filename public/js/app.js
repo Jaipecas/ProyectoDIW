@@ -517,7 +517,7 @@ __webpack_require__(5);
 __webpack_require__(21);
 __webpack_require__(22);
 __webpack_require__(23);
-module.exports = __webpack_require__(29);
+module.exports = __webpack_require__(24);
 
 
 /***/ }),
@@ -12470,12 +12470,7 @@ if (false) {
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 24 */,
-/* 25 */,
-/* 26 */,
-/* 27 */,
-/* 28 */,
-/* 29 */
+/* 24 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

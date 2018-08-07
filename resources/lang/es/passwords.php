@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'password' => 'La contraseña tiene que tener 6 carácteres como mínino y coincidir con la confirmación.',
+    'password' => 'La contraseña tiene que tener 5 carácteres como mínino y coincidir con la confirmación.',
     'reset' => '¡Tu contraseña ha sido reiniciada!',
     'sent' => '¡Se ha enviado un correo electrónico a tu dirección con el enlace de reinicio!',
     'token' => 'El token de reinicio de la contraseña no es válido.',

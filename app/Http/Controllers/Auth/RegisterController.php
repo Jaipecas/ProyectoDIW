@@ -41,7 +41,32 @@ class RegisterController extends Controller
 
     /**
      * Get a validator for an incoming registration request.
+     * Compruebo que los datos enviados sean correctos 
+     * En caso correcto la ejecución prosigue.
+     * Si la validación falla, el usuario es redirigido a la misma página
+     * que hizo la solicitud pero se lanza una excepción con el 
+     * correspondiente información de error al usuario. Esta información
+     * puede obtenerse en blade de dos maneras:
+     * 
+     * - Desde la sesion, utilizando session('errors')->first('nombre_del_campo')
+     * - Leyendo la variable $errors
+     * 
+     * En ambos casos se devuelve una colección, de la que se puede obtener
+     * un valor concreto para un campo (1) o toda la colección (2).
+     * 
+     * (1)
+     *      $errors->first('email')
      *
+     * podemos preguntar antes si existe error para ese campo con
+     * 
+     *      $errors->has('email')
+     * 
+     * (2)
+     *     @foreach ($errors->all() as $error)
+     *        <p>{{ $error }}</p>
+     *     @endforeach
+     *
+     * 
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
@@ -50,7 +75,9 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:5|confirmed',
+            'country' => 'required|string|max:2',
+            'favourite_language' => 'nullable|string|max:2',
         ]);
     }
 
@@ -66,6 +93,10 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'type' => 'player',
+            'state' => 'online',
+            'country' => $data['country'],
+            'favourite_language' => $data['favourite_language']
         ]);
     }
 }
