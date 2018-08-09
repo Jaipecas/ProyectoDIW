@@ -21,23 +21,23 @@
  |------------------
  */
 Route::get('/', function () {
-    return view('welcome');
+    return view('prn_index');
 });
 
 Route::get('/difusion_imprenta', function () {
-    return view('printer2');
+    return view('prn_extra1');
 });
 
-Route::get('/difusion_imprenta', function () {
-    return view('printer3');
+Route::get('/trabajos_imprenta', function () {
+    return view('prn_extra2');
 });
 
 Route::get('/primeros_libros', function () {
-    return view('printer4');
+    return view('prn_extra3');
 });
 
 Route::get('/imprenta_valenciana', function () {
-    return view('printer5');
+    return view('prn_extra4');
 });
 
 /*

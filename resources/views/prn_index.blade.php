@@ -1,4 +1,6 @@
-@extends('layouts.app',['css_files' => ['test_welcome'], 'title' => 'Info Imprenta'])
+@extends('layouts.app',
+    ['title' => 'Info Imprenta', 'css_files' => ['test_welcome'], 
+    'js_files' => []])
 
 @section('content')
     <div class="printer printer2"><a href="./difusion_imprenta">Difusión imprenta</a></div>
