@@ -13,14 +13,12 @@ let mix = require('laravel-mix');
 
 // pipeline de compilación/empaquetado
 // JS
-mix.js('resources/assets/js/app.js', 'public/js')             // compilación global
-   .js('resources/assets/js/test_scr_register.js', 'public/js')   // compilación registro de usuario
-   // empaquetado registro de usuario
-   .scripts([                   
+mix.js('resources/assets/js/app.js', 'public/js')         // compilación global
+   .scripts([                                             // empaquetado registro de usuario
     'resources/assets/js/test_helpers.js',                    
-    'public/js/test_scr_register.js'
-    ], 'public/js/test_scr_register.js');
-
+    'resources/assets/js/test_scr_register.js'
+    ], 'resources/assets/js/tmp/test_scr_register.js')
+    .js('resources/assets/js/tmp/test_scr_register.js', 'public/js')   // compilación registro de usuario
 // Sass
 mix.sass('resources/assets/sass/test.scss', 'public/css')
    .sass('resources/assets/sass/test_welcome.scss', 'public/css')

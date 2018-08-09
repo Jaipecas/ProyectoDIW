@@ -18,14 +18,14 @@ const register = new Vue({
             var user = { name : "user4", country: "ES", 
                 email: "user4@c.com", password: "12345", 
                 password_confirmation: "12345" };
-            post(url + "/scrabble/register", user);
+                post(url + "/scrabble/register", user);
         },
         wrong_register: function(event) {
             event.preventDefault();
 
             var user = { name : "user4", country: "ES", 
                 email: "user4@c.com", password: "12" };
-            post(url + "/scrabble/register", user);
+                post(url + "/scrabble/register", user);
         }
     }
 });
