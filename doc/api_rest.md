@@ -5,7 +5,7 @@
 Devuelve información sobre la aplicación en formato JSON.
 
 - *Parámetros*: Ninguno.
-- *Salida*: JSON con información general estadística de la aplicación.
+- *Respuesta*: JSON con información general estadística de la aplicación.
 
 <center>
 
@@ -19,40 +19,89 @@ Devuelve información sobre la aplicación en formato JSON.
 
 </center>
 
-**GET /login**
+**GET /scrabble/login**
 
-Renderiza la página de login
+Renderiza la página de login [_login.blade.php_].
 
+- *Alias*: login
 - *Parámetros*: Ninguno.
+- *Respuesta*: HTML con la página de login.
+
+**POST /scrabble/login**
+
+Realiza el login del usuario.
+
+- *Alias*: login
+- *Parámetros*: 
+
+| Parámetro          |  Tipo       |  Descripción          |
+| :----------:       | :-------:   | :------------         |
+| name               | Obligatorio | Nombre del usuario    |  
+| email              | Obligatorio | Correo electrónico del usuario      | 
+
 - *Salida*: HTML con la página de login.
 
-**GET /password/reset**
+**GET /scrabble/password/reset**
 
 Renderiza la página para solicitar el reset del password en caso de olvido.
 
 - *Parámetros*: Ninguno.
-- *Salida*: HTML con la página de solicitud.
+- *Respuesta*: HTML con la página de solicitud.
 
-**GET /password/reset/{token}**
+**GET /scrabble/password/reset/{token}**
 
-Renderiza la página para realizar el reset del password asociado a {token}.
+Renderiza la página para realizar el reset del password asociado a {token}. Normalmente es llamada desde el correo que se envia al usuario con el enlace.
 
 - *Parámetros*: 
 
 <center>
 
-| Parámet           |  Descripción  |
-| :----------:      | :------------                        |
-| token             | Token asociado al reset del password |              
+| Parámetro      | Tipo        |  Descripción  |
+| :----------:   | :-------:   | :------------                        |
+| token          | Obligatorio | Token asociado al reset del password |  
 
 </center>
 
-- *Salida*: HTML con la página de reset.
+- *Respuesta*: HTML con la página de reset.
 
-**GET /register**
+**GET /scrabble/register**
 
-Renderiza la página de registro de nuevos usuarios
+Renderiza la página de registro [_register.blade.php_] de nuevos usuarios.
 
+- *Alias*: register.
 - *Parámetros*: Ninguno.
-- *Salida*: HTML con la página de registro.
+- *Respuesta*: HTML con la página de registro.
 
+**POST /scrabble/register**
+
+Crea un nuevo usuario en el sistema.
+
+- *Alias*: register.
+- *Parámetros*:
+
+<center>
+
+| Parámetro             |  Tipo       |  Descripción       |
+| :----------:          | :-------:   | :------------      |
+| name                  | Obligatorio | Nombre del usuario    |  
+| email                 | Obligatorio | Correo electrónico del usuario    |
+| password              | Obligatorio | Contraseña del usuario            |
+| password_confirmation | Obligatorio | Contraseña del usuario            |
+| country               | Obligatorio | Código ISO 639-1 alfa-2 del país  |
+| favourite_language    | Opcional    | Código ISO 639-1 alfa-2 del lenguaje favorito del usuario | 
+
+</center>
+
+- *Respuesta*: Si no hay ningún problema, redirecciona a la página de dashboard del usuario (_/scrabble/dashboard_). En caso de error, página de registro con la información del error asociada a la variable _$error_:
+
+<center>
+
+| Parámetro          | Descripción       |
+| :----------:       | :------------     |
+| name               | Array de errores relativos al campo _name_ |  
+| email              | Array de errores relativos al campo _email_ |  
+| password           | Array de errores relativos al campo _password_ |  
+| country            | Array de errores relativos al campo _country_ |  
+| favourite_language | Array de errores relativos al campo *favourite_language* | 
+
+</center>
