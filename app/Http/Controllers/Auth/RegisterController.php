@@ -89,6 +89,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        if (array_key_exists('favourite_language',$data))
+            $fl = $data['favourite_language'];           
+        else
+            $fl = null;
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -96,7 +101,7 @@ class RegisterController extends Controller
             'type' => 'player',
             'state' => 'online',
             'country' => $data['country'],
-            'favourite_language' => $data['favourite_language']
+            'favourite_language' => $fl
         ]);
     }
 }

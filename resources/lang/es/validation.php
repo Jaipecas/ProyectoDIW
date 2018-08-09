@@ -31,7 +31,7 @@ return [
     ],
     'boolean'              => 'El campo :attribute debe ser verdadero o falso.',
     'confirmed'            => 'La confirmación del campo :attribute no coincide.',
-    'date'                 => 'The :attribute is not a valid date.',
+    'date'                 => 'El valor del campo :attribute no es una fecha válida.',
     'date_format'          => 'The :attribute does not match the format :format.',
     'different'            => 'El campo :attribute tiene que ser diferente a :other .',
     'digits'               => 'The :attribute must be :digits digits.',
@@ -75,7 +75,7 @@ return [
     'required_with_all'    => 'The :attribute field is required when :values is present.',
     'required_without'     => 'The :attribute field is required when :values is not present.',
     'required_without_all' => 'The :attribute field is required when none of :values are present.',
-    'same'                 => 'The :attribute and :other must match.',
+    'same'                 => 'Los campos :attribute y :other deben coincidir.',
     'size'                 => [
         'numeric' => 'The :attribute must be :size.',
         'file'    => 'The :attribute must be :size kilobytes.',
@@ -84,7 +84,7 @@ return [
     ],
     'string'               => 'El campo :attribute tiene que ser una cadena.',
     'timezone'             => 'The :attribute must be a valid zone.',
-    'unique'               => 'El :attribute has already been taken.',
+    'unique'               => 'El valor del campo :attribute ya ha sido utilizado.',
     'uploaded'             => 'The :attribute failed to upload.',
     'url'                  => 'El formato del campo :attribute es inválido.',
 

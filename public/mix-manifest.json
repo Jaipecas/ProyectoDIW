@@ -3,5 +3,6 @@
     "/css/test.css": "/css/test.css",
     "/css/test_welcome.css": "/css/test_welcome.css",
     "/css/test_scr_index.css": "/css/test_scr_index.css",
-    "/css/test_scr_login.css": "/css/test_scr_login.css"
+    "/css/test_scr_login.css": "/css/test_scr_login.css",
+    "/js/test_scr_register.js": "/js/test_scr_register.js"
 }

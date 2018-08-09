@@ -1,12 +1,13 @@
 <!-- el fichero css de login me vale para el registro -->
 @extends('layouts.app', 
-    ['css_files' => ['test_scr_login'], 'title' => 'Registro'])
+    ['title' => 'Registro', 'css_files' => ['test_scr_login'],
+    'js_files' => ['test_scr_register']])
 
 @section('content')
     <aside class="sidebar">
         <ul>
-            <li class="input-menu"><a href="#">Registro automático</a></li>
-            <li class="input-menu"><a href="#">Registro erróneo</a></li>
+            <li class="input-menu"><a v-on:click="automatic_register" href="#">Registro automático</a></li>
+            <li class="input-menu"><a v-on:click="wrong_register" href="#">Registro erróneo</a></li>
         </ul>
     </aside>
     <div class="form">

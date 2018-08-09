@@ -1,5 +1,6 @@
 @extends('layouts.app', 
-    ['css_files' => ['test_scr_login'], 'title' => 'Login'])
+    ['title' => 'Login', css_files' => ['test_scr_login'], 
+    'js_files' => ['test_scr_login']])
 
 @section('content')
     <aside class="sidebar">
@@ -14,7 +15,7 @@
     <div class="form">
         <h2>Login manual</h2>
         <form method="POST" action="{{ route('login') }}">
-            @csrf
+            @csrf <!-- por razones educativas está desctivado -->
             <label for="email">Correo</label>
             <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
             @if ($errors->has('email'))

@@ -1,7 +1,21 @@
-@extends('layouts.app')
+@extends('layouts.app',
+    ['title' => 'Info Juego', 'css_files' => [], 
+    'js_files' => []])
 
 @section('content')
 <div class="container">
+   
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                    Logout
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+           
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card card-default">
