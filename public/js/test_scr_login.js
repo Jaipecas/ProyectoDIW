@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 43);
+/******/ 	return __webpack_require__(__webpack_require__.s = 45);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -11251,15 +11251,15 @@ module.exports = Vue;
 
 /***/ }),
 
-/***/ 43:
+/***/ 45:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(44);
+module.exports = __webpack_require__(46);
 
 
 /***/ }),
 
-/***/ 44:
+/***/ 46:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* funciones de ayuda para hacer pruebas */
@@ -11299,13 +11299,23 @@ var register = new Vue({
     el: '#app',
     data: {},
     methods: {
-        automatic_register: function automatic_register(event) {
+        automatic_login1: function automatic_login1(event) {
             event.preventDefault();
 
-            var user = { name: "user4", country: "ES",
-                email: "user4@c.com", password: "12345",
-                password_confirmation: "12345" };
-            post(url + "/scrabble/register", user);
+            var user = { email: "u1@c.com", password: "12345" };
+            post(url + "/scrabble/login", user);
+        },
+        automatic_login2: function automatic_login2(event) {
+            event.preventDefault();
+
+            var user = { email: "u2@c.com", password: "12345" };
+            post(url + "/scrabble/login", user);
+        },
+        wrong_login: function wrong_login(event) {
+            event.preventDefault();
+
+            var user = { email: "u2@c.com", password: "1245" };
+            post(url + "/scrabble/login", user);
         },
         wrong_register: function wrong_register(event) {
             event.preventDefault();
