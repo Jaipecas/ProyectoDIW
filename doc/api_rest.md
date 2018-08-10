@@ -23,7 +23,7 @@ Devuelve información sobre la aplicación en formato JSON.
 
 Renderiza la página de login [_login.blade.php_].
 
-- *Alias*: login
+- *Alias*: login.
 - *Parámetros*: Ninguno.
 - *Respuesta*: HTML con la página de login.
 
@@ -31,42 +31,31 @@ Renderiza la página de login [_login.blade.php_].
 
 Realiza el login del usuario.
 
-- *Alias*: login
+- *Alias*: login.
 - *Parámetros*: 
+
+<center>
 
 | Parámetro          |  Tipo       |  Descripción          |
 | :----------:       | :-------:   | :------------         |
 | name               | Obligatorio | Nombre del usuario    |  
 | email              | Obligatorio | Correo electrónico del usuario      | 
 
-- *Salida*: HTML con la página de login.
+</center>
 
-**GET /scrabble/password/reset**
-
-Renderiza la página para solicitar el reset del password en caso de olvido.
-
-- *Parámetros*: Ninguno.
-- *Respuesta*: HTML con la página de solicitud.
-
-**GET /scrabble/password/reset/{token}**
-
-Renderiza la página para realizar el reset del password asociado a {token}. Normalmente es llamada desde el correo que se envia al usuario con el enlace.
-
-- *Parámetros*: 
+- *Respuesta*: Si no hay ningún problema, redirecciona a la página de dashboard del usuario (_/scrabble/dashboard_). En caso de error, página de login con la información del error asociada a la variable _$error_:
 
 <center>
 
-| Parámetro      | Tipo        |  Descripción  |
-| :----------:   | :-------:   | :------------                        |
-| token          | Obligatorio | Token asociado al reset del password |  
+| Parámetro          | Descripción       |
+| :----------:       | :------------     |
+| email              | Array de errores relativos al campo _email_ |  
 
 </center>
 
-- *Respuesta*: HTML con la página de reset.
-
 **GET /scrabble/register**
 
-Renderiza la página de registro [_register.blade.php_] de nuevos usuarios.
+Renderiza la página de registro (_register.blade.php_) de nuevos usuarios.
 
 - *Alias*: register.
 - *Parámetros*: Ninguno.
@@ -105,3 +94,27 @@ Crea un nuevo usuario en el sistema.
 | favourite_language | Array de errores relativos al campo *favourite_language* | 
 
 </center>
+
+
+**GET /scrabble/password/reset**
+
+Renderiza la página para solicitar el reset del password en caso de olvido.
+
+- *Parámetros*: Ninguno.
+- *Respuesta*: HTML con la página de solicitud.
+
+**GET /scrabble/password/reset/{token}**
+
+Renderiza la página para realizar el reset del password asociado a {token}. Normalmente es llamada desde el correo que se envia al usuario con el enlace.
+
+- *Parámetros*: 
+
+<center>
+
+| Parámetro      | Tipo        |  Descripción  |
+| :----------:   | :-------:   | :------------                        |
+| token          | Obligatorio | Token asociado al reset del password |  
+
+</center>
+
+- *Respuesta*: HTML con la página de reset.
