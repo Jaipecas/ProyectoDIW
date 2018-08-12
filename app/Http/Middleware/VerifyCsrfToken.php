@@ -13,6 +13,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         'http://localhost/scrabble/register',
-        'http://localhost/scrabble/login'
+        'http://localhost/scrabble/login',
+        'http://localhost/scrabble/password/email',
     ];
 }

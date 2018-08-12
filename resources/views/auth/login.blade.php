@@ -15,7 +15,7 @@
     <div class="form">
         <h2>Login manual</h2>
         <form method="POST" action="{{ route('login') }}">
-            @csrf <!-- por razones educativas está desctivado -->
+            @csrf <!-- por razones educativas está desactivado -->
             <label for="email">Correo</label>
             <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
             <br>

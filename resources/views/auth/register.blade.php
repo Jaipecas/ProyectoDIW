@@ -13,7 +13,7 @@
     <div class="form">
         <h2>Registro manual</h2>
         <form method="POST" action="{{ route('register') }}"> 
-            @csrf       
+            @csrf <!-- por razones educativas está desactivado -->      
             <label for="name">Nombre</label>
             <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus>
             <br>
