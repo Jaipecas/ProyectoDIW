@@ -40,6 +40,11 @@ Route::get('/imprenta_valenciana', function () {
     return view('prn_extra4');
 });
 
+Route::get('/error500', function () {
+    $a="hola"/2;
+    return null;
+});
+
 /*
 |-----------------------
 |  Scrabble
