@@ -36,10 +36,11 @@ Realiza el login del usuario.
 
 <center>
 
-| Parámetro          |  Tipo       |  Descripción          |
-| :----------:       | :-------:   | :------------         |
-| name               | Obligatorio | Nombre del usuario    |  
-| email              | Obligatorio | Correo electrónico del usuario      | 
+| Parámetro     |  Tipo       |  Descripción          |
+| :----------:  | :-------:   | :------------         |
+| name          | Obligatorio | Nombre del usuario              |  
+| email         | Obligatorio | Correo electrónico del usuario  | 
+| remember      | Opcional    | Indica si el sistema ha de recordar al usuario |
 
 </center>
 
@@ -106,6 +107,7 @@ Resetea la contraseña del usuario
 
 | Parámetro          | Descripción       |
 | :----------:       | :------------     |
+| token              | token único correspondiente a la solicitud del usuario de reinicio de contraseña |
 | email              | Array de errores relativos al campo _email_ |  
 | password           | Array de errores relativos al campo _password_ |  
  
