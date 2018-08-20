@@ -2,7 +2,7 @@
 
 Este documento muestra las variables disponibles en las diferentes plantillas blade de la aplicación.
 
-Se indica el nombre de la variable y su significado. En caso de ser un array o una colección, se indica los diferentes items de la colección unidos por un punto a la misma junto con su significado. Por ejemplo, _errors.name_. 
+Se indica el nombre de la variable y su significado. En caso de ser un array o una colección, se indica los diferentes items de la colección unidos por un punto a la misma junto con su significado. Por ejemplo, _errors.email_. 
 
 Existen dos lugares de procedencia de las variables:
 
@@ -21,35 +21,36 @@ Muchas de las variables proporcionadas son de tipo _colección_. Para el acceso 
 
 ## register
 
-| Parámetro          | Descripción       |
-| :----------:       | :------------     |
-| errors             | Colección de errores |
-| errors.name               | Array de errores relativos al campo *name* |  
-| errors.email              | Array de errores relativos al campo *email* |  
-| errors.password           | Array de errores relativos al campo *password* |  
-| errors.country            | Array de errores relativos al campo *country* |  
-| errors.favourite_language | Array de errores relativos al campo *favourite_language* | 
+| Parámetro         | Tipo                     | Descripción       |
+| :----------       | :-------                 | :------------     |
+| errors            | Colección de colecciones | Colección de errores |
+| errors.name       | Colección de cadenas     | Colección de errores relativos al campo *name* |  
+| errors.email      | Colección de cadenas     | Colección de errores relativos al campo *email* |  
+| errors.password   | Colección de cadenas     | Colección de errores relativos al campo *password* |  
+| errors.country    | Colección de cadenas     | Colección de errores relativos al campo *country* |  
+| errors.favourite_language | Colección de cadenas    | Array de errores relativos al campo *favourite_language* | 
 
 ## login
 
-| Parámetro          | Descripción       |
-| :----------:       | :------------     |
-| errors             | Colección de errores |
-| errors.email       | Array de errores relativos al campo *email* | 
+| Parámetro       | Tipo                       | Descripción       |
+| :----------    | :-------                    | :------------     |
+| errors          | Colección de colecciones   | Colección de errores |
+| errors.email    | Colección de cadenas | Colección de errores relativos al campo *email* | 
 
 ## email
 
-| Parámetro          | Descripción       |
-| :----------:       | :------------     |
-| errors             | Colección de errores |
-| error.email        | Array de errores relativos al campo _email_ |  
-| session            | Información asociada a la sesión del usuario |
-| session.status     | Información sobre el estado de la petición |
+| Parámetro          | Tipo                     | Descripción       |
+| :----------        | :-------                 | :------------     |
+| errors             | Colección de colecciones | Colección de errores |
+| error.email        | Colección de cadenas  | Colección de errores relativos al campo _email_ |  
+| session()          |                       |Información asociada a la sesión del usuario |
+| session('status')  | Cadena                |Información sobre el estado de la petición |
 
 ## reset
 
-| Parámetro          | Descripción       |
-| :----------:       | :------------     |
-| errors             | Colección de errores |
-| email              | Array de errores relativos al campo _email_ |  
-| password           | Array de errores relativos al campo _password_ |  
+| Parámetro          | Tipo              | Descripción       |
+| :----------        | :-------          | :------------     |
+| token              | Cadena            | token único correspondiente a la solicitud del usuario de reinicio de contraseña |
+| errors             | Colección de colecciones | Colección de errores |
+| errors.email       | Colección de cadenas     | Colección de errores relativos al campo _email_ |  
+| errors.password    | Colección de cadenas     | Colección de errores relativos al campo _password_ |  
