@@ -1,0 +1,10 @@
+main {
+    max-width: 100%;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1.5fr 6fr;
+}
+
+main div:nth-child(1) {
+   grid-column: 1 / 3; 
+}

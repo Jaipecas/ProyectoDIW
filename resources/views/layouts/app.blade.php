@@ -18,9 +18,12 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet">
 
     <!-- Carga los estilos css -->
+    <!-- Estilos generales como los de bootstrap -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Estilos generales de prueba -->
     <link href="{{ asset('css/test.css') }}" rel="stylesheet">
 
+    <!-- Estilos especificos -->  
     @foreach ($css_files as $file)
         <link href="{{ asset('css/' . $file . '.css') }}" rel="stylesheet">
     @endforeach

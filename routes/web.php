@@ -52,7 +52,7 @@ Route::get('/error500', function () {
 */
 Route::prefix('scrabble')->group(function () {
 
-    /* Rutas autenticación */
+    /* Genera las rutas de autenticación */
     Auth::routes();
 
     Route::get('/', function () {

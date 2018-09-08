@@ -33,7 +33,7 @@ Muchas de las variables proporcionadas son de tipo _colección_. Para el acceso 
 ## login
 
 | Parámetro       | Tipo                       | Descripción       |
-| :----------    | :-------                    | :------------     |
+| :----------     | :-------                   | :------------     |
 | errors          | Colección de colecciones   | Colección de errores |
 | errors.email    | Colección de cadenas | Colección de errores relativos al campo *email* | 
 
@@ -43,8 +43,8 @@ Muchas de las variables proporcionadas son de tipo _colección_. Para el acceso 
 | :----------        | :-------                 | :------------     |
 | errors             | Colección de colecciones | Colección de errores |
 | error.email        | Colección de cadenas  | Colección de errores relativos al campo _email_ |  
-| session()          |                       |Información asociada a la sesión del usuario |
-| session('status')  | Cadena                |Información sobre el estado de la petición |
+| session()          |                       | Información asociada a la sesión del usuario |
+| session('status')  | Cadena                | Información sobre el estado de la petición |
 
 ## reset
 
@@ -54,3 +54,17 @@ Muchas de las variables proporcionadas son de tipo _colección_. Para el acceso 
 | errors             | Colección de colecciones | Colección de errores |
 | errors.email       | Colección de cadenas     | Colección de errores relativos al campo _email_ |  
 | errors.password    | Colección de cadenas     | Colección de errores relativos al campo _password_ |  
+
+## dashboard
+
+| Parámetro          | Tipo              | Descripción       |
+| :----------        | :-------          | :------------     |
+| user               | JSON              | Información del usuario autenticado | 
+| user.id            | Número            | Identificador del usuario |
+| user.name          | Cadena            | Login del usuario |
+| user.email         | Cadena            | Correo electrónico del usuario | 
+| user.type          | Cadena            | Tipo de usuario: admin, player | 
+| user.state         | Cadena            | Estado del usuario: disable, offline, online |
+| user.country       | Cadena            | País del usuario |
+| user.created_at    | Cadena            | Fecha y hora de la última actualización |
+| user.favourite_language | Cadena       | Idioma favorito del usuario |
