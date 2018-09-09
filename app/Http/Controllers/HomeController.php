@@ -44,9 +44,11 @@ class HomeController extends Controller
                     ->groupBy('language')
                     ->get();*/
 
-        $userStatistics = $user->levels;
- 
+        $userStatistics = $user->levels()->get(['language_code','level','won','lost']);;
+        $userNotifications = $user->unreadNotifications()->get(['id','type','notification','created_at','updated_at']);
 
-        return view('src_home', ['user' => $user, 'statistics' => $userStatistics]);
+        return view('src_home', ['user' => $user, 
+                    'statistics' => $userStatistics, 
+                    'notifications' => $userNotifications]);
     }
 }

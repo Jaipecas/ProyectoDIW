@@ -88,6 +88,15 @@ class User extends Authenticatable
     }
 
     /**
+     * Relación con Notification. Devuelve las notificaciones no leidas ordenadas de 
+     * más antigua a más moderna
+     */
+    public function unreadNotifications() {
+        return $this->hasMany('App\Notification', 'recipient')
+                ->where("state","unread")->orderBy('updated_at');
+    }
+
+    /**
      * Relación con Language a través de Level. Un usuario puede jugar en varios idiomas y en 
      * cada idioma tener un nivel
      */
@@ -100,8 +109,8 @@ class User extends Authenticatable
     }
 
      /**
-     * Relación con Notification. Un usuario puede tener muchas notificaciones, pero 
-     * una notificación sólo pertenece a un usuario
+     * Relación con Notification. Un usuario puede tener muchas niveles (por cada idioma), pero 
+     * una nivel sólo pertenece a un usuario
      */
     public function levels() {
         return $this->hasMany('App\Level', 'user_id');
