@@ -68,3 +68,9 @@ Muchas de las variables proporcionadas son de tipo _colección_. Para el acceso 
 | user.country       | Cadena            | País del usuario |
 | user.created_at    | Cadena            | Fecha y hora de la última actualización |
 | user.favourite_language | Cadena       | Idioma favorito del usuario |
+| statistics         | Colección  | Colección de datos sobre estadísticas en función del idioma |
+| statistics.user_id | Número            | Identificador del usuario al que pertenece la estadística |
+| statistics.language_code | Cadena      | Código del idioma al que pertenece la estadística |
+| statistics.level   | Número            | Nivel del jugador en ese idioma |
+| statistics.won     | Número            | Número de partidas ganadas en ese idioma  |
+| statistics.lost    | Número            | Número de partidas perdidas en ese idioma |
