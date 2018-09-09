@@ -18,8 +18,8 @@
     @import "../../sass/variables";
     .user-data {
         background-color: $card-bg;
-        width: 100%;
-        margin: 15px;
+        width: 96%;
+        margin: 0px 2%;
         display: grid;
         grid-template: repeat(2,40px) / 200px repeat(3,1fr);
         grid-column-gap: 10px;

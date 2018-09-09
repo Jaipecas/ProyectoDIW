@@ -12103,7 +12103,7 @@ exports = module.exports = __webpack_require__(7)(false);
 
 
 // module
-exports.push([module.i, "/* Area de mensajes */\n.card-container[data-v-04fdc5a3] {\n  text-align: center;\n  min-width: 100%;\n  min-height: 200px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: start;\n      -ms-flex-align: start;\n          align-items: flex-start;\n  overflow-x: auto;\n}\n", ""]);
+exports.push([module.i, "/* Area de mensajes */\n.card-container[data-v-04fdc5a3] {\n  text-align: center;\n  min-width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: start;\n      -ms-flex-align: start;\n          align-items: flex-start;\n  overflow-x: auto;\n}\n", ""]);
 
 // exports
 
@@ -12149,6 +12149,8 @@ module.exports = function listToStyles (parentId, list) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__OutputCardComponent__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__OutputCardComponent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__OutputCardComponent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__BladeVariableComponent__ = __webpack_require__(76);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__BladeVariableComponent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__BladeVariableComponent__);
 //
 //
 //
@@ -12161,19 +12163,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'card-container-component', /* que sea siempre compuesto con - par evitar colisiones con otros tag HTMHL5 */
     props: {
-        cards: {
-            type: Array,
-            required: true
-        }
+        cards: { type: Array, required: false },
+        variables: { type: Array, required: false }
     },
     components: {
-        OutputCardComponent: __WEBPACK_IMPORTED_MODULE_0__OutputCardComponent___default.a
+        OutputCardComponent: __WEBPACK_IMPORTED_MODULE_0__OutputCardComponent___default.a, BladeVariableComponent: __WEBPACK_IMPORTED_MODULE_1__BladeVariableComponent___default.a
     }
 });
 
@@ -12462,12 +12465,26 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "card-container" },
-    _vm._l(_vm.cards, function(card) {
-      return _c("output-card-component", {
-        key: card.order,
-        attrs: { pcard: card }
+    [
+      _vm._l(_vm.cards, function(card) {
+        return _vm.cards
+          ? _c("output-card-component", {
+              key: card.order,
+              attrs: { pcard: card }
+            })
+          : _vm._e()
+      }),
+      _vm._v(" "),
+      _vm._l(_vm.variables, function(variable) {
+        return _vm.variables
+          ? _c("blade-variable-component", {
+              key: variable.order,
+              attrs: { pvar: variable }
+            })
+          : _vm._e()
       })
-    })
+    ],
+    2
   )
 }
 var staticRenderFns = []
@@ -12566,7 +12583,7 @@ exports = module.exports = __webpack_require__(7)(false);
 
 
 // module
-exports.push([module.i, "\n.user-data[data-v-4de2657e] {\n  background-color: #27322c;\n  width: 100%;\n  margin: 15px;\n  display: grid;\n  grid-template: repeat(2, 40px)/200px repeat(3, 1fr);\n  grid-column-gap: 10px;\n  font-size: 1.2em;\n}\n.user-data .avatar[data-v-4de2657e] {\n    grid-column: 1 / 2;\n    grid-row: 1 / 3;\n}\n.user-data .value[data-v-4de2657e] {\n    color: #6f61aa;\n    padding-left: 0.4em;\n    font-weight: 700;\n}\n.user-data .data[data-v-4de2657e] {\n    padding-left: 0.4em;\n    text-align: left;\n}\n", ""]);
+exports.push([module.i, "\n.user-data[data-v-4de2657e] {\n  background-color: #27322c;\n  width: 96%;\n  margin: 0px 2%;\n  display: grid;\n  grid-template: repeat(2, 40px)/200px repeat(3, 1fr);\n  grid-column-gap: 10px;\n  font-size: 1.2em;\n}\n.user-data .avatar[data-v-4de2657e] {\n    grid-column: 1 / 2;\n    grid-row: 1 / 3;\n}\n.user-data .value[data-v-4de2657e] {\n    color: #6f61aa;\n    padding-left: 0.4em;\n    font-weight: 700;\n}\n.user-data .data[data-v-4de2657e] {\n    padding-left: 0.4em;\n    text-align: left;\n}\n", ""]);
 
 // exports
 
@@ -12694,6 +12711,202 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-4de2657e", module.exports)
+  }
+}
+
+/***/ }),
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(77)
+}
+var normalizeComponent = __webpack_require__(9)
+/* script */
+var __vue_script__ = __webpack_require__(79)
+/* template */
+var __vue_template__ = __webpack_require__(80)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-4289d320"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/BladeVariableComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4289d320", Component.options)
+  } else {
+    hotAPI.reload("data-v-4289d320", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 77 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(78);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(8)("44aba37f", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4289d320\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./BladeVariableComponent.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4289d320\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./BladeVariableComponent.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 78 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(7)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.output-variable[data-v-4289d320] {\n  background-color: #27322c;\n  min-width: 400px;\n  font-size: 1.3em;\n  margin: 0 15px;\n  padding: 0.7em 15px;\n}\n.output-variable .value[data-v-4289d320] {\n    color: #6f61aa;\n    font-weight: 700;\n}\n.output-variable table[data-v-4289d320] {\n    border-spacing: 0.25em 0px;\n    border-collapse: separate;\n}\n.output-variable td[data-v-4289d320] {\n    text-align: center;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 79 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: 'blade-variable-component', /* que sea siempre compuesto con - para evitar colisiones con otros tag HTMHL5 */
+    props: {
+        pvar: {
+            type: Object,
+            required: true
+        }
+    },
+    mounted: function mounted() {
+        console.log('BladeVariableComponent montado.');
+    }
+});
+
+/***/ }),
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "output-variable" }, [
+    _vm.pvar instanceof Object
+      ? _c("div", { staticClass: "json" }, [
+          _c(
+            "table",
+            _vm._l(_vm.pvar, function(value, key) {
+              return _c("td", { key: value }, [
+                _c("tr", { staticClass: "key" }, [_vm._v(_vm._s(key) + " ")]),
+                _vm._v(" "),
+                _c("tr", { staticClass: "value" }, [_vm._v(_vm._s(value))])
+              ])
+            })
+          )
+        ])
+      : _c("div", { staticClass: "string" }, [_vm._v(_vm._s(_vm.pvar))])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4289d320", module.exports)
   }
 }
 

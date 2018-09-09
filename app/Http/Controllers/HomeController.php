@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Level;
 
 /* 
 |---------------------------------------
@@ -32,6 +33,20 @@ class HomeController extends Controller
     {
         $user = Auth::user();
 
-        return view('src_home', ['user' => $user]);
+       /* $gamesWin = DB::table('games')
+                    ->select(DB::raw('count(*) as won, language'))
+                    ->where('player_1', '=', $user->id)
+                    ->where('state', '=', 'win_p1')
+                    ->orWhere(function($query) use ($user) {
+                        $query->where('player_2', '=', $user->id)
+                              ->where('state', '=', 'win_p2');
+                    })
+                    ->groupBy('language')
+                    ->get();*/
+
+        $userStatistics = $user->levels;
+ 
+
+        return view('src_home', ['user' => $user, 'statistics' => $userStatistics]);
     }
 }
