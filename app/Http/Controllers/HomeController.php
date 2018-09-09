@@ -46,9 +46,11 @@ class HomeController extends Controller
 
         $userStatistics = $user->levels()->get(['language_code','level','won','lost']);;
         $userNotifications = $user->unreadNotifications()->get(['id','type','notification','created_at','updated_at']);
+        $currentGames = $user->gamesLive();
 
         return view('src_home', ['user' => $user, 
                     'statistics' => $userStatistics, 
-                    'notifications' => $userNotifications]);
+                    'notifications' => $userNotifications,
+                    'games' => $currentGames]);
     }
 }

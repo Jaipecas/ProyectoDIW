@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use DB;
 
 class User extends Authenticatable
 {
@@ -53,6 +54,50 @@ class User extends Authenticatable
      */
     public function player2Games() {
         return $this->hasMany('App\Game', 'player_2');
+    }
+
+    /* Devuelve las partidas que está manteniendo activas el jugador */
+    public function gamesLive() {
+        $games1 = $this->hasMany('App\Game', 'player_1')
+                    ->where('state','<>','win_p1')
+                    ->where('state','<>','win_p2')->get();
+                
+        $games2 = $this->hasMany('App\Game', 'player_2')
+                    ->where('state','<>','win_p1')
+                    ->where('state','<>','win_p2')->get();
+
+        $gamesTmp = $games1->concat($games2);
+        $games = $gamesTmp->transform(function ($item, $key) {
+
+            
+            if ($item->player_1 == $this->id) {
+                $oppoId = $item->player_2;
+                $oppoScore = $item->player_2_score;
+                $playerScore = $item->player_1_score;
+                if ($item->state == "turn_p1") $state=1; else $state=2;
+            } else {
+                $oppoId = $item->player_1;
+                $oppoScore = $item->player_1_score;
+                $playerScore = $item->player_2_score;
+                if ($item->state == "turn_p2") $state=1; else $state=2;
+            }
+
+            if ($item->state == "unstarted") $state=0;
+
+            $oppo = DB::table('users')->where('id', $oppoId)->get(['id','name']);
+            $array = [
+                "id" => $item->id,
+                "updated_at" => $item->updated_at,
+                "language" => $item->language,
+                "opponent" => $oppo,
+                "player_score" => $playerScore,
+                "opponent_score" => $oppoScore,
+                "state" => $state
+            ];
+            return $array;
+        });
+
+        return $games;
     }
 
     /**
