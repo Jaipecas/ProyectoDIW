@@ -78,3 +78,14 @@ Muchas de las variables proporcionadas son de tipo _colección_. Para el acceso 
 | notifications.update_at  | Fecha       | Fecha de la actualización de la notificación |
 | notifications.type  | Cadena           | Tipo de la actualización: warning, info, important |
 | notifications.notification | Cadena    | Texto de la notificación |
+| games              | Colección         | Colección de partidas en juego del usuario |
+| games.id           | Número            | Identificador de la partida |
+| games.updated_at.date  | Fecha         | Fecha de la última jugada   |
+| games.language     | Cadena            | Idioma de la partida  |
+| games.opponent.id  | Número            | Identificador del oponente |
+| games.opponent.name | Cadena           | Nombre del oponente  |
+| games.player_score | Número            | Puntuación del jugador  |
+| games.opponent_score | Número          | Puntuación del oponente |
+| games.state        | Cadena            | Estado de la partida: 0: por confirmar, 1: tira el jugador, 2: tira el oponente |
+                
+               
