@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Language extends Model
 {
     protected $table = "supported_languages";
+    protected $primaryKey = "language";
 
     /**
      * Relación con Challenge. Un reto tiene un idioma, pero un idioma puede ser 
@@ -20,9 +21,9 @@ class Language extends Model
 
     /**
      * Relación con User. Un usuario tiene un idioma por defecto, pero un idioma puede ser 
-     * asignado a muchos jugadores
+     * asignado como favorito por muchos jugadores
      */
-    public function users() {
+    public function usersAsFavourite() {
         return $this->hasMany('App\User', 'favourite_language', 'language');
     }
 
@@ -35,10 +36,10 @@ class Language extends Model
     }
 
      /**
-     * Relación con Language a través de Level. Un usuario puede jugar en varios idiomas y en 
-     * cada idioma tener un nivel
+     * Relación con Language a través de Level. Devuelve los jugadores que juegan con ese idioma
+     * Un usuario puede jugar en varios idiomas y en cada idioma tener un nivel
      */
-    public function levels() {
+    public function users() {
         return $this->belongsToMany('App\User', 'levels', 'language_code', 'user_id');
     }
 

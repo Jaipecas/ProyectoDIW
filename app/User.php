@@ -91,11 +91,19 @@ class User extends Authenticatable
      * Relación con Language a través de Level. Un usuario puede jugar en varios idiomas y en 
      * cada idioma tener un nivel
      */
-    public function levels() {
+    public function languages() {
         // el segundo parámetro es opcional y es el nombre de la tabla pivot, en caso de que no tenga
         // el nombre por defecto (las dos tablas unidas por _ ordenadas en alfabéticamente)
         // el tercer parámetro es la clave en la tabla de este modelo (User) y el último
         // la clave del otro modelo
-        return $this->belongsToMany('App\Language', 'levels', 'user_id', 'language_code');
+        return $this->belongsToMany('App\Language', 'levels', 'user_id','language_code');
+    }
+
+     /**
+     * Relación con Notification. Un usuario puede tener muchas notificaciones, pero 
+     * una notificación sólo pertenece a un usuario
+     */
+    public function levels() {
+        return $this->hasMany('App\Level', 'user_id');
     }
 }
