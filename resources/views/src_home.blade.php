@@ -5,7 +5,7 @@
 @section('content')
 <user-data-component :user="{{ json_encode($user) }}"></user-data-component> 
 <p class="variables-title">Estadísticas</p>
-<card-container-component :variables="{{ json_encode($statistics->all())}}" :container-name="containerNameStatistics"></card-container-component> 
+<card-container-component :variables="{{ json_encode($statistics) }}"></card-container-component> 
 <aside class="sidebar">
     <ul>
         
