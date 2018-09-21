@@ -61,8 +61,18 @@ Route::prefix('scrabble')->group(function () {
 });
 
 /*
- |-------------
+ |---------------------------------
  |  Dashboard
- |-------------
+ |  La exigencia de autenticación se hace en el propio controlador
+ |---------------------------------
  */
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+
+/*
+ |-------------------------------
+ | Gestión del avatar
+ |-------------------------------
+*/
+
+// subida del avatar. Es necesario que el usuario esté autenticado.
+Route::middleware('auth')->post('/upload/avatar', 'UserController@updateAvatar')->name('avatar');

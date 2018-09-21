@@ -35,6 +35,13 @@ return [
     |
     */
 
+    /* 
+     | El guardia es el que implementa la lógica de la autenticación, en que esta basada
+     | mientras que el el proveedor indica el mode de obtener los datos del usuario 
+     | Se soportan dos guardias session y token, pero es posible instalar uno nuevo (por ejemplo 
+     | passport) o incluso crear un personal 
+     */
+
     'guards' => [
         'web' => [
             'driver' => 'session',

@@ -18,6 +18,8 @@ use Illuminate\Http\Request;
 | - se aplican filtros para limitar el número de peticiones y para cargar la inyección de dependencias
 */
 
+// la peticion pasa por el middleware auth, guardia web (que el guarda por defecto). La configuracion del guardia 
+// se realiza en el fichero app/confg/auth.php
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
