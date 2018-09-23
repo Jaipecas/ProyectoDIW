@@ -1,6 +1,6 @@
 <template>
     <div id="upload-image">
-      
+        <img :src="image">
             <!--UPLOAD-->
             <form enctype="multipart/form-data" novalidate v-if="isInitial || isSaving">
                 <div class="dropbox">
@@ -18,7 +18,8 @@
 const STATUS_INITIAL = 0, STATUS_SAVING = 1, STATUS_SUCCESS = 2, STATUS_FAILED = 3;
 
 export default {
-    name: 'upload-image-component', /* que sea siempre compuesto con - para evitar colisiones con otros tag HTML5 */
+    name: 'upload-image-component', // que sea siempre compuesto con - para evitar colisiones con otros tag HTML5
+    props: ['image'],   // imagen por defecto
     data() {
       return {
         currentStatus: null,
@@ -86,6 +87,7 @@ export default {
     },
     mounted() {
         console.log('UploadImageComponent montado.');
+        console.log('Avatar por defecto:', this.image );
     }
 }
 </script>

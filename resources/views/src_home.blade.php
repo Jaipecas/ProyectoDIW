@@ -3,7 +3,7 @@
     'js_files' => ['test_scr_home']])
 
 @section('content')
-<user-data-component :user="{{ json_encode($user) }}"></user-data-component> 
+<user-data-component :user="{{ json_encode($user) }}" :avatar="{{ json_encode(asset('storage/'.$user->avatar)) }}"></user-data-component> 
 <p class="variables-title">Estadísticas</p>
 <card-container-component :variables="{{ json_encode($statistics) }}"></card-container-component> 
 <aside class="sidebar">

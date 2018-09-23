@@ -1,6 +1,6 @@
 <template>
     <div class="user-data"> 
-        <upload-image-component></upload-image-component>
+        <upload-image-component :image="avatar"></upload-image-component>
         <div><span class="data">ID: </span><span class="value">{{ user.id }}</span></div>
         <div><span class="data">Usuario: </span><span class="value">{{ user.name }}</span></div>
         <div><span class="data">Mail: </span><span class="value">{{ user.email }}</span></div>
@@ -49,7 +49,7 @@ import UploadImageComponent from './UploadImageComponent'
 
 export default {
     name: 'user-data-component', /* que sea siempre compuesto con - para evitar colisiones con otros tag HTMHL5 */
-    props: ['user'],
+    props: ['user', 'avatar'],
     components: {
         UploadImageComponent
     },

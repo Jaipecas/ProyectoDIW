@@ -12836,7 +12836,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'user-data-component', /* que sea siempre compuesto con - para evitar colisiones con otros tag HTMHL5 */
-    props: ['user'],
+    props: ['user', 'avatar'],
     components: {
         UploadImageComponent: __WEBPACK_IMPORTED_MODULE_0__UploadImageComponent___default.a
     },
@@ -12966,7 +12966,8 @@ var STATUS_INITIAL = 0,
     STATUS_FAILED = 3;
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: 'upload-image-component', /* que sea siempre compuesto con - para evitar colisiones con otros tag HTML5 */
+    name: 'upload-image-component', // que sea siempre compuesto con - para evitar colisiones con otros tag HTML5
+    props: ['image'], // imagen por defecto
     data: function data() {
         return {
             currentStatus: null,
@@ -13031,6 +13032,7 @@ var STATUS_INITIAL = 0,
     },
     mounted: function mounted() {
         console.log('UploadImageComponent montado.');
+        console.log('Avatar por defecto:', this.image);
     }
 });
 
@@ -13043,6 +13045,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "upload-image" } }, [
+    _c("img", { attrs: { src: _vm.image } }),
+    _vm._v(" "),
     _vm.isInitial || _vm.isSaving
       ? _c(
           "form",
@@ -13101,7 +13105,7 @@ var render = function() {
     "div",
     { staticClass: "user-data" },
     [
-      _c("upload-image-component"),
+      _c("upload-image-component", { attrs: { image: _vm.avatar } }),
       _vm._v(" "),
       _c("div", [
         _c("span", { staticClass: "data" }, [_vm._v("ID: ")]),
