@@ -1,12 +1,12 @@
 <template>
     <div id="upload-image">
-        <img :src="image">
+        <img v-if="image" :src="image">
             <!--UPLOAD-->
             <form enctype="multipart/form-data" novalidate v-if="isInitial || isSaving">
-                <div class="dropbox">
+                <div class="dropbox" v-bind:class="{ opacityon: thereIsImage }">
                     <input type="file" :name="uploadFieldName" :disabled="isSaving" @change="filesChange($event.target.name, $event.target.files)"
                         accept="image/*" class="input-file">
-                    <p v-if="isInitial">Arrastra tu imagen aquí<br>o picha para buscarla</p>
+                    <p v-if="isInitial">Arrastra tu imagen aquí<br>o pincha para buscarla</p>
                     <p v-if="isSaving">Subiendo imagen...</p>
                 </div>
             </form>
@@ -23,7 +23,8 @@ export default {
     data() {
       return {
         currentStatus: null,
-        uploadFieldName: 'avatar'
+        uploadFieldName: 'avatar',
+        thereIsImage: false,
       }
     },
     computed: {
@@ -81,43 +82,64 @@ export default {
             // save it
             this.save(formData);
         }
-     },
+    },
     created() {
         this.reset();
     },
     mounted() {
         console.log('UploadImageComponent montado.');
         console.log('Avatar por defecto:', this.image );
+        if (this.image != null)
+            this.thereIsImage = true;
     }
 }
 </script>
 
 <style lang="scss">
- .dropbox {
-    outline: 2px dashed grey; /* the dash box */
-    outline-offset: -8px;
-    background: lightcyan;
-    color: dimgray;
-    padding: 4px 10px 2px;
-    position: relative;
-    cursor: pointer;
-  }
+    #upload-image {
+        position: relative;
+    }
 
-  .input-file {
-    opacity: 0; /* invisible but it's there! */
-    width: 100%;
-  
-    position: absolute;
-    cursor: pointer;
-  }
+    .dropbox {
+        outline: 2px dashed grey; /* the dash box */
+        outline-offset: -8px;
+        background: lightcyan;
+        color: dimgray;
+        padding: 4px 10px 2px;
+        position: absolute;
+        top: 0px;
+        cursor: pointer;
+    }
 
-  .dropbox:hover {
-    background: lightblue; /* when mouse over to the drop zone, change color */
-  }
+    .input-file {
+        opacity: 0; /* invisible but it's there! */
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        cursor: pointer;
+    }
 
-  .dropbox p {
-    font-size: 0.8em;
-    text-align: center;
-    padding: 5px 0 5px 0;
-  }
+    .dropbox:hover {
+        background: lightblue; /* when mouse over to the drop zone, change color */
+    }
+
+    .dropbox p {
+        font-size: 0.8em;
+        text-align: center;
+        padding: 5px 0 5px 0;
+    }
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
+    .opacityon {
+        opacity: 0.4;
+    }
   </style>

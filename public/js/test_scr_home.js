@@ -12932,7 +12932,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n.dropbox {\n  outline: 2px dashed grey;\n  /* the dash box */\n  outline-offset: -8px;\n  background: lightcyan;\n  color: dimgray;\n  padding: 4px 10px 2px;\n  position: relative;\n  cursor: pointer;\n}\n.input-file {\n  opacity: 0;\n  /* invisible but it's there! */\n  width: 100%;\n  position: absolute;\n  cursor: pointer;\n}\n.dropbox:hover {\n  background: lightblue;\n  /* when mouse over to the drop zone, change color */\n}\n.dropbox p {\n  font-size: 0.8em;\n  text-align: center;\n  padding: 5px 0 5px 0;\n}\n", ""]);
+exports.push([module.i, "\n#upload-image {\n  position: relative;\n}\n.dropbox {\n  outline: 2px dashed grey;\n  /* the dash box */\n  outline-offset: -8px;\n  background: lightcyan;\n  color: dimgray;\n  padding: 4px 10px 2px;\n  position: absolute;\n  top: 0px;\n  cursor: pointer;\n}\n.input-file {\n  opacity: 0;\n  /* invisible but it's there! */\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  top: 0px;\n  left: 0px;\n  cursor: pointer;\n}\n.dropbox:hover {\n  background: lightblue;\n  /* when mouse over to the drop zone, change color */\n}\n.dropbox p {\n  font-size: 0.8em;\n  text-align: center;\n  padding: 5px 0 5px 0;\n}\nimg {\n  max-width: 100%;\n  max-height: 100%;\n  margin-left: auto;\n  margin-right: auto;\n  display: block;\n}\n.opacityon {\n  opacity: 0.4;\n}\n", ""]);
 
 // exports
 
@@ -12971,7 +12971,8 @@ var STATUS_INITIAL = 0,
     data: function data() {
         return {
             currentStatus: null,
-            uploadFieldName: 'avatar'
+            uploadFieldName: 'avatar',
+            thereIsImage: false
         };
     },
 
@@ -13033,6 +13034,7 @@ var STATUS_INITIAL = 0,
     mounted: function mounted() {
         console.log('UploadImageComponent montado.');
         console.log('Avatar por defecto:', this.image);
+        if (this.image != null) this.thereIsImage = true;
     }
 });
 
@@ -13045,39 +13047,48 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "upload-image" } }, [
-    _c("img", { attrs: { src: _vm.image } }),
+    _vm.image ? _c("img", { attrs: { src: _vm.image } }) : _vm._e(),
     _vm._v(" "),
     _vm.isInitial || _vm.isSaving
       ? _c(
           "form",
           { attrs: { enctype: "multipart/form-data", novalidate: "" } },
           [
-            _c("div", { staticClass: "dropbox" }, [
-              _c("input", {
-                staticClass: "input-file",
-                attrs: {
-                  type: "file",
-                  name: _vm.uploadFieldName,
-                  disabled: _vm.isSaving,
-                  accept: "image/*"
-                },
-                on: {
-                  change: function($event) {
-                    _vm.filesChange($event.target.name, $event.target.files)
+            _c(
+              "div",
+              {
+                staticClass: "dropbox",
+                class: { opacityon: _vm.thereIsImage }
+              },
+              [
+                _c("input", {
+                  staticClass: "input-file",
+                  attrs: {
+                    type: "file",
+                    name: _vm.uploadFieldName,
+                    disabled: _vm.isSaving,
+                    accept: "image/*"
+                  },
+                  on: {
+                    change: function($event) {
+                      _vm.filesChange($event.target.name, $event.target.files)
+                    }
                   }
-                }
-              }),
-              _vm._v(" "),
-              _vm.isInitial
-                ? _c("p", [
-                    _vm._v("Arrastra tu imagen aquí"),
-                    _c("br"),
-                    _vm._v("o picha para buscarla")
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.isSaving ? _c("p", [_vm._v("Subiendo imagen...")]) : _vm._e()
-            ])
+                }),
+                _vm._v(" "),
+                _vm.isInitial
+                  ? _c("p", [
+                      _vm._v("Arrastra tu imagen aquí"),
+                      _c("br"),
+                      _vm._v("o pincha para buscarla")
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.isSaving
+                  ? _c("p", [_vm._v("Subiendo imagen...")])
+                  : _vm._e()
+              ]
+            )
           ]
         )
       : _vm._e()
