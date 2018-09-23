@@ -1,9 +1,9 @@
 <template>
     <div id="upload-image">
-        <img v-if="image" :src="image">
+        <img v-if="imageToRender" :src="imageToRender">
             <!--UPLOAD-->
             <form enctype="multipart/form-data" novalidate v-if="isInitial || isSaving">
-                <div class="dropbox" v-bind:class="{ opacityon: thereIsImage }">
+                <div class="dropbox" v-bind:class="{ opacityon: imageToRender }">
                     <input type="file" :name="uploadFieldName" :disabled="isSaving" @change="filesChange($event.target.name, $event.target.files)"
                         accept="image/*" class="input-file">
                     <p v-if="isInitial">Arrastra tu imagen aquí<br>o pincha para buscarla</p>
@@ -24,7 +24,7 @@ export default {
       return {
         currentStatus: null,
         uploadFieldName: 'avatar',
-        thereIsImage: false,
+        imageToRender: null
       }
     },
     computed: {
@@ -55,6 +55,8 @@ export default {
                 .then(function (response) {
                     vm.currentStatus = STATUS_SUCCESS;
                     console.log(response);
+                    vm.imageToRender = response.data.path;
+                    vm.currentStatus = STATUS_INITIAL;
                 })
                 .catch(function (error) {
                     vm.currentStatus = STATUS_FAILED;
@@ -62,24 +64,23 @@ export default {
                 });
         },
         save(formData) {
-            // upload data to the server
+            // subimos los datos al servidor
             this.currentStatus = STATUS_SAVING;
             this.upload(formData);
         },
         filesChange(fieldName, fileList) {
-            // handle file changes
             const formData = new FormData();
 
             if (!fileList.length) return;
 
-            // append the files to FormData
+            // se adjuntan los ficheros a formData
             Array
                 .from(Array(fileList.length).keys())
                 .map(x => {
                     formData.append(fieldName, fileList[x], fileList[x].name);
                 });
 
-            // save it
+            // se graba
             this.save(formData);
         }
     },
@@ -89,8 +90,7 @@ export default {
     mounted() {
         console.log('UploadImageComponent montado.');
         console.log('Avatar por defecto:', this.image );
-        if (this.image != null)
-            this.thereIsImage = true;
+        this.imageToRender = this.image;
     }
 }
 </script>
@@ -109,6 +109,11 @@ export default {
         position: absolute;
         top: 0px;
         cursor: pointer;
+
+        // centrado horizontal con posicionamiento absoluto
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
     }
 
     .input-file {

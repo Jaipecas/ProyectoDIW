@@ -12932,7 +12932,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n#upload-image {\n  position: relative;\n}\n.dropbox {\n  outline: 2px dashed grey;\n  /* the dash box */\n  outline-offset: -8px;\n  background: lightcyan;\n  color: dimgray;\n  padding: 4px 10px 2px;\n  position: absolute;\n  top: 0px;\n  cursor: pointer;\n}\n.input-file {\n  opacity: 0;\n  /* invisible but it's there! */\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  top: 0px;\n  left: 0px;\n  cursor: pointer;\n}\n.dropbox:hover {\n  background: lightblue;\n  /* when mouse over to the drop zone, change color */\n}\n.dropbox p {\n  font-size: 0.8em;\n  text-align: center;\n  padding: 5px 0 5px 0;\n}\nimg {\n  max-width: 100%;\n  max-height: 100%;\n  margin-left: auto;\n  margin-right: auto;\n  display: block;\n}\n.opacityon {\n  opacity: 0.4;\n}\n", ""]);
+exports.push([module.i, "\n#upload-image {\n  position: relative;\n}\n.dropbox {\n  outline: 2px dashed grey;\n  /* the dash box */\n  outline-offset: -8px;\n  background: lightcyan;\n  color: dimgray;\n  padding: 4px 10px 2px;\n  position: absolute;\n  top: 0px;\n  cursor: pointer;\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n          transform: translateX(-50%);\n  width: 100%;\n}\n.input-file {\n  opacity: 0;\n  /* invisible but it's there! */\n  width: 100%;\n  height: 100%;\n  position: absolute;\n  top: 0px;\n  left: 0px;\n  cursor: pointer;\n}\n.dropbox:hover {\n  background: lightblue;\n  /* when mouse over to the drop zone, change color */\n}\n.dropbox p {\n  font-size: 0.8em;\n  text-align: center;\n  padding: 5px 0 5px 0;\n}\nimg {\n  max-width: 100%;\n  max-height: 100%;\n  margin-left: auto;\n  margin-right: auto;\n  display: block;\n}\n.opacityon {\n  opacity: 0.4;\n}\n", ""]);
 
 // exports
 
@@ -12972,7 +12972,7 @@ var STATUS_INITIAL = 0,
         return {
             currentStatus: null,
             uploadFieldName: 'avatar',
-            thereIsImage: false
+            imageToRender: null
         };
     },
 
@@ -13003,28 +13003,29 @@ var STATUS_INITIAL = 0,
             return axios.post('/upload/avatar', formData).then(function (response) {
                 vm.currentStatus = STATUS_SUCCESS;
                 console.log(response);
+                vm.imageToRender = response.data.path;
+                vm.currentStatus = STATUS_INITIAL;
             }).catch(function (error) {
                 vm.currentStatus = STATUS_FAILED;
                 console.log("ERROR: " + error);
             });
         },
         save: function save(formData) {
-            // upload data to the server
+            // subimos los datos al servidor
             this.currentStatus = STATUS_SAVING;
             this.upload(formData);
         },
         filesChange: function filesChange(fieldName, fileList) {
-            // handle file changes
             var formData = new FormData();
 
             if (!fileList.length) return;
 
-            // append the files to FormData
+            // se adjuntan los ficheros a formData
             Array.from(Array(fileList.length).keys()).map(function (x) {
                 formData.append(fieldName, fileList[x], fileList[x].name);
             });
 
-            // save it
+            // se graba
             this.save(formData);
         }
     },
@@ -13034,7 +13035,7 @@ var STATUS_INITIAL = 0,
     mounted: function mounted() {
         console.log('UploadImageComponent montado.');
         console.log('Avatar por defecto:', this.image);
-        if (this.image != null) this.thereIsImage = true;
+        this.imageToRender = this.image;
     }
 });
 
@@ -13047,7 +13048,9 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { attrs: { id: "upload-image" } }, [
-    _vm.image ? _c("img", { attrs: { src: _vm.image } }) : _vm._e(),
+    _vm.imageToRender
+      ? _c("img", { attrs: { src: _vm.imageToRender } })
+      : _vm._e(),
     _vm._v(" "),
     _vm.isInitial || _vm.isSaving
       ? _c(
@@ -13058,7 +13061,7 @@ var render = function() {
               "div",
               {
                 staticClass: "dropbox",
-                class: { opacityon: _vm.thereIsImage }
+                class: { opacityon: _vm.imageToRender }
               },
               [
                 _c("input", {

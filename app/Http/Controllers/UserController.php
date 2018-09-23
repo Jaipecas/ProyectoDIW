@@ -9,7 +9,7 @@ use App\User;
 class UserController extends Controller
 {
     /**
-     * Actualiza el avatar deñ usuario.
+     * Actualiza el avatar del usuario.
      *
      * @param  Request  $request
      * @return Response
@@ -28,7 +28,10 @@ class UserController extends Controller
             $profile->avatar_type = empty($type) ? null : substr($type, 1);
 
             $profile->save();
-        }
 
+            return response()->json([
+                'path' => asset('storage/'.$userPhoto),
+            ]);
+        }
     }
 }
