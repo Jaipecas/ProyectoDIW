@@ -76,3 +76,5 @@ Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
 // subida del avatar. Es necesario que el usuario esté autenticado.
 Route::middleware('auth')->post('/upload/avatar', 'UserController@updateAvatar')->name('avatar');
+// Elimina el avatar del usuario. Es necesario que el usuario esté autenticado.
+Route::middleware('auth')->post('/user/avatar/remove', 'UserController@removeAvatar')->name('remove_avatar');

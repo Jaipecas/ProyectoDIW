@@ -20,9 +20,9 @@ use Illuminate\Http\Request;
 
 // la peticion pasa por el middleware auth, guardia web (que el guarda por defecto). La configuracion del guardia 
 // se realiza en el fichero app/confg/auth.php
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});
+});*/
 
 Route::group([
         'prefix' => 'info', // genera rutas con la URL /info/

@@ -11996,25 +11996,31 @@ Vue.component('user-data-component', __webpack_require__(69));
 var register = new Vue({
     el: '#app',
     data: {
-        cards: [{
-            order: 1,
-            type: 'Registro',
-            errorCode: 200,
-            statusCode: 'OK',
-            output: "4"
-        }, {
-            order: 2,
-            type: 'listaaddddf',
-            errorCode: 400,
-            statusCode: 'ERROR',
-            output: {
-                hola: "wkilo",
-                carcola: 224,
-                pepsi: "milenial"
-            }
-        }]
+        cards: []
     },
-    methods: {}
+    methods: {
+        remove_avatar: function remove_avatar(event) {
+            event.preventDefault();
+
+            var vm = this;
+            return axios.post('/user/avatar/remove').then(function (response) {
+
+                console.log(response);
+                var newcard = {
+                    order: vm.cards.length + 1,
+                    type: 'Remove Avatar',
+                    errorCode: response.status,
+                    statusCode: response.statusText,
+                    output: response.data
+                };
+
+                vm.cards.push(newcard);
+            }).catch(function (error) {
+                console.log("ERROR: " + error);
+            });
+        }
+
+    }
 });
 
 /***/ }),

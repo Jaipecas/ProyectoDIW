@@ -33,5 +33,31 @@ class UserController extends Controller
                 'path' => asset('storage/'.$userPhoto),
             ]);
         }
+
+    }
+
+    /**
+     * Obtiene el avatar del usuario.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function removeAvatar(Request $request) {
+    
+        $user = Auth::user();
+        $profile = User::findOrFail($user->id);
+
+        $file = 'storage/'. $profile->avatar;
+
+        $profile->avatar = NULL;
+        $profile->avatar_type = NULL;
+        $profile->save();
+
+        if (is_file($file))
+            unlink($file);
+        else
+            return response('File does not exists', 409);
+
+        return response('Avatar removed', 200);
     }
 }

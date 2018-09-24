@@ -16,8 +16,8 @@
         <li class="input-menu" id="b04">
             <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
         </li>
-        <li class="input-menu upper-margin" id="b05"><a>Dashboard</a></li>
-        <li class="input-menu upper-margin" id="b06"><a>Estadísticas usuarios</a></li>
+        <li class="input-menu upper-margin" id="b05"><a v-on:click="remove_avatar">Elimina avatar</a></li>
+        <li class="input-menu" id="b06"><a>Estadísticas usuarios</a></li>
         <li class="input-menu" id="b07"><a>Últimas partidas en juego</a></li>
     </ul>
 </aside>
