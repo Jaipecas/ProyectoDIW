@@ -42,8 +42,8 @@ class UsersSeeder extends Seeder
             });
 
         // creo niveles para los dos usuarios específicos
-        User::find($id1)->levels()->sync(['es' => $this->randomLevel(), 'en' => $this->randomLevel()]);
-        User::find($id2)->levels()->sync(['es' => $this->randomLevel(), 'en' => $this->randomLevel()]);
+        User::find($id1)->languages()->sync(['es' => $this->randomLevel(), 'en' => $this->randomLevel()]);
+        User::find($id2)->languages()->sync(['es' => $this->randomLevel(), 'en' => $this->randomLevel()]);
     
         // creo 20 usuarios aleatorios y los almacena en la BD y les asigna notificaciones
         factory(App\User::class, 20)
@@ -70,14 +70,14 @@ class UsersSeeder extends Seeder
                         });
                     }
 
-                $u->levels()->sync(['es' => $this->randomLevel(), 'en' => $this->randomLevel()]);
+                $u->languages()->sync(['es' => $this->randomLevel(), 'en' => $this->randomLevel()]);
             });
 
         // creo 2 usuarios desactivados
         factory(App\User::class, 2)->states('disable')
             ->create()
             ->each(function($u) {
-                $u->levels()->sync(['es' => $this->randomLevel(), 'en' => $this->randomLevel()]);
+                $u->languages()->sync(['es' => $this->randomLevel(), 'en' => $this->randomLevel()]);
             });
 
         // creo un administrador (podría crear un state, pero, por variar, 

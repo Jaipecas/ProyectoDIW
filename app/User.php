@@ -154,7 +154,7 @@ class User extends Authenticatable
     }
 
      /**
-     * Relación con Notification. Un usuario puede tener muchas niveles (por cada idioma), pero 
+     * Relación con Niveles. Un usuario puede tener muchos niveles (por cada idioma), pero 
      * una nivel sólo pertenece a un usuario
      */
     public function levels() {
