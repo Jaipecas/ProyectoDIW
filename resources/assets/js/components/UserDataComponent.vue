@@ -1,6 +1,9 @@
 <template>
     <div class="user-data"> 
-        <upload-image-component :image="avatar"></upload-image-component>
+        <upload-image-component 
+            :image="avatar"
+            @avatar-change="onAvatarChange">
+        </upload-image-component>
         <div><span class="data">ID: </span><span class="value">{{ user.id }}</span></div>
         <div><span class="data">Usuario: </span><span class="value">{{ user.name }}</span></div>
         <div><span class="data">Mail: </span><span class="value">{{ user.email }}</span></div>
@@ -52,6 +55,11 @@ export default {
     props: [ 'user', 'avatar' ],
     components: {
         UploadImageComponent
+    },
+    methods: {
+        onAvatarChange: function (image) {
+            this.$emit('avatar-change', image)
+        }
     },
     mounted() {
         console.log('UserDataComponent montado.');

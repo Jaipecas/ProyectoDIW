@@ -1,7 +1,5 @@
 <template>
     <div id="upload-image">
-        <!-- se utiliza la propiedad, de manera que si cambia el valor en el padre cambia 
-             el del hijo -->
         <img v-if="image" :src="image">
             <!--UPLOAD-->
             <form enctype="multipart/form-data" novalidate v-if="isInitial || isSaving">
@@ -17,6 +15,38 @@
 </template>
 
 <script>
+
+/* La manera más natural de realizar la actualización de la imagen del avatar sería
+   la de modificar la propiedad image de dentro del método upload/post/then
+        vm.image = response.data.path;
+ El problema es que esto no es aconsejable. Cambiar una propiedad (es decir, un dato que 
+ viene del padre) en el hijo, es posible ya que las propiedades son objetos mutables,
+ pero, realizar el cambio de esta manera puede ser muy confuso. 
+ Es por tanto una mala práctica (incluso salta un warning en la consola)
+ La solucion radica en que todo los cambios se realicen en el mismo componente, 
+ es decir, en este caso la eliminación del avatar debería lanzarse desde 
+ este componente. 
+ En nuestro caso vamos a seguir manteniendo la separación para aprender más cosas.
+ La solución obvia sería crea una variable interna, por ejemplo imageToRender, que inicializariamos
+ con el valor de image yque seria la que renderizariamos. A la hora de actualizar en upload/post/then 
+ hariamos algo como 
+    vm.imageToRender = response.data.path;
+ En este caso el problema vendria al eliminar el avatar desde el menú. ya que necesitamos actualizar el 
+ valor de imageToRender a null cuando esto ocurra, es decir, cuando la variable image valga null de nuevo.
+ Para eso podemos usar los métodos watch.
+ Los métodos watch se utilizan para cambiar el valor de un dato o propiedad porque haya cambiado otro. 
+ El nombre de la función es el nombre de la propiedad que quiero vigilar si ha cambiado
+ Desgraciadamente, en este caso es sólo una solución parcial, ya que si el componente se monta con 
+ image=null cuando se borra el avatar desde el padre se envia image=null.. es decir, no cambia, así que 
+ no salta la función. (sólo se detectan cambios de valor)
+ Sólo saltría en el caso de que al montar el componente SI tenga avatar, es decir image!=null
+ Para solicionar este caso problemático la única solución que tenemos es que image pase a no ser
+ null cuando se le asigna, es decir que la propiedad image cambie si cambia la imagen... parece que volvemos
+ al principio
+ La solución, y esta vez es definitiva, consiste en mandar un evento al abuelo (al dashboard), a través
+ del padre (UserData) indicándole que la imagen ha cambiado y con que nuevo valor y que sea el dashboard
+ el que cambie la propiedad y, por lo tanto, se actualice de manera automática en el componente UploadImage
+*/
 const STATUS_INITIAL = 0, STATUS_SAVING = 1, STATUS_SUCCESS = 2, STATUS_FAILED = 3;
 
 export default {
@@ -25,7 +55,7 @@ export default {
     data() {
       return {
         currentStatus: null,
-        uploadFieldName: 'avatar'
+        uploadFieldName: 'avatar',
       }
     },
     computed: {
@@ -42,6 +72,12 @@ export default {
             return this.currentStatus === STATUS_FAILED;
         }
     },
+    /*watch: {  
+        image: function (val) {
+            // image sólo cambia si se elimina el avatar desde el padre
+            this.imageToRender = val;
+        }
+    },*/ 
     methods: {
         reset() {
             // reset form to initial state
@@ -56,7 +92,8 @@ export default {
                 .then(function (response) {
                     vm.currentStatus = STATUS_SUCCESS;
                     console.log(response);
-                    vm.image = response.data.path;
+                   
+                    vm.$emit('avatar-change', response.data.path)
                     vm.currentStatus = STATUS_INITIAL;
                 })
                 .catch(function (error) {
@@ -88,7 +125,6 @@ export default {
     created() {
         this.reset();
         console.log('Avatar por defecto:', this.image );
-        //this.imageToRender = this.image;
     },
     mounted() {
         console.log('UploadImageComponent montado.');

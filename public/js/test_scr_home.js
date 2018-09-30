@@ -12150,6 +12150,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -12174,7 +12177,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         CardContainerComponent: __WEBPACK_IMPORTED_MODULE_1__CardContainerComponent___default.a, UserDataComponent: __WEBPACK_IMPORTED_MODULE_0__UserDataComponent___default.a
     },
     methods: {
-        remove_avatar: function remove_avatar(event) {
+        onAvatarChange: function onAvatarChange(image) {
+            this.c_avatar = image;
+        },
+        removeAvatar: function removeAvatar(event) {
             //  event.preventDefault(); no hace falta ya que lo he puesto en la llamada
             this.c_avatar = null;
             var vm = this;
@@ -12361,6 +12367,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -12369,6 +12378,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: ['user', 'avatar'],
     components: {
         UploadImageComponent: __WEBPACK_IMPORTED_MODULE_0__UploadImageComponent___default.a
+    },
+    methods: {
+        onAvatarChange: function onAvatarChange(image) {
+            this.$emit('avatar-change', image);
+        }
     },
     mounted: function mounted() {
         console.log('UserDataComponent montado.');
@@ -12488,9 +12502,39 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
+
+/* La manera más natural de realizar la actualización de la imagen del avatar sería
+   la de modificar la propiedad image de dentro del método upload/post/then
+        vm.image = response.data.path;
+ El problema es que esto no es aconsejable. Cambiar una propiedad (es decir, un dato que 
+ viene del padre) en el hijo, es posible ya que las propiedades son objetos mutables,
+ pero, realizar el cambio de esta manera puede ser muy confuso. 
+ Es por tanto una mala práctica (incluso salta un warning en la consola)
+ La solucion radica en que todo los cambios se realicen en el mismo componente, 
+ es decir, en este caso la eliminación del avatar debería lanzarse desde 
+ este componente. 
+ En nuestro caso vamos a seguir manteniendo la separación para aprender más cosas.
+ La solución obvia sería crea una variable interna, por ejemplo imageToRender, que inicializariamos
+ con el valor de image yque seria la que renderizariamos. A la hora de actualizar en upload/post/then 
+ hariamos algo como 
+    vm.imageToRender = response.data.path;
+ En este caso el problema vendria al eliminar el avatar desde el menú. ya que necesitamos actualizar el 
+ valor de imageToRender a null cuando esto ocurra, es decir, cuando la variable image valga null de nuevo.
+ Para eso podemos usar los métodos watch.
+ Los métodos watch se utilizan para cambiar el valor de un dato o propiedad porque haya cambiado otro. 
+ El nombre de la función es el nombre de la propiedad que quiero vigilar si ha cambiado
+ Desgraciadamente, en este caso es sólo una solución parcial, ya que si el componente se monta con 
+ image=null cuando se borra el avatar desde el padre se envia image=null.. es decir, no cambia, así que 
+ no salta la función. (sólo se detectan cambios de valor)
+ Sólo saltría en el caso de que al montar el componente SI tenga avatar, es decir image!=null
+ Para solicionar este caso problemático la única solución que tenemos es que image pase a no ser
+ null cuando se le asigna, es decir que la propiedad image cambie si cambia la imagen... parece que volvemos
+ al principio
+ La solución, y esta vez es definitiva, consiste en mandar un evento al abuelo (al dashboard), a través
+ del padre (UserData) indicándole que la imagen ha cambiado y con que nuevo valor y que sea el dashboard
+ el que cambie la propiedad y, por lo tanto, se actualice de manera automática en el componente UploadImage
+*/
 var STATUS_INITIAL = 0,
     STATUS_SAVING = 1,
     STATUS_SUCCESS = 2,
@@ -12520,6 +12564,12 @@ var STATUS_INITIAL = 0,
             return this.currentStatus === STATUS_FAILED;
         }
     },
+    /*watch: {  
+        image: function (val) {
+            // image sólo cambia si se elimina el avatar desde el padre
+            this.imageToRender = val;
+        }
+    },*/
     methods: {
         reset: function reset() {
             // reset form to initial state
@@ -12533,7 +12583,8 @@ var STATUS_INITIAL = 0,
             return axios.post('/upload/avatar', formData).then(function (response) {
                 vm.currentStatus = STATUS_SUCCESS;
                 console.log(response);
-                vm.image = response.data.path;
+
+                vm.$emit('avatar-change', response.data.path);
                 vm.currentStatus = STATUS_INITIAL;
             }).catch(function (error) {
                 vm.currentStatus = STATUS_FAILED;
@@ -12562,7 +12613,6 @@ var STATUS_INITIAL = 0,
     created: function created() {
         this.reset();
         console.log('Avatar por defecto:', this.image);
-        //this.imageToRender = this.image;
     },
     mounted: function mounted() {
         console.log('UploadImageComponent montado.');
@@ -12644,7 +12694,10 @@ var render = function() {
     "div",
     { staticClass: "user-data" },
     [
-      _c("upload-image-component", { attrs: { image: _vm.avatar } }),
+      _c("upload-image-component", {
+        attrs: { image: _vm.avatar },
+        on: { "avatar-change": _vm.onAvatarChange }
+      }),
       _vm._v(" "),
       _c("div", [
         _c("span", { staticClass: "data" }, [_vm._v("ID: ")]),
@@ -13351,7 +13404,8 @@ var render = function() {
     { attrs: { id: "dash" } },
     [
       _c("user-data-component", {
-        attrs: { user: _vm.c_user, avatar: _vm.c_avatar }
+        attrs: { user: _vm.c_user, avatar: _vm.c_avatar },
+        on: { "avatar-change": _vm.onAvatarChange }
       }),
       _vm._v(" "),
       _c("p", { staticClass: "variables-title" }, [_vm._v("Estadísticas")]),
@@ -13373,7 +13427,7 @@ var render = function() {
                   on: {
                     click: function($event) {
                       $event.preventDefault()
-                      return _vm.remove_avatar($event)
+                      return _vm.removeAvatar($event)
                     }
                   }
                 },

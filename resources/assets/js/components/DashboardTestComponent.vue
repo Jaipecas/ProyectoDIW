@@ -1,6 +1,9 @@
 <template>
     <div id="dash">
-        <user-data-component :user="c_user" :avatar="c_avatar"></user-data-component> 
+        <user-data-component 
+            :user="c_user" :avatar="c_avatar"
+            @avatar-change="onAvatarChange">
+        </user-data-component> 
         <p class="variables-title">Estadísticas</p>
         <card-container-component :variables="c_variables"></card-container-component> 
         <aside class="sidebar">
@@ -9,7 +12,7 @@
                 <li class="input-menu" id="b04">
                     <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                 </li>
-                <li class="input-menu upper-margin" id="b05"><a v-on:click.prevent="remove_avatar" href="#">Elimina avatar</a></li>
+                <li class="input-menu upper-margin" id="b05"><a v-on:click.prevent="removeAvatar" href="#">Elimina avatar</a></li>
                 <li class="input-menu" id="b06"><a>Estadísticas usuarios</a></li>
                 <li class="input-menu" id="b07"><a>Últimas partidas en juego</a></li>
             </ul>
@@ -41,7 +44,10 @@ export default {
         CardContainerComponent, UserDataComponent
     },
     methods: {
-        remove_avatar: function(event) {
+        onAvatarChange: function (image) {
+            this.c_avatar = image;
+        },
+        removeAvatar: function(event) {
           //  event.preventDefault(); no hace falta ya que lo he puesto en la llamada
             this.c_avatar = null;
             var vm = this;
