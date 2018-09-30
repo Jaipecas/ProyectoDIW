@@ -1,9 +1,11 @@
 <template>
     <div id="upload-image">
-        <img v-if="imageToRender" :src="imageToRender">
+        <!-- se utiliza la propiedad, de manera que si cambia el valor en el padre cambia 
+             el del hijo -->
+        <img v-if="image" :src="image">
             <!--UPLOAD-->
             <form enctype="multipart/form-data" novalidate v-if="isInitial || isSaving">
-                <div class="dropbox" v-bind:class="{ opacityon: imageToRender }">
+                <div class="dropbox" v-bind:class="{ opacityon: image }">
                     <input type="file" :name="uploadFieldName" :disabled="isSaving" @change="filesChange($event.target.name, $event.target.files)"
                         accept="image/*" class="input-file">
                     <p v-if="isInitial">Arrastra tu imagen aquí<br>o pincha para buscarla</p>
@@ -23,8 +25,7 @@ export default {
     data() {
       return {
         currentStatus: null,
-        uploadFieldName: 'avatar',
-        imageToRender: null
+        uploadFieldName: 'avatar'
       }
     },
     computed: {
@@ -55,7 +56,7 @@ export default {
                 .then(function (response) {
                     vm.currentStatus = STATUS_SUCCESS;
                     console.log(response);
-                    vm.imageToRender = response.data.path;
+                    vm.image = response.data.path;
                     vm.currentStatus = STATUS_INITIAL;
                 })
                 .catch(function (error) {
@@ -86,11 +87,11 @@ export default {
     },
     created() {
         this.reset();
+        console.log('Avatar por defecto:', this.image );
+        //this.imageToRender = this.image;
     },
     mounted() {
         console.log('UploadImageComponent montado.');
-        console.log('Avatar por defecto:', this.image );
-        this.imageToRender = this.image;
     }
 }
 </script>

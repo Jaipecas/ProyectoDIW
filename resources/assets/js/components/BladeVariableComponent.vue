@@ -1,12 +1,12 @@
 <template>
     <div class="output-variable"> 
         <div class="json" v-if="pvar instanceof Object">
-                <table>
-                    <td v-for="(value, key) in pvar" v-bind:key="value">
-                        <tr class="key">{{ key }} </tr>
-                        <tr class="value">{{ value }}</tr>
-                    </td>
-                </table>
+            <table>
+                <td v-for="(value, key) in pvar" v-bind:key="value">
+                    <tr class="key">{{ key }} </tr>
+                    <tr class="value">{{ value }}</tr>
+                </td>
+            </table>
         </div>
         <div class="string" v-else>{{ pvar }}</div>
     </div>

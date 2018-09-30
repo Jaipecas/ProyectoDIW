@@ -49,13 +49,12 @@ import UploadImageComponent from './UploadImageComponent'
 
 export default {
     name: 'user-data-component', /* que sea siempre compuesto con - para evitar colisiones con otros tag HTMHL5 */
-    props: ['user', 'avatar'],
+    props: [ 'user', 'avatar' ],
     components: {
         UploadImageComponent
     },
     mounted() {
         console.log('UserDataComponent montado.');
-        console.log('Datos usuario:', this.user );
     }
 }
 </script>

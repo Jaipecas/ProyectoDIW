@@ -6,37 +6,8 @@
 
 window.Vue = require('vue');
 
-Vue.component('card-container-component', require('./components/CardContainerComponent.vue'));
-Vue.component('user-data-component', require('./components/UserDataComponent.vue'));
+Vue.component('dashboard-test-component', require('./components/DashboardTestComponent.vue'));
 
 const register = new Vue({
     el: '#app',
-    data: { 
-        cards: [] 
-    },
-    methods: {
-        remove_avatar: function(event) {
-            event.preventDefault();
-
-            var vm = this;
-            return axios.post('/user/avatar/remove')
-                .then(function (response) {
-                    
-                    console.log(response);
-                    var newcard = {
-                        order: vm.cards.length + 1,
-                        type: 'Remove Avatar',
-                        errorCode: response.status,
-                        statusCode: response.statusText,
-                        output: response.data
-                    }
-
-                    vm.cards.push(newcard);
-                })
-                .catch(function (error) {
-                    console.log("ERROR: " + error);
-                });
-        }
-
-    }
 });
