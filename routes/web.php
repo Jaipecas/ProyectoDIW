@@ -69,12 +69,20 @@ Route::prefix('scrabble')->group(function () {
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
 /*
- |-------------------------------
+ |--------------------
  | Gestión del avatar
- |-------------------------------
+ |--------------------
 */
 
-// subida del avatar. Es necesario que el usuario esté autenticado.
+// Subida del avatar. Es necesario que el usuario esté autenticado.
 Route::middleware('auth')->post('/upload/avatar', 'UserController@updateAvatar')->name('avatar');
 // Elimina el avatar del usuario. Es necesario que el usuario esté autenticado.
 Route::middleware('auth')->post('/user/avatar/remove', 'UserController@removeAvatar')->name('remove_avatar');
+
+/*
+ |-----------------------
+ | Gestión de la partida
+ |-----------------------
+*/
+
+Route::middleware('auth')->post('/game/{id}/giveup', 'GameController@giveup')->name('giveup');

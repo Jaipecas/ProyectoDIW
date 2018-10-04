@@ -31,3 +31,4 @@ Route::group([
         Route::get('general', 'InfoController@general')->name('general'); 
         //Route::get('system', 'InfoController@system')->name('system');;
 });
+
