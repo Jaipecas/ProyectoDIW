@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Level extends Model
 {
     protected $table = "levels";
+    protected $primaryKey = "user_id";
+    public $timestamps = false;
 
     /**
      * Relación con User. Un usuario puede tener varios niveles (por cada idioma), pero un nivel

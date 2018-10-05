@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Game;
+use App\Level;
 
 class GameController extends Controller
 {
@@ -29,14 +30,32 @@ class GameController extends Controller
             $player2->first()->id != $user->id)
             return response('Access denied to the game', 403);
 
+        // Partida no esta en juego -> error
+        if ($game->state == 'win_p1' || $game->state == 'win_p2')
+            return response('Game already finished', 409);
+
         // busco el jugador para dar por ganador al otro
-        if ($player1->first()->id == $user->id) {
-            $game->state= 'win_p2';
-        } else {
+        if ($player1->first()->id == $user->id) 
+            $game->state = 'win_p2';
+        else 
             $game->state = 'win_p1';
+        
+        $game->save();
+
+        // obtengo el nivel para ese usuario y lengua
+        $level_1 = Level::firstOrCreate(['user_id' => $player1->first()->id],['language_code' => $game->language]);
+        $level_2 = Level::firstOrCreate(['user_id' => $player2->first()->id],['language_code' => $game->language]);
+    
+        if ($game->state == 'win_p2') {
+            $level_2->won = $level_2->won + 1;
+            $level_1->lost = $level_1->lost + 1;
+        } else {
+            $level_1->won = $level_1->won + 1;
+            $level_2->lost = $level_2->lost + 1;
         }
 
-        $game->save();
+        $level_1->save();
+        $level_2->save();
 
         return response('Game left', 200);
     }

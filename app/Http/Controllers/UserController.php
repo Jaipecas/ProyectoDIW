@@ -33,7 +33,6 @@ class UserController extends Controller
                 'path' => asset('storage/'.$userPhoto),
             ]);
         }
-
     }
 
     /**
@@ -59,5 +58,24 @@ class UserController extends Controller
             return response('File does not exists', 409);
 
         return response('Avatar removed', 200);
+    }
+
+    /**
+     * Obtiene el avatar del usuario.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function getStatistics(Request $request) {
+    
+        $user = Auth::user();
+        $userStatistics = $user->levels()->get(['language_code','level','won','lost']);;
+
+        return response()->json([
+            'language_code' => $userStatistics.language_code,
+            'level' => $userStatistics.level,
+            'won' => $userStatistics.won,
+            'lost' => $userStatistics.lost
+        ], 200);
     }
 }
