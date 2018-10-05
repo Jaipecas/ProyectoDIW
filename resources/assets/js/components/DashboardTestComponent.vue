@@ -13,8 +13,9 @@
                     <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                 </li>
                 <li class="input-menu upper-margin" id="b05"><a v-on:click.prevent="removeAvatar" href="#">Elimina avatar</a></li>
-                <li class="input-menu" id="b06"><a>Estadísticas usuarios</a></li>
-                <li class="input-menu" id="b07"><a>Últimas partidas en juego</a></li>
+                <li class="input-menu" id="b06"><a v-on:click.prevent="giveupGame" href="#">Abandonar partida</a></li>
+                <li class="input-menu" id="b07"><a>Estadísticas usuarios</a></li>
+                <li class="input-menu" id="b08"><a>Últimas partidas en juego</a></li>
             </ul>
         </aside>
         <card-container-component :cards="c_cards"></card-container-component> 
@@ -46,6 +47,37 @@ export default {
     methods: {
         onAvatarChange: function (image) {
             this.c_avatar = image;
+        },
+        giveupGame: function() {
+            var vm = this;
+            // abandona la partida 3 (ni se comprueba si es jugador de la partida o no)
+            return axios.post('/game/12/giveup')
+                .then(function (response) {
+                    
+                    console.log("Abandonando partida:", response);
+                    var newcard = {
+                        order: vm.c_cards.length + 1,
+                        type: 'Giveup Game',
+                        errorCode: response.status,
+                        statusCode: response.statusText,
+                        output: response.data
+                    }
+
+                    vm.c_cards.push(newcard);
+                })
+                .catch(function (error) {
+                    var newcard = {
+                        order: vm.c_cards.length + 1,
+                        type: 'Giveup Game',
+                        errorCode: error.response.status,
+                        statusCode: error.response.statusText,
+                        output: error.response.data
+                    }
+
+                    vm.c_cards.push(newcard);
+
+                    console.log("ERROR: " + error);
+                });
         },
         removeAvatar: function(event) {
           //  event.preventDefault(); no hace falta ya que lo he puesto en la llamada

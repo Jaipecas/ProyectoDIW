@@ -12153,6 +12153,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -12179,6 +12180,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         onAvatarChange: function onAvatarChange(image) {
             this.c_avatar = image;
+        },
+        giveupGame: function giveupGame() {
+            var vm = this;
+            // abandona la partida 3 (ni se comprueba si es jugador de la partida o no)
+            return axios.post('/game/12/giveup').then(function (response) {
+
+                console.log("Abandonando partida:", response);
+                var newcard = {
+                    order: vm.c_cards.length + 1,
+                    type: 'Giveup Game',
+                    errorCode: response.status,
+                    statusCode: response.statusText,
+                    output: response.data
+                };
+
+                vm.c_cards.push(newcard);
+            }).catch(function (error) {
+                var newcard = {
+                    order: vm.c_cards.length + 1,
+                    type: 'Giveup Game',
+                    errorCode: error.response.status,
+                    statusCode: error.response.statusText,
+                    output: error.response.data
+                };
+
+                vm.c_cards.push(newcard);
+
+                console.log("ERROR: " + error);
+            });
         },
         removeAvatar: function removeAvatar(event) {
             //  event.preventDefault(); no hace falta ya que lo he puesto en la llamada
@@ -13436,6 +13466,22 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
+          _c("li", { staticClass: "input-menu", attrs: { id: "b06" } }, [
+            _c(
+              "a",
+              {
+                attrs: { href: "#" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.giveupGame($event)
+                  }
+                }
+              },
+              [_vm._v("Abandonar partida")]
+            )
+          ]),
+          _vm._v(" "),
           _vm._m(1),
           _vm._v(" "),
           _vm._m(2)
@@ -13470,7 +13516,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "input-menu", attrs: { id: "b06" } }, [
+    return _c("li", { staticClass: "input-menu", attrs: { id: "b07" } }, [
       _c("a", [_vm._v("Estadísticas usuarios")])
     ])
   },
@@ -13478,7 +13524,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "input-menu", attrs: { id: "b07" } }, [
+    return _c("li", { staticClass: "input-menu", attrs: { id: "b08" } }, [
       _c("a", [_vm._v("Últimas partidas en juego")])
     ])
   }

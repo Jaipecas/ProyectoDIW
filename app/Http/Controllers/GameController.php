@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\User;
+use App\Game;
 
 class GameController extends Controller
 {
@@ -17,17 +20,20 @@ class GameController extends Controller
     {
         $user = Auth::user();
 
-        $game = User::findOrFail($id);
+        $game = Game::findOrFail($id);
 
-        if ($game->player1() != $user->id && 
-            $game->player2() != $user->id)
+        $player1 = $game->player1()->get(['id']);
+        $player2 = $game->player2()->get(['id']);
+   
+        if ($player1->first()->id != $user->id && 
+            $player2->first()->id != $user->id)
             return response('Access denied to the game', 403);
 
         // busco el jugador para dar por ganador al otro
-        if ($game->player1() == $user->id) {
-            $game->fill(['state' => 'win_p2']);
+        if ($player1->first()->id == $user->id) {
+            $game->state= 'win_p2';
         } else {
-            $game->fill(['state' => 'win_p1']);
+            $game->state = 'win_p1';
         }
 
         $game->save();
