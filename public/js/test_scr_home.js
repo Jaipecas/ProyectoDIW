@@ -12181,6 +12181,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         onAvatarChange: function onAvatarChange(image) {
             this.c_avatar = image;
         },
+        userStatistics: function userStatistics() {
+            var vm = this;
+            // estadísiticas via AJAX
+            return axios.get('/user/statistics').then(function (response) {
+
+                console.log("Estadísticas:", response);
+                var newcard = {
+                    order: vm.c_cards.length + 1,
+                    type: 'User Statistics',
+                    errorCode: response.status,
+                    statusCode: response.statusText,
+                    output: response.data
+                };
+
+                vm.c_cards.push(newcard);
+            }).catch(function (error) {
+                var newcard = {
+                    order: vm.c_cards.length + 1,
+                    type: 'User Statistics',
+                    errorCode: error.response.status,
+                    statusCode: error.response.statusText,
+                    output: error.response.data
+                };
+
+                vm.c_cards.push(newcard);
+
+                console.log("ERROR: " + error);
+            });
+        },
         giveupGame: function giveupGame() {
             var vm = this;
             // abandona la partida 3 (ni se comprueba si es jugador de la partida o no)
@@ -13482,9 +13511,23 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _vm._m(1),
+          _c("li", { staticClass: "input-menu", attrs: { id: "b07" } }, [
+            _c(
+              "a",
+              {
+                attrs: { href: "#" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.userStatistics($event)
+                  }
+                }
+              },
+              [_vm._v("Estadísticas usuario")]
+            )
+          ]),
           _vm._v(" "),
-          _vm._m(2)
+          _vm._m(1)
         ])
       ]),
       _vm._v(" "),
@@ -13510,14 +13553,6 @@ var staticRenderFns = [
         },
         [_vm._v("Logout")]
       )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "input-menu", attrs: { id: "b07" } }, [
-      _c("a", [_vm._v("Estadísticas usuarios")])
     ])
   },
   function() {

@@ -86,3 +86,10 @@ Route::middleware('auth')->post('/user/avatar/remove', 'UserController@removeAva
 */
 
 Route::middleware('auth')->post('/game/{id}/giveup', 'GameController@giveup')->name('giveup');
+
+/*
+ |--------------------------
+ | Información del usuario
+ |--------------------------
+*/
+Route::middleware('auth')->get('/user/statistics', 'UserController@getStatistics')->name('statistics');

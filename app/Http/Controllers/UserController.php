@@ -69,13 +69,11 @@ class UserController extends Controller
     public function getStatistics(Request $request) {
     
         $user = Auth::user();
-        $userStatistics = $user->levels()->get(['language_code','level','won','lost']);;
+        $userStatistics = $user->levels()->get(['language_code','level','won','lost'])->toArray();
+        
+        if (count($userStatistics) == 0)
+            return response('User has no statistics', 409);
 
-        return response()->json([
-            'language_code' => $userStatistics.language_code,
-            'level' => $userStatistics.level,
-            'won' => $userStatistics.won,
-            'lost' => $userStatistics.lost
-        ], 200);
+        return response()->json($userStatistics, 200);
     }
 }
