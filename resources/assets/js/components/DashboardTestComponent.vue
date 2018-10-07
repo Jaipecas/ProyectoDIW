@@ -15,6 +15,7 @@
                 <li class="input-menu upper-margin" id="b05"><a v-on:click.prevent="removeAvatar" href="#">Elimina avatar</a></li>
                 <li class="input-menu" id="b06"><a v-on:click.prevent="giveupGame" href="#">Abandonar partida</a></li>
                 <li class="input-menu" id="b07"><a v-on:click.prevent="userStatistics" href="#">Estadísticas usuario</a></li>
+                <li class="input-menu" id="b08"><a v-on:click.prevent="removeUser" href="#">Eliminar cuenta</a></li>
                 <li class="input-menu" id="b08"><a>Últimas partidas en juego</a></li>
             </ul>
         </aside>
@@ -48,35 +49,20 @@ export default {
         onAvatarChange: function (image) {
             this.c_avatar = image;
         },
+        removeUser: function() {
+
+        },
         userStatistics: function() {
             var vm = this;
             // estadísiticas via AJAX
             return axios.get('/user/statistics')
                 .then(function (response) {
-                    
                     console.log("Estadísticas:", response);
-                    var newcard = {
-                        order: vm.c_cards.length + 1,
-                        type: 'User Statistics',
-                        errorCode: response.status,
-                        statusCode: response.statusText,
-                        output: response.data
-                    }
-
-                    vm.c_cards.push(newcard);
+                    createCard('User Statistics', response.status, response.statusText, response.data);
                 })
                 .catch(function (error) {
-                    var newcard = {
-                        order: vm.c_cards.length + 1,
-                        type: 'User Statistics',
-                        errorCode: error.response.status,
-                        statusCode: error.response.statusText,
-                        output: error.response.data
-                    }
-
-                    vm.c_cards.push(newcard);
-
                     console.log("ERROR: " + error);
+                    createCard('User Statistics', error.response.status, error.response.statusText, error.response.data);
                 });
         },
         giveupGame: function() {
@@ -84,30 +70,12 @@ export default {
             // abandona la partida 3 (ni se comprueba si es jugador de la partida o no)
             return axios.post('/game/12/giveup')
                 .then(function (response) {
-                    
                     console.log("Abandonando partida:", response);
-                    var newcard = {
-                        order: vm.c_cards.length + 1,
-                        type: 'Giveup Game',
-                        errorCode: response.status,
-                        statusCode: response.statusText,
-                        output: response.data
-                    }
-
-                    vm.c_cards.push(newcard);
+                    createCard('Giveup Game', response.status, response.statusText, response.data);
                 })
                 .catch(function (error) {
-                    var newcard = {
-                        order: vm.c_cards.length + 1,
-                        type: 'Giveup Game',
-                        errorCode: error.response.status,
-                        statusCode: error.response.statusText,
-                        output: error.response.data
-                    }
-
-                    vm.c_cards.push(newcard);
-
                     console.log("ERROR: " + error);
+                    createCard('Giveup Game', error.response.status, error.response.statusText, error.response.data);
                 });
         },
         removeAvatar: function(event) {
@@ -116,31 +84,24 @@ export default {
             var vm = this;
             return axios.post('/user/avatar/remove')
                 .then(function (response) {
-                    
                     console.log("Elimina avatar respuesta:", response);
-                    var newcard = {
-                        order: vm.c_cards.length + 1,
-                        type: 'Remove Avatar',
-                        errorCode: response.status,
-                        statusCode: response.statusText,
-                        output: response.data
-                    }
-
-                    vm.c_cards.push(newcard);
+                    createCard('Remove Avatar', response.status, response.statusText, response.data);
                 })
                 .catch(function (error) {
-                    var newcard = {
-                        order: vm.c_cards.length + 1,
-                        type: 'Remove Avatar',
-                        errorCode: error.response.status,
-                        statusCode: error.response.statusText,
-                        output: error.response.data
-                    }
-
-                    vm.c_cards.push(newcard);
-
                     console.log("ERROR: " + error);
+                    createCard('Giveup Game', error.response.status, error.response.statusText, error.response.data);
                 });
+        },
+        createCard: function(title, status, statusText, data) {
+            var newcard = {
+                order: this.c_cards.length + 1,
+                type: title,
+                errorCode: status,
+                statusCode: statusText,
+                output: data
+            }
+
+            this.c_cards.push(newcard);
         }
     },
     created() {
