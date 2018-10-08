@@ -93,3 +93,4 @@ Route::middleware('auth')->post('/game/{id}/giveup', 'GameController@giveup')->n
  |--------------------------
 */
 Route::middleware('auth')->get('/user/statistics', 'UserController@getStatistics')->name('statistics');
+Route::middleware('auth')->delete('/user/remove', 'UserController@destroy')->name('remove_user');

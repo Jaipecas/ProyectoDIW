@@ -76,4 +76,27 @@ class UserController extends Controller
 
         return response()->json($userStatistics, 200);
     }
+
+    /**
+     * Elimina al usuario de la base de datos.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy()
+    {
+        $user = User::find(Auth::user()->id);
+        // hay que salir antes de borrar la cuenta
+        Auth::logout();
+
+        if ($user->delete()) {
+            // el with asigna a una variable flash (sólo este renderizado) un valor
+            //return redirect()->route('login')->with('status', '¡La cuenta ha sido eliminada con éxito!');
+            // no puedo redireccionar desde una llamada en AJAX
+            // respondo OK y desde el cliente redirijo
+            return response('User removed', 200);
+        }
+
+        return response('User can\'t be removed', 500);
+    }
 }

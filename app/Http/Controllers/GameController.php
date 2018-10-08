@@ -47,11 +47,11 @@ class GameController extends Controller
         $level_2 = Level::firstOrCreate(['user_id' => $player2->first()->id],['language_code' => $game->language]);
     
         if ($game->state == 'win_p2') {
-            $level_2->won = $level_2->won + 1;
-            $level_1->lost = $level_1->lost + 1;
+            $level_2->increment('won');
+            $level_1->increment('lost');
         } else {
-            $level_1->won = $level_1->won + 1;
-            $level_2->lost = $level_2->lost + 1;
+            $level_1->increment('won');
+            $level_2->increment('lost');
         }
 
         $level_1->save();

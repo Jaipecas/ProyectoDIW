@@ -50,7 +50,26 @@ export default {
             this.c_avatar = image;
         },
         removeUser: function() {
-
+            var vm = this;
+            // estadísiticas via AJAX
+            return axios.delete('/user/remove')
+                .then(function (response) {
+                    console.log("Eliminar cuenta:", response);
+                    vm.createCard('Remove User', response.status, response.statusText, response.data);
+                })
+                .catch(function (error) {
+                    console.log("ERROR: " + error);
+                    vm.createCard('Remove User', error.response.status, error.response.statusText, error.response.data);
+                })
+                .then(function() {
+                    // siempre se ejecuta
+                    // uso replace para que la página actual desaparezca del historial
+                    // y evitar la tecla back
+                    setTimeout(function () {
+                        window.location.replace('/scrabble/login');
+                    }, 2000);
+                    
+                });
         },
         userStatistics: function() {
             var vm = this;
@@ -58,11 +77,11 @@ export default {
             return axios.get('/user/statistics')
                 .then(function (response) {
                     console.log("Estadísticas:", response);
-                    createCard('User Statistics', response.status, response.statusText, response.data);
+                    vm.createCard('User Statistics', response.status, response.statusText, response.data);
                 })
                 .catch(function (error) {
                     console.log("ERROR: " + error);
-                    createCard('User Statistics', error.response.status, error.response.statusText, error.response.data);
+                    vm.createCard('User Statistics', error.response.status, error.response.statusText, error.response.data);
                 });
         },
         giveupGame: function() {
@@ -71,11 +90,11 @@ export default {
             return axios.post('/game/12/giveup')
                 .then(function (response) {
                     console.log("Abandonando partida:", response);
-                    createCard('Giveup Game', response.status, response.statusText, response.data);
+                    vm.createCard('Giveup Game', response.status, response.statusText, response.data);
                 })
                 .catch(function (error) {
                     console.log("ERROR: " + error);
-                    createCard('Giveup Game', error.response.status, error.response.statusText, error.response.data);
+                    vm.createCard('Giveup Game', error.response.status, error.response.statusText, error.response.data);
                 });
         },
         removeAvatar: function(event) {
@@ -85,11 +104,11 @@ export default {
             return axios.post('/user/avatar/remove')
                 .then(function (response) {
                     console.log("Elimina avatar respuesta:", response);
-                    createCard('Remove Avatar', response.status, response.statusText, response.data);
+                    vm.createCard('Remove Avatar', response.status, response.statusText, response.data);
                 })
                 .catch(function (error) {
                     console.log("ERROR: " + error);
-                    createCard('Giveup Game', error.response.status, error.response.statusText, error.response.data);
+                    vm.createCard('Giveup Game', error.response.status, error.response.statusText, error.response.data);
                 });
         },
         createCard: function(title, status, statusText, data) {

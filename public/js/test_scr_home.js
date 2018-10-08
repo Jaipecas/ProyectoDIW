@@ -12154,6 +12154,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -12181,62 +12182,44 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         onAvatarChange: function onAvatarChange(image) {
             this.c_avatar = image;
         },
+        removeUser: function removeUser() {
+            var vm = this;
+            // estadísiticas via AJAX
+            return axios.delete('/user/remove').then(function (response) {
+                console.log("Eliminar cuenta:", response);
+                vm.createCard('Remove User', response.status, response.statusText, response.data);
+            }).catch(function (error) {
+                console.log("ERROR: " + error);
+                vm.createCard('Remove User', error.response.status, error.response.statusText, error.response.data);
+            }).then(function () {
+                // siempre se ejecuta
+                // uso replace para que la página actual desaparezca del historial
+                // y evitar la tecla back
+                setTimeout(function () {
+                    window.location.replace('/scrabble/login');
+                }, 2000);
+            });
+        },
         userStatistics: function userStatistics() {
             var vm = this;
             // estadísiticas via AJAX
             return axios.get('/user/statistics').then(function (response) {
-
                 console.log("Estadísticas:", response);
-                var newcard = {
-                    order: vm.c_cards.length + 1,
-                    type: 'User Statistics',
-                    errorCode: response.status,
-                    statusCode: response.statusText,
-                    output: response.data
-                };
-
-                vm.c_cards.push(newcard);
+                vm.createCard('User Statistics', response.status, response.statusText, response.data);
             }).catch(function (error) {
-                var newcard = {
-                    order: vm.c_cards.length + 1,
-                    type: 'User Statistics',
-                    errorCode: error.response.status,
-                    statusCode: error.response.statusText,
-                    output: error.response.data
-                };
-
-                vm.c_cards.push(newcard);
-
                 console.log("ERROR: " + error);
+                vm.createCard('User Statistics', error.response.status, error.response.statusText, error.response.data);
             });
         },
         giveupGame: function giveupGame() {
             var vm = this;
             // abandona la partida 3 (ni se comprueba si es jugador de la partida o no)
             return axios.post('/game/12/giveup').then(function (response) {
-
                 console.log("Abandonando partida:", response);
-                var newcard = {
-                    order: vm.c_cards.length + 1,
-                    type: 'Giveup Game',
-                    errorCode: response.status,
-                    statusCode: response.statusText,
-                    output: response.data
-                };
-
-                vm.c_cards.push(newcard);
+                vm.createCard('Giveup Game', response.status, response.statusText, response.data);
             }).catch(function (error) {
-                var newcard = {
-                    order: vm.c_cards.length + 1,
-                    type: 'Giveup Game',
-                    errorCode: error.response.status,
-                    statusCode: error.response.statusText,
-                    output: error.response.data
-                };
-
-                vm.c_cards.push(newcard);
-
                 console.log("ERROR: " + error);
+                vm.createCard('Giveup Game', error.response.status, error.response.statusText, error.response.data);
             });
         },
         removeAvatar: function removeAvatar(event) {
@@ -12244,30 +12227,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.c_avatar = null;
             var vm = this;
             return axios.post('/user/avatar/remove').then(function (response) {
-
                 console.log("Elimina avatar respuesta:", response);
-                var newcard = {
-                    order: vm.c_cards.length + 1,
-                    type: 'Remove Avatar',
-                    errorCode: response.status,
-                    statusCode: response.statusText,
-                    output: response.data
-                };
-
-                vm.c_cards.push(newcard);
+                vm.createCard('Remove Avatar', response.status, response.statusText, response.data);
             }).catch(function (error) {
-                var newcard = {
-                    order: vm.c_cards.length + 1,
-                    type: 'Remove Avatar',
-                    errorCode: error.response.status,
-                    statusCode: error.response.statusText,
-                    output: error.response.data
-                };
-
-                vm.c_cards.push(newcard);
-
                 console.log("ERROR: " + error);
+                vm.createCard('Giveup Game', error.response.status, error.response.statusText, error.response.data);
             });
+        },
+        createCard: function createCard(title, status, statusText, data) {
+            var newcard = {
+                order: this.c_cards.length + 1,
+                type: title,
+                errorCode: status,
+                statusCode: statusText,
+                output: data
+            };
+
+            this.c_cards.push(newcard);
         }
     },
     created: function created() {
@@ -13524,6 +13500,22 @@ var render = function() {
                 }
               },
               [_vm._v("Estadísticas usuario")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "input-menu", attrs: { id: "b08" } }, [
+            _c(
+              "a",
+              {
+                attrs: { href: "#" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.removeUser($event)
+                  }
+                }
+              },
+              [_vm._v("Eliminar cuenta")]
             )
           ]),
           _vm._v(" "),
