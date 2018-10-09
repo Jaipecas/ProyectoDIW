@@ -58,3 +58,37 @@ Devuelve información resumida sobre las {number} partidas más recientes.
 | player2.country        | País del jugador 2 |
 
 </center>
+
+**GET  /api/info/tanking/{lang}/{number}**
+
+Devuelve el ranking de los {number} mejores jugadores en {lang}.
+
+- *Alias*: ranking.
+- *Parámetros*: 
+
+<center>
+
+| Parámetro     |  Tipo       |  Descripción          |
+| :----------:  | :-------:   | :------------         |
+| number        | Opcional    | Número máximo de jugadores devueltas. Por defecto: 3  |  
+| lang          | Obligatorio | Idioma para el que se solicita el ranking  |  
+
+</center>
+
+- *Requerimientos*: Ninguno.
+- *Respuesta*: JSON con información sobre el ranking.
+
+<center>
+
+| Parámetro              |  Descripción                     |
+| :----------:           | :------------                    |
+| language_code          | Idioma en el que se tiene ese ranking |
+| won                    | Partidas ganadas                 |
+| lost                   | Partidas perdidas                |
+| ratio                  | Tanto por 1 de porcentaje de victorias. |
+| user.id                | Identificador del jugador        |
+| user.name              | Nombre del jugador               |
+| user.avatar            | URL del avatar del jugador       |
+| user.country           | País del jugador                 |
+
+</center>
