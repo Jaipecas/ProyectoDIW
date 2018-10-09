@@ -1,5 +1,27 @@
 # Listado de funciones API REST
 
+## game
+
+**POST /game/{id}/giveup**
+
+Abandona la partida con identificador {id}
+
+- *Alias*: giveup.
+- *Parámetros*: 
+
+<center>
+
+| Parámetro     |  Tipo       |  Descripción          |
+| :----------:  | :-------:   | :------------         |
+| id            | Obligatorio | Identificador de la partida a abandonar   |  
+
+</center>
+
+- *Requerimientos*: Usuario autenticado.
+- *Respuesta*: Si no se tienen permisos para acceder a la partida, 403 'Access denied to the game'; si la partida ya está finalizada, 409 Game already finished. En caso contrario 200 'Game left'.
+
+## user
+
 **POST /upload/avatar**
 
 Sube una imagen como avatar del usuario.
@@ -26,23 +48,16 @@ Elimina el avatar del usuario, quita el que hubiera son poner otro.
 - *Requerimientos*: Usuario autenticado.
 - *Respuesta*: Si el fichero del avatar no se ha encontrado, 409 'File does not exists'. En caso contrario 200 'Avatar removed'.
 
-**POST /game/{id}/giveup**
+**GET /user/remove**
 
-Abandona la partida con identificador {id}
+Elimina la cuenta de usuario.
 
-- *Alias*: giveup.
-- *Parámetros*: 
-
-<center>
-
-| Parámetro     |  Tipo       |  Descripción          |
-| :----------:  | :-------:   | :------------         |
-| id            | Obligatorio | Identificador de la partida a abandonar   |  
-
-</center>
-
+- *Alias*: remove_user.
+- *Parámetros*: Ninguno.
 - *Requerimientos*: Usuario autenticado.
-- *Respuesta*: Si no se tienen permisos para acceder a la partida, 403 'Access denied to the game'; si la partida ya está finalizada, 409 Game already finished. En caso contrario 200 'Game left'.
+- *Respuesta*: Si el fichero del avatar no se ha encontrado, 500 'User can\'t be removed'. En caso contrario 200 'User removed'. 
+
+> Atencion: es responsabilidad de cliente redirigir al usuario fuera de la página que ha solicitadola eliminación del usuario.
 
 **GET /user/statistics**
 
