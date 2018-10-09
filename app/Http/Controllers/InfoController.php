@@ -42,7 +42,7 @@ class InfoController extends Controller
                     'languages' => $languages,
                     'number' => count($languages)
                 ]
-            ], 200, $this->$header, JSON_UNESCAPED_UNICODE);
+            ], 200, $this->header, JSON_UNESCAPED_UNICODE);
     }
 
     // Últimas partidas jugadas

@@ -12699,11 +12699,22 @@ var register = new Vue({
             var vm = this;
             // Rankig de los tres mejores usuario en español
             return axios.get('/api/info/ranking/es/3').then(function (response) {
-                console.log("Estadísticas:", response);
+                console.log("Ranking:", response);
                 vm.createCard('Ranking', response.status, response.statusText, response.data);
             }).catch(function (error) {
                 console.log("ERROR: " + error);
                 vm.createCard('Ranking', error.response.status, error.response.statusText, error.response.data);
+            });
+        },
+        generalInfo: function generalInfo() {
+            var vm = this;
+            // Información del sistema
+            return axios.get('/api/info/general').then(function (response) {
+                console.log("System Info:", response);
+                vm.createCard('System Info', response.status, response.statusText, response.data);
+            }).catch(function (error) {
+                console.log("ERROR: " + error);
+                vm.createCard('System Info', error.response.status, error.response.statusText, error.response.data);
             });
         },
         createCard: function createCard(title, status, statusText, data) {
