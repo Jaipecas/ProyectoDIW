@@ -29,6 +29,7 @@ Route::group([
         'as' => 'info' // genera rutas con el nombre prefijado por info.
     ], function() {
         Route::get('general', 'InfoController@general')->name('general'); 
+        Route::get('currentgames/{number?}', 'InfoController@currentGames')->name('current_games'); 
         //Route::get('system', 'InfoController@system')->name('system');;
 });
 

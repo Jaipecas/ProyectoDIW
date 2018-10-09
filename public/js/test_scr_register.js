@@ -284,75 +284,7 @@ process.umask = function() { return 0; };
 
 /***/ }),
 
-/***/ 47:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(48);
-
-
-/***/ }),
-
-/***/ 48:
-/***/ (function(module, exports, __webpack_require__) {
-
-/* funciones de ayuda para hacer pruebas */
-
-// Post a path con los parámetros indicados
-// Basado en: https://stackoverflow.com/questions/133925/javascript-post-request-like-a-form-submit#5533477 
-// migrado a Vanilla JS
-function post(path, parameters) {
-    var form = document.createElement("form");
-    form.setAttribute('method', "post");
-    form.setAttribute('action', path);
-
-    for (var key in parameters) {
-        var field = document.createElement("input"); //input element, text
-        field.setAttribute('type', "hidden");
-        field.setAttribute('name', key);
-        field.setAttribute('value', parameters[key]);
-
-        form.appendChild(field);
-    };
-
-    document.body.appendChild(form);
-    form.submit();
-}
-
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
-window.Vue = __webpack_require__(6);
-
-var url = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '');
-
-var register = new Vue({
-    el: '#app',
-    data: {},
-    methods: {
-        automatic_register: function automatic_register(event) {
-            event.preventDefault();
-
-            var user = { name: "user4", country: "ES",
-                email: "user4@c.com", password: "12345",
-                password_confirmation: "12345" };
-            post(url + "/scrabble/register", user);
-        },
-        wrong_register: function wrong_register(event) {
-            event.preventDefault();
-
-            var user = { name: "user4", country: "ES",
-                email: "user4@c.com", password: "12" };
-            post(url + "/scrabble/register", user);
-        }
-    }
-});
-
-/***/ }),
-
-/***/ 6:
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11315,11 +11247,11 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(7).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(4).setImmediate))
 
 /***/ }),
 
-/***/ 7:
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -11375,7 +11307,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(8);
+__webpack_require__(5);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -11390,7 +11322,75 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
-/***/ 8:
+/***/ 47:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(48);
+
+
+/***/ }),
+
+/***/ 48:
+/***/ (function(module, exports, __webpack_require__) {
+
+/* funciones de ayuda para hacer pruebas */
+
+// Post a path con los parámetros indicados
+// Basado en: https://stackoverflow.com/questions/133925/javascript-post-request-like-a-form-submit#5533477 
+// migrado a Vanilla JS
+function post(path, parameters) {
+    var form = document.createElement("form");
+    form.setAttribute('method', "post");
+    form.setAttribute('action', path);
+
+    for (var key in parameters) {
+        var field = document.createElement("input"); //input element, text
+        field.setAttribute('type', "hidden");
+        field.setAttribute('name', key);
+        field.setAttribute('value', parameters[key]);
+
+        form.appendChild(field);
+    };
+
+    document.body.appendChild(form);
+    form.submit();
+}
+
+/**
+ * First we will load all of this project's JavaScript dependencies which
+ * includes Vue and other libraries. It is a great starting point when
+ * building robust, powerful web applications using Vue and Laravel.
+ */
+
+window.Vue = __webpack_require__(3);
+
+var url = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '');
+
+var register = new Vue({
+    el: '#app',
+    data: {},
+    methods: {
+        automatic_register: function automatic_register(event) {
+            event.preventDefault();
+
+            var user = { name: "user4", country: "ES",
+                email: "user4@c.com", password: "12345",
+                password_confirmation: "12345" };
+            post(url + "/scrabble/register", user);
+        },
+        wrong_register: function wrong_register(event) {
+            event.preventDefault();
+
+            var user = { name: "user4", country: "ES",
+                email: "user4@c.com", password: "12" };
+            post(url + "/scrabble/register", user);
+        }
+    }
+});
+
+/***/ }),
+
+/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {

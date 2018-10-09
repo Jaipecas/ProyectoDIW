@@ -8,6 +8,7 @@
     "/css/test_scr_dashboard.css": "/css/test_scr_dashboard.css",
     "/js/test_scr_register.js": "/js/test_scr_register.js",
     "/js/test_scr_login.js": "/js/test_scr_login.js",
+    "/js/test_scr_index.js": "/js/test_scr_index.js",
     "/resources/assets/js/tmp/test_scr_register.js": "/resources/assets/js/tmp/test_scr_register.js",
     "/resources/assets/js/tmp/test_scr_login.js": "/resources/assets/js/tmp/test_scr_login.js"
 }

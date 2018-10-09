@@ -24,7 +24,8 @@ mix.js('resources/assets/js/app.js', 'public/js')         // compilación global
         'resources/assets/js/test_scr_login.js'
         ], 'resources/assets/js/tmp/test_scr_login.js')
     .js('resources/assets/js/tmp/test_scr_login.js', 'public/js')   // compilación de login de usuario 
-    .js('resources/assets/js/test_scr_home.js', 'public/js');
+    .js('resources/assets/js/test_scr_home.js', 'public/js')
+    .js('resources/assets/js/test_scr_index.js', 'public/js');
     
 // Sass
 mix.sass('resources/assets/sass/test.scss', 'public/css')

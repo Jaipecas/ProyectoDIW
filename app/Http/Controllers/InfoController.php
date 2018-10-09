@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Game;
 
 class InfoController extends Controller
 {
+    protected $header = array (
+        'Content-Type' => 'application/json; charset=UTF-8',
+        'charset' => 'utf-8'
+    );
+
     // Información general de la aplicación
     public function general() {
-
-        $header = array (
-            'Content-Type' => 'application/json; charset=UTF-8',
-            'charset' => 'utf-8'
-        );
 
         // numero de usuarios
         $numberUsers = \DB::table('users')
@@ -40,6 +41,28 @@ class InfoController extends Controller
                     'languages' => $languages,
                     'number' => count($languages)
                 ]
-            ], 200, $header, JSON_UNESCAPED_UNICODE);
+            ], 200, $this->$header, JSON_UNESCAPED_UNICODE);
+    }
+
+    // Información general de la aplicación
+    public function currentGames($number = 5) {
+
+        /* Devuelve todos las columnas de user */
+        /*$games = Game::with(['player1','player2'])->orderBy('updated_at')->take($number)
+                ->get(['language', 'state', 'player_1', 'player_1_score', 'player_2', 'player_2_score', 'updated_at'])->toArray();*/
+
+        /* Devuelve sólo las columnas de user que me interesan */
+        $games = Game::with(array(
+                        'player1' => function($query){
+                                        $query->select('id','name', 'avatar', 'country');
+                                     },
+                        'player2' => function($query){
+                                        $query->select('id','name', 'avatar', 'country');
+                                     }
+                        ))->orderBy('updated_at')->take($number)
+                        ->get(['language', 'state', 'player_1', 'player_1_score', 'player_2', 'player_2_score', 'updated_at'])->toArray();
+
+        return response()->json($games, 200, $this->header, JSON_UNESCAPED_UNICODE);
+        
     }
 }
