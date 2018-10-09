@@ -21,6 +21,7 @@ class Level extends Model
     /**
      * La selectRaw sobreescribe el select por defecto, de manera que no obtenemos 
      * todos los campos en la select. Sobreescribiendo newQuery los recuperamos 
+     * https://theokouzelis.com/php/laravel-eloquent-calculated-fields.html
      * */
     public function newQuery()
     {

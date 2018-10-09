@@ -68,13 +68,15 @@ class InfoController extends Controller
     }
 
     /* Ranking por idioma de los mejores jugadores */
-    public function ranking($lang, $number) {
+    public function ranking($lang, $number = 3) {
 
-        $ranking = Level::selectRaw('won/(won+lost) AS ratio')->with(array(
+        $ranking = Level::selectRaw('won/(won+lost) AS ratio')
+                        ->where('language_code', $lang)
+                        ->with(array(
                         'user' => function($query){
                                         $query->select('id','name', 'avatar', 'country');
-                                }
-                                ))->orderBy('ratio','desc')->take($number)->get();
+                                  }
+                        ))->orderBy('ratio','desc')->take($number)->get();
 
         return response()->json($ranking, 200, $this->header, JSON_UNESCAPED_UNICODE);
     }
