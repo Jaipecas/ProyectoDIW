@@ -17,4 +17,13 @@ class Level extends Model
     public function user() {
         return $this->belongsTo('App\User', 'user_id');
     }
+
+    /**
+     * La selectRaw sobreescribe el select por defecto, de manera que no obtenemos 
+     * todos los campos en la select. Sobreescribiendo newQuery los recuperamos 
+     * */
+    public function newQuery()
+    {
+        return parent::newQuery()->select('levels.*');
+    }
 }

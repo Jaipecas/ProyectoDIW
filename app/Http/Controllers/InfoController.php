@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Game;
+use App\Level;
 
 class InfoController extends Controller
 {
@@ -44,7 +45,7 @@ class InfoController extends Controller
             ], 200, $this->$header, JSON_UNESCAPED_UNICODE);
     }
 
-    // Información general de la aplicación
+    // Últimas partidas jugadas
     public function currentGames($number = 5) {
 
         /* Devuelve todos las columnas de user */
@@ -64,5 +65,17 @@ class InfoController extends Controller
 
         return response()->json($games, 200, $this->header, JSON_UNESCAPED_UNICODE);
         
+    }
+
+    /* Ranking por idioma de los mejores jugadores */
+    public function ranking($lang, $number) {
+
+        $ranking = Level::selectRaw('won/(won+lost) AS ratio')->with(array(
+                        'user' => function($query){
+                                        $query->select('id','name', 'avatar', 'country');
+                                }
+                                ))->orderBy('ratio','desc')->take($number)->get();
+
+        return response()->json($ranking, 200, $this->header, JSON_UNESCAPED_UNICODE);
     }
 }
