@@ -92,5 +92,6 @@ Route::middleware('auth')->post('/game/{id}/giveup', 'GameController@giveup')->n
  | Información del usuario
  |--------------------------
 */
-Route::middleware('auth')->get('/user/statistics', 'UserController@getStatistics')->name('statistics');
+Route::middleware('auth')->get('/user/statistics', 'UserController@getStatistics')->name('user_statistics');
+Route::middleware('auth')->get('/user/games/{gamesperpage?}', 'UserController@games')->name('user_games');
 Route::middleware('auth')->delete('/user/remove', 'UserController@destroy')->name('remove_user');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Game;
 
 class UserController extends Controller
 {
@@ -99,4 +100,29 @@ class UserController extends Controller
 
         return response('User can\'t be removed', 500);
     }
+
+    /**
+     * Obtiene las partidas del usuario.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function games($gamesperpage = 4, Request $request) {
+        $user = Auth::user();
+
+        $games = Game::select('updated_at','language','state','player_1','player_1_score','player_2','player_2_score')
+                    ->where('player_1', '=', $user->id)
+                    ->orWhere('player_2', '=', $user->id)
+                    ->with(array(
+                        'player1' => function($query){
+                                        $query->select('id','name', 'avatar', 'country');
+                                     },
+                        'player2' => function($query){
+                                        $query->select('id','name', 'avatar', 'country');
+                                     }
+                        ))
+                    ->orderBy('updated_at','desc')->paginate($gamesperpage);
+
+        return $games;
+    }  
 }

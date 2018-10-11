@@ -12,11 +12,12 @@
                 <li class="input-menu" id="b04">
                     <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                 </li>
-                <li class="input-menu upper-margin" id="b05"><a v-on:click.prevent="removeAvatar" href="#">Elimina avatar</a></li>
-                <li class="input-menu" id="b06"><a v-on:click.prevent="giveupGame" href="#">Abandonar partida</a></li>
-                <li class="input-menu" id="b07"><a v-on:click.prevent="userStatistics" href="#">Estadísticas usuario</a></li>
-                <li class="input-menu" id="b08"><a v-on:click.prevent="removeUser" href="#">Eliminar cuenta</a></li>
-                <li class="input-menu" id="b08"><a>Últimas partidas en juego</a></li>
+                <li class="input-menu upper-margin"><a v-on:click.prevent="removeAvatar" href="#">Elimina avatar</a></li>
+                <li class="input-menu"><a v-on:click.prevent="giveupGame" href="#">Abandonar partida</a></li>
+                <li class="input-menu"><a v-on:click.prevent="userStatistics" href="#">Estadísticas usuario</a></li>
+                <li class="input-menu"><a v-on:click.prevent="removeUser" href="#">Eliminar cuenta</a></li>
+                <li class="input-menu"><a v-on:click.prevent="userGames" href="#">Partidas del usuario (pag 1)</a></li>
+                <li class="input-menu"><a v-on:click.prevent="userGamesPag2" href="#">Partidas del usuario (pag 2)</a></li>
             </ul>
         </aside>
         <card-container-component :cards="c_cards"></card-container-component> 
@@ -48,6 +49,32 @@ export default {
     methods: {
         onAvatarChange: function (image) {
             this.c_avatar = image;
+        },
+        userGames: function() {
+            var vm = this;
+            // partidas del usuario paginadas, 3 por página
+            return axios.get('/user/games/3')
+                .then(function (response) {
+                    console.log("Partidas de usuario:", response);
+                    vm.createCard('User Games', response.status, response.statusText, response.data);
+                })
+                .catch(function (error) {
+                    console.log("ERROR: " + error);
+                    vm.createCard('User Games', error.response.status, error.response.statusText, error.response.data);
+                });   
+        },
+        userGamesPag2: function() {
+            var vm = this;
+            // partidas del usuario paginadas, 3 por página
+            return axios.get('/user/games/3?page=2')
+                .then(function (response) {
+                    console.log("Partidas de usuario:", response);
+                    vm.createCard('User Games', response.status, response.statusText, response.data);
+                })
+                .catch(function (error) {
+                    console.log("ERROR: " + error);
+                    vm.createCard('User Games', error.response.status, error.response.statusText, error.response.data);
+                });   
         },
         removeUser: function() {
             var vm = this;
@@ -86,7 +113,7 @@ export default {
         },
         giveupGame: function() {
             var vm = this;
-            // abandona la partida 3 (ni se comprueba si es jugador de la partida o no)
+            // abandona la partida 3 (no se comprueba si es jugador de la partida o no)
             return axios.post('/game/12/giveup')
                 .then(function (response) {
                     console.log("Abandonando partida:", response);
