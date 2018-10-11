@@ -79,3 +79,51 @@ Devuelve las estadísticas del usuario en todos los idiomas que haya jugado.
 | data.lost             | Número            | Número de partidas perdidas en ese idioma |
     
 </center>
+
+**GET /user/games/{gamesperpage?}**
+
+Devuelve de manera paginada y de más reciente a más antigua, todaslas partidas jugadas por el jugador
+
+- *Alias*: ser_games.
+- *Parámetros*: 
+
+<center>
+
+| Parámetro     |  Tipo       |  Descripción          |
+| :----------:  | :-------:   | :------------         |
+| gamesperpage  | Opcional    | Número de partidas en cada página   |  
+
+</center>
+
+
+- *Requerimientos*: Usuario autenticado.
+- *Respuesta*: 
+
+<center>
+
+| Parámetro       | Tipo              | Descripción       |
+| :----------     | :-------          | :------------     |
+| current_page    | Número     | Página mostrada |
+| first_page_url  | Cadena     | URL de la primera página  |
+| last_page       | Número     | Número total del páginas |
+| last_page_url   | Cadena     | URL de la última página  |
+| next_page_url   | Cadena     | URL de la siguiente página  |
+| prev_page_url   | Cadena     | URL de la página anterior  |
+| data            | Array de JSON     | cada una de las partidas de esa página |
+| data.language   | Cadena            | Idioma de la partida       |
+| data.state      | Cadena            | unstarted (sin empezar),turn_p1 (turno jugador 1), turn_p2 (turno jugador 2),win_p1 (gana jugador 1),win_p2 (gana jugador 2) |
+| data.player_1_score  | Número        | Puntuación jugador 1      |
+| data.player_2_score  | Número        | Puntuación jugador 2      |
+| data.updated_at      | Fecha         | Hora ultima actualización |
+| data.player1.id      | Número        | Identificador del jugador 1 |
+| data.player1.name    | Cadena        | Nombre del jugador 1 |
+| data.player1.avatar  | Cadena        | URL del avatar del jugador 1 |
+| data.player1.country | Cadena        | País del jugador 1 |
+| data.player2.id      | Número        | Identificador del jugador 2 |
+| data.player2.name    | Cadena        | Nombre del jugador 2 |
+| data.player2.avatar  | Cadena        | URL del avatar del jugador 2 |
+| data.player2.country | Cadena        | País del jugador 2 |
+    
+</center>
+
+> Atencion: la llamada al resto de páginas se realiza utilizando las rutas indicadas en el JSON
