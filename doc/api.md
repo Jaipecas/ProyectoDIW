@@ -59,7 +59,7 @@ Devuelve información resumida sobre las {number} partidas más recientes.
 
 </center>
 
-**GET  /api/info/tanking/{lang}/{number}**
+**GET  /api/info/ranking/{lang}/{number}**
 
 Devuelve el ranking de los {number} mejores jugadores en {lang}.
 

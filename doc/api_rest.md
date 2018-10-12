@@ -1,5 +1,63 @@
 # Listado de funciones API REST
 
+## challenge
+
+**POST /challenge/request/{lang}**
+
+Solicita una partida aleatoria
+
+- *Alias*: create_challenge.
+- *Parámetros*: 
+
+<center>
+
+| Parámetro     |  Tipo       |  Descripción          |
+| :----------:  | :-------:   | :------------         |
+| lang          | Obligatorio | Idioma de la partida  |  
+
+</center>
+
+- *Requerimientos*: Usuario autenticado.
+- *Respuesta*: Si el idioma no está soportado 409 'Language not supported'. En caso contrario 200 'Challenge created'.
+
+**POST /challenge/request/{lang}/against/{id}**
+
+Solicita una partida contra el usario cuyo identificador es id
+
+- *Alias*: create_challenge_user.
+- *Parámetros*: 
+
+<center>
+
+| Parámetro     |  Tipo       |  Descripción          |
+| :----------:  | :-------:   | :------------         |
+| lang          | Obligatorio | Idioma de la partida  |  
+| id            | Obligatorio | Identificador del usuario que se quiere retar  |  
+
+</center>
+
+- *Requerimientos*: Usuario autenticado.
+- *Respuesta*: Si el idioma no está soportado 409 'Language not supported'; si el id del contrincante no se localiza 404, 'Opposing player not found'. En caso contrario 200 'Challenge created'.
+
+**POST /challenge/request/{lang}/level/{level}**
+
+Solicita una partida contra un usuario cuyo nivel sea level
+
+- *Alias*: create_challenge_level.
+- *Parámetros*: 
+
+<center>
+
+| Parámetro     |  Tipo       |  Descripción          |
+| :----------:  | :-------:   | :------------         |
+| lang          | Obligatorio | Idioma de la partida  |  
+| level         | Obligatorio | Nivel al que se quiere jugar  |  
+
+</center>
+
+- *Requerimientos*: Usuario autenticado.
+- *Respuesta*: Si el idioma no está soportado 409 'Language not supported'; si el nivel es incorrecto 404, 'Level out of bounds'. En caso contrario 200 'Challenge created'.
+
 ## game
 
 **POST /game/{id}/giveup**
