@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\User;
 use App\Game;
 use App\Level;
@@ -21,7 +22,12 @@ class GameController extends Controller
     {
         $user = Auth::user();
 
-        $game = Game::findOrFail($id);
+        try {
+            $game = Game::findOrFail($id);
+        }
+        catch(ModelNotFoundException $err){
+            return response('Game not found', 404);
+        }
 
         $player1 = $game->player1()->get(['id']);
         $player2 = $game->player2()->get(['id']);

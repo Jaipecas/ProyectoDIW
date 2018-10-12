@@ -70,6 +70,12 @@ class InfoController extends Controller
     /* Ranking por idioma de los mejores jugadores */
     public function ranking($lang, $number = 3) {
 
+        // compruebo si el lenguaje esta soportado
+        $sup_langs = \DB::table('supported_languages')->get();
+
+        if (!$sup_langs->contains('language', $lang))
+            return response('Language not supported', 409);
+
         $ranking = Level::selectRaw('won/(won+lost) AS ratio')
                         ->where('language_code', $lang)
                         ->with(array(
