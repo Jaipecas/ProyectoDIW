@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Notification;
 
 class NotificationController extends Controller
@@ -23,7 +24,13 @@ class NotificationController extends Controller
         if ($state != 'delete' && $state != 'unread' && $state != 'read')
             return response('State not valid', 406);
 
-        $notification = Notification::findOrFail($id);
+        // compruebo si el rival existe
+        try {
+            $notification = Notification::findOrFail($id);
+        }
+        catch(ModelNotFoundException $err){
+            return response('Notification not found', 404);
+        }
         $notification_owner = $notification->user()->get(['id']);
         
         if ($notification_owner->first()->id != $user->id)
