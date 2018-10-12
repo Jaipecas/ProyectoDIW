@@ -12793,6 +12793,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -12819,6 +12821,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         onAvatarChange: function onAvatarChange(image) {
             this.c_avatar = image;
+        },
+        requestChallenge: function requestChallenge() {
+            var vm = this;
+            // solicita una partida en español
+            return axios.post('/challenge/request/es/against/6764').then(function (response) {
+                console.log("Reto creado:", response);
+                vm.createCard('Request Challenge', response.status, response.statusText, response.data);
+            }).catch(function (error) {
+                console.log("ERROR: " + error);
+                vm.createCard('Request Challenge', error.response.status, error.response.statusText, error.response.data);
+            });
         },
         deleteNotification: function deleteNotification() {
             var vm = this;
@@ -13595,6 +13608,38 @@ var render = function() {
                 }
               },
               [_vm._v("Borrar notificación")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "input-menu" }, [
+            _c(
+              "a",
+              {
+                attrs: { href: "#" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.requestChallenge($event)
+                  }
+                }
+              },
+              [_vm._v("Solicitar partida")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "input-menu" }, [
+            _c(
+              "a",
+              {
+                attrs: { href: "#" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.updateProfile($event)
+                  }
+                }
+              },
+              [_vm._v("Modificar datos usuario")]
             )
           ])
         ])

@@ -19,6 +19,8 @@
                 <li class="input-menu"><a v-on:click.prevent="userGames" href="#">Partidas del usuario (pag 1)</a></li>
                 <li class="input-menu"><a v-on:click.prevent="userGamesPag2" href="#">Partidas del usuario (pag 2)</a></li>
                 <li class="input-menu upper-margin"><a v-on:click.prevent="deleteNotification" href="#">Borrar notificación</a></li>
+                <li class="input-menu"><a v-on:click.prevent="requestChallenge" href="#">Solicitar partida</a></li>
+                <li class="input-menu"><a v-on:click.prevent="updateProfile" href="#">Modificar datos usuario</a></li>
             </ul>
         </aside>
         <card-container-component :cards="c_cards"></card-container-component> 
@@ -50,6 +52,19 @@ export default {
     methods: {
         onAvatarChange: function (image) {
             this.c_avatar = image;
+        },
+        requestChallenge:function () {
+            var vm = this;
+            // solicita una partida en español
+            return axios.post('/challenge/request/es/against/6764')
+                .then(function (response) {
+                    console.log("Reto creado:", response);
+                    vm.createCard('Request Challenge', response.status, response.statusText, response.data);
+                })
+                .catch(function (error) {
+                    console.log("ERROR: " + error);
+                    vm.createCard('Request Challenge', error.response.status, error.response.statusText, error.response.data);
+                }); 
         },
         deleteNotification: function() {
             var vm = this;

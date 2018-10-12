@@ -87,6 +87,12 @@ Route::middleware('auth')->post('/user/avatar/remove', 'UserController@removeAva
 
 Route::middleware('auth')->post('/game/{id}/giveup', 'GameController@giveup')->name('giveup');
 
+
+Route::prefix('challenge')->group(function () {
+    Route::middleware('auth')->post('/request/{lang}', 'ChallengeController@create')->name('create_challenge');
+    Route::middleware('auth')->post('/request/{lang}/against/{id}', 'ChallengeController@createAgainst')->name('create_challenge_user');
+    Route::middleware('auth')->post('/request/{lang}/level/{level}', 'ChallengeController@createToLevel')->name('create_challenge_level');
+});
 /*
  |--------------------------
  | Información del usuario
