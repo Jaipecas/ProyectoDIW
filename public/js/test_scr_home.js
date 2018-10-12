@@ -12825,7 +12825,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         requestChallenge: function requestChallenge() {
             var vm = this;
             // solicita una partida en español
-            return axios.post('/challenge/request/es/against/6764').then(function (response) {
+            return axios.post('/challenge/request/es/level/40').then(function (response) {
                 console.log("Reto creado:", response);
                 vm.createCard('Request Challenge', response.status, response.statusText, response.data);
             }).catch(function (error) {

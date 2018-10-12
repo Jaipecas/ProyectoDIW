@@ -89,7 +89,8 @@ class ChallengeController extends Controller
         if (!$sup_langs->contains('language', $lang))
             return response('Language not supported', 409);
 
-        if ($level<1 || $level>5) 
+        $levels = array(-5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 10, 20, 30, 40, 50);
+        if (!in_array($level, $levels))
             return response('Level out of bounds', 409);
 
         $challenge = new Challenge;

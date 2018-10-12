@@ -51,7 +51,7 @@ Solicita una partida contra un usuario cuyo nivel sea level
 | Parámetro     |  Tipo       |  Descripción          |
 | :----------:  | :-------:   | :------------         |
 | lang          | Obligatorio | Idioma de la partida  |  
-| level         | Obligatorio | Nivel al que se quiere jugar  |  
+| level         | Obligatorio | Nivel al que se quiere jugar. Número (=), (-) <=, (*10) >=. Por ejemplo, -3 con niveles menores o iguales a 3 |  
 
 </center>
 
@@ -97,7 +97,7 @@ Modifica el estado de una notificación
 </center>
 
 - *Requerimientos*: Usuario autenticado y dueño de la notificación.
-- *Respuesta*: Si no se tienen permisos para acceder a la notificación, 403 'Access denied to notification'; si la notificación ya tiene el estado, 409 'Notification already' (state); si el estado no está soportado 406, 'State not valid'. En caso contrario 200 'Notification checked as' (state).
+- *Respuesta*: Si no se tienen permisos para acceder a la notificación, 403 'Access denied to notification'; si la notificación ya tiene el estado, 409 'Notification already' (state); si el estado no está soportado 406, 'State not valid'; si la notificación no se localiza 404, 'Notification player not found' En caso contrario 200 'Notification checked as' (state).
 
 ## user
 

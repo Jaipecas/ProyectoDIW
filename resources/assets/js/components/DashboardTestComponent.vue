@@ -56,7 +56,7 @@ export default {
         requestChallenge:function () {
             var vm = this;
             // solicita una partida en español
-            return axios.post('/challenge/request/es/against/6764')
+            return axios.post('/challenge/request/es/level/40')
                 .then(function (response) {
                     console.log("Reto creado:", response);
                     vm.createCard('Request Challenge', response.status, response.statusText, response.data);
