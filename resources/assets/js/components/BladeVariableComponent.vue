@@ -2,8 +2,8 @@
     <div class="output-variable"> 
         <div class="json" v-if="pvar instanceof Object">
             <table>
-                <td v-for="(value, key) in pvar" v-bind:key="value">
-                    <tr class="key">{{ key }} </tr>
+                <td v-for="(value, key) in pvar" v-bind:key="value.internal_id">
+                    <tr class="key">{{ key }}</tr>
                     <tr class="value">{{ value }}</tr>
                 </td>
             </table>

@@ -44,12 +44,19 @@ class HomeController extends Controller
                     ->groupBy('language')
                     ->get();*/
 
-        $userStatistics = $user->levels()->get(['language_code','level','won','lost']);;
+        $userStatistics = $user->levels()->get(['language_code','level','won','lost']);
+        $userStatisticsArray= [];
+        // añado una key para evitar problemas con el bucle for en vue (:key)
+        foreach ($userStatistics->toArray() as $value) {
+            $value["internal_id"] = $user->id."-".$value['language_code'];
+            array_push($userStatisticsArray, $value); 
+        }
+        
         $userNotifications = $user->unreadNotifications()->get(['id','type','notification','created_at','updated_at']);
         $currentGames = $user->gamesLive();
 
         return view('src_home', ['user' => $user, 
-                    'statistics' => $userStatistics, 
+                    'statistics' => $userStatisticsArray, 
                     'notifications' => $userNotifications,
                     'games' => $currentGames]);
     }

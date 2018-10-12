@@ -94,10 +94,11 @@ Devuelve las estadísticas del usuario en todos los idiomas que haya jugado.
 | Parámetro       | Tipo              | Descripción       |
 | :----------     | :-------          | :------------     |
 | data            | Array de JSON     | Array de n entradas, una por cada idioma al que haya jugado el usuario |
-| data.language_code    | Cadena            | Código del idioma para el que se refleja la estadística |
-| data.level            | Número            | Nivel del usuario en ese idioma |
-| data.won              | Número            | Número de partidas ganadas en ese idioma |
-| data.lost             | Número            | Número de partidas perdidas en ese idioma |
+| data.language_code    | Cadena      | Código del idioma para el que se refleja la estadística |
+| data.level            | Número      | Nivel del usuario en ese idioma |
+| data.won              | Número      | Número de partidas ganadas en ese idioma |
+| data.lost             | Número      | Número de partidas perdidas en ese idioma |
+| data.internal_id      | Cadena      | Identificador de cada entrada del array |
     
 </center>
 

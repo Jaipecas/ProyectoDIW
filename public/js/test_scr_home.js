@@ -12535,8 +12535,8 @@ var render = function() {
           _c(
             "table",
             _vm._l(_vm.pvar, function(value, key) {
-              return _c("td", { key: value }, [
-                _c("tr", { staticClass: "key" }, [_vm._v(_vm._s(key) + " ")]),
+              return _c("td", { key: value.internal_id }, [
+                _c("tr", { staticClass: "key" }, [_vm._v(_vm._s(key))]),
                 _vm._v(" "),
                 _c("tr", { staticClass: "value" }, [_vm._v(_vm._s(value))])
               ])
