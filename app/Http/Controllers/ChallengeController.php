@@ -73,10 +73,10 @@ class ChallengeController extends Controller
     }
 
      /**
-     * Crea un reto contra un usuario concreto
+     * Crea un reto contra un nivel concreto
      * 
      * @param  $lang idioma en el que se solicita la partida
-     * @param  $id identificador del usuario
+     * @param  $level nivel contra el que se desea jugar
      * @return \Illuminate\Http\Response
      * 
      */
@@ -90,7 +90,7 @@ class ChallengeController extends Controller
             return response('Language not supported', 409);
 
         if ($level<1 || $level>5) 
-            return response('level out of bounds', 409);
+            return response('Level out of bounds', 409);
 
         $challenge = new Challenge;
 
