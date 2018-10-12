@@ -9,7 +9,7 @@
         <aside class="sidebar">
             <ul>
                 
-                <li class="input-menu" id="b04">
+                <li class="input-menu">
                     <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                 </li>
                 <li class="input-menu upper-margin"><a v-on:click.prevent="removeAvatar" href="#">Elimina avatar</a></li>
@@ -18,6 +18,7 @@
                 <li class="input-menu"><a v-on:click.prevent="removeUser" href="#">Eliminar cuenta</a></li>
                 <li class="input-menu"><a v-on:click.prevent="userGames" href="#">Partidas del usuario (pag 1)</a></li>
                 <li class="input-menu"><a v-on:click.prevent="userGamesPag2" href="#">Partidas del usuario (pag 2)</a></li>
+                <li class="input-menu upper-margin"><a v-on:click.prevent="deleteNotification" href="#">Borrar notificación</a></li>
             </ul>
         </aside>
         <card-container-component :cards="c_cards"></card-container-component> 
@@ -49,6 +50,19 @@ export default {
     methods: {
         onAvatarChange: function (image) {
             this.c_avatar = image;
+        },
+        deleteNotification: function() {
+            var vm = this;
+            // pone a borrado el estado de una notificación (id=3)
+            return axios.put('/notification/9/update/delete')
+                .then(function (response) {
+                    console.log("Borrado notificación:", response);
+                    vm.createCard('Update Notification', response.status, response.statusText, response.data);
+                })
+                .catch(function (error) {
+                    console.log("ERROR: " + error);
+                    vm.createCard('Update Notification', error.response.status, error.response.statusText, error.response.data);
+                }); 
         },
         userGames: function() {
             var vm = this;

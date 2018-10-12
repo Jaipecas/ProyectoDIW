@@ -95,3 +95,4 @@ Route::middleware('auth')->post('/game/{id}/giveup', 'GameController@giveup')->n
 Route::middleware('auth')->get('/user/statistics', 'UserController@getStatistics')->name('user_statistics');
 Route::middleware('auth')->get('/user/games/{gamesperpage?}', 'UserController@games')->name('user_games');
 Route::middleware('auth')->delete('/user/remove', 'UserController@destroy')->name('remove_user');
+Route::middleware('auth')->put('/notification/{id}/update/{state}', 'NotificationController@update')->name('update_notification');

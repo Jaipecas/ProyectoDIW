@@ -12792,6 +12792,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -12818,6 +12819,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         onAvatarChange: function onAvatarChange(image) {
             this.c_avatar = image;
+        },
+        deleteNotification: function deleteNotification() {
+            var vm = this;
+            // pone a borrado el estado de una notificación (id=3)
+            return axios.put('/notification/9/update/delete').then(function (response) {
+                console.log("Borrado notificación:", response);
+                vm.createCard('Update Notification', response.status, response.statusText, response.data);
+            }).catch(function (error) {
+                console.log("ERROR: " + error);
+                vm.createCard('Update Notification', error.response.status, error.response.statusText, error.response.data);
+            });
         },
         userGames: function userGames() {
             var vm = this;
@@ -13568,6 +13580,22 @@ var render = function() {
               },
               [_vm._v("Partidas del usuario (pag 2)")]
             )
+          ]),
+          _vm._v(" "),
+          _c("li", { staticClass: "input-menu upper-margin" }, [
+            _c(
+              "a",
+              {
+                attrs: { href: "#" },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.deleteNotification($event)
+                  }
+                }
+              },
+              [_vm._v("Borrar notificación")]
+            )
           ])
         ])
       ]),
@@ -13582,7 +13610,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "input-menu", attrs: { id: "b04" } }, [
+    return _c("li", { staticClass: "input-menu" }, [
       _c(
         "a",
         {
