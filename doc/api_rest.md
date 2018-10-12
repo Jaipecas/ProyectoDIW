@@ -17,8 +17,29 @@ Abandona la partida con identificador {id}
 
 </center>
 
-- *Requerimientos*: Usuario autenticado.
+- *Requerimientos*: Usuario autenticado y participante en la partida.
 - *Respuesta*: Si no se tienen permisos para acceder a la partida, 403 'Access denied to the game'; si la partida ya está finalizada, 409 Game already finished. En caso contrario 200 'Game left'.
+
+## notifications
+
+**PUT /notification/{id}/update/{state}**
+
+Modifica el estado de una notificación
+
+- *Alias*: update_notification.
+- *Parámetros*: 
+
+<center>
+
+| Parámetro     |  Tipo       |  Descripción          |
+| :----------:  | :-------:   | :------------         |
+| id            | Obligatorio | Identificador de la notificación |  
+| state         | Obligatorio | Nuevo estado. Puede ser: delete, read, unread |  
+
+</center>
+
+- *Requerimientos*: Usuario autenticado y dueño de la notificación.
+- *Respuesta*: Si no se tienen permisos para acceder a la notificación, 403 'Access denied to notification'; si la notificación ya tiene el estado, 409 'Notification already' (state); si el estado no está soportado 406, 'State not valid'. En caso contrario 200 'Notification checked as' (state).
 
 ## user
 
@@ -127,3 +148,5 @@ Devuelve de manera paginada y de más reciente a más antigua, todaslas partidas
 </center>
 
 > Atencion: la llamada al resto de páginas se realiza utilizando las rutas indicadas en el JSON
+
+
