@@ -127,6 +127,77 @@ Elimina el avatar del usuario, quita el que hubiera son poner otro.
 - *Requerimientos*: Usuario autenticado.
 - *Respuesta*: Si el fichero del avatar no se ha encontrado, 409 'File does not exists'. En caso contrario 200 'Avatar removed'.
 
+**GET /user/games/{gamesperpage?}**
+
+Devuelve de manera paginada y de más reciente a más antigua, todaslas partidas jugadas por el jugador
+
+- *Alias*: ser_games.
+- *Parámetros*: 
+
+<center>
+
+| Parámetro     |  Tipo       |  Descripción          |
+| :----------:  | :-------:   | :------------         |
+| gamesperpage  | Opcional    | Número de partidas en cada página   |  
+
+</center>
+
+- *Requerimientos*: Usuario autenticado.
+- *Respuesta*: 
+
+<center>
+
+| Parámetro       | Tipo              | Descripción       |
+| :----------     | :-------          | :------------     |
+| current_page    | Número     | Página mostrada |
+| first_page_url  | Cadena     | URL de la primera página  |
+| last_page       | Número     | Número total del páginas |
+| last_page_url   | Cadena     | URL de la última página  |
+| next_page_url   | Cadena     | URL de la siguiente página  |
+| prev_page_url   | Cadena     | URL de la página anterior  |
+| data            | Array de JSON     | cada una de las partidas de esa página |
+| data.language   | Cadena            | Idioma de la partida       |
+| data.state      | Cadena            | unstarted (sin empezar),turn_p1 (turno jugador 1), turn_p2 (turno jugador 2),win_p1 (gana jugador 1),win_p2 (gana jugador 2) |
+| data.player_1_score  | Número        | Puntuación jugador 1      |
+| data.player_2_score  | Número        | Puntuación jugador 2      |
+| data.updated_at      | Fecha         | Hora ultima actualización |
+| data.player1.id      | Número        | Identificador del jugador 1 |
+| data.player1.name    | Cadena        | Nombre del jugador 1 |
+| data.player1.avatar  | Cadena        | URL del avatar del jugador 1 |
+| data.player1.country | Cadena        | País del jugador 1 |
+| data.player2.id      | Número        | Identificador del jugador 2 |
+| data.player2.name    | Cadena        | Nombre del jugador 2 |
+| data.player2.avatar  | Cadena        | URL del avatar del jugador 2 |
+| data.player2.country | Cadena        | País del jugador 2 |
+    
+</center>
+
+> Atencion: la llamada al resto de páginas se realiza utilizando las rutas indicadas en el JSON
+
+**PUT /user/update**
+
+Actuliza el perfil del usuario.
+
+- *Alias*: user_update.
+- *Parámetros*: JSON con los datos a actualizar.
+
+<center>
+
+| Parámetro                 |  Tipo       |  Descripción             |
+| :----------:              | :-------:   | :------------            |
+| name                      | Opcional    | Nuevo nombre             |  
+| country                   | Opcional    | Nuevo país               |  
+| favourite_language        | Opcional    | Nuevo lenguaje favorito  |  
+| new_password              | Opcional    | Nueva contraseña         |  
+| new_password_confirmation | Opcional    | Confirmación de nueva contraseña (obligatorio en el caso de indicar nueva contraseña) |  
+| old_password              | Opcional    | Contraseña anterior (obligatorio en el caso de indicar nueva contraseña)  |  
+</center>
+
+- *Requerimientos*: Usuario autenticado.
+- *Respuesta*: Si el usuario no se encuentra, 404 'User not found'; si el idioma no se encuentra, 409 'Language not supported'; si la contraseña es incorrecta, 401 'Password incorrect'; en caso de error de validación un mensaje 409 (conflict) con la descripción del error. En caso contrario 200 'User updated'. 
+
+- *Comentarios*: en caso de cambiar la contraseña el servidor hace un logout y por lo tanto conviene volver a la página de login.
+
 **GET /user/remove**
 
 Elimina la cuenta de usuario.
@@ -160,52 +231,5 @@ Devuelve las estadísticas del usuario en todos los idiomas que haya jugado.
     
 </center>
 
-**GET /user/games/{gamesperpage?}**
-
-Devuelve de manera paginada y de más reciente a más antigua, todaslas partidas jugadas por el jugador
-
-- *Alias*: ser_games.
-- *Parámetros*: 
-
-<center>
-
-| Parámetro     |  Tipo       |  Descripción          |
-| :----------:  | :-------:   | :------------         |
-| gamesperpage  | Opcional    | Número de partidas en cada página   |  
-
-</center>
-
-
-- *Requerimientos*: Usuario autenticado.
-- *Respuesta*: 
-
-<center>
-
-| Parámetro       | Tipo              | Descripción       |
-| :----------     | :-------          | :------------     |
-| current_page    | Número     | Página mostrada |
-| first_page_url  | Cadena     | URL de la primera página  |
-| last_page       | Número     | Número total del páginas |
-| last_page_url   | Cadena     | URL de la última página  |
-| next_page_url   | Cadena     | URL de la siguiente página  |
-| prev_page_url   | Cadena     | URL de la página anterior  |
-| data            | Array de JSON     | cada una de las partidas de esa página |
-| data.language   | Cadena            | Idioma de la partida       |
-| data.state      | Cadena            | unstarted (sin empezar),turn_p1 (turno jugador 1), turn_p2 (turno jugador 2),win_p1 (gana jugador 1),win_p2 (gana jugador 2) |
-| data.player_1_score  | Número        | Puntuación jugador 1      |
-| data.player_2_score  | Número        | Puntuación jugador 2      |
-| data.updated_at      | Fecha         | Hora ultima actualización |
-| data.player1.id      | Número        | Identificador del jugador 1 |
-| data.player1.name    | Cadena        | Nombre del jugador 1 |
-| data.player1.avatar  | Cadena        | URL del avatar del jugador 1 |
-| data.player1.country | Cadena        | País del jugador 1 |
-| data.player2.id      | Número        | Identificador del jugador 2 |
-| data.player2.name    | Cadena        | Nombre del jugador 2 |
-| data.player2.avatar  | Cadena        | URL del avatar del jugador 2 |
-| data.player2.country | Cadena        | País del jugador 2 |
-    
-</center>
-
-> Atencion: la llamada al resto de páginas se realiza utilizando las rutas indicadas en el JSON
 
 
