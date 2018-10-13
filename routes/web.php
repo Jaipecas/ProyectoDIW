@@ -87,7 +87,6 @@ Route::middleware('auth')->post('/user/avatar/remove', 'UserController@removeAva
 
 Route::middleware('auth')->post('/game/{id}/giveup', 'GameController@giveup')->name('giveup');
 
-
 Route::prefix('challenge')->group(function () {
     Route::middleware('auth')->post('/request/{lang}', 'ChallengeController@create')->name('create_challenge');
     Route::middleware('auth')->post('/request/{lang}/against/{id}', 'ChallengeController@createAgainst')->name('create_challenge_user');
@@ -102,3 +101,4 @@ Route::middleware('auth')->get('/user/statistics', 'UserController@getStatistics
 Route::middleware('auth')->get('/user/games/{gamesperpage?}', 'UserController@games')->name('user_games');
 Route::middleware('auth')->delete('/user/remove', 'UserController@destroy')->name('remove_user');
 Route::middleware('auth')->put('/notification/{id}/update/{state}', 'NotificationController@update')->name('update_notification');
+Route::middleware('auth')->put('/user/update', 'UserController@update')->name('user_update');

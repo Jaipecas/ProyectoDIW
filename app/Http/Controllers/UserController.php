@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Validator;
+use Hash;
 use App\User;
 use App\Game;
 
@@ -125,4 +128,75 @@ class UserController extends Controller
 
         return $games;
     }  
+
+    /**
+     * Actualiza los datos del perfil del usuario
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request)
+    {
+        try {
+            $profile = User::find(Auth::user()->id);
+        }
+        catch(ModelNotFoundException $err){
+            return response('User not found', 404);
+        }
+        
+        $newData = $request->json()->all();
+
+        // construyo un validador
+        $validator = Validator::make($newData, [
+            'name' => 'sometimes|string|max:255|min:4',
+            'country' => 'sometimes|string|max:2',
+            'favourite_language' => 'sometimes|string|max:2',
+            'new_password' => 'sometimes|string|min:5|confirmed',
+            'old_password' => 'required_with:new_password|string', // si esta new password tiene que estar old
+        ]);
+
+        // falla la validación
+        if ($validator->fails()) {
+            $errors = $validator->errors();
+            return response()->json($errors, 409);
+        }
+       
+        if (array_key_exists('name', $newData))
+            $profile->name = $newData['name'];
+
+        if (array_key_exists('country', $newData))
+            $profile->country = $newData['country'];
+        
+        if (array_key_exists('favourite_language', $newData)) {
+             
+            // compruebo si el lenguaje esta soportado
+            $sup_langs = \DB::table('supported_languages')->get();
+
+            if (!$sup_langs->contains('language', strtolower($newData['favourite_language'])))
+                return response('Language not supported', 409);
+            else
+                $profile->favourite_language = strtolower($newData['favourite_language']);
+        }
+
+        // si ha llegado aquí se ha confirmado mediante el validador
+        // que new_password y new_password_confirm coinciden
+        if (array_key_exists('new_password', $newData)) {
+
+            // El password antiguo coincide con el hash en la base de datos
+            if (Hash::check($newData['old_password'], Auth::user()->password)) {
+                $profile->password = bcrypt($newData['new_password']);
+                
+                // fuerzo salir 
+                Auth::logout();
+            } else {
+                return response('Password incorrect', 401);
+            }
+        }
+
+        $profile->save();
+
+        return response(json_encode($profile), 500);
+    }
+
+
 }

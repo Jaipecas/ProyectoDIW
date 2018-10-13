@@ -12822,9 +12822,40 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         onAvatarChange: function onAvatarChange(image) {
             this.c_avatar = image;
         },
+        updateProfile: function updateProfile() {
+            var vm = this;
+            // modifica los datos del usuario. 
+            // el JSON de ejemplo incuye todos los posibles datos a modificar
+            // podría sólo indicarse uno
+            return axios.put('/user/update', {
+                name: 'Fred',
+                country: 'UK',
+                favourite_language: 'ES',
+                new_password: '1234567',
+                new_password_confirmation: '1234567',
+                old_password: '12345'
+            }).then(function (response) {
+                console.log("Datos de usuario:", response);
+                vm.createCard('Update Profile', response.status, response.statusText, response.data);
+
+                /* IMPORTANTE: en caso de hacer cambio de password el servidor 
+                   hace un logout y por lo tanto conviene volver a la página de login
+                   siempre se ejecuta
+                   uso replace para que la página actual desaparezca del historial
+                   y evitar la tecla back
+                
+                    setTimeout(function () {
+                        window.location.replace('/scrabble/login');
+                    }, 2000);
+                */
+            }).catch(function (error) {
+                console.log("ERROR: " + error);
+                vm.createCard('Update Profile', error.response.status, error.response.statusText, error.response.data);
+            });
+        },
         requestChallenge: function requestChallenge() {
             var vm = this;
-            // solicita una partida en español
+            // solicita una partida en español 
             return axios.post('/challenge/request/es/level/40').then(function (response) {
                 console.log("Reto creado:", response);
                 vm.createCard('Request Challenge', response.status, response.statusText, response.data);
