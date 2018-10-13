@@ -73,7 +73,7 @@ class InfoController extends Controller
         // compruebo si el lenguaje esta soportado
         $sup_langs = \DB::table('supported_languages')->get();
 
-        if (!$sup_langs->contains('language', $lang))
+        if (!$sup_langs->contains('language', strtolower($lang)))
             return response('Language not supported', 409);
 
         $ranking = Level::selectRaw('won/(won+lost) AS ratio')

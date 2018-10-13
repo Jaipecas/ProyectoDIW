@@ -23,13 +23,13 @@ class ChallengeController extends Controller
         // compruebo si el lenguaje esta soportado
         $sup_langs = \DB::table('supported_languages')->get();
 
-        if (!$sup_langs->contains('language', $lang))
+        if (!$sup_langs->contains('language', strtolower($lang)))
             return response('Language not supported', 409);
 
         $challenge = new Challenge;
 
         $challenge->requesting_player = $user->id;
-        $challenge->language = $lang;
+        $challenge->language = strtolower($lang);
 
         $challenge->save();
 
@@ -50,7 +50,7 @@ class ChallengeController extends Controller
         // compruebo si el lenguaje esta soportado
         $sup_langs = \DB::table('supported_languages')->get();
 
-        if (!$sup_langs->contains('language', $lang))
+        if (!$sup_langs->contains('language', strtolower($lang)))
             return response('Language not supported', 409);
 
         // compruebo si el rival existe
@@ -64,7 +64,7 @@ class ChallengeController extends Controller
         $challenge = new Challenge;
 
         $challenge->requesting_player = $user->id;
-        $challenge->language = $lang;
+        $challenge->language = strtolower($lang);
         $challenge->opposing_player = $id;
 
         $challenge->save();
@@ -86,7 +86,7 @@ class ChallengeController extends Controller
         // compruebo si el lenguaje esta soportado
         $sup_langs = \DB::table('supported_languages')->get();
 
-        if (!$sup_langs->contains('language', $lang))
+        if (!$sup_langs->contains('language', strtolower($lang)))
             return response('Language not supported', 409);
 
         $levels = array(-5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 10, 20, 30, 40, 50);
@@ -96,7 +96,7 @@ class ChallengeController extends Controller
         $challenge = new Challenge;
 
         $challenge->requesting_player = $user->id;
-        $challenge->language = $lang;
+        $challenge->language = strtolower($lang);
         $challenge->level = $level;
 
         $challenge->save();
