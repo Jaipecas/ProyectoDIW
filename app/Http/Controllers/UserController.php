@@ -195,8 +195,6 @@ class UserController extends Controller
 
         $profile->save();
 
-        return response(json_encode($profile), 500);
+        return response("User updated", 200);
     }
-
-
 }
