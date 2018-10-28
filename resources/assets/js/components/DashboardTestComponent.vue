@@ -89,7 +89,7 @@ export default {
         requestChallenge:function () {
             var vm = this;
             // solicita una partida en español 
-            return axios.post('/challenge/request/es/level/40')
+            return axios.post('/challenge/request/es')
                 .then(function (response) {
                     console.log("Reto creado:", response);
                     vm.createCard('Request Challenge', response.status, response.statusText, response.data);
@@ -210,6 +210,14 @@ export default {
             }
 
             this.c_cards.push(newcard);
+        },
+        listenForBroadcast: function() { 
+            console.log("escuchando");
+            Echo.channel('user.345')
+                .listen('AcceptedChallenge', (e) => {
+                    alert("siii");
+                    console.log("Siiiiiii");
+                });
         }
     },
     created() {
@@ -220,6 +228,8 @@ export default {
             this.c_avatar = null;
         else
             this.c_avatar = this.avatar;
+
+        this.listenForBroadcast();
     },
     mounted() {
         console.log('DashboardComponent montado.');

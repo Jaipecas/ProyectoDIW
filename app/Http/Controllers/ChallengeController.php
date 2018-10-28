@@ -30,8 +30,11 @@ class ChallengeController extends Controller
 
         $challenge->requesting_player = $user->id;
         $challenge->language = strtolower($lang);
+        $challenge->level = 0;
 
         $challenge->save();
+
+        Challenge::pairChallenges($challenge);
 
         return response('Challenge created', 200);
     }
@@ -66,8 +69,11 @@ class ChallengeController extends Controller
         $challenge->requesting_player = $user->id;
         $challenge->language = strtolower($lang);
         $challenge->opposing_player = $id;
+        $challenge->level = 0;
 
         $challenge->save();
+
+        Challenge::pairChallenges($challenge);
 
         return response('Challenge created', 200);
     }
@@ -100,6 +106,8 @@ class ChallengeController extends Controller
         $challenge->level = $level;
 
         $challenge->save();
+
+        Challenge::pairChallenges($challenge);
 
         return response('Challenge created', 200);
     }
