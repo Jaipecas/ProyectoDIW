@@ -212,10 +212,10 @@ export default {
             this.c_cards.push(newcard);
         },
         listenForBroadcast: function() { 
-            console.log("escuchando");
-            Echo.channel('user.345')
+            console.log("escuchando " + this.c_user.id);
+            Echo.private('user.' + this.c_user.id)
                 .listen('AcceptedChallenge', (e) => {
-                    alert("siii");
+                    alert("Generada partida " + e.gameId);
                     console.log("Siiiiiii");
                 });
         }

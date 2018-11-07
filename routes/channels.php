@@ -12,11 +12,15 @@
 */
 
 /* 
- * Encamina el canal privado entre el servidor y el cliente con id  id
- * El canal solo puede ser usado por el usuario id, por lo que comprueba que 
- * el user que hace la peticion (primer parámetro), coincida con el id del nombre
- * del canal. En caso contrario devuelve un false y no mandaria el mensaje.
- */ 
+ * Los usuarios tienen que estar autorizados para escuchar por canales privados. Aqui es donde
+ * definimos las reglas para comprobar esas autorizaciones. En este caso el canal solo puede ser
+ * usado por el usuario cuyo el identificador que tiene el nombre del canal.
+ * Se aceptan dos argumentos, el nombre del canal y la funcion callback que devolerá true o false si se
+ * autoriza o no la escucha. 
+ * Todas las funciones callback reciben como primer argumento el usuario actual autenticado. El resto 
+ * de parámetros se suele obtener de los comodines añadidos al propio nombre del canal (en este caso id)
+ */
+
 Broadcast::channel('user.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });

@@ -19,8 +19,7 @@ class AcceptedChallenge implements ShouldBroadcast
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     // sólo se emiten los miembros publicos
-    public $gameId;
-    //, $user;
+    public $gameId, $user;
    // public $oppoId, $oppoName, $oppoCountry, $oppoAvatar;
     //public $lang;
 
@@ -32,7 +31,7 @@ class AcceptedChallenge implements ShouldBroadcast
     public function __construct($gameId, $user, $oppo) {
         
         $this->gameId = $gameId;
-       // $this->user = $user;
+        $this->user = $user;
      //   $this->oppoId = $oppo->id;
     }
 
@@ -42,6 +41,6 @@ class AcceptedChallenge implements ShouldBroadcast
      * @return \Illuminate\Broadcasting\Channel|array
      */
     public function broadcastOn() {
-        return new Channel('user.345');//$this->user->id);
+        return new PrivateChannel('user.'.$this->user->id);
     }
 }

@@ -44,7 +44,7 @@ class Challenge extends Model
 
         $request = $inputChallenge->requestPlayer()->get(['id']);
         $levelRequest = Level::firstOrCreate(['user_id' => $request->first()->id],['language_code' => $inputChallenge->language])->level;
-
+        
         if ($inputChallenge->level == "0" && $inputChallenge->opposing_player == NULL) { // aleatorio
             
             unset($levels);
@@ -62,7 +62,7 @@ class Challenge extends Model
 
             if ($oppoChallenge) {
                 // emito el evento
-                event(new AcceptedChallenge(234,"mm","jj"));
+                event(new AcceptedChallenge(234,$request->first(),"jj"));
             }
 
         } else if ($inputChallenge->level != "0"&& $inputChallenge->opposing_player = NULL) { // nivel
