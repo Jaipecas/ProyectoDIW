@@ -53,7 +53,7 @@ export default {
         onAvatarChange: function (image) {
             this.c_avatar = image;
         },
-        updateProfile:function () {
+        updateProfile: function () {
             var vm = this;
             // modifica los datos del usuario. 
             // el JSON de ejemplo incuye todos los posibles datos a modificar
@@ -86,10 +86,10 @@ export default {
                     vm.createCard('Update Profile', error.response.status, error.response.statusText, error.response.data);
                 }); 
         },
-        requestChallenge:function () {
+        requestChallenge: function () {
             var vm = this;
             // solicita una partida en español 
-            return axios.post('/challenge/request/es')
+            return axios.post('/challenge/request/es/level/-4')
                 .then(function (response) {
                     console.log("Reto creado:", response);
                     vm.createCard('Request Challenge', response.status, response.statusText, response.data);
@@ -212,11 +212,15 @@ export default {
             this.c_cards.push(newcard);
         },
         listenForBroadcast: function() { 
-            console.log("escuchando " + this.c_user.id);
+            console.log("Escuchando canales: user"+this.c_user.id);
             Echo.private('user.' + this.c_user.id)
                 .listen('AcceptedChallenge', (e) => {
-                    alert("Generada partida " + e.gameId);
-                    console.log("Siiiiiii");
+                    alert("Generada partida " + e.gameId + "\nIdioma: " + e.lang +
+                        "\nOponente\n\tid: " + e.oppoId +
+                        "\n\tNombre: " + e.oppoName + "\n\tPaís: " + e.oppoCountry + 
+                        "\n\tAvatar: " + e.oppoAvatar);
+
+                    console.log("Recibido");
                 });
         }
     },

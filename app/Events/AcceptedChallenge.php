@@ -19,20 +19,25 @@ class AcceptedChallenge implements ShouldBroadcast
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     // sólo se emiten los miembros publicos
-    public $gameId, $user;
-   // public $oppoId, $oppoName, $oppoCountry, $oppoAvatar;
-    //public $lang;
+    private $user;
+    public $gameId;
+    public $oppoId, $oppoName, $oppoCountry, $oppoAvatar;
+    public $lang;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($gameId, $user, $oppo) {
+    public function __construct($gameId, $lang, $user, $oppo) {
         
         $this->gameId = $gameId;
         $this->user = $user;
-     //   $this->oppoId = $oppo->id;
+        $this->oppoId = $oppo->id;
+        $this->oppoName = $oppo->name;
+        $this->oppoCountry = $oppo->country;
+        $this->oppoAvatar = $oppo->avatar;
+        $this->lang = $lang;
     }
 
     /**

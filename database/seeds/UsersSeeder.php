@@ -60,8 +60,8 @@ class UsersSeeder extends Seeder
                         });
                 }
 
-                // a un 20% les creo retos
-                if (mt_rand(1, 100) <= 20) {
+                // a un 30% les creo retos
+                if (mt_rand(1, 100) <= 30) {
                     // creo entre 1 y 2 retos. Los creo por nivel
                     factory(App\Challenge::class, mt_rand(1, 2))
                         ->make()
