@@ -77,6 +77,8 @@ class Challenge extends Model
 
                 // emito el evento
                 event(new AcceptedChallenge($game->id, $inputChallenge->language, $request->first(), $opponent));
+                // al contrincante
+                event(new AcceptedChallenge($game->id, $inputChallenge->language, $opponent, $request->first()));
             }
 
         } else if ($inputChallenge->level != "0" && $inputChallenge->opposing_player == NULL) { // nivel
@@ -127,10 +129,12 @@ class Challenge extends Model
 
                 $opponent = User::find($oppoChallenge->requesting_player);
 
-                // emito el evento
+                // emito el evento al que genera la petición
                 event(new AcceptedChallenge($game->id, $inputChallenge->language, $request->first(), $opponent));
+                // al contrincante
+                event(new AcceptedChallenge($game->id, $inputChallenge->language, $opponent, $request->first()));
             }
-            
+
         } else {
             // TODO
         }
