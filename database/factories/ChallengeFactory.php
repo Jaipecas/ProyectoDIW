@@ -24,3 +24,12 @@ $factory->state(App\Challenge::class, 'against_user', function (Faker $faker) {
         'level' => '0', 
     ];
 });
+
+/**
+ * Estado para personalizar que un reto sea de nivel 0
+ */
+$factory->state(App\Challenge::class, 'level_0', function (Faker $faker) { 
+    return [
+        'level' => '0', 
+    ];
+});

@@ -93,6 +93,14 @@ class UsersSeeder extends Seeder
 
         $c2 = factory(App\Challenge::class)->make();
         User::find($id2)->requestChallenges()->save($c2);
+
+        // creo retos de nivel cero
+        $c1 = factory(App\Challenge::class)->states('level_0')->make();
+        User::find($id1)->requestChallenges()->save($c1);      
+
+        $c2 = factory(App\Challenge::class)->states('level_0')->make();
+        User::find($id2)->requestChallenges()->save($c2);
+
     }
 
     private function randomLevel() {
