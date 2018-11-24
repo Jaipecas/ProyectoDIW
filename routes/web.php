@@ -85,7 +85,8 @@ Route::prefix('scrabble')->group(function () {
     */
 
     Route::middleware('auth')->post('/game/{id}/giveup', 'GameController@giveup')->name('giveup');
-   
+    // La exigencia de autenticación se hace en el propio controlador
+    Route::get('/game/{id}', 'GameController@showTableboard')->name('tableboard');
 
     Route::prefix('challenge')->group(function () {
         Route::middleware('auth')->post('/request/{lang}', 'ChallengeController@create')->name('create_challenge');

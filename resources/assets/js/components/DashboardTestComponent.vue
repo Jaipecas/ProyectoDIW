@@ -19,8 +19,11 @@
                 <li class="input-menu"><a v-on:click.prevent="userGames" href="#">Partidas del usuario (pag 1)</a></li>
                 <li class="input-menu"><a v-on:click.prevent="userGamesPag2" href="#">Partidas del usuario (pag 2)</a></li>
                 <li class="input-menu upper-margin"><a v-on:click.prevent="deleteNotification" href="#">Borrar notificación</a></li>
-                <li class="input-menu"><a v-on:click.prevent="requestChallenge" href="#">Solicitar partida</a></li>
                 <li class="input-menu"><a v-on:click.prevent="updateProfile" href="#">Modificar datos usuario</a></li>
+                <li class="input-menu"><a v-on:click.prevent="requestChallenge" href="#">Solicitar partida</a></li>
+                <li v-if="this.requestChallengeId" class="input-menu"><a v-on:click.prevent="gotoGame" href="#">Ir a partida solicitada</a></li>
+                <li v-else class="input-menu" style="text-decoration:line-through;"><a>Ir a partida solicitada</a></li>
+                <li 
             </ul>
         </aside>
         <card-container-component :cards="c_cards"></card-container-component> 
@@ -43,7 +46,8 @@ export default {
             c_user: null,
             c_avatar: null,
             c_variables: null,
-            c_cards: []
+            c_cards: [],
+            requestChallengeId: null
         }
     },
     components: {
@@ -53,12 +57,17 @@ export default {
         onAvatarChange: function (image) {
             this.c_avatar = image;
         },
+        gotoGame: function () {
+            console.log(this.requestChallengeId);
+            var url = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port: '');
+            window.location.href = url + "/scrabble/game/" + this.requestChallengeId;
+        },
         updateProfile: function () {
             var vm = this;
             // modifica los datos del usuario. 
             // el JSON de ejemplo incuye todos los posibles datos a modificar
             // podría sólo indicarse uno
-            return axios.put('/user/update',{
+            return axios.put('/scrabble/user/update',{
                 name: 'Fred',
                 country: 'UK',
                 favourite_language: 'ES',
@@ -89,7 +98,7 @@ export default {
         requestChallenge: function () {
             var vm = this;
             // solicita una partida en español 
-            return axios.post('/challenge/request/es/level/-4')
+            return axios.post('/scrabble/challenge/request/es/level/-4')
                 .then(function (response) {
                     console.log("Reto creado:", response);
                     vm.createCard('Request Challenge', response.status, response.statusText, response.data);
@@ -102,7 +111,7 @@ export default {
         deleteNotification: function() {
             var vm = this;
             // pone a borrado el estado de una notificación (id=3)
-            return axios.put('/notification/9/update/delete')
+            return axios.put('/scrabble/notification/9/update/delete')
                 .then(function (response) {
                     console.log("Borrado notificación:", response);
                     vm.createCard('Update Notification', response.status, response.statusText, response.data);
@@ -115,7 +124,7 @@ export default {
         userGames: function() {
             var vm = this;
             // partidas del usuario paginadas, 3 por página
-            return axios.get('/user/games/3')
+            return axios.get('/scrabble/user/games/3')
                 .then(function (response) {
                     console.log("Partidas de usuario:", response);
                     vm.createCard('User Games', response.status, response.statusText, response.data);
@@ -128,7 +137,7 @@ export default {
         userGamesPag2: function() {
             var vm = this;
             // partidas del usuario paginadas, 3 por página
-            return axios.get('/user/games/3?page=2')
+            return axios.get('/scrabble/user/games/3?page=2')
                 .then(function (response) {
                     console.log("Partidas de usuario:", response);
                     vm.createCard('User Games', response.status, response.statusText, response.data);
@@ -141,7 +150,7 @@ export default {
         removeUser: function() {
             var vm = this;
             // estadísiticas via AJAX
-            return axios.delete('/user/remove')
+            return axios.delete('/scrabble/user/remove')
                 .then(function (response) {
                     console.log("Eliminar cuenta:", response);
                     vm.createCard('Remove User', response.status, response.statusText, response.data);
@@ -163,7 +172,7 @@ export default {
         userStatistics: function() {
             var vm = this;
             // estadísiticas via AJAX
-            return axios.get('/user/statistics')
+            return axios.get('/scrabble/user/statistics')
                 .then(function (response) {
                     console.log("Estadísticas:", response);
                     vm.createCard('User Statistics', response.status, response.statusText, response.data);
@@ -176,7 +185,7 @@ export default {
         giveupGame: function() {
             var vm = this;
             // abandona la partida 3 (no se comprueba si es jugador de la partida o no)
-            return axios.post('/game/12/giveup')
+            return axios.post('/scrabble/game/12/giveup')
                 .then(function (response) {
                     console.log("Abandonando partida:", response);
                     vm.createCard('Giveup Game', response.status, response.statusText, response.data);
@@ -190,7 +199,7 @@ export default {
           //  event.preventDefault(); no hace falta ya que lo he puesto en la llamada
             this.c_avatar = null;
             var vm = this;
-            return axios.post('/user/avatar/remove')
+            return axios.post('/scrabble/user/avatar/remove')
                 .then(function (response) {
                     console.log("Elimina avatar respuesta:", response);
                     vm.createCard('Remove Avatar', response.status, response.statusText, response.data);
@@ -219,6 +228,8 @@ export default {
                         "\nOponente\n\tid: " + e.oppoId +
                         "\n\tNombre: " + e.oppoName + "\n\tPaís: " + e.oppoCountry + 
                         "\n\tAvatar: " + e.oppoAvatar);
+
+                    this.requestChallengeId = e.gameId;
 
                     console.log("Recibido");
                 });

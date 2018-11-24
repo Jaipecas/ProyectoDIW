@@ -20,24 +20,6 @@ Vue.component('card-container-component', require('./components/CardContainerCom
 const app = new Vue({
     el: '#app',
     data: { 
-        cards: [{
-            order: 1,
-            type: 'Registro',
-            errorCode: 200,
-            statusCode: 'OK',
-            output: "4"
-        },
-        {
-            order: 2,
-            type: 'listaaddddf',
-            errorCode: 400,
-            statusCode: 'ERROR',
-            output: {
-                hola: "wkilo",
-                carcola: 224,
-                pepsi: "milenial"
-            }
-        }]
     },
     filters: {
         json: (value) => { return JSON.stringify(value, null, 2) }

@@ -11,7 +11,17 @@ use App\Level;
 
 class GameController extends Controller
 {
-     /**
+ /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Abandona una partida.
      * 
      * @param  int  $id
@@ -100,12 +110,40 @@ class GameController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id identificador de la partida
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showTableboard($id)
     {
-        //
+        $user = Auth::user();
+
+        try {
+            $game = Game::findOrFail($id);
+        }
+        catch(ModelNotFoundException $err){
+            return abort(404);
+        }
+
+        $player1 = $game->player1()->get(['id','name', 'country', 'avatar']);
+        $player2 = $game->player2()->get(['id','name', 'country', 'avatar']);
+   
+        // el usuario que ha pedido la pagina no juega en esa partida
+        if ($player1->first()->id != $user->id && 
+            $player2->first()->id != $user->id)
+            return abort(403);
+
+        if ($player1->first()->id == $user->id) {
+            $me = $player1;
+            $oppo = $player2;
+        } else {
+            $oppo = $player1;
+            $me = $player2;
+        }
+    
+        return view('src_tableboard', ['game' => $game, 
+                'user' => $me, 
+                'opponent' => $oppo] );
+
     }
 
     /**
