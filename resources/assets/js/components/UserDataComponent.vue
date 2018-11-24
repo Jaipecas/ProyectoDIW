@@ -4,13 +4,13 @@
             :image="avatar"
             @avatar-change="onAvatarChange">
         </upload-image-component>
-        <div><span class="data">ID: </span><span class="value">{{ user.id }}</span></div>
-        <div><span class="data">Usuario: </span><span class="value">{{ user.name }}</span></div>
-        <div><span class="data">Mail: </span><span class="value">{{ user.email }}</span></div>
-        <div><span class="data">País: </span><span class="value">{{ user.country }}</span></div>
-        <div><span class="data">Lenguaje favorito: </span><span class="value">{{ user.favourite_language}}</span></div>
-        <div v-if="user.updated_at"><span class="data">Última actualización: </span><span class="value">{{ user.updated_at }}</span></div>
-        <div v-else><span class="data">Última actualización: </span><span class="value">Nunca</span></div>
+        <div class="info"><span class="data">ID: </span><span class="value">{{ user.id }}</span></div>
+        <div class="info"><span class="data">Usuario: </span><span class="value">{{ user.name }}</span></div>
+        <div class="info"><span class="data">Mail: </span><span class="value">{{ user.email }}</span></div>
+        <div class="info"><span class="data">País: </span><span class="value">{{ user.country }}</span></div>
+        <div class="info"><span class="data">Lenguaje favorito: </span><span class="value">{{ user.favourite_language}}</span></div>
+        <div class="info" v-if="user.updated_at"><span class="data">Última actualización: </span><span class="value">{{ user.updated_at }}</span></div>
+        <div class="info" v-else><span class="data">Última actualización: </span><span class="value">Nunca</span></div>
     </div>
 </template>
 
@@ -32,6 +32,10 @@
         #upload-image {
             grid-column: 1 / 2;
             grid-row: 1 / 3;
+        }
+
+        .info {
+            line-height: 40px;
         }
         
         .value {
