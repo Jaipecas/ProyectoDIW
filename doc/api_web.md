@@ -1,8 +1,33 @@
 # Listado de funciones API WEB
 
+**GET /scrabble/dashboard**
+
+Renderiza la página de dashboard (el perfil) del usuario (_src_home.blade.php_).
+
+- *Alias*: dashboard.
+- *Parámetros*: Ninguno.
+- *Respuesta*: HTML con la página de dashboard del usuario.
+
+**GET /scrabble/game/{id}**
+
+Renderiza la página del tablero de la partida {id}  (_src_tableboard.blade.php_).
+
+- *Alias*: tableboard.
+- *Parámetros*: 
+
+<center>
+
+| Parámetro     |  Tipo       |  Descripción                |
+| :----------:  | :-------:   | :------------               |
+| id            | Obligatorio | Identificador de la partida |  
+
+</center>
+
+- *Respuesta*: HTML con la página de juego (tablero) de la partida {id}.
+
 **GET /scrabble/login**
 
-Renderiza la página de login [_login.blade.php_].
+Renderiza la página de login (_login.blade.php_).
 
 - *Alias*: login.
 - *Parámetros*: Ninguno.
@@ -29,9 +54,9 @@ Realiza el login del usuario.
 
 <center>
 
-| Parámetro          | Descripción       |
-| :----------:       | :------------     |
-| email              | Array de errores relativos al campo _email_ |  
+| Parámetro        | Descripción       |
+| :----------:     | :------------     |
+| email            | Array de errores relativos al campo _email_ |  
 
 </center>
 

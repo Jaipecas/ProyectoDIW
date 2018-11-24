@@ -2,7 +2,7 @@
 
 ## challenge
 
-**POST /challenge/request/{lang}**
+**POST /scrabble/challenge/request/{lang}**
 
 Solicita una partida aleatoria
 
@@ -20,9 +20,9 @@ Solicita una partida aleatoria
 - *Requerimientos*: Usuario autenticado.
 - *Respuesta*: Si el idioma no está soportado 409 'Language not supported'. En caso contrario 200 'Challenge created'.
 
-**POST /challenge/request/{lang}/against/{id}**
+**POST /scrabble/challenge/request/{lang}/against/{id}**
 
-Solicita una partida contra el usario cuyo identificador es id
+Solicita una partida contra el usuario cuyo identificador es id
 
 - *Alias*: create_challenge_user.
 - *Parámetros*: 
@@ -39,7 +39,7 @@ Solicita una partida contra el usario cuyo identificador es id
 - *Requerimientos*: Usuario autenticado.
 - *Respuesta*: Si el idioma no está soportado 409 'Language not supported'; si el id del contrincante no se localiza 404, 'Opposing player not found'. En caso contrario 200 'Challenge created'.
 
-**POST /challenge/request/{lang}/level/{level}**
+**POST /scrabble/challenge/request/{lang}/level/{level}**
 
 Solicita una partida contra un usuario cuyo nivel sea level
 
@@ -60,7 +60,7 @@ Solicita una partida contra un usuario cuyo nivel sea level
 
 ## game
 
-**POST /game/{id}/giveup**
+**POST /scrabble/game/{id}/giveup**
 
 Abandona la partida con identificador {id}
 
@@ -80,7 +80,7 @@ Abandona la partida con identificador {id}
 
 ## notifications
 
-**PUT /notification/{id}/update/{state}**
+**PUT /scrabble/notification/{id}/update/{state}**
 
 Modifica el estado de una notificación
 
@@ -101,7 +101,7 @@ Modifica el estado de una notificación
 
 ## user
 
-**POST /upload/avatar**
+**POST /scrabble/upload/avatar**
 
 Sube una imagen como avatar del usuario.
 
@@ -118,7 +118,7 @@ Sube una imagen como avatar del usuario.
 
 </center>
 
-**POST /user/avatar/remove**
+**POST /scrabble/user/avatar/remove**
 
 Elimina el avatar del usuario, quita el que hubiera son poner otro.
 
@@ -127,9 +127,9 @@ Elimina el avatar del usuario, quita el que hubiera son poner otro.
 - *Requerimientos*: Usuario autenticado.
 - *Respuesta*: Si el fichero del avatar no se ha encontrado, 409 'File does not exists'. En caso contrario 200 'Avatar removed'.
 
-**GET /user/games/{gamesperpage?}**
+**GET /scrabble/user/games/{gamesperpage?}**
 
-Devuelve de manera paginada y de más reciente a más antigua, todaslas partidas jugadas por el jugador
+Devuelve de manera paginada y de más reciente a más antigua, todas las partidas jugadas por el jugador
 
 - *Alias*: ser_games.
 - *Parámetros*: 
@@ -174,7 +174,7 @@ Devuelve de manera paginada y de más reciente a más antigua, todaslas partidas
 
 > Atencion: la llamada al resto de páginas se realiza utilizando las rutas indicadas en el JSON
 
-**PUT /user/update**
+**PUT /scrabble/user/update**
 
 Actuliza el perfil del usuario.
 
@@ -198,7 +198,7 @@ Actuliza el perfil del usuario.
 
 - *Comentarios*: en caso de cambiar la contraseña el servidor hace un logout y por lo tanto conviene volver a la página de login.
 
-**GET /user/remove**
+**GET /scrabble/user/remove**
 
 Elimina la cuenta de usuario.
 
@@ -209,7 +209,7 @@ Elimina la cuenta de usuario.
 
 > Atencion: es responsabilidad de cliente redirigir al usuario fuera de la página que ha solicitadola eliminación del usuario.
 
-**GET /user/statistics**
+**GET /scrabble/user/statistics**
 
 Devuelve las estadísticas del usuario en todos los idiomas que haya jugado.
 
