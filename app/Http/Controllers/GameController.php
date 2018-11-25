@@ -115,6 +115,8 @@ class GameController extends Controller
      */
     public function showTableboard($id)
     {
+        $meArray= [];
+        $oppoArray= [];
         $user = Auth::user();
 
         try {
@@ -133,16 +135,33 @@ class GameController extends Controller
             return abort(403);
 
         if ($player1->first()->id == $user->id) {
-            $me = $player1;
-            $oppo = $player2;
+            $me = $player1->first();
+            $oppo = $player2->first();
+
+            // serializo
+            $meArray = $me->toArray();
+            $meArray["player"] = "P1";
+            $meArray["score"] = $game->player_1_score;
+
+            $oppoArray = $oppo->toArray();
+            $oppoArray["player"] = "P2";
+            $oppoArray["score"] = $game->player_2_score;
         } else {
-            $oppo = $player1;
-            $me = $player2;
+            $oppo = $player1->first();
+            $me = $player2->first();
+
+            $meArray = $me->toArray();
+            $meArray["player"] = "P2";
+            $meArray["score"] = $game->player_2_score;
+
+            $oppoArray = $oppo->toArray();
+            $oppoArray["player"] = "P1";
+            $oppoArray["score"] = $game->player_1_score;
         }
-    
+
         return view('src_tableboard', ['game' => $game, 
-                'user' => $me, 
-                'opponent' => $oppo] );
+                'user' => $meArray, 
+                'opponent' => $oppoArray] );
 
     }
 

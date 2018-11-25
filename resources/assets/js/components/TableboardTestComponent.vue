@@ -3,7 +3,7 @@
         <game-data-component 
             :game="c_game">
         </game-data-component> 
-        <card-container-component :variables="c_variables"></card-container-component> 
+        <info-game-component :game="c_game" :user="c_user" :opponent="c_opponent"></info-game-component> 
         <aside class="sidebar">
             <ul>
                 <li class="input-menu">
@@ -17,25 +17,27 @@
 
 <script>
 import GameDataComponent from './GameDataComponent'
+import InfoGameComponent from './InfoGameComponent'
 import CardContainerComponent from './CardContainerComponent'
 
 export default {
     name: 'tableboard-test-component', /* que sea siempre compuesto con - para evitar colisiones con otros tag HTMHL5 */
     props: {
         user: { required: true, type: Object },
+        opponent: { required: true, type: Object },
         game: { required: true, type: Object },
-        variables: { required: true, type: Array }
     },
     data() {
         return {
             c_game: null,
-            c_variables: null,
+            c_user: null,
+            c_opponent: null,
             c_cards: [],
             requestChallengeId: null
         }
     },
     components: {
-        CardContainerComponent, GameDataComponent
+        CardContainerComponent, GameDataComponent, InfoGameComponent
     },
     methods: {
         createCard: function(title, status, statusText, data) {
@@ -50,7 +52,7 @@ export default {
             this.c_cards.push(newcard);
         },
         listenForBroadcast: function() { 
-            console.log("Escuchando canales: user"+this.c_user.id);
+          /*  console.log("Escuchando canales: user"+this.c_user.id);
             Echo.private('user.' + this.c_user.id)
                 .listen('AcceptedChallenge', (e) => {
                     alert("Generada partida " + e.gameId + "\nIdioma: " + e.lang +
@@ -61,12 +63,15 @@ export default {
                     this.requestChallengeId = e.gameId;
 
                     console.log("Recibido");
-                });
+                });*/
         }
     },
     created() {
         this.c_game = this.game;
-        this.c_variables = this.variables;
+        this.c_user  = this.user;
+        this.c_opponent  = this.opponent;
+
+        console.log(this.user);
 
         this.listenForBroadcast();
     },
@@ -87,8 +92,8 @@ export default {
         grid-column: 1 / 4; 
     }
 
-    > div:nth-child(3) {
-        grid-column: 2 / 4; 
+    > div:nth-child(2) {
+        grid-column: 1 / 4; 
     }
 }
 

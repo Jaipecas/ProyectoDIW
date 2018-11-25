@@ -23,7 +23,6 @@
                 <li class="input-menu"><a v-on:click.prevent="requestChallenge" href="#">Solicitar partida</a></li>
                 <li v-if="this.requestChallengeId" class="input-menu"><a v-on:click.prevent="gotoGame" href="#">Ir a partida solicitada</a></li>
                 <li v-else class="input-menu" style="text-decoration:line-through;"><a>Ir a partida solicitada</a></li>
-                <li 
             </ul>
         </aside>
         <card-container-component :cards="c_cards"></card-container-component> 
