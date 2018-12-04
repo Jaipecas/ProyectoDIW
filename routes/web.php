@@ -24,6 +24,10 @@ Route::get('/', function () {
     return view('prn_index');
 });
 
+Route::get('/gutenberg', function () {
+    return view('prn_index');
+});
+
 Route::get('/difusion_imprenta', function () {
     return view('prn_extra1');
 });
