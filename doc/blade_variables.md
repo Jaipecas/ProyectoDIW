@@ -19,6 +19,16 @@ Muchas de las variables proporcionadas son de tipo _colección_. Para el acceso 
 * [first](https://laravel.com/docs/5.6/collections#method-first): devuelve el primer elemento de la colección. Se puede parametrizar para obtener el primer valor de un item de la colección, por ejemplo: _$error->first('item')_
 * [get](https://laravel.com/docs/5.6/collections#method-get): devuelve un item en función de la clave o null si la clave no existe.
 
+## scr_index
+
+| Parámetro         | Tipo             | Descripción        |
+| :----------       | :-------         | :------------      |
+| numberUsers       | Número           | Número de usuarios |
+| connectedUsers    | Número           | Número de usuarios conectados |
+| nacionalities     | Número           | Número de diferentes nacionalidades |
+| languages         | Array            | Array de idiomas soportados |
+| languages.name    | Cadena           | Nombre del idioma (p.e. $languages[0]->name ) |
+
 ## register
 
 | Parámetro         | Tipo                     | Descripción       |
@@ -55,7 +65,7 @@ Muchas de las variables proporcionadas son de tipo _colección_. Para el acceso 
 | errors.email       | Colección de cadenas     | Colección de errores relativos al campo _email_ |  
 | errors.password    | Colección de cadenas     | Colección de errores relativos al campo _password_ |  
 
-## dashboard
+## scr_home
 
 | Parámetro          | Tipo              | Descripción       |
 | :----------        | :-------          | :------------     |

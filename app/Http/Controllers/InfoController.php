@@ -13,34 +13,52 @@ class InfoController extends Controller
         'charset' => 'utf-8'
     );
 
-    // Información general de la aplicación
-    public function general() {
-
+    protected function generateGeneralInfo() {
+        
         // numero de usuarios
         $numberUsers = \DB::table('users')
-                ->where('state', '<>',  'disable')
-                ->where('type','player')->count();
+            ->where('state', '<>',  'disable')
+            ->where('type','player')->count();
 
         $connectedUsers = \DB::table('users')
-                ->where('state', '<>',  'online')
-                ->where('type','player')->count();
+            ->where('state', '<>',  'online')
+            ->where('type','player')->count();
 
         $nacionalities = \DB::table('users')
-                ->select('country')
-                ->distinct()->count();
+            ->select('country')
+            ->distinct()->count();
 
         $languages = \DB::table('supported_languages')
-                ->select('name')->get();
+            ->select('name')->get();
+
+        return array('numberUsers' => $numberUsers, 
+            'connectedUsers' => $connectedUsers,
+            'nacionalities' => $nacionalities,
+            'languages' => $languages);
+    }
+
+    // renderiza la página de información de scrabble
+    public function index() {
+
+        $data = $this->generateGeneralInfo();
+
+        return view('scr_index', $data);
+    }
+
+    // Información general de la aplicación
+    public function general() {
+        
+        $data = $this->generateGeneralInfo();
 
         return response()->json([
             'users' => [ 
-                    'number' => $numberUsers, 
-                    'connected' => $connectedUsers,
-                    'nacionalities' => $nacionalities
+                    'number' =>  $data["numberUsers"], 
+                    'connected' =>  $data["connectedUsers"],
+                    'nacionalities' =>  $data["nacionalities"]
                 ],
             'supported_languages' => [
-                    'languages' => $languages,
-                    'number' => count($languages)
+                    'languages' =>  $data["languages"],
+                    'number' => count($data["languages"])
                 ]
             ], 200, $this->header, JSON_UNESCAPED_UNICODE);
     }

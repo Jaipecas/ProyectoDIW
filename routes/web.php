@@ -59,9 +59,10 @@ Route::prefix('scrabble')->group(function () {
     /* Genera las rutas de autenticación */
     Auth::routes();
 
-    Route::get('/', function () {
+   /*Route::get('/', function () {
         return view('scr_index');
-    });
+    });*/
+    Route::get('/','InfoController@index');
 
     /*
     |---------------------------------
