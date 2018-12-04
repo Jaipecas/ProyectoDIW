@@ -2,7 +2,7 @@
 
 **GET /scrabble/dashboard**
 
-Renderiza la página de dashboard (el perfil) del usuario (_src_home.blade.php_).
+Renderiza la página de dashboard (el perfil) del usuario (_scr_home.blade.php_).
 
 - *Alias*: dashboard.
 - *Parámetros*: Ninguno.
@@ -10,7 +10,7 @@ Renderiza la página de dashboard (el perfil) del usuario (_src_home.blade.php_)
 
 **GET /scrabble/game/{id}**
 
-Renderiza la página del tablero de la partida {id}  (_src_tableboard.blade.php_).
+Renderiza la página del tablero de la partida {id}  (_scr_tableboard.blade.php_).
 
 - *Alias*: tableboard.
 - *Parámetros*: 

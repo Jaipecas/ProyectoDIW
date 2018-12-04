@@ -55,7 +55,7 @@ class HomeController extends Controller
         $userNotifications = $user->unreadNotifications()->get(['id','type','notification','created_at','updated_at']);
         $currentGames = $user->gamesLive();
 
-        return view('src_home', ['user' => $user, 
+        return view('scr_home', ['user' => $user, 
                     'statistics' => $userStatisticsArray, 
                     'notifications' => $userNotifications,
                     'games' => $currentGames]);
