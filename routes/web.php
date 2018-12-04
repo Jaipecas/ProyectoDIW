@@ -25,7 +25,7 @@ Route::get('/', function () {
 });
 
 Route::get('/gutenberg', function () {
-    return view('prn_index');
+    return view('prn_extra0');
 });
 
 Route::get('/difusion_imprenta', function () {
