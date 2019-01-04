@@ -104,4 +104,18 @@ class RegisterController extends Controller
             'favourite_language' => $fl
         ]);
     }
+
+    /**
+     * Show the application registration form.
+     * Se sobreescribe para poder enviar una variable más, languages
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        $languages = \DB::table('supported_languages')
+            ->select('name')->get();
+
+        return view('auth.register', compact('languages', $languages));
+    }
 }

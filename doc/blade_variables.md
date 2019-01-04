@@ -39,6 +39,9 @@ Muchas de las variables proporcionadas son de tipo _colección_. Para el acceso 
 | errors.password   | Colección de cadenas     | Colección de errores relativos al campo *password* |  
 | errors.country    | Colección de cadenas     | Colección de errores relativos al campo *country* |  
 | errors.favourite_language | Colección de cadenas    | Array de errores relativos al campo *favourite_language* | 
+| languages         | Array            | Array de idiomas soportados |
+| languages.name    | Cadena           | Nombre del idioma (p.e. $languages[0]->name ) |
+
 
 ## login
 
