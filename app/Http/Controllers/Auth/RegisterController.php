@@ -118,4 +118,18 @@ class RegisterController extends Controller
 
         return view('auth.register', compact('languages', $languages));
     }
+
+     /**
+     * Muestra el bloque de autenticación.
+     * Se sobreescribe para poder enviar una variable más, languages
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showBlockAuthForms()
+    {
+        $languages = \DB::table('supported_languages')
+            ->select('name')->get();
+
+        return view('auth.block_auth', compact('languages', $languages));
+    }
 }

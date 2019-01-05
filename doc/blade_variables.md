@@ -68,6 +68,26 @@ Muchas de las variables proporcionadas son de tipo _colección_. Para el acceso 
 | errors.email       | Colección de cadenas     | Colección de errores relativos al campo _email_ |  
 | errors.password    | Colección de cadenas     | Colección de errores relativos al campo _password_ |  
 
+## block_auth
+
+| Parámetro         | Tipo                     | Descripción       |
+| :----------       | :-------                 | :------------     |
+| errors            | Colección de colecciones | Colección de errores |
+| errors.name       | Colección de cadenas     | Colección de errores relativos al campo *name* |  
+| errors.email_reg      | Colección de cadenas     | Colección de errores relativos al campo *email_reg* |  
+| errors.password_reg   | Colección de cadenas     | Colección de errores relativos al campo *password_reg* |  
+| errors.country    | Colección de cadenas     | Colección de errores relativos al campo *country* |  
+| errors.favourite_language | Colección de cadenas    | Array de errores relativos al campo *favourite_language* | 
+| errors.email_log    | Colección de cadenas | Colección de errores relativos al campo *email_log* | 
+| error.email_email        | Colección de cadenas  | Colección de errores relativos al campo _email_ |  
+| session()          |                       | Información asociada a la sesión del usuario |
+| session('status')  | Cadena                | Información sobre el estado de la petición |
+| languages         | Array            | Array de idiomas soportados |
+| languages.name    | Cadena           | Nombre del idioma (p.e. $languages[0]->name ) |
+
+
+> **Nota**: En caso de error en la peticion (de login, registro o solicitud de renovación de contraseña), Laravel renderizá la misma página que generó la llamada. En ete caso es necesario aportar cierta información para saber cual de los tres aparatados es el que generó el error y poder mostrarlo correctamente. Para eso la opción más interesante es la creacióin de un campo oculto en cada uno de los formularios (el nombre siempre ha de ser el mismo, por ejemplo, _sector_), que tome como valor por defecto el nombre del apartado/formulario. En la posterior carga debida al error, se puede utilizar la función _old('sector')_ para conocer quien generó el error y por tanto que debe visualizase.
+
 ## scr_home
 
 | Parámetro          | Tipo              | Descripción       |

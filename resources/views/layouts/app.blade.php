@@ -42,5 +42,7 @@
     @foreach ($js_files as $file)
         <script src="{{ asset('js/' . $file . '.js') }}"></script>
     @endforeach
+
+    @yield('internal_script')
 </body>
 </html>

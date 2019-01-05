@@ -178,3 +178,10 @@ Crea un nuevo usuario en el sistema.
 
 </center>
 
+**GET /scrabble/block_auth**
+
+Renderiza una página (_block_auth.blade.php_)  con toda las opciones de autenticación: login, registro y reset de contraseña).
+
+- *Alias*: blockauth.
+- *Parámetros*: Ninguno.
+- *Respuesta*: HTML con la página con opciones de autenticación.
