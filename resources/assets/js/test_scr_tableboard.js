@@ -1,4 +1,3 @@
-window.Vue = require('vue');
 import Echo from "laravel-echo"
 window.io = require('socket.io-client');
 

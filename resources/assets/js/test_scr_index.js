@@ -4,8 +4,6 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-window.Vue = require('vue');
-
 Vue.component('card-container-component', require('./components/CardContainerComponent.vue'));
 
 const register = new Vue({

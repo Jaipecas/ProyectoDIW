@@ -4,8 +4,6 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-window.Vue = require('vue');
-
 var url = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port: '');
 
 const register = new Vue({
