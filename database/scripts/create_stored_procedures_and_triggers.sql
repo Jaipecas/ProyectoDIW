@@ -52,7 +52,7 @@ CREATE TRIGGER upd_levels_played AFTER UPDATE ON games
 
 /* Actualiza el nivel usuario en un idioma */
 DROP TRIGGER IF EXISTS upd_levels_level;
-CREATE TRIGGER upd_levels_level AFTER UPDATE ON levels
+CREATE TRIGGER upd_levels_level BEFORE UPDATE ON levels
     FOR EACH ROW
     BEGIN
         SET NEW.level = CalculateLevel(NEW.won,NEW.lost);
