@@ -24,18 +24,18 @@ class CreateGamesTable extends Migration
             $table->unsignedInteger('player_1')->nullable();
             // puntos jugador 1
             $table->smallInteger('player_1_score')->default(0);
-            // letras jugador 1
-            $table->string('player_1_letters', 7)->default("");
+            // letras jugador 1. Formato LPPLPP... L letra y PP puntuacion
+            $table->string('player_1_letters', 21)->default("");
             // jugador 2
             $table->unsignedInteger('player_2')->nullable();
             // puntos jugador 2
             $table->smallInteger('player_2_score')->default(0);
-            // letras jugador 2
-            $table->string('player_2_letters', 7)->default("");
+            // letras jugador 2. Formato LPPLPP... L letra y PP puntuacion
+            $table->string('player_2_letters', 21)->default("");
             // estado tablero 15x15 caracteres
             $table->string('tableboard',225)->default("");
             // letras restantes
-            $table->string('remaining_letters', 100)->default("");
+            $table->string('remaining_letters', 122)->default("");
             // tiradas. Formato: PLLLWWWWWWWWWW|PLLLWWWWWWWWW|... P : jugador 1 o 2, L posicion: 06D, J11. 
             // Si el número va delante será vertical y si va la letra será horizontal, W palabra
             // se separan por |
