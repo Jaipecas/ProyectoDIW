@@ -40,7 +40,7 @@ return [
                 'W' => array('quantity' => 1, 'value' => 8),
                 'Y' => array('quantity' => 1, 'value' => 4),
                 'Z' => array('quantity' => 1, 'value' => 10),
-                ' ' => array('quantity' => 2, 'value' => 0), // comodin
+                '*' => array('quantity' => 2, 'value' => 0), // comodin
             ),
             'en' => array(
 
