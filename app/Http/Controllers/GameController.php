@@ -132,9 +132,8 @@ class GameController extends Controller
 
         // envio mi objeto game, con la información de gameBD postprocesada
         $game['id'] = $gameDB->id;
-        var_dump($gameDB->created_at);
-        $game['created_at'] = $gameDB->created_at;
-        $game['updated_at'] = $gameDB->updated_at;
+        $game['created_at'] = $gameDB->created_at->toDateTimeString();
+        $game['updated_at'] = $gameDB->updated_at->toDateTimeString();
         $game['language'] = $gameDB->language;
         $game['state'] = $gameDB->state;
         $game['throw'] = $gameDB->throw;
