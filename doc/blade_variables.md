@@ -86,7 +86,7 @@ Muchas de las variables proporcionadas son de tipo _colección_. Para el acceso 
 | languages.name    | Cadena           | Nombre del idioma (p.e. $languages[0]->name ) |
 
 
-> **Nota**: En caso de error en la peticion (de login, registro o solicitud de renovación de contraseña), Laravel renderizá la misma página que generó la llamada. En ete caso es necesario aportar cierta información para saber cual de los tres aparatados es el que generó el error y poder mostrarlo correctamente. Para eso la opción más interesante es la creacióin de un campo oculto en cada uno de los formularios (el nombre siempre ha de ser el mismo, por ejemplo, _sector_), que tome como valor por defecto el nombre del apartado/formulario. En la posterior carga debida al error, se puede utilizar la función _old('sector')_ para conocer quien generó el error y por tanto que debe visualizase.
+> **Nota**: En caso de error en la peticion (de login, registro o solicitud de renovación de contraseña), Laravel renderizá la misma página que generó la llamada. En ete caso es necesario aportar cierta información para saber cual de los tres aparatados es el que generó el error y poder mostrarlo correctamente. Para eso la opción más interesante es la creación de un campo oculto en cada uno de los formularios (el nombre siempre ha de ser el mismo, por ejemplo, _sector_), que tome como valor por defecto el nombre del apartado/formulario. En la posterior carga debida al error, se puede utilizar la función _old('sector')_ para conocer quien generó el error y por tanto que debe visualizase.
 
 ## scr_home
 
@@ -120,5 +120,26 @@ Muchas de las variables proporcionadas son de tipo _colección_. Para el acceso 
 | games.player_score | Número            | Puntuación del jugador  |
 | games.opponent_score | Número          | Puntuación del oponente |
 | games.state        | Cadena            | Estado de la partida: 0: por confirmar, 1: tira el jugador, 2: tira el oponente |
-                
-               
+
+## scr_tableboard
+
+| Parámetro          | Tipo              | Descripción       |
+| :----------        | :-------          | :------------     |
+| game               | JSON              | Información general de la partida |
+| game.id            | Número            | Identificador de la partida | 
+| game.created_at    | Fecha             | Fecha de creación de la partida    | | game.updated_at    | Fecha             | Fecha de última tirada  | 
+| game.language      | Cadena            | Idioma de la partida |
+| game.state         | Cadena            | Estado de la partida: *unstarted*, *turn_p1* (turno jugador 1), *turn_p2* (turno jugador2), *win_p1* (ganador jugador1), *win_p2* (ganador p2)|
+| game.throw         | Cadena           | Listado de tiradas. Formato: PLLLWWWWWWWWWW\|PLLLWWWWWWWWW\|... P : jugador 1 o 2, L posicion: 06D, J11. Si el número va delante será vertical y si va la letra será horizontal, W palabra . Se separan por \| |
+| game.tableboard    | Cadena           | cadena de 225 caracteres en la que en cada posición se incluye la letra correspondiente según la celda (ordenado de izq. a der. y de arriba a abajo) |
+| game.remaining_tokens | Número        | Número de fichas por jugar |
+| game.total_tokens  | Numero           | Número total de fichas en la partida |
+| user               | JSON   | Información de la partida del usuario |
+| user.player        | Cadena | Identificación del usuario en la partida, *P1*: jugador 1, *P2*: jugador 2 |
+| user.score        | Número  | Puntuación del jugador |
+| user.tokens       | Cadena  | Fichas actuales del jugador. Formato LPPLPP... L letra y PP puntuación |
+| opponent            | JSON   | Información de la partida del rival |
+| opponent.player     | Cadena | Identificación del usuario en la partida, *P1*: jugador 1, *P2*: jugador 2 |
+| opponent.score      | Número  | Puntuación del jugador |
+        
+        
