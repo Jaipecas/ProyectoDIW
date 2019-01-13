@@ -9,7 +9,7 @@
                 <tr v-for="indexY in 15" :key="indexY">
                     <th class="cell">{{ String.fromCharCode(64 + indexY) }}</th>
                     <td v-for="indexX in 15" :key="indexX" class="cell">
-                        {{ getLetter(game.language, game.tableboard.charAt((indexY-1)*15 + indexX)) }}
+                        {{ getLetter(game.tableboard.charAt((indexY-1)*15 + indexX)) }}
                     </td>
                 </tr>
             </table>
@@ -29,8 +29,11 @@
                 <div class="info"><span class="data">País: </span><span class="value">{{ opponent.country }}</span></div>
                 <div class="info"><span class="data">Puntos: </span><span class="value">{{ opponent.score }}</span></div>
             </div>
-            <div class="player-info">
-    
+            <div class="player-tokens" :class="{ turn: isTurn, noturn: !isTurn }">
+                <div class="token" v-for="token in tokens" :key="token.id">
+                    <span class="letter">{{ token.letter }}</span>
+                    <span class="points">{{ token.value }}</span>
+                </div>
             </div>
         </div>
         <div class="log"><span class="data">Inicio: </span><span class="value"></span></div>
@@ -47,6 +50,13 @@
     grid-template: 18rem 40px / 30rem 1.2fr 0.8fr;
     margin: 10px 2%;
     font-size: 1.2em;
+
+    .token {
+        border: 1px solid #9293a6;
+        padding: 0.4em;
+        margin: 0 1em; 
+        
+    }
 
     .value {
         color: rgb(111, 97, 170);
@@ -69,6 +79,24 @@
         grid-gap: 10px;
         grid-template-rows: 120px 120px 40px;
 
+        .player-tokens {
+
+            display: flex;
+            justify-content: center;
+
+            .points {
+                font-size: 0.6em;
+            }
+
+            &.noturn {
+                background: #673e35;
+            }
+
+            &.turn {
+                background: #3f543c;
+            }
+        }
+
         .player-info {
             background-color: $card-bg; 
             display: grid;
@@ -89,7 +117,10 @@
             height: 120px;
             background: rgb(128, 174, 184);
         }
+    }
 
+    .log {
+        background-color: $card-bg;
     }
     
 }
@@ -125,14 +156,33 @@ export default {
             c_user: null,
             c_opponent: null,
             c_cards: [],
+            tokens: []
+        }
+    },
+    computed: {
+        isTurn: function() {
+            return  (this.c_user.player == 'P1' && this.c_game.state == 'turn_p1' ) ||
+                    (this.c_user.player == 'P2' && this.c_game.state == 'turn_p2' )
         }
     },
     components: {
         CardContainerComponent, GameDataComponent, InfoGameComponent
     },
     methods: {
-        getLetter: function(l,d) {
-            return ScrabbleHelper.getLetter('es',d);
+        getLetter: function(d) {
+            return ScrabbleHelper.getLetter(this.c_game.language, d);
+        },
+        fillTokens: function(tokens) {
+            // añado el id
+            for(var n=0; n<tokens.length; n++) {
+                var newToken = {
+                    id: this.tokens.length + n,
+                    value: tokens[n].value,
+                    letter: this.getLetter(tokens[n].letter),
+                }
+
+                this.tokens.push(newToken);
+            }
         },
         createCard: function(title, status, statusText, data) {
             var newcard = {
@@ -165,6 +215,7 @@ export default {
         this.c_user = this.user;
         this.c_opponent = this.opponent;
 
+        this.fillTokens(this.c_user.tokens);
         this.listenForBroadcast();
     },
     mounted() {

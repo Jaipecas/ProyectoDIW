@@ -160,4 +160,24 @@ class User extends Authenticatable
     public function levels() {
         return $this->hasMany('App\Level', 'user_id');
     }
+
+    /**
+     * Saca $number letras del saco del partido $game
+     * Develve un string de 4*$number longitud, con el formato
+     * LPPLPPLPP...
+     * Donde L es la letra y PP la puntuación asociada
+     */
+    public function getLetters($game, $number) {
+        
+        $newLetters = "";
+        $lettersOri = config('game.letters');
+        $lettersOriL = $lettersOri[$game->language];
+
+        for ($i=0; $i<$number; $i++) {
+            $let = $game->getLetterFromBag();
+            $newLetters = $newLetters . $let . substr("0000{$lettersOriL[$let]['value']}", -2);
+        }
+
+        return $newLetters;
+    }
 }

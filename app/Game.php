@@ -32,4 +32,38 @@ class Game extends Model
     public function language() {
         return $this->belongsTo('App\Language', 'language');
     }
+
+    /**
+     * Devuelve un vector con todas las fichas iniciales
+     */
+    public function initalLetters() {
+
+        $letters = [];
+    
+        $lettersOri = config('game.letters');
+        $lettersOriL = $lettersOri[$this->language];
+        foreach ($lettersOriL as $let => $data) {    
+            for ($i=0; $i<$data['quantity']; $i++)
+                $letters[] = $let; 
+        }
+    
+        shuffle ($letters);
+        return implode("",$letters);
+    }
+
+    /**  
+     * Saca una ficha del saco de fichas
+     * Si no quedan fichas devuelve cadena vacia
+     */
+    public function getLetterFromBag() {
+        if (strlen($this->remaining_letters) == 0)
+            return "";
+
+        $pos = rand(0, strlen($this->remaining_letters)-1);
+        $letter = $this->remaining_letters[$pos];
+        $this->remaining_letters = substr_replace($this->remaining_letters, '', $pos, 1);
+        
+        return $letter;
+    }
+    
 }

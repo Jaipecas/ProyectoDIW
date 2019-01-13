@@ -117,17 +117,32 @@ class GameController extends Controller
     {
         $meArray= [];
         $oppoArray= [];
+        $game = [];
         $user = Auth::user();
 
         try {
-            $game = Game::findOrFail($id);
+            $gameDB = Game::findOrFail($id);
         }
         catch(ModelNotFoundException $err){
             return abort(404);
         }
 
-        $player1 = $game->player1()->get(['id','name', 'country', 'avatar']);
-        $player2 = $game->player2()->get(['id','name', 'country', 'avatar']);
+        $player1 = $gameDB->player1()->get(['id','name', 'country', 'avatar']);
+        $player2 = $gameDB->player2()->get(['id','name', 'country', 'avatar']);
+
+        // envio mi objeto game, con la información de gameBD postprocesada
+        $game['id'] = $gameDB->id;
+        $game['created_at'] = $gameDB->created_at;
+        $game['updated_at'] = $gameDB->updated_at;
+        $game['language'] = $gameDB->language;
+        $game['state'] = $gameDB->state;
+        $game['throw'] = $gameDB->throw;
+        $game['tableboard'] = $gameDB->tableboard;
+        $game['remaining_letters'] = strlen($gameDB->remaining_letters);
+        $game['total_letters'] = strlen($gameDB->remaining_letters) +
+                                substr_count($gameDB->tableboard, ' ') +
+                                strlen($gameDB->player_1_letters) +
+                                strlen($gameDB->player_2_letters);
    
         // el usuario que ha pedido la pagina no juega en esa partida
         if ($player1->first()->id != $user->id && 
@@ -141,28 +156,48 @@ class GameController extends Controller
             // serializo
             $meArray = $me->toArray();
             $meArray["player"] = "P1";
-            $meArray["score"] = $game->player_1_score;
+            $meArray["score"] = $gameDB->player_1_score;
+            $meArray["tokens"] = GameController::tokensStringToTokensObjectArray($gameDB->player_1_letters);
 
             $oppoArray = $oppo->toArray();
             $oppoArray["player"] = "P2";
-            $oppoArray["score"] = $game->player_2_score;
+            $oppoArray["score"] = $gameDB->player_2_score;
+            // no paso las letras del oponente
+            // $oppoArray["letters"] = $gameBD->player_2_letters;
         } else {
             $oppo = $player1->first();
             $me = $player2->first();
 
             $meArray = $me->toArray();
             $meArray["player"] = "P2";
-            $meArray["score"] = $game->player_2_score;
+            $meArray["score"] = $gameDB->player_2_score;
+            $meArray["tokens"] = GameController::tokensStringToTokensObjectArray($gameDB->player_2_letters);
 
             $oppoArray = $oppo->toArray();
             $oppoArray["player"] = "P1";
-            $oppoArray["score"] = $game->player_1_score;
+            $oppoArray["score"] = $gameDB->player_1_score;
+            // no paso las letras del oponente
+            //$oppoArray["letters"] = $game->player_1_letters;
         }
 
-        return view('scr_tableboard', ['game' => $game, 
+        return view('scr_tableboard', ['game' => $gameDB, 
                 'user' => $meArray, 
                 'opponent' => $oppoArray] );
 
+    }
+
+    public static function tokensStringToTokensObjectArray($tokensString) {
+
+        $tokensArray= [];
+
+        for ($n=0; $n<strlen($tokensString)/3; $n++) {
+            $token = array( 'letter' => $tokensString[3*$n], 
+                            'value' => intval( $tokensString[3*$n+1].$tokensString[3*$n+2]));
+
+            array_push($tokensArray, $token);
+        }
+
+        return $tokensArray;
     }
 
     /**

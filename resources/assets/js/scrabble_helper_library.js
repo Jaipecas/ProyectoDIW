@@ -14,12 +14,13 @@ export const ScrabbleHelper = {
                 if (letter === 'c') return "CH";
                 if (letter === 'r') return "RR";
                 if (letter === 'l') return "LL";
+                if (letter === 'n') return "Ñ";
                 return letter;
                 break;
             
             case 'EN':
-                // TODO
+                return letter;
                 break;
         }  
-    } 
+    }
 };

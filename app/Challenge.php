@@ -69,11 +69,15 @@ class Challenge extends Model
                 $game->language = $inputChallenge->language;
                 $game->player_1 = $request->first()->id;
                 $game->player_2 = $oppoChallenge->requesting_player;
-                $game->state = 'unstarted';
-                
-                $game->save();
-
+                $game->state = rand(0,1) == 0 ? 'turn_p1' : 'turn_p2';
+                $game->remaining_letters = $game->initalLetters();
+        
                 $opponent = User::find($oppoChallenge->requesting_player);
+                $game->player_2_letters =  $opponent->getLetters($game, 7);
+                $req = User::find($request->first()->id);
+                $game->player_1_letters = $req->getLetters($game, 7);
+
+                $game->save();
 
                 // emito el evento
                 event(new AcceptedChallenge($game->id, $inputChallenge->language, $request->first(), $opponent));
@@ -123,11 +127,15 @@ class Challenge extends Model
                 $game->language = $inputChallenge->language;
                 $game->player_1 = $request->first()->id;
                 $game->player_2 = $oppoChallenge->requesting_player;
-                $game->state = 'unstarted';
+                $game->state = rand(0,1) == 0 ? 'turn_p1' : 'turn_p2';
+                $game->remaining_letters = $game->initalLetters();
                 
-                $game->save();
-
                 $opponent = User::find($oppoChallenge->requesting_player);
+                $game->player_2_letters = $opponent->getLetters($game, 7);
+                $req = User::find($request->first()->id);
+                $game->player_1_letters = $req->getLetters($game, 7);
+
+                $game->save();
 
                 // emito el evento al que genera la petición
                 event(new AcceptedChallenge($game->id, $inputChallenge->language, $request->first(), $opponent));
