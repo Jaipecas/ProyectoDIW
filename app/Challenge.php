@@ -77,6 +77,8 @@ class Challenge extends Model
                 $req = User::find($request->first()->id);
                 $game->player_1_letters = $req->getLetters($game, 7);
 
+                $game->tableboard = implode(array_fill(0, 225, ' '));
+
                 $game->save();
 
                 // emito el evento
@@ -134,6 +136,8 @@ class Challenge extends Model
                 $game->player_2_letters = $opponent->getLetters($game, 7);
                 $req = User::find($request->first()->id);
                 $game->player_1_letters = $req->getLetters($game, 7);
+
+                $game->tableboard = implode(array_fill(0, 225, ' '));
 
                 $game->save();
 

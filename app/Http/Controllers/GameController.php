@@ -132,17 +132,18 @@ class GameController extends Controller
 
         // envio mi objeto game, con la información de gameBD postprocesada
         $game['id'] = $gameDB->id;
+        var_dump($gameDB->created_at);
         $game['created_at'] = $gameDB->created_at;
         $game['updated_at'] = $gameDB->updated_at;
         $game['language'] = $gameDB->language;
         $game['state'] = $gameDB->state;
         $game['throw'] = $gameDB->throw;
         $game['tableboard'] = $gameDB->tableboard;
-        $game['remaining_letters'] = strlen($gameDB->remaining_letters);
-        $game['total_letters'] = strlen($gameDB->remaining_letters) +
-                                substr_count($gameDB->tableboard, ' ') +
-                                strlen($gameDB->player_1_letters) +
-                                strlen($gameDB->player_2_letters);
+        $game['remaining_tokens'] = strlen($gameDB->remaining_letters);
+        $game['total_tokens'] = strlen($gameDB->remaining_letters) +
+                                225 - substr_count($gameDB->tableboard, ' ') +
+                                (strlen($gameDB->player_1_letters) +
+                                strlen($gameDB->player_2_letters)) / 3;
    
         // el usuario que ha pedido la pagina no juega en esa partida
         if ($player1->first()->id != $user->id && 
@@ -180,7 +181,7 @@ class GameController extends Controller
             //$oppoArray["letters"] = $game->player_1_letters;
         }
 
-        return view('scr_tableboard', ['game' => $gameDB, 
+        return view('scr_tableboard', ['game' => $game, 
                 'user' => $meArray, 
                 'opponent' => $oppoArray] );
 
