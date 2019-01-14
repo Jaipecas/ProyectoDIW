@@ -88,7 +88,7 @@ export default {
             // me creo una variable v (viewmodel) para cambiar el ámbito
             // y así si poder acceder
             var vm = this;
-            return axios.post('/upload/avatar',formData)
+            return axios.post('/scrabble/upload/avatar',formData)
                 .then(function (response) {
                     vm.currentStatus = STATUS_SUCCESS;
                     console.log(response);
