@@ -106,7 +106,16 @@ Modifica el estado de una notificación
 Sube una imagen como avatar del usuario.
 
 - *Alias*: avatar.
-- *Parámetros*: Ninguno.
+- *Parámetros*: 
+
+<center>
+
+| Parámetro       | Descripción       |
+| :----------:    | :------------     |
+| formData        | Objeto formData con clave el nombre del campo, el fichero y el nombre del fichero. Por ejemplo: formData.append("avatar",file, file.name). Se puede ver un ejemplo en el fichero _UploadImageComponent.vue_ |  
+
+</center>
+
 - *Requerimientos*: Usuario autenticado.
 - *Respuesta*: JSON con los parámetros indicados en la tabla. 
 
