@@ -36,7 +36,42 @@
                 </div>
             </div>
         </div>
-        <div class="log"><span class="data">Inicio: </span><span class="value"></span></div>
+        <div class="panel-control">
+            <div class="log">
+                <span class="data">Letras en saco: </span><span class="value">{{ game.remaining_tokens }} / {{ c_game.total_tokens }}</span>
+            </div>
+            <div class="throw">
+                <div id="throw">
+                    <label for="rowpos">Fila 1ª letra:</label>
+                    <select id="rowpos">
+                        <option v-for="indexY in 15" :key="indexY" :value="String.fromCharCode(64 + indexY)">{{ String.fromCharCode(64 + indexY) }}</option>
+                    </select>
+                    <label for="colpos">Columna 1ª letra:</label>
+                    <select id="colpos">
+                        <option v-for="index in 15" :key="index" :value="index">{{ index }}</option>
+                    </select> 
+                    <label for="orientation">H/V:</label>
+                    <select id="orientation">
+                        <option value="H">Horizontal</option>
+                        <option value="V">Vertical</option>
+                    </select><br>
+                    <label for="word">Palabra:</label>
+                    <input type="text" name="word" id="word">
+                    <button type="button" id="send">Envia palabra</button>
+                </div>
+                <div id="return-letter">
+                    <span v-for="token in tokens" :key="token.id">
+                        <label for="">{{ token.letter }} ({{ token.value }})</label>
+                        <input type="checkbox" name="returned-letter" :value="token.letter">
+                    </span>
+                    <br>
+                    <button type="button" id="return">Devolver</button>
+                </div>
+                <div id="spend-turn">
+                    <button type="button" id="spend">Pasar turno</button>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -72,6 +107,31 @@
             width: 2rem;
             text-align: center
          }
+    }
+
+    .panel-control {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-rows: 38px 242px;
+
+        .log {
+            background-color: $card-bg;
+        }
+
+        .throw {
+            background-color: $card-bg;
+
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+
+            label {
+                margin-left: 0.5em;
+            }
+
+            #spend, #return {
+                margin: 0.5em;
+            }
+        }
     }
 
     .players {
@@ -117,10 +177,6 @@
             height: 120px;
             background: rgb(128, 174, 184);
         }
-    }
-
-    .log {
-        background-color: $card-bg;
     }
     
 }
