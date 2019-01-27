@@ -43,20 +43,20 @@
             <div class="throw">
                 <div id="throw">
                     <label for="rowpos">Fila 1ª letra:</label>
-                    <select id="rowpos">
+                    <select id="rowpos" v-model="rowpos">
                         <option v-for="indexY in 15" :key="indexY" :value="String.fromCharCode(64 + indexY)">{{ String.fromCharCode(64 + indexY) }}</option>
                     </select>
                     <label for="colpos">Columna 1ª letra:</label>
-                    <select id="colpos">
+                    <select id="colpos" v-model="colpos">
                         <option v-for="index in 15" :key="index" :value="index">{{ index }}</option>
                     </select> 
-                    <label for="orientation">H/V:</label>
-                    <select id="orientation">
+                    <label for="direction">H/V:</label>
+                    <select id="direction" v-model="direction">
                         <option value="H">Horizontal</option>
                         <option value="V">Vertical</option>
                     </select><br>
                     <label for="word">Palabra:</label>
-                    <input type="text" name="word" id="word">
+                    <input type="text" name="word" id="word" v-model="word">
                     <button type="button" id="send" @click="sendWord">Envia palabra</button>
                 </div>
                 <div id="return-letter">
@@ -74,6 +74,119 @@
         </div>
     </div>
 </template>
+
+<script>
+import GameDataComponent from './GameDataComponent'
+import InfoGameComponent from './InfoGameComponent'
+import CardContainerComponent from './CardContainerComponent'
+import { ScrabbleHelper } from '../scrabble_helper_library.js'
+
+export default {
+    name: 'info-game-component', /* que sea siempre compuesto con - para evitar colisiones con otros tag HTMHL5 */
+    props: {
+        user: { required: true, type: Object },
+        opponent: { required: true, type: Object },
+        game: { required: true, type: Object },
+    },
+    data() {
+        return {
+            c_game: null,
+            c_user: null,
+            c_opponent: null,
+            c_cards: [],
+            tokens: [],
+            rowpos: 'A',
+            colpos: 1,
+            direction: 'H',
+            word: ""
+        }
+    },
+    computed: {
+        isTurn: function() {
+            return  (this.c_user.player == 'P1' && this.c_game.state == 'turn_p1' ) ||
+                    (this.c_user.player == 'P2' && this.c_game.state == 'turn_p2' )
+        }
+    },
+    components: {
+        CardContainerComponent, GameDataComponent, InfoGameComponent
+    },
+    methods: {
+        getLetter: function(d) {
+            return ScrabbleHelper.getLetter(this.c_game.language, d);
+        },
+        fillTokens: function(tokens) {
+            // añado el id
+            for(var n=0; n<tokens.length; n++) {
+                var newToken = {
+                    id: this.tokens.length + n,
+                    value: tokens[n].value,
+                    letter: this.getLetter(tokens[n].letter),
+                }
+
+                this.tokens.push(newToken);
+            }
+        },
+        createCard: function(title, status, statusText, data) {
+            var newcard = {
+                order: this.c_cards.length + 1,
+                type: title,
+                errorCode: status,
+                statusCode: statusText,
+                output: data
+            }
+
+            this.c_cards.push(newcard);
+        },
+        sendWord: function() {
+            var vm = this;
+            // envio la palabra
+            // el JSON de ejemplo incuye todos los posibles datos a modificar
+            // podría sólo indicarse uno
+            var route = "/scrabble/game/" + this.c_game.id + "/user/throw";
+            return axios.post(route, {
+                word: vm.word,
+                row: vm.rowpos,
+                column: vm.colpos,
+                direction: vm.direction,
+                })
+                .then(function (response) {
+                    console.log("Respuesta envio palabra:", response);
+                    //vm.createCard('Update Profile', response.status, response.statusText, response.data);
+
+                    
+                })
+                .catch(function (error) {
+                    console.log("ERROR: " + error.response.status + ". " + error.response.statusText + ". " + error.response.data);
+                }); 
+        },
+        listenForBroadcast: function() { 
+          /*  console.log("Escuchando canales: user"+this.c_user.id);
+            Echo.private('user.' + this.c_user.id)
+                .listen('AcceptedChallenge', (e) => {
+                    alert("Generada partida " + e.gameId + "\nIdioma: " + e.lang +
+                        "\nOponente\n\tid: " + e.oppoId +
+                        "\n\tNombre: " + e.oppoName + "\n\tPaís: " + e.oppoCountry + 
+                        "\n\tAvatar: " + e.oppoAvatar);
+
+                    this.requestChallengeId = e.gameId;
+
+                    console.log("Recibido");
+                });*/
+        }
+    },
+    created() {
+        this.c_game = this.game;
+        this.c_user = this.user;
+        this.c_opponent = this.opponent;
+
+        this.fillTokens(this.c_user.tokens);
+        this.listenForBroadcast();
+    },
+    mounted() {
+        console.log('TableboardComponent montado.');
+    }
+}
+</script>
 
 <style lang="scss" scoped>
 @import "../../sass/variables";
@@ -192,112 +305,3 @@
     margin-left: 15%;
 }
  </style>
-
-<script>
-import GameDataComponent from './GameDataComponent'
-import InfoGameComponent from './InfoGameComponent'
-import CardContainerComponent from './CardContainerComponent'
-import { ScrabbleHelper } from '../scrabble_helper_library.js'
-
-export default {
-    name: 'info-game-component', /* que sea siempre compuesto con - para evitar colisiones con otros tag HTMHL5 */
-    props: {
-        user: { required: true, type: Object },
-        opponent: { required: true, type: Object },
-        game: { required: true, type: Object },
-    },
-    data() {
-        return {
-            c_game: null,
-            c_user: null,
-            c_opponent: null,
-            c_cards: [],
-            tokens: []
-        }
-    },
-    computed: {
-        isTurn: function() {
-            return  (this.c_user.player == 'P1' && this.c_game.state == 'turn_p1' ) ||
-                    (this.c_user.player == 'P2' && this.c_game.state == 'turn_p2' )
-        }
-    },
-    components: {
-        CardContainerComponent, GameDataComponent, InfoGameComponent
-    },
-    methods: {
-        getLetter: function(d) {
-            return ScrabbleHelper.getLetter(this.c_game.language, d);
-        },
-        fillTokens: function(tokens) {
-            // añado el id
-            for(var n=0; n<tokens.length; n++) {
-                var newToken = {
-                    id: this.tokens.length + n,
-                    value: tokens[n].value,
-                    letter: this.getLetter(tokens[n].letter),
-                }
-
-                this.tokens.push(newToken);
-            }
-        },
-        createCard: function(title, status, statusText, data) {
-            var newcard = {
-                order: this.c_cards.length + 1,
-                type: title,
-                errorCode: status,
-                statusCode: statusText,
-                output: data
-            }
-
-            this.c_cards.push(newcard);
-        },
-        sendWord: function() {
-            var vm = this;
-            // envio la palabra
-            // el JSON de ejemplo incuye todos los posibles datos a modificar
-            // podría sólo indicarse uno
-            var route = "/scrabble/game/" + this.c_game.id + "/user/throw";
-            return axios.post(route, {
-                word: 'SERENAD',
-                row: 'A',
-                column: 1,
-                direction: 'H',
-                })
-                .then(function (response) {
-                    console.log("Respuesta envio palabra:", response);
-                    //vm.createCard('Update Profile', response.status, response.statusText, response.data);
-
-                    
-                })
-                .catch(function (error) {
-                    console.log("ERROR: " + error.response.status + ". " + error.response.statusText + ". " + error.response.data);
-                }); 
-        },
-        listenForBroadcast: function() { 
-          /*  console.log("Escuchando canales: user"+this.c_user.id);
-            Echo.private('user.' + this.c_user.id)
-                .listen('AcceptedChallenge', (e) => {
-                    alert("Generada partida " + e.gameId + "\nIdioma: " + e.lang +
-                        "\nOponente\n\tid: " + e.oppoId +
-                        "\n\tNombre: " + e.oppoName + "\n\tPaís: " + e.oppoCountry + 
-                        "\n\tAvatar: " + e.oppoAvatar);
-
-                    this.requestChallengeId = e.gameId;
-
-                    console.log("Recibido");
-                });*/
-        }
-    },
-    created() {
-        this.c_game = this.game;
-        this.c_user = this.user;
-        this.c_opponent = this.opponent;
-
-        this.fillTokens(this.c_user.tokens);
-        this.listenForBroadcast();
-    },
-    mounted() {
-        console.log('TableboardComponent montado.');
-    }
-}
-</script>
