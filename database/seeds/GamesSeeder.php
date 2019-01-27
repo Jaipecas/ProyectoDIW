@@ -44,5 +44,18 @@ class GamesSeeder extends Seeder
                         $g->state == 'win_p2';
                 }
             });
+
+        DB::table('games')->insertGetId([
+            'language' => 'es',
+            'state' => 'turn_p1',
+            'player_1' => 1,
+            'player_1_score' => 0,
+            'player_1_letters' => 'D02L01N01r08O01H04U01',
+            'player_2' => 2,
+            'player_2_score' => 0,
+            'player_2_letters' => 'E01R01C03A01I01H04I01',
+            'remaining_letters' => 'OcTIDRDIUOECVLRAZEEIGIEEEANATnTMASOWEDOUFGNAASALl**DONAUNPUEAEBCJMSOASQRLSPCBRYETAOEOS',
+            'tableboard' => '                                                                                                                                                                                                                                 '
+        ]);
     }
 }
