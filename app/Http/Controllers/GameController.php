@@ -205,10 +205,12 @@ class GameController extends Controller
         if ($player1->first()->id == $user->id) {
             $letters = $gameDB->player_1_letters;
             $pscore =  $gameDB->player_1_score;
+            $player = $player1;
         }
         else {
             $letters = $gameDB->player_2_letters;
             $pscore =  $gameDB->player_2_score;
+            $player = $player2;
         }
 
         for ($i = 0;$i < strlen($sentWord);$i++) {
@@ -275,13 +277,28 @@ class GameController extends Controller
             list($colI, $rowI) = GameController::newPosition($colI, $rowI, $direction);
         }
 
+
+        // TODO puntuaciones segun celda
+        // TODO comprobar si la palabra es valida
+        // TODO actualizar BBDD
+        // TODO cambiar turno
+        // TODO comprobar ganador
+        
+        // Nuevas letras
+        $newTokens = $player->first()->getLetters($gameDB, 7-strlen($letters)/3);
+
+        // TODO enviar notificacion al contrincante
+
+
         return response()->json([
-                'rword' =>  $computedWord, 
+                'rword' => $computedWord,
+                'oword' => $sentWord, 
                 'irow' =>  chr($rowI + 65),   // devuelvo de A a O
                 'icol' =>  $colI + 1,  // devuelvo de 1-15
                 'frow' =>  chr($row + 65),
                 'fcol' =>  $col + 1,
-                'letters' => $letters,
+                'tokens' => GameController::tokensStringToTokensObjectArray($letters.$newTokens),    // todas las fichas con las que va a jugar la siguiente tirada
+                'newtokens' => GameController::tokensStringToTokensObjectArray($newTokens),          // fichas nuevas
                 'wscore' => $score,
                 'pscore' => $pscore + $score
             ], 200, $this->header, JSON_UNESCAPED_UNICODE);
