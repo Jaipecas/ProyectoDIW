@@ -307,7 +307,7 @@ class GameController extends Controller
         if ($inverted)
             $add = -1;
     
-        if ($dir ='H')
+        if ($dir == 'H')
             return array($col+$add, $row);
         else 
             return array($col, $row+$add);
