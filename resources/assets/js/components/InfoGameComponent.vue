@@ -9,7 +9,7 @@
                 <tr v-for="indexY in 15" :key="indexY">
                     <th class="cell">{{ String.fromCharCode(64 + indexY) }}</th>
                     <td v-for="indexX in 15" :key="indexX" class="cell">
-                        {{ getLetter(game.tableboard.charAt((indexY-1)*15 + indexX)) }}
+                        {{ getLetter(game.tableboard.charAt((indexY-1)*15 + (indexX-1))) }}
                     </td>
                 </tr>
             </table>
@@ -151,9 +151,11 @@ export default {
                 })
                 .then(function (response) {
                     console.log("Respuesta envio palabra:", response);
-                    //vm.createCard('Update Profile', response.status, response.statusText, response.data);
-
                     
+                    vm.c_game.tableboard = ScrabbleHelper.updateTableboard(
+                        vm.c_game.tableboard,
+                        response.data.icol, response.data.irow, vm.direction,
+                        response.data.rword);
                 })
                 .catch(function (error) {
                     console.log("ERROR: " + error.response.status + ". " + error.response.statusText + ". " + error.response.data);
@@ -215,10 +217,16 @@ export default {
         background-color: $card-bg;
         font-size: 0.7rem;
 
+        th {
+            background-color: #332323;
+        }
+
         .cell {
             border: 1px solid rgb(139, 104, 104);
             width: 2rem;
-            text-align: center
+            text-align: center;
+            font-weight: 600;
+            color: #caced1;
          }
     }
 
