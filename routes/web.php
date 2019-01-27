@@ -88,14 +88,18 @@ Route::prefix('scrabble')->group(function () {
     |-----------------------
     */
 
-    Route::middleware('auth')->post('/game/{id}/giveup', 'GameController@giveup')->name('giveup');
     // La exigencia de autenticación se hace en el propio controlador
+    Route::post('/game/{id}/giveup', 'GameController@giveup')->name('giveup');
+    
     Route::get('/game/{id}', 'GameController@showTableboard')->name('tableboard');
 
+    // colocar piezas
+    Route::post('/game/{id}/user/throw', 'GameController@throw')->name('throw');
+    
     Route::prefix('challenge')->group(function () {
-        Route::middleware('auth')->post('/request/{lang}', 'ChallengeController@create')->name('create_challenge');
-        Route::middleware('auth')->post('/request/{lang}/against/{id}', 'ChallengeController@createAgainst')->name('create_challenge_user');
-        Route::middleware('auth')->post('/request/{lang}/level/{level}', 'ChallengeController@createToLevel')->name('create_challenge_level');
+        Route::post('/request/{lang}', 'ChallengeController@create')->name('create_challenge');
+        Route::post('/request/{lang}/against/{id}', 'ChallengeController@createAgainst')->name('create_challenge_user');
+        Route::post('/request/{lang}/level/{level}', 'ChallengeController@createToLevel')->name('create_challenge_level');
     });
 
     /*

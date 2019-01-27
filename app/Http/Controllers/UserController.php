@@ -132,7 +132,6 @@ class UserController extends Controller
     /**
      * Actualiza los datos del perfil del usuario
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)

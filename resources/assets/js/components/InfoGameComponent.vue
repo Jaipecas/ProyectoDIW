@@ -57,7 +57,7 @@
                     </select><br>
                     <label for="word">Palabra:</label>
                     <input type="text" name="word" id="word">
-                    <button type="button" id="send">Envia palabra</button>
+                    <button type="button" id="send" @click="sendWord">Envia palabra</button>
                 </div>
                 <div id="return-letter">
                     <span v-for="token in tokens" :key="token.id">
@@ -250,6 +250,28 @@ export default {
             }
 
             this.c_cards.push(newcard);
+        },
+        sendWord: function() {
+            var vm = this;
+            // envio la palabra
+            // el JSON de ejemplo incuye todos los posibles datos a modificar
+            // podría sólo indicarse uno
+            var route = "/scrabble/game/" + this.c_game.id + "/user/throw";
+            return axios.post(route, {
+                word: 'SERENAD',
+                row: 'A',
+                column: 1,
+                direction: 'H',
+                })
+                .then(function (response) {
+                    console.log("Respuesta envio palabra:", response);
+                    //vm.createCard('Update Profile', response.status, response.statusText, response.data);
+
+                    
+                })
+                .catch(function (error) {
+                    console.log("ERROR: " + error.response.status + ". " + error.response.statusText + ". " + error.response.data);
+                }); 
         },
         listenForBroadcast: function() { 
           /*  console.log("Escuchando canales: user"+this.c_user.id);
