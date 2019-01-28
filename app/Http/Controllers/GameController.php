@@ -81,7 +81,6 @@ class GameController extends Controller
         return response('Game left', 200);
     }
 
-   
     /**
      * Display the specified resource.
      *
@@ -199,6 +198,7 @@ class GameController extends Controller
         $rowI = $row = ord($request->input('row')) - 65;
         $direction = $request->input('direction');
         $wordFactor = 1;
+        $newTableboard = $gameDB->tableboard;
 
         $lettersOri = config('game.letters');
         $lettersOriL = $lettersOri[$gameDB->language];
@@ -245,6 +245,7 @@ class GameController extends Controller
                     
                     $score += $value;
                     $computedWord = $computedWord.$sentWord[$i];
+                    $newTableboard[$col + 15*$row] = $sentWord[$i];
                 }
              
             } else {
@@ -252,13 +253,14 @@ class GameController extends Controller
                 $placed = false;
                 do {
                     if ($gameDB->tableboard[$col + 15*$row] == " ") {
-                        $computedWord = $computedWord.$sentWord[$i];
-                        
                         list($fact, $kind) = GameController::cellFactor($col, $row);
                         if ($kind == "L") $value *= $fact;
                         else $wordFactor *= $fact;
             
                         $score += $value;
+                        $computedWord = $computedWord.$sentWord[$i];
+
+                        $newTableboard[$col + 15*$row] = $sentWord[$i];
                         $placed = true;
                     } else {
                         $computedWord = $computedWord.$gameDB->tableboard[$col + 15*$row];
@@ -305,22 +307,45 @@ class GameController extends Controller
         } else {
             list($colI, $rowI) = GameController::newPosition($colI, $rowI, $direction);
         }
-
-        
+    
         // multiplico por el factor de palabra
         $score *= $wordFactor;
 
         // TODO comprobar si la palabra es valida
-        // TODO actualizar BBDD
         // TODO cambiar turno
         // TODO comprobar ganador
         
         // Nuevas letras
         $newTokens = $player->first()->getLetters($gameDB, 7-strlen($letters)/3);
 
+        // Actualizar BBDD
+        if ($player1->first()->id == $user->id) {
+            $gameDB->player_1_letters = $letters.$newTokens;
+            $gameDB->player_1_score = $pscore;
+            $gameDB->state = 'turn_p2';
+            $numPlayer ='1';
+        } else {
+            $gameDB->player_2_letters = $letters.$newTokens;
+            $gameDB->player_2_score = $pscore;
+            $gameDB->state = 'turn_p1';
+            $numPlayer ='2';
+        }
+
+        // calculo la tirada para la BD
+        if ($direction == 'H')
+            $throwH = $numPlayer.chr($rowI + 65).str_pad($col, 2, "0", STR_PAD_LEFT);
+        else
+            $throwH = $numPlayer.str_pad($col, 2, "0", STR_PAD_LEFT).chr($rowI + 65);
+
+        $gameDB->throw = $throwH.$computedWord;
+
+        // OJO!! Las fichas de remaining_letters se quitan solas en getLetterFromBag
+        $gameDB->tableboard = $newTableboard;
+        $gameDB->save();
+
         // TODO enviar notificacion al contrincante
 
-
+        cUONEOTOVAEOIDAREAMCDOElBMLTARrHAORSUASDSEIEYNECOSOIFABEP*JLAUnEZAGLATNNAEEURST*ICSRWC
         return response()->json([
                 'rword' => $computedWord,
                 'oword' => $sentWord, 
