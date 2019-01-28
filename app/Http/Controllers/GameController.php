@@ -200,6 +200,9 @@ class GameController extends Controller
         $wordFactor = 1;
         $newTableboard = $gameDB->tableboard;
 
+        if (strlen($sentWord) == 0) 
+            return response('Incorrect word.', 403);
+
         $lettersOri = config('game.letters');
         $lettersOriL = $lettersOri[$gameDB->language];
 
@@ -345,7 +348,6 @@ class GameController extends Controller
 
         // TODO enviar notificacion al contrincante
 
-        cUONEOTOVAEOIDAREAMCDOElBMLTARrHAORSUASDSEIEYNECOSOIFABEP*JLAUnEZAGLATNNAEEURST*ICSRWC
         return response()->json([
                 'rword' => $computedWord,
                 'oword' => $sentWord, 
