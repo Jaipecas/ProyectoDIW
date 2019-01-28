@@ -198,6 +198,7 @@ class GameController extends Controller
         $colI = $col = intval($request->input('column')) - 1;
         $rowI = $row = ord($request->input('row')) - 65;
         $direction = $request->input('direction');
+        $wordFactor = 1;
 
         $lettersOri = config('game.letters');
         $lettersOriL = $lettersOri[$gameDB->language];
@@ -237,6 +238,11 @@ class GameController extends Controller
                 if ($gameDB->tableboard[$col + 15*$row] != " ")
                     return response('Incorrect position. There are a token in that cell', 403);
                 else {
+                    
+                    list($fact, $kind) = GameController::cellFactor($col, $row);
+                    if ($kind == "L") $value *= $fact;
+                    else $wordFactor *= $fact;
+                    
                     $score += $value;
                     $computedWord = $computedWord.$sentWord[$i];
                 }
@@ -247,11 +253,22 @@ class GameController extends Controller
                 do {
                     if ($gameDB->tableboard[$col + 15*$row] == " ") {
                         $computedWord = $computedWord.$sentWord[$i];
+                        
+                        list($fact, $kind) = GameController::cellFactor($col, $row);
+                        if ($kind == "L") $value *= $fact;
+                        else $wordFactor *= $fact;
+            
                         $score += $value;
                         $placed = true;
                     } else {
                         $computedWord = $computedWord.$gameDB->tableboard[$col + 15*$row];
-                        $score += $lettersOriL[$computedWord.$gameDB->tableboard[$col + 15*$row]]['value'];
+                        $value = $lettersOriL[$computedWord.$gameDB->tableboard[$col + 15*$row]]['value'];
+
+                        list($fact, $kind) = GameController::cellFactor($col, $row);
+                        if ($kind == "L") $value *= $fact;
+                        else $wordFactor *= $fact;
+            
+                        $score += $value;
                         list($col, $row) = GameController::newPosition($col, $row, $direction);
                     }
                 } while(!$placed);
@@ -263,7 +280,13 @@ class GameController extends Controller
         // añado, si está asignada, la letra de la siguiente casilla
         if ($col<15 && $row<15 && $gameDB->tableboard[$col + 15*$row] != " "){
             $computedWord = $computedWord.$gameDB->tableboard[$col + 15*$row];
-            $score += $lettersOriL[$computedWord.$gameDB->tableboard[$col + 15*$row]]['value'];
+            $value = $lettersOriL[$computedWord.$gameDB->tableboard[$col + 15*$row]]['value'];
+
+            list($fact, $kind) = GameController::cellFactor($col, $row);
+            if ($kind == "L") $value *= $fact;
+            else $wordFactor *= $fact;
+    
+            $score += $value;
         } else {
             list($col, $row) = GameController::newPosition($col, $row, $direction, true);
         }
@@ -272,13 +295,21 @@ class GameController extends Controller
         list($colI, $rowI) = GameController::newPosition($colI, $rowI, $direction, true);
         if ($colI>=0 && $rowI>=0 &&$gameDB->tableboard[$colI + 15*$rowI] != " "){
             $computedWord = $gameDB->tableboard[$colI + 15*$rowI].$computedWord;
-            $score += $lettersOriL[$computedWord.$gameDB->tableboard[$colI + 15*$rowI]]['value'];
+            $value = $lettersOriL[$computedWord.$gameDB->tableboard[$colI + 15*$rowI]]['value'];;
+            
+            list($fact, $kind) = cellFactor($colI, $rowI);
+            if ($kind == "L") $value *= $fact;
+            else $wordFactor *= $fact;
+
+            $score += $value;
         } else {
             list($colI, $rowI) = GameController::newPosition($colI, $rowI, $direction);
         }
 
+        
+        // multiplico por el factor de palabra
+        $score *= $wordFactor;
 
-        // TODO puntuaciones segun celda
         // TODO comprobar si la palabra es valida
         // TODO actualizar BBDD
         // TODO cambiar turno
@@ -329,6 +360,24 @@ class GameController extends Controller
         else 
             return array($col, $row+$add);
     }
+
+    public static function cellFactor($col, $row) {
+
+        $table = config('game.tableboard');
+
+        $_row = chr($row+65);
+        $index = $_row.strval($col+1);
+    
+        if (!array_key_exists($index, $table)) 
+            return array(1,'W');
+        else {
+            $fact = $table[$index][0];
+            $kind = $table[$index][1];
+
+            return array($fact, $kind);
+        }
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -359,16 +408,6 @@ class GameController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
-    }
-
-     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
     {
         //
     }
