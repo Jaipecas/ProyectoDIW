@@ -20,14 +20,14 @@
                 <div v-else class="image"></div>
                 <div class="info"><span class="data">Usuario ({{ user.player }}): </span><span class="value">{{ user.name }}</span></div>
                 <div class="info"><span class="data">País: </span><span class="value">{{ user.country }}</span></div>
-                <div class="info"><span class="data">Puntos: </span><span class="value">{{ user.score }}</span></div>
+                <div class="info"><span class="data">Puntos: </span><span class="value">{{ c_user.score }}</span></div>
             </div>
             <div class="player-info">
                 <img v-if="opponent.avatar" src="opponent.avatar" class="image">
                 <div v-else class="image"></div>
                 <div class="info"><span class="data">Usuario ({{ opponent.player }}): </span><span class="value">{{ opponent.name }}</span></div>
                 <div class="info"><span class="data">País: </span><span class="value">{{ opponent.country }}</span></div>
-                <div class="info"><span class="data">Puntos: </span><span class="value">{{ opponent.score }}</span></div>
+                <div class="info"><span class="data">Puntos: </span><span class="value">{{ c_opponent.score }}</span></div>
             </div>
             <div class="player-tokens" :class="{ turn: isTurn, noturn: !isTurn }">
                 <div class="token" v-for="token in tokens" :key="token.id">
@@ -38,7 +38,7 @@
         </div>
         <div class="panel-control">
             <div class="log">
-                <span class="data">Letras en saco: </span><span class="value">{{ game.remaining_tokens }} / {{ c_game.total_tokens }}</span>
+                <span class="data">Letras en saco: </span><span class="value">{{ c_game.remaining_tokens }} / {{ c_game.total_tokens }}</span>
             </div>
             <div class="throw">
                 <div id="throw">
@@ -115,6 +115,7 @@ export default {
             return ScrabbleHelper.getLetter(this.c_game.language, d);
         },
         fillTokens: function(tokens) {
+            this.tokens.length = 0
             // añado el id
             for(var n=0; n<tokens.length; n++) {
                 var newToken = {
@@ -152,10 +153,20 @@ export default {
                 .then(function (response) {
                     console.log("Respuesta envio palabra:", response);
                     
+                    // redibujo el tablero con la nueva palabra
                     vm.c_game.tableboard = ScrabbleHelper.updateTableboard(
                         vm.c_game.tableboard,
                         response.data.icol, response.data.irow, vm.direction,
                         response.data.rword);
+
+                    // pongo las nuevas letras en pantalla
+                    vm.fillTokens(response.data.tokens);
+
+                    // quito letras del saco
+                    vm.c_game.remaining_tokens -= parseInt(response.data.newtokens.length);
+
+                    // actualizo sus puntos
+                    vm.c_user.score = response.data.pscore; 
                 })
                 .catch(function (error) {
                     console.log("ERROR: " + error.response.status + ". " + error.response.statusText + ". " + error.response.data);
