@@ -208,7 +208,7 @@ export default {
     width: 96%;
     display: grid;
     grid-gap: 10px 10px;
-    grid-template: 18rem 40px / 30rem 1.2fr 0.8fr;
+    grid-template: 18rem 40px / 30rem 0.9fr 1.1fr;
     margin: 10px 2%;
     font-size: 1.2em;
 
