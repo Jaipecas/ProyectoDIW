@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class GamesSeeder extends Seeder
 {
@@ -47,6 +48,8 @@ class GamesSeeder extends Seeder
 
         DB::table('games')->insertGetId([
             'language' => 'es',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'state' => 'turn_p1',
             'player_1' => 1,
             'player_1_score' => 0,
