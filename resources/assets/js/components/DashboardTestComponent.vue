@@ -23,6 +23,7 @@
                 <li class="input-menu"><a v-on:click.prevent="requestChallenge" href="#">Solicitar partida</a></li>
                 <li v-if="this.requestChallengeId" class="input-menu"><a v-on:click.prevent="gotoGame" href="#">Ir a partida solicitada</a></li>
                 <li v-else class="input-menu" style="text-decoration:line-through;"><a>Ir a partida solicitada</a></li>
+                <li class="input-menu"><a title="Es necesario modificar el fichero DashboardTestComponent para asignar el valor de id" v-on:click.prevent="gotoGame($event,44)" href="#">Ir partida id = ?</a></li>
             </ul>
         </aside>
         <card-container-component :cards="c_cards"></card-container-component> 
@@ -56,10 +57,12 @@ export default {
         onAvatarChange: function (image) {
             this.c_avatar = image;
         },
-        gotoGame: function () {
-            console.log(this.requestChallengeId);
+        gotoGame: function (event, idg) {
+            if (idg === undefined) {
+                idg = this.requestChallengeId;
+            }
             var url = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port: '');
-            window.location.href = url + "/scrabble/game/" + this.requestChallengeId;
+            window.location.href = url + "/scrabble/game/" + idg;
         },
         updateProfile: function () {
             var vm = this;
