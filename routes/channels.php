@@ -25,3 +25,6 @@ Broadcast::channel('user.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
 
+Broadcast::channel('game.{gid}.user.{id}', function ($user, $gid, $id) {
+    return (int) $user->id === (int) $id;
+});

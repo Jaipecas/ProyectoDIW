@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\User;
 use App\Game;
 use App\Level;
+use App\Events\OpponentThrow;
 
 class GameController extends Controller
 {
@@ -104,7 +105,7 @@ class GameController extends Controller
         $player1 = $gameDB->player1()->get(['id','name', 'country', 'avatar']);
         $player2 = $gameDB->player2()->get(['id','name', 'country', 'avatar']);
 
-         // el usuario que ha pedido la pagina no juega en esa partida
+        // el usuario que ha pedido la pagina no juega en esa partida
         if ($player1->first()->id != $user->id && 
             $player2->first()->id != $user->id)
             return abort(403);
@@ -267,7 +268,7 @@ class GameController extends Controller
                         $placed = true;
                     } else {
                         $computedWord = $computedWord.$gameDB->tableboard[$col + 15*$row];
-                        $value = $lettersOriL[$computedWord.$gameDB->tableboard[$col + 15*$row]]['value'];
+                        $value = $lettersOriL[$gameDB->tableboard[$col + 15*$row]]['value'];
 
                         list($fact, $kind) = GameController::cellFactor($col, $row);
                         if ($kind == "L") $value *= $fact;
@@ -285,7 +286,7 @@ class GameController extends Controller
         // añado, si está asignada, la letra de la siguiente casilla
         if ($col<15 && $row<15 && $gameDB->tableboard[$col + 15*$row] != " "){
             $computedWord = $computedWord.$gameDB->tableboard[$col + 15*$row];
-            $value = $lettersOriL[$computedWord.$gameDB->tableboard[$col + 15*$row]]['value'];
+            $value = $lettersOriL[$gameDB->tableboard[$col + 15*$row]]['value'];
 
             list($fact, $kind) = GameController::cellFactor($col, $row);
             if ($kind == "L") $value *= $fact;
@@ -298,11 +299,11 @@ class GameController extends Controller
         
         // añado, si está asignada, la letra de la casilla anterior a la primera
         list($colI, $rowI) = GameController::newPosition($colI, $rowI, $direction, true);
-        if ($colI>=0 && $rowI>=0 &&$gameDB->tableboard[$colI + 15*$rowI] != " "){
+        if ($colI >= 0 && $rowI >= 0 && $gameDB->tableboard[$colI + 15*$rowI] != " "){
             $computedWord = $gameDB->tableboard[$colI + 15*$rowI].$computedWord;
-            $value = $lettersOriL[$computedWord.$gameDB->tableboard[$colI + 15*$rowI]]['value'];;
+            $value = $lettersOriL[$gameDB->tableboard[$colI + 15*$rowI]]['value'];;
             
-            list($fact, $kind) = cellFactor($colI, $rowI);
+            list($fact, $kind) = GameController::cellFactor($colI, $rowI);
             if ($kind == "L") $value *= $fact;
             else $wordFactor *= $fact;
 
@@ -313,11 +314,11 @@ class GameController extends Controller
     
         // multiplico por el factor de palabra
         $score *= $wordFactor;
+        $pscore += $score;
 
         // TODO comprobar si la palabra es valida
-        // TODO cambiar turno
         // TODO comprobar ganador
-        
+     
         // Nuevas letras
         $newTokens = $player->first()->getLetters($gameDB, 7-strlen($letters)/3);
 
@@ -327,11 +328,13 @@ class GameController extends Controller
             $gameDB->player_1_score = $pscore;
             $gameDB->state = 'turn_p2';
             $numPlayer ='1';
+            $oppoId = $player2->first()->id;
         } else {
             $gameDB->player_2_letters = $letters.$newTokens;
             $gameDB->player_2_score = $pscore;
             $gameDB->state = 'turn_p1';
             $numPlayer ='2';
+            $oppoId = $player1->first()->id;
         }
 
         // calculo la tirada para la BD
@@ -346,7 +349,9 @@ class GameController extends Controller
         $gameDB->tableboard = $newTableboard;
         $gameDB->save();
 
-        // TODO enviar notificacion al contrincante
+        // Enviar notificacion al contrincante
+        event(new OpponentThrow($gameDB, $computedWord, $colI, $rowI, $direction,
+                                $pscore, $score, $oppoId));
 
         return response()->json([
                 'rword' => $computedWord,
@@ -358,7 +363,8 @@ class GameController extends Controller
                 'tokens' => GameController::tokensStringToTokensObjectArray($letters.$newTokens),    // todas las fichas con las que va a jugar la siguiente tirada
                 'newtokens' => GameController::tokensStringToTokensObjectArray($newTokens),          // fichas nuevas
                 'wscore' => $score,
-                'pscore' => $pscore + $score
+                'pscore' => $pscore,
+                'state' => $gameDB->state
             ], 200, $this->header, JSON_UNESCAPED_UNICODE);
     }
 

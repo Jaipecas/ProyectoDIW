@@ -167,24 +167,27 @@ export default {
 
                     // actualizo sus puntos
                     vm.c_user.score = response.data.pscore; 
+
+                    // actualizo el estado
+                    vm.c_game.state = response.data.state; 
+
                 })
                 .catch(function (error) {
                     console.log("ERROR: " + error.response.status + ". " + error.response.statusText + ". " + error.response.data);
                 }); 
         },
         listenForBroadcast: function() { 
-          /*  console.log("Escuchando canales: user"+this.c_user.id);
-            Echo.private('user.' + this.c_user.id)
-                .listen('AcceptedChallenge', (e) => {
-                    alert("Generada partida " + e.gameId + "\nIdioma: " + e.lang +
-                        "\nOponente\n\tid: " + e.oppoId +
-                        "\n\tNombre: " + e.oppoName + "\n\tPaís: " + e.oppoCountry + 
-                        "\n\tAvatar: " + e.oppoAvatar);
+            console.log("Escuchando canales: game." + this.c_game.id + ".user." + this.c_user.id);
+            var vm = this;
+            Echo.private('game.' + this.c_game.id + ".user." + this.c_user.id)
+                .listen('OpponentThrow', (e) => {
+                    vm.c_game.remaining_tokens = e.numberRemainingTokens;
+                    vm.c_opponent.score = e.playerScore;
+                    vm.c_game.state = e.state;
+                    vm.c_game.tableboard = e.tableboard;
 
-                    this.requestChallengeId = e.gameId;
-
-                    console.log("Recibido");
-                });*/
+                    console.log("Recibida tirada oponente");
+                });
         }
     },
     created() {
@@ -212,12 +215,7 @@ export default {
     margin: 10px 2%;
     font-size: 1.2em;
 
-    .token {
-        border: 1px solid #9293a6;
-        padding: 0.4em;
-        margin: 0 1em; 
-        
-    }
+    
 
     .value {
         color: rgb(111, 97, 170);
@@ -275,6 +273,12 @@ export default {
 
             display: flex;
             justify-content: center;
+
+            .token {
+                border: 1px solid #9293a6;
+                padding: 0.3em;
+                margin: 0 0.8em; 
+            }
 
             .points {
                 font-size: 0.6em;
