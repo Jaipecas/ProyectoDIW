@@ -8,7 +8,7 @@ Canal privado para cada usuario, donde id es el identificador del usuario
 
 - *Descripción*: Un solicitud de partida ha sido aceptada.
 
-*Informacion*
+*Información*
 
 |  Parámetro   |  Descripción  |
 | :----------  | :------------ |
@@ -21,3 +21,25 @@ Canal privado para cada usuario, donde id es el identificador del usuario
 | oppoAvatar   | URL del avatar del oponente |
 
 
+## Canal game.{gid}.user.{id}
+
+Canal privado para cada usuario, donde id es el identificador del usuario y gid el de la partida
+
+**OpponentThrow**
+
+- *Descripción*: El contrincante ha realizado una jugada.
+
+*Información*
+
+|  Parámetro    |  Descripción  |
+| :----------   | :------------ |
+| word          | Palabra colocada por el contrincante |
+| wordScore     | Puntuación ganada por la palabra |
+| playerScore   | Nueva puntuación total del contrincante |
+| col           | Columna inicial de la palabra (1-15) |
+| row           | Fila inicial de la palabra (A-O) |
+| dir           | H horizontal, V vertical |
+| numberRemainingTokens  | Número de pieza que quedanen la bolsa |
+| state         | Estado de la partida: *turn_p1*, *turn_p2*, *win_p1*, *win_p2* |
+| tableboard    | Nuevo tablero |
+| playerState   | Estado del contrincante: _play_ (ha jugado), _pass_ (ha pasado) |
