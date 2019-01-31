@@ -28,13 +28,14 @@ class OpponentThrow implements ShouldBroadcast
     public $row;
     public $dir;
     public $numberRemainingTokens;
+    public $playerState;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($game, $word, $col, $row, $dir, $pscore, $wscore, $oppoId)
+    public function __construct($game, $word, $col, $row, $dir, $pscore, $wscore, $oppoId, $pstate)
     {
         $this->gameId = $game->id;
         $this->oppoId = $oppoId;
@@ -48,6 +49,7 @@ class OpponentThrow implements ShouldBroadcast
         $this->row = $row;
         $this->dir = $dir;
         $this->numberRemainingTokens = strlen($game->remaining_letters);
+        $this->playerState = $pstate;
     }
 
     /**

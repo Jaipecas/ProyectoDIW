@@ -68,7 +68,7 @@
                     <button type="button" id="return">Devolver</button>
                 </div>
                 <div id="spend-turn">
-                    <button type="button" id="spend">Pasar turno</button>
+                    <button type="button" id="spend" @click="passTurn">Pasar turno</button>
                 </div>
             </div>
         </div>
@@ -138,6 +138,20 @@ export default {
 
             this.c_cards.push(newcard);
         },
+        passTurn: function() {
+            var vm = this;
+            var route = "/scrabble/game/" + this.c_game.id + "/user/pass";
+            return axios.post(route)
+                .then(function (response) {
+                    console.log("Respuesta pasar turno: ", response);
+                    
+                    // actualizo el estado
+                    vm.c_game.state = response.data.state; 
+                })
+                .catch(function (error) {
+                    console.log("ERROR: " + error.response.status + ". " + error.response.statusText + ". " + error.response.data);
+                }); 
+        },
         sendWord: function() {
             var vm = this;
             // envio la palabra
@@ -181,12 +195,18 @@ export default {
             var vm = this;
             Echo.private('game.' + this.c_game.id + ".user." + this.c_user.id)
                 .listen('OpponentThrow', (e) => {
-                    vm.c_game.remaining_tokens = e.numberRemainingTokens;
-                    vm.c_opponent.score = e.playerScore;
-                    vm.c_game.state = e.state;
-                    vm.c_game.tableboard = e.tableboard;
 
-                    console.log("Recibida tirada oponente");
+                    if (e.playerState == 'pass') {
+                        alert("El contrincante ha pasado turno");
+                        vm.c_game.state = e.state;
+                    } else {
+                        vm.c_game.remaining_tokens = e.numberRemainingTokens;
+                        vm.c_opponent.score = e.playerScore;
+                        vm.c_game.state = e.state;
+                        vm.c_game.tableboard = e.tableboard;
+
+                        console.log("Recibida tirada oponente");
+                    }
                 });
         }
     },

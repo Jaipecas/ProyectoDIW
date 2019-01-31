@@ -351,7 +351,7 @@ class GameController extends Controller
 
         // Enviar notificacion al contrincante
         event(new OpponentThrow($gameDB, $computedWord, $colI, $rowI, $direction,
-                                $pscore, $score, $oppoId));
+                                $pscore, $score, $oppoId, "play"));
 
         return response()->json([
                 'rword' => $computedWord,
@@ -364,8 +364,68 @@ class GameController extends Controller
                 'newtokens' => GameController::tokensStringToTokensObjectArray($newTokens),          // fichas nuevas
                 'wscore' => $score,
                 'pscore' => $pscore,
-                'state' => $gameDB->state
+                'state' => $gameDB->state,
+                'pstate' => 'play' 
             ], 200, $this->header, JSON_UNESCAPED_UNICODE);
+    }
+
+     /**
+     * Manage a player pass turn.
+     *
+     * @param  Request  $request 
+     * @param  int  $gid game id
+     * @return \Illuminate\Http\Response
+     */
+    public function passTurn(Request $request, $id) {
+        
+        $user = Auth::user();
+
+        try {
+            $gameDB = Game::findOrFail($id);
+        }
+        catch(ModelNotFoundException $err){
+            return abort(404);
+        }
+
+        $player1 = $gameDB->player1()->get(['id']);
+        $player2 = $gameDB->player2()->get(['id']);
+
+         // error si el usuario que ha solicitado tirar no juega en esa partida
+        if ($player1->first()->id != $user->id && 
+            $player2->first()->id != $user->id)
+            return response('User does not play this game', 403);
+
+        // que sea su turno
+        if (($player1->first()->id == $user->id && $gameDB->state == 'turn_p2') ||
+            ($player2->first()->id == $user->id && $gameDB->state == 'turn_p1'))
+            return response('Player does not have turn', 403);
+
+        if ($player1->first()->id == $user->id) {
+            $gameDB->state = 'turn_p2';
+            $oppoId = $player2->first()->id;
+            $pscore =  $gameDB->player_1_score;
+        } else {
+            $gameDB->state = 'turn_p1';
+            $oppoId = $player1->first()->id;
+            $pscore =  $gameDB->player_2_score;
+        }
+
+        $gameDB->save();
+        
+        // Enviar notificacion al contrincante
+        event(new OpponentThrow($gameDB, "", 0, 0, "",
+                                $pscore, 0, $oppoId, "pass"));
+
+        return response()->json([
+            'rword' => "", 'oword' => "", 
+            'irow' =>  "", 'icol' =>  "",
+            'frow' =>  "", 'fcol' =>  "",
+            'tokens' => "", 'newtokens' => "", 
+            'wscore' => 0, 'pscore' => $pscore,
+            'state' => $gameDB->state,
+            'pstate' => 'pass' 
+        ], 200, $this->header, JSON_UNESCAPED_UNICODE);
+
     }
 
     public static function tokensStringToTokensObjectArray($tokensString) {

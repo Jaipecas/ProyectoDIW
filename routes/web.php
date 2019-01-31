@@ -95,6 +95,9 @@ Route::prefix('scrabble')->group(function () {
 
     // colocar piezas
     Route::post('/game/{id}/user/throw', 'GameController@throw')->name('throw');
+
+    // pasar turno
+    Route::post('/game/{id}/user/pass', 'GameController@passTurn')->name('pass_turn');
     
     Route::prefix('challenge')->group(function () {
         Route::post('/request/{lang}', 'ChallengeController@create')->name('create_challenge');
