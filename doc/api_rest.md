@@ -78,6 +78,75 @@ Abandona la partida con identificador {id}
 - *Requerimientos*: Usuario autenticado y participante en la partida.
 - *Respuesta*: Si no se tienen permisos para acceder a la partida, 403 'Access denied to the game'; si la partida ya está finalizada, 409 Game already finished. En caso contrario 200 'Game left'.
 
+**POST /game/{id}/user/throw**
+
+Realiza una tirada
+
+- *Alias*: throw. 
+- *Parámetros*: 
+
+<center>
+
+| Parámetro     |  Tipo       |  Descripción          |
+| :----------:  | :-------:   | :------------         |
+| id            | Obligatorio | Identificador de la partida a abandonar   |  
+
+</center>
+
+- *Requerimientos*: Usuario autenticado y participante en la partida.
+- *Respuesta*: JSON con los parámetros indicados en la tabla. 
+
+<center>
+
+| Parámetro       | Descripción       |
+| :----------:    | :------------     |
+| rword           | Palabra utilizada para el conteo de puntos (tiene en cuenta letras que ya estuvieran en el tablero) |  
+| oword           | Palabra enviada por el jugador |  
+| irow            | Fila (A-O) de la primera letra de la palabra (tiene en cuenta letras que ya estuvieran en el tablero) |  
+| icol            | Columna (1-15) de la primera letra de la palabra (tiene en cuenta letras que ya estuvieran en el tablero)  |  
+| frow            | Fila (A-O) de la última letra de la palabra (tiene en cuenta letras que ya estuvieran en el tablero) |  
+| fcol            | Columna (1-15) de la última letra de la palabra (tiene en cuenta letras que ya estuvieran en el tablero)  |  
+| tokens          | Array con todas las letras de las que dispondrá el jugador en la siguiente tirada |  
+| tokens.letter   | Letra de la ficha |  
+| tokens.value    | Puntos de la ficha |  
+| newtokens       | Array con las nuevas letras asignadas |  
+| newtokens.letter   | Letra de la ficha |  
+| newtokens.value    | Puntos de la ficha |  
+| wscore          | Puntuación ganada por la palabra |  
+| pscore          | Nueva puntuación total del contrincante |  
+| state           | Estado de la partida: *turn_p1*, *turn_p2*, *win_p1*, *win_p2* |  
+| pstate          | Estado del contrincante: _play_ (ha jugado) |
+                                
+</center>
+
+ **POST /game/{id}/user/pass**
+
+ Pasa el turno
+
+- *Alias*: pass_turn.
+- *Parámetros*: 
+
+<center>
+
+| Parámetro     |  Tipo       |  Descripción          |
+| :----------:  | :-------:   | :------------         |
+| id            | Obligatorio | Identificador de la partida a abandonar   |  
+
+</center>
+
+- *Requerimientos*: Usuario autenticado y participante en la partida.
+- *Respuesta*: JSON con los parámetros indicados en la tabla. 
+
+<center>
+
+| Parámetro       | Descripción       |
+| :----------:    | :------------     |
+| pscore          | Nueva puntuación total del contrincante |  
+| state           | Estado de la partida: *turn_p1*, *turn_p2*, *win_p1*, *win_p2* |  
+| pstate          | Estado del contrincante: _pass_ (ha pasado) | 
+                               
+</center>
+
 ## notifications
 
 **PUT /scrabble/notification/{id}/update/{state}**
