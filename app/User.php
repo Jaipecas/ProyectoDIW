@@ -175,7 +175,8 @@ class User extends Authenticatable
 
         for ($i=0; $i<$number; $i++) {
             $let = $game->getLetterFromBag();
-            $newLetters = $newLetters . $let . substr("0000{$lettersOriL[$let]['value']}", -2);
+            if ($let != "")
+                $newLetters = $newLetters . $let . substr("0000{$lettersOriL[$let]['value']}", -2);
         }
 
         return $newLetters;

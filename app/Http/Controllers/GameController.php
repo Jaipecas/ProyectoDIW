@@ -322,17 +322,33 @@ class GameController extends Controller
         // Nuevas letras
         $newTokens = $player->first()->getLetters($gameDB, 7-strlen($letters)/3);
 
+        if (strlen($letters.$newTokens) == 0) { // ya no hay mas letras en la bolsa ni en juego por parte del jugador
+            $pstate = "win";
+        } else {
+            $pstate = "play";
+        }
+
         // Actualizar BBDD
         if ($player1->first()->id == $user->id) {
             $gameDB->player_1_letters = $letters.$newTokens;
             $gameDB->player_1_score = $pscore;
-            $gameDB->state = 'turn_p2';
+
+            if ($pstate == 'win')
+                $gameDB->state = 'win_p1';
+            else
+                $gameDB->state = 'turn_p2';
+
             $numPlayer ='1';
             $oppoId = $player2->first()->id;
         } else {
             $gameDB->player_2_letters = $letters.$newTokens;
             $gameDB->player_2_score = $pscore;
-            $gameDB->state = 'turn_p1';
+            
+            if ($pstate == 'win')
+                $gameDB->state = 'win_p2';
+            else
+                $gameDB->state = 'turn_p1';
+
             $numPlayer ='2';
             $oppoId = $player1->first()->id;
         }
@@ -351,7 +367,7 @@ class GameController extends Controller
 
         // Enviar notificacion al contrincante
         event(new OpponentThrow($gameDB, $computedWord, $colI, $rowI, $direction,
-                                $pscore, $score, $oppoId, "play"));
+                                $pscore, $score, $oppoId, $pstate));
 
         return response()->json([
                 'rword' => $computedWord,
@@ -365,7 +381,7 @@ class GameController extends Controller
                 'wscore' => $score,
                 'pscore' => $pscore,
                 'state' => $gameDB->state,
-                'pstate' => 'play' 
+                'pstate' => $pstate
             ], 200, $this->header, JSON_UNESCAPED_UNICODE);
     }
 

@@ -1,5 +1,7 @@
 <template>
     <div id="tableboard">
+        <div class="ended win" v-if="isWinner">Partida ya finalizada. ¡¡Ganaste!!</div>
+        <div class="ended lose" v-else-if="isLoser">Partida ya finalizada. ¡¡Perdiste!!</div>
         <game-data-component 
             :game="c_game">
         </game-data-component> 
@@ -38,6 +40,16 @@ export default {
     },
     components: {
         CardContainerComponent, GameDataComponent, InfoGameComponent
+    },
+    computed: {
+        isWinner: function() {
+            return  (this.c_user.player == 'P1' && this.c_game.state == 'win_p1' ) ||
+                    (this.c_user.player == 'P2' && this.c_game.state == 'win_p2' )
+        },
+        isLoser: function() {
+            return  (this.c_user.player == 'P2' && this.c_game.state == 'win_p1' ) ||
+                    (this.c_user.player == 'P1' && this.c_game.state == 'win_p2' )
+        }
     },
     methods: {
         createCard: function(title, status, statusText, data) {
@@ -106,5 +118,28 @@ export default {
     padding: 0.5em;
     font-weight: 500;
     margin-left: 15%;
+}
+
+.ended {
+    border: 2px solid black;
+}
+
+.win {
+    background: #3dce3d;
+    color: black;
+    
+    font-size: 2em;
+    font-weight: 600;
+    
+    text-align: center;
+}
+
+.lose {
+    background: #e63552;
+
+    font-size: 2em;
+    font-weight: 600;
+    
+    text-align: center;
 }
  </style>

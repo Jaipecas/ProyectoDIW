@@ -185,6 +185,10 @@ export default {
                     // actualizo el estado
                     vm.c_game.state = response.data.state; 
 
+                    if (response.data.pstate == 'win') { 
+                        alert("¡¡Enhorabuena!! ¡¡Has ganado!!");
+                    }
+
                 })
                 .catch(function (error) {
                     console.log("ERROR: " + error.response.status + ". " + error.response.statusText + ". " + error.response.data);
@@ -196,13 +200,16 @@ export default {
             Echo.private('game.' + this.c_game.id + ".user." + this.c_user.id)
                 .listen('OpponentThrow', (e) => {
 
+                    vm.c_game.state = e.state;
                     if (e.playerState == 'pass') {
-                        alert("El contrincante ha pasado turno");
-                        vm.c_game.state = e.state;
+                        alert("El contrincante ha pasado turno.");
+                        console.log("El contrincante ha pasado turno.");
+                    } else if (e.playerState == 'win') { 
+                        alert("Lo siento, has perdido :(");
+                        console.log("Lo siento, has perdido :(");
                     } else {
                         vm.c_game.remaining_tokens = e.numberRemainingTokens;
                         vm.c_opponent.score = e.playerScore;
-                        vm.c_game.state = e.state;
                         vm.c_game.tableboard = e.tableboard;
 
                         console.log("Recibida tirada oponente");
