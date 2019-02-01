@@ -69,6 +69,7 @@
                 </div>
                 <div id="spend-turn">
                     <button type="button" id="spend" @click="passTurn">Pasar turno</button>
+                    <button type="button" id="giveup" @click="giveup">Abandonar</button>
                 </div>
             </div>
         </div>
@@ -152,6 +153,20 @@ export default {
                     console.log("ERROR: " + error.response.status + ". " + error.response.statusText + ". " + error.response.data);
                 }); 
         },
+        giveup: function() {
+            var vm = this;
+            var route = "/scrabble/game/" + this.c_game.id + "/giveup";
+            return axios.post(route)
+                .then(function (response) {
+                    console.log("Partida abandonanda");
+                    
+                    // actualizo el estado
+                    vm.c_game.state = response.data.state; 
+                })
+                .catch(function (error) {
+                    console.log("ERROR: " + error.response.status + ". " + error.response.statusText + ". " + error.response.data);
+                }); 
+        },
         sendWord: function() {
             var vm = this;
             // envio la palabra
@@ -214,6 +229,11 @@ export default {
 
                         console.log("Recibida tirada oponente");
                     }
+                })
+                .listen('GiveupGame', (e) => {
+                    vm.c_game.state = e.state;
+                    alert("El contrincante ha abandonado.");
+                    console.log("El contrincante ha abandonado.");
                 });
         }
     },

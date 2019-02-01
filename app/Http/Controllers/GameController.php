@@ -9,6 +9,7 @@ use App\User;
 use App\Game;
 use App\Level;
 use App\Events\OpponentThrow;
+use App\Events\GiveupGame;
 
 class GameController extends Controller
 {
@@ -57,10 +58,14 @@ class GameController extends Controller
             return response('Game already finished', 409);
 
         // busco el jugador para dar por ganador al otro
-        if ($player1->first()->id == $user->id) 
+        if ($player1->first()->id == $user->id) {
             $game->state = 'win_p2';
-        else 
+            $oppoId = $player2->first()->id;
+        }
+        else {
             $game->state = 'win_p1';
+            $oppoId = $player1->first()->id;
+        } 
         
         $game->save();
 
@@ -79,7 +84,12 @@ class GameController extends Controller
         $level_1->save();
         $level_2->save();
 
-        return response('Game left', 200);
+        // Enviar notificacion al contrincante
+        event(new GiveupGame($game->id, $oppoId, $game->state));
+
+        return response()->json([
+            'state' => $game->state,
+            ], 200);
     }
 
     /**
