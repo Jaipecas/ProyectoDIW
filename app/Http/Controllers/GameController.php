@@ -48,7 +48,7 @@ class GameController extends Controller
 
         $player1 = $game->player1()->get(['id']);
         $player2 = $game->player2()->get(['id']);
-   
+
         if ($player1->first()->id != $user->id && 
             $player2->first()->id != $user->id)
             return response('Access denied to the game', 403);
@@ -172,7 +172,7 @@ class GameController extends Controller
     }
 
     /**
-     * Manage a player's throw.
+     * Manages a player's throw.
      *
      * @param  Request  $request 
      * @param  int  $gid game id
@@ -196,6 +196,10 @@ class GameController extends Controller
         if ($player1->first()->id != $user->id && 
             $player2->first()->id != $user->id)
             return response('User does not play this game', 403);
+
+        // Partida no esta en juego -> error
+        if ($gameDB->state == 'win_p1' || $gameDB->state == 'win_p2')
+            return response('Game already finished', 409);
 
         // que sea su turno
         if (($player1->first()->id == $user->id && $gameDB->state == 'turn_p2') ||
@@ -327,8 +331,7 @@ class GameController extends Controller
         $pscore += $score;
 
         // TODO comprobar si la palabra es valida
-        // TODO comprobar ganador
-     
+        
         // Nuevas letras
         $newTokens = $player->first()->getLetters($gameDB, 7-strlen($letters)/3);
 
@@ -396,7 +399,7 @@ class GameController extends Controller
     }
 
      /**
-     * Manage a player pass turn.
+     * Manages a player pass turn.
      *
      * @param  Request  $request 
      * @param  int  $gid game id
@@ -416,10 +419,14 @@ class GameController extends Controller
         $player1 = $gameDB->player1()->get(['id']);
         $player2 = $gameDB->player2()->get(['id']);
 
-         // error si el usuario que ha solicitado tirar no juega en esa partida
+        // error si el usuario que ha solicitado tirar no juega en esa partida
         if ($player1->first()->id != $user->id && 
             $player2->first()->id != $user->id)
             return response('User does not play this game', 403);
+
+        // Partida no esta en juego -> error
+        if ($gameDB->state == 'win_p1' || $gameDB->state == 'win_p2')
+            return response('Game already finished', 409);
 
         // que sea su turno
         if (($player1->first()->id == $user->id && $gameDB->state == 'turn_p2') ||
@@ -450,6 +457,91 @@ class GameController extends Controller
             'wscore' => 0, 'pscore' => $pscore,
             'state' => $gameDB->state,
             'pstate' => 'pass' 
+        ], 200, $this->header, JSON_UNESCAPED_UNICODE);
+
+    }
+
+     /**
+     * Manages the return of tokens.
+     *
+     * @param  Request  $request 
+     * @param  int  $gid game id
+     * @return \Illuminate\Http\Response
+     */
+    public function returnTokens(Request $request, $id) {
+        $user = Auth::user();
+
+        try {
+            $gameDB = Game::findOrFail($id);
+        }
+        catch(ModelNotFoundException $err){
+            return abort(404);
+        }
+
+        $player1 = $gameDB->player1()->get(['id']);
+        $player2 = $gameDB->player2()->get(['id']);
+
+        // error si el usuario que ha solicitado tirar no juega en esa partida
+        if ($player1->first()->id != $user->id && 
+            $player2->first()->id != $user->id)
+            return response('User does not play this game', 403);
+
+        // Partida no esta en juego -> error
+        if ($gameDB->state == 'win_p1' || $gameDB->state == 'win_p2')
+            return response('Game already finished', 409);
+
+        // que sea su turno
+        if (($player1->first()->id == $user->id && $gameDB->state == 'turn_p2') ||
+            ($player2->first()->id == $user->id && $gameDB->state == 'turn_p1'))
+            return response('Player does not have turn', 403);
+
+        if ($player1->first()->id == $user->id) {
+            $letters = $gameDB->player_1_letters;
+            $player = $player1;
+            $gameDB->state = 'turn_p2';
+        }
+        else {
+            $letters = $gameDB->player_2_letters;
+            $player = $player2;
+            $gameDB->state = 'turn_p1';
+        }
+
+        $sentTokens = $request->input('tokens');
+
+        if (count($sentTokens) == 0) 
+            return response('No tokens.', 403);
+
+        $newTokens = $player->first()->getLetters($gameDB, count($sentTokens));
+
+        if (strlen($newTokens) < count($sentTokens)) { // no quedan suficientes fichas en el saco
+            if ($player1->first()->id == $user->id) $gameDB->state = 'turn_p1';
+            else $gameDB->state = 'turn_p2';
+
+            $newTokens = "";
+            $sentTokens = [];
+        }
+        else {    
+            for ($i=0; $i<count($sentTokens); $i++) {
+                $pos = strpos($letters, $sentTokens[$i]);
+                $replace = $letters[$pos].$letters[$pos+1].$letters[$pos+2];
+                $letters = str_replace($replace,"",$letters);
+            }
+        }
+
+        // Actualizar BBDD
+        if ($player1->first()->id == $user->id) 
+            $gameDB->player_1_letters = $letters.$newTokens;
+        else 
+            $gameDB->player_2_letters = $letters.$newTokens;
+        
+        $gameDB->remaining_letters = $gameDB->remaining_letters.implode($sentTokens);;
+          
+        $gameDB->save();
+
+        return response()->json([
+            'tokens' => GameController::tokensStringToTokensObjectArray($letters.$newTokens),    // todas las fichas con las que va a jugar la siguiente tirada
+            'state' => $gameDB->state,
+            'pstate' => 'play'
         ], 200, $this->header, JSON_UNESCAPED_UNICODE);
 
     }

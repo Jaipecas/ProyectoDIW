@@ -5,16 +5,35 @@ export const ScrabbleHelper = {
     // devuelve la letra de la ficha en función del idioma
     // es necesario ya que en ocasiones una ficha tiene una letra doble
     // como la ch, la rr o la ll
-    getLetter: function(language, letter) {
+    getLetter: function(language, code) {
 
         var lang = language.toUpperCase();
 
         switch (lang) {
             case 'ES':
-                if (letter === 'c') return "CH";
-                if (letter === 'r') return "RR";
-                if (letter === 'l') return "LL";
-                if (letter === 'n') return "Ñ";
+                if (code === 'c') return "CH";
+                if (code === 'r') return "RR";
+                if (code === 'l') return "LL";
+                if (code === 'n') return "Ñ";
+                return code;
+                break;
+            
+            case 'EN':
+                return code;
+                break;
+        }  
+    },
+    // inversa de la función anterior
+    getCode: function(language, letter) {
+
+        var lang = language.toUpperCase();
+
+        switch (lang) {
+            case 'ES':
+                if (letter === 'CH') return "c";
+                if (letter === 'RR') return "r";
+                if (letter === 'LL') return "l";
+                if (letter === 'Ñ') return "n";
                 return letter;
                 break;
             

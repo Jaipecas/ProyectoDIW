@@ -98,6 +98,9 @@ Route::prefix('scrabble')->group(function () {
 
     // pasar turno
     Route::post('/game/{id}/user/pass', 'GameController@passTurn')->name('pass_turn');
+
+    // devolver piezas
+    Route::post('/game/{id}/user/return', 'GameController@returnTokens')->name('return_tokens');
     
     Route::prefix('challenge')->group(function () {
         Route::post('/request/{lang}', 'ChallengeController@create')->name('create_challenge');

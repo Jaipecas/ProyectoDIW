@@ -62,10 +62,10 @@
                 <div id="return-letter">
                     <span v-for="token in tokens" :key="token.id">
                         <label for="">{{ token.letter }} ({{ token.value }})</label>
-                        <input type="checkbox" name="returned-letter" :value="token.letter">
+                        <input type="checkbox" name="returned-letter" :value="getCode(token.letter)" v-model="tokensReturn">
                     </span>
                     <br>
-                    <button type="button" id="return">Devolver</button>
+                    <button type="button" id="return" @click="returnTokens">Devolver</button>
                 </div>
                 <div id="spend-turn">
                     <button type="button" id="spend" @click="passTurn">Pasar turno</button>
@@ -99,7 +99,8 @@ export default {
             rowpos: 'A',
             colpos: 1,
             direction: 'H',
-            word: ""
+            word: "",
+            tokensReturn: []
         }
     },
     computed: {
@@ -114,6 +115,9 @@ export default {
     methods: {
         getLetter: function(d) {
             return ScrabbleHelper.getLetter(this.c_game.language, d);
+        },
+        getCode: function(d) {
+            return ScrabbleHelper.getCode(this.c_game.language, d);
         },
         fillTokens: function(tokens) {
             this.tokens.length = 0
@@ -138,6 +142,25 @@ export default {
             }
 
             this.c_cards.push(newcard);
+        },
+        returnTokens: function() {
+            var vm = this;
+            var route = "/scrabble/game/" + this.c_game.id + "/user/return";
+            return axios.post(route, {
+                    tokens: vm.tokensReturn,            
+                })
+                .then(function (response) {
+                    console.log("Respuesta piezas devueltas: ", response.data);
+                    
+                    // pongo las nuevas letras en pantalla
+                    vm.fillTokens(response.data.tokens);
+
+                    // actualizo el estado
+                    vm.c_game.state = response.data.state; 
+                })
+                .catch(function (error) {
+                    console.log("ERROR: " + error.response.status + ". " + error.response.statusText + ". " + error.response.data);
+                }); 
         },
         passTurn: function() {
             var vm = this;
