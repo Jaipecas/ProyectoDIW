@@ -6,7 +6,7 @@
 
 @php
     if (is_null($user->avatar)) $avatar = "";
-    else $avatar = asset('storage/'.$user->avatar);
+    else $avatar = $user->avatar;
 @endphp
     <dashboard-test-component
         :user="{{ json_encode($user) }}"

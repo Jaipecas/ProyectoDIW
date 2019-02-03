@@ -18,7 +18,7 @@ Canal privado para cada usuario, donde id es el identificador del usuario
 | oppoId       | Identificador del oponente |
 | oppoName     | Nombre del oponente
 | oppoCountry  | País del oponente |
-| oppoAvatar   | URL del avatar del oponente |
+| oppoAvatar   | URL del avatar del oponente  |
 
 
 ## Canal game.{gid}.user.{id}
@@ -39,7 +39,7 @@ Canal privado para cada usuario, donde id es el identificador del usuario y gid 
 | col           | Columna inicial de la palabra (1-15) |
 | row           | Fila inicial de la palabra (A-O) |
 | dir           | H horizontal, V vertical |
-| numberRemainingTokens  | Número de pieza que quedanen la bolsa |
+| numberRemainingTokens  | Número de pieza que quedan en la bolsa |
 | state         | Estado de la partida: *turn_p1*, *turn_p2*, *win_p1*, *win_p2* |
 | tableboard    | Nuevo tablero |
 | playerState   | Estado del contrincante: _play_ (ha jugado), _pass_ (ha pasado) |

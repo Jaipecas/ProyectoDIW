@@ -101,6 +101,7 @@ Muchas de las variables proporcionadas son de tipo _colección_. Para el acceso 
 | user.country       | Cadena            | País del usuario |
 | user.created_at    | Cadena            | Fecha y hora de la última actualización |
 | user.favourite_language | Cadena       | Idioma favorito del usuario |
+| user.avatar        | Cadena            | URL del avatar del usuario |
 | statistics         | Colección         | Colección de datos sobre estadísticas en función del idioma |
 | statistics.language_code | Cadena      | Código del idioma al que pertenece la estadística |
 | statistics.level   | Número            | Nivel del jugador en ese idioma |
@@ -130,7 +131,7 @@ Muchas de las variables proporcionadas son de tipo _colección_. Para el acceso 
 | game.created_at    | Fecha             | Fecha de creación de la partida    | | game.updated_at    | Fecha             | Fecha de última tirada  | 
 | game.language      | Cadena            | Idioma de la partida |
 | game.state         | Cadena            | Estado de la partida: *unstarted*, *turn_p1* (turno jugador 1), *turn_p2* (turno jugador2), *win_p1* (ganador jugador1), *win_p2* (ganador p2)|
-| game.throw         | Cadena           | Listado de tiradas. Formato: PLLLWWWWWWWWWW\|PLLLWWWWWWWWW\|... P : jugador 1 o 2, L posicion: 06D, J11. Si el número va delante será vertical y si va la letra será horizontal, W palabra . Se separan por \| |
+| game.throw         | Cadena           | Listado de tiradas. Formato: PLLLWWWWWWWWWWPLLLWWWWWWWWW... P : jugador 1 o 2, L posicion: 06D, J11. Si el número va delante será vertical y si va la letra será horizontal, W palabra |
 | game.tableboard    | Cadena           | cadena de 225 caracteres en la que en cada posición se incluye la letra correspondiente según la celda (ordenado de izq. a der. y de arriba a abajo) |
 | game.remaining_tokens | Número        | Número de fichas por jugar |
 | game.total_tokens  | Numero           | Número total de fichas en la partida |
@@ -138,8 +139,10 @@ Muchas de las variables proporcionadas son de tipo _colección_. Para el acceso 
 | user.player        | Cadena | Identificación del usuario en la partida, *P1*: jugador 1, *P2*: jugador 2 |
 | user.score        | Número  | Puntuación del jugador |
 | user.tokens       | Cadena  | Fichas actuales del jugador. Formato LPPLPP... L letra y PP puntuación |
+| user.avatar         | Cadena  | URL del avatar del usuario |
 | opponent            | JSON   | Información de la partida del rival |
 | opponent.player     | Cadena | Identificación del usuario en la partida, *P1*: jugador 1, *P2*: jugador 2 |
 | opponent.score      | Número  | Puntuación del jugador |
+| opponent.avatar     | Cadena  | URL del avatar del oponente |
         
         

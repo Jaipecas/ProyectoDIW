@@ -120,6 +120,9 @@ class GameController extends Controller
             $player2->first()->id != $user->id)
             return abort(403);
 
+        $player1->first()->avatar = strlen($player1->first()->avatar) != 0 ? "/storage/".$player1->first()->avatar : "";
+        $player2->first()->avatar = strlen($player2->first()->avatar) != 0 ? "/storage/".$player2->first()->avatar : "";
+
         // envio mi objeto game, con la información de gameBD postprocesada
         $game['id'] = $gameDB->id;
         $game['created_at'] = $gameDB->created_at->toDateTimeString();
@@ -143,7 +146,7 @@ class GameController extends Controller
             $meArray["player"] = "P1";
             $meArray["score"] = $gameDB->player_1_score;
             $meArray["tokens"] = GameController::tokensStringToTokensObjectArray($gameDB->player_1_letters);
-
+            
             $oppoArray = $oppo->toArray();
             $oppoArray["player"] = "P2";
             $oppoArray["score"] = $gameDB->player_2_score;

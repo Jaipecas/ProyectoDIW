@@ -72,13 +72,16 @@ class InfoController extends Controller
 
         /* Devuelve sólo las columnas de user que me interesan */
         $games = Game::with(array(
-                        'player1' => function($query){
-                                        $query->select('id','name', 'avatar', 'country');
-                                     },
-                        'player2' => function($query){
-                                        $query->select('id','name', 'avatar', 'country');
-                                     }
-                        ))->orderBy('updated_at')->take($number)
+                    
+                'player1' => function($query){
+                                //$query->select('id','name', 'avatar', 'country');
+                                $query->select(\DB::raw("id, name, concat('/storage/',avatar) as avatar, country"));
+                                },
+                'player2' => function($query){
+                                //$query->select('id','name', 'avatar', 'country');
+                                $query->select(\DB::raw("id, name, concat('/storage/',avatar) as avatar, country"));
+                                }
+                ))->orderBy('updated_at')->take($number)
                         ->get(['language', 'state', 'player_1', 'player_1_score', 'player_2', 'player_2_score', 'updated_at'])->toArray();
 
         return response()->json($games, 200, $this->header, JSON_UNESCAPED_UNICODE);

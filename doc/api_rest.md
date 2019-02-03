@@ -209,7 +209,7 @@ Elimina el avatar del usuario, quita el que hubiera son poner otro.
 
 Devuelve de manera paginada y de más reciente a más antigua, todas las partidas jugadas por el jugador
 
-- *Alias*: ser_games.
+- *Alias*: user_games.
 - *Parámetros*: 
 
 <center>
@@ -227,12 +227,12 @@ Devuelve de manera paginada y de más reciente a más antigua, todas las partida
 
 | Parámetro       | Tipo              | Descripción       |
 | :----------     | :-------          | :------------     |
-| current_page    | Número     | Página mostrada |
-| first_page_url  | Cadena     | URL de la primera página  |
-| last_page       | Número     | Número total del páginas |
-| last_page_url   | Cadena     | URL de la última página  |
-| next_page_url   | Cadena     | URL de la siguiente página  |
-| prev_page_url   | Cadena     | URL de la página anterior  |
+| current_page    | Número            | Página mostrada |
+| first_page_url  | Cadena            | URL de la primera página  |
+| last_page       | Número            | Número total del páginas |
+| last_page_url   | Cadena            | URL de la última página  |
+| next_page_url   | Cadena            | URL de la siguiente página  |
+| prev_page_url   | Cadena            | URL de la página anterior  |
 | data            | Array de JSON     | cada una de las partidas de esa página |
 | data.language   | Cadena            | Idioma de la partida       |
 | data.state      | Cadena            | unstarted (sin empezar),turn_p1 (turno jugador 1), turn_p2 (turno jugador 2),win_p1 (gana jugador 1),win_p2 (gana jugador 2) |

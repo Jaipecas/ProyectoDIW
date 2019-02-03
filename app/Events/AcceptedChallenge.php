@@ -26,7 +26,7 @@ class AcceptedChallenge implements ShouldBroadcast
 
     /**
      * Create a new event instance.
-     *
+     * 
      * @return void
      */
     public function __construct($gameId, $lang, $user, $oppo) {
@@ -36,7 +36,7 @@ class AcceptedChallenge implements ShouldBroadcast
         $this->oppoId = $oppo->id;
         $this->oppoName = $oppo->name;
         $this->oppoCountry = $oppo->country;
-        $this->oppoAvatar = $oppo->avatar;
+        $this->oppoAvatar = strlen($oppo->avatar) != 0 ? "/storage/".$oppo->avatar : "";
         $this->lang = $lang;
     }
 

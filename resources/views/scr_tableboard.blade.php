@@ -4,7 +4,6 @@
 
 @section('content')
 
-@section('content')
     <tableboard-test-component
         :user="{{ json_encode($user) }}"
         :opponent="{{ json_encode($opponent) }}"

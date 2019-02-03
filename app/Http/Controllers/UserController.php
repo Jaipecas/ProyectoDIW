@@ -34,7 +34,7 @@ class UserController extends Controller
             $profile->save();
 
             return response()->json([
-                'path' => asset('storage/'.$userPhoto),
+                'path' => asset('/storage/'.$userPhoto),
             ]);
         }
     }
@@ -50,7 +50,7 @@ class UserController extends Controller
         $user = Auth::user();
         $profile = User::findOrFail($user->id);
 
-        $file = 'storage/'. $profile->avatar;
+        $file = '/storage/'. $profile->avatar;
 
         $profile->avatar = NULL;
         $profile->avatar_type = NULL;
@@ -118,10 +118,12 @@ class UserController extends Controller
                     ->orWhere('player_2', '=', $user->id)
                     ->with(array(
                         'player1' => function($query){
-                                        $query->select('id','name', 'avatar', 'country');
+                                        //$query->select('id','name', 'avatar', 'country');
+                                        $query->select(\DB::raw("id, name, concat('/storage/',avatar) as avatar, country"));
                                      },
                         'player2' => function($query){
-                                        $query->select('id','name', 'avatar', 'country');
+                                        $query->select(\DB::raw("id, name, concat('/storage/',avatar) as avatar, country"));
+                                        //$query->select('id','name', 'avatar', 'country');
                                      }
                         ))
                     ->orderBy('updated_at','desc')->paginate($gamesperpage);

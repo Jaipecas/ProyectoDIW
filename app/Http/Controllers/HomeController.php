@@ -51,13 +51,20 @@ class HomeController extends Controller
             $value["internal_id"] = $user->id."-".$value['language_code'];
             array_push($userStatisticsArray, $value); 
         }
-        
+
         $userNotifications = $user->unreadNotifications()->get(['id','type','notification','created_at','updated_at']);
         $currentGames = $user->gamesLive();
 
-        return view('scr_home', ['user' => $user, 
+        $user->avatar = $user->avatar != null ? '/storage/'.$user->avatar : "";
+
+        // añado header para evitar que se almacene en caché y así tener siempre datos frescos
+        return response()
+                ->view('scr_home', ['user' => $user, 
                     'statistics' => $userStatisticsArray, 
                     'notifications' => $userNotifications,
-                    'games' => $currentGames]);
+                    'games' => $currentGames])
+                ->header("Cache-Control", "private, no-store, max-age=0, no-cache, must-revalidate, post-check=0, pre-check=0")
+                ->header("Pragma", "no-cache")
+                ->header("Expires", "Tuesday, 4 April 2018 08:12:00 GMT");
     }
 }
