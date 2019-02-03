@@ -16,14 +16,16 @@
         </div>
         <div class="players">
             <div class="player-info">
-                <img v-if="user.avatar" src="user.avatar" class="image">
+                <div v-if="user.avatar">
+                    <img :src="'/storage/' + user.avatar" class="image"></div>
                 <div v-else class="image"></div>
                 <div class="info"><span class="data">Usuario ({{ user.player }}): </span><span class="value">{{ user.name }}</span></div>
                 <div class="info"><span class="data">País: </span><span class="value">{{ user.country }}</span></div>
                 <div class="info"><span class="data">Puntos: </span><span class="value">{{ c_user.score }}</span></div>
             </div>
             <div class="player-info">
-                <img v-if="opponent.avatar" src="opponent.avatar" class="image">
+                <div v-if="opponent.avatar">
+                    <img :src="'/storage/' + opponent.avatar" class="image"></div>
                 <div v-else class="image"></div>
                 <div class="info"><span class="data">Usuario ({{ opponent.player }}): </span><span class="value">{{ opponent.name }}</span></div>
                 <div class="info"><span class="data">País: </span><span class="value">{{ opponent.country }}</span></div>
