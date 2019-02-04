@@ -64,7 +64,7 @@
                 <div id="return-letter">
                     <span v-for="token in tokens" :key="token.id">
                         <label for="">{{ token.letter }} ({{ token.value }})</label>
-                        <input type="checkbox" name="returned-letter" :value="getCode(token.letter)" v-model="tokensReturn">
+                        <input type="checkbox" name="returned-letter" :value="token.id + getCode(token.letter)" v-model="tokensReturn">
                     </span>
                     <br>
                     <button type="button" id="return" @click="returnTokens">Devolver</button>
@@ -123,6 +123,7 @@ export default {
         },
         fillTokens: function(tokens) {
             this.tokens.length = 0
+
             // añado el id
             for(var n=0; n<tokens.length; n++) {
                 var newToken = {
@@ -148,8 +149,15 @@ export default {
         returnTokens: function() {
             var vm = this;
             var route = "/scrabble/game/" + this.c_game.id + "/user/return";
+
+            var tmpTokens = [];
+
+            for (var i=0;i<this.tokensReturn.length;i++) {
+                tmpTokens.push(this.tokensReturn[i].slice(-1));
+            }
+
             return axios.post(route, {
-                    tokens: vm.tokensReturn,            
+                    tokens: tmpTokens 
                 })
                 .then(function (response) {
                     console.log("Respuesta piezas devueltas: ", response.data);
@@ -159,10 +167,12 @@ export default {
 
                     // actualizo el estado
                     vm.c_game.state = response.data.state; 
+
+                    vm.tokensReturn.length = 0; 
                 })
                 .catch(function (error) {
                     console.log("ERROR: " + error.response.status + ". " + error.response.statusText + ". " + error.response.data);
-                }); 
+                });
         },
         passTurn: function() {
             var vm = this;
@@ -247,7 +257,11 @@ export default {
                     } else if (e.playerState == 'win') { 
                         alert("Lo siento, has perdido :(");
                         console.log("Lo siento, has perdido :(");
-                    } else {
+                    } else if (e.playerState == 'return') { 
+                        alert("El contrincante ha devuelto fichas");
+                        console.log("El contrincante ha devuelto fichas");
+                    }
+                     else {
                         vm.c_game.remaining_tokens = e.numberRemainingTokens;
                         vm.c_opponent.score = e.playerScore;
                         vm.c_game.tableboard = e.tableboard;

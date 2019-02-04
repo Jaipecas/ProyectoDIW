@@ -502,11 +502,15 @@ class GameController extends Controller
             $letters = $gameDB->player_1_letters;
             $player = $player1;
             $gameDB->state = 'turn_p2';
+            $oppoId = $player2->first()->id;
+            $pscore =  $gameDB->player_1_score;
         }
         else {
             $letters = $gameDB->player_2_letters;
             $player = $player2;
             $gameDB->state = 'turn_p1';
+            $oppoId = $player1->first()->id;
+            $pscore =  $gameDB->player_2_score;
         }
 
         $sentTokens = $request->input('tokens');
@@ -524,10 +528,13 @@ class GameController extends Controller
             $sentTokens = [];
         }
         else {    
+
             for ($i=0; $i<count($sentTokens); $i++) {
                 $pos = strpos($letters, $sentTokens[$i]);
-                $replace = $letters[$pos].$letters[$pos+1].$letters[$pos+2];
-                $letters = str_replace($replace,"",$letters);
+
+                if ($pos !== false) {   // deberia ser siempre asi por definición, pero lo pongo por si acaso....
+                    $letters = substr_replace($letters, "", $pos, 3);
+                }
             }
         }
 
@@ -541,10 +548,14 @@ class GameController extends Controller
           
         $gameDB->save();
 
+        // Enviar notificacion al contrincante
+        event(new OpponentThrow($gameDB, "", 0, 0, "",
+                            $pscore, 0, $oppoId, "return"));
+
         return response()->json([
             'tokens' => GameController::tokensStringToTokensObjectArray($letters.$newTokens),    // todas las fichas con las que va a jugar la siguiente tirada
             'state' => $gameDB->state,
-            'pstate' => 'play'
+            'pstate' => 'return'
         ], 200, $this->header, JSON_UNESCAPED_UNICODE);
 
     }
@@ -590,61 +601,6 @@ class GameController extends Controller
 
             return array($fact, $kind);
         }
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
     }
 
 }
