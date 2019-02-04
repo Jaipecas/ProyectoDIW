@@ -90,7 +90,11 @@ Realiza una tirada
 | Parámetro     |  Tipo       |  Descripción          |
 | :----------:  | :-------:   | :------------         |
 | id            | Obligatorio | Identificador de la partida a abandonar   |  
-
+| word          | Obligatorio | Letras en orden enviadas. No se incluyen las posibles letras ya existentes en el tablero en las que el jugador se apoya para completar la palabra. Por ejemplo, si quiere formar CASA, apoyándose en una S de tablero enviará CAA  |
+| row           | Obligatorio | Fila de la primera letra de _word_ |
+| column        | Obligatorio | Columna de la primera letra de _word_ |
+| direction     | Obligatorio | H, horizontal, V: vertical  |
+              
 </center>
 
 - *Requerimientos*: Usuario autenticado y participante en la partida.
@@ -146,6 +150,36 @@ Realiza una tirada
 | pstate          | Estado del contrincante: _pass_ (ha pasado) | 
                                
 </center>
+
+**POST /game/{id}/user/return**
+
+ Pasa el turno
+
+- *Alias*: return_tokens.
+- *Parámetros*: 
+
+<center>
+
+| Parámetro     |  Tipo       |  Descripción          |
+| :----------:  | :-------:   | :------------         |
+| id            | Obligatorio | Identificador de la partida a abandonar   | 
+| tokens        | Obligatorio | Cadena con los códigos de letras devueltas, por ejemplo _ArTc_ devuelve la A RR T CH)  | 
+
+</center>
+
+- *Requerimientos*: Usuario autenticado y participante en la partida.
+- *Respuesta*: JSON con los parámetros indicados en la tabla. 
+
+<center>
+
+| Parámetro       | Descripción       |
+| :----------:    | :------------     |
+| pscore          | Nueva puntuación total del contrincante |  
+| state           | Estado de la partida: *turn_p1*, *turn_p2*, *win_p1*, *win_p2* |  
+| pstate          | Estado del contrincante: _return_ (ha devuelto fichas) | 
+                               
+</center>
+
 
 ## notifications
 
@@ -269,6 +303,7 @@ Actuliza el perfil del usuario.
 | new_password              | Opcional    | Nueva contraseña         |  
 | new_password_confirmation | Opcional    | Confirmación de nueva contraseña (obligatorio en el caso de indicar nueva contraseña) |  
 | old_password              | Opcional    | Contraseña anterior (obligatorio en el caso de indicar nueva contraseña)  |  
+
 </center>
 
 - *Requerimientos*: Usuario autenticado.

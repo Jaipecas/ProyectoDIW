@@ -42,4 +42,4 @@ Canal privado para cada usuario, donde id es el identificador del usuario y gid 
 | numberRemainingTokens  | Número de pieza que quedan en la bolsa |
 | state         | Estado de la partida: *turn_p1*, *turn_p2*, *win_p1*, *win_p2* |
 | tableboard    | Nuevo tablero |
-| playerState   | Estado del contrincante: _play_ (ha jugado), _pass_ (ha pasado) |
+| playerState   | Estado del contrincante: _play_ (ha jugado), _pass_ (ha pasado). _return_ (ha devuelto fichas) |
