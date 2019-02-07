@@ -20,29 +20,18 @@
  |  Rutas imprenta 
  |------------------
  */
-Route::get('/', function () {
-    return view('prn_index');
-});
 
-Route::get('/gutenberg', function () {
-    return view('prn_extra0');
-});
+Route::get('/','PrinterHistoryController@index');
 
-Route::get('/difusion_imprenta', function () {
-    return view('prn_extra1');
-});
+Route::get('/gutenberg','PrinterHistoryController@index');
 
-Route::get('/trabajos_imprenta', function () {
-    return view('prn_extra2');
-});
+Route::get('/difusion_imprenta','PrinterHistoryController@index');
 
-Route::get('/primeros_libros', function () {
-    return view('prn_extra3');
-});
+Route::get('/trabajos_imprenta','PrinterHistoryController@index');
 
-Route::get('/imprenta_valenciana', function () {
-    return view('prn_extra4');
-});
+Route::get('/primeros_libros','PrinterHistoryController@index');
+
+Route::get('/imprenta_valenciana','PrinterHistoryController@index');
 
 Route::get('/error500', function () {
     $a="hola"/2;
