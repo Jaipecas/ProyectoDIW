@@ -18,6 +18,7 @@ Devuelve información sobre la aplicación en formato JSON.
 | users.nacionalities           | Número de nacionalidades        |
 | supported_languages.languages | Array con el nombre del idioma soportado  |
 | supported_languages.number    | Número de lenguajes soportados  |
+| games.playing                 | Número de partidas en juego |
 
 </center>
 

@@ -28,6 +28,7 @@ Muchas de las variables proporcionadas son de tipo _colección_. Para el acceso 
 | nacionalities     | Número           | Número de diferentes nacionalidades |
 | languages         | Array            | Array de idiomas soportados |
 | languages.name    | Cadena           | Nombre del idioma (p.e. $languages[0]->name ) |
+| playingGames      | Número           | Número de partidas en juego |
 
 ## register
 

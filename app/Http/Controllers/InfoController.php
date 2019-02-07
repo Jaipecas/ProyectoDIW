@@ -13,7 +13,7 @@ class InfoController extends Controller
         'charset' => 'utf-8'
     );
 
-    protected function generateGeneralInfo() {
+    public static function generateGeneralInfo() {
         
         // numero de usuarios
         $numberUsers = \DB::table('users')
@@ -31,10 +31,15 @@ class InfoController extends Controller
         $languages = \DB::table('supported_languages')
             ->select('name')->get();
 
+        $playingGames = \DB::table('games')
+            ->where('state', '=',  'turn_p1')
+            ->orWhere('state', '=',  'turn_p2')->count();
+
         return array('numberUsers' => $numberUsers, 
             'connectedUsers' => $connectedUsers,
             'nacionalities' => $nacionalities,
-            'languages' => $languages);
+            'languages' => $languages,
+            'playingGames' => $playingGames);
     }
 
     // renderiza la página de información de scrabble
@@ -52,15 +57,17 @@ class InfoController extends Controller
 
         return response()->json([
             'users' => [ 
-                    'number' =>  $data["numberUsers"], 
-                    'connected' =>  $data["connectedUsers"],
-                    'nacionalities' =>  $data["nacionalities"]
-                ],
+                'number' =>  $data["numberUsers"], 
+                'connected' =>  $data["connectedUsers"],
+                'nacionalities' =>  $data["nacionalities"]
+            ],
             'supported_languages' => [
-                    'languages' =>  $data["languages"],
-                    'number' => count($data["languages"])
-                ]
-            ], 200, $this->header, JSON_UNESCAPED_UNICODE);
+                'languages' =>  $data["languages"],
+                'number' => count($data["languages"])
+            ],
+            'games' => [
+                'playing' =>  $data["playingGames"],
+            ]], 200, $this->header, JSON_UNESCAPED_UNICODE);
     }
 
     // Últimas partidas jugadas
