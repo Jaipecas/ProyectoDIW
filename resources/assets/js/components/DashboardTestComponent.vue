@@ -25,6 +25,12 @@
                 <li v-else class="input-menu" style="text-decoration:line-through;"><a>Ir a partida solicitada</a></li>
                 <li class="input-menu"><a title="Partida preparada para ser jugada" v-on:click.prevent="gotoGame($event,6)" href="#">Ir partida juego</a></li>
                 <li class="input-menu"><a title="Partida preparada para ser ganada TOME en D6" v-on:click.prevent="gotoGame($event,7)" href="#">Ir partida ganar</a></li>
+                <li class="input-menu upper-margin">Lista jugadores
+                    <div class="submenu">
+                        <input v-model="name"><button @click="listUsers">OK</button>
+                    </div>
+                </li>
+
             </ul>
         </aside>
         <card-container-component :cards="c_cards"></card-container-component> 
@@ -48,7 +54,8 @@ export default {
             c_avatar: null,
             c_variables: null,
             c_cards: [],
-            requestChallengeId: null
+            requestChallengeId: null,
+            name: ""
         }
     },
     components: {
@@ -211,6 +218,23 @@ export default {
                     console.log("ERROR: " + error);
                     vm.createCard('Giveup Game', error.response.status, error.response.statusText, error.response.data);
                 });
+        },
+        listUsers: function() {
+            var vm = this;
+            // solicita la lista de jugadores
+            return axios.get('/scrabble/search/user/live', {
+                    params: {
+                        name: vm.name 
+                    }
+                })
+                .then(function (response) {
+                    console.log("Lista usuarios: ", response);
+                    vm.createCard('Remove User', response.status, response.statusText, response.data);
+                })
+                .catch(function (error) {
+                    console.log("ERROR: " + error);
+                    vm.createCard('Lista usuarios', error.response.status, error.response.statusText, error.response.data);
+                }); 
         },
         createCard: function(title, status, statusText, data) {
             var newcard = {

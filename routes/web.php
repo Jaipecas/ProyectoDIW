@@ -52,6 +52,9 @@ Route::prefix('scrabble')->group(function () {
   
     Route::get('/','InfoController@index');
 
+    // búsqueda de usuarios
+    Route::middleware('auth')->get('/search/user/live', 'InfoController@searchUser')->name('search_user');
+
     /*
     |---------------------------------
     |  Dashboard

@@ -93,3 +93,33 @@ Devuelve el ranking de los {number} mejores jugadores en {lang}.
 | user.country           | País del jugador                 |
 
 </center>
+
+**GET  /scrabble/search/user/live**
+
+Devuelve una lista de usuarios cuyo nombre (_name_) coincida con la plantilla pasada.
+
+- *Alias*: search_user.
+- *Parámetros*: 
+
+<center>
+
+| Parámetro     |  Tipo       |  Descripción          |
+| :----------:  | :-------:   | :------------         |
+| name          | Obligatorio | Letras que componen el nombre a buscar  |  
+
+</center>
+
+- *Requerimientos*: Usuario autenticado.
+- *Respuesta*: JSON con un array con los usuarios que coinciden con esa plantilla.
+
+<center>
+
+| Parámetro              |  Descripción                     |
+| :----------:           | :------------                    |
+| user.id                | Identificador del jugador        |
+| user.name              | Nombre del jugador               |
+| user.email             | Email del jugador                |
+
+</center>
+
+- *Ejemplo*: se pasa como parametro name: _an_ y devuelve todos aquellos usuarios cuyo nombre tenga en algún lugar las letras an: "ANtonio", "romAN", "sANdra"....

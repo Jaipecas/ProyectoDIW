@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Game;
 use App\Level;
+use App\User;
 
 class InfoController extends Controller
 {
@@ -95,7 +96,7 @@ class InfoController extends Controller
         
     }
 
-    /* Ranking por idioma de los mejores jugadores */
+    // Ranking por idioma de los mejores jugadores 
     public function ranking($lang, $number = 3) {
 
         // compruebo si el lenguaje esta soportado
@@ -114,4 +115,20 @@ class InfoController extends Controller
 
         return response()->json($ranking, 200, $this->header, JSON_UNESCAPED_UNICODE);
     }
+
+     /**
+     * búsqueda de jugadores por patrón de nombre
+     *
+     * @param  Request  $request 
+     * @return \Illuminate\Http\Response
+     */
+    public function searchUser(Request $request) {
+        
+        $name = $request->input('name');
+    
+        $users = User::where('name','LIKE','%'.$name."%")->get(['id','name', 'email']);
+         
+        return response()->json($users, 200, $this->header, JSON_UNESCAPED_UNICODE);
+    }
+    
 }
