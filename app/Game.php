@@ -36,7 +36,7 @@ class Game extends Model
     /**
      * Devuelve un vector con todas las fichas iniciales
      */
-    public function initalLetters() {
+    public static function initalLetters() {
 
         $letters = [];
     

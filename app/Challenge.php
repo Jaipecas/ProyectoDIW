@@ -142,10 +142,10 @@ class Challenge extends Model
         $game->player_1 = $request->first()->id;
         $game->player_2 = $oppoChallenge->requesting_player;
         $game->state = rand(0,1) == 0 ? 'turn_p1' : 'turn_p2';
-        $game->remaining_letters = $game->initalLetters();
+        $game->remaining_letters = Game::initalLetters();
 
         $game->state = rand(0,1) == 0 ? 'turn_p1' : 'turn_p2';
-        $game->remaining_letters = $game->initalLetters();
+        $game->remaining_letters = Game::initalLetters();
         $req = User::find($request->first()->id);
         $game->player_1_letters = $req->getLetters($game, 7);
 
