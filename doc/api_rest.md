@@ -90,7 +90,7 @@ Realiza una tirada
 | Parámetro     |  Tipo       |  Descripción          |
 | :----------:  | :-------:   | :------------         |
 | id            | Obligatorio | Identificador de la partida a abandonar   |  
-| word          | Obligatorio | Letras en orden enviadas. No se incluyen las posibles letras ya existentes en el tablero en las que el jugador se apoya para completar la palabra. Por ejemplo, si quiere formar CASA, apoyándose en una S de tablero enviará CAA  |
+| word          | Obligatorio | Letras en orden enviadas. No se incluyen las posibles letras ya existentes en el tablero en las que el jugador se apoya para completar la palabra. Por ejemplo, si quiere formar CASA, apoyándose en una S de tablero enviará CAA. La letras se envían en mayúsculas salvo las especiales de cada alfabeto, por ejemplo las dobles como la LL, que se codifican utilizando una letrea minúscula. Las correspondencias entre letras especiales y códigos por idiomas se pueden encontrar en el fichero _scrabble_helper_library.js_, en las funciones _getCode/getLetter_  |
 | row           | Obligatorio | Fila de la primera letra de _word_ |
 | column        | Obligatorio | Columna de la primera letra de _word_ |
 | direction     | Obligatorio | H, horizontal, V: vertical  |
