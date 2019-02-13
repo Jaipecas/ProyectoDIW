@@ -60,6 +60,15 @@ Realiza el login del usuario.
 
 </center>
 
+**POST /scrabble/logout**
+
+Realiza el logout del usuario.
+
+- *Alias*: logout.
+- *Parámetros*: Ninguno
+- *Requerimientos*: Usuario autenticado.
+- *Respuesta*: Si no hay ningún problema, redirecciona a la página de inicio (_/_). 
+
 **POST /scrabble/password/email**
 
 Envia por correo electrónico la solicitud del reinicio de contraseña.
