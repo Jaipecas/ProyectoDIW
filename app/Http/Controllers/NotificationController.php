@@ -24,7 +24,7 @@ class NotificationController extends Controller
         if ($state != 'delete' && $state != 'unread' && $state != 'read')
             return response('State not valid', 406);
 
-        // compruebo si el rival existe
+        // compruebo si la notificación existe
         try {
             $notification = Notification::findOrFail($id);
         }
