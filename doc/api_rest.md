@@ -340,7 +340,6 @@ Devuelve las estadísticas del usuario en todos los idiomas que haya jugado.
 | data.level                | Número      | Nivel del usuario en ese idioma |
 | data.won                  | Número      | Número de partidas ganadas en ese idioma |
 | data.lost                 | Número      | Número de partidas perdidas en ese idioma |
-| data.longest_word             | Cadena      | Palabra más larga |
 | data.most_valuable_word       | Cadena      | Palabra más valiosa |
 | data.most_valuable_word_points| Número      | Puntos de la palabra más valiosa |
 | data.most_valuable_word_game  | Número      | Identificador de la partida donde está ña palabra de más valor |

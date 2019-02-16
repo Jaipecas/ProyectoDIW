@@ -17,7 +17,6 @@ class CreateStatisticsTable extends Migration
             
             // código del idioma soportado
             $table->string('language_code', 2)->nullable(false);
-            $table->string('longest_word', 16)->default("");
             $table->string('most_valuable_word', 16)->default("");
             $table->integer('most_valuable_word_points')->default(0);
 

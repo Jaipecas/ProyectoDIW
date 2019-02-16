@@ -45,7 +45,7 @@ class HomeController extends Controller
                     ->get();*/
 
         $userStatistics = $user->levels()->get(['language_code','level','won','lost', 
-                    'longest_word', 'most_valuable_word', 'most_valuable_word_points', 
+                    'most_valuable_word', 'most_valuable_word_points', 
                     'most_valuable_word_game', 'shortest_game',
                     'longest_game' ]);
 

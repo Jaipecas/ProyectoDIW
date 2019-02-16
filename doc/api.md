@@ -20,9 +20,8 @@ Devuelve información sobre la aplicación en formato JSON.
 | supported_languages.number        | Número de lenguajes soportados  |
 | games.playing                     | Número de partidas en juego |
 | statistics                               | Array de arrays con las estadísticas generales por idioma |
-| statistics.lan.longest_word              | Palabra más larga para el idioma lan. Por ejemplo *statistics['es'].longest_word* |
-| statistics.lan.most_valuable_word        | Palabra de más valor para el idioma lan. *statistics['es'].most_valuable_word* |
-| statistics.lan.most_valuable_word_points | Puntuación de la palabra de más valor para el idioma lan. Por ejemplo *statistics['es'].most_valuable_word_points* |
+| statistics.most_valuable_word        | Palabra de más valor para el idioma lan. *statistics['es'].most_valuable_word* |
+| statistics.most_valuable_word_points | Puntuación de la palabra de más valor para el idioma lan. Por ejemplo *statistics['es'].most_valuable_word_points* |
 
 
 </center>
