@@ -11,14 +11,19 @@ Devuelve información sobre la aplicación en formato JSON.
 
 <center>
 
-| Parámetro                     |  Descripción  |
-| :----------:                  | :------------                   |
-| users.number                  | Número de usuarios              |
-| users.connected               | Número de jugadores conectados  |
-| users.nacionalities           | Número de nacionalidades        |
-| supported_languages.languages | Array con el nombre del idioma soportado  |
-| supported_languages.number    | Número de lenguajes soportados  |
-| games.playing                 | Número de partidas en juego |
+| Parámetro                         |  Descripción  |
+| :----------:                      | :------------                   |
+| users.number                      | Número de usuarios              |
+| users.connected                   | Número de jugadores conectados  |
+| users.nacionalities               | Número de nacionalidades        |
+| supported_languages.languages     | Array con el nombre del idioma soportado  |
+| supported_languages.number        | Número de lenguajes soportados  |
+| games.playing                     | Número de partidas en juego |
+| statistics                               | Array de arrays con las estadísticas generales por idioma |
+| statistics.lan.longest_word              | Palabra más larga para el idioma lan. Por ejemplo *statistics['es'].longest_word* |
+| statistics.lan.most_valuable_word        | Palabra de más valor para el idioma lan. *statistics['es'].most_valuable_word* |
+| statistics.lan.most_valuable_word_points | Puntuación de la palabra de más valor para el idioma lan. Por ejemplo *statistics['es'].most_valuable_word_points* |
+
 
 </center>
 

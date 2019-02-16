@@ -36,11 +36,14 @@ class InfoController extends Controller
             ->where('state', '=',  'turn_p1')
             ->orWhere('state', '=',  'turn_p2')->count();
 
+        $statistics = InfoController::generalStatistics();  
+
         return array('numberUsers' => $numberUsers, 
             'connectedUsers' => $connectedUsers,
             'nacionalities' => $nacionalities,
             'languages' => $languages,
-            'playingGames' => $playingGames);
+            'playingGames' => $playingGames,
+            'generalStatistics' => $statistics);
     }
 
     // renderiza la página de información de scrabble
@@ -54,7 +57,7 @@ class InfoController extends Controller
     // Información general de la aplicación
     public function general() {
         
-        $data = $this->generateGeneralInfo();
+        $data = $this->generateGeneralInfo();      
 
         return response()->json([
             'users' => [ 
@@ -68,7 +71,27 @@ class InfoController extends Controller
             ],
             'games' => [
                 'playing' =>  $data["playingGames"],
+            ],
+            'statistics' => [
+                $data["generalStatistics"]
             ]], 200, $this->header, JSON_UNESCAPED_UNICODE);
+    }
+
+    // devuelve un array con las estadísticas por idioma
+    protected static function generalStatistics() {
+
+        $statCollection = \DB::table('statistics')->get();
+        $statArray = array();
+    
+        foreach ($statCollection as $lan) {
+
+            $statArray[$lan->language_code] = array();
+
+            $statArray[$lan->language_code]['longest_word'] = $lan->longest_word;
+            $statArray[$lan->language_code]['most_valuable_word'] = $lan->most_valuable_word;
+            $statArray[$lan->language_code]['most_valuable_word_points'] = $lan->most_valuable_word_points;
+        }
+        return $statCollection;
     }
 
     // Últimas partidas jugadas
