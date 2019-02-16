@@ -43,7 +43,7 @@ class Challenge extends Model
     public static function pairChallenges($inputChallenge) {
 
         $request = $inputChallenge->requestPlayer()->get(['id']);
-        $levelRequest = Level::firstOrCreate(['user_id' => $request->first()->id],['language_code' => $inputChallenge->language])->level;
+        $levelRequest = (Level::where('language_code', $inputChallenge->language)->where('user_id', $request->first()->id)->first())->level;
     
         if ($inputChallenge->level == "0" && $inputChallenge->opposing_player == NULL) { // aleatorio
             
