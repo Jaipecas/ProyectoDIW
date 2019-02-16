@@ -2,9 +2,9 @@
     <div class="output-variable"> 
         <div class="json" v-if="pvar instanceof Object">
             <table>
-                <td v-for="(value, key) in pvar" v-bind:key="value.internal_id">
-                    <tr class="key">{{ key }}</tr>
-                    <tr class="value">{{ value }}</tr>
+                <td v-for="(value, key) in pvar" v-bind:key="key">
+                    <tr class="key">{{ key | reducido }}</tr>
+                    <tr class="value">{{ value === null ? '-' : value}}</tr>
                 </td>
             </table>
         </div>
@@ -19,14 +19,15 @@
     @import "../../sass/variables";
     .output-variable {
         background-color: $card-bg;
-        min-width: 400px;
-        font-size: 1.3em;
+        min-width: 650px;
+        font-size: 1rem;
         margin: 0 15px;
-        padding: 0.7em 15px;
+        padding: 0.7em 4px;
 
         .value {
             color: rgb(111, 97, 170);
             font-weight: 700;
+            
         }
         
         table {
@@ -48,6 +49,13 @@ export default {
         pvar: {
             type: Object,
             required: true,
+        }
+    },
+    filters: {
+        reducido: function(val) {
+            if (val.length <10 )    
+                return val;
+            else return val.substring(0,4) + "..." + val.substring(val.length - 3, val.length);
         }
     },
     mounted() {

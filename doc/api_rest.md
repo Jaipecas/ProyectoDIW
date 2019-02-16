@@ -336,11 +336,16 @@ Devuelve las estadísticas del usuario en todos los idiomas que haya jugado.
 | Parámetro       | Tipo              | Descripción       |
 | :----------     | :-------          | :------------     |
 | data            | Array de JSON     | Array de n entradas, una por cada idioma al que haya jugado el usuario |
-| data.language_code    | Cadena      | Código del idioma para el que se refleja la estadística |
-| data.level            | Número      | Nivel del usuario en ese idioma |
-| data.won              | Número      | Número de partidas ganadas en ese idioma |
-| data.lost             | Número      | Número de partidas perdidas en ese idioma |
-| data.internal_id      | Cadena      | Identificador de cada entrada del array |
+| data.language_code        | Cadena      | Código del idioma para el que se refleja la estadística |
+| data.level                | Número      | Nivel del usuario en ese idioma |
+| data.won                  | Número      | Número de partidas ganadas en ese idioma |
+| data.lost                 | Número      | Número de partidas perdidas en ese idioma |
+| data.longest_word             | Cadena      | Palabra más larga |
+| data.most_valuable_word       | Cadena      | Palabra más valiosa |
+| data.most_valuable_word_points| Número      | Puntos de la palabra más valiosa |
+| data.most_valuable_word_game  | Número      | Identificador de la partida donde está ña palabra de más valor |
+| data.shortest_game            | Número      | Identificador de la partida más corta |
+| data.longest_game             | Número      | Identificador de la partida más larga |
     
 </center>
 
