@@ -36,12 +36,12 @@ class Game extends Model
     /**
      * Devuelve un vector con todas las fichas iniciales
      */
-    public static function initalLetters() {
+    public static function initalLetters($lan) {
 
         $letters = [];
     
         $lettersOri = config('game.letters');
-        $lettersOriL = $lettersOri[$this->language];
+        $lettersOriL = $lettersOri[$lan];
         foreach ($lettersOriL as $let => $data) {    
             for ($i=0; $i<$data['quantity']; $i++)
                 $letters[] = $let; 
