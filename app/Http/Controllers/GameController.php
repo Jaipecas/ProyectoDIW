@@ -70,8 +70,11 @@ class GameController extends Controller
         $game->save();
 
         // obtengo el nivel para ese usuario y lengua
-        $level_1 = Level::firstOrCreate(['user_id' => $player1->first()->id],['language_code' => $game->language]);
-        $level_2 = Level::firstOrCreate(['user_id' => $player2->first()->id],['language_code' => $game->language]);
+        //$level_1 = Level::firstOrCreate(['user_id' => $player1->first()->id],['language_code' => $game->language]);
+        //$level_2 = Level::firstOrCreate(['user_id' => $player2->first()->id],['language_code' => $game->language]);
+        $level_1 = Level::where('language_code', $game->language)->where('user_id', $player1->first()->id)->first();
+        $level_2 = Level::where('language_code', $game->language)->where('user_id', $player2->first()->id)->first();
+
     
         if ($game->state == 'win_p2') {
             $level_2->increment('won');
