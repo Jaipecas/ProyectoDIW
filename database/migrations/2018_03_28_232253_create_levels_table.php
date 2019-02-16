@@ -31,6 +31,8 @@ class CreateLevelsTable extends Migration
             // Partidas perdidas
             $table->integer('lost')->default(0);
 
+            $table->primary(array('user_id', 'language_code'));
+
             // Claves externa
             $table->foreign('language_code')->references('language')->on('supported_languages')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

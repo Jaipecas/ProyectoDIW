@@ -132,7 +132,7 @@ Muchas de las variables proporcionadas son de tipo _colección_. Para el acceso 
 | game.created_at    | Fecha             | Fecha de creación de la partida    | | game.updated_at    | Fecha             | Fecha de última tirada  | 
 | game.language      | Cadena            | Idioma de la partida |
 | game.state         | Cadena            | Estado de la partida: *unstarted*, *turn_p1* (turno jugador 1), *turn_p2* (turno jugador2), *win_p1* (ganador jugador1), *win_p2* (ganador p2)|
-| game.throw         | Cadena           | Listado de tiradas. Formato: PLLLWWWWWWWWWWPLLLWWWWWWWWW... P : jugador 1 o 2, L posicion: 06D, J11. Si el número va delante será vertical y si va la letra será horizontal, W palabra |
+| game.throw         | Cadena           | Listado de tiradas. Formato: PLLLWWWWWWWWWW\|PLLLWWWWWWWWW\|... P : jugador 1 o 2, L posicion: 06D, J11. Si el número va delante será vertical y si va la letra será horizontal, W palabra. Cada palabra separada por \| |
 | game.tableboard    | Cadena           | cadena de 225 caracteres en la que en cada posición se incluye la letra correspondiente según la celda (ordenado de izq. a der. y de arriba a abajo) |
 | game.remaining_tokens | Número        | Número de fichas por jugar |
 | game.total_tokens  | Numero           | Número total de fichas en la partida |

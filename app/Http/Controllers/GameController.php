@@ -224,6 +224,11 @@ class GameController extends Controller
         if (strlen($sentWord) == 0) 
             return response('Incorrect word.', 403);
 
+        $userStatistics = $user->levelsByLang($gameDB->language)->get([
+            'most_valuable_word', 'most_valuable_word_points', 
+            'most_valuable_word_game', 'shortest_game',
+            'longest_game' ])->first();
+
         $lettersOri = config('game.letters');
         $lettersOriL = $lettersOri[$gameDB->language];
 
@@ -378,7 +383,7 @@ class GameController extends Controller
         else
             $throwH = $numPlayer.str_pad($col, 2, "0", STR_PAD_LEFT).chr($rowI + 65);
 
-        $gameDB->throw = $throwH.$computedWord;
+        $gameDB->throw = $gameDB->throw.$throwH.$computedWord.'|';
 
         // OJO!! Las fichas de remaining_letters se quitan solas en getLetterFromBag
         $gameDB->tableboard = $newTableboard;
@@ -387,6 +392,45 @@ class GameController extends Controller
         // Enviar notificacion al contrincante
         event(new OpponentThrow($gameDB, $computedWord, $colI, $rowI, $direction,
                                 $pscore, $score, $oppoId, $pstate));
+
+        // Gestión de estadísticas de usuario
+        if ($score > $userStatistics->most_valuable_word_points) {
+
+            // no puedo usar find ya que solo soporta una primary key
+            $userStat = Level::where('language_code', $gameDB->language)->where('user_id', $user->id)->first();
+        
+            $userStat->most_valuable_word_points = $score;
+            $userStat->most_valuable_word = $computedWord;
+            $userStat->most_valuable_word_game = $gameDB->id;
+
+            if ($pstate == 'win') {
+              
+                $numThrow = substr_count($gameDB->throw, '|');
+
+                if ($userStatistics->longest_game == null || $numThrow > $userStatistics->longest_game) {
+                    $userStat->longest_game = $gameDB->id;
+                }
+
+                if ($userStatistics->shortest_game == null || $numThrow < $userStatistics->shortest_game) {
+                    $userStat->shortest_game = $gameDB->id;
+                }
+
+                // compruebo estadśiticas en oponente
+                $oppoStat = Level::where('language_code', $gameDB->language)->where('user_id', $oppoId)->first();
+
+                if ($oppoStat->longest_game == null || $numThrow > $oppoStat->longest_game) {
+                    $oppoStat->longest_game = $gameDB->id;
+                }
+
+                if ($oppoStat->shortest_game == null || $numThrow < $oppoStat->shortest_game) {
+                    $oppoStat->shortest_game = $gameDB->id;
+                }
+
+                $oppoStat->save();
+            }
+
+            $userStat->save();
+        }
 
         return response()->json([
                 'rword' => $computedWord,

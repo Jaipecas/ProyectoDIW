@@ -162,6 +162,14 @@ class User extends Authenticatable
     }
 
     /**
+     * Relación con Niveles por idioma. Un usuario puede tener muchos niveles (por cada idioma), pero 
+     * una nivel sólo pertenece a un usuario
+     */
+    public function levelsByLang($lang) {
+        return $this->hasMany('App\Level', 'user_id')->where('language_code','=', $lang);
+    }
+
+    /**
      * Saca $number letras del saco del partido $game
      * Develve un string de 4*$number longitud, con el formato
      * LPPLPPLPP...
