@@ -87,7 +87,6 @@ class InfoController extends Controller
 
             $statArray[$lan->language_code] = array();
 
-            $statArray[$lan->language_code]['longest_word'] = $lan->longest_word;
             $statArray[$lan->language_code]['most_valuable_word'] = $lan->most_valuable_word;
             $statArray[$lan->language_code]['most_valuable_word_points'] = $lan->most_valuable_word_points;
         }
