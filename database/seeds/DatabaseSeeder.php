@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             SupportedLanguagesSeeder::class,
             UsersSeeder::class,
             GamesSeeder::class,
+            StatisticsSeeder::class,
         ]);
     }
 }
