@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\User;
 use App\Game;
 use App\Level;
+use App\Statistics;
 use App\Events\OpponentThrow;
 use App\Events\GiveupGame;
 
@@ -430,6 +431,15 @@ class GameController extends Controller
             }
 
             $userStat->save();
+        }
+
+        // Gestión de estadísticas por idioma
+        $generalStat = Statistics::where('language_code',$gameDB->language)->first();
+        if ($score > $generalStat->most_valuable_word_points) { 
+            $generalStat->most_valuable_word_points = $score;
+            $generalStat->most_valuable_word = $computedWord;
+
+            $generalStat->save();
         }
 
         return response()->json([
