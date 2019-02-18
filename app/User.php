@@ -189,4 +189,43 @@ class User extends Authenticatable
 
         return $newLetters;
     }
+
+    /**
+     * Devuelve el identificador de los 3 oponentes más habitualesde mayor a menor.
+     * 
+     * @param $num  número de oponentes a devolver
+     */
+    public function getUsualOpponents($num) {
+
+        $lst1 = $this->hasMany('App\Game', 'player_1')
+                        ->select('player_2 as player', DB::raw('count(*) as total'))->groupBy('player')
+                        ->orderBy('player', 'asc')->get();
+
+        $lst2 = $this->hasMany('App\Game', 'player_2')
+                        ->select('player_1 as player', DB::raw('count(*) as total'))->groupBy('player')
+                        ->orderBy('player', 'asc')->get();
+
+        if (count($lst1)>count($lst2)) { // fusiono lst2 en lst1
+            $lstG = $lst1;
+            $lstP = $lst2;
+
+        } else {  // fusiono lst1 en lst2
+            $lstG = $lst2;
+            $lstP = $lst1;
+        }
+
+        foreach ($lstP as $player) {
+            $exist = $lstG->search(function($item, $key) use ($player) {
+                return $item->player == $player->player;
+            });
+
+            if (gettype($exist) == "integer") {
+                $lstG->get((int)$exist)->total += $player->total;
+            }
+        }
+
+        $lstG = $lstG->sortByDesc("total")->take($num)->values();      
+        
+        return $lstG;
+    }
 }

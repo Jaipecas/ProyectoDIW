@@ -122,6 +122,9 @@ Muchas de las variables proporcionadas son de tipo _colección_. Para el acceso 
 | games.player_score | Número            | Puntuación del jugador  |
 | games.opponent_score | Número          | Puntuación del oponente |
 | games.state        | Cadena            | Estado de la partida: 0: por confirmar, 1: tira el jugador, 2: tira el oponente |
+| usualopponents     | Array             | Array con los 3 oponentes más habituales |
+| usualopponents.player | Número         | Identificador del oponente |
+| usualopponents.total  | Número         | Número de veces con las que ha jugado |
 
 ## scr_tableboard
 

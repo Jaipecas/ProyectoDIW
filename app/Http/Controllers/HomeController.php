@@ -68,7 +68,8 @@ class HomeController extends Controller
                 ->view('scr_home', ['user' => $user, 
                     'statistics' => $userStatistics->toArray(), 
                     'notifications' => $userNotifications,
-                    'games' => $currentGames])
+                    'games' => $currentGames,
+                    'usualopponents' => $user->getUsualOpponents(3)])
                 ->header("Cache-Control", "private, no-store, max-age=0, no-cache, must-revalidate, post-check=0, pre-check=0")
                 ->header("Pragma", "no-cache")
                 ->header("Expires", "Tuesday, 4 April 2018 08:12:00 GMT");
