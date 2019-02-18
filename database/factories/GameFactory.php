@@ -10,14 +10,22 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Game::class, function (Faker $faker) {    
 
-    $letters = array ('a', 'a', 'a', 'a', 'a', 'a', 'b','c', 'd', 'e', 'e', 'e', 'e', 'e',
-                    'f', 'f', 'f', 'f', 'g', 'g', 'g', 'g', 'h','h', 'h', 'i', 'i', 'i', 'j', 'k', 'l',
-                    'l', 'l', 'l', 'm' ,'m' ,'m' , 'm' ,'m' ,'n' ,'o', 'o', 'o', 'o',
-                    'p', 'p', 'p', 'p', 'p', 'q', 'r', 'r', 'r', 'r', 's', 's', 's', 's', 't', 't', 't', 't',
-                    'v', 'v', 'v', 'w', 'x', 'y', 'z', 'z', 'z', 'z');
+    $letters = array ('A', 'A', 'A', 'A', 'A', 'A', 'B', 'C', 'c', 'D', 'E', 'E', 'E', 'E', 'E',
+                    'F', 'F', 'F', 'F', 'G', 'G', 'G', 'G', 'H','H', 'H', 'I', 'I', 'I', 'J', 'K', 'L',
+                    'L', 'L', 'L', 'M' ,'M' ,'M' , 'M' ,'M' ,'N' ,'O', 'O', 'O', 'O',
+                    'P', 'P', 'P', 'P', 'P', 'Q', 'r', 'R', 'R', 'R', 'S', 'S', 'S', 'S', 'T', 'T', 'T', 'T',
+                    'V', 'V', 'V', 'W', 'X', 'Y', 'Z', 'Z', 'Z', 'Z');
+                    
     $p1_letters = $faker->randomElements($letters, $count = 7);
     array_diff_key($letters, $p1_letters);
     $p2_letters = $faker->randomElements($letters, $count = 7);
+
+    for ($i =0; $i<7; $i++) {
+        $val = rand(1, 10);
+        $p1_letters[$i] = $p1_letters[$i] . substr("0000{$val}", -2);
+        $val = rand(1, 10);
+        $p2_letters[$i] = $p2_letters[$i] . substr("0000{$val}", -2);
+    }
 
     do {
         $word = $faker->word;
