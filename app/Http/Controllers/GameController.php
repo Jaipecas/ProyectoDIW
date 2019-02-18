@@ -70,23 +70,7 @@ class GameController extends Controller
         
         $game->save();
 
-        // obtengo el nivel para ese usuario y lengua
-        //$level_1 = Level::firstOrCreate(['user_id' => $player1->first()->id],['language_code' => $game->language]);
-        //$level_2 = Level::firstOrCreate(['user_id' => $player2->first()->id],['language_code' => $game->language]);
-        $level_1 = Level::where('language_code', $game->language)->where('user_id', $player1->first()->id)->first();
-        $level_2 = Level::where('language_code', $game->language)->where('user_id', $player2->first()->id)->first();
-
-    
-        if ($game->state == 'win_p2') {
-            $level_2->increment('won');
-            $level_1->increment('lost');
-        } else {
-            $level_1->increment('won');
-            $level_2->increment('lost');
-        }
-
-        $level_1->save();
-        $level_2->save();
+        $this->updateLevels($game, $player1->first()->id, $player2->first()->id);
 
         // Enviar notificacion al contrincante
         event(new GiveupGame($game->id, $oppoId, $game->state));
@@ -390,6 +374,8 @@ class GameController extends Controller
         $gameDB->tableboard = $newTableboard;
         $gameDB->save();
 
+        $this->updateLevels($gameDB, $player1->first()->id, $player2->first()->id);
+
         // Enviar notificacion al contrincante
         event(new OpponentThrow($gameDB, $computedWord, $colI, $rowI, $direction,
                                 $pscore, $score, $oppoId, $pstate));
@@ -615,6 +601,29 @@ class GameController extends Controller
             'pstate' => 'return'
         ], 200, $this->header, JSON_UNESCAPED_UNICODE);
 
+    }
+
+    /**
+     * Actualiza los niveles en caso de partida ganada/partida
+     */
+    protected function updateLevels($game, $player1_id, $player2_id) {
+
+        if ($game->state != 'win_p2' && $game->state != 'win_p1') return;
+
+        // obtengo el nivel para ese usuario y lengua
+        $level_1 = Level::where('language_code', $game->language)->where('user_id', $player1_id)->first();
+        $level_2 = Level::where('language_code', $game->language)->where('user_id', $player2_id)->first();
+
+        if ($game->state == 'win_p2') {
+            $level_2->increment('won');
+            $level_1->increment('lost');
+        } else {
+            $level_1->increment('won');
+            $level_2->increment('lost');
+        }
+
+        $level_1->save();
+        $level_2->save();
     }
 
     public static function tokensStringToTokensObjectArray($tokensString) {
