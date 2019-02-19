@@ -160,5 +160,8 @@ class Challenge extends Model
         event(new AcceptedChallenge($game->id, $inputChallenge->language, $request->first(), $opponent));
         // al contrincante
         event(new AcceptedChallenge($game->id, $inputChallenge->language, $opponent, $request->first()));
+
+        $oppoChallenge->delete();
+        $inputChallenge->delete();
     }
 }

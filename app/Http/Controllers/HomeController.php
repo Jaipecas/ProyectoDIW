@@ -63,13 +63,19 @@ class HomeController extends Controller
 
         $user->avatar = $user->avatar != null ? '/storage/'.$user->avatar : "";
 
+        $challenges = \DB::table('challenges')
+                            ->select('challenges.id', 'challenges.created_at', 'language', 'level', 'users.name')
+                            ->leftJoin('users', 'users.id', '=', 'challenges.opposing_player')
+                            ->where('requesting_player', $user->id)->get();
+
         // añado header para evitar que se almacene en caché y así tener siempre datos frescos
         return response()
                 ->view('scr_home', ['user' => $user, 
                     'statistics' => $userStatistics->toArray(), 
                     'notifications' => $userNotifications,
                     'games' => $currentGames,
-                    'usualopponents' => $user->getUsualOpponents(3)])
+                    'usualopponents' => $user->getUsualOpponents(3),
+                    'challenges' => $challenges->toArray()])
                 ->header("Cache-Control", "private, no-store, max-age=0, no-cache, must-revalidate, post-check=0, pre-check=0")
                 ->header("Pragma", "no-cache")
                 ->header("Expires", "Tuesday, 4 April 2018 08:12:00 GMT");

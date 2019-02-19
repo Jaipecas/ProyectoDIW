@@ -125,6 +125,13 @@ Muchas de las variables proporcionadas son de tipo _colección_. Para el acceso 
 | usualopponents     | Array             | Array con los 3 oponentes más habituales |
 | usualopponents.player | Número         | Identificador del oponente |
 | usualopponents.total  | Número         | Número de veces con las que ha jugado |
+| challenges         | Array             | Array con los retos pendientes del jugador |
+| challenges.id      | Número            | Identificador del reto |
+| challenges.created_at  | Fecha         | Fecha de creación del reto |
+| challenges.language    | Cadena        | Idioma en el que se quiere jugar |
+| challenges.level       | Número        | Nivel contra el que se quiere jugar: 0 = aleatorio, < 0 = nivel por debajo o igual del indicado (por ejemplo, -3 contra jugadores con nivel inferior o igual a 3) >=10 nivel por encima o igual del indicado (por ejemplo. 40, contra jugadores con un nivel >= a 4)|
+| challenges.name        | Cadena        | Nombre del oponente que se quiere para el reto, En caso de que no se hay definido ninguno, NULL |
+
 
 ## scr_tableboard
 
