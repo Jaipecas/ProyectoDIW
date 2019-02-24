@@ -89,7 +89,7 @@ Realiza una tirada
 
 | Parámetro     |  Tipo       |  Descripción          |
 | :----------:  | :-------:   | :------------         |
-| id            | Obligatorio | Identificador de la partida a abandonar   |  
+| id            | Obligatorio | Identificador de la partida   |  
 | word          | Obligatorio | Letras en orden enviadas. No se incluyen las posibles letras ya existentes en el tablero en las que el jugador se apoya para completar la palabra. Por ejemplo, si quiere formar CASA, apoyándose en una S de tablero enviará CAA. La letras se envían en mayúsculas salvo las especiales de cada alfabeto, por ejemplo las dobles como la LL, que se codifican utilizando una letrea minúscula. Las correspondencias entre letras especiales y códigos por idiomas se pueden encontrar en el fichero _scrabble_helper_library.js_, en las funciones _getCode/getLetter_  |
 | row           | Obligatorio | Fila de la primera letra de _word_ |
 | column        | Obligatorio | Columna de la primera letra de _word_ |
@@ -125,7 +125,7 @@ Realiza una tirada
 
  **POST /game/{id}/user/pass**
 
- Pasa el turno
+Pasa el turno
 
 - *Alias*: pass_turn.
 - *Parámetros*: 
@@ -134,7 +134,7 @@ Realiza una tirada
 
 | Parámetro     |  Tipo       |  Descripción          |
 | :----------:  | :-------:   | :------------         |
-| id            | Obligatorio | Identificador de la partida a abandonar   |  
+| id            | Obligatorio | Idecntificador de la partida a abandonar   |  
 
 </center>
 
@@ -153,7 +153,7 @@ Realiza una tirada
 
 **POST /game/{id}/user/return**
 
- Pasa el turno
+Devuelve fichas al servidor
 
 - *Alias*: return_tokens.
 - *Parámetros*: 
@@ -163,7 +163,7 @@ Realiza una tirada
 | Parámetro     |  Tipo       |  Descripción          |
 | :----------:  | :-------:   | :------------         |
 | id            | Obligatorio | Identificador de la partida a abandonar   | 
-| tokens        | Obligatorio | Cadena con los códigos de letras devueltas, por ejemplo _ArTc_ devuelve la A RR T CH)  | 
+| tokens        | Obligatorio | Array con los códigos de letras devueltas, por ejemplo _"A","r","T","c"_ devuelve la A RR T CH)  | 
 
 </center>
 
