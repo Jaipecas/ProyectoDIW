@@ -61,7 +61,7 @@ class GamesSeeder extends Seeder
             'player_2_score' => 300,
             'player_2_letters' => 'B03N01C03R01S01',
             'remaining_letters' => '',
-            'tableboard' => ' PIV*TES   JETALUNA  HILASE O              C          QUErA         F    R         R    O   R     I   EN  CAcINEROS  N   IDO     O  S   l P*    Y  U   A EX  GUATEE  ES D   U    Ñ BD     MAZA LODOAH     CALE   GDI     A      O'
+            'tableboard' => ' PIV*TES   JETALUNA  HILASE O              C          QUErA         F    R         R    O   R     I   EN  CAcINEROS  N   IDO     O  S   l P*    Y  U   A EX  GUATEE  ES D   U    n BD     MAZA LODOAH     CALE   GDI     A      O'
             
         ]);
         
