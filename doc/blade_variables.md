@@ -146,6 +146,15 @@ Muchas de las variables proporcionadas son de tipo _colección_. Para el acceso 
 | game.tableboard    | Cadena           | cadena de 225 caracteres en la que en cada posición se incluye la letra correspondiente según la celda (ordenado de izq. a der. y de arriba a abajo) |
 | game.remaining_tokens | Número        | Número de fichas por jugar |
 | game.total_tokens  | Numero           | Número total de fichas en la partida |
+| games              | Colección         | Colección de partidas en juego del usuario |
+| games.id           | Número            | Identificador de la partida |
+| games.updated_at.date  | Fecha         | Fecha de la última jugada   |
+| games.language     | Cadena            | Idioma de la partida  |
+| games.opponent.id  | Número            | Identificador del oponente |
+| games.opponent.name | Cadena           | Nombre del oponente  |
+| games.player_score | Número            | Puntuación del jugador  |
+| games.opponent_score | Número          | Puntuación del oponente |
+| games.state        | Cadena            | Estado de la partida: 0: por confirmar, 1: tira el jugador, 2: tira el oponente |
 | user               | JSON   | Información de la partida del usuario |
 | user.player        | Cadena | Identificación del usuario en la partida, *P1*: jugador 1, *P2*: jugador 2 |
 | user.score        | Número  | Puntuación del jugador |

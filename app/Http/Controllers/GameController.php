@@ -156,7 +156,10 @@ class GameController extends Controller
             //$oppoArray["letters"] = $game->player_1_letters;
         }
 
-        return view('scr_tableboard', ['game' => $game, 
+        $currentGames = $user->gamesLive();
+
+        return view('scr_tableboard', ['game' => $game,
+                'games' => $currentGames, 
                 'user' => $meArray, 
                 'opponent' => $oppoArray] );
 
