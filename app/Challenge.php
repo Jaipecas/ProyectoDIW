@@ -114,7 +114,7 @@ class Challenge extends Model
                                   ->orWhere(function($query2) {
                                         return $query2->where('level', '0')->where('opposing_player', NULL);
                                     })
-                                  ->orWhere(function($query3) {
+                                  ->orWhere(function($query3) use ($levels) {
                                         return $query3->whereIn('level', $levels)->where('opposing_player', NULL);
                                     });
                 })->where('language', $inputChallenge->language)

@@ -50,6 +50,10 @@ class ChallengeController extends Controller
     public function createAgainst($lang, $id){
         $user = Auth::user();
 
+
+        if ($id == $user->id) 
+            return response('It is not possible to challenge oneself', 409);
+
         // compruebo si el lenguaje esta soportado
         $sup_langs = \DB::table('supported_languages')->get();
 
