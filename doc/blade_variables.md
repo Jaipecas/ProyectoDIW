@@ -119,12 +119,16 @@ Muchas de las variables proporcionadas son de tipo _colección_. Para el acceso 
 | games.language     | Cadena            | Idioma de la partida  |
 | games.opponent.id  | Número            | Identificador del oponente |
 | games.opponent.name | Cadena           | Nombre del oponente  |
+| games.opponent.avatar | Cadena         | URL del avatar del oponente  |
 | games.player_score | Número            | Puntuación del jugador  |
 | games.opponent_score | Número          | Puntuación del oponente |
 | games.state        | Cadena            | Estado de la partida: 0: por confirmar, 1: tira el jugador, 2: tira el oponente |
 | usualopponents     | Array             | Array con los 3 oponentes más habituales |
 | usualopponents.player | Número         | Identificador del oponente |
 | usualopponents.total  | Número         | Número de veces con las que ha jugado |
+| usualopponents.name  | String          | Nombre del oponente |
+| usualopponents.avatar| String          | URL del avatar del oponente |
+| usualopponents.level | Array           | Nivel del oponete por idioma. Por ejemplo level['es'] nivel del oponente en español |
 | challenges         | Array             | Array con los retos pendientes del jugador |
 | challenges.id      | Número            | Identificador del reto |
 | challenges.created_at  | Fecha         | Fecha de creación del reto |

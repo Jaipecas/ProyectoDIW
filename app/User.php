@@ -84,7 +84,7 @@ class User extends Authenticatable
 
             if ($item->state == "unstarted") $state=0;
 
-            $oppo = DB::table('users')->where('id', $oppoId)->get(['id','name']);
+            $oppo = DB::table('users')->where('id', $oppoId)->get(['id','name','avatar']);
             $array = [
                 "id" => $item->id,
                 "updated_at" => $item->updated_at,
@@ -224,8 +224,27 @@ class User extends Authenticatable
             }
         }
 
-        $lstG = $lstG->sortByDesc("total")->take($num)->values();      
+        $lstG = $lstG->sortByDesc("total")->take($num)->values();    
         
-        return $lstG;
+        $lstGSend = collect();
+        foreach ($lstG as $player) {
+            $datasp = DB::table('users')->where('id', $player->player)->get(['id','name','avatar']);
+            $datpT = $datasp[0];
+            $datpT->total = $player->total;
+            $datpT->player = $player->player;
+
+            // nivel
+            $pl = User::findOrFail($player->player);
+            $level = $pl->levels()->get(['language_code','level','won','lost'])->toArray();
+
+            $datpT->level = [];
+            foreach($level as $lan) {
+                $datpT->level[$lan['language_code']] = $lan['level'];
+            }
+            
+            $lstGSend->push($datpT);
+        } 
+
+        return $lstGSend;
     }
 }
