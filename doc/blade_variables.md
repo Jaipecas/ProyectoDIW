@@ -108,6 +108,11 @@ Muchas de las variables proporcionadas son de tipo _colección_. Para el acceso 
 | statistics.level   | Número            | Nivel del jugador en ese idioma |
 | statistics.won     | Número            | Número de partidas ganadas en ese idioma  |
 | statistics.lost    | Número            | Número de partidas perdidas en ese idioma |
+| statistics.most_valuable_word       | Cadena      | Palabra más valiosa |
+| statistics.most_valuable_word_points| Número      | Puntos de la palabra más valiosa |
+| statistics.most_valuable_word_game  | Número      | Identificador de la partida donde está ña palabra de más valor |
+| statistics.shortest_game            | Número      | Identificador de la partida más corta |
+| statistics.longest_game             | Número      | Identificador de la partida más larga |
 | notifications      | Colección         | Colección notificación no leídas por el usuario |
 | notifications.id   | Número            | Identificador de la notificación |
 | notifications.update_at  | Fecha       | Fecha de la actualización de la notificación |
