@@ -94,7 +94,7 @@ class RegisterController extends Controller
         else
             $fl = null;
 
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
@@ -103,6 +103,18 @@ class RegisterController extends Controller
             'country' => $data['country'],
             'favourite_language' => $fl
         ]);
+
+        $languages = \DB::table('supported_languages')
+            ->select('language')->get();
+
+        foreach ($languages as $lang) {
+            \DB::table('levels')->insert([
+                    'user_id' => $user->id, 
+                    'language_code' => $lang->language
+                ]);
+        }
+
+        return $user;
     }
 
     /**
