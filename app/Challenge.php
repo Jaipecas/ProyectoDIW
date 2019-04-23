@@ -80,7 +80,7 @@ class Challenge extends Model
             if (intval($inputChallenge->level) < 0) {
                 for ($i = intval($inputChallenge->level);$i < 0; $i = $i+1) { array_push($levelsRequire, -1*$i); }
             } else if (intval($inputChallenge->level) < 10) {
-                array_push($i);
+                array_push($levelsRequire, $i);
             } else {
                 for ($i = intval($inputChallenge->level);$i <= 50; $i = $i+10) { array_push($levelsRequire, $i/10); }
             }
