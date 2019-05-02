@@ -113,7 +113,7 @@ class UserController extends Controller
     public function games($gamesperpage = 4, Request $request) {
         $user = Auth::user();
 
-        $games = Game::select('updated_at','language','state','player_1','player_1_score','player_2','player_2_score')
+        $games = Game::select('id', 'updated_at','language','state','player_1','player_1_score','player_2','player_2_score')
                     ->where('player_1', '=', $user->id)
                     ->orWhere('player_2', '=', $user->id)
                     ->with(array(

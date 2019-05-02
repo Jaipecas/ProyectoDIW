@@ -273,6 +273,7 @@ Devuelve de manera paginada y de más reciente a más antigua, todas las partida
 | data.player_1_score  | Número        | Puntuación jugador 1      |
 | data.player_2_score  | Número        | Puntuación jugador 2      |
 | data.updated_at      | Fecha         | Hora ultima actualización |
+| data.id              | Número        | Identificador de la partida |
 | data.player1.id      | Número        | Identificador del jugador 1 |
 | data.player1.name    | Cadena        | Nombre del jugador 1 |
 | data.player1.avatar  | Cadena        | URL del avatar del jugador 1 |
