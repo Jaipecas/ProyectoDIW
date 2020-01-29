@@ -23,10 +23,10 @@
             <form method="POST" action="{{ route('login') }}">
                 @csrf <!-- por razones educativas está desactivado -->
                 <label for="email_log">Correo</label>
-                <input id="email_log" type="email" name="email_log" value="{{ old('email_log') }}" required autofocus>
+                <input id="email_log" type="email" name="email" value="{{ old('email') }}" required autofocus>
                 <br>
                 <label for="password_log">Password</label>
-                <input id="password_log" type="password" class="{{ $errors->has('password_log') ? ' is-invalid' : '' }}" name="password_log" required>
+                <input id="password_log" type="password" class="{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
                 <input id="sector_login" type="text" name="sector" value="sector_login" style="display: none">
                 <button type="submit">Login</button>   
             </form>
@@ -58,10 +58,10 @@
                 <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus>
                 <br>
                 <label for="email_reg">Correo electrónico</label>
-                <input id="email_reg" type="email" name="email_reg" value="{{ old('email_reg') }}" required>
+                <input id="email_reg" type="email" name="email" value="{{ old('email') }}" required>
                 <br> 
                 <label for="password_reg">Contraseña</label>
-                <input id="password_reg" type="password" name="password_reg" required>
+                <input id="password_reg" type="password" name="password" required>
                 <br>
                 <label for="password-confirm">Confirma la contraseña</label>
                 <!-- es obligatorio que el name sea XXXX_confirmation, donde XXXX es el 
@@ -92,10 +92,10 @@
                     <p><strong>nombre:</strong>{{ $errors->first('name') }}</p>
                 @endif
                 @if ($errors->has('email_reg'))
-                    <p><strong>Correo:</strong>{{ $errors->first('email_reg') }}</p>
+                    <p><strong>Correo:</strong>{{ $errors->first('email') }}</p>
                 @endif
                 @if ($errors->has('password_reg'))
-                    <p><strong>Contraseña:</strong>{{ $errors->first('password_reg') }}</p>
+                    <p><strong>Contraseña:</strong>{{ $errors->first('password') }}</p>
                 @endif
                 @if ($errors->has('country'))
                     <p><strong>País:</strong>{{ $errors->first('country') }}</p>
@@ -111,7 +111,7 @@
                     @csrf <!-- por razones educativas está desactivado -->
 
                     <label for="email_email">Correo electrónico</label>
-                    <input id="email_email" type="email" name="email_email" required>
+                    <input id="email_email" type="email" name="email" required>
                     <br>
                     <input id="sector_email" type="text" name="sector" value="sector_email" style="display: none">
                     <button type="submit">
@@ -132,7 +132,7 @@
             <div class="error">
                 <h4>Error modo 2</h4>
                 @if ($errors->has('email'))
-                    <p><strong>email:</strong>{{ $errors->first('email_email') }}</p>
+                    <p><strong>email:</strong>{{ $errors->first('email') }}</p>
                 @endif
             </div>
         @endif
