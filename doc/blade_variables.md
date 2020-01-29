@@ -75,12 +75,10 @@ Muchas de las variables proporcionadas son de tipo _colección_. Para el acceso 
 | :----------       | :-------                 | :------------     |
 | errors            | Colección de colecciones | Colección de errores |
 | errors.name       | Colección de cadenas     | Colección de errores relativos al campo *name* |  
-| errors.email_reg      | Colección de cadenas     | Colección de errores relativos al campo *email_reg* |  
-| errors.password_reg   | Colección de cadenas     | Colección de errores relativos al campo *password_reg* |  
+| errors.email      | Colección de cadenas     | Colección de errores relativos al campo *email_reg* |  
+| errors.password   | Colección de cadenas     | Colección de errores relativos al campo *password_reg* |  
 | errors.country    | Colección de cadenas     | Colección de errores relativos al campo *country* |  
 | errors.favourite_language | Colección de cadenas    | Array de errores relativos al campo *favourite_language* | 
-| errors.email_log    | Colección de cadenas | Colección de errores relativos al campo *email_log* | 
-| error.email_email        | Colección de cadenas  | Colección de errores relativos al campo _email_ |  
 | session()          |                       | Información asociada a la sesión del usuario |
 | session('status')  | Cadena                | Información sobre el estado de la petición |
 | languages         | Array            | Array de idiomas soportados |
