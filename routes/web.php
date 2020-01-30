@@ -33,6 +33,10 @@ Route::get('/primeros_libros','PrinterHistoryController@index');
 
 Route::get('/imprenta_valenciana','PrinterHistoryController@index');
 
+Route::get('/curiosidades','PrinterHistoryController@index');
+
+Route::get('/info_extra','PrinterHistoryController@index');
+
 Route::get('/error500', function () {
     $a="hola"/2;
     return null;

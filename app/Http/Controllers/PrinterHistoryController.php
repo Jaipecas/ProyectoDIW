@@ -33,6 +33,12 @@ class PrinterHistoryController extends Controller
             case "imprenta_valenciana":
                 $layout = "prn_extra4";
                 break;
+            case "curiosidades":
+                $layout = "prn_extra5";
+                break;
+            case "info_extra":
+                $layout = "prn_extra6";
+                break;
         }
             
         return view($layout, $data);

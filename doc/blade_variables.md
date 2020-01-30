@@ -19,7 +19,7 @@ Muchas de las variables proporcionadas son de tipo _colección_. Para el acceso 
 * [first](https://laravel.com/docs/5.6/collections#method-first): devuelve el primer elemento de la colección. Se puede parametrizar para obtener el primer valor de un item de la colección, por ejemplo: _$error->first('item')_
 * [get](https://laravel.com/docs/5.6/collections#method-get): devuelve un item en función de la clave o null si la clave no existe.
 
-## prn_index, prn_extra[0..4], scr_index
+## prn_index, prn_extra[0..6], scr_index
 
 | Parámetro         | Tipo             | Descripción        |
 | :----------       | :-------         | :------------      |
