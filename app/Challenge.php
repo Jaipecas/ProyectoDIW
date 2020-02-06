@@ -156,11 +156,13 @@ class Challenge extends Model
 
         $game->save();
 
-        // emito el evento al que genera la petición
-        event(new AcceptedChallenge($game->id, $inputChallenge->language, $request->first(), $opponent));
-        // al contrincante
-        event(new AcceptedChallenge($game->id, $inputChallenge->language, $opponent, $request->first()));
-
+        try {
+            // emito el evento al que genera la petición
+            event(new AcceptedChallenge($game->id, $inputChallenge->language, $request->first(), $opponent));
+            // al contrincante
+            event(new AcceptedChallenge($game->id, $inputChallenge->language, $opponent, $request->first()));
+        } catch (Exception $e) {}
+        
         $oppoChallenge->delete();
         $inputChallenge->delete();
     }
