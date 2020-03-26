@@ -78,7 +78,7 @@ class InfoController extends Controller
     }
 
     // devuelve un array con las estadísticas por idioma
-    protected static function generalStatistics() {
+    protected static function generalsearchUserStatistics() {
 
         $statCollection = \DB::table('statistics')->get();
         $statArray = array();
@@ -148,7 +148,7 @@ class InfoController extends Controller
         
         $name = $request->input('name');
     
-        $users = User::where('name','LIKE','%'.$name."%")->get(['id','name', 'email']);
+        $users = User::where('name','LIKE','%'.$name."%")->get(['id','name', 'email', 'country', 'avatar']);
          
         return response()->json($users, 200, $this->header, JSON_UNESCAPED_UNICODE);
     }

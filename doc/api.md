@@ -123,6 +123,8 @@ Devuelve una lista de usuarios cuyo nombre (_name_) coincida con la plantilla pa
 | user.id                | Identificador del jugador        |
 | user.name              | Nombre del jugador               |
 | user.email             | Email del jugador                |
+| user.avatar            | URL del avatar del jugador       |
+| user.country           | País del jugador                 |
 
 </center>
 
