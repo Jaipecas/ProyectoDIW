@@ -78,7 +78,7 @@ class InfoController extends Controller
     }
 
     // devuelve un array con las estadísticas por idioma
-    protected static function generalsearchUserStatistics() {
+    protected static function generalStatistics() {
 
         $statCollection = \DB::table('statistics')->get();
         $statArray = array();
