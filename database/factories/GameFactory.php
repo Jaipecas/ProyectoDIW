@@ -31,7 +31,7 @@ $factory->define(App\Game::class, function (Faker $faker) {
         $word = $faker->word;
     } while (strlen($word)>15);
 
-    $word_table = str_repeat(' ', 15 - strlen($word)) . $word;
+    $word_table = str_repeat(' ', 15 - strlen($word)) . strtoupper($word);
 
     return [
         'language' => $faker->randomElement(array ('en', 'es')),
