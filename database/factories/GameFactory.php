@@ -29,7 +29,7 @@ $factory->define(App\Game::class, function (Faker $faker) {
 
     do {
         $word = $faker->word;
-    } while (strlen($word)>15);
+    } while (strlen($word)>15 || strpos($word, 'ch') === true || strpos($word, 'll') === true || strpos($word, 'ñ') === true);
 
     $word_table = str_repeat(' ', 15 - strlen($word)) . strtoupper($word);
 
