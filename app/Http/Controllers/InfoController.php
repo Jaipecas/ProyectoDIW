@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Game;
-use App\Level;
-use App\User;
+use App\Models\Game;
+use App\Models\Level;
+use App\Models\User;
 
 class InfoController extends Controller
 {

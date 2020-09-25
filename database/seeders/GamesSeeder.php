@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
@@ -13,11 +15,12 @@ class GamesSeeder extends Seeder
     public function run()
     {    
         // creo 5 partidas entre los jugadores específicos
-        factory(App\Game::class, 5)
+        App\Models\Game::factory()
+            ->count(5)
             ->create()
             ->each(function($g) {
-                $id1 = App\User::find(1);
-                $id2 = App\User::find(2);
+                $id1 = App\Models\User::find(1);
+                $id2 = App\Models\User::find(2);
                 if (mt_rand(1, 100) >= 50) {
                     $tmp = $id2; $id2 = $id1; $id1 = $tmp; 
                 }
@@ -33,7 +36,7 @@ class GamesSeeder extends Seeder
             });
 
         // partida para jugarla
-        DB::table('games')->insertGetId([
+        \DB::table('games')->insertGetId([
             'language' => 'es',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -49,7 +52,7 @@ class GamesSeeder extends Seeder
         ]);
 
         // partida para ganarla. Poner TOME en la D6 (forma TOMEN)
-        DB::table('games')->insertGetId([
+        \DB::table('games')->insertGetId([
             'language' => 'es',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -66,14 +69,15 @@ class GamesSeeder extends Seeder
         ]);
         
         // creo entre 3 y 40 partidas
-        factory(App\Game::class, mt_rand(3,40))
+        \App\Models\Game::factory()
+            ->count(mt_rand(3,40))
             ->create()
             ->each(function($g) {
-                $id1 = App\User::find(mt_rand(1,20));
+                $id1 = App\Models\User::find(mt_rand(1,20));
                 $g->player1()->associate($id1)->save();
 
                 do {
-                    $id2 = App\User::find(mt_rand(1,20));
+                    $id2 = App\Models\User::find(mt_rand(1,20));
                 } while ($id1 == $id2);
 
                 $g->player2()->associate($id2)->save();

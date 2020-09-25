@@ -1,7 +1,12 @@
 <?php
 
+namespace Database\Seeders;
+
+use App\Models\User;
+use App\Models\Notification;
+use App\Models\Challenge;
 use Illuminate\Database\Seeder;
-use App\User;
+
 
 class UsersSeeder extends Seeder
 {
@@ -12,7 +17,7 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        $id1 = DB::table('users')->insertGetId([
+        $id1 = \DB::table('users')->insertGetId([
             'name' => 'user1',
             'email' => 'u1@c.com',
             'password' => bcrypt('12345'),
@@ -20,7 +25,7 @@ class UsersSeeder extends Seeder
             'favourite_language' => 'es'
         ]);
 
-        $id2 = DB::table('users')->insertGetId([
+        $id2 = \DB::table('users')->insertGetId([
             'name' => 'user2',
             'email' => 'u2@c.com',
             'password' => bcrypt('12345'),
@@ -29,13 +34,15 @@ class UsersSeeder extends Seeder
         ]);
 
         // creo notificaciones para los dos usuarios específicos
-        factory(App\Notification::class, 7)
+        Notification::factory()
+            ->count(7)
             ->make()
             ->each(function($n) use($id1) {
                 User::find($id1)->notifications()->save($n);
             });
         
-        factory(App\Notification::class, 3)
+        Notification::factory()
+            ->count(3)
             ->make()
             ->each(function($n) use($id2) {
                 User::find($id2)->notifications()->save($n);
@@ -46,14 +53,16 @@ class UsersSeeder extends Seeder
         User::find($id2)->languages()->sync(['es' => $this->randomLevel(), 'en' => $this->randomLevel()]);
     
         // creo 20 usuarios aleatorios y los almacena en la BD y les asigna notificaciones
-        factory(App\User::class, 20)
+        User::factory()
+            ->count(20)
             ->create()
             ->each(function($u) {
                 // para no asignarles a todos notificaciones
                 // si tendiense a infinito, un 40% de las veces se añadirían notificaciones
                 if (mt_rand(1, 100) >= 60) {
                     // creo entre 1 y 3 notificaciones
-                    factory(App\Notification::class, mt_rand(1, 3))
+                    Notification::factory()
+                        ->count(mt_rand(1, 3))
                         ->make()
                         ->each(function($n) use($u) {
                             $u->notifications()->save($n);
@@ -63,7 +72,8 @@ class UsersSeeder extends Seeder
                 // a un 30% les creo retos
                 if (mt_rand(1, 100) <= 30) {
                     // creo entre 1 y 2 retos. Los creo por nivel
-                    factory(App\Challenge::class, mt_rand(1, 2))
+                    \App\Models\Challenge::factory()
+                        ->count(mt_rand(1, 2))
                         ->make()
                         ->each(function($c) use($u) {
                             $u->requestChallenges()->save($c);
@@ -74,7 +84,9 @@ class UsersSeeder extends Seeder
             });
 
         // creo 2 usuarios desactivados
-        factory(App\User::class, 2)->states('disable')
+        User::factory()
+            ->count(2)
+            ->disabled()
             ->create()
             ->each(function($u) {
                 $u->languages()->sync(['es' => $this->randomLevel(), 'en' => $this->randomLevel()]);
@@ -82,23 +94,23 @@ class UsersSeeder extends Seeder
 
         // creo un administrador (podría crear un state, pero, por variar, 
         // lo hago sobreescribiendo el valor de type)
-        factory(App\User::class)->create([
+        User::factory()->create([
             'type' => 'admin',
         ]);
 
         // creo retos para los usuarios específicos
         // contra otra jugador
-        $c1 = factory(App\Challenge::class)->states('against_user')->make();
+        $c1 = Challenge::factory()->againstUser()->make();
         User::find($id1)->requestChallenges()->save($c1);      
 
-        $c2 = factory(App\Challenge::class)->make();
+        $c2 = Challenge::factory()->make();
         User::find($id2)->requestChallenges()->save($c2);
 
         // creo retos de nivel cero
-        $c1 = factory(App\Challenge::class)->states('level_0')->make();
+        $c1 = \App\Models\Challenge::factory()->level0()->make();
         User::find($id1)->requestChallenges()->save($c1);      
 
-        $c2 = factory(App\Challenge::class)->states('level_0')->make();
+        $c2 = \App\Models\Challenge::factory()->level0()->make();
         User::find($id2)->requestChallenges()->save($c2);
 
     }

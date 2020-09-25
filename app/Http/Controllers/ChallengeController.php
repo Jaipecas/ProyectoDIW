@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use App\User;
-use App\Challenge;
+use App\Models\User;
+use App\Models\Challenge;
 
 class ChallengeController extends Controller
 {

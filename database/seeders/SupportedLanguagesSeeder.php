@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 
 class SupportedLanguagesSeeder extends Seeder
@@ -11,12 +13,12 @@ class SupportedLanguagesSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('supported_languages')->insert([
+        \DB::table('supported_languages')->insert([
             'name' => 'Español',
             'language' => 'es',
         ]);
 
-        DB::table('supported_languages')->insert([
+        \DB::table('supported_languages')->insert([
             'name' => 'English',
             'language' => 'en',
         ]);

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,7 +16,7 @@ class Language extends Model
     public function challenges() {
         // se le indica el modelo y, opcionalmente, la clave externa (la de challenge) en
         // el caso de que no sea language_id y la clave local (en el caso de que no sea id)
-        return $this->hasMany('App\Challenge', 'language', 'language');
+        return $this->hasMany('App\Models\Challenge', 'language', 'language');
     }
 
     /**
@@ -24,7 +24,7 @@ class Language extends Model
      * asignado como favorito por muchos jugadores
      */
     public function usersAsFavourite() {
-        return $this->hasMany('App\User', 'favourite_language', 'language');
+        return $this->hasMany('App\Models\User', 'favourite_language', 'language');
     }
 
     /**
@@ -32,7 +32,7 @@ class Language extends Model
      * asignado a muchas partidas 
      */
     public function games() {
-        return $this->hasMany('App\Game', 'language', 'language');
+        return $this->hasMany('App\Models\Game', 'language', 'language');
     }
 
      /**
@@ -40,7 +40,7 @@ class Language extends Model
      * Un usuario puede jugar en varios idiomas y en cada idioma tener un nivel
      */
     public function users() {
-        return $this->belongsToMany('App\User', 'levels', 'language_code', 'user_id');
+        return $this->belongsToMany('App\Models\User', 'levels', 'language_code', 'user_id');
     }
 
 }

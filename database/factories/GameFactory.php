@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Factories;
+
 use Faker\Generator as Faker;
 
 /*
@@ -8,7 +10,7 @@ use Faker\Generator as Faker;
 |--------------------------------------------------------------------------
 */
 
-$factory->define(App\Game::class, function (Faker $faker) {    
+$factory->define(App\Models\Game::class, function (Faker $faker) {    
 
     $letters = array ('A', 'A', 'A', 'A', 'A', 'A', 'B', 'C', 'c', 'D', 'E', 'E', 'E', 'E', 'E',
                     'F', 'F', 'F', 'F', 'G', 'G', 'G', 'G', 'H','H', 'H', 'I', 'I', 'I', 'J', 'K', 'L',
