@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Game;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
@@ -15,12 +17,12 @@ class GamesSeeder extends Seeder
     public function run()
     {    
         // creo 5 partidas entre los jugadores específicos
-        App\Models\Game::factory()
+        Game::factory()
             ->count(5)
             ->create()
             ->each(function($g) {
-                $id1 = App\Models\User::find(1);
-                $id2 = App\Models\User::find(2);
+                $id1 = User::find(1);
+                $id2 = User::find(2);
                 if (mt_rand(1, 100) >= 50) {
                     $tmp = $id2; $id2 = $id1; $id1 = $tmp; 
                 }
@@ -69,15 +71,15 @@ class GamesSeeder extends Seeder
         ]);
         
         // creo entre 3 y 40 partidas
-        \App\Models\Game::factory()
+        Game::factory()
             ->count(mt_rand(3,40))
             ->create()
             ->each(function($g) {
-                $id1 = App\Models\User::find(mt_rand(1,20));
+                $id1 = User::find(mt_rand(1,20));
                 $g->player1()->associate($id1)->save();
 
                 do {
-                    $id2 = App\Models\User::find(mt_rand(1,20));
+                    $id2 = User::find(mt_rand(1,20));
                 } while ($id1 == $id2);
 
                 $g->player2()->associate($id2)->save();
