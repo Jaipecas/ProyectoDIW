@@ -30,7 +30,7 @@
 </head>
 <body>
     <div id="app"> <!-- contenedor para trabajo con Vue -->
-        <header class="title">{{ config('app.name', 'Laravel') . '. ' }} {{ $title or '' }}</header>
+        <header class="title">{{ config('app.name', 'Laravel') . '. ' }} {{ $title ?? '' }}</header>
     
         <main class="py-4">
             @yield('content')
