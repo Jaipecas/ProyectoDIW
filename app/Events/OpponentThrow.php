@@ -60,4 +60,9 @@ class OpponentThrow implements ShouldBroadcast
     public function broadcastOn() {
         return new PrivateChannel('game.'.$this->gameId.'.user.'.$this->oppoId);
     }
+
+    public function broadcastAs()
+    {
+        return 'OpponentThrow';
+    }
 }

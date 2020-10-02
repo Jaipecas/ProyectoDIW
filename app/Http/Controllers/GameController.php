@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use App\User;
-use App\Game;
-use App\Level;
-use App\Statistics;
+use App\Models\User;
+use App\Models\Game;
+use App\Models\Level;
+use App\Models\Statistics;
 use App\Events\OpponentThrow;
 use App\Events\GiveupGame;
 

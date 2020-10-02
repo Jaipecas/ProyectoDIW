@@ -7,8 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Validator;
 use Hash;
-use App\User;
-use App\Game;
+use App\Models\User;
+use App\Models\Game;
 
 class UserController extends Controller
 {

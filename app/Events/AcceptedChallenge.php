@@ -48,4 +48,9 @@ class AcceptedChallenge implements ShouldBroadcast
     public function broadcastOn() {
         return new PrivateChannel('user.'.$this->user->id);
     }
+
+    public function broadcastAs()
+    {
+        return 'AcceptedChallenge';
+    }
 }

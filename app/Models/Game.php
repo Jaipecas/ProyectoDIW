@@ -1,11 +1,14 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Game extends Model
 {
+    use HasFactory;
+
     // nombre de la tabla (no haría falta porque se define con el mismo nombre del modelo)
     protected $table = "games";
 
@@ -14,7 +17,7 @@ class Game extends Model
      * puede ser jugador 1 en muchas patidas
      */
     public function player1() {
-        return $this->belongsTo('App\User', 'player_1');
+        return $this->belongsTo('App\Models\User', 'player_1');
     }
 
     /**
@@ -22,7 +25,7 @@ class Game extends Model
      * puede ser jugador 2 en muchas patidas
      */
     public function player2() {
-        return $this->belongsTo('App\User', 'player_2');
+        return $this->belongsTo('App\Models\User', 'player_2');
     }
 
     /**
@@ -30,7 +33,7 @@ class Game extends Model
      * puede estar asociado a muchas partidas
      */
     public function language() {
-        return $this->belongsTo('App\Language', 'language');
+        return $this->belongsTo('App\Models\Language', 'language');
     }
 
     /**

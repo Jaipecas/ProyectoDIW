@@ -1,14 +1,15 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use DB;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use HasFactory,Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -45,7 +46,7 @@ class User extends Authenticatable
      * una partida sólo tiene un jugador 1
      */
     public function player1Games() {
-        return $this->hasMany('App\Game', 'player_1');
+        return $this->hasMany('App\Models\Game', 'player_1');
     }
 
     /**
@@ -53,16 +54,16 @@ class User extends Authenticatable
      * una partida sólo tiene un jugador 2
      */
     public function player2Games() {
-        return $this->hasMany('App\Game', 'player_2');
+        return $this->hasMany('App\Models\Game', 'player_2');
     }
 
     /* Devuelve las partidas que está manteniendo activas el jugador */
     public function gamesLive() {
-        $games1 = $this->hasMany('App\Game', 'player_1')
+        $games1 = $this->hasMany('App\Models\Game', 'player_1')
                     ->where('state','<>','win_p1')
                     ->where('state','<>','win_p2')->get();
                 
-        $games2 = $this->hasMany('App\Game', 'player_2')
+        $games2 = $this->hasMany('App\Models\Game', 'player_2')
                     ->where('state','<>','win_p1')
                     ->where('state','<>','win_p2')->get();
 
@@ -105,7 +106,7 @@ class User extends Authenticatable
      * Devuelve los retos en los que el usuario es el retador
      */
     public function requestChallenges() {
-        return $this->hasMany('App\Challenge', 'requesting_player');
+        return $this->hasMany('App\Models\Challenge', 'requesting_player');
     }
 
     /**
@@ -113,7 +114,7 @@ class User extends Authenticatable
      * Devuelve los retos en los que el usuario es el oponente
      */
     public function opponentChallenges() {
-        return $this->hasMany('App\Challenge', 'opposing_player');
+        return $this->hasMany('App\Models\Challenge', 'opposing_player');
     }
 
     /**
@@ -121,7 +122,7 @@ class User extends Authenticatable
      * asignado a muchos jugadores
      */
     public function favouriteLanguage() {
-        return $this->belongsTo('App\Language', 'favourite_language');
+        return $this->belongsTo('App\Models\Language', 'favourite_language');
     }
 
     /**
@@ -129,7 +130,7 @@ class User extends Authenticatable
      * una notificación sólo pertenece a un usuario
      */
     public function notifications() {
-        return $this->hasMany('App\Notification', 'recipient');
+        return $this->hasMany('App\Models\Notification', 'recipient');
     }
 
     /**
@@ -137,7 +138,7 @@ class User extends Authenticatable
      * más antigua a más moderna
      */
     public function unreadNotifications() {
-        return $this->hasMany('App\Notification', 'recipient')
+        return $this->hasMany('App\Models\Notification', 'recipient')
                 ->where("state","unread")->orderBy('updated_at');
     }
 
@@ -150,7 +151,7 @@ class User extends Authenticatable
         // el nombre por defecto (las dos tablas unidas por _ ordenadas en alfabéticamente)
         // el tercer parámetro es la clave en la tabla de este modelo (User) y el último
         // la clave del otro modelo
-        return $this->belongsToMany('App\Language', 'levels', 'user_id','language_code');
+        return $this->belongsToMany('App\Models\Language', 'levels', 'user_id','language_code');
     }
 
      /**
@@ -158,7 +159,7 @@ class User extends Authenticatable
      * una nivel sólo pertenece a un usuario
      */
     public function levels() {
-        return $this->hasMany('App\Level', 'user_id');
+        return $this->hasMany('App\Models\Level', 'user_id');
     }
 
     /**
@@ -166,7 +167,7 @@ class User extends Authenticatable
      * una nivel sólo pertenece a un usuario
      */
     public function levelsByLang($lang) {
-        return $this->hasMany('App\Level', 'user_id')->where('language_code','=', $lang);
+        return $this->hasMany('App\Models\Level', 'user_id')->where('language_code','=', $lang);
     }
 
     /**
@@ -197,11 +198,11 @@ class User extends Authenticatable
      */
     public function getUsualOpponents($num) {
 
-        $lst1 = $this->hasMany('App\Game', 'player_1')
+        $lst1 = $this->hasMany('App\Models\Game', 'player_1')
                         ->select('player_2 as player', DB::raw('count(*) as total'))->groupBy('player')
                         ->orderBy('player', 'asc')->get();
 
-        $lst2 = $this->hasMany('App\Game', 'player_2')
+        $lst2 = $this->hasMany('App\Models\Game', 'player_2')
                         ->select('player_1 as player', DB::raw('count(*) as total'))->groupBy('player')
                         ->orderBy('player', 'asc')->get();
 

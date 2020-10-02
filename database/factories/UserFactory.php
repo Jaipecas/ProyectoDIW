@@ -1,6 +1,10 @@
 <?php
 
-use Faker\Generator as Faker;
+namespace Database\Factories;
+
+use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -8,21 +12,45 @@ use Faker\Generator as Faker;
 |--------------------------------------------------------------------------
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
-    return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
-        'remember_token' => str_random(10),
-        'country' => $faker->countryCode,
-        'favourite_language' => $faker->randomElement(array ('es', 'en')),
-        'state' => $faker->randomElement(array ('offline', 'online'))
-    ];
-});
+class UserFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = User::class;
 
-/**
- * Estado para personalizar que un usuario esté desactivado
- */
-$factory->state(App\User::class, 'disable', [
-    'state' => 'disable',
-]);
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'name' => $this->faker->name,
+            'email' => $this->faker->unique()->safeEmail,
+            'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+            'remember_token' => Str::random(10),
+            'country' => $this->faker->countryCode,
+            'favourite_language' => $this->faker->randomElement(array ('es', 'en')),
+            'state' => $this->faker->randomElement(array ('offline', 'online'))
+        ];
+    }
+
+
+    /**
+    * Estado para personalizar que un usuario esté desactivado
+    *
+    * @return \Illuminate\Database\Eloquent\Factories\Factory
+    */
+    public function disabled()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'state' => 'disable',
+            ];
+        });
+    }
+}
