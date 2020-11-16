@@ -25,13 +25,13 @@ Route::get('/','PrinterHistoryController@index');
 
 Route::get('/gutenberg','PrinterHistoryController@index');
 
-Route::get('/difusion_imprenta','PrinterHistoryController@index');
+Route::get('/difusion-imprenta','PrinterHistoryController@index');
 
-Route::get('/trabajos_imprenta','PrinterHistoryController@index');
+Route::get('/trabajos-imprenta','PrinterHistoryController@index');
 
-Route::get('/primeros_libros','PrinterHistoryController@index');
+Route::get('/primeros-libros','PrinterHistoryController@index');
 
-Route::get('/imprenta_valenciana','PrinterHistoryController@index');
+Route::get('/imprenta-valenciana','PrinterHistoryController@index');
 
 Route::get('/curiosidades','PrinterHistoryController@index');
 

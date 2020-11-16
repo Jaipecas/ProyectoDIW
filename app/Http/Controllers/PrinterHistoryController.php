@@ -21,16 +21,16 @@ class PrinterHistoryController extends Controller
             case "gutenberg":
                 $layout = "prn_extra0";
                 break;
-            case "difusion_imprenta":
+            case "difusion-imprenta":
                 $layout = "prn_extra1";
                 break;
-            case "trabajos_imprenta":
+            case "trabajos-imprenta":
                 $layout = "prn_extra2";
                 break;
-            case "primeros_libros":
+            case "primeros-libros":
                 $layout = "prn_extra3";
                 break;
-            case "imprenta_valenciana":
+            case "imprenta-valenciana":
                 $layout = "prn_extra4";
                 break;
             case "curiosidades":
