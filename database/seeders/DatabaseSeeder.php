@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             SupportedLanguagesSeeder::class,
+            NewsSeeder::class,
             UsersSeeder::class,
             GamesSeeder::class,
             StatisticsSeeder::class,
