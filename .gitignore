@@ -1,10 +1,15 @@
+# directorios a ignorar
 /node_modules
 /public/hot
 /storage/*.key
 /vendor
 /.idea
-/.vscode
 /.vagrant
+
+# ignora todo el directorio.vscode menos el fichero extensions.json
+/.vscode/*
+!/.vscode/extensions.json
+
 Homestead.json
 Homestead.yaml
 npm-debug.log
