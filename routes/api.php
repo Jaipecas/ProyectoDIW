@@ -30,6 +30,7 @@ Route::group([
     ], function() {
         Route::get('general', 'InfoController@general')->name('general'); 
         Route::get('currentgames/{number?}', 'InfoController@currentGames')->name('current_games'); 
-        Route::get('ranking/{lang}/{number?}', 'InfoController@ranking')->name('ranking'); 
+        Route::get('ranking/{lang}/{number?}', 'InfoController@ranking')->name('ranking');
+        Route::get('news/{type?}', 'InfoController@news')->name('news');  
 });
 

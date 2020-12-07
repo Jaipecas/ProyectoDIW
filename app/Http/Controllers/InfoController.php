@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Game;
 use App\Models\Level;
 use App\Models\User;
+use Carbon\Carbon;
 
 class InfoController extends Controller
 {
@@ -118,7 +119,11 @@ class InfoController extends Controller
         
     }
 
-    // Ranking por idioma de los mejores jugadores 
+    /**
+    * Ranking por idioma de los mejores jugadores 
+    * lang: idioma 
+    * $number: número máximo de jugadores devueltos
+    **/
     public function ranking($lang, $number = 3) {
 
         // compruebo si el lenguaje esta soportado
@@ -138,6 +143,27 @@ class InfoController extends Controller
         return response()->json($ranking, 200, $this->header, JSON_UNESCAPED_UNICODE);
     }
 
+    /**
+    * Obtiene las 5 noticias no expiradas más próximas a la fecha actual
+    * type -1: all, 0: info, 1: notice
+    **/
+    public function news($type = -1) {
+
+        if ($type < -1 || $type > 1)
+            return response('Unknown news type', 404);
+
+        $now = Carbon::now()->format('Y-m-d');
+        
+        if ($type == -1) {
+            $news = \DB::table('news')->whereDate('expires_at','>',$now)->orderBy('expires_at')->get()->take(5);
+        } else {
+            $typeStr = $type == 0 ? "info": "notice";
+            $news = \DB::table('news')->where('type',$typeStr)->whereDate('expires_at','>',$now)->orderBy('expires_at')->get()->take(5);
+        }
+        
+        return response()->json($news, 200, $this->header, JSON_UNESCAPED_UNICODE);
+    }
+
      /**
      * búsqueda de jugadores por patrón de nombre
      *
@@ -152,5 +178,4 @@ class InfoController extends Controller
          
         return response()->json($users, 200, $this->header, JSON_UNESCAPED_UNICODE);
     }
-    
 }
