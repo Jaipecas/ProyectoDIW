@@ -8,7 +8,7 @@ Lista de tipos de commit y abreviatura/emoji a utilizar
 | _feature_ | [feat] | :sparkles: `:sparkles:` | Nueva característica |
 | _fix_ | [bug] | :bug: `:bug:` | Error corregido |
 | _docs_ | [doc] | :memo: `:memo:` | Actualización de documentación |
-| _lint_ | [lint] | :shirt: `:shirt:` | Corrección linter o compilación. En general cualqueir cosa que no afecte al significado del código |
+| _lint_ | [lint] | :shirt: `:shirt:` | Corrección linter o compilación. En general cualquier cosa que no afecte al significado del código |
 | _refactor_ | [rfct] |  :recycle: `:recycle:` | Refactorización de código | 
 | _test_ | [test] | :rotating_light: `:rotating_light:` |  Cualquier cosa relacionada con testing |
 | _work in progress_ | [wip] | :construction: `:construction:` | Trabajo sin finalizar |
@@ -70,4 +70,7 @@ y posteriormente reconstruir la caché
 ```
 sudo fc-cache -fv
 ```
+
+<br/>
+
 Basado en la [propuesta](https://gitmoji.carloscuesta.me/) de Carlos Cuesta.

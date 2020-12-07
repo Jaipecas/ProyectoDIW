@@ -11,20 +11,20 @@ Devuelve información sobre la aplicación en formato JSON.
 
 <center>
 
-| Parámetro                         |  Descripción  |
-| :----------:                      | :------------                   |
-| users.number                      | Número de usuarios              |
-| users.connected                   | Número de jugadores conectados  |
-| users.nacionalities               | Número de nacionalidades        |
-| supported_languages.languages     | Array con el nombre del idioma soportado  |
-| supported_languages.number        | Número de lenguajes soportados  |
-| games.playing                     | Número de partidas en juego |
-| statistics                               | Array de arrays con las estadísticas generales por idioma |
+| Parámetro                            |  Descripción  |
+| :----------                          | :------------                   |
+| users.number                         | Número de usuarios              |
+| users.connected                      | Número de jugadores conectados  |
+| users.nacionalities                  | Número de nacionalidades        |
+| supported_languages.languages        | Array con el nombre del idioma soportado  |
+| supported_languages.number           | Número de lenguajes soportados  |
+| games.playing                        | Número de partidas en juego |
+| statistics                           | Array de arrays con las estadísticas generales por idioma |
 | statistics.most_valuable_word        | Palabra de más valor para el idioma lan. *statistics['es'].most_valuable_word* |
 | statistics.most_valuable_word_points | Puntuación de la palabra de más valor para el idioma lan. Por ejemplo *statistics['es'].most_valuable_word_points* |
 
-
 </center>
+<br/>
 
 **GET  /api/info/currentgames/{number}**
 
@@ -36,7 +36,7 @@ Devuelve información resumida sobre las {number} partidas más recientes.
 <center>
 
 | Parámetro     |  Tipo       |  Descripción          |
-| :----------:  | :-------:   | :------------         |
+| :----------   | :-------    | :------------         |
 | number        | Opcional    | Número máximo de partidas devueltas. Por defecto: 5  |  
 
 </center>
@@ -47,7 +47,7 @@ Devuelve información resumida sobre las {number} partidas más recientes.
 <center>
 
 | Parámetro              |  Descripción  |
-| :----------:           | :------------                   |
+| :----------            | :------------                   |
 | language               | Idioma de la partida       |
 | state                  | unstarted (sin empezar),turn_p1 (turno jugador 1), turn_p2 (turno jugador 2),win_p1 (gana jugador 1),win_p2 (gana jugador 2) |
 | player_1_score         | Puntuación jugador 1      |
@@ -63,6 +63,7 @@ Devuelve información resumida sobre las {number} partidas más recientes.
 | player2.country        | País del jugador 2 |
 
 </center>
+<br/>
 
 **GET  /api/info/ranking/{lang}/{number}**
 
@@ -74,7 +75,7 @@ Devuelve el ranking de los {number} mejores jugadores en {lang}.
 <center>
 
 | Parámetro     |  Tipo       |  Descripción          |
-| :----------:  | :-------:   | :------------         |
+| :----------   | :-------    | :------------         |
 | number        | Opcional    | Número máximo de jugadores devueltas. Por defecto: 3  |  
 | lang          | Obligatorio | Idioma para el que se solicita el ranking  |  
 
@@ -86,7 +87,7 @@ Devuelve el ranking de los {number} mejores jugadores en {lang}.
 <center>
 
 | Parámetro              |  Descripción                     |
-| :----------:           | :------------                    |
+| :----------            | :------------                    |
 | language_code          | Idioma en el que se tiene ese ranking |
 | won                    | Partidas ganadas                 |
 | lost                   | Partidas perdidas                |
@@ -97,8 +98,42 @@ Devuelve el ranking de los {number} mejores jugadores en {lang}.
 | user.country           | País del jugador                 |
 
 </center>
+<br/>
 
-**GET  /scrabble/search/user/live**
+**GET /api/info/news/{type}**
+
+Devuelve una lista ordenada en formato JSON de las 5 noticias no expiradas más próximas al momento de la petición.
+
+- *Alias*: news.
+- *Parámetros*: 
+
+<center>
+
+| Parámetro     |  Tipo       |  Descripción          |
+| :----------   | :-------    | :------------         |
+| type          | Opcional    | tipo de noticia: -1 todas, 0: información, 1: avisos |  
+
+</center>
+
+- *Respuesta*: JSON con un array de 5 o menos items con las noticias
+
+<center>
+
+| Parámetro              |  Descripción                              |
+| :----------            | :------------                             |
+| id                     | Identificador                             |
+| header                 | Titular                                   |
+| abstract               | Resumen                                   |
+| url                    | Enlace                                    |
+| type                   | Tipo: 0: información, 1: aviso            |
+| expires_at             | Fecha de caducidad, la noticias pasa a estar obsoleta |
+| created_at             | Fecha de creación                         |
+| updated_at             | Fecha de actualización                    |
+
+</center>
+<br/>
+
+**GET /scrabble/search/user/live**
 
 Devuelve una lista de usuarios cuyo nombre (_name_) coincida con la plantilla pasada.
 
@@ -108,7 +143,7 @@ Devuelve una lista de usuarios cuyo nombre (_name_) coincida con la plantilla pa
 <center>
 
 | Parámetro     |  Tipo       |  Descripción          |
-| :----------:  | :-------:   | :------------         |
+| :----------   | :-------    | :------------         |
 | name          | Obligatorio | Letras que componen el nombre a buscar  |  
 
 </center>
@@ -119,7 +154,7 @@ Devuelve una lista de usuarios cuyo nombre (_name_) coincida con la plantilla pa
 <center>
 
 | Parámetro              |  Descripción                     |
-| :----------:           | :------------                    |
+| :----------            | :------------                    |
 | user.id                | Identificador del jugador        |
 | user.name              | Nombre del jugador               |
 | user.email             | Email del jugador                |
