@@ -15,7 +15,7 @@ if (typeof io !== 'undefined') {
   });
 }
 
-Vue.component('dashboard-test-component', require('./components/DashboardTestComponent.vue'));
+Vue.component('dashboard-test-component', require('./components/DashboardTestComponent.vue').default);
 
 const register = new Vue({
     el: '#app',

@@ -15,7 +15,7 @@ if (typeof io !== 'undefined') {
   });
 }
 
-Vue.component('tableboard-test-component', require('./components/TableboardTestComponent.vue'));
+Vue.component('tableboard-test-component', require('./components/TableboardTestComponent.vue').default);
 
 const register = new Vue({
   el: '#app',
