@@ -44,6 +44,10 @@ Route::get('/error500', function () {
     return null;
 });
 
+Route::get('/error401', function () {
+    return abort(401);
+});
+
 /*
 |-----------------------
 |  Scrabble
