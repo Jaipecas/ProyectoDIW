@@ -1,0 +1,30 @@
+{
+  "scss.validate": false,
+  "css.validate": false,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "vue"
+  ],
+  "htmlhint.options": {
+    "alt-require": true,
+    "inline-style-disabled": true,
+    "inline-script-disabled": true,
+    "style-disabled": true
+  }, 
+  "htmlhint.documentSelector": [
+    "html",
+    "htm"
+  ],
+  "editor.fontFamily": "'JetBrains Mono', 'Cascadia Code', 'Droid Sans Mono', 'monospace', monospace, 'Noto Color Emoji'",
+  "[html]": {
+    "editor.formatOnSave": true
+  },
+  "[scss]": {
+    "editor.formatOnSave": true
+  },
+  "[css]": {
+    "editor.formatOnSave": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
