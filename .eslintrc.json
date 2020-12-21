@@ -1,0 +1,20 @@
+{
+    "env": {
+        "es6": true,
+        "node": true
+    },
+    "plugins": [
+       "vue",
+       "html"
+    ],
+    "parserOptions": {
+        "sourceType": "module"
+    },
+    "extends": [
+        "plugin:vue/recommended",
+        "eslint:recommended",
+        "prettier" 
+    ],
+    "rules": {
+    }
+}
