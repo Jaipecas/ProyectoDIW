@@ -4,19 +4,24 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-import Echo from "laravel-echo"
-window.io = require('socket.io-client');
+import Echo from "laravel-echo";
+import Vue from "vue";
+
+window.io = require("socket.io-client");
 
 // Have this in case you stop running your laravel echo server
-if (typeof io !== 'undefined') {
+if (typeof io !== "undefined") {
   window.Echo = new Echo({
-    broadcaster: 'socket.io',
-    host: window.location.hostname + ':6001',
+    broadcaster: "socket.io",
+    host: window.location.hostname + ":6001",
   });
 }
 
-Vue.component('dashboard-test-component', require('./components/DashboardTestComponent.vue'));
+Vue.component(
+  "DashboardTestComponent",
+  require("./components/DashboardTestComponent.vue").default
+);
 
-const register = new Vue({
-    el: '#app',
+new Vue({
+  el: "#app",
 });
