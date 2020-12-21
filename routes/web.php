@@ -40,8 +40,7 @@ Route::get('/info-extra','PrinterHistoryController@index');
 Route::get('/imprenta-en-espana','PrinterHistoryController@index');
 
 Route::get('/error500', function () {
-    $a="hola"/2;
-    return null;
+    return abort(500);
 });
 
 Route::get('/error401', function () {
