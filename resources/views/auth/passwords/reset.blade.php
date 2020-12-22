@@ -12,7 +12,7 @@
             <input type="hidden" name="token" value="{{ $token }}">
 
             <label for="email">Correo electrónico</label>     
-            <input id="email" type="email" name="email" value="{{ $email or old('email') }}" required autofocus>
+            <input id="email" type="email" name="email" value="{{ $email ?? old('email') }}" required autofocus>
             <br>
             <label for="password">Contraseña</label>
             <input id="password" type="password" name="password" required>
