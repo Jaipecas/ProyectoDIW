@@ -3,8 +3,8 @@
   "css.validate": false,
   "eslint.validate": [
     "javascript",
-    "javascriptreact",
-    "vue"
+    "vue",
+    "html"
   ],
   "htmlhint.options": {
     "alt-require": true,
@@ -29,5 +29,11 @@
   "[javascript]": {
     "editor.formatOnSave": true
   },
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "vetur.validation.template": false,
+  "vetur.ignoreProjectWarning": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+	},
 }
