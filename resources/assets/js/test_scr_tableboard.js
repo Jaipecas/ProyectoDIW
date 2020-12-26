@@ -22,8 +22,8 @@ if (typeof io !== "undefined") {
 }
 
 Vue.component(
-  "tableboard-test-component",
-  require("./components/TableboardTestComponent.vue")
+  "TableboardTestComponent",
+  require("./components/TableboardTestComponent.vue").default
 );
 
 new Vue({

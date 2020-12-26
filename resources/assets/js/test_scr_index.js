@@ -8,7 +8,7 @@ import Vue from "vue";
 import axios from "axios";
 
 Vue.component(
-  "card-container-component",
+  "CardContainerComponent",
   require("./components/CardContainerComponent.vue")
 );
 

@@ -1,65 +1,57 @@
 <template>
-  <div id="dash">
+  <div class="dash">
     <user-data-component
       :user="c_user"
       :avatar="c_avatar"
       @avatar-change="onAvatarChange"
-    >
-    </user-data-component>
+    />
     <p class="variables-title">Estadísticas</p>
-    <card-container-component
-      :variables="c_variables"
-    ></card-container-component>
+    <card-container-component :variables="c_variables" />
     <aside class="sidebar">
       <ul>
         <li class="input-menu">
           <a
             href="#"
             onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-            >Logout</a
           >
+            Logout
+          </a>
         </li>
         <li class="input-menu upper-margin">
-          <a v-on:click.prevent="removeAvatar" href="#">Elimina avatar</a>
+          <a href="#" @click.prevent="removeAvatar">Elimina avatar</a>
         </li>
         <li class="input-menu">
-          <a v-on:click.prevent="giveupGame" href="#">Abandonar partida</a>
+          <a href="#" @click.prevent="giveupGame">Abandonar partida</a>
         </li>
         <li class="input-menu">
-          <a v-on:click.prevent="userStatistics" href="#"
-            >Estadísticas usuario</a
-          >
+          <a href="#" @click.prevent="userStatistics">Estadísticas usuario</a>
         </li>
         <li class="input-menu">
-          <a v-on:click.prevent="removeUser" href="#">Eliminar cuenta</a>
+          <a href="#" @click.prevent="removeUser">Eliminar cuenta</a>
         </li>
         <li class="input-menu">
-          <a v-on:click.prevent="userGames" href="#"
-            >Partidas del usuario (pag 1)</a
-          >
+          <a href="#" @click.prevent="userGames">
+            Partidas del usuario (pag 1)
+          </a>
         </li>
         <li class="input-menu">
-          <a v-on:click.prevent="userGamesPag2" href="#"
-            >Partidas del usuario (pag 2)</a
-          >
+          <a href="#" @click.prevent="userGamesPag2">
+            Partidas del usuario (pag 2)
+          </a>
         </li>
         <li class="input-menu upper-margin">
-          <a v-on:click.prevent="deleteNotification" href="#"
-            >Borrar notificación</a
-          >
+          <a href="#" @click.prevent="deleteNotification">
+            Borrar notificación
+          </a>
         </li>
         <li class="input-menu">
-          <a v-on:click.prevent="updateProfile" href="#"
-            >Modificar datos usuario</a
-          >
+          <a href="#" @click.prevent="updateProfile">Modificar datos usuario</a>
         </li>
         <li class="input-menu">
-          <a v-on:click.prevent="requestChallenge" href="#"
-            >Solicitar partida</a
-          >
+          <a href="#" @click.prevent="requestChallenge">Solicitar partida</a>
         </li>
-        <li v-if="this.requestChallengeId" class="input-menu">
-          <a v-on:click.prevent="gotoGame" href="#">Ir a partida solicitada</a>
+        <li v-if="requestChallengeId" class="input-menu">
+          <a href="#" @click.prevent="gotoGame">Ir a partida solicitada</a>
         </li>
         <li v-else class="input-menu" style="text-decoration: line-through">
           <a>Ir a partida solicitada</a>
@@ -67,38 +59,47 @@
         <li class="input-menu">
           <a
             title="Partida preparada para ser jugada"
-            v-on:click.prevent="gotoGame($event, 6)"
             href="#"
-            >Ir partida juego</a
+            @click.prevent="gotoGame($event, 6)"
           >
+            Ir partida juego
+          </a>
         </li>
         <li class="input-menu">
           <a
             title="Partida preparada para ser ganada TOME en D6"
-            v-on:click.prevent="gotoGame($event, 7)"
             href="#"
-            >Ir partida ganar</a
+            @click.prevent="gotoGame($event, 7)"
           >
+            Ir partida ganar
+          </a>
         </li>
         <li class="input-menu upper-margin">
           Lista jugadores
           <div class="submenu">
-            <input v-model="name" /><button @click="listUsers">OK</button>
+            <input v-model="name" />
+            <button @click="listUsers">OK</button>
           </div>
         </li>
       </ul>
     </aside>
-    <card-container-component :cards="c_cards"></card-container-component>
+    <card-container-component :cards="c_cards" />
   </div>
 </template>
 
 <script>
 import UserDataComponent from "./UserDataComponent";
 import CardContainerComponent from "./CardContainerComponent";
+import axios from "axios";
+import Echo from "laravel-echo";
 
 export default {
   name:
-    "dashboard-test-component" /* que sea siempre compuesto con - para evitar colisiones con otros tag HTMHL5 */,
+    "DashboardTestComponent" /* que sea siempre compuesto con - para evitar colisiones con otros tag HTMHL5 */,
+  components: {
+    CardContainerComponent,
+    UserDataComponent,
+  },
   props: {
     user: { required: true, type: Object },
     avatar: { required: true, type: String },
@@ -114,9 +115,17 @@ export default {
       name: "",
     };
   },
-  components: {
-    CardContainerComponent,
-    UserDataComponent,
+  created() {
+    this.c_user = this.user;
+    this.c_variables = this.variables;
+
+    if (!this.avatar) this.c_avatar = null;
+    else this.c_avatar = this.avatar;
+
+    this.listenForBroadcast();
+  },
+  mounted() {
+    console.log("DashboardComponent montado.");
   },
   methods: {
     onAvatarChange: function (image) {
@@ -353,7 +362,7 @@ export default {
           );
         });
     },
-    removeAvatar: function (event) {
+    removeAvatar: function () {
       //  event.preventDefault(); no hace falta ya que lo he puesto en la llamada
       this.c_avatar = null;
       var vm = this;
@@ -444,23 +453,11 @@ export default {
       );
     },
   },
-  created() {
-    this.c_user = this.user;
-    this.c_variables = this.variables;
-
-    if (!this.avatar) this.c_avatar = null;
-    else this.c_avatar = this.avatar;
-
-    this.listenForBroadcast();
-  },
-  mounted() {
-    console.log("DashboardComponent montado.");
-  },
 };
 </script>
 
 <style lang="scss" scoped>
-#dash {
+.dash {
   max-width: 100%;
   display: grid;
   grid-gap: 10px;
