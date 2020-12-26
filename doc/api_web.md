@@ -44,8 +44,8 @@ Realiza el login del usuario.
 
 | Parámetro     |  Tipo       |  Descripción          |
 | :----------:  | :-------:   | :------------         |
-| name          | Obligatorio | Nombre del usuario              |  
 | email         | Obligatorio | Correo electrónico del usuario  | 
+| password      | Obligatorio | Contraseña del usuario  | 
 | remember      | Opcional    | Indica si el sistema ha de recordar al usuario |
 
 </center>
