@@ -5,6 +5,7 @@
 /vendor
 /.idea
 /.vagrant
+/.scannerwork
 
 # ignora todo el directorio.vscode menos el fichero extensions.json
 /.vscode/*
