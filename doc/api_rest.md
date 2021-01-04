@@ -349,5 +349,35 @@ Devuelve las estadísticas del usuario en todos los idiomas que haya jugado.
     
 </center>
 
+**GET /scrabble/user/notifications/{state}**
+
+Devuelve las notificaciones del usuario por tipo.
+
+- *Alias*: user_notifications.
+- *Parámetros*: 
+
+<center>
+
+| Parámetro     |  Tipo       |  Descripción          |
+| :----------:  | :-------:   | :------------         |
+| state         | Obligatorio | Tipo de notificación: read, unread, delete  |  
+
+</center>
+
+- *Requerimientos*: Usuario autenticado.
+- *Respuesta*: 
+
+<center>
+
+| Parámetro       | Tipo              | Descripción       |
+| :----------     | :-------          | :------------     |
+| data            | Array de JSON     | Array de n entradas, una por cada notificación |
+| data.id         | Número            | Identificador de la notificación |
+| data.update_at  | Fecha             | Fecha de la actualización de la notificación |
+| data.type       | Cadena            | Tipo de la notificación: warning, info, important |
+| data.notification | Cadena          | Texto de la notificación |
+    
+</center>
+
 
 

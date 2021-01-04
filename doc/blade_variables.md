@@ -111,10 +111,10 @@ Muchas de las variables proporcionadas son de tipo _colección_. Para el acceso 
 | statistics.most_valuable_word_game  | Número      | Identificador de la partida donde está ña palabra de más valor |
 | statistics.shortest_game            | Número      | Identificador de la partida más corta |
 | statistics.longest_game             | Número      | Identificador de la partida más larga |
-| notifications      | Colección         | Colección notificación no leídas por el usuario |
+| notifications      | Colección         | Colección notificaciones no leídas por el usuario |
 | notifications.id   | Número            | Identificador de la notificación |
 | notifications.update_at  | Fecha       | Fecha de la actualización de la notificación |
-| notifications.type  | Cadena           | Tipo de la actualización: warning, info, important |
+| notifications.type  | Cadena           | Tipo de la notificación: warning, info, important |
 | notifications.notification | Cadena    | Texto de la notificación |
 | games              | Colección         | Colección de partidas en juego del usuario |
 | games.id           | Número            | Identificador de la partida |

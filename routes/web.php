@@ -21,30 +21,30 @@
  |------------------
  */
 
-Route::get('/','PrinterHistoryController@index');
+Route::get("/", "PrinterHistoryController@index");
 
-Route::get('/gutenberg','PrinterHistoryController@index');
+Route::get("/gutenberg", "PrinterHistoryController@index");
 
-Route::get('/difusion-imprenta','PrinterHistoryController@index');
+Route::get("/difusion-imprenta", "PrinterHistoryController@index");
 
-Route::get('/trabajos-imprenta','PrinterHistoryController@index');
+Route::get("/trabajos-imprenta", "PrinterHistoryController@index");
 
-Route::get('/primeros-libros','PrinterHistoryController@index');
+Route::get("/primeros-libros", "PrinterHistoryController@index");
 
-Route::get('/imprenta-valenciana','PrinterHistoryController@index');
+Route::get("/imprenta-valenciana", "PrinterHistoryController@index");
 
-Route::get('/curiosidades','PrinterHistoryController@index');
+Route::get("/curiosidades", "PrinterHistoryController@index");
 
-Route::get('/info-extra','PrinterHistoryController@index');
+Route::get("/info-extra", "PrinterHistoryController@index");
 
-Route::get('/imprenta-en-espana','PrinterHistoryController@index');
+Route::get("/imprenta-en-espana", "PrinterHistoryController@index");
 
-Route::get('/error500', function () {
-    return abort(500);
+Route::get("/error500", function () {
+  return abort(500);
 });
 
-Route::get('/error401', function () {
-    return abort(401);
+Route::get("/error401", function () {
+  return abort(401);
 });
 
 /*
@@ -52,72 +52,104 @@ Route::get('/error401', function () {
 |  Scrabble
 |-----------------------
 */
-Route::prefix('scrabble')->group(function () {
+Route::prefix("scrabble")->group(function () {
+  /* Genera las rutas de autenticación */
+  Auth::routes();
 
-    /* Genera las rutas de autenticación */
-    Auth::routes();
+  Route::get("/block_auth", "Auth\RegisterController@showBlockAuthForms")->name(
+    "blockauth"
+  );
 
-    Route::get('/block_auth', 'Auth\RegisterController@showBlockAuthForms')->name('blockauth');
-  
-    Route::get('/','InfoController@index');
+  Route::get("/", "InfoController@index");
 
-    // búsqueda de usuarios
-    Route::middleware('auth')->get('/search/user/live', 'InfoController@searchUser')->name('search_user');
+  // búsqueda de usuarios
+  Route::middleware("auth")
+    ->get("/search/user/live", "InfoController@searchUser")
+    ->name("search_user");
 
-    /*
+  /*
     |---------------------------------
     |  Dashboard
     |  La exigencia de autenticación se hace en el propio controlador
     |---------------------------------
     */
-    Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+  Route::get("/dashboard", "HomeController@index")->name("dashboard");
 
-    /*
+  /*
     |--------------------
     | Gestión del avatar
     |--------------------
     */
 
-    // Subida del avatar. Es necesario que el usuario esté autenticado.
-    Route::middleware('auth')->post('/upload/avatar', 'UserController@updateAvatar')->name('avatar');
-    // Elimina el avatar del usuario. Es necesario que el usuario esté autenticado.
-    Route::middleware('auth')->post('/user/avatar/remove', 'UserController@removeAvatar')->name('remove_avatar');
+  // Subida del avatar. Es necesario que el usuario esté autenticado.
+  Route::middleware("auth")
+    ->post("/upload/avatar", "UserController@updateAvatar")
+    ->name("avatar");
+  // Elimina el avatar del usuario. Es necesario que el usuario esté autenticado.
+  Route::middleware("auth")
+    ->post("/user/avatar/remove", "UserController@removeAvatar")
+    ->name("remove_avatar");
 
-    /*
+  /*
     |-----------------------
     | Gestión de la partida
     |-----------------------
     */
 
-    // La exigencia de autenticación se hace en el propio controlador
-    Route::post('/game/{id}/giveup', 'GameController@giveup')->name('giveup');
-    
-    Route::get('/game/{id}', 'GameController@showTableboard')->name('tableboard');
+  // La exigencia de autenticación se hace en el propio controlador
+  Route::post("/game/{id}/giveup", "GameController@giveup")->name("giveup");
 
-    // colocar piezas
-    Route::post('/game/{id}/user/throw', 'GameController@throw')->name('throw');
+  Route::get("/game/{id}", "GameController@showTableboard")->name("tableboard");
 
-    // pasar turno
-    Route::post('/game/{id}/user/pass', 'GameController@passTurn')->name('pass_turn');
+  // colocar piezas
+  Route::post("/game/{id}/user/throw", "GameController@throw")->name("throw");
 
-    // devolver piezas
-    Route::post('/game/{id}/user/return', 'GameController@returnTokens')->name('return_tokens');
-    
-    Route::prefix('challenge')->group(function () {
-        Route::post('/request/{lang}', 'ChallengeController@create')->name('create_challenge');
-        Route::post('/request/{lang}/against/{id}', 'ChallengeController@createAgainst')->name('create_challenge_user');
-        Route::post('/request/{lang}/level/{level}', 'ChallengeController@createToLevel')->name('create_challenge_level');
-    });
+  // pasar turno
+  Route::post("/game/{id}/user/pass", "GameController@passTurn")->name(
+    "pass_turn"
+  );
 
-    /*
+  // devolver piezas
+  Route::post("/game/{id}/user/return", "GameController@returnTokens")->name(
+    "return_tokens"
+  );
+
+  Route::prefix("challenge")->group(function () {
+    Route::post("/request/{lang}", "ChallengeController@create")->name(
+      "create_challenge"
+    );
+    Route::post(
+      "/request/{lang}/against/{id}",
+      "ChallengeController@createAgainst"
+    )->name("create_challenge_user");
+    Route::post(
+      "/request/{lang}/level/{level}",
+      "ChallengeController@createToLevel"
+    )->name("create_challenge_level");
+  });
+
+  /*
     |--------------------------
     | Información del usuario
     |--------------------------
     */
-    Route::middleware('auth')->get('/user/statistics', 'UserController@getStatistics')->name('user_statistics');
-    Route::middleware('auth')->get('/user/games/{gamesperpage?}', 'UserController@games')->name('user_games');
-    Route::middleware('auth')->delete('/user/remove', 'UserController@destroy')->name('remove_user');
-    Route::middleware('auth')->put('/notification/{id}/update/{state}', 'NotificationController@update')->name('update_notification');
-    Route::middleware('auth')->put('/user/update', 'UserController@update')->name('user_update');
-});
+  Route::middleware("auth")
+    ->get("/user/statistics", "UserController@getStatistics")
+    ->name("user_statistics");
+  Route::middleware("auth")
+    ->get("/user/games/{gamesperpage?}", "UserController@games")
+    ->name("user_games");
+  Route::middleware("auth")
+    ->delete("/user/remove", "UserController@destroy")
+    ->name("remove_user");
+  Route::middleware("auth")
+    ->put("/notification/{id}/update/{state}", "NotificationController@update")
+    ->name("update_notification");
+  Route::middleware("auth")
+    ->put("/user/update", "UserController@update")
+    ->name("user_update");
 
+  Route::middleware("auth")
+    ->get("/user/notifications/{state}", "UserController@notifications")
+    ->name("user_notifications");
+});
