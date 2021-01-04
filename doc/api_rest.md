@@ -312,7 +312,7 @@ Actuliza el perfil del usuario.
 
 - *Comentarios*: en caso de cambiar la contraseña el servidor hace un logout y por lo tanto conviene volver a la página de login.
 
-**GET /scrabble/user/remove**
+**DELETE /scrabble/user/remove**
 
 Elimina la cuenta de usuario.
 
