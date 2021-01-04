@@ -4,26 +4,41 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-var url = location.protocol + '//' + location.hostname + (location.port ? ':' + location.port: '');
+import Vue from "vue";
+import { post } from "./test_helpers"; // importa la funcion post
 
-const register = new Vue({
-    el: '#app',
-    data: { },
-    methods: {
-        automatic_register: function(event) {
-            event.preventDefault();
+var url =
+  location.protocol +
+  "//" +
+  location.hostname +
+  (location.port ? ":" + location.port : "");
 
-            var user = { name : "user4", country: "ES", 
-                email: "user4@c.com", password: "12345", 
-                password_confirmation: "12345" };
-                post(url + "/scrabble/register", user);
-        },
-        wrong_register: function(event) {
-            event.preventDefault();
+new Vue({
+  el: "#app",
+  data: {},
+  methods: {
+    automatic_register: function (event) {
+      event.preventDefault();
 
-            var user = { name : "user4", country: "ES", 
-                email: "user4@c.com", password: "12" };
-                post(url + "/scrabble/register", user);
-        }
-    }
+      var user = {
+        name: "user4",
+        country: "ES",
+        email: "user4@c.com",
+        password: "12345",
+        password_confirmation: "12345",
+      };
+      post(url + "/scrabble/register", user);
+    },
+    wrong_register: function (event) {
+      event.preventDefault();
+
+      var user = {
+        name: "user4",
+        country: "ES",
+        email: "user4@c.com",
+        password: "12",
+      };
+      post(url + "/scrabble/register", user);
+    },
+  },
 });

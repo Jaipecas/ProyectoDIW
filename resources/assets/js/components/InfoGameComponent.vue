@@ -1,10 +1,10 @@
 <template>
-  <div id="info-game-data">
+  <div class="info-game-data">
     <div class="tableboard">
       <table>
         <tr>
-          <th></th>
-          <th class="cell" v-for="index in 15" :key="index">{{ index }}</th>
+          <th />
+          <th v-for="index in 15" :key="index" class="cell">{{ index }}</th>
         </tr>
         <tr v-for="indexY in 15" :key="indexY">
           <th class="cell">{{ String.fromCharCode(64 + indexY) }}</th>
@@ -23,40 +23,40 @@
         <div v-if="user.avatar">
           <img :src="user.avatar" class="image" />
         </div>
-        <div v-else class="image"></div>
+        <div v-else class="image" />
         <div class="info">
-          <span class="data">Usuario ({{ user.player }}): </span
-          ><span class="value">{{ user.name }}</span>
+          <span class="data">Usuario ({{ user.player }}): </span>
+          <span class="value">{{ user.name }}</span>
         </div>
         <div class="info">
-          <span class="data">País: </span
-          ><span class="value">{{ user.country }}</span>
+          <span class="data">País: </span>
+          <span class="value">{{ user.country }}</span>
         </div>
         <div class="info">
-          <span class="data">Puntos: </span
-          ><span class="value">{{ c_user.score }}</span>
+          <span class="data">Puntos: </span>
+          <span class="value">{{ c_user.score }}</span>
         </div>
       </div>
       <div class="player-info">
         <div v-if="opponent.avatar">
           <img :src="opponent.avatar" class="image" />
         </div>
-        <div v-else class="image"></div>
+        <div v-else class="image" />
         <div class="info">
-          <span class="data">Usuario ({{ opponent.player }}): </span
-          ><span class="value">{{ opponent.name }}</span>
+          <span class="data">Usuario ({{ opponent.player }}): </span>
+          <span class="value">{{ opponent.name }}</span>
         </div>
         <div class="info">
-          <span class="data">País: </span
-          ><span class="value">{{ opponent.country }}</span>
+          <span class="data">País: </span>
+          <span class="value">{{ opponent.country }}</span>
         </div>
         <div class="info">
-          <span class="data">Puntos: </span
-          ><span class="value">{{ c_opponent.score }}</span>
+          <span class="data">Puntos: </span>
+          <span class="value">{{ c_opponent.score }}</span>
         </div>
       </div>
       <div class="player-tokens" :class="{ turn: isTurn, noturn: !isTurn }">
-        <div class="token" v-for="token in tokens" :key="token.id">
+        <div v-for="token in tokens" :key="token.id" class="token">
           <span class="letter">{{ token.letter }}</span>
           <span class="points">{{ token.value }}</span>
         </div>
@@ -64,10 +64,10 @@
     </div>
     <div class="panel-control">
       <div class="log">
-        <span class="data">Letras en saco: </span
-        ><span class="value"
-          >{{ c_game.remaining_tokens }} / {{ c_game.total_tokens }}</span
-        >
+        <span class="data">Letras en saco: </span>
+        <span class="value">
+          {{ c_game.remaining_tokens }} / {{ c_game.total_tokens }}
+        </span>
       </div>
       <div class="throw">
         <div id="throw">
@@ -90,11 +90,12 @@
           <label for="direction">H/V:</label>
           <select id="direction" v-model="direction">
             <option value="H">Horizontal</option>
-            <option value="V">Vertical</option></select
-          ><br />
+            <option value="V">Vertical</option>
+          </select>
+          <br />
           <label for="word">Palabra:</label>
-          <input type="text" name="word" id="word" v-model="word" />
-          <button type="button" id="send" @click="sendWord">
+          <input id="word" v-model="word" type="text" name="word" />
+          <button id="send" type="button" @click="sendWord">
             Envia palabra
           </button>
         </div>
@@ -102,22 +103,22 @@
           <span v-for="token in tokens" :key="token.id">
             <label for="">{{ token.letter }} ({{ token.value }})</label>
             <input
+              v-model="tokensReturn"
               type="checkbox"
               name="returned-letter"
               :value="token.id + getCode(token.letter)"
-              v-model="tokensReturn"
             />
           </span>
           <br />
-          <button type="button" id="return" @click="returnTokens">
+          <button id="return" type="button" @click="returnTokens">
             Devolver
           </button>
         </div>
         <div id="spend-turn">
-          <button type="button" id="spend" @click="passTurn">
+          <button id="spend" type="button" @click="passTurn">
             Pasar turno
           </button>
-          <button type="button" id="giveup" @click="giveup">Abandonar</button>
+          <button id="giveup" type="button" @click="giveup">Abandonar</button>
         </div>
       </div>
     </div>
@@ -125,14 +126,14 @@
 </template>
 
 <script>
-import GameDataComponent from "./GameDataComponent";
-import InfoGameComponent from "./InfoGameComponent";
-import CardContainerComponent from "./CardContainerComponent";
+import axios from "axios";
+import Echo from "laravel-echo";
+
 import { ScrabbleHelper } from "../scrabble_helper_library.js";
 
 export default {
   name:
-    "info-game-component" /* que sea siempre compuesto con - para evitar colisiones con otros tag HTMHL5 */,
+    "InfoGameComponent" /* que sea siempre compuesto con - para evitar colisiones con otros tag HTMHL5 */,
   props: {
     user: { required: true, type: Object },
     opponent: { required: true, type: Object },
@@ -160,10 +161,16 @@ export default {
       );
     },
   },
-  components: {
-    CardContainerComponent,
-    GameDataComponent,
-    InfoGameComponent,
+  created() {
+    this.c_game = this.game;
+    this.c_user = this.user;
+    this.c_opponent = this.opponent;
+
+    this.fillTokens(this.c_user.tokens);
+    this.listenForBroadcast();
+  },
+  mounted() {
+    console.log("TableboardComponent montado.");
   },
   methods: {
     getLetter: function (d) {
@@ -363,26 +370,58 @@ export default {
         });
     },
   },
-  created() {
-    this.c_game = this.game;
-    this.c_user = this.user;
-    this.c_opponent = this.opponent;
-
-    this.fillTokens(this.c_user.tokens);
-    this.listenForBroadcast();
-  },
-  mounted() {
-    console.log("TableboardComponent montado.");
-  },
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../../sass/variables";
-#info-game-data {
+
+.tableboard {
+  background-color: $card-bg;
+  font-size: 0.7rem;
+
+  th {
+    background-color: #332323;
+  }
+
+  .cell {
+    border: 1px solid rgb(139, 104, 104);
+    width: 2rem;
+    text-align: center;
+    font-weight: 600;
+    color: #caced1;
+  }
+}
+
+.panel-control {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-rows: 38px 242px;
+}
+
+.log {
+  background-color: $card-bg;
+}
+
+.throw {
+  background-color: $card-bg;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+
+  label {
+    margin-left: 0.5em;
+  }
+}
+
+button {
+  margin: 0 0.4em;
+  padding: 0 0.3em;
+}
+
+.info-game-data {
   width: 96%;
   display: grid;
-  grid-gap: 10px 10px;
+  grid-gap: 10px;
   grid-template: 18rem 40px / 30rem 0.9fr 1.1fr;
   margin: 10px 2%;
   font-size: 1.2em;
@@ -391,98 +430,55 @@ export default {
     color: rgb(111, 97, 170);
     font-weight: 700;
   }
+}
 
-  .tableboard {
-    background-color: $card-bg;
-    font-size: 0.7rem;
+.players {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-rows: 120px 120px 40px;
 
-    th {
-      background-color: #332323;
-    }
+  .image {
+    width: 120px;
+    height: 120px;
+    background: rgb(128, 174, 184);
+  }
+}
 
-    .cell {
-      border: 1px solid rgb(139, 104, 104);
-      width: 2rem;
-      text-align: center;
-      font-weight: 600;
-      color: #caced1;
-    }
+.player-tokens {
+  display: flex;
+  justify-content: center;
+
+  .token {
+    border: 1px solid #9293a6;
+    padding: 0.3em;
+    margin: 0 0.8em;
   }
 
-  .panel-control {
-    display: grid;
-    grid-gap: 10px;
-    grid-template-rows: 38px 242px;
-
-    .log {
-      background-color: $card-bg;
-    }
-
-    .throw {
-      background-color: $card-bg;
-
-      display: grid;
-      grid-template-rows: 1fr 1fr;
-
-      label {
-        margin-left: 0.5em;
-      }
-
-      #spend,
-      #return {
-        margin: 0.5em;
-      }
-    }
+  .points {
+    font-size: 0.6em;
   }
 
-  .players {
-    display: grid;
-    grid-gap: 10px;
-    grid-template-rows: 120px 120px 40px;
+  &.noturn {
+    background: #673e35;
+  }
 
-    .player-tokens {
-      display: flex;
-      justify-content: center;
+  &.turn {
+    background: #3f543c;
+  }
+}
 
-      .token {
-        border: 1px solid #9293a6;
-        padding: 0.3em;
-        margin: 0 0.8em;
-      }
+.player-info {
+  background-color: $card-bg;
+  display: grid;
+  grid-column-gap: 10px;
+  grid-template: 40px 40px 40px / 120px 1fr;
 
-      .points {
-        font-size: 0.6em;
-      }
+  > div:nth-child(1) {
+    grid-row: 1 / 4;
+  }
 
-      &.noturn {
-        background: #673e35;
-      }
-
-      &.turn {
-        background: #3f543c;
-      }
-    }
-
-    .player-info {
-      background-color: $card-bg;
-      display: grid;
-      grid-column-gap: 10px;
-      grid-template: 40px 40px 40px / 120px 1fr;
-
-      > div:nth-child(1) {
-        grid-row: 1 / 4;
-      }
-
-      .info {
-        line-height: 40px;
-      }
-    }
-
-    .image {
-      width: 120px;
-      height: 120px;
-      background: rgb(128, 174, 184);
-    }
+  .info {
+    line-height: 40px;
   }
 }
 

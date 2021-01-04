@@ -5,10 +5,12 @@
 /vendor
 /.idea
 /.vagrant
+/.scannerwork
 
 # ignora todo el directorio.vscode menos el fichero extensions.json
 /.vscode/*
 !/.vscode/extensions.json
+!/.vscode/settings.json
 
 Homestead.json
 Homestead.yaml

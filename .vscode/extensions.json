@@ -3,7 +3,13 @@
 	// Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
 	// List of extensions which should be recommended for users of this workspace.
 	"recommendations": [
-		"bierner.markdown-emoji"	// Markdown emoji
+		"bierner.markdown-emoji",			// Markdown emoji
+		"mkaufman.htmlhint",					// HTMLhint
+		"stylelint.vscode-stylelint", // stylelint
+		"dbaeumer.vscode-eslint", 		// Eslint
+		"esbenp.prettier-vscode",			// Prettier
+		"octref.vetur",								// Vetur
+		"onecentlin.laravel-blade", 	// Laravel Blade Snippets
 	],
 	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
 	"unwantedRecommendations": []
