@@ -3,7 +3,7 @@
 // Post a path con los parámetros indicados
 // Basado en: https://stackoverflow.com/questions/133925/javascript-post-request-like-a-form-submit#5533477
 // migrado a Vanilla JS
-export function post(path, parameters) {
+function post(path, parameters) {
   var form = document.createElement("form");
   form.setAttribute("method", "post");
   form.setAttribute("action", path);
@@ -20,3 +20,5 @@ export function post(path, parameters) {
   document.body.appendChild(form);
   form.submit();
 }
+
+export { post };
