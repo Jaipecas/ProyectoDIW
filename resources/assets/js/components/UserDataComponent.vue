@@ -39,7 +39,7 @@ export default {
   name: "UserDataComponent",
   components: {
     UploadImageComponent,
-  } /* que sea siempre compuesto con - para evitar colisiones con otros tag HTMHL5 */,
+  } /* que sea siempre compuesto con - para evitar colisiones con otros tag HTML5 */,
   props: {
     user: { required: true, type: Object },
     avatar: { required: true, type: String },
@@ -48,7 +48,7 @@ export default {
     console.log("UserDataComponent montado.");
   },
   methods: {
-    onAvatarChange: function (image) {
+    onAvatarChange(image) {
       this.$emit("avatar-change", image);
     },
   },
@@ -92,5 +92,3 @@ export default {
   }
 }
 </style>
-user: { required: true, type: Object }, avatar: { required: true, type: String
-},

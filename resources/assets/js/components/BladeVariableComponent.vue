@@ -26,7 +26,7 @@
 export default {
   name: "BladeVariableComponent",
   filters: {
-    reducido: function (val) {
+    reducido(val) {
       if (val.length < 10) return val;
       else
         return (
@@ -35,7 +35,7 @@ export default {
           val.substring(val.length - 3, val.length)
         );
     },
-  } /* que sea siempre compuesto con - para evitar colisiones con otros tag HTMHL5 */,
+  } /* que sea siempre compuesto con - para evitar colisiones con otros tag HTML5 */,
   props: {
     pvar: {
       type: Object,

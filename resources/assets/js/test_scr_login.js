@@ -6,7 +6,7 @@
 import Vue from "vue";
 import { post } from "./test_helpers"; // importa la función post
 
-var url =
+let url =
   location.protocol +
   "//" +
   location.hostname +
@@ -16,28 +16,28 @@ new Vue({
   el: "#app",
   data: {},
   methods: {
-    automatic_login1: function (event) {
+    automatic_login1(event) {
       event.preventDefault();
 
-      var user = { email: "u1@c.com", password: "12345" };
+      let user = { email: "u1@c.com", password: "12345" };
       post(url + "/scrabble/login", user);
     },
-    automatic_login2: function (event) {
+    automatic_login2(event) {
       event.preventDefault();
 
-      var user = { email: "u2@c.com", password: "12345" };
+      let user = { email: "u2@c.com", password: "12345" };
       post(url + "/scrabble/login", user);
     },
-    wrong_login: function (event) {
+    wrong_login(event) {
       event.preventDefault();
 
-      var user = { email: "u2@c.com", password: "1245" };
+      let user = { email: "u2@c.com", password: "1245" };
       post(url + "/scrabble/login", user);
     },
-    wrong_register: function (event) {
+    wrong_register(event) {
       event.preventDefault();
 
-      var user = {
+      let user = {
         name: "user4",
         country: "ES",
         email: "user4@c.com",

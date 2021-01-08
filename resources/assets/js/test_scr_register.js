@@ -7,7 +7,7 @@
 import Vue from "vue";
 import { post } from "./test_helpers"; // importa la funcion post
 
-var url =
+let url =
   location.protocol +
   "//" +
   location.hostname +
@@ -17,10 +17,10 @@ new Vue({
   el: "#app",
   data: {},
   methods: {
-    automatic_register: function (event) {
+    automatic_register(event) {
       event.preventDefault();
 
-      var user = {
+      let user = {
         name: "user4",
         country: "ES",
         email: "user4@c.com",
@@ -29,10 +29,10 @@ new Vue({
       };
       post(url + "/scrabble/register", user);
     },
-    wrong_register: function (event) {
+    wrong_register(event) {
       event.preventDefault();
 
-      var user = {
+      let user = {
         name: "user4",
         country: "ES",
         email: "user4@c.com",

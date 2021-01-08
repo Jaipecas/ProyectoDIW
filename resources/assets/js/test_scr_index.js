@@ -18,23 +18,22 @@ new Vue({
     c_cards: [],
   },
   methods: {
-    currentGames: function () {
-      var vm = this;
+    currentGames() {
       // 3 ultimas partida en juego via AJAX
       return axios
         .get("/api/info/currentgames/3")
-        .then(function (response) {
+        .then((response) => {
           console.log("current games:", response);
-          vm.createCard(
+          this.createCard(
             "Current Games",
             response.status,
             response.statusText,
             response.data
           );
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log("ERROR: " + error);
-          vm.createCard(
+          this.createCard(
             "Current Games",
             error.response.status,
             error.response.statusText,
@@ -42,23 +41,22 @@ new Vue({
           );
         });
     },
-    ranking: function () {
-      var vm = this;
+    ranking() {
       // Rankig de los tres mejores usuario en español
       return axios
         .get("/api/info/ranking/es/3")
-        .then(function (response) {
+        .then((response) => {
           console.log("Ranking:", response);
-          vm.createCard(
+          this.createCard(
             "Ranking",
             response.status,
             response.statusText,
             response.data
           );
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log("ERROR: " + error);
-          vm.createCard(
+          this.createCard(
             "Ranking",
             error.response.status,
             error.response.statusText,
@@ -66,23 +64,22 @@ new Vue({
           );
         });
     },
-    generalInfo: function () {
-      var vm = this;
+    generalInfo() {
       // Información del sistema
       return axios
         .get("/api/info/general")
-        .then(function (response) {
+        .then((response) => {
           console.log("System Info:", response);
-          vm.createCard(
+          this.createCard(
             "System Info",
             response.status,
             response.statusText,
             response.data
           );
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log("ERROR: " + error);
-          vm.createCard(
+          this.createCard(
             "System Info",
             error.response.status,
             error.response.statusText,
@@ -90,8 +87,8 @@ new Vue({
           );
         });
     },
-    createCard: function (title, status, statusText, data) {
-      var newcard = {
+    createCard(title, status, statusText, data) {
+      let newcard = {
         order: this.c_cards.length + 1,
         type: title,
         errorCode: status,

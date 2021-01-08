@@ -28,7 +28,7 @@
 <script>
 export default {
   name:
-    "GameDataComponent" /* que sea siempre compuesto con - para evitar colisiones con otros tag HTMHL5 */,
+    "GameDataComponent" /* que sea siempre compuesto con - para evitar colisiones con otros tag HTML5 */,
   props: {
     game: { required: true, type: Object },
   },

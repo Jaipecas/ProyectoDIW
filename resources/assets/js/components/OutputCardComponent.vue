@@ -17,11 +17,11 @@
       <div class="output">
         <div v-if="pcard.output instanceof Object" class="json">
           <!-- <table>
-                        <tr v-for="(value, key) in pcard.output" v-bind:key="value">
-                            <td class="key">{{ key }}: </td>
-                            <td class="value">{{ value }}</td>
-                        </tr>
-                     </table> -->
+              <tr v-for="(value, key) in pcard.output" v-bind:key="value">
+                    <td class="key">{{ key }}: </td>
+                    <td class="value">{{ value }}</td>
+              </tr>
+              </table> -->
           <!-- No es necesario añadir un filtro para formatear los datos
                           En versiones previas de vue si que era necesario | json -->
           <pre>{{ pcard.output }}</pre>
@@ -45,9 +45,9 @@ export default {
     },
   },
   /* si hubieran datos internos, que no es el caso
-    data () {   // en un componente SIEMPRE tiene que ser una función 
-        return { var1: 'hola' }
-    }*/
+    data: () => ({   // en un componente SIEMPRE tiene que ser una función 
+         var1: 'hola'
+    })*/
   mounted() {
     console.log("OutputCardComponent montado.");
   },
@@ -64,63 +64,62 @@ export default {
   min-width: 400px;
   max-width: 600px;
   margin: 15px;
+}
+.info {
+  font-size: 1em;
+  padding-top: 0.4em;
+  margin-bottom: 0.65em;
+}
 
-  .info {
-    font-size: 1em;
-    padding-top: 0.4em;
-    margin-bottom: 0.65em;
+.type {
+  float: right;
+  color: $info-type-color;
+  padding-right: 0.6em;
+  font-weight: 300;
+}
+
+.number {
+  float: left;
+  color: rgb(111, 97, 170);
+  padding-left: $padding-left;
+  font-weight: 700;
+}
+
+.data {
+  padding-left: $padding-left;
+  text-align: left;
+  clear: both;
+
+  p {
+    margin-top: 0.6em;
+    margin-bottom: 0.3em;
   }
 
-  .type {
-    float: right;
-    color: $info-type-color;
-    padding-right: 0.6em;
-    font-weight: 300;
-  }
-
-  .number {
-    float: left;
-    color: rgb(111, 97, 170);
-    padding-left: $padding-left;
-    font-weight: 700;
-  }
-
-  .data {
-    padding-left: $padding-left;
-    text-align: left;
-    clear: both;
-
-    p {
-      margin-top: 0.6em;
-      margin-bottom: 0.3em;
-    }
-
-    .status {
-      color: #18dd4a;
-      padding-left: $padding-left-output;
-    }
-
-    .error {
-      color: #df2914ee;
-    }
-  }
-
-  .output {
-    color: #9b9ba5;
+  .status {
+    color: #18dd4a;
     padding-left: $padding-left-output;
+  }
 
-    * {
-      color: #9b9ba5;
-    }
+  .error {
+    color: #df2914ee;
+  }
+}
 
-    table {
-      border-collapse: collapse;
-      width: 80%;
-    }
+.output {
+  color: #9b9ba5;
+  padding-left: $padding-left-output;
 
-    td {
-      text-align: left;
-    }
+  * {
+    color: #9b9ba5;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 80%;
+  }
+
+  td {
+    text-align: left;
   }
 }
 </style>

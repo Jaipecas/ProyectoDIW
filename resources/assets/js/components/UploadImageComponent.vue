@@ -63,14 +63,12 @@ const STATUS_INITIAL = 0,
 export default {
   name: "UploadImageComponent", // que sea siempre compuesto con - para evitar colisiones con otros tag HTML5
   props: {
-    image: { required: true, type: String },
+    image: { required: false, type: String, default: "" },
   }, // imagen por defecto
-  data() {
-    return {
-      currentStatus: null,
-      uploadFieldName: "avatar",
-    };
-  },
+  data: () => ({
+    currentStatus: null,
+    uploadFieldName: "avatar",
+  }),
   computed: {
     isInitial() {
       return this.currentStatus === STATUS_INITIAL;
@@ -104,21 +102,17 @@ export default {
       this.currentStatus = STATUS_INITIAL;
     },
     upload(formData) {
-      // no se accede a this desde dentro de las funciones then
-      // me creo una variable v (viewmodel) para cambiar el ámbito
-      // y así si poder acceder
-      var vm = this;
       return axios
         .post("/scrabble/upload/avatar", formData)
-        .then(function (response) {
-          vm.currentStatus = STATUS_SUCCESS;
+        .then((response) => {
+          this.currentStatus = STATUS_SUCCESS;
           console.log(response);
 
-          vm.$emit("avatar-change", response.data.path);
-          vm.currentStatus = STATUS_INITIAL;
+          this.$emit("avatar-change", response.data.path);
+          this.currentStatus = STATUS_INITIAL;
         })
-        .catch(function (error) {
-          vm.currentStatus = STATUS_FAILED;
+        .catch((error) => {
+          this.currentStatus = STATUS_FAILED;
           console.log("ERROR: " + error);
         });
     },

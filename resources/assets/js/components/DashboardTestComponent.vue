@@ -91,7 +91,6 @@
 import UserDataComponent from "./UserDataComponent";
 import CardContainerComponent from "./CardContainerComponent";
 import axios from "axios";
-import Echo from "laravel-echo";
 
 export default {
   name:
@@ -105,21 +104,19 @@ export default {
     avatar: { required: true, type: String },
     variables: { required: true, type: Array },
   },
-  data() {
-    return {
-      c_user: null,
-      c_avatar: null,
-      c_variables: null,
-      c_cards: [],
-      requestChallengeId: null,
-      name: "",
-    };
-  },
+  data: () => ({
+    c_user: null,
+    c_avatar: "",
+    c_variables: null,
+    c_cards: [],
+    requestChallengeId: null,
+    name: "",
+  }),
   created() {
     this.c_user = this.user;
     this.c_variables = this.variables;
 
-    if (!this.avatar) this.c_avatar = null;
+    if (!this.avatar) this.c_avatar = "";
     else this.c_avatar = this.avatar;
 
     this.listenForBroadcast();
@@ -128,24 +125,23 @@ export default {
     console.log("DashboardComponent montado.");
   },
   methods: {
-    onAvatarChange: function (image) {
+    onAvatarChange(image) {
       this.c_avatar = image;
     },
-    gotoGame: function (event, idg) {
+    gotoGame(event, idg) {
       if (idg === undefined) {
         idg = this.requestChallengeId;
       }
-      var url =
+      let url =
         location.protocol +
         "//" +
         location.hostname +
         (location.port ? ":" + location.port : "");
       window.location.href = url + "/scrabble/game/" + idg;
     },
-    updateProfile: function () {
-      var vm = this;
+    updateProfile() {
       // modifica los datos del usuario.
-      // el JSON de ejemplo incuye todos los posibles datos a modificar
+      // el JSON de ejemplo incluye todos los posibles datos a modificar
       // podría sólo indicarse uno
       return axios
         .put("/scrabble/user/update", {
@@ -156,9 +152,9 @@ export default {
           new_password_confirmation: "1234567",
           old_password: "12345",
         })
-        .then(function (response) {
+        .then((response) => {
           console.log("Datos de usuario:", response);
-          vm.createCard(
+          this.createCard(
             "Update Profile",
             response.status,
             response.statusText,
@@ -171,14 +167,14 @@ export default {
                        uso replace para que la página actual desaparezca del historial
                        y evitar la tecla back
                     
-                        setTimeout(function () {
+                        setTimeout(() => {
                             window.location.replace('/scrabble/login');
                         }, 2000);
                     */
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log("ERROR: " + error);
-          vm.createCard(
+          this.createCard(
             "Update Profile",
             error.response.status,
             error.response.statusText,
@@ -186,23 +182,22 @@ export default {
           );
         });
     },
-    requestChallenge: function () {
-      var vm = this;
+    requestChallenge() {
       // solicita una partida en español
       return axios
         .post("/scrabble/challenge/request/es/level/-4")
-        .then(function (response) {
+        .then((response) => {
           console.log("Reto creado:", response);
-          vm.createCard(
+          this.createCard(
             "Request Challenge",
             response.status,
             response.statusText,
             response.data
           );
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log("ERROR: " + error);
-          vm.createCard(
+          this.createCard(
             "Request Challenge",
             error.response.status,
             error.response.statusText,
@@ -210,23 +205,22 @@ export default {
           );
         });
     },
-    deleteNotification: function () {
-      var vm = this;
+    deleteNotification() {
       // pone a borrado el estado de una notificación (id=3)
       return axios
         .put("/scrabble/notification/9/update/delete")
-        .then(function (response) {
+        .then((response) => {
           console.log("Borrado notificación:", response);
-          vm.createCard(
+          this.createCard(
             "Update Notification",
             response.status,
             response.statusText,
             response.data
           );
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log("ERROR: " + error);
-          vm.createCard(
+          this.createCard(
             "Update Notification",
             error.response.status,
             error.response.statusText,
@@ -234,23 +228,22 @@ export default {
           );
         });
     },
-    userGames: function () {
-      var vm = this;
+    userGames() {
       // partidas del usuario paginadas, 3 por página
       return axios
         .get("/scrabble/user/games/3")
-        .then(function (response) {
+        .then((response) => {
           console.log("Partidas de usuario:", response);
-          vm.createCard(
+          this.createCard(
             "User Games",
             response.status,
             response.statusText,
             response.data
           );
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log("ERROR: " + error);
-          vm.createCard(
+          this.createCard(
             "User Games",
             error.response.status,
             error.response.statusText,
@@ -258,23 +251,22 @@ export default {
           );
         });
     },
-    userGamesPag2: function () {
-      var vm = this;
+    userGamesPag2() {
       // partidas del usuario paginadas, 3 por página
       return axios
         .get("/scrabble/user/games/3?page=2")
-        .then(function (response) {
+        .then((response) => {
           console.log("Partidas de usuario:", response);
-          vm.createCard(
+          this.createCard(
             "User Games",
             response.status,
             response.statusText,
             response.data
           );
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log("ERROR: " + error);
-          vm.createCard(
+          this.createCard(
             "User Games",
             error.response.status,
             error.response.statusText,
@@ -282,55 +274,53 @@ export default {
           );
         });
     },
-    removeUser: function () {
-      var vm = this;
-      // estadísiticas via AJAX
+    removeUser() {
+      // elimina usuario
       return axios
         .delete("/scrabble/user/remove")
-        .then(function (response) {
+        .then((response) => {
           console.log("Eliminar cuenta:", response);
-          vm.createCard(
+          this.createCard(
             "Remove User",
             response.status,
             response.statusText,
             response.data
           );
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log("ERROR: " + error);
-          vm.createCard(
+          this.createCard(
             "Remove User",
             error.response.status,
             error.response.statusText,
             error.response.data
           );
         })
-        .then(function () {
+        .then(() => {
           // siempre se ejecuta
           // uso replace para que la página actual desaparezca del historial
           // y evitar la tecla back
-          setTimeout(function () {
+          setTimeout(() => {
             window.location.replace("/scrabble/login");
           }, 2000);
         });
     },
-    userStatistics: function () {
-      var vm = this;
+    userStatistics() {
       // estadísiticas via AJAX
       return axios
         .get("/scrabble/user/statistics")
-        .then(function (response) {
+        .then((response) => {
           console.log("Estadísticas:", response);
-          vm.createCard(
+          this.createCard(
             "User Statistics",
             response.status,
             response.statusText,
             response.data
           );
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log("ERROR: " + error);
-          vm.createCard(
+          this.createCard(
             "User Statistics",
             error.response.status,
             error.response.statusText,
@@ -338,23 +328,22 @@ export default {
           );
         });
     },
-    giveupGame: function () {
-      var vm = this;
+    giveupGame() {
       // abandona la partida 3 (no se comprueba si es jugador de la partida o no)
       return axios
         .post("/scrabble/game/12/giveup")
-        .then(function (response) {
+        .then((response) => {
           console.log("Abandonando partida:", response);
-          vm.createCard(
+          this.createCard(
             "Giveup Game",
             response.status,
             response.statusText,
             response.data
           );
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log("ERROR: " + error);
-          vm.createCard(
+          this.createCard(
             "Giveup Game",
             error.response.status,
             error.response.statusText,
@@ -362,24 +351,23 @@ export default {
           );
         });
     },
-    removeAvatar: function () {
+    removeAvatar() {
       //  event.preventDefault(); no hace falta ya que lo he puesto en la llamada
       this.c_avatar = null;
-      var vm = this;
       return axios
         .post("/scrabble/user/avatar/remove")
-        .then(function (response) {
+        .then((response) => {
           console.log("Elimina avatar respuesta:", response);
-          vm.createCard(
+          this.createCard(
             "Remove Avatar",
             response.status,
             response.statusText,
             response.data
           );
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log("ERROR: " + error);
-          vm.createCard(
+          this.createCard(
             "Giveup Game",
             error.response.status,
             error.response.statusText,
@@ -387,27 +375,26 @@ export default {
           );
         });
     },
-    listUsers: function () {
-      var vm = this;
+    listUsers() {
       // solicita la lista de jugadores
       return axios
         .get("/scrabble/search/user/live", {
           params: {
-            name: vm.name,
+            name: this.name,
           },
         })
-        .then(function (response) {
+        .then((response) => {
           console.log("Lista usuarios: ", response);
-          vm.createCard(
+          this.createCard(
             "Remove User",
             response.status,
             response.statusText,
             response.data
           );
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log("ERROR: " + error);
-          vm.createCard(
+          this.createCard(
             "Lista usuarios",
             error.response.status,
             error.response.statusText,
@@ -415,8 +402,8 @@ export default {
           );
         });
     },
-    createCard: function (title, status, statusText, data) {
-      var newcard = {
+    createCard(title, status, statusText, data) {
+      let newcard = {
         order: this.c_cards.length + 1,
         type: title,
         errorCode: status,
@@ -426,9 +413,9 @@ export default {
 
       this.c_cards.push(newcard);
     },
-    listenForBroadcast: function () {
+    listenForBroadcast() {
       console.log("Escuchando canales: user" + this.c_user.id);
-      Echo.private("user." + this.c_user.id).listen(
+      window.Echo.private("user." + this.c_user.id).listen(
         ".AcceptedChallenge",
         (e) => {
           alert(

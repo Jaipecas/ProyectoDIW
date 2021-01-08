@@ -127,7 +127,6 @@
 
 <script>
 import axios from "axios";
-import Echo from "laravel-echo";
 
 import { ScrabbleHelper } from "../scrabble_helper_library.js";
 
@@ -154,7 +153,7 @@ export default {
     };
   },
   computed: {
-    isTurn: function () {
+    isTurn() {
       return (
         (this.c_user.player == "P1" && this.c_game.state == "turn_p1") ||
         (this.c_user.player == "P2" && this.c_game.state == "turn_p2")
@@ -173,18 +172,18 @@ export default {
     console.log("TableboardComponent montado.");
   },
   methods: {
-    getLetter: function (d) {
+    getLetter(d) {
       return ScrabbleHelper.getLetter(this.c_game.language, d);
     },
-    getCode: function (d) {
+    getCode(d) {
       return ScrabbleHelper.getCode(this.c_game.language, d);
     },
-    fillTokens: function (tokens) {
+    fillTokens(tokens) {
       this.tokens.length = 0;
 
       // añado el id
-      for (var n = 0; n < tokens.length; n++) {
-        var newToken = {
+      for (let n = 0; n < tokens.length; n++) {
+        let newToken = {
           id: this.tokens.length + n,
           value: tokens[n].value,
           letter: this.getLetter(tokens[n].letter),
@@ -193,8 +192,8 @@ export default {
         this.tokens.push(newToken);
       }
     },
-    createCard: function (title, status, statusText, data) {
-      var newcard = {
+    createCard(title, status, statusText, data) {
+      let newcard = {
         order: this.c_cards.length + 1,
         type: title,
         errorCode: status,
@@ -204,13 +203,12 @@ export default {
 
       this.c_cards.push(newcard);
     },
-    returnTokens: function () {
-      var vm = this;
-      var route = "/scrabble/game/" + this.c_game.id + "/user/return";
+    returnTokens() {
+      let route = "/scrabble/game/" + this.c_game.id + "/user/return";
 
-      var tmpTokens = [];
+      let tmpTokens = [];
 
-      for (var i = 0; i < this.tokensReturn.length; i++) {
+      for (let i = 0; i < this.tokensReturn.length; i++) {
         tmpTokens.push(this.tokensReturn[i].slice(-1));
       }
 
@@ -218,18 +216,18 @@ export default {
         .post(route, {
           tokens: tmpTokens,
         })
-        .then(function (response) {
+        .then((response) => {
           console.log("Respuesta piezas devueltas: ", response.data);
 
           // pongo las nuevas letras en pantalla
-          vm.fillTokens(response.data.tokens);
+          this.fillTokens(response.data.tokens);
 
           // actualizo el estado
-          vm.c_game.state = response.data.state;
+          this.c_game.state = response.data.state;
 
-          vm.tokensReturn.length = 0;
+          this.tokensReturn.length = 0;
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log(
             "ERROR: " +
               error.response.status +
@@ -240,18 +238,17 @@ export default {
           );
         });
     },
-    passTurn: function () {
-      var vm = this;
-      var route = "/scrabble/game/" + this.c_game.id + "/user/pass";
+    passTurn() {
+      let route = "/scrabble/game/" + this.c_game.id + "/user/pass";
       return axios
         .post(route)
-        .then(function (response) {
+        .then((response) => {
           console.log("Respuesta pasar turno: ", response);
 
           // actualizo el estado
-          vm.c_game.state = response.data.state;
+          this.c_game.state = response.data.state;
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log(
             "ERROR: " +
               error.response.status +
@@ -262,18 +259,17 @@ export default {
           );
         });
     },
-    giveup: function () {
-      var vm = this;
-      var route = "/scrabble/game/" + this.c_game.id + "/giveup";
+    giveup() {
+      let route = "/scrabble/game/" + this.c_game.id + "/giveup";
       return axios
         .post(route)
-        .then(function (response) {
+        .then((response) => {
           console.log("Partida abandonanda");
 
           // actualizo el estado
-          vm.c_game.state = response.data.state;
+          this.c_game.state = response.data.state;
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log(
             "ERROR: " +
               error.response.status +
@@ -284,50 +280,49 @@ export default {
           );
         });
     },
-    sendWord: function () {
-      var vm = this;
+    sendWord() {
       // envio la palabra
       // el JSON de ejemplo incuye todos los posibles datos a modificar
       // podría sólo indicarse uno
-      var route = "/scrabble/game/" + this.c_game.id + "/user/throw";
+      let route = "/scrabble/game/" + this.c_game.id + "/user/throw";
       return axios
         .post(route, {
-          word: vm.word,
-          row: vm.rowpos,
-          column: vm.colpos,
-          direction: vm.direction,
+          word: this.word,
+          row: this.rowpos,
+          column: this.colpos,
+          direction: this.direction,
         })
-        .then(function (response) {
+        .then((response) => {
           console.log("Respuesta envio palabra:", response);
 
           // redibujo el tablero con la nueva palabra
-          vm.c_game.tableboard = ScrabbleHelper.updateTableboard(
-            vm.c_game.tableboard,
+          this.c_game.tableboard = ScrabbleHelper.updateTableboard(
+            this.c_game.tableboard,
             response.data.icol,
             response.data.irow,
-            vm.direction,
+            this.direction,
             response.data.rword
           );
 
           // pongo las nuevas letras en pantalla
-          vm.fillTokens(response.data.tokens);
+          this.fillTokens(response.data.tokens);
 
           // quito letras del saco
-          vm.c_game.remaining_tokens -= parseInt(
+          this.c_game.remaining_tokens -= parseInt(
             response.data.newtokens.length
           );
 
           // actualizo sus puntos
-          vm.c_user.score = response.data.pscore;
+          this.c_user.score = response.data.pscore;
 
           // actualizo el estado
-          vm.c_game.state = response.data.state;
+          this.c_game.state = response.data.state;
 
           if (response.data.pstate == "win") {
             alert("¡¡Enhorabuena!! ¡¡Has ganado!!");
           }
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log(
             "ERROR: " +
               error.response.status +
@@ -338,14 +333,14 @@ export default {
           );
         });
     },
-    listenForBroadcast: function () {
+    listenForBroadcast() {
       console.log(
         "Escuchando canales: game." + this.c_game.id + ".user." + this.c_user.id
       );
-      var vm = this;
-      Echo.private("game." + this.c_game.id + ".user." + this.c_user.id)
+
+      window.Echo.private("game." + this.c_game.id + ".user." + this.c_user.id)
         .listen(".OpponentThrow", (e) => {
-          vm.c_game.state = e.state;
+          this.c_game.state = e.state;
           if (e.playerState == "pass") {
             alert("El contrincante ha pasado turno.");
             console.log("El contrincante ha pasado turno.");
@@ -356,15 +351,15 @@ export default {
             alert("El contrincante ha devuelto fichas");
             console.log("El contrincante ha devuelto fichas");
           } else {
-            vm.c_game.remaining_tokens = e.numberRemainingTokens;
-            vm.c_opponent.score = e.playerScore;
-            vm.c_game.tableboard = e.tableboard;
+            this.c_game.remaining_tokens = e.numberRemainingTokens;
+            this.c_opponent.score = e.playerScore;
+            this.c_game.tableboard = e.tableboard;
 
             console.log("Recibida tirada oponente");
           }
         })
         .listen(".GiveupGame", (e) => {
-          vm.c_game.state = e.state;
+          this.c_game.state = e.state;
           alert("El contrincante ha abandonado.");
           console.log("El contrincante ha abandonado.");
         });

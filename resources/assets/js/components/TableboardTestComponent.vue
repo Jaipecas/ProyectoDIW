@@ -35,21 +35,19 @@ export default {
     CardContainerComponent,
     GameDataComponent,
     InfoGameComponent,
-  } /* que sea siempre compuesto con - para evitar colisiones con otros tag HTMHL5 */,
+  } /* que sea siempre compuesto con - para evitar colisiones con otros tag HTML5 */,
   props: {
     user: { required: true, type: Object },
     opponent: { required: true, type: Object },
     game: { required: true, type: Object },
   },
-  data() {
-    return {
-      c_game: null,
-      c_user: null,
-      c_opponent: null,
-      c_cards: [],
-      requestChallengeId: null,
-    };
-  },
+  data: () => ({
+    c_game: null,
+    c_user: null,
+    c_opponent: null,
+    c_cards: [],
+    requestChallengeId: null,
+  }),
   computed: {
     isWinner: function () {
       return (
@@ -78,7 +76,7 @@ export default {
   },
   methods: {
     createCard: function (title, status, statusText, data) {
-      var newcard = {
+      let newcard = {
         order: this.c_cards.length + 1,
         type: title,
         errorCode: status,

@@ -4,8 +4,8 @@ export const ScrabbleHelper = {
   // devuelve la letra de la ficha en función del idioma
   // es necesario ya que en ocasiones una ficha tiene una letra doble
   // como la ch, la rr o la ll
-  getLetter: function (language, code) {
-    var lang = language.toUpperCase();
+  getLetter(language, code) {
+    let lang = language.toUpperCase();
 
     switch (lang) {
       case "ES":
@@ -20,8 +20,8 @@ export const ScrabbleHelper = {
     }
   },
   // inversa de la función anterior
-  getCode: function (language, letter) {
-    var lang = language.toUpperCase();
+  getCode(language, letter) {
+    let lang = language.toUpperCase();
 
     switch (lang) {
       case "ES":
@@ -36,10 +36,10 @@ export const ScrabbleHelper = {
     }
   },
   // devuelve un nuevo tablero con la nueva palabra insertada
-  updateTableboard: function (tableboard, col, row, ori, word) {
-    var _col = col - 1;
-    var _row = row.charCodeAt(0) - 65;
-    var index = _col + 15 * _row;
+  updateTableboard(tableboard, col, row, ori, word) {
+    let _col = col - 1;
+    let _row = row.charCodeAt(0) - 65;
+    let index = _col + 15 * _row;
 
     if (ori == "H") {
       return (
@@ -48,7 +48,7 @@ export const ScrabbleHelper = {
         tableboard.substr(index + word.length)
       );
     } else {
-      for (var car = 0; car < word.length; car++) {
+      for (let car = 0; car < word.length; car++) {
         tableboard =
           tableboard.substr(0, index) +
           word.charAt(car) +
