@@ -29,27 +29,27 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
-            'email' => $this->faker->unique()->safeEmail,
-            'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
-            'remember_token' => Str::random(10),
-            'country' => $this->faker->countryCode,
-            'favourite_language' => $this->faker->randomElement(array ('es', 'en')),
-            'state' => $this->faker->randomElement(array ('offline', 'online'))
+            "name" => $this->faker->name,
+            "email" => $this->faker->unique()->safeEmail,
+            "password" =>
+                '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+            "remember_token" => Str::random(10),
+            "country" => $this->faker->countryCode,
+            "favourite_language" => $this->faker->randomElement(["es", "en"]),
+            "state" => $this->faker->randomElement(["offline", "online"]),
         ];
     }
 
-
     /**
-    * Estado para personalizar que un usuario esté desactivado
-    *
-    * @return \Illuminate\Database\Eloquent\Factories\Factory
-    */
+     * Estado para personalizar que un usuario esté desactivado
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
     public function disabled()
     {
         return $this->state(function (array $attributes) {
             return [
-                'state' => 'disable',
+                "state" => "disable",
             ];
         });
     }
