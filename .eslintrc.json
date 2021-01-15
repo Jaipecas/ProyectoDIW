@@ -1,11 +1,13 @@
 {
     "env": {
         "es6": true,
-        "node": true
+        "node": true,
+        "jest/globals": true
     },
     "plugins": [
        "vue",
-       "html"
+       "html",
+       "jest"
     ],
     "parserOptions": {
         "sourceType": "module"
@@ -13,6 +15,8 @@
     "extends": [
         "plugin:vue/recommended",
         "eslint:recommended",
+        "plugin:jest/recommended",
+        "plugin:jest/style",
         "prettier" 
     ],
     "rules": {
