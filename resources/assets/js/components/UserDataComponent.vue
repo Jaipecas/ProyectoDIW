@@ -11,7 +11,9 @@
     </div>
     <div class="info">
       <span class="data">Mail: </span>
-      <span class="value">{{ user.email }}</span>
+      <span class="value">
+        <a :href="'mailto:' + user.email">{{ user.email }}</a>
+      </span>
     </div>
     <div class="info">
       <span class="data">País: </span>
@@ -92,5 +94,3 @@ export default {
   }
 }
 </style>
-user: { required: true, type: Object }, avatar: { required: true, type: String
-},

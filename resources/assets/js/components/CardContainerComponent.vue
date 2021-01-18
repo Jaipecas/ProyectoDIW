@@ -5,20 +5,20 @@
                 Por eso es necesario enlazarlo con un bind 
                 v-bind:card = "pcard" enlaza el valor de card de este componente, 
                 y lo pasa como pcard -->
-    <div v-if="cards">
+    <template v-if="cards">
       <output-card-component
         v-for="card in cards"
         :key="card.order"
         :pcard="card"
       />
-    </div>
-    <div v-if="variables">
+    </template>
+    <template v-if="variables">
       <blade-variable-component
         v-for="variable in variables"
         :key="variable.order"
         :pvar="variable"
       />
-    </div>
+    </template>
   </div>
 </template>
 
