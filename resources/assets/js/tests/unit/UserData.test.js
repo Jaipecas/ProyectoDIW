@@ -80,9 +80,32 @@ describe("Component: UserData", () => {
 
   it("renders a link to the user.email with user.email as text", () => {
     const wrapper = shallowMount(UserData, { propsData });
+    // busco un elemento dentro de componente
     const a = wrapper.find("a");
 
     expect(a.text()).toBe(propsData.user.email);
+    // compruebo uno de los atributos
     expect(a.attributes().href).toBe("mailto:" + propsData.user.email);
+  });
+
+  it("each info has data and value", () => {
+    const wrapper = shallowMount(UserData, { propsData });
+    // findAll devuelve un array, a diferencia de find que sólo devuelve uno
+    const info = wrapper.findAll(".info");
+
+    // recorro todos los elementos de cada info
+    info.wrappers.forEach((wrapper) => {
+      expect(wrapper.find(".data").exists()).toBe(true);
+      expect(wrapper.find(".value").exists()).toBe(true);
+    });
+  });
+
+  it("has upload-image-component component", () => {
+    const wrapper = shallowMount(UserData, { propsData });
+
+    // para comprobar que un componente existe busco por la etiqueta name
+    expect(
+      wrapper.findComponent({ name: "UploadImageComponent" }).exists()
+    ).toBe(true);
   });
 });
