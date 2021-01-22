@@ -104,6 +104,8 @@ describe("Component: UserData", () => {
     const wrapper = shallowMount(UserData, { propsData });
 
     // para comprobar que un componente existe busco por la etiqueta name
+    // en este caso no he hecho un import de ese componente,
+    // así que no puedo buscarlo directamente con find("UploadImageComponent")
     expect(
       wrapper.findComponent({ name: "UploadImageComponent" }).exists()
     ).toBe(true);

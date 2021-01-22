@@ -1,5 +1,7 @@
 <template>
-  <div class="card-container">
+  <!-- el atributo ref me permite definir un nombre que permite utilizar el elemento
+  en el que se ubica desde el código Vue a través de this.$refs.nombre -->
+  <div ref="container" class="card-container">
     <!-- Quiero repetir output-card-component. -->
     <!-- Un hijo no puede acceder directamente a los datos del padre 
                 Por eso es necesario enlazarlo con un bind 
@@ -36,6 +38,13 @@ export default {
     cards: { default: null, type: Array, required: false },
     variables: { default: null, type: Array, required: false },
   },
+  methods: {
+    scroll: function (toEnd) {
+      if (toEnd)
+        this.$refs.container.scrollLeft = this.$refs.container.scrollWidth;
+      else this.$refs["container"].scrollLeft = 0;
+    },
+  },
 };
 </script>
 
@@ -45,7 +54,7 @@ export default {
   text-align: center;
   min-width: 100%;
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
   overflow-x: auto;
 }
 </style>
