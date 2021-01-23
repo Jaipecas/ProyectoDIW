@@ -11,7 +11,7 @@ describe("Component: CardContainer", () => {
    * ************* */
   const build = () => {
     const cards = [];
-    const newcard = {
+    const card = {
       order: 0,
       type: "Prueba respuesta server",
       errorCode: 200,
@@ -19,9 +19,12 @@ describe("Component: CardContainer", () => {
       output: "2",
     };
 
-    for (let i = 0; i < 6; i++) {
-      newcard.order = i + 1;
-      cards.push(newcard);
+    cards.push(card);
+
+    for (let i = 0; i < 5; i++) {
+      let copyCard = Object.assign({}, card); // clono el card
+      copyCard.order = i + 1;
+      cards.push(copyCard);
     }
 
     const wrapper = shallowMount(CardContainer, {
