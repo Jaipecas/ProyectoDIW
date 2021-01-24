@@ -23,7 +23,7 @@ describe("Component: UserData", () => {
 
   // Crear un test unitario llamado "exists" que únicamente comprueba que el componente
   // pueda ser montado
-  test("exists", () => {
+  test("[T001] exists", () => {
     // las opciones se pasan como segundo parametro de la funcion.
     // las propiedades se definen con al key propsData (https://vue-test-utils.vuejs.org/api/options.html#propsdata)
     const wrapper = shallowMount(UserData, { propsData });
@@ -35,7 +35,7 @@ describe("Component: UserData", () => {
   });
 
   // Cada test debe probar una sola cosa
-  it("renders user.id", () => {
+  it("[T002] renders user.id", () => {
     const wrapper = shallowMount(UserData, { propsData });
 
     // text() devuelve una cadena de texto con lo que muestra el componente
@@ -60,7 +60,7 @@ describe("Component: UserData", () => {
     expect(wrapper.text()).toContain(propsData.user.favourite_language);
   });
 
-  it("renders user.updated_at", () => {
+  it("[T003] renders user.updated_at", () => {
     const wrapper = shallowMount(UserData, { propsData });
 
     let date = new Date(propsData.user.updated_at);
@@ -78,7 +78,7 @@ describe("Component: UserData", () => {
     expect(wrapper.text()).toContain(dateStr); // esta debería fallar
   });
 
-  it("renders a link to the user.email with user.email as text", () => {
+  it("[T004] renders a link to the user.email with user.email as text", () => {
     const wrapper = shallowMount(UserData, { propsData });
     // busco un elemento dentro de componente
     const a = wrapper.find("a");
@@ -88,7 +88,7 @@ describe("Component: UserData", () => {
     expect(a.attributes().href).toBe("mailto:" + propsData.user.email);
   });
 
-  it("each info has data and value", () => {
+  it("[T005] each info has data and value", () => {
     const wrapper = shallowMount(UserData, { propsData });
     // findAll devuelve un array, a diferencia de find que sólo devuelve uno
     const info = wrapper.findAll(".info");
@@ -100,7 +100,7 @@ describe("Component: UserData", () => {
     });
   });
 
-  it("has upload-image-component component", () => {
+  it("[T006] has upload-image-component component", () => {
     const wrapper = shallowMount(UserData, { propsData });
 
     // para comprobar que un componente existe busco por la etiqueta name

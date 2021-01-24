@@ -42,7 +42,7 @@ describe("Component: CardContainer", () => {
     expect(wrapper.exists()).toBe(true);
   });
 
-  test("scrolls to the right of container", () => {
+  test("[T008] scrolls to the right of container", () => {
     const wrapper = build();
 
     /* *********
