@@ -10,7 +10,7 @@
           :disabled="isSaving"
           accept="image/*"
           class="input-file"
-          @change="filesChange($event.target.name, $event.target.files)"
+          @change="filesChange($event)"
         />
         <p v-if="isInitial">
           Arrastra tu imagen aquí<br />o pincha para buscarla
@@ -108,34 +108,44 @@ export default {
       // me creo una variable v (viewmodel) para cambiar el ámbito
       // y así si poder acceder
       var vm = this;
-      return axios
-        .post("/scrabble/upload/avatar", formData)
-        .then(function (response) {
+
+      const promise = axios.post("/scrabble/upload/avatar", formData);
+
+      promise
+        .then((response) => {
           vm.currentStatus = STATUS_SUCCESS;
           console.log(response);
 
           vm.$emit("avatar-change", response.data.path);
           vm.currentStatus = STATUS_INITIAL;
         })
-        .catch(function (error) {
+        .catch((error) => {
           vm.currentStatus = STATUS_FAILED;
           console.log("ERROR: " + error);
         });
+
+      return promise;
     },
     save(formData) {
       // subimos los datos al servidor
       this.currentStatus = STATUS_SAVING;
       this.upload(formData);
     },
-    filesChange(fieldName, fileList) {
+    takeFile(ev) {
+      return ev.target.files[0];
+    },
+    filesChange(ev) {
       const formData = new FormData();
+      const file = this.takeFile(ev);
 
-      if (!fileList.length) return;
+      if (!file) return;
 
       // se adjuntan los ficheros a formData
-      Array.from(Array(fileList.length).keys()).map((x) => {
-        formData.append(fieldName, fileList[x], fileList[x].name);
-      });
+      //Array.from(Array(fileList.length).keys()).map((x) => {
+      // formData.append(fieldName,fileList[x],FileList[x].name)
+      //});
+
+      formData.append(ev.target.name, file, file.name);
 
       // se graba
       this.save(formData);
