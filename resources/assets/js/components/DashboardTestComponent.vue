@@ -74,6 +74,15 @@
             Ir partida ganar
           </a>
         </li>
+        <li class="input-menu">
+          <a
+            title="Limpia tarjetas resultados server"
+            href="#"
+            @click.prevent="scroll(true)"
+          >
+            Ir a ultimo mensaje
+          </a>
+        </li>
         <li class="input-menu upper-margin">
           Lista jugadores
           <div class="submenu">
@@ -83,7 +92,9 @@
         </li>
       </ul>
     </aside>
-    <card-container-component :cards="c_cards" />
+    <!-- el atributo ref me permite definir un nombre que permite utilizar el elemento
+    en el que se ubica desde el código Vue a través de this.$refs.nombre -->
+    <card-container-component ref="container" :cards="c_cards" />
   </div>
 </template>
 
@@ -374,6 +385,9 @@ export default {
             error.response.data
           );
         });
+    },
+    scroll: function () {
+      this.$refs.container.scroll(true);
     },
     listUsers() {
       // solicita la lista de jugadores
