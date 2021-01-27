@@ -154,15 +154,16 @@ export default {
       // modifica los datos del usuario.
       // el JSON de ejemplo incluye todos los posibles datos a modificar
       // podría sólo indicarse uno
-      return axios
-        .put("/scrabble/user/update", {
-          name: "Fred",
-          country: "UK",
-          favourite_language: "ES",
-          new_password: "1234567",
-          new_password_confirmation: "1234567",
-          old_password: "12345",
-        })
+      const promise = axios.put("/scrabble/user/update", {
+        name: "Fred",
+        country: "UK",
+        favourite_language: "ES",
+        new_password: "1234567",
+        new_password_confirmation: "1234567",
+        old_password: "12345",
+      });
+
+      promise
         .then((response) => {
           console.log("Datos de usuario:", response);
           this.createCard(
@@ -195,8 +196,9 @@ export default {
     },
     requestChallenge() {
       // solicita una partida en español
-      return axios
-        .post("/scrabble/challenge/request/es/level/-4")
+      const promise = axios.post("/scrabble/challenge/request/es/level/-4");
+
+      promise
         .then((response) => {
           console.log("Reto creado:", response);
           this.createCard(
@@ -218,8 +220,9 @@ export default {
     },
     deleteNotification() {
       // pone a borrado el estado de una notificación (id=3)
-      return axios
-        .put("/scrabble/notification/9/update/delete")
+      const promise = axios.put("/scrabble/notification/9/update/delete");
+
+      promise
         .then((response) => {
           console.log("Borrado notificación:", response);
           this.createCard(
@@ -241,8 +244,9 @@ export default {
     },
     userGames() {
       // partidas del usuario paginadas, 3 por página
-      return axios
-        .get("/scrabble/user/games/3")
+      const promise = axios.get("/scrabble/user/games/3");
+
+      promise
         .then((response) => {
           console.log("Partidas de usuario:", response);
           this.createCard(
@@ -264,8 +268,9 @@ export default {
     },
     userGamesPag2() {
       // partidas del usuario paginadas, 3 por página
-      return axios
-        .get("/scrabble/user/games/3?page=2")
+      const promise = axios.get("/scrabble/user/games/3?page=2");
+
+      promise
         .then((response) => {
           console.log("Partidas de usuario:", response);
           this.createCard(
@@ -287,8 +292,9 @@ export default {
     },
     removeUser() {
       // elimina usuario
-      return axios
-        .delete("/scrabble/user/remove")
+      const promise = axios.delete("/scrabble/user/remove");
+
+      promise
         .then((response) => {
           console.log("Eliminar cuenta:", response);
           this.createCard(
@@ -318,8 +324,9 @@ export default {
     },
     userStatistics() {
       // estadísiticas via AJAX
-      return axios
-        .get("/scrabble/user/statistics")
+      const promise = axios.get("/scrabble/user/statistics");
+
+      promise
         .then((response) => {
           console.log("Estadísticas:", response);
           this.createCard(
@@ -341,8 +348,9 @@ export default {
     },
     giveupGame() {
       // abandona la partida 3 (no se comprueba si es jugador de la partida o no)
-      return axios
-        .post("/scrabble/game/12/giveup")
+      const promise = axios.post("/scrabble/game/12/giveup");
+
+      promise
         .then((response) => {
           console.log("Abandonando partida:", response);
           this.createCard(
@@ -365,8 +373,9 @@ export default {
     removeAvatar() {
       //  event.preventDefault(); no hace falta ya que lo he puesto en la llamada
       this.c_avatar = null;
-      return axios
-        .post("/scrabble/user/avatar/remove")
+      const promise = axios.post("/scrabble/user/avatar/remove");
+
+      promise
         .then((response) => {
           console.log("Elimina avatar respuesta:", response);
           this.createCard(

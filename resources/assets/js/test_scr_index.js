@@ -19,9 +19,9 @@ new Vue({
   },
   methods: {
     currentGames() {
-      // 3 ultimas partida en juego via AJAX
-      return axios
-        .get("/api/info/currentgames/3")
+      // 3 últimas partida en juego vía AJAX
+      const promise = axios.get("/api/info/currentgames/3");
+      promise
         .then((response) => {
           console.log("current games:", response);
           this.createCard(
@@ -43,8 +43,8 @@ new Vue({
     },
     ranking() {
       // Rankig de los tres mejores usuario en español
-      return axios
-        .get("/api/info/ranking/es/3")
+      const promise = axios.get("/api/info/ranking/es/3");
+      promise
         .then((response) => {
           console.log("Ranking:", response);
           this.createCard(
@@ -66,8 +66,8 @@ new Vue({
     },
     generalInfo() {
       // Información del sistema
-      return axios
-        .get("/api/info/general")
+      const promise = axios.get("/api/info/general");
+      promise
         .then((response) => {
           console.log("System Info:", response);
           this.createCard(

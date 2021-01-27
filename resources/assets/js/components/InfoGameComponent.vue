@@ -212,10 +212,11 @@ export default {
         tmpTokens.push(this.tokensReturn[i].slice(-1));
       }
 
-      return axios
-        .post(route, {
-          tokens: tmpTokens,
-        })
+      const promise = axios.post(route, {
+        tokens: tmpTokens,
+      });
+
+      promise
         .then((response) => {
           console.log("Respuesta piezas devueltas: ", response.data);
 
@@ -240,8 +241,9 @@ export default {
     },
     passTurn() {
       let route = "/scrabble/game/" + this.c_game.id + "/user/pass";
-      return axios
-        .post(route)
+      const promise = axios.post(route);
+
+      promise
         .then((response) => {
           console.log("Respuesta pasar turno: ", response);
 
@@ -261,8 +263,9 @@ export default {
     },
     giveup() {
       let route = "/scrabble/game/" + this.c_game.id + "/giveup";
-      return axios
-        .post(route)
+      const promise = axios.post(route);
+
+      promise
         .then((response) => {
           console.log("Partida abandonanda");
 
@@ -285,13 +288,14 @@ export default {
       // el JSON de ejemplo incuye todos los posibles datos a modificar
       // podría sólo indicarse uno
       let route = "/scrabble/game/" + this.c_game.id + "/user/throw";
-      return axios
-        .post(route, {
-          word: this.word,
-          row: this.rowpos,
-          column: this.colpos,
-          direction: this.direction,
-        })
+      const promise = axios.post(route, {
+        word: this.word,
+        row: this.rowpos,
+        column: this.colpos,
+        direction: this.direction,
+      });
+
+      promise
         .then((response) => {
           console.log("Respuesta envio palabra:", response);
 
