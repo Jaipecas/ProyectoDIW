@@ -78,7 +78,7 @@ Abandona la partida con identificador {id}
 - *Requerimientos*: Usuario autenticado y participante en la partida.
 - *Respuesta*: Si no se tienen permisos para acceder a la partida, 403 'Access denied to the game'; si la partida ya está finalizada, 409 Game already finished. En caso contrario 200 'Game left'.
 
-**POST /game/{id}/user/throw**
+**POST /scrabble/game/{id}/user/throw**
 
 Realiza una tirada
 
@@ -123,7 +123,7 @@ Realiza una tirada
                                 
 </center>
 
- **POST /game/{id}/user/pass**
+ **POST /scrabble/game/{id}/user/pass**
 
 Pasa el turno
 
@@ -151,7 +151,7 @@ Pasa el turno
                                
 </center>
 
-**POST /game/{id}/user/return**
+**POST /scrabble/game/{id}/user/return**
 
 Devuelve fichas al servidor
 
