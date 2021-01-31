@@ -122,22 +122,47 @@
         </div>
       </div>
     </div>
+
+    <listen-for-broadcast
+      :config="$options.broadcastConfig"
+      :channels="webSocketChannels"
+      @broadcast:event="processBroadcastEvent"
+      @broadcast:status="console.log('[Broadcast] Status:' + $event)"
+      @broadcast:channel-susbcription="
+        console.log(
+          '[Broadcast] Channel subscription: (' + arguments[1] + ')' + $event
+        )
+      "
+      @broadcast:channel-unsusbcription="
+        console.log(
+          '[Broadcast] Channel unsubscription: (' + arguments[1] + ')' + $event
+        )
+      "
+    />
   </div>
 </template>
 
 <script>
 import axios from "axios";
-
+//import ListenForBroadcast from "./ListenForBroadcast";
+import {
+  Config as BConfig,
+  default as ListenForBroadcast,
+} from "./ListenForBroadcast.js";
 import { ScrabbleHelper } from "../scrabble_helper_library.js";
 
 export default {
-  name:
-    "InfoGameComponent" /* que sea siempre compuesto con - para evitar colisiones con otros tag HTMHL5 */,
+  name: "InfoGameComponent",
+  components: {
+    ListenForBroadcast,
+  },
   props: {
     user: { required: true, type: Object },
     opponent: { required: true, type: Object },
     game: { required: true, type: Object },
   },
+  // variable no reactiva
+  broadcastConfig: new BConfig("socket.io", window.location.hostname + ":6001"),
   data() {
     return {
       c_game: null,
@@ -150,9 +175,11 @@ export default {
       direction: "H",
       word: "",
       tokensReturn: [],
+      webSocketChannels: [],
     };
   },
   computed: {
+    console: () => console,
     isTurn() {
       return (
         (this.c_user.player == "P1" && this.c_game.state == "turn_p1") ||
@@ -166,7 +193,14 @@ export default {
     this.c_opponent = this.opponent;
 
     this.fillTokens(this.c_user.tokens);
-    this.listenForBroadcast();
+
+    this.webSocketChannels.push({
+      name: "game." + this.c_game.id + ".user." + this.c_user.id,
+      type: "private",
+      events: ["OpponentThrow", "GiveupGame"],
+    });
+
+    /* this.listenForBroadcast(); */
   },
   mounted() {
     console.log("TableboardComponent montado.");
@@ -337,7 +371,39 @@ export default {
           );
         });
     },
-    listenForBroadcast() {
+    // realiza la funcion correspondiente en funcion del evento broadcast recibido
+    processBroadcastEvent(event, e) {
+      console.log(event, "  -  ", e);
+      switch (event) {
+        case "OpponentThrow":
+          this.c_game.state = e.state;
+          if (e.playerState == "pass") {
+            alert("El contrincante ha pasado turno.");
+            console.log("El contrincante ha pasado turno.");
+          } else if (e.playerState == "win") {
+            alert("Lo siento, has perdido :(");
+            console.log("Lo siento, has perdido :(");
+          } else if (e.playerState == "return") {
+            alert("El contrincante ha devuelto fichas");
+            console.log("El contrincante ha devuelto fichas");
+          } else {
+            this.c_game.remaining_tokens = e.numberRemainingTokens;
+            this.c_opponent.score = e.playerScore;
+            this.c_game.tableboard = e.tableboard;
+
+            console.log("Recibida tirada oponente");
+          }
+          break;
+        case "GiveupGame":
+          this.c_game.state = e.state;
+          alert("El contrincante ha abandonado.");
+          console.log("El contrincante ha abandonado.");
+          break;
+        default:
+          console.log("Broadcast event ", event, " not processed");
+      }
+    },
+    /* listenForBroadcast() {
       console.log(
         "Escuchando canales: game." + this.c_game.id + ".user." + this.c_user.id
       );
@@ -367,7 +433,7 @@ export default {
           alert("El contrincante ha abandonado.");
           console.log("El contrincante ha abandonado.");
         });
-    },
+    }, */
   },
 };
 </script>
