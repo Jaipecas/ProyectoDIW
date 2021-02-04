@@ -95,12 +95,22 @@
     <!-- el atributo ref me permite definir un nombre que permite utilizar el elemento
     en el que se ubica desde el código Vue a través de this.$refs.nombre -->
     <card-container-component ref="container" :cards="c_cards" />
+    <listen-for-broadcast
+      :config="$options.broadcastConfig"
+      :channels="webSocketChannels"
+      @broadcast:event="processBroadcastEvent"
+      @broadcast:status="console.log('[Broadcast] Status:' + $event)"
+    />
   </div>
 </template>
 
 <script>
 import UserDataComponent from "./UserDataComponent";
 import CardContainerComponent from "./CardContainerComponent";
+import {
+  Config as BConfig,
+  default as ListenForBroadcast,
+} from "./ListenForBroadcast.js";
 import axios from "axios";
 
 export default {
@@ -109,12 +119,15 @@ export default {
   components: {
     CardContainerComponent,
     UserDataComponent,
+    ListenForBroadcast,
   },
   props: {
     user: { required: true, type: Object },
     avatar: { required: true, type: String },
     variables: { required: true, type: Array },
   },
+  // variable no reactiva
+  broadcastConfig: new BConfig("socket.io", window.location.hostname + ":6001"),
   data: () => ({
     c_user: null,
     c_avatar: "",
@@ -122,7 +135,11 @@ export default {
     c_cards: [],
     requestChallengeId: null,
     name: "",
+    webSocketChannels: [],
   }),
+  computed: {
+    console: () => console,
+  },
   created() {
     this.c_user = this.user;
     this.c_variables = this.variables;
@@ -130,7 +147,11 @@ export default {
     if (!this.avatar) this.c_avatar = "";
     else this.c_avatar = this.avatar;
 
-    this.listenForBroadcast();
+    this.webSocketChannels.push({
+      name: "user." + this.c_user.id,
+      type: "private",
+      events: ["AcceptedChallenge"],
+    });
   },
   mounted() {
     console.log("DashboardComponent montado.");
@@ -436,11 +457,10 @@ export default {
 
       this.c_cards.push(newcard);
     },
-    listenForBroadcast() {
-      console.log("Escuchando canales: user" + this.c_user.id);
-      window.Echo.private("user." + this.c_user.id).listen(
-        ".AcceptedChallenge",
-        (e) => {
+    processBroadcastEvent(channel, event, e) {
+      console.log(channel, " - ", event, " - ", e);
+      switch (event) {
+        case "AcceptedChallenge":
           alert(
             "Generada partida " +
               e.gameId +
@@ -459,8 +479,11 @@ export default {
           this.requestChallengeId = e.gameId;
 
           console.log("Recibido");
-        }
-      );
+          break;
+
+        default:
+          console.log("Broadcast event ", event, " not processed");
+      }
     },
   },
 };
