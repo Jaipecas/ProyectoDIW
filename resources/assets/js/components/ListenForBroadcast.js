@@ -138,7 +138,7 @@ function listen(vm, ch) {
     let socket = vm.echo.private(ch.name);
     ch.events.forEach((ev) => {
       socket.listen("." + ev, (e) => {
-        vm.$emit("broadcast:event", ev, e);
+        vm.$emit("broadcast:event", ch.name, ev, e);
       });
     });
   }

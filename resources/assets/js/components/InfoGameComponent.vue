@@ -372,8 +372,8 @@ export default {
         });
     },
     // realiza la funcion correspondiente en funcion del evento broadcast recibido
-    processBroadcastEvent(event, e) {
-      console.log(event, "  -  ", e);
+    processBroadcastEvent(channel, event, e) {
+      console.log(channel, " - ", event, " - ", e);
       switch (event) {
         case "OpponentThrow":
           this.c_game.state = e.state;
