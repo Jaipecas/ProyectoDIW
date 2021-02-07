@@ -179,7 +179,7 @@ export default {
     };
   },
   computed: {
-    console: () => console,
+    console: () => console, // para poder acceder a la consola desde el template
     isTurn() {
       return (
         (this.c_user.player == "P1" && this.c_game.state == "turn_p1") ||

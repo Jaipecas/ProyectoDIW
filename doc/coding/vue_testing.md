@@ -119,5 +119,24 @@ El objetivo de de este documento es servir de índice de referencia de las prueb
 | :-- | :---- |
 | *Componente* | UploadImage |
 | *Objetivo* | Comprobar que se ha emitido un evento de usuario cuando se ha realizado una acción. | 
-| *Observaciones* | Se hace uso de dos tipos de mock: uan funcion sustituidad y la sustitución de todo un módulo (este último se implementa en la carpeta  _\_\_mocks\_\__) |
+| *Observaciones* | Se hace uso de dos tipos de mock: una funcion sustituida y la sustitución de todo un módulo (este último se implementa en la carpeta  _\_\_mocks\_\__) |
 | *Leyenda* | SM, PRM, FIND, ACT, EVENT, MCK  |
+
+**[T010] AcceptedChallenge received => call processBoradcastEvent**
+
+|     |       |
+| :-- | :---- |
+| *Componente* | DashboardTestComponent |
+| *Objetivo* | Comprobar que una función interna es llamada si se recibe un evento vue. | 
+| *Observaciones* | Es necesario crear un mock espía para que pueda controlar si una función es llamada. |
+| *Leyenda* | SM, PRM, FIND, METHD, EVENT, MCK  |
+
+**[T011] AcceptedChallenge received => show alert with game info**
+
+|     |       |
+| :-- | :---- |
+| *Componente* | DashboardTestComponent |
+| *Objetivo* | Comprobar que una función es llamada y que sus parámetros contienen cierta información. | 
+| *Observaciones* | Hay que crear un espía para poder analaizr que pasa en la función y posteriormente utilizar la propiedad mock para obtener valores. ¡OJO! Se prueba un función _alert_ que no tiene mucho sentido en entornos de producción. |
+| *Leyenda* | SM, PRM, FIND, METHD, EVENT, MCK  |
+

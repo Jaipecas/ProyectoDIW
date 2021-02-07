@@ -6,7 +6,7 @@ import UploadImage from "@components/UploadImageComponent";
 
 // Crear una batería de tests (conjunto de test) llamada "Component: UploadImage"
 describe("Component: UploadImage", () => {
-  // para cada teste de la bateria
+  // para cada test de la bateria
   beforeEach(() => {
     // El registro de módulos y el estado de los mocks se mantiene enter test, así
     // es que conveniente resetear los módulos y limpiar los mocks
@@ -73,7 +73,7 @@ describe("Component: UploadImage", () => {
     });
 
     // creo un mock que espia el método takeFile de UploadImage
-    // ese mock tiene sólo devuelve la imagen
+    // ese mock sólo devuelve la imagen
     jest
       .spyOn(UploadImage.methods, "takeFile")
       .mockImplementation(() => imageFile);

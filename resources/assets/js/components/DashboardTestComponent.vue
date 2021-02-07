@@ -138,7 +138,8 @@ export default {
     webSocketChannels: [],
   }),
   computed: {
-    console: () => console,
+    console: () => console, // para poder acceder a la consola desde el template
+    windows: () => window,
   },
   created() {
     this.c_user = this.user;
