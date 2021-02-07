@@ -112,15 +112,16 @@ import {
   default as ListenForBroadcast,
 } from "./ListenForBroadcast.js";
 import axios from "axios";
+import CardMixin from "../mixins/CardMixin";
 
 export default {
-  name:
-    "DashboardTestComponent" /* que sea siempre compuesto con - para evitar colisiones con otros tag HTMHL5 */,
+  name: "DashboardTestComponent",
   components: {
     CardContainerComponent,
     UserDataComponent,
     ListenForBroadcast,
   },
+  mixins: [CardMixin],
   props: {
     user: { required: true, type: Object },
     avatar: { required: true, type: String },
@@ -132,7 +133,7 @@ export default {
     c_user: null,
     c_avatar: "",
     c_variables: null,
-    c_cards: [],
+    /* c_cards: [], */
     requestChallengeId: null,
     name: "",
     webSocketChannels: [],
@@ -447,7 +448,7 @@ export default {
           );
         });
     },
-    createCard(title, status, statusText, data) {
+    /* createCard(title, status, statusText, data) {
       let newcard = {
         order: this.c_cards.length + 1,
         type: title,
@@ -457,7 +458,7 @@ export default {
       };
 
       this.c_cards.push(newcard);
-    },
+    }, */
     processBroadcastEvent(channel, event, e) {
       console.log(channel, " - ", event, " - ", e);
       switch (event) {

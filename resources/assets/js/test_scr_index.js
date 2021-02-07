@@ -6,24 +6,26 @@
 
 import Vue from "vue";
 import axios from "axios";
+import CardMixin from "./mixins/CardMixin";
 
 Vue.component(
   "CardContainerComponent",
-  require("./components/CardContainerComponent.vue")
+  require("./components/CardContainerComponent.vue").default
 );
 
 new Vue({
   el: "#app",
-  data: {
+  /* data: {
     c_cards: [],
-  },
+  }, */
+  mixins: [CardMixin],
   methods: {
     currentGames() {
       // 3 últimas partida en juego vía AJAX
       const promise = axios.get("/api/info/currentgames/3");
       promise
         .then((response) => {
-          console.log("current games:", response);
+          console.log("currescr_indexnt games:", response);
           this.createCard(
             "Current Games",
             response.status,
@@ -87,7 +89,7 @@ new Vue({
           );
         });
     },
-    createCard(title, status, statusText, data) {
+    /* createCard(title, status, statusText, data) {
       let newcard = {
         order: this.c_cards.length + 1,
         type: title,
@@ -97,6 +99,6 @@ new Vue({
       };
 
       this.c_cards.push(newcard);
-    },
+    }, */
   },
 });

@@ -168,7 +168,6 @@ export default {
       c_game: null,
       c_user: null,
       c_opponent: null,
-      c_cards: [],
       tokens: [],
       rowpos: "A",
       colpos: 1,
@@ -225,17 +224,6 @@ export default {
 
         this.tokens.push(newToken);
       }
-    },
-    createCard(title, status, statusText, data) {
-      let newcard = {
-        order: this.c_cards.length + 1,
-        type: title,
-        errorCode: status,
-        statusCode: statusText,
-        output: data,
-      };
-
-      this.c_cards.push(newcard);
     },
     returnTokens() {
       let route = "/scrabble/game/" + this.c_game.id + "/user/return";
