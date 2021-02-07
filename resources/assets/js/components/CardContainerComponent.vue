@@ -58,7 +58,6 @@ export default {
   text-align: center;
   min-width: 100%;
   display: flex;
-  align-items: flex-end;
   overflow-x: auto;
 }
 </style>
