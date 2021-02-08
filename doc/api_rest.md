@@ -98,7 +98,7 @@ Realiza una tirada
 </center>
 
 - *Requerimientos*: Usuario autenticado y participante en la partida.
-- *Respuesta*: JSON con los parámetros indicados en la tabla. 
+- *Respuesta*: En caso de éxito, JSON con los parámetros indicados en la tabla. En caso de error: si el usuario no es jugador de la partida 403, 'User does not play this game'; si la partida ya ha finalizado  409, 'Game already finished'; si no es el turno del jugador 403, 'Player does not have turn'; si la palabra no es correcta 403, 'Incorrect word.'; si el jugador no tiene alguna de las letras de la palabra 403, 'Incorrect word. Player does not have any letter'; si la posición no es la correcta 403, 'Incorrect position'; si la casilla ya está ocupada 403, 'Incorrect position. There is a token in that cell'.
 
 <center>
 
