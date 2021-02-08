@@ -122,6 +122,8 @@ El objetivo de de este documento es servir de índice de referencia de las prueb
 | *Observaciones* | Se hace uso de dos tipos de mock: una funcion sustituida y la sustitución de todo un módulo (este último se implementa en la carpeta  _\_\_mocks\_\__) |
 | *Leyenda* | SM, PRM, FIND, ACT, EVENT, MCK  |
 
+<br />
+
 **[T010] AcceptedChallenge received => call processBoradcastEvent**
 
 |     |       |
@@ -131,12 +133,24 @@ El objetivo de de este documento es servir de índice de referencia de las prueb
 | *Observaciones* | Es necesario crear un mock espía para que pueda controlar si una función es llamada. |
 | *Leyenda* | SM, PRM, FIND, METHD, EVENT, MCK  |
 
+<br />
+
 **[T011] AcceptedChallenge received => show alert with game info**
 
 |     |       |
 | :-- | :---- |
 | *Componente* | DashboardTestComponent |
 | *Objetivo* | Comprobar que una función es llamada y que sus parámetros contienen cierta información. | 
-| *Observaciones* | Hay que crear un espía para poder analaizr que pasa en la función y posteriormente utilizar la propiedad mock para obtener valores. ¡OJO! Se prueba un función _alert_ que no tiene mucho sentido en entornos de producción. |
+| *Observaciones* | Hay que crear un espía para poder analizar que pasa en la función y posteriormente utilizar la propiedad mock para obtener valores. ¡OJO! Se prueba un función _alert_ que no tiene mucho sentido en entornos de producción. |
 | *Leyenda* | SM, PRM, FIND, METHD, EVENT, MCK  |
 
+<br />
+
+**[T012] when the word is accepted the number of pieces in the bag decreases**
+
+|     |       |
+| :-- | :---- |
+| *Componente* | InfoGameComponent |
+| *Objetivo* | Comprobar que una vez enviada una palabra correcta y asigandas nuevas fichas, en pantalla aparece el número correcto de fichas que quedan en la bolsa. | 
+| *Observaciones* | Se hace uso de una variable reactiva. Se busca un elemento por su clase CSS asignada |
+| *Leyenda* | SM, PRM, FIND, METHD  |
