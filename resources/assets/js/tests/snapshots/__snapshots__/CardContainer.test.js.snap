@@ -1,0 +1,505 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot: CardContainer [T013] should render 5 cards 1`] = `
+"<div class=\\"card-container\\">
+  <div class=\\"output-card\\">
+    <div class=\\"info number\\">
+      0
+    </div>
+    <div class=\\"info type\\">
+      Prueba respuesta server
+    </div>
+    <div class=\\"data\\">
+      <p>Estado</p>
+      <div class=\\"status\\">
+        200 OK
+      </div>
+      <p>Salida</p>
+      <div class=\\"output\\">
+        <div class=\\"string\\">
+          2
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=\\"output-card\\">
+    <div class=\\"info number\\">
+      1
+    </div>
+    <div class=\\"info type\\">
+      Prueba respuesta server
+    </div>
+    <div class=\\"data\\">
+      <p>Estado</p>
+      <div class=\\"status\\">
+        200 OK
+      </div>
+      <p>Salida</p>
+      <div class=\\"output\\">
+        <div class=\\"string\\">
+          2
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=\\"output-card\\">
+    <div class=\\"info number\\">
+      2
+    </div>
+    <div class=\\"info type\\">
+      Prueba respuesta server
+    </div>
+    <div class=\\"data\\">
+      <p>Estado</p>
+      <div class=\\"status\\">
+        200 OK
+      </div>
+      <p>Salida</p>
+      <div class=\\"output\\">
+        <div class=\\"string\\">
+          2
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=\\"output-card\\">
+    <div class=\\"info number\\">
+      3
+    </div>
+    <div class=\\"info type\\">
+      Prueba respuesta server
+    </div>
+    <div class=\\"data\\">
+      <p>Estado</p>
+      <div class=\\"status\\">
+        200 OK
+      </div>
+      <p>Salida</p>
+      <div class=\\"output\\">
+        <div class=\\"string\\">
+          2
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=\\"output-card\\">
+    <div class=\\"info number\\">
+      4
+    </div>
+    <div class=\\"info type\\">
+      Prueba respuesta server
+    </div>
+    <div class=\\"data\\">
+      <p>Estado</p>
+      <div class=\\"status\\">
+        200 OK
+      </div>
+      <p>Salida</p>
+      <div class=\\"output\\">
+        <div class=\\"string\\">
+          2
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=\\"output-card\\">
+    <div class=\\"info number\\">
+      5
+    </div>
+    <div class=\\"info type\\">
+      Prueba respuesta server
+    </div>
+    <div class=\\"data\\">
+      <p>Estado</p>
+      <div class=\\"status\\">
+        200 OK
+      </div>
+      <p>Salida</p>
+      <div class=\\"output\\">
+        <div class=\\"string\\">
+          2
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---->
+</div>"
+`;
+
+exports[`Snapshot: CardContainer [T014] should render 5 cards (random mode) 1`] = `
+"<div class=\\"card-container\\">
+  <div class=\\"output-card\\">
+    <div class=\\"info number\\">
+      0
+    </div>
+    <div class=\\"info type\\">
+      Prueba respuesta server
+    </div>
+    <div class=\\"data\\">
+      <p>Estado</p>
+      <div class=\\"status error\\">
+        403 OK
+      </div>
+      <p>Salida</p>
+      <div class=\\"output\\">
+        <div class=\\"string\\">
+          2
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=\\"output-card\\">
+    <div class=\\"info number\\">
+      1
+    </div>
+    <div class=\\"info type\\">
+      Prueba respuesta server
+    </div>
+    <div class=\\"data\\">
+      <p>Estado</p>
+      <div class=\\"status\\">
+        200 OK
+      </div>
+      <p>Salida</p>
+      <div class=\\"output\\">
+        <div class=\\"string\\">
+          2
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=\\"output-card\\">
+    <div class=\\"info number\\">
+      2
+    </div>
+    <div class=\\"info type\\">
+      Prueba respuesta server
+    </div>
+    <div class=\\"data\\">
+      <p>Estado</p>
+      <div class=\\"status\\">
+        200 OK
+      </div>
+      <p>Salida</p>
+      <div class=\\"output\\">
+        <div class=\\"string\\">
+          2
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=\\"output-card\\">
+    <div class=\\"info number\\">
+      3
+    </div>
+    <div class=\\"info type\\">
+      Prueba respuesta server
+    </div>
+    <div class=\\"data\\">
+      <p>Estado</p>
+      <div class=\\"status\\">
+        200 OK
+      </div>
+      <p>Salida</p>
+      <div class=\\"output\\">
+        <div class=\\"string\\">
+          2
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=\\"output-card\\">
+    <div class=\\"info number\\">
+      4
+    </div>
+    <div class=\\"info type\\">
+      Prueba respuesta server
+    </div>
+    <div class=\\"data\\">
+      <p>Estado</p>
+      <div class=\\"status\\">
+        200 OK
+      </div>
+      <p>Salida</p>
+      <div class=\\"output\\">
+        <div class=\\"string\\">
+          2
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=\\"output-card\\">
+    <div class=\\"info number\\">
+      5
+    </div>
+    <div class=\\"info type\\">
+      Prueba respuesta server
+    </div>
+    <div class=\\"data\\">
+      <p>Estado</p>
+      <div class=\\"status\\">
+        200 OK
+      </div>
+      <p>Salida</p>
+      <div class=\\"output\\">
+        <div class=\\"string\\">
+          2
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---->
+</div>"
+`;
+
+exports[`Snapshot: CardContainer should render 5 cards (random mode) 1`] = `
+"<div class=\\"card-container\\">
+  <div class=\\"output-card\\">
+    <div class=\\"info number\\">
+      0
+    </div>
+    <div class=\\"info type\\">
+      Prueba respuesta server
+    </div>
+    <div class=\\"data\\">
+      <p>Estado</p>
+      <div class=\\"status\\">
+        200 OK
+      </div>
+      <p>Salida</p>
+      <div class=\\"output\\">
+        <div class=\\"string\\">
+          2
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=\\"output-card\\">
+    <div class=\\"info number\\">
+      1
+    </div>
+    <div class=\\"info type\\">
+      Prueba respuesta server
+    </div>
+    <div class=\\"data\\">
+      <p>Estado</p>
+      <div class=\\"status\\">
+        200 OK
+      </div>
+      <p>Salida</p>
+      <div class=\\"output\\">
+        <div class=\\"string\\">
+          2
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=\\"output-card\\">
+    <div class=\\"info number\\">
+      2
+    </div>
+    <div class=\\"info type\\">
+      Prueba respuesta server
+    </div>
+    <div class=\\"data\\">
+      <p>Estado</p>
+      <div class=\\"status\\">
+        200 OK
+      </div>
+      <p>Salida</p>
+      <div class=\\"output\\">
+        <div class=\\"string\\">
+          2
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=\\"output-card\\">
+    <div class=\\"info number\\">
+      3
+    </div>
+    <div class=\\"info type\\">
+      Prueba respuesta server
+    </div>
+    <div class=\\"data\\">
+      <p>Estado</p>
+      <div class=\\"status\\">
+        200 OK
+      </div>
+      <p>Salida</p>
+      <div class=\\"output\\">
+        <div class=\\"string\\">
+          2
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=\\"output-card\\">
+    <div class=\\"info number\\">
+      4
+    </div>
+    <div class=\\"info type\\">
+      Prueba respuesta server
+    </div>
+    <div class=\\"data\\">
+      <p>Estado</p>
+      <div class=\\"status\\">
+        200 OK
+      </div>
+      <p>Salida</p>
+      <div class=\\"output\\">
+        <div class=\\"string\\">
+          2
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=\\"output-card\\">
+    <div class=\\"info number\\">
+      5
+    </div>
+    <div class=\\"info type\\">
+      Prueba respuesta server
+    </div>
+    <div class=\\"data\\">
+      <p>Estado</p>
+      <div class=\\"status\\">
+        200 OK
+      </div>
+      <p>Salida</p>
+      <div class=\\"output\\">
+        <div class=\\"string\\">
+          2
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---->
+</div>"
+`;
+
+exports[`Snapshot: CardContainer should render 5 cards 1`] = `
+"<div class=\\"card-container\\">
+  <div class=\\"output-card\\">
+    <div class=\\"info number\\">
+      0
+    </div>
+    <div class=\\"info type\\">
+      Prueba respuesta server
+    </div>
+    <div class=\\"data\\">
+      <p>Estado</p>
+      <div class=\\"status\\">
+        200 OK
+      </div>
+      <p>Salida</p>
+      <div class=\\"output\\">
+        <div class=\\"string\\">
+          2
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=\\"output-card\\">
+    <div class=\\"info number\\">
+      1
+    </div>
+    <div class=\\"info type\\">
+      Prueba respuesta server
+    </div>
+    <div class=\\"data\\">
+      <p>Estado</p>
+      <div class=\\"status\\">
+        200 OK
+      </div>
+      <p>Salida</p>
+      <div class=\\"output\\">
+        <div class=\\"string\\">
+          2
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=\\"output-card\\">
+    <div class=\\"info number\\">
+      2
+    </div>
+    <div class=\\"info type\\">
+      Prueba respuesta server
+    </div>
+    <div class=\\"data\\">
+      <p>Estado</p>
+      <div class=\\"status\\">
+        200 OK
+      </div>
+      <p>Salida</p>
+      <div class=\\"output\\">
+        <div class=\\"string\\">
+          2
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=\\"output-card\\">
+    <div class=\\"info number\\">
+      3
+    </div>
+    <div class=\\"info type\\">
+      Prueba respuesta server
+    </div>
+    <div class=\\"data\\">
+      <p>Estado</p>
+      <div class=\\"status\\">
+        200 OK
+      </div>
+      <p>Salida</p>
+      <div class=\\"output\\">
+        <div class=\\"string\\">
+          2
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=\\"output-card\\">
+    <div class=\\"info number\\">
+      4
+    </div>
+    <div class=\\"info type\\">
+      Prueba respuesta server
+    </div>
+    <div class=\\"data\\">
+      <p>Estado</p>
+      <div class=\\"status\\">
+        200 OK
+      </div>
+      <p>Salida</p>
+      <div class=\\"output\\">
+        <div class=\\"string\\">
+          2
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=\\"output-card\\">
+    <div class=\\"info number\\">
+      5
+    </div>
+    <div class=\\"info type\\">
+      Prueba respuesta server
+    </div>
+    <div class=\\"data\\">
+      <p>Estado</p>
+      <div class=\\"status\\">
+        200 OK
+      </div>
+      <p>Salida</p>
+      <div class=\\"output\\">
+        <div class=\\"string\\">
+          2
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---->
+</div>"
+`;

@@ -20,6 +20,7 @@ El objetivo de de este documento es servir de índice de referencia de las prueb
 | ACT    | Generación de eventos de DOM |
 | EVNT   | Comprobación de emisión de eventos |
 | MCK    | Uso de mocks |
+| SNP    | Snapshot |
 
 <br />
 
@@ -154,3 +155,25 @@ El objetivo de de este documento es servir de índice de referencia de las prueb
 | *Objetivo* | Comprobar que una vez enviada una palabra correcta y asigandas nuevas fichas, en pantalla aparece el número correcto de fichas que quedan en la bolsa. | 
 | *Observaciones* | Se hace uso de una variable reactiva. Se busca un elemento por su clase CSS asignada |
 | *Leyenda* | SM, PRM, FIND, METHD  |
+
+<br />
+
+**[T013] should render 5 cards**
+
+|     |       |
+| :-- | :---- |
+| *Componente* | CardContainer |
+| *Objetivo* | Snapshot. | 
+| *Observaciones* | Se utiliza _mount_ para cargar los componentes hijos. |
+| *Leyenda* | SNP  |
+
+<br />
+
+**[T014] should render 5 cards (random mode)**
+
+|     |       |
+| :-- | :---- |
+| *Componente* | CardContainer |
+| *Objetivo* | Snapshot. | 
+| *Observaciones* | ¡Falla! Se utiliza _mount_ para cargar los componentes hijos. Problema al introducir datos cambiantes entre dos ejecuciones del test. Hay que unificar este tipo de datos. Un caso claro podría se elementos que rendericen valores de tiempo relativo, por ejemplo "se conectó por última vez hace XX días" |
+| *Leyenda* | SNP  |
