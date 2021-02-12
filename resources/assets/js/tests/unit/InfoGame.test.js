@@ -1,4 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
+import "regenerator-runtime/runtime.js"; // necesario para babel si vamos a uitilizar async
 import InfoGame from "@components/InfoGameComponent";
 
 // Crear una batería de tests (conjunto de test) llamada "Component: InfoGame"
@@ -6,6 +7,7 @@ describe("Component: InfoGame", () => {
   beforeEach(() => {
     jest.resetModules();
     jest.clearAllMocks();
+    jest.restoreAllMocks();
   });
 
   // en general todo el proceso de configuración se suele repetir para todos los test
@@ -60,7 +62,6 @@ describe("Component: InfoGame", () => {
         opponent: opponent,
         game: game,
       },
-      methods: {},
     });
 
     return wrapper;
@@ -72,27 +73,39 @@ describe("Component: InfoGame", () => {
     expect(wrapper.exists()).toBe(true);
   });
 
-  test("calls sendWord when button send is clicked", () => {
-    const sendWord = jest.spyOn(InfoGame.methods, "sendWord");
+  test("calls sendWord when button send is clicked", async () => {
+    // como solo quiero comprobar que se llama la implemento vacía
+    const sendWord = jest
+      .spyOn(InfoGame.methods, "sendWord")
+      .mockImplementation(() => {});
     const wrapper = build();
 
-    wrapper.find("#send").trigger("click");
+    await wrapper.find("#send").trigger("click");
     expect(sendWord).toHaveBeenCalled();
   });
 
-  test("[T012] when the word is accepted the number of pieces in the bag decreases", () => {
+  test("[T012] when the word is accepted the number of pieces in the bag decreases", async () => {
     const word = {
       word: "interfaz",
       row: "C",
       column: "3",
       direction: "H",
     };
+
+    // creo mocks de funciones internas para evitar problemas
+    // con la asincronia (UnhandledPromiseRejectionWarning)
+    // y ganar velocidad
+    jest
+      .spyOn(InfoGame.ScrabbleHelper, "updateTableboard")
+      .mockImplementation(() => {});
+    jest.spyOn(InfoGame.methods, "fillTokens").mockImplementation(() => {});
+
     const wrapper = build();
     const log = wrapper.find(".log");
 
     wrapper.vm.$data.word = word.word;
-    wrapper.vm.sendWord();
-    let newlog = game.remaining_tokens + " / " + game.total_tokens;
+    await wrapper.vm.sendWord();
+    const newlog = game.remaining_tokens + " / " + game.total_tokens;
     expect(log.text()).toContain(newlog);
   });
 });
