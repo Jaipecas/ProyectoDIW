@@ -26,7 +26,7 @@ Devuelve información sobre la aplicación en formato JSON.
 </center>
 <br/>
 
-**GET  /api/info/currentgames/{number}**
+**GET  /api/info/currentgames/{number}** [:monocle_face:](http://localhost/api/documentation "Soportada en OpenAPI")
 
 Devuelve información resumida sobre las {number} partidas más recientes.
 
@@ -52,7 +52,7 @@ Devuelve información resumida sobre las {number} partidas más recientes.
 | state                  | unstarted (sin empezar),turn_p1 (turno jugador 1), turn_p2 (turno jugador 2),win_p1 (gana jugador 1),win_p2 (gana jugador 2) |
 | player_1_score         | Puntuación jugador 1      |
 | player_2_score         | Puntuación jugador 2      |
-| updated_at             | Hora ultima actualización |
+| updated_at             | Fecha y hora de la última actualización |
 | player1.id             | Identificador del jugador 1 |
 | player1.name           | Nombre del jugador 1 |
 | player1.avatar         | URL del avatar del jugador 1 |
