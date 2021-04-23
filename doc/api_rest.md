@@ -39,7 +39,7 @@ Solicita una partida contra el usuario cuyo identificador es id
 - *Requerimientos*: Usuario autenticado.
 - *Respuesta*: Si el idioma no está soportado 409 'Language not supported'; si el id del contrincante no se localiza 404, 'Opposing player not found'. En caso contrario 200 'Challenge created'.
 
-**POST /scrabble/challenge/request/{lang}/level/{level}**
+**POST /scrabble/challenge/request/{lang}/level/{level}** [:monocle_face:](http://localhost/api/documentation "Soportada en OpenAPI")
 
 Solicita una partida contra un usuario cuyo nivel sea level
 
