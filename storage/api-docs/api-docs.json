@@ -1,0 +1,319 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Scrabble API",
+        "description": "API para jugar al Scrabble",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/scrabble/challenge/request/{lang}/level/{level}": {
+            "post": {
+                "tags": [
+                    "Challenge"
+                ],
+                "summary": "Crea un reto contra un nivel concreto en un idioma",
+                "description": "Solicita una partida contra un usuario cuyo nivel sea {level} en un idioma {lang}.",
+                "operationId": "create_challenge_level",
+                "parameters": [
+                    {
+                        "name": "lang",
+                        "in": "path",
+                        "description": "Idioma de la partida.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "maxLength": 2,
+                            "minLength": 2
+                        }
+                    },
+                    {
+                        "name": "level",
+                        "in": "path",
+                        "description": "Idioma de la partida.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "-5",
+                                "-4",
+                                "-3",
+                                "-2",
+                                "-1",
+                                "1",
+                                "2",
+                                "3",
+                                "4",
+                                "5",
+                                "10",
+                                "20",
+                                "30",
+                                "40",
+                                "50"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "409": {
+                        "description": "Language not supported (Idioma no soportado)",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/json_ajax_response"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Level out of bounds (Nivel fuera de los límites)",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/json_ajax_response"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Challenge created (Reto creado)",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/json_ajax_response"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "xsrf": [
+                            "read"
+                        ]
+                    },
+                    {
+                        "x-csrf": [
+                            "read"
+                        ]
+                    },
+                    {
+                        "api_key_auth": [
+                            "read"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/api/info/currentgames/{number}": {
+            "get": {
+                "tags": [
+                    "Info"
+                ],
+                "summary": "Devuelve información resumida sobre las {number} partidas más recientes.",
+                "description": "Devuelve las últimas partidas jugadas",
+                "operationId": "current_games",
+                "parameters": [
+                    {
+                        "name": "number",
+                        "in": "path",
+                        "description": "Número máximo de partidas devueltas.",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Partidas más recientes",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/current_games"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/info/currentgames": {
+            "get": {
+                "tags": [
+                    "Info"
+                ],
+                "summary": "Devuelve información resumida sobre las 5 partidas más recientes.",
+                "description": "Devuelve las 5 últimas partidas jugadas",
+                "operationId": "current_games",
+                "responses": {
+                    "200": {
+                        "description": "Partidas más recientes",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/current_games"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "json_ajax_response": {
+                "required": [
+                    "data",
+                    "status",
+                    "statusText"
+                ],
+                "properties": {
+                    "status": {
+                        "description": "Código numérico del estado HTTP 1XX, 2XX, 3XX, 4XX, 5XX",
+                        "type": "integer",
+                        "example": 200
+                    },
+                    "statusText": {
+                        "description": "Descripción del estado de la respuesta HTTP",
+                        "type": "string",
+                        "example": "OK"
+                    },
+                    "data": {
+                        "description": "Información sobre la respuesta",
+                        "type": "string",
+                        "example": "Elemento introducido en la BBDD"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "json_ajax_response"
+                }
+            },
+            "current_games": {
+                "required": [
+                    "language",
+                    "state",
+                    "player_1_score",
+                    "player_2_score",
+                    "player1",
+                    "player2",
+                    "update_at"
+                ],
+                "properties": {
+                    "language": {
+                        "description": "Idioma de la partida",
+                        "type": "string",
+                        "maxLength": 2,
+                        "minLength": 2,
+                        "example": "es"
+                    },
+                    "state": {
+                        "description": "Estado de la partida unstarted (sin empezar), turn_p1 (turno jugador 1), turn_p2 (turno jugador 2), win_p1 (gana jugador 1), win_p2 (gana jugador 2)",
+                        "type": "string",
+                        "example": "win_p2"
+                    },
+                    "updated_at": {
+                        "description": "Fecha y hora de la última actualización",
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2021-03-11T21:12:41.000000Z"
+                    },
+                    "player_1_score": {
+                        "description": "Puntuación jugador 1",
+                        "type": "integer",
+                        "minimum": 0,
+                        "example": 37
+                    },
+                    "player_2_score": {
+                        "description": "Puntuación jugador 2",
+                        "type": "integer",
+                        "minimum": 0,
+                        "example": 121
+                    },
+                    "player1": {
+                        "properties": {
+                            "id": {
+                                "description": "Identificador del jugador 1",
+                                "type": "integer",
+                                "example": 34
+                            },
+                            "name": {
+                                "description": "Nombre del jugador 1",
+                                "type": "string",
+                                "example": "Rafael Cardoso"
+                            },
+                            "avatar": {
+                                "description": "URL del avatar del jugador 1",
+                                "type": "string",
+                                "example": "/storage/avatars/PxGitAlRvrSpL8R92x52YcU3VqHH8c7RYVt9f7Ow.png"
+                            },
+                            "country": {
+                                "description": "País del jugador 1",
+                                "type": "string",
+                                "maxLength": 2,
+                                "minLength": 2,
+                                "example": "it"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "player2": {
+                        "properties": {
+                            "id": {
+                                "description": "Identificador del jugador 2",
+                                "type": "integer",
+                                "example": 48
+                            },
+                            "name": {
+                                "description": "Nombre del jugador 2",
+                                "type": "string",
+                                "example": "Karl Aldrige"
+                            },
+                            "avatar": {
+                                "description": "URL del avatar del jugador 2",
+                                "type": "string",
+                                "example": "/storage/avatars/AxGitAKr59lRvrpL8R2x52cU3qHH8c7RYVt9f7Ow.png"
+                            },
+                            "country": {
+                                "description": "País del jugador 2",
+                                "type": "string",
+                                "maxLength": 2,
+                                "minLength": 2,
+                                "example": "uk"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "current_games"
+                }
+            }
+        },
+        "securitySchemes": {
+            "api_key_auth": {
+                "type": "apiKey",
+                "description": "Esquema basado en cookies",
+                "name": "laravel_session",
+                "in": "header"
+            },
+            "xsrf": {
+                "type": "apiKey",
+                "description": "Ataques Cross-Site Request Forgeries",
+                "name": "XSRF-TOKEN",
+                "in": "header"
+            },
+            "x-csrf": {
+                "type": "apiKey",
+                "description": "Ataques Cross-Site Request Forgeries",
+                "name": "X-CSRF-TOKEN",
+                "in": "header"
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
