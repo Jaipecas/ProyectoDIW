@@ -1,6 +1,8 @@
 import { shallowMount } from "@vue/test-utils";
+// la @ es un alias de babel. Hace referencia a la carpeta js
 import "regenerator-runtime/runtime.js"; // necesario para babel si vamos a uitilizar async
 import InfoGame from "@components/InfoGameComponent";
+import ScrabbleHelper from "../../scrabble_helper_library.js";
 
 // Crear una batería de tests (conjunto de test) llamada "Component: InfoGame"
 describe("Component: InfoGame", () => {
@@ -74,7 +76,7 @@ describe("Component: InfoGame", () => {
   });
 
   test("calls sendWord when button send is clicked", async () => {
-    // como solo quiero comprobar que se llama la implemento vacía
+    // como solo quiero comprobar que se llama. La implemento vacía
     const sendWord = jest
       .spyOn(InfoGame.methods, "sendWord")
       .mockImplementation(() => {});
@@ -95,17 +97,22 @@ describe("Component: InfoGame", () => {
     // creo mocks de funciones internas para evitar problemas
     // con la asincronia (UnhandledPromiseRejectionWarning)
     // y ganar velocidad
-    jest
-      .spyOn(InfoGame.ScrabbleHelper, "updateTableboard")
-      .mockImplementation(() => {});
+    ScrabbleHelper.updateTableboard = jest
+      .fn()
+      .mockReturnValue("tablero de prueba");
     jest.spyOn(InfoGame.methods, "fillTokens").mockImplementation(() => {});
 
     const wrapper = build();
-    const log = wrapper.find(".log");
 
     wrapper.vm.$data.word = word.word;
     await wrapper.vm.sendWord();
-    const newlog = game.remaining_tokens + " / " + game.total_tokens;
+    const newlog =
+      wrapper.vm.$data.c_game.remaining_tokens +
+      " / " +
+      wrapper.vm.$data.c_game.total_tokens;
+    const log = wrapper.find(".log");
+    // fuerzo la actualización del template
+    await wrapper.vm.$nextTick();
     expect(log.text()).toContain(newlog);
   });
 });

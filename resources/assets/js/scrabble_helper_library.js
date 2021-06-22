@@ -1,6 +1,6 @@
 // librería de funciones de apoyo para gestionar la partida
 
-export const ScrabbleHelper = {
+export default {
   // devuelve la letra de la ficha en función del idioma
   // es necesario ya que en ocasiones una ficha tiene una letra doble
   // como la ch, la rr o la ll

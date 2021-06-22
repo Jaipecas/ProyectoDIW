@@ -1,5 +1,5 @@
 // mock para suplantar todo el módulo de axios
-// el nombre del fichero tiene que ser igual la módulo a suplantar
+// el nombre del fichero tiene que ser igual al del módulo a suplantar
 // ¡el módulo tiene que importarse!
 
 /* module.exports = {
@@ -45,7 +45,7 @@ module.exports = {
           return Promise.resolve({
             data: {
               newtokens: {
-                length: 4,
+                length: data.word.length,
               },
               pscore: 36,
             },

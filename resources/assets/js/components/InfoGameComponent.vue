@@ -149,7 +149,7 @@ import {
   Config as BConfig,
   default as ListenForBroadcast,
 } from "./ListenForBroadcast.js";
-import { ScrabbleHelper } from "../scrabble_helper_library.js";
+import ScrabbleHelper from "../scrabble_helper_library.js";
 
 export default {
   name: "InfoGameComponent",
