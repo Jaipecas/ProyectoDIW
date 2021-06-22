@@ -9,8 +9,16 @@ describe("Component: CardContainer", () => {
   /* *************
    * configuración
    * ************* */
+  beforeEach(() => {
+    jest.resetModules();
+    jest.clearAllMocks();
+    jest.restoreAllMocks();
+    cards = [];
+  });
+
+  var cards = [];
+
   const build = () => {
-    const cards = [];
     const card = {
       order: 0,
       type: "Prueba respuesta server",
@@ -55,5 +63,12 @@ describe("Component: CardContainer", () => {
      * validación
      * *********** */
     expect(wrapper.element.scrollLeft).toBe(wrapper.element.scrollWidth);
+  });
+
+  test("[T015] renders cards for each card in props.cards", () => {
+    const wrapper = build();
+    expect(
+      wrapper.findAllComponents({ name: "OutputCardComponent" })
+    ).toHaveLength(cards.length);
   });
 });

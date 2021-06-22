@@ -14,6 +14,7 @@ El objetivo de de este documento es servir de índice de referencia de las prueb
 | PRM    | Paso de parámetros al wrapper |
 | TXT    | Comprobación de textos renderizados |
 | ATTR   | Comprobación de atributos |
+| LENGTH | Comprobación de número de elementos |
 | FIND   | Búsqueda de elementos |
 | STYLE  | Comprobación de estilos |
 | METHD  | Comprobación de ejecución de métodos |
@@ -177,3 +178,14 @@ El objetivo de de este documento es servir de índice de referencia de las prueb
 | *Objetivo* | Snapshot. | 
 | *Observaciones* | ¡Falla! Se utiliza _mount_ para cargar los componentes hijos. Problema al introducir datos cambiantes entre dos ejecuciones del test. Hay que unificar este tipo de datos. Un caso claro podría se elementos que rendericen valores de tiempo relativo, por ejemplo "se conectó por última vez hace XX días" |
 | *Leyenda* | SNP  |
+
+<br />
+
+**[T015] renders cards for each card in props.cards**
+
+|     |       |
+| :-- | :---- |
+| *Componente* | CardContainer |
+| *Objetivo* | Comprobar que se creen tantos OutputCard como elementos se hayan pasado por parámetro. | 
+| *Observaciones* | Permite ver como realizar este test mediante una prueba unitaria, sin llegar a cargar el componente OutputCard |
+| *Leyenda* | SM, FIND, LENGTH |
