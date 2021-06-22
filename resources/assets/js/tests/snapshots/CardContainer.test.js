@@ -41,7 +41,7 @@ describe("Snapshot: CardContainer", () => {
     return wrapper;
   };
 
-  test("[T013] should render 5 cards", () => {
+  test("[T013] should render 6 cards", () => {
     const wrapper = build(false);
 
     expect(wrapper.html()).toMatchSnapshot();
@@ -52,7 +52,7 @@ describe("Snapshot: CardContainer", () => {
   // Eso podria provocar fallos en los snapshots al poder ser diferente el valor cada
   // vez que se ejecuta el test
   // test FAIL
-  test("[T014] should render 5 cards (random mode)", () => {
+  test("[T014] should render 6 cards (random mode)", () => {
     const wrapper = build(true);
 
     // deberia comprobar que los datos que se renderizan son siempre los mismos

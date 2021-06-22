@@ -432,7 +432,7 @@ export default {
         .then((response) => {
           console.log("Lista usuarios: ", response);
           this.createCard(
-            "Remove User",
+            "LIst User",
             response.status,
             response.statusText,
             response.data
