@@ -9,7 +9,10 @@ El objetivo de de este documento es servir de índice de referencia de las prueb
 ## Leyenda
 
 | Siglas | Descripción |
-| :---  | :---------- |
+| :---   | :---------- |
+| TU     | Test unitario |
+| TI     | Test integración |
+| TE     | Test e2e |
 | SM     | Montaje de componente. Obtención de wrapper |
 | PRM    | Paso de parámetros al wrapper |
 | TXT    | Comprobación de textos renderizados |
@@ -34,7 +37,7 @@ El objetivo de de este documento es servir de índice de referencia de las prueb
 | *Componente* | UserData |
 | *Objetivo* | Comprobación de la existencia de un componente. | 
 | *Observaciones* | |
-| *Leyenda* | SM, PRM |  
+| *Leyenda* | TU, SM, PRM |  
 
 <br /> 
 
@@ -45,7 +48,7 @@ El objetivo de de este documento es servir de índice de referencia de las prueb
 | *Componente* | UserData |
 | *Objetivo* | Comprobación de la existencia de un texto renderizado. | 
 | *Observaciones* | _text()_ devuelve una cadena con la totalidad del texto renderizado por el componente. Por otra parte, es interesante comprobar que cada prueba comprueba una única cosa |
-| *Leyenda* | SM, PRM, TXT |
+| *Leyenda* | TU, SM, PRM, TXT |
 
 <br />
 
@@ -56,7 +59,7 @@ El objetivo de de este documento es servir de índice de referencia de las prueb
 | *Componente* | UserData |
 | *Objetivo* | Comprobación de la existencia de un texto renderizado. | 
 | *Observaciones* | Falla de manera habitual ya que en el componente la salida no ha sido filtrada |
-| *Leyenda* | SM, PRM, TXT |
+| *Leyenda* | TU, SM, PRM, TXT |
 
 <br />
 
@@ -67,7 +70,7 @@ El objetivo de de este documento es servir de índice de referencia de las prueb
 | *Componente* | UserData |
 | *Objetivo* | Comprobación del renderizado de un enlace. | 
 | *Observaciones* | _find()_ realiza una búsqueda dentro de un elemento y devuelve un único valor.  |
-| *Leyenda* | SM, PRM, TXT, ATTR, FIND |
+| *Leyenda* | TU, SM, PRM, TXT, ATTR, FIND |
 
 <br />
 
@@ -78,7 +81,7 @@ El objetivo de de este documento es servir de índice de referencia de las prueb
 | *Componente* | UserData |Comprobación de que todos los elementos de una clase contengan otros elementos
 | *Observaciones* | _findAll()_ realiza una búsqueda dentro de un elemento y devuelve un array. |
 | *Ejercicio* | Comprobar que hay un y solo un elemento de ese tipo |
-| *Leyenda* | SM, PRM, FIND |
+| *Leyenda* | TU, SM, PRM, FIND |
 
 <br />
 
@@ -89,7 +92,7 @@ El objetivo de de este documento es servir de índice de referencia de las prueb
 | *Componente* | UserData |
 | *Objetivo* | Comprobación de la existencia de un componente. | 
 | *Observaciones* | _findComponente()_ requiere de la propiedad *name*. Es posible usar find, pero requiere la importación del componente. |
-| *Leyenda* | SM, PRM, FIND |
+| *Leyenda* | TU, SM, PRM, FIND |
 
 <br />
 
@@ -100,7 +103,7 @@ El objetivo de de este documento es servir de índice de referencia de las prueb
 | *Componente* | UploadImage |
 | *Objetivo* | Comprobación dela aplicación de una clase CSS. | 
 | *Observaciones* | Es posibble también utilizar la propiedad _style_ si el estilo es aplicado de manera directa. |
-| *Leyenda* | SM, PRM, FIND, STYLE |
+| *Leyenda* | TU, SM, PRM, FIND, STYLE |
 
 <br />
 
@@ -111,7 +114,7 @@ El objetivo de de este documento es servir de índice de referencia de las prueb
 | *Componente* | CardContainer |
 | *Objetivo* | Comprobar que hemos llegado al final de un scroll. | 
 | *Observaciones* | Uso de una función _build_ para construir todo la configuración. Ejecución de un método externo. Consulta a una propiedad de un elemento |
-| *Leyenda* | SM, PRM, METHD  |
+| *Leyenda* | TU, SM, PRM, METHD  |
 
 <br />
 
@@ -133,7 +136,7 @@ El objetivo de de este documento es servir de índice de referencia de las prueb
 | *Componente* | DashboardTestComponent |
 | *Objetivo* | Comprobar que una función interna es llamada si se recibe un evento vue. | 
 | *Observaciones* | Es necesario crear un mock espía para que pueda controlar si una función es llamada. |
-| *Leyenda* | SM, PRM, FIND, METHD, EVENT, MCK  |
+| *Leyenda* | TU, SM, PRM, FIND, METHD, EVENT, MCK  |
 
 <br />
 
@@ -144,7 +147,7 @@ El objetivo de de este documento es servir de índice de referencia de las prueb
 | *Componente* | DashboardTestComponent |
 | *Objetivo* | Comprobar que una función es llamada y que sus parámetros contienen cierta información. | 
 | *Observaciones* | Hay que crear un espía para poder analizar que pasa en la función y posteriormente utilizar la propiedad mock para obtener valores. ¡OJO! Se prueba un función _alert_ que no tiene mucho sentido en entornos de producción. |
-| *Leyenda* | SM, PRM, FIND, METHD, EVENT, MCK  |
+| *Leyenda* | TU, SM, PRM, FIND, METHD, EVENT, MCK  |
 
 <br />
 
@@ -154,8 +157,8 @@ El objetivo de de este documento es servir de índice de referencia de las prueb
 | :-- | :---- |
 | *Componente* | InfoGameComponent |
 | *Objetivo* | Comprobar que una vez enviada una palabra correcta y asigandas nuevas fichas, en pantalla aparece el número correcto de fichas que quedan en la bolsa. | 
-| *Observaciones* | Se hace uso de una variable reactiva. Se busca un elemento por su clase CSS asignada |
-| *Leyenda* | SM, PRM, FIND, METHD  |
+| *Observaciones* | Se hace uso de una variable reactiva. Se busca un elemento por su clase CSS asignada. Se fuerza un refresco del template ya que entran en juego funciones asíncronas. |
+| *Leyenda* | TU, SM, PRM, FIND, METHD, MCK  |
 
 <br />
 
@@ -166,7 +169,7 @@ El objetivo de de este documento es servir de índice de referencia de las prueb
 | *Componente* | CardContainer |
 | *Objetivo* | Snapshot. | 
 | *Observaciones* | Se utiliza _mount_ para cargar los componentes hijos. |
-| *Leyenda* | SNP  |
+| *Leyenda* | SNP |
 
 <br />
 
@@ -186,6 +189,28 @@ El objetivo de de este documento es servir de índice de referencia de las prueb
 |     |       |
 | :-- | :---- |
 | *Componente* | CardContainer |
-| *Objetivo* | Comprobar que se creen tantos OutputCard como elementos se hayan pasado por parámetro. | 
+| *Objetivo* | Comprueba que se creen tantos OutputCard como elementos se hayan pasado por parámetro. | 
 | *Observaciones* | Permite ver como realizar este test mediante una prueba unitaria, sin llegar a cargar el componente OutputCard |
-| *Leyenda* | SM, FIND, LENGTH |
+| *Leyenda* | TU, SM, FIND, LENGTH |
+
+<br />
+
+**[T016] renders cards for each card in props.cards**
+
+|     |       |
+| :-- | :---- |
+| *Componente* | CardContainer/OutputCard |
+| *Objetivo* | Comprueba que se creen tantos OutputCard como elementos se hayan pasado por parámetro. | 
+| *Observaciones* | Similar al T015, pero en este caso mediante un test de integración. Para tealizar el conteo se utiliza una clase interna del componente hijo. |
+| *Leyenda* | TI, SM, FIND, LENGTH |
+
+<br />
+
+**[T017] renders a card with class error**
+
+|     |       |
+| :-- | :---- |
+| *Componente* | CardContainer/OutputCard |
+| *Objetivo* | Comprueba que aparezca la clase CSS error cuando una respuesta de la API es erronea. | 
+| *Observaciones* | Se realiza un filtrado para realizar una búsqueda de un elemento por texto. |
+| *Leyenda* | TI, SM, FIND, TXT |
