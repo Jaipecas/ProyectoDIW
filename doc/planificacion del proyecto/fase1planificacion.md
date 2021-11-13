@@ -1,44 +1,6 @@
 ﻿
 
-
-
-
-
-
-
-
-
-
 **PFM.F1. Planificación**
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -87,12 +49,6 @@
 5.2.2.5 Ranking	15
 
 5.2.3 Tablero	16
-
-
-
-
-
-
 
 
 **1. Personas**
@@ -157,85 +113,38 @@ Marta se encuentra actualmente estudiando 5º de Primaria y no tiene mucha idea 
 Marta entra en la habitación de su hermano para proponerle jugar a un juego con ella, al entrar ve que su hermano esta jugando a un juego en el ordenador que ella nunca ha visto, el juego le causa cierto interés por lo que le pide a su hermano que le enseñe a jugar. Tras enseñarle como se juega  en la web al juego y como debe registrarse e iniciar sesión le reta a jugar una partida ya que en casa tienen un ordenador sobremesa y un portátil; y pueden jugar a la vez.
 
 
+**Nombre:** Pepe
 
+**Edad:** 14
 
+**Ocupación:** Estudiante
 
+**Descripción:**
 
+Pepe es un alumno de Bachillerato al que le encantan los juegos de mesa y que desde pequeño ha tendido ciertas dificultades escolares a causa de su dislexia ya que durante la lectura tiende a suprimir letras, confundir fonemas e invertir letras o sílabas. Su conocimiento a nivel informático es medio alto ya que desde pequeño ha utilizado el ordenador para las tareas escolares y siempre le ha gustado trastear un poco con el ordenador haciendo particiones, instalando varios sistemas operativos en el mismo ordenador, etc.
 
+**Escenario:**
 
-
-
+Son las 19:00 de la tarde y Pepe ha pasado por 3 páginas distintas para aprender a jugar al Scrabble y no acaba de comprender el funcionamiento del juego ya que, tanto la tipografía utilizada en las páginas como la forma en la se que presenta la información, le están impidiendo una buena comprensión lectora. En su último intento, entra en web del CEED y para su sorpresa la forma es que se presenta la información le facilita la comprensión y acaba entendiendo el funcionamiento del juego.
 
 
 **2. Mapa conceptual**
 
 A continuación se expone el mapa conceptual que representa los conceptos y relaciones más importantes en el área de Scrabble.
 
-
-![](Aspose.Words.b2bb5a36-2f3d-4dd8-8119-78d8b5d485e5.001.png)
-
-
+![](Aspose.Words.3b43d082-0e44-4d90-a499-3c673ca8e736.001.png)
 
 **3. Mapa del sitio web**
 
 El mapa de la web se muestra a continuación, en él se expone como están distribuidas la áreas dentro del sitio web.
 
-
-![](Aspose.Words.b2bb5a36-2f3d-4dd8-8119-78d8b5d485e5.002.png)
-
-
+![](Aspose.Words.3b43d082-0e44-4d90-a499-3c673ca8e736.002.png)
 
 **4. Diagramas de flujo**
 
 Por otro lado, el presente diagrama de flujo representa el desarrollo de una partida de Scrabble.
 
-![](Aspose.Words.b2bb5a36-2f3d-4dd8-8119-78d8b5d485e5.003.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![](Aspose.Words.3b43d082-0e44-4d90-a499-3c673ca8e736.003.png)
 
 
 **5. Modelos alámbricos**
@@ -244,40 +153,7 @@ Por otro lado, el presente diagrama de flujo representa el desarrollo de una par
 
 En el área inicial se muestra principalmente información sobre el contenido de la página, es decir, se menciona que la web conmemora el 550 aniversario del fallecimiento de Johannes Gutenberg junto con otros datos. En la barra de navegación se mostrarían las diferentes subáreas de la información histórica de la imprenta (dándole un mayor espacio en la barra de navegación ya que al fin y al cabo es una web orientada a la divulgación histórica) y el área del Scrabble resaltada ya que con ella se va a intentar conseguir cierta fidelización del usuario. Por otro lado, en el encabezado se mostrá el titulo de la página y los botones de registro y login. También se mostrarán a ambos lados de la página, noticias para todos los usuarios y avisos para aquellos usuarios que están registrados (si no están registrados se mostrará un texto para incentivar que se registren). Por último, en el pie de página aparecerá información sobre las diferentes redes sociales, así como información de contacto, del centro...
 
-
-
-
-![](Aspose.Words.b2bb5a36-2f3d-4dd8-8119-78d8b5d485e5.004.jpeg)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![](Aspose.Words.3b43d082-0e44-4d90-a499-3c673ca8e736.004.jpeg)
 
 
 **5.1 Área imprenta**
@@ -286,95 +162,14 @@ En el área inicial se muestra principalmente información sobre el contenido de
 
 Estas áreas tendrán un diseño similar donde predomina el texto y se intercalan algunas imágenes sobre Gutenberg y fotos de época. Mantendrá la estructura del área principal, sin embargo, en esta área tanto noticias como avisos aparecerán en el lado derecho (solo noticias si se trata de usuarios no registrados).
 
-
-
-
-
-![](Aspose.Words.b2bb5a36-2f3d-4dd8-8119-78d8b5d485e5.005.jpeg)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![](Aspose.Words.3b43d082-0e44-4d90-a499-3c673ca8e736.005.jpeg)
 
 
 **5.1.2 Subáreas: Los primeros libros en España y lugares emblemáticos de imprentas en Valencia.**
 
-En estas áreas tendrán una importancia similar las imágenes y el texto descriptivo de éstas, ya que al tratarse de lugares y libros se puede jugar un poco más con imágenes de portadas, fábricas...
+En estas áreas tendrán una importancia similar las imágenes y el texto descriptivo de éstas, ya que al tratarse de lugares y libros se puede jugar un poco más con imágenes de portadas, fábricas..
 
-
-
-
-![](Aspose.Words.b2bb5a36-2f3d-4dd8-8119-78d8b5d485e5.006.jpeg)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![](Aspose.Words.3b43d082-0e44-4d90-a499-3c673ca8e736.006.jpeg)
 
 
 **5.2. Área Scrabble**
@@ -383,149 +178,21 @@ En estas áreas tendrán una importancia similar las imágenes y el texto descri
 
 En cuanto al área de información general del Scrabble tendrá una estructura sencilla que combinará texto sobre reglas, etc; e imágenes del Scrabble.
 
-
-
-
-![](Aspose.Words.b2bb5a36-2f3d-4dd8-8119-78d8b5d485e5.007.jpeg)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![](Aspose.Words.3b43d082-0e44-4d90-a499-3c673ca8e736.007.jpeg)
 
 
 **5.2.2 Área dashboard**
 
-En cuanto a la estructura básica del dashboard contendrá información acerca de los amigos conectados (pudiendo retarles en cualquier momento), las partidas pendientes del usuario, avisos y noticias, iconos de mensajes, retos y perfil de usuario; así como un índice con los contenidos del dashboard.
+En cuanto a la estructura básica del dashboard contendrá información acerca de los amigos conectados (pudiendo retarles en cualquier momento), las partidas pendientes del usuario, avisos y noticias, iconos de mensajes, retos y perfil de usuario; así como un índice con los contenidos del dashboard. El primer contenido que se mostrará será el área de partidas pendientes ya que la gran mayoría de veces el usuario entrará para continuar con alguna de sus partidas pendientes.
 
-
-
-
-
-![](Aspose.Words.b2bb5a36-2f3d-4dd8-8119-78d8b5d485e5.008.jpeg)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![](Aspose.Words.3b43d082-0e44-4d90-a499-3c673ca8e736.008.jpeg)
 
 
 **5.2.2.1 Perfil del usuario**
 
 Dentro del dashboard se mostrarán las diferentes áreas del índice entre ellas el perfil del usuario donde podrá editar sus datos e incluir una foto.
 
-
-
-
-![](Aspose.Words.b2bb5a36-2f3d-4dd8-8119-78d8b5d485e5.009.jpeg)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![](Aspose.Words.3b43d082-0e44-4d90-a499-3c673ca8e736.009.jpeg)
 
 
 **5.2.2.2 Partidas pendientes**
@@ -533,251 +200,35 @@ Dentro del dashboard se mostrarán las diferentes áreas del índice entre ellas
 Otra área mostrará información sobre las partidas pendientes del usuario. Contendrá información sobre ambos usuarios, sus puntos actuales y la opción de continuar la partida o abandonarla.
 
 
-
-
-
-![](Aspose.Words.b2bb5a36-2f3d-4dd8-8119-78d8b5d485e5.010.jpeg)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![](Aspose.Words.3b43d082-0e44-4d90-a499-3c673ca8e736.010.jpeg)
 
 
 **5.2.2.3 Estadísticas**
 
 Otra información dentro del dashboard es la referente a las estadísticas del jugador. En esta página el jugador podrá visualizar diferentes datos: cantidad de partidas jugadas, partidas ganadas, partidas perdidas, cantidad puntos, media de puntos por partida, histórico de partidas; además permitirá comparaciones graficas con otros jugadores
 
-
-
-
-
-
-![](Aspose.Words.b2bb5a36-2f3d-4dd8-8119-78d8b5d485e5.011.jpeg)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![](Aspose.Words.3b43d082-0e44-4d90-a499-3c673ca8e736.011.jpeg)
 
 
 **5.2.2.4 Notificaciones**
 
 Otra área a destacar del dashboard es la de las notificaciones. En ella el usuario podrá recibir mensajes de sus amigos, así como solicitudes de amistad; fijarlas como leídas o borrarlas. Además, recibirá retos que puede aceptar o rechazar.
 
-
-
-
-
-
-![](Aspose.Words.b2bb5a36-2f3d-4dd8-8119-78d8b5d485e5.012.jpeg)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![](Aspose.Words.3b43d082-0e44-4d90-a499-3c673ca8e736.012.jpeg)
 
 
 **5.2.2.5 Amigos**
 
 En el área de amigos, el usuario podrá buscar amigos registrados en la base de datos para enviarles una solicitud de amistad, así como ver a sus amigos conectados y no conectados, enviarles un mensaje, retarles o incluso ver su perfil y estadísticas.
 
-
-
-
-
-![](Aspose.Words.b2bb5a36-2f3d-4dd8-8119-78d8b5d485e5.013.jpeg)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![](Aspose.Words.3b43d082-0e44-4d90-a499-3c673ca8e736.013.jpeg)
 
 
 **5.2.2.5 Ranking**
 
 También se tendrá acceso a un ranking de los mejores jugadores según diversos criterios como: puntos totales, media por partida, mayor puntuación en una partida...
 
-
-
-
-
-![](Aspose.Words.b2bb5a36-2f3d-4dd8-8119-78d8b5d485e5.014.jpeg)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![](Aspose.Words.3b43d082-0e44-4d90-a499-3c673ca8e736.014.jpeg)
 
 
 **5.2.3 Tablero**
@@ -785,13 +236,5 @@ También se tendrá acceso a un ranking de los mejores jugadores según diversos
 En cuanto al tablero mostrará: la puntuación de cada jugador, las diferentes jugadas realizadas, un chat que favorezca la interactividad, los avisos y noticias, el tablero, las fichas y diferentes botones con diversas funcionalidades: reglas, pasar, intercambiar fichas, reposicionar fichas, diccionario o abandonar
 
 
-
-
-
-
-![](Aspose.Words.b2bb5a36-2f3d-4dd8-8119-78d8b5d485e5.015.jpeg)
-
-
-
-
+![](Aspose.Words.3b43d082-0e44-4d90-a499-3c673ca8e736.015.jpeg)
 
