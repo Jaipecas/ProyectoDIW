@@ -20,20 +20,22 @@
     <!-- Carga los estilos css -->
     <!-- Estilos generales como los de bootstrap -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/fichero.css') }}" rel="stylesheet">
+
  
     <!-- Estilos especificos -->  
     @foreach ($css_files as $file)
         <link href="{{ asset('css/' . $file . '.css') }}" rel="stylesheet">
     @endforeach
 
+    <link href="{{ asset('css/fichero.css') }}" rel="stylesheet">
 
 </head>
 <body>
     <div id="app"> <!-- contenedor para trabajo con Vue -->
-        <header class="title">
+        {{-- <header class="title">
             {{ config('app.name', 'Laravel') . '. ' }} {{ $title ?? '' }}
-        </header>
+        </header> --}}
+        @yield('header')
         @yield('navbar')   
         @yield('content')                  
     </div>

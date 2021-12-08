@@ -1,9 +1,28 @@
 /*
+-----HEADER------
+*/
+
+.media img {
+  width: 168px;
+  height: 90px;
+}
+
+.media-body {
+  margin-top: 10px;
+}
+
+.media a img {
+  margin: 20px;
+  width: 30px;
+  height: 30px;
+}
+
+/*
 -----NAVBAR------
 */
 
 .navbar {
-  background-color: #9adeb7;
+  background-color: rgb(98, 228, 157);
 }
 
 .navbar li {
@@ -26,6 +45,12 @@
 .navbar-nav li a:active {
   border-top-color: #27b3e6;
   border-bottom: #27b3e6;
+}
+
+.affix {
+  top: 0;
+  width: 100%;
+  z-index: 9999 !important;
 }
 
 /*
