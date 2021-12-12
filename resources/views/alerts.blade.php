@@ -22,8 +22,8 @@
                 doloremque natus molestiae perspiciatis dolor placeat quam minima architecto, dignissimos
                 nostrum unde ad corporis quae, impedit error! Sapiente, distinctio?</p>
         </li>
-    </ul>
 
+    </ul>
     <ul class="pagination">
         <li class="page-item"><a class="page-link" href="#">Anterior</a></li>
         <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -31,5 +31,4 @@
         <li class="page-item"><a class="page-link" href="#">3</a></li>
         <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
     </ul>
-
 </div>

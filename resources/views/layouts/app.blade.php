@@ -36,12 +36,9 @@
 
 <body>
     <div id="app">
-        <!-- contenedor para trabajo con Vue -->
-        {{-- <header class="title">
-            {{ config('app.name', 'Laravel') . '. ' }} {{ $title ?? '' }}
-        </header> --}}
         @include('header')
         @include('navbar')
+        @yield('styles')
         @yield('content')
         @include('footer')
     </div>
