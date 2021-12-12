@@ -1,0 +1,83 @@
+/*
+-----HEADER------
+*/
+
+.media img {
+  width: 168px;
+  height: 90px;
+}
+
+.media-body {
+  margin-top: 10px;
+}
+
+.media a img {
+  margin: 20px;
+  width: 30px;
+  height: 30px;
+}
+
+/*
+-----NAVBAR------
+*/
+
+.navbar {
+  background-color: rgb(98, 228, 157);
+}
+
+.navbar li {
+  text-align: center;
+  padding: 0 10px;
+}
+
+.navbar-nav li a {
+  color: #000;
+  text-decoration: none;
+}
+
+.navbar-nav li a:hover {
+  background-color: #2ad874;
+  color: #fff;
+  border-top: 1px solid #27b3e6;
+  border-bottom: 1px solid #27b3e6;
+}
+
+.navbar-nav li a:active {
+  border-top-color: #27b3e6;
+  border-bottom: #27b3e6;
+}
+
+.affix {
+  top: 0;
+  width: 100%;
+  z-index: 9999 !important;
+}
+
+/*
+-----CARROUSEL------
+*/
+
+.carousel {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.container .carousel-item img {
+  max-height: 700px;
+}
+
+/*
+-----NOTICIAS/AVISOS-----
+*/
+
+.noticias {
+  margin-top: 10px;
+}
+
+/*
+----FOOTER----
+*/
+
+footer {
+  background-color: #2ad874;
+}

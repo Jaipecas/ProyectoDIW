@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<!-- obtiene de la configuracion (app.php) el idioma por defecto --> 
+<!-- obtiene de la configuracion (app.php) el idioma por defecto -->
 <html lang="{{ app()->getLocale() }}">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +13,7 @@
     <!-- Obtiene del fichero /config/app.php la variable name, en caso contrario
          usa Laravel. Lo une con el valor de la variable title que se le pasa desde 
          el template, con la directiva extends -->
-    <title>{{ config('app.name', 'Laravel') . '. '}} {{ $title or '' }}</title>
+    <title>{{ config('app.name', 'Laravel') . '. ' }} {{ $title or '' }}</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet">
@@ -21,23 +22,28 @@
     <!-- Estilos generales como los de bootstrap -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
- 
-    <!-- Estilos especificos -->  
+
+    <!-- Estilos especificos -->
     @foreach ($css_files as $file)
         <link href="{{ asset('css/' . $file . '.css') }}" rel="stylesheet">
     @endforeach
 
-    <link href="{{ asset('css/fichero.css') }}" rel="stylesheet">
+
+    <!-- Mis archivos css -->
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
 </head>
+
 <body>
-    <div id="app"> <!-- contenedor para trabajo con Vue -->
+    <div id="app">
+        <!-- contenedor para trabajo con Vue -->
         {{-- <header class="title">
             {{ config('app.name', 'Laravel') . '. ' }} {{ $title ?? '' }}
         </header> --}}
-        @yield('header')
-        @yield('navbar')   
-        @yield('content')                  
+        @include('header')
+        @include('navbar')
+        @yield('content')
+        @include('footer')
     </div>
 
     <!-- Scripts -->
@@ -48,4 +54,5 @@
 
     @yield('internal_script')
 </body>
+
 </html>
