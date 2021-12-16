@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!-- Generator: Gravit.io -->
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate" viewBox="0 0 400 250" width="400pt" height="250pt">
+    <defs>
+        <clipPath id="_clipPath_eFgZ21P8RnL6pM0sgZmG1lsXcbdtwcDT">
+            <rect width="400" height="250"/>
+        </clipPath>
+    </defs>
+    <g clip-path="url(#_clipPath_eFgZ21P8RnL6pM0sgZmG1lsXcbdtwcDT)">
+        <!--Lineas brazos-->
+        <line x1="153" y1="102.5" x2="183.894" y2="66" vector-effect="non-scaling-stroke" stroke-width="4" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 153 101.72" to="0 153 101.72" begin="0s" dur="1s" repeatCount="indefinite" values= "0 153 101.72; 8 153 101.72; 0 153 101.72" keyTimes="0; 0.5; 1"/>
+        </line>
+
+
+        <line x1="183.894" y1="123" x2="153" y2="101.72" vector-effect="non-scaling-stroke" stroke-width="4" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 183.894 123" to="0 183.894 123" begin="0s" dur="1s" repeatCount="indefinite" values= "0 183.894 123; -5 183.894 123; 0 183.894 123" keyTimes="0; 0.5; 1"/>
+        </line>
+
+        <line x1="248" y1="102.4" x2="217.106" y2="66" vector-effect="non-scaling-stroke" stroke-width="4" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 248 101.72" to="0 248 101.72" begin="0s" dur="1s" repeatCount="indefinite" values= "0 248 101.72; -8 248 101.72; 0 248 101.72" keyTimes="0; 0.5; 1"/>
+        </line>
+
+
+        <line x1="217.106" y1="123" x2="248" y2="101.72" vector-effect="non-scaling-stroke" stroke-width="4" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 217.106 123" to="0 217.106 123" begin="0s" dur="1s" repeatCount="indefinite" values= "0 217.106 123; 5 217.106 123; 0 217.106 123" keyTimes="0; 0.5; 1"/>
+        </line>
+
+        <!--Rectángulos copa, cabeza, cuerpo-->
+        <rect x="183.894" y="13" width="33.211" height="51" transform="matrix(1,0,0,1,0,0)" fill="rgb(255,255,0)">
+            <animate attributeName="y" attributeType="XML" from="13" to="13" begin="0s" dur="1s" repeatCount="indefinite" values="13; 25; 13" keyTimes="0; 0.5; 1"/>
+        </rect>
+        <rect x="188" y="94.36" width="24" height="28.64" transform="matrix(1,0,0,1,0,0)" fill="rgb(235,235,235)"/>
+        <rect x="183.894" y="130" width="33.211" height="68" transform="matrix(1,0,0,1,0,0)" fill="rgb(235,235,235)"/>
+
+        <!--Piernas-->
+        <line x1="195" y1="238" x2="195" y2="198" vector-effect="non-scaling-stroke" stroke-width="4" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+        <line x1="207" y1="238" x2="207" y2="198" vector-effect="non-scaling-stroke" stroke-width="4" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+    </g>
+</svg>
