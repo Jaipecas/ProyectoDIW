@@ -13,7 +13,7 @@
             {{-- listado --}}
             <ul class="navbar-nav">
                 <li class="nav-item active"><a class="nav-link" href="/gutenberg">Gutenberg</a></li>
-                <li class="nav-item active"><a class="nav-link" href="#">Disfusión imprenta</a></li>
+                <li class="nav-item active"><a class="nav-link" href="/difusion-imprenta">Disfusión imprenta</a></li>
                 <li class="nav-item active"><a class="nav-link" href="/trabajos-imprenta">Trabajos imprenta</a></li>
                 <li class="nav-item active"><a class="nav-link" href="#">Primeros libros</a></li>
                 <li class="nav-item active"><a class="nav-link" href="#">Imprenta valenciana</a></li>
