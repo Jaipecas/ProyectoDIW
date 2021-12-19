@@ -1,0 +1,26 @@
+.carousel-inner > .carousel-item:nth-child(2n) > img {
+  max-width: 1200px;
+  height: 570px;
+}
+
+.carousel-inner > .carousel-item:nth-child(2n + 1) > img {
+  max-width: 450px;
+  height: 570px;
+}
+
+/* Las imagenes de dentro del carousel se adaptan segun el tamaño de la pantalla 
+dependiendo de las dimensioes de la imagen
+
+REPASAR EL EL TAMAÑO DE LA FOTO DEL MEDIO */
+
+@media all and (min-width: 0) and (max-width: 576px) {
+  .carousel-inner > .carousel-item:nth-child(2n) > img {
+    max-height: 200px;
+  }
+}
+
+@media all and (min-width: 576px) and (max-width: 800px) {
+  .carousel-inner > .carousel-item:nth-child(2n) > img {
+    max-height: 700px;
+  }
+}

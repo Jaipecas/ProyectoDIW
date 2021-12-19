@@ -15,8 +15,8 @@
                 <li class="nav-item active"><a class="nav-link" href="/gutenberg">Gutenberg</a></li>
                 <li class="nav-item active"><a class="nav-link" href="/difusion-imprenta">Disfusión imprenta</a></li>
                 <li class="nav-item active"><a class="nav-link" href="/trabajos-imprenta">Trabajos imprenta</a></li>
-                <li class="nav-item active"><a class="nav-link" href="#">Primeros libros</a></li>
-                <li class="nav-item active"><a class="nav-link" href="#">Imprenta valenciana</a></li>
+                <li class="nav-item active"><a class="nav-link" href="/primeros-libros">Primeros libros</a></li>
+                <li class="nav-item active"><a class="nav-link" href="/imprenta-valenciana">Imprenta valenciana</a></li>
 
             </ul>
         </div>

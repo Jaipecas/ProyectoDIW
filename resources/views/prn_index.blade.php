@@ -35,7 +35,7 @@
                     {{-- imagenes --}}
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="d-block w-100" src="../img/ola.jpg" alt="First slide">
+                            <img class="img-fluid d-block w-100" src="../img/ola.jpg" alt="First slide">
                         </div>
                         <div class="carousel-item">
                             <img class="d-block w-100" src="../img/ola.jpg" alt="Second slide">
