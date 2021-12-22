@@ -48,4 +48,7 @@
   "[blade]": {
     "editor.defaultFormatter": "shufo.vscode-blade-formatter"
   },
+  "[xml]": {
+    "editor.defaultFormatter": "DotJoshJohnson.xml"
+  },
 }

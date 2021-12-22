@@ -17,7 +17,7 @@
                 <li class="nav-item active"><a class="nav-link" href="/trabajos-imprenta">Trabajos imprenta</a></li>
                 <li class="nav-item active"><a class="nav-link" href="/primeros-libros">Primeros libros</a></li>
                 <li class="nav-item active"><a class="nav-link" href="/imprenta-valenciana">Imprenta valenciana</a></li>
-
+                <li class="nav-item active"><a class="nav-link" href="/scrabble">Scrabble</a></li>
             </ul>
         </div>
     </div>

@@ -1,16 +1,5 @@
-@extends('layouts.app',
-['title' => 'Info Scrabble', 'css_files' => ['test_scr_index'],
-'js_files' => ['test_scr_index']])
-
-@section('styles')
-    <link href="{{ asset('css/primerosLibros.css') }}" rel="stylesheet">
-@endsection
-
-@section('content')
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-9 col-md-12 mt-3">
-                <svg class="img-fluid" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!-- Generator: Gravit.io -->
+<svg class="img-fluid" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     style="isolation:isolate" viewBox="0 0 700 550" width="700pt" height="550pt">
                     <defs>
                         <clipPath id="_clipPath_bJasShGMlGSo5gRhtaRplFbnV2MHflW7">
@@ -35,6 +24,10 @@
                             fill="rgb(232,192,133)" />
                         <rect x="332.966" y="188.918" width="41" height="51" transform="matrix(1,0,0,1,0,0)"
                             fill="rgb(74,134,232)" />
+                        <ellipse vector-effect="non-scaling-stroke" cx="354.65275593750255" cy="114.63483075003944"
+                            rx="17.686877818341713" ry="6.2633433731851085" fill="rgb(232,232,1)" />
+                        <rect x="350.84" y="93.371" width="8" height="21.263" transform="matrix(1,0,0,1,0,0)"
+                            fill="rgb(232,232,1)" />
                         <rect x="333.216" y="239.918" width="16" height="23" transform="matrix(1,0,0,1,0,0)"
                             fill="rgb(158,180,217)" />
                         <rect x="357.466" y="239.918" width="16" height="23" transform="matrix(1,0,0,1,0,0)"
@@ -47,6 +40,10 @@
                             fill="rgb(235,235,235)" />
                         <rect x="357.466" y="306.918" width="22.197" height="11" transform="matrix(1,0,0,1,0,0)"
                             fill="rgb(235,235,235)" />
+                        <ellipse vector-effect="non-scaling-stroke" cx="355.0896337558443" cy="90.67357588395359"
+                            rx="16.250000000000057" ry="8.119613299048424" fill="rgb(232,232,1)" />
+                        <rect x="338.84" y="69.082" width="32.5" height="21.591" transform="matrix(1,0,0,1,0,0)"
+                            fill="rgb(232,232,1)" />
                         <rect x="357.466" y="149.918" width="8" height="8" transform="matrix(1,0,0,1,0,0)"
                             fill="rgb(232,192,133)" />
                         <rect x="341.466" y="149.918" width="8" height="8" transform="matrix(1,0,0,1,0,0)"
@@ -67,6 +64,10 @@
                             fill="rgb(232,192,133)" />
                         <rect x="224.732" y="262.753" width="41" height="51" transform="matrix(1,0,0,1,0,0)"
                             fill="rgb(221,91,68)" />
+                        <ellipse vector-effect="non-scaling-stroke" cx="245.04502749779178" cy="189.4701541901835"
+                            rx="17.686877818341742" ry="6.2633433731851085" fill="rgb(200,197,197)" />
+                        <rect x="240.858" y="168.207" width="8" height="21.263" transform="matrix(1,0,0,1,0,0)"
+                            fill="rgb(200,197,197)" />
                         <rect x="249.482" y="313.753" width="16" height="23" transform="matrix(1,0,0,1,0,0)"
                             fill="rgb(158,180,217)" />
                         <rect x="225.232" y="313.753" width="16" height="23" transform="matrix(1,0,0,1,0,0)"
@@ -79,6 +80,10 @@
                             fill="rgb(235,235,235)" />
                         <rect x="219.035" y="380.753" width="22.197" height="11" transform="matrix(1,0,0,1,0,0)"
                             fill="rgb(235,235,235)" />
+                        <ellipse vector-effect="non-scaling-stroke" cx="244.60814967945026" cy="165.5088993240971"
+                            rx="16.250000000000057" ry="8.119613299048439" fill="rgb(200,197,197)" />
+                        <rect x="228.358" y="143.918" width="32.5" height="21.591" transform="matrix(1,0,0,1,0,0)"
+                            fill="rgb(200,197,197)" />
                         <rect x="233.232" y="223.753" width="8" height="8" transform="matrix(1,0,0,1,0,0)"
                             fill="rgb(232,192,133)" />
                         <rect x="249.232" y="223.753" width="8" height="8" transform="matrix(1,0,0,1,0,0)"
@@ -105,6 +110,10 @@
                             fill="rgb(232,192,133)" />
                         <rect x="435.732" y="286.753" width="41" height="51" transform="matrix(1,0,0,1,0,0)"
                             fill="rgb(128,221,162)" />
+                        <ellipse vector-effect="non-scaling-stroke" cx="456.0450274977917" cy="211.4701541901832"
+                            rx="17.686877818341713" ry="6.2633433731851085" fill="rgb(205,127,50)" />
+                        <rect x="451.858" y="190.207" width="8" height="21.263" transform="matrix(1,0,0,1,0,0)"
+                            fill="rgb(205,127,50)" />
                         <rect x="460.482" y="337.753" width="16" height="23" transform="matrix(1,0,0,1,0,0)"
                             fill="rgb(158,180,217)" />
                         <rect x="436.232" y="337.753" width="16" height="23" transform="matrix(1,0,0,1,0,0)"
@@ -117,60 +126,17 @@
                             fill="rgb(235,235,235)" />
                         <rect x="430.035" y="404.753" width="22.197" height="11" transform="matrix(1,0,0,1,0,0)"
                             fill="rgb(235,235,235)" />
+                        <ellipse vector-effect="non-scaling-stroke" cx="455.60814967944884" cy="187.5088993240972"
+                            rx="16.250000000000057" ry="8.119613299048439" fill="rgb(205,127,50)" />
+                        <rect x="439.358" y="165.918" width="32.5" height="21.591" transform="matrix(1,0,0,1,0,0)"
+                            fill="rgb(205,127,50)" />
                         <rect x="444.232" y="247.753" width="8" height="8" transform="matrix(1,0,0,1,0,0)"
                             fill="rgb(232,192,133)" />
                         <rect x="460.232" y="247.753" width="8" height="8" transform="matrix(1,0,0,1,0,0)"
                             fill="rgb(232,192,133)" />
 
-                        <!--PARTES DEL SVG ANIMADAS-->
 
-                        <!--copa de oro-->
-                        <g>
-                            <ellipse vector-effect="non-scaling-stroke" cx="354.65275593750255" cy="114.63483075003944"
-                                rx="17.686877818341713" ry="6.2633433731851085" fill="rgb(232,232,1)" />
-                            <rect x="350.84" y="93.371" width="8" height="21.263" transform="matrix(1,0,0,1,0,0)"
-                                fill="rgb(232,232,1)" />
-                            <ellipse vector-effect="non-scaling-stroke" cx="355.0896337558443" cy="90.67357588395359"
-                                rx="16.250000000000057" ry="8.119613299048424" fill="rgb(232,232,1)" />
-                            <rect x="338.84" y="69.082" width="32.5" height="21.591" transform="matrix(1,0,0,1,0,0)"
-                                fill="rgb(232,232,1)" />
-                            <animateTransform attributeType="XML" attributeName="transform" type="translate" from="0 0"
-                                to="0 0" begin="0s" dur="1" repeatCount="indefinite" values="0 0 ; 0 -10 ; 0 0"
-                                keyTimes="0; 0.5; 1" />
-                        </g>
-
-                         <!--copa de plata-->
-                        <g>
-                            <ellipse vector-effect="non-scaling-stroke" cx="245.04502749779178" cy="189.4701541901835"
-                                rx="17.686877818341742" ry="6.2633433731851085" fill="rgb(200,197,197)" />
-                            <rect x="240.858" y="168.207" width="8" height="21.263" transform="matrix(1,0,0,1,0,0)"
-                                fill="rgb(200,197,197)" />
-                            <ellipse vector-effect="non-scaling-stroke" cx="244.60814967945026" cy="165.5088993240971"
-                                rx="16.250000000000057" ry="8.119613299048439" fill="rgb(200,197,197)" />
-                            <rect x="228.358" y="143.918" width="32.5" height="21.591" transform="matrix(1,0,0,1,0,0)"
-                                fill="rgb(200,197,197)" />
-                            <animateTransform attributeType="XML" attributeName="transform" type="translate" from="0 0"
-                                to="0 0" begin="0s" dur="1" repeatCount="indefinite" values="0 0 ; 0 -10 ; 0 0"
-                                keyTimes="0; 0.5; 1" />
-                        </g>
-
-                        <!--copa de bronce-->
-                        <g>
-                            <ellipse vector-effect="non-scaling-stroke" cx="456.0450274977917" cy="211.4701541901832"
-                                rx="17.686877818341713" ry="6.2633433731851085" fill="rgb(205,127,50)" />
-                            <rect x="451.858" y="190.207" width="8" height="21.263" transform="matrix(1,0,0,1,0,0)"
-                                fill="rgb(205,127,50)" />
-                            <ellipse vector-effect="non-scaling-stroke" cx="455.60814967944884" cy="187.5088993240972"
-                                rx="16.250000000000057" ry="8.119613299048439" fill="rgb(205,127,50)" />
-                            <rect x="439.358" y="165.918" width="32.5" height="21.591" transform="matrix(1,0,0,1,0,0)"
-                                fill="rgb(205,127,50)" />
-                                <animateTransform attributeType="XML" attributeName="transform" type="translate" from="0 0"
-                                to="0 0" begin="0s" dur="1" repeatCount="indefinite" values="0 0 ; 0 -10 ; 0 0"
-                                keyTimes="0; 0.5; 1" />
-                        </g>
-
-
-                        <!--Primer muchacho-->
+                        <!--Primero -->
 
                         <!-- biceps izq -->
                         <line x1="332.966" y1="188.918" x2="302.502" y2="157.753" vector-effect="non-scaling-stroke"
@@ -183,133 +149,99 @@
                         </line>
 
                         <!-- antebrazo izq -->
-                        <line x1="306.002" y1="153.696" x2="332.966" y2="119.943" vector-effect="non-scaling-stroke"
+                        <line x1="306.002" y1="154.696" x2="332.966" y2="122.943" vector-effect="non-scaling-stroke"
                             stroke-width="8" stroke="rgb(247,220,181)" stroke-linejoin="miter" stroke-linecap="square"
                             stroke-miterlimit="3">
 
                             <animateTransform attributeName="transform" attributeType="XML" type="rotate"
-                                from="0 302.002 155.696" to="0 302.002 155.696" begin="0s" dur="1s" repeatCount="indefinite"
-                                values="0 302.002 155.696; -5 302.002 155.696; 0 302.002 155.696" keyTimes="0; 0.5; 1" />
-
+                                from="0 306.002 154.696" to="0 306.002 154.696" begin="0s" dur="1s" repeatCount="indefinite"
+                                values="0 306.002 154.696; -5 306.002 154.696; 0 306.002 154.696" keyTimes="0; 0.5; 1" />
                         </line>
 
                         <!--biceps der-->
-                        <line x1="375.502" y1="188.918" x2="405.966" y2="157.753" vector-effect="non-scaling-stroke"
+                        <line x1="375.502" y1="188.918" x2="404.966" y2="157.753" vector-effect="non-scaling-stroke"
                             stroke-width="8" stroke="rgb(247,220,181)" stroke-linejoin="miter" stroke-linecap="square"
                             stroke-miterlimit="3">
 
                             <animateTransform attributeName="transform" attributeType="XML" type="rotate"
                                 from="0 375.502 188.918" to="0 375.502 188.918" begin="0s" dur="1s" repeatCount="indefinite"
                                 values="0 375.502 188.918; -8 375.502 188.918; 0 375.502 188.918" keyTimes="0; 0.5; 1" />
-
                         </line>
 
                         <!-- antebrazo der -->
-                        <line x1="402.966" y1="153.696" x2="376.002" y2="119.943" vector-effect="non-scaling-stroke"
+                        <line x1="401.966" y1="155.696" x2="374.002" y2="119.943" vector-effect="non-scaling-stroke"
                             stroke-width="8" stroke="rgb(247,220,181)" stroke-linejoin="miter" stroke-linecap="square"
                             stroke-miterlimit="3">
 
-                            <animateTransform attributeName="transform" attributeType="XML" type="rotate"
-                                from="0 406.966 155.696" to="0 406.966 155.696" begin="0s" dur="1s" repeatCount="indefinite"
-                                values="0 406.966 155.696; 5 406.966 155.696; 0 406.966 155.696" keyTimes="0; 0.5; 1" />
+                        <animateTransform attributeName="transform" attributeType="XML" type="rotate"
+                            from="0 406.966 154.696" to="0 406.966 154.696" begin="0s" dur="1s" repeatCount="indefinite"
+                            values="0 406.966 154.696; 5 406.966 154.696; 0 406.966 154.696" keyTimes="0; 0.5; 1" />
 
                         </line>
 
-
-                        <!--Segundo muchacho-->
+                        <!--Segundo -->
 
                         <!-- antebrazo izq -->
-                        <line x1="198.268" y1="228.753" x2="225.232" y2="196" vector-effect="non-scaling-stroke"
-                            stroke-width="8" stroke="rgb(247,220,181)" stroke-linejoin="miter" stroke-linecap="square"
-                            stroke-miterlimit="3">
+                        <line x1="194.268" y1="231.753" x2="225.232" y2="196" vector-effect="non-scaling-stroke"
+                            stroke-width="7" stroke="rgb(247,220,181)" stroke-linejoin="miter" stroke-linecap="square"
+                            stroke-miterlimit="3" >
 
                             <animateTransform attributeName="transform" attributeType="XML" type="rotate"
-                                from="0 194.268 231.753" to="0 194.268 231.753" begin="0s" dur="1s" repeatCount="indefinite"
-                                values="0 194.268 231.753; -5 194.268 231.753; 0 194.268 231.753" keyTimes="0; 0.5; 1" />
+                            from="0 194.268 231.753" to="0 194.268 231.753" begin="0s" dur="1s" repeatCount="indefinite"
+                            values="0 194.268 231.753; -5 194.268 231.753; 0 194.268 231.753" keyTimes="0; 0.5; 1" />
 
                         </line>
 
                         <!-- biceps izq -->
                         <line x1="224.732" y1="262.918" x2="194.268" y2="231.753" vector-effect="non-scaling-stroke"
-                            stroke-width="8" stroke="rgb(247,220,181)" stroke-linejoin="miter" stroke-linecap="square"
-                            stroke-miterlimit="3">
-
-                            <animateTransform attributeName="transform" attributeType="XML" type="rotate"
-                                from="0 224.732 262.918" to="0 224.732 262.918" begin="0s" dur="1s" repeatCount="indefinite"
-                                values="0 224.732 262.918; 8 224.732 262.918; 0 224.732 262.918" keyTimes="0; 0.5; 1" />
-
-                        </line>
+                            stroke-width="7" stroke="rgb(247,220,181)" stroke-linejoin="miter" stroke-linecap="square"
+                            stroke-miterlimit="3" />
 
                         <!--biceps der-->
                         <line x1="266.268" y1="262.918" x2="296.732" y2="231.753" vector-effect="non-scaling-stroke"
-                            stroke-width="8" stroke="rgb(247,220,181)" stroke-linejoin="miter" stroke-linecap="square"
-                            stroke-miterlimit="3">
+                            stroke-width="7" stroke="rgb(247,220,181)" stroke-linejoin="miter" stroke-linecap="square"
+                            stroke-miterlimit="3" >
 
                             <animateTransform attributeName="transform" attributeType="XML" type="rotate"
-                                from="0 266.268 262.918" to="0 266.268 262.918" begin="0s" dur="1s" repeatCount="indefinite"
-                                values="0 266.268 262.918; -8 266.268 262.918; 0 266.268 262.918" keyTimes="0; 0.5; 1" />
+                            from="0 266.268 262.918" to="0 266.268 262.918" begin="0s" dur="1s" repeatCount="indefinite"
+                            values="0 266.268 262.918; -8 266.268 262.918; 0 266.268 262.918" keyTimes="0; 0.5; 1" />
 
                         </line>
 
                         <!-- antebrazo der -->
-                        <line x1="293.232" y1="228.753" x2="266.268" y2="196" vector-effect="non-scaling-stroke"
-                            stroke-width="8" stroke="rgb(247,220,181)" stroke-linejoin="miter" stroke-linecap="square"
+                        <line x1="297.232" y1="231.753" x2="266.268" y2="196" vector-effect="non-scaling-stroke"
+                            stroke-width="7" stroke="rgb(247,220,181)" stroke-linejoin="miter" stroke-linecap="square"
                             stroke-miterlimit="3">
 
                             <animateTransform attributeName="transform" attributeType="XML" type="rotate"
-                                from="0 297.232 231.753" to="0 297.232 231.753" begin="0s" dur="1s" repeatCount="indefinite"
-                                values="0 297.232 231.753; 5 297.232 231.753; 0 297.232 231.753" keyTimes="0; 0.5; 1" />
+                            from="0 297.232 231.753" to="0 297.232 231.753" begin="0s" dur="1s" repeatCount="indefinite"
+                            values="0 297.232 231.753; 5 297.232 231.753; 0 297.232 231.753" keyTimes="0; 0.5; 1" />
 
                         </line>
 
 
-                        <!--Tercer muchacho -->
-
-                        <!--antebrazo izq-->
-                        <line x1="408.116" y1="251.543" x2="435.08" y2="217.79" vector-effect="non-scaling-stroke"
-                            stroke-width="8" stroke="rgb(247,220,181)" stroke-linejoin="miter" stroke-linecap="square"
-                            stroke-miterlimit="3">
-
-                            <animateTransform attributeName="transform" attributeType="XML" type="rotate"
-                                from="0 404.116 253.543" to="0 404.116 253.543" begin="0s" dur="1s" repeatCount="indefinite"
-                                values="0 404.116 253.543; -5 404.116 253.543; 0 404.116 253.543" keyTimes="0; 0.5; 1" />
-
-                        </line>
-
-                        <!--Antebrazo der-->
-                        <line x1="504.08" y1="251.543" x2="477.116" y2="217.79" vector-effect="non-scaling-stroke"
-                            stroke-width="8" stroke="rgb(247,220,181)" stroke-linejoin="miter" stroke-linecap="square"
-                            stroke-miterlimit="3">
-
-                            <animateTransform attributeName="transform" attributeType="XML" type="rotate"
-                                from="0 508.08 253.543" to="0 508.08 253.543" begin="0s" dur="1s" repeatCount="indefinite"
-                                values="0 508.08 253.543; 5 508.08 253.543; 0 508.08 253.543" keyTimes="0; 0.5; 1" />
-
-                        </line>
-
-
-                        <!-- biceps der-->
-                        <line x1="478.268" y1="286.765" x2="508.732" y2="255.6" vector-effect="non-scaling-stroke"
-                            stroke-width="8" stroke="rgb(247,220,181)" stroke-linejoin="miter" stroke-linecap="square"
-                            stroke-miterlimit="3">
-
-                            <animateTransform attributeName="transform" attributeType="XML" type="rotate"
-                                from="0 478.268 286.765" to="0 478.268 286.765" begin="0s" dur="1s" repeatCount="indefinite"
-                                values="0 478.268 286.765; -8 478.268 286.765; 0 478.268 286.765" keyTimes="0; 0.5; 1" />
-
-                        </line>
+                        <!--Tercero -->
 
                         <!-- biceps izq-->
+                        <line x1="404.116" y1="253.543" x2="435.08" y2="217.79" vector-effect="non-scaling-stroke"
+                            stroke-width="7" stroke="rgb(247,220,181)" stroke-linejoin="miter" stroke-linecap="square"
+                            stroke-miterlimit="3" />
+
+                        <!-- biceps der-->
+                        <line x1="508.08" y1="253.543" x2="477.116" y2="217.79" vector-effect="non-scaling-stroke"
+                            stroke-width="7" stroke="rgb(247,220,181)" stroke-linejoin="miter" stroke-linecap="square"
+                            stroke-miterlimit="3" />
+
+                        <!--Antebrazo der-->
+                        <line x1="478.268" y1="286.765" x2="508.732" y2="255.6" vector-effect="non-scaling-stroke"
+                            stroke-width="7" stroke="rgb(247,220,181)" stroke-linejoin="miter" stroke-linecap="square"
+                            stroke-miterlimit="3" />
+
+                        <!--antebrazo izq-->
 
                         <line x1="434.732" y1="286.765" x2="404.268" y2="255.6" vector-effect="non-scaling-stroke"
-                            stroke-width="8" stroke="rgb(247,220,181)" stroke-linejoin="miter" stroke-linecap="square"
-                            stroke-miterlimit="3">
-
-                            <animateTransform attributeName="transform" attributeType="XML" type="rotate"
-                                from="0 434.732 286.765" to="0 434.732 286.765" begin="0s" dur="1s" repeatCount="indefinite"
-                                values="0 434.732 286.765; 8 434.732 286.765; 0 434.732 286.765" keyTimes="0; 0.5; 1" />
-
-                        </line>
+                            stroke-width="7" stroke="rgb(247,220,181)" stroke-linejoin="miter" stroke-linecap="square"
+                            stroke-miterlimit="3" />
 
                         <g>
                             <path
@@ -324,35 +256,3 @@
                         </g>
                     </g>
                 </svg>
-
-                <ul>
-                    <li class="input-menu"><a href="{{ route('register') }}">Registro</a></li>
-                    <li class="input-menu upper-margin"><a href="{{ route('login') }}">Login</a></li>
-                    <li class="input-menu upper-margin"><a v-on:click.prevent="ranking" href="#">Ranking usuarios</a></li>
-                    <li class="input-menu"><a v-on:click.prevent="currentGames" href="#">Últimas partidas en juego</a>
-                    </li>
-                    <li class="input-menu"><a v-on:click.prevent="generalInfo" href="#">Información sobre el sistema</a>
-                    </li>
-                </ul>
-
-            </div>
-            <div class="col-lg-3 col-md-12">
-                @include('alerts')
-                @include('news')
-            </div>
-        </div>
-    </div>
-@endsection
-
-{{-- @section('content')
-    <aside class="sidebar">
-        <ul>
-            <li class="input-menu"><a href="{{ route('register') }}">Registro</a></li>
-            <li class="input-menu upper-margin"><a href="{{ route('login') }}">Login</a></li>
-            <li class="input-menu upper-margin"><a v-on:click.prevent="ranking" href="#">Ranking usuarios</a></li>
-            <li class="input-menu"><a v-on:click.prevent="currentGames" href="#">Últimas partidas en juego</a></li>
-            <li class="input-menu"><a v-on:click.prevent="generalInfo" href="#">Información sobre el sistema</a></li>
-        </ul>
-    </aside>
-    <card-container-component :cards="c_cards"></card-container-component>
-@endsection --}}

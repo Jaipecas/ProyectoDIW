@@ -14,7 +14,10 @@
 
 
         <line x1="183.894" y1="123" x2="153" y2="101.72" vector-effect="non-scaling-stroke" stroke-width="4" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3">
-            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 183.894 123" to="0 183.894 123" begin="0s" dur="1s" repeatCount="indefinite" values= "0 183.894 123; -5 183.894 123; 0 183.894 123" keyTimes="0; 0.5; 1"/>
+            <animateTransform attributeName="transform" attributeType="XML"
+             type="rotate" from="0 183.894 123" to="0 183.894 123" begin="0s" 
+             dur="1s" repeatCount="indefinite" 
+             values= "0 183.894 123; -5 183.894 123; 0 183.894 123" keyTimes="0; 0.5; 1"/>
         </line>
 
         <line x1="248" y1="102.4" x2="217.106" y2="66" vector-effect="non-scaling-stroke" stroke-width="4" stroke="rgb(0,0,0)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3">
