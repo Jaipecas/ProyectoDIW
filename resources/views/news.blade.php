@@ -1,7 +1,7 @@
 <!-- Noticias -->
 <div class="noticias">
     <ul class="list-group">
-        <li class="list-group-item active">
+        <li class="list-group-item">
             <h4>Noticias</h4>
         </li>
         <li class="list-group-item">

@@ -1,6 +1,23 @@
+:root {
+  /* Paleta de colores */
+  --color-primary: #e1a462;
+  --color-primary2: #b79272;
+  --color-secondary: #68aec9;
+  --color-secondary2: #a9d8de;
+}
+
 /*
 -----HEADER------
 */
+
+.media {
+  background-color: var(--color-primary);
+  font-size: 1.3rem;
+}
+
+.media-heading {
+  font-weight: bold;
+}
 
 .media img {
   width: 168px;
@@ -22,7 +39,7 @@
 */
 
 .navbar {
-  background-color: rgb(98, 228, 157);
+  background-color: var(--color-primary2);
 }
 
 .navbar li {
@@ -36,10 +53,9 @@
 }
 
 .navbar-nav li a:hover {
-  background-color: #2ad874;
+  background-color: var(--color-secondary);
   color: #fff;
-  border-top: 1px solid #27b3e6;
-  border-bottom: 1px solid #27b3e6;
+  border-bottom: 3px solid var(--color-secondary2);
 }
 
 .navbar-nav li a:active {
@@ -74,10 +90,22 @@
   margin-top: 10px;
 }
 
+.list-group-item:first-child {
+  background-color: var(--color-secondary);
+}
+
 /*
 ----FOOTER----
 */
 
 footer {
   background-color: #2ad874;
+}
+
+/*
+---CONTENIDO REPETIDO---
+*/
+
+.jumbotron {
+  background-color: var(--color-secondary2);
 }

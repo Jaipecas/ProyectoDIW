@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="row">
             <!-- Contenedor principal -->
-            <div class="col-lg-9 col-md-8">
+            <div class="col-lg-9 col-md-8 my-3">
                 <div class="jumbotron">
                     <div class="container">
                         <h2>Bienvenidos,</h2>
