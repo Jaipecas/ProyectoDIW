@@ -1,3 +1,7 @@
+/********
+---$Cartas estadíticas juego----
+*********/
+
 .cardgold {
   background-color: #ffd700;
 }
@@ -18,19 +22,23 @@
 }
 
 .card-estadistica {
-  border-color: #45f5ed;
+  border-color: var(--color-secondary);
   text-align: center;
 }
 
 .card-estadistica .card-header {
-  background-color: #45f5ed;
+  background-color: var(--color-secondary);
 }
 
 .card-estadistica:hover {
   background-color: #e5fcfb;
-  border: 2.5px solid #45f5ed;
+  border: 2.5px solid var(--color-secondary);
   transform: scale(1.04);
 }
+
+/********
+---$Reglas de juego---
+********/
 
 .reglas-juego {
   border: 1px solid #000;

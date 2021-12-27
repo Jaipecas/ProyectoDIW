@@ -10,6 +10,6 @@
     </div>
     {{-- acceso login --}}
     <div class="media-right">
-        <a href="#"><img src="../img/ola.jpg" alt="accesoLogin"></a>
+        <a href="#"><img src="../img/user.png" alt="accesoLogin"></a>
     </div>
 </div>

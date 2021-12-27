@@ -10,6 +10,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-9 col-md-12 mt-3">
+                <h2>Difusión de la imprenta</h2>
                 <p>La idea de Gutenberg de las letras individuales grabadas en metal se difunde
                     por Europa. Comienza en MAINZ (hacia 1450) y, posteriormente, van apareciendo las principales ciudades
                     en donde se instalan imprentas:</p>

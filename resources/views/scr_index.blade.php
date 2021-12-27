@@ -416,7 +416,6 @@
                 <div class="row my-4">
                     <div class="container-fluid">
                         <div class="card-deck">
-
                             <div class="card card-estadistica">
                                 <div class="card-header">Total jugadores hoy</div>
                                 <div class="card-body">

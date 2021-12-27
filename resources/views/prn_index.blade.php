@@ -24,42 +24,42 @@
                         </p>
                     </div>
                 </div>
-
-                <div id="carouselImprenta" class="carousel slide" data-ride="carousel">
-                    {{-- listado MIRAR EL EJEMPLO DEL ALFREDO PARA AÑADIR COSAS --}}
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselImprenta" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselImprenta" data-slide-to="1"></li>
-                        <li data-target="#carouselImprenta" data-slide-to="2"></li>
-                    </ol>
-                    {{-- imagenes --}}
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="img-fluid d-block w-100" src="../img/ola.jpg" alt="First slide">
+                <div class="container">
+                    <div id="carouselImprenta" class="carousel slide" data-ride="carousel">
+                        {{-- listado --}}
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselImprenta" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselImprenta" data-slide-to="1"></li>
+                            <li data-target="#carouselImprenta" data-slide-to="2"></li>
+                        </ol>
+                        {{-- imagenes --}}
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="../img/09 Trabajadores imprenta 2.jpg" alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="../img/06 tipos moviles metal gutenberg.jpg"
+                                    alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="../img/13 el comprensorium.jpg" alt="Third slide">
+                            </div>
                         </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="../img/ola.jpg" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="../img/ola.jpg" alt="Third slide">
-                        </div>
+                        {{-- botones --}}
+                        <a class="carousel-control-prev" href="#carouselImprenta" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselImprenta" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </a>
                     </div>
-                    {{-- botones --}}
-                    <a class="carousel-control-prev" href="#carouselImprenta" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselImprenta" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    </a>
-
                 </div>
             </div>
             <!--Avisos y Noticias-->
             <div class="col-lg-3 col-md-4">
                 @include('alerts')
-                @include('news')            
+                @include('news')
             </div>
         </div>
     </div>
 @endsection
-

@@ -27,22 +27,22 @@
                             <div class="carousel-item active">
                                 <img class="d-block w-100" src="../img/12 les trobes.jpg" alt="First slide">
                                 <div class="carousel-caption">
-                                    <h3>Chicago</h3>
-                                    <p>Thank you, Chicago!</p>
+                                    <h3>1474</h3>
+                                    <p>Obres o trobes en laors de la Verge Maria</p>
                                   </div> 
                             </div>
                             <div class="carousel-item">
                                 <img class="d-block w-100" src="../img/13 el comprensorium.jpg" alt="Second slide">
                                 <div class="carousel-caption">
-                                    <h3>Chicago</h3>
-                                    <p>Thank you, Chicago!</p>
+                                    <h3>1475</h3>
+                                    <p>Comprehensorium</p>
                                   </div> 
                             </div>
                             <div class="carousel-item">
                                 <img class="d-block w-100" src="../img/14 valencian bible.jpg" alt="Third slide">
                                 <div class="carousel-caption">
-                                    <h3>Chicago</h3>
-                                    <p>Thank you, Chicago!</p>
+                                    <h3>1478</h3>
+                                    <p>Biblia valenciana</p>
                                   </div> 
                             </div>
                         </div>

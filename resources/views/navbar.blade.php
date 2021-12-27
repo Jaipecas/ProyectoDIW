@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarImprenta">
             {{-- imagen navbar --}}
             <a class="navbar-brand" href="/">
-                <img src="../img/ola.jpg" width="30" height="30" alt="">
+                <img src="../img/home.png" width="30" height="30" alt="">
             </a>
             {{-- listado --}}
             <ul class="navbar-nav">
