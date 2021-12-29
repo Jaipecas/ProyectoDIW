@@ -33,7 +33,7 @@
 .card-estadistica:hover {
   background-color: #e5fcfb;
   border: 2.5px solid var(--color-secondary);
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
 /********

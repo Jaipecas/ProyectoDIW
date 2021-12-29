@@ -1,6 +1,5 @@
 <footer>
     <div class="container py-4">
-        <!--Iconos redes sociales-->
         <div class="row">
             <div class="col-lg-6 col-md-12">
                 <h4>CONTACTO</h4>
