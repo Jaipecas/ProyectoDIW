@@ -6,6 +6,11 @@
   --color-secondary2: #a9d8de;
 }
 
+h2,
+h4 {
+  font-weight: bold;
+}
+
 /*
 -----$HEADER------
 */
@@ -63,6 +68,7 @@
   border-bottom: #27b3e6;
 }
 
+/*  Fija la barra de navegación REVISAR NO SE FIJA */
 .affix {
   top: 0;
   width: 100%;
@@ -115,16 +121,11 @@ footer .fa:hover {
 }
 
 /*
----$CONTROLES INDEX---
+---$COMPONENTES REPETIDOS---
 */
 
 .jumbotron {
   background-color: var(--color-secondary2);
-}
-
-h2,
-h4 {
-  font-weight: bold;
 }
 
 .carousel {

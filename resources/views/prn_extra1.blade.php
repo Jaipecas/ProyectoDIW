@@ -2,9 +2,6 @@
 ['title' => 'Info Imprenta', 'css_files' => [],
 'js_files' => []])
 
-@section('styles')
-
-@endsection
 
 @section('content')
     <div class="container">

@@ -121,14 +121,14 @@
                     <h2>En resumen...</h2>
                     <p>Gutenberg confeccionó un abecedario con letras y signos de
                         plomo. Su idea fue eficaz porque la perfeccionó con:</p>
-                    <ul class="list-group">
-                        <li class="list-group-item">Letras móviles</li>
-                        <li class="list-group-item">Molde de metal</li>
-                        <li class="list-group-item">Fundidor de tipos o aparato de fundición manual</li>
-                        <li class="list-group-item">Aleación especial de metales para fabricar los móviles (plomo, antimonio
+                    <ul>
+                        <li>Letras móviles</li>
+                        <li>Molde de metal</li>
+                        <li>Fundidor de tipos o aparato de fundición manual</li>
+                        <li>Aleación especial de metales para fabricar los móviles (plomo, antimonio
                             y bismuto)</li>
-                        <li class="list-group-item">Prensa de madera anclada al suelo y al techo</li>
-                        <li class="list-group-item">Tinta de imprimir en un determinado papel</li>
+                        <li>Prensa de madera anclada al suelo y al techo</li>
+                        <li>Tinta de imprimir en un determinado papel</li>
                     </ul>
                 </div>
             </div>
