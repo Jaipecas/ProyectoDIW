@@ -81,71 +81,71 @@ Placa imprenta Patricio Mey. Foto de José M. Marín. Con autorización de publi
 
 Calle San Vicente numero 3 de València. Foto de José M. Marín. Con autorización de publicación
 
-![Alt-Text](/public/img/0regla1.1.png)
+![Alt-Text](/public/img/regla1.1.png)
 
 https://es.wikihow.com/jugar-Scrabble#/Imagen:Play-Scrabble-Step-1-Version-5.jpg
 
-![Alt-Text](/public/img/0regla1.2.png)
+![Alt-Text](/public/img/regla1.2.png)
 
 https://es.wikihow.com/jugar-Scrabble#/Imagen:Play-Scrabble-Step-2-Version-4.jpg
 
-![Alt-Text](/public/img/0regla1.3.png)
+![Alt-Text](/public/img/0egla1.3.png)
 
 https://es.wikihow.com/jugar-Scrabble#/Imagen:Play-Scrabble-Step-3-Version-5.jpg
 
-![Alt-Text](/public/img/0regla1.4.png)
+![Alt-Text](/public/img/regla1.4.png)
 
 https://es.wikihow.com/jugar-Scrabble#/Imagen:Play-Scrabble-Step-4-Version-5.jpg
 
-![Alt-Text](/public/img/0regla1.5.png)
+![Alt-Text](/public/img/regla1.5.png)
 
 https://es.wikihow.com/jugar-Scrabble#/Imagen:Play-Scrabble-Step-5-Version-5.jpg
 
-![Alt-Text](/public/img/0regla2.1.png)
+![Alt-Text](/public/img/regla2.1.png)
 
 https://es.wikihow.com/jugar-Scrabble#/Imagen:Play-Scrabble-Step-6-Version-5.jpg
 
-![Alt-Text](/public/img/0regla2.2.png)
+![Alt-Text](/public/img/regla2.2.png)
 
 https://es.wikihow.com/jugar-Scrabble#/Imagen:Play-Scrabble-Step-7-Version-5.jpg
 
-![Alt-Text](/public/img/0regla2.3.png)
+![Alt-Text](/public/img/regla2.3.png)
 
 https://es.wikihow.com/jugar-Scrabble#/Imagen:Play-Scrabble-Step-8-Version-5.jpg
 
-![Alt-Text](/public/img/0regla2.4.png)
+![Alt-Text](/public/img/regla2.4.png)
 
 https://es.wikihow.com/jugar-Scrabble#/Imagen:Play-Scrabble-Step-9-Version-5.jpg
 
-![Alt-Text](/public/img/0regla2.5.png)
+![Alt-Text](/public/img/regla2.5.png)
 
 https://es.wikihow.com/jugar-Scrabble#/Imagen:Play-Scrabble-Step-10-Version-5.jpg
 
-![Alt-Text](/public/img/0regla2.6.png)
+![Alt-Text](/public/img/regla2.6.png)
 
 https://es.wikihow.com/jugar-Scrabble#/Imagen:Play-Scrabble-Step-11-Version-5.jpg
 
-![Alt-Text](/public/img/0regla2.7.png)
+![Alt-Text](/public/img/regla2.7.png)
 
 https://es.wikihow.com/jugar-Scrabble#/Imagen:Play-Scrabble-Step-12-Version-4.jpg
 
-![Alt-Text](/public/img/0regla3.1.png)
+![Alt-Text](/public/img/regla3.1.png)
 
 https://es.wikihow.com/jugar-Scrabble#/Imagen:Play-Scrabble-Step-13-Version-4.jpg
 
-![Alt-Text](/public/img/0regla3.2.png)
+![Alt-Text](/public/img/regla3.2.png)
 
 https://es.wikihow.com/jugar-Scrabble#/Imagen:Play-Scrabble-Step-14-Version-4.jpg
 
-![Alt-Text](/public/img/0regla3.3.png)
+![Alt-Text](/public/img/regla3.3.png)
 
 çhttps://es.wikihow.com/jugar-Scrabble#/Imagen:Play-Scrabble-Step-15-Version-4.jpg
 
-![Alt-Text](/public/img/0regla3.4.png)
+![Alt-Text](/public/img/regla3.4.png)
 
 https://es.wikihow.com/jugar-Scrabble#/Imagen:Play-Scrabble-Step-16-Version-4.jpg
 
-![Alt-Text](/public/img/0regla3.5.png)
+![Alt-Text](/public/img/regla3.5.png)
 
 https://es.wikihow.com/jugar-Scrabble#/Imagen:Play-Scrabble-Step-17-Version-4.jpg
 
