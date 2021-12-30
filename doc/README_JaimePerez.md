@@ -3,7 +3,7 @@ IMÁGENES UTILIZADAS
 Imágenes imprenta
 
 
-![](../public/img/01 Gutenberg.jpg)
+![](/img/01 Gutenberg.jpg)
 
 Category:Johannes Gutenberg - Wikimedia Commons
 
