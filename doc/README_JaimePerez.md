@@ -3,11 +3,11 @@ IMÁGENES UTILIZADAS
 Imágenes imprenta
 
 
-![Alt-Text](/public/img/01 Gutenberg.jpg)
+![](/public/img/01 Gutenberg.jpg)
 
 Category:Johannes Gutenberg - Wikimedia Commons
 
-![](../img/02 Sutra del diamante.png)
+![Alt-Text](/public/img/02 Sutra del diamante.png)
 
 https://es.wikipedia.org/wiki/Sutra_del_diamante#/media/File:Jingangjing.png
 
