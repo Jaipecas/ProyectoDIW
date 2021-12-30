@@ -89,7 +89,7 @@ https://es.wikihow.com/jugar-Scrabble#/Imagen:Play-Scrabble-Step-1-Version-5.jpg
 
 https://es.wikihow.com/jugar-Scrabble#/Imagen:Play-Scrabble-Step-2-Version-4.jpg
 
-![Alt-Text](/public/img/egla1.3.jpg)
+![Alt-Text](/public/img/regla1.3.jpg)
 
 https://es.wikihow.com/jugar-Scrabble#/Imagen:Play-Scrabble-Step-3-Version-5.jpg
 
