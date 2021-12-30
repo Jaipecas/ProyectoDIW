@@ -3,7 +3,7 @@ IMÁGENES UTILIZADAS
 Imágenes imprenta
 
 
-![Image text](https://gitlab.com/jaime-perez-castellanos/API_REST_Scrabble/-/blob/master/public/img/01%20Gutenberg.jpg)
+![](01 Gutenberg.jpg)
 
 Category:Johannes Gutenberg - Wikimedia Commons
 
