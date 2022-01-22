@@ -9,7 +9,12 @@
         <p>550 Aniversario del fallecimiento de Johannes Gutenberg</p>
     </div>
     {{-- acceso login --}}
-    <div class="media-right">
-        <a href="#"><img src="../img/user.png" alt="accesoLogin"></a>
+    <div class="dropdown dropleft">
+        <a data-toggle="dropdown" href="#"><img src="../img/user.png" alt="accesoLogin"></a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="/scrabble/register">Registro</a>
+            <a class="dropdown-item" href="/scrabble/login">Login</a>
+        </div>
     </div>
+
 </div>

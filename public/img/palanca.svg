@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!-- Generator: Gravit.io -->
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate" viewBox="0 0 223 76" width="223pt" height="76pt">
+    <defs>
+        <clipPath id="_clipPath_oYcDYCSjipiPo3fnv6eZ8FRtI34k07rN">
+            <rect width="223" height="76"/>
+        </clipPath>
+    </defs>
+    <g clip-path="url(#_clipPath_oYcDYCSjipiPo3fnv6eZ8FRtI34k07rN)">
+        <line x1="81.98" y1="37.817" x2="201.004" y2="38.061" vector-effect="non-scaling-stroke" stroke-width="30" stroke="rgb(187,127,75)" stroke-linejoin="miter" stroke-linecap="round" stroke-miterlimit="3"/>
+        <line x1="81.98" y1="37.817" x2="117.004" y2="37.889" vector-effect="non-scaling-stroke" stroke-width="30" stroke="rgb(93,93,93)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+        <line x1="83.019" y1="30.569" x2="117.019" y2="30.639" vector-effect="non-scaling-stroke" stroke-width="3" stroke="rgb(139,139,139)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+        <line x1="78.984" y1="35.811" x2="123.008" y2="35.901" vector-effect="non-scaling-stroke" stroke-width="3" stroke="rgb(139,139,139)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+        <path d=" M 8.004 37.666 C 8.041 19.591 23.022 4.946 41.437 4.984 C 59.852 5.022 74.773 19.727 74.736 37.802 C 74.699 55.878 59.718 70.522 41.303 70.484 C 22.888 70.446 7.967 55.741 8.004 37.666 Z " fill="rgb(153,94,42)"/>
+        <path d=" M 30.248 37.711 C 30.262 31.138 35.256 25.812 41.394 25.825 C 47.533 25.838 52.505 31.184 52.492 37.757 C 52.479 44.33 47.484 49.656 41.346 49.643 C 35.207 49.631 30.235 44.284 30.248 37.711 Z " fill="rgb(203,139,84)"/>
+        <line x1="142.015" y1="32.69" x2="192.015" y2="32.792" vector-effect="non-scaling-stroke" stroke-width="5" stroke="rgb(166,112,65)" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3"/>
+    </g>
+</svg>

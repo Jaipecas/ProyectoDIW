@@ -34,6 +34,7 @@
     <!-- Mis archivos css -->
     <!--CSS principal-->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    
     <!--CSS específicos de cada vista-->
     @yield('styles')
 </head>

@@ -33,8 +33,8 @@
                 <div class="row my-4">
                     <div class="container ">
                         <div class="row align-items-center">
+                             <!--img podium-->
                             <div class="col-md-6">
-                                <!--img podium-->
                                 <svg class="img-fluid" xmlns="http://www.w3.org/2000/svg"
                                     xmlns:xlink="http://www.w3.org/1999/xlink" style="isolation:isolate"
                                     viewBox="0 0 700 550" width="700pt" height="550pt">
@@ -357,8 +357,8 @@
                                     </g>
                                 </svg>
                             </div>
-                            <div class="col-md-6">
-                                <!-- cards-->
+                             <!-- cards-->
+                            <div class="col-md-6">                             
                                 <div class="card-deck my-4">
                                     <div class="card cardgold">
                                         <div class="row align-items-center">
