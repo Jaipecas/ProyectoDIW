@@ -15,15 +15,11 @@
                     {{-- cuadro, engranaje (fondo), palanca --}}
                     <div class="col-md-12 col-lg-6 engranaje">
                         <div class="d-flex justify-content-center">
-                            <div class="img-frame" >
-                                <img src="../img/08b Trabajadores imprenta 1.png" alt="">
-                            </div>
-                            <div class="img-frame img-absolute">
-                                <img  src="../img/10b Trabajadores imprenta 3.jpg" alt="">
-                            </div>
-                            <div class="img-frame img-absolute">
-                                <img  src="../img/09b Trabajadores imprenta 2 recortada.jpg" alt="">
-                            </div>                   
+                            <div class="img-frame">
+                                <img class="element-absolute" src="../img/08b Trabajadores imprenta 1.png" alt="">
+                                <img class="element-absolute" src="../img/10b Trabajadores imprenta 3.jpg" alt="">
+                                <img class="element-absolute" src="../img/09b Trabajadores imprenta 2 recortada.jpg" alt="">
+                            </div>                      
                         </div>
                         {{-- palanca --}}
                         <div class="d-flex justify-content-center">
@@ -35,7 +31,7 @@
                                             <rect width="223" height="76" />
                                         </clipPath>
                                     </defs>
-                                    <g clip-path="url(#_clipPath_oYcDYCSjipiPo3fnv6eZ8FRtI34k07rN)">
+                                    <g class="pointer" clip-path="url(#_clipPath_oYcDYCSjipiPo3fnv6eZ8FRtI34k07rN)">
                                         <line x1="81.98" y1="37.817" x2="201.004" y2="38.061"
                                             vector-effect="non-scaling-stroke" stroke-width="30" stroke="rgb(187,127,75)"
                                             stroke-linejoin="miter" stroke-linecap="round" stroke-miterlimit="3" />

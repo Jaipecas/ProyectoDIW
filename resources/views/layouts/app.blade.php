@@ -53,6 +53,9 @@
         <script src="{{ asset('js/' . $file . '.js') }}"></script>
     @endforeach
 
+    {{-- Mis scripts --}}
+    <script src="{{ asset('js/palancaAnimation.js') }}"></script>
+
     @yield('internal_script')
 </body>
 
