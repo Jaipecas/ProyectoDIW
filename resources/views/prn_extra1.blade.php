@@ -276,6 +276,8 @@
                         </circle>
                         <circle cx="521" cy="266.6" id="2">
                         </circle>
+
+                        <!--LOCALIZAIONES-->
                         <ellipse vector-effect="non-scaling-stroke" cx="386.70000000000005" cy="572.95"
                             rx="5.2999999999999545" ry="5.349999999999909" id="valencia" />
                         <ellipse vector-effect="non-scaling-stroke" cx="340.70000000000005" cy="555.95"
@@ -286,6 +288,58 @@
                             cy="490.95" rx="5.2999999999999545" ry="5.349999999999909" id="venecia" />
                         <ellipse vector-effect="non-scaling-stroke" cx="500.70000000000005" cy="410.95"
                             rx="5.2999999999999545" ry="5.349999999999909" id="maguncia" />
+                        <ellipse vector-effect="non-scaling-stroke" cx="395.70000000000005" cy="385" rx="5.2999999999999545"
+                            ry="5.349999999999909" id="paris" />
+
+                        <!-- CAMINOS POR ORDEN-->
+
+                        <!--VENECIA-PARIS-->
+                        <line x1="532.2" y1="484.8" x2="514.4" y2="477" vector-effect="non-scaling-stroke" stroke-width="1"
+                            stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3" />
+                        <line x1="499.7" y1="470.55" x2="481.9" y2="462.75" vector-effect="non-scaling-stroke"
+                            stroke-width="1" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3" />
+                        <line x1="466.8" y1="455.1" x2="449" y2="447.3" vector-effect="non-scaling-stroke" stroke-width="1"
+                            stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3" />
+
+                        <!--PARIS-BTUJAS-->
+                        <line x1="462.1" y1="426.3" x2="444.8" y2="436.6" vector-effect="non-scaling-stroke"
+                            stroke-width="1" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3" />
+                        <line x1="491.8" y1="411.2" x2="472.85" y2="422" vector-effect="non-scaling-stroke" stroke-width="1"
+                            stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3" />
+
+
+                        <!--BTUJAS-SEGOVIA-->
+                        <line x1="499.7" y1="416.8" x2="490.95" y2="433.7" vector-effect="non-scaling-stroke"
+                            stroke-width="1" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3" />
+                        <line x1="483.4" y1="445.55" x2="472.75" y2="461.95" vector-effect="non-scaling-stroke"
+                            stroke-width="1" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3" />
+                        <line x1="464.1" y1="469.9" x2="447.75" y2="483.45" vector-effect="non-scaling-stroke"
+                            stroke-width="1" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3" />
+
+                        <line x1="436.6" y1="491.9" x2="417.65" y2="502.7" vector-effect="non-scaling-stroke"
+                            stroke-width="1" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3" />
+
+                        <line x1="406.25" y1="510.95" x2="386" y2="526" vector-effect="non-scaling-stroke" stroke-width="1"
+                            stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3" />
+                        <line x1="375.4" y1="533.2" x2="355.7" y2="545.4" vector-effect="non-scaling-stroke"
+                            stroke-width="1" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3" />
+
+
+                        <!--SEGOVIA-VALENCIA-->
+                        <line x1="372.4" y1="568.5" x2="352.55" y2="561.4" vector-effect="non-scaling-stroke"
+                            stroke-width="1" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3" />
+
+                        <!--VALENCIA-LONDRES-->
+                        <line x1="412" y1="545.3" x2="396.125" y2="561.25" vector-effect="non-scaling-stroke"
+                            stroke-width="1" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3" />
+                        <line x1="413" y1="514.1" x2="413" y2="534.425" vector-effect="non-scaling-stroke" stroke-width="1"
+                            stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3" />
+                        <line x1="413" y1="476.4" x2="413" y2="496.725" vector-effect="non-scaling-stroke" stroke-width="1"
+                            stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3" />
+                        <line x1="412" y1="436.725" x2="412" y2="457.05" vector-effect="non-scaling-stroke" stroke-width="1"
+                            stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3" />
+                        <line x1="411" y1="421.45" x2="400" y2="396.5" vector-effect="non-scaling-stroke" stroke-width="1"
+                            stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="3" />
                     </svg>
                 </div>
             </div>
