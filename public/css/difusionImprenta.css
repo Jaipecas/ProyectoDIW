@@ -56,15 +56,27 @@ line {
     visibility: visible;
 }
 
+button {
+    position: absolute;
+    top: 600px
+}
+
+
+
 
 /* ANIMACIÓN CAMINO */
 
-@keyframes road-animation {
+.road-animation {
+    animation-name: visibility-road;
+}
+
+
+@keyframes visibility-road {
     from {
-        visibility: hidden;
+        visibility: visible;
     }
 
     to {
-        visibility: visible;
+        visibility: hidden;
     }
 }

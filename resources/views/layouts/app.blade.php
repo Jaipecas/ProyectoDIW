@@ -55,6 +55,7 @@
 
     {{-- Mis scripts --}}
     <script src="{{ asset('js/palancaAnimation.js') }}"></script>
+    <script src="{{ asset('js/roadAnimation.js') }}"></script>
 
     @yield('internal_script')
 </body>
