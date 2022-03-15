@@ -48,21 +48,10 @@ line {
     visibility: hidden;
 }
 
-.selected-country {
-    fill: var(--color-secondary2);
-}
-
-.selected-city {
-    visibility: visible;
-}
-
 button {
     position: absolute;
     top: 600px
 }
-
-
-
 
 /* ANIMACIÓN CAMINO */
 
@@ -70,13 +59,26 @@ button {
     animation-name: visibility-road;
 }
 
-
 @keyframes visibility-road {
     from {
         visibility: visible;
     }
 
     to {
-        visibility: hidden;
+        visibility: visible;
+    }
+}
+
+.country-animation {
+    animation-name: color-country;
+}
+
+@keyframes color-country {
+    from {
+        fill: var(--color-secondary);
+    }
+
+    to {
+        fill: var(--color-secondary);
     }
 }
