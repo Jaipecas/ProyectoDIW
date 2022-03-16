@@ -88,7 +88,7 @@
                                     Londres, incluye el palacio de Westminster, el palacio de Buckingham, la abadía de
                                     Westminster y la catedral de Westminster.</p>
                                 <hr>
-                                <img class="img-fluid" src="../img/westminster.jpg" alt="Imagen Venecia">
+                                {{-- <img class="img-fluid" src="../img/westminster.jpg" alt="Imagen Venecia"> --}}
                             </div>                                                    
                         </div>
 

@@ -1,15 +1,19 @@
+let calls = [];
+
 function loadAnimation() {
     let elementsAnimation = Array.from(document.getElementById('path').children)
     let arrayCountries = Array.from(getMapCountries());
+    let pagesInfo = Array.from(document.getElementsByClassName('page'));
 
     if (elementsAnimation[0].classList.contains('road-animation')) {
-        removeAnimation(elementsAnimation, arrayCountries)
+        removeAnimations(elementsAnimation, arrayCountries);
+        restartPages(pagesInfo)
     }
 
-    setTimeout(() => addAnimationRoad(elementsAnimation, arrayCountries), 50);
+    setTimeout(() => addAnimationRoad(elementsAnimation, arrayCountries, pagesInfo), 50);
 }
 
-function addAnimationRoad(elementsAnimation, arrayCountries) {
+function addAnimationRoad(elementsAnimation, arrayCountries, pagesInfo) {
     let delay = 0.75;
     let duration = 20;
     let countEllipse = 0;
@@ -17,6 +21,7 @@ function addAnimationRoad(elementsAnimation, arrayCountries) {
     elementsAnimation.forEach(element => {
         if (element.nodeName === 'ellipse') {
             addAnimationCountry(arrayCountries[countEllipse], delay, duration);
+            if (countEllipse >= 1) changePage(pagesInfo[countEllipse], pagesInfo[countEllipse - 1], delay);
             countEllipse++;
         }
         element.style.setProperty('animation-delay', delay + 's');
@@ -25,6 +30,7 @@ function addAnimationRoad(elementsAnimation, arrayCountries) {
         delay += 0.75;
         duration -= 0.75;
     });
+    changePage(pagesInfo[0], pagesInfo[pagesInfo.length - 1], duration + delay);
 }
 
 function addAnimationCountry(country, delay, duration) {
@@ -33,7 +39,7 @@ function addAnimationCountry(country, delay, duration) {
     country.classList.add('country-animation');
 }
 
-function removeAnimation(elementsAnimation, arrayCountries) {
+function removeAnimations(elementsAnimation, arrayCountries) {
     elementsAnimation.forEach(element => element.classList.remove('road-animation'));
     arrayCountries.forEach(element => element.classList.remove('country-animation'))
 }
@@ -42,6 +48,24 @@ function getMapCountries() {
     let arrayCountriesIds = ['IT', 'FR', 'DE', 'ES', 'ES', 'GB'];
     let countriesElements = arrayCountriesIds.map(element => document.getElementById(element));
     return countriesElements;
+}
+
+function changePage(pagesVisible, pageInvisible, delay) {
+    calls.push(setTimeout(() => {
+        pageInvisible.classList.remove('visible-page');
+        pagesVisible.classList.add('visible-page');
+    }, delay * 1000))
+}
+
+function restartPages(pages) {
+    calls.forEach(call => clearTimeout(call));
+
+    pages.forEach(page => {
+        if (page.classList.contains('visible-page')) {
+            page.classList.remove('visible-page');
+        }
+    });
+    pages[0].classList.add('visible-page');
 }
 
 window.onload = () => {
