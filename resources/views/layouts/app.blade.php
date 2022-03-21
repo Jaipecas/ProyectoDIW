@@ -41,7 +41,6 @@
 
 <body>
     <div id="app">
-        @include('header')
         @include('navbar')
         @yield('content')
         @include('footer')

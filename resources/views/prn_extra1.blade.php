@@ -59,8 +59,7 @@
                                 <hr>
                                 <p>Segovia es un municipio y ciudad española, capital de la provincia del mismo nombre, en
                                     la comunidad autónoma de Castilla y León. Se sitúa en la confluencia de los ríos Eresma
-                                    y Clamores, al pie de la sierra de Guadarrama. La ciudad vieja y el acueducto de Segovia
-                                    fueron declarados Patrimonio de la Humanidad por la Unesco en 1985.</p>
+                                    y Clamores, al pie de la sierra de Guadarrama.</p>
                                 <hr>
                                 <img class="img-fluid" src="../img/segovia.jpg" alt="Imagen Venecia">
                             </div>
@@ -71,7 +70,7 @@
                                 <hr>
                                 <p>Valencia es un municipio y
                                     una ciudad de España, capital de la provincia homónima y de la Comunidad Valenciana. Con
-                                    una población de 801 545 habitantes (2020), que sube a 1 581 057 habitantes (2020) si
+                                    una población que sube a 1 581 057 habitantes (2020) si
                                     se incluye su espacio urbano, es la tercera ciudad y área metropolitana más poblada
                                     de España, por detrás de Madrid y Barcelona.</p>
                                 <hr>
@@ -83,18 +82,15 @@
                                 <h4>Westminster (Gran Bretaña)</h4>
                                 <hr>
                                 <p>Westminster es un barrio del Centro de Londres, Inglaterra, dentro de la Ciudad de
-                                    Westminster, la cual queda en la orilla norte del río Támesis. La concentración en
-                                    Westminster de atracciones turísticas y monumentos históricos, una de las más grandes en
-                                    Londres, incluye el palacio de Westminster, el palacio de Buckingham, la abadía de
-                                    Westminster y la catedral de Westminster.</p>
+                                    Westminster, la cual queda en la orilla norte del río Támesis.</p>
                                 <hr>
-                                {{-- <img class="img-fluid" src="../img/westminster.jpg" alt="Imagen Venecia"> --}}
-                            </div>                                                    
+                                <img class="img-fluid" src="../img/westminster.jpg" alt="Imagen Venecia">
+                            </div>
                         </div>
 
-                        <div >
+                        <div>
                             <button id="button-road">Comienza el viaje</button>
-                        </div> 
+                        </div>
                     </div>
                     <svg class="col-lg-7 col-md-12 img-fluid" version="1.2" viewbox="0 0 1000 684"
                         xmlns="http://www.w3.org/2000/svg">
