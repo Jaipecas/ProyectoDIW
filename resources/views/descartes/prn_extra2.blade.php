@@ -9,18 +9,19 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-10 col-md-12 mt-3">
+            <div class="col-lg-9 col-md-12 mt-3">
                 <h2>Trabajos imprenta</h2>
-
                 <div class="row">
-                    {{-- engranaje --}}
-                    <div class="col-md-12 col-lg-7 engranaje">
-                        <div class="frame" >
-                            <div class="d-flex justify-content-center">
-                                <img src="../img/08b Trabajadores imprenta 1.png" alt="">
-                            </div>
+                    {{-- cuadro, engranaje (fondo), palanca --}}
+                    <div class="col-md-12 col-lg-6 engranaje">
+                        <div class="d-flex justify-content-center">
+                            <div class="img-frame">
+                                <img class="element-absolute" src="../img/08b Trabajadores imprenta 1.png" alt="">
+                                <img class="element-absolute" src="../img/10b Trabajadores imprenta 3.jpg" alt="">
+                                <img class="element-absolute" src="../img/09b Trabajadores imprenta 2 recortada.jpg" alt="">
+                            </div>                      
                         </div>
-                       
+                        {{-- palanca --}}
                         <div class="d-flex justify-content-center">
                             <div class="palanca">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -30,7 +31,7 @@
                                             <rect width="223" height="76" />
                                         </clipPath>
                                     </defs>
-                                    <g clip-path="url(#_clipPath_oYcDYCSjipiPo3fnv6eZ8FRtI34k07rN)">
+                                    <g class="pointer" clip-path="url(#_clipPath_oYcDYCSjipiPo3fnv6eZ8FRtI34k07rN)">
                                         <line x1="81.98" y1="37.817" x2="201.004" y2="38.061"
                                             vector-effect="non-scaling-stroke" stroke-width="30" stroke="rgb(187,127,75)"
                                             stroke-linejoin="miter" stroke-linecap="round" stroke-miterlimit="3" />
@@ -56,18 +57,11 @@
                                 </svg>
                             </div>
                         </div>
-                        
-                        <div class="mt-4 d-flex justify-content-center">
-                            <div class="img-margin-left">
-                                <img src="../img/10b Trabajadores imprenta 3.jpg" alt="">
-                            </div>
-                            <div class="img-margin-right">
-                                <img src="../img/09b Trabajadores imprenta 2 recortada.jpg" alt="">
-                            </div>
-                        </div>
+
                     </div>
-                   {{--  información trabajo imprenta --}}
-                    <div class="col-lg-5">
+
+                    {{-- información trabajo imprenta --}}
+                    <div class="col-lg-6 d-flex justify-content-center">
                         <div class="descripcion-imagen">
                             <p>Dear Friends,</p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod porta tempor. Donec
@@ -109,7 +103,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-12">
+            <div class="col-lg-3 col-md-12">
                 @include('alerts')
                 @include('news')
             </div>

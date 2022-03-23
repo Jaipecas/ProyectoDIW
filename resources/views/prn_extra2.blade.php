@@ -13,14 +13,19 @@
                 <h2>Trabajos imprenta</h2>
                 <div class="row">
                     {{-- cuadro, engranaje (fondo), palanca --}}
-                    <div class="col-md-12 col-lg-6 engranaje">
+                    <div class="col-md-12 col-lg-6 container-left">
                         <div class="d-flex justify-content-center">
                             <div class="img-frame">
-                                <img class="element-absolute" src="../img/08b Trabajadores imprenta 1.png" alt="">
+                                <img class="element-absolute visible-img" src="../img/08b Trabajadores imprenta 1.png" alt="">
                                 <img class="element-absolute" src="../img/10b Trabajadores imprenta 3.jpg" alt="">
                                 <img class="element-absolute" src="../img/09b Trabajadores imprenta 2 recortada.jpg" alt="">
-                            </div>                      
+                            </div>
                         </div>
+
+                        <div class="d-flex justify-content-center">                           
+                            <img id="engranaje" class="img-engranaje" src="../img/engranaje.png" alt="">
+                        </div>
+
                         {{-- palanca --}}
                         <div class="d-flex justify-content-center">
                             <div class="palanca">
@@ -62,7 +67,7 @@
 
                     {{-- información trabajo imprenta --}}
                     <div class="col-lg-6 d-flex justify-content-center">
-                        <div class="descripcion-imagen">
+                        <div class="page">
                             <p>Dear Friends,</p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod porta tempor. Donec
                                 pulvinar turpis nec velit pellentesque quis rhoncus sapien facilisis. Mauris quis massa dui,
