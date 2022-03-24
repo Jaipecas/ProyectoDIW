@@ -9,10 +9,12 @@ function loadAnimation() {
 
 function changeInfo() {
     let imagenes = document.querySelectorAll(".img-frame img");
+    let pagesInfo = document.getElementsByClassName("page");
     let palanca = document.querySelector(".palanca>svg");
     let engranaje = document.getElementById("engranaje");
 
-    showImg(imagenes, count)
+    showInfo(imagenes, count, 'visible-img');
+    showInfo(pagesInfo, count, 'visible-page');
     removeAnimation(engranaje, palanca);
     setTimeout(() => addAnimation(engranaje, palanca), 50);
     count = count + 1;
@@ -29,15 +31,15 @@ function addAnimation(engranaje, palanca) {
     palanca.classList.add('animacion-palanca');
 }
 
-function showImg(imagenes, count) {
-    let imgs = Array.from(imagenes);
+function showInfo(elements, count, cssClass) {
+    let arrayElements = Array.from(elements);
 
-    imgs.forEach((img, index) => {
+    arrayElements.forEach((element, index) => {
         if (index === count) {
-            img.classList.add('visible-img');
+            element.classList.add(cssClass);
 
         } else {
-            img.classList.remove('visible-img');
+            element.classList.remove(cssClass);
         }
     })
 }

@@ -16,13 +16,14 @@
                     <div class="col-md-12 col-lg-6 container-left">
                         <div class="d-flex justify-content-center">
                             <div class="img-frame">
-                                <img class="element-absolute visible-img" src="../img/08b Trabajadores imprenta 1.png" alt="">
+                                <img class="element-absolute visible-img" src="../img/08b Trabajadores imprenta 1.png"
+                                    alt="">
                                 <img class="element-absolute" src="../img/10b Trabajadores imprenta 3.jpg" alt="">
                                 <img class="element-absolute" src="../img/09b Trabajadores imprenta 2 recortada.jpg" alt="">
                             </div>
                         </div>
 
-                        <div class="d-flex justify-content-center">                           
+                        <div class="d-flex justify-content-center">
                             <img id="engranaje" class="img-engranaje" src="../img/engranaje.png" alt="">
                         </div>
 
@@ -67,24 +68,53 @@
 
                     {{-- información trabajo imprenta --}}
                     <div class="col-lg-6 d-flex justify-content-center">
-                        <div class="page">
-                            <p>Dear Friends,</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod porta tempor. Donec
-                                pulvinar turpis nec velit pellentesque quis rhoncus sapien facilisis. Mauris quis massa dui,
-                                rhoncus viverra quam. Nulla tempus, augue ut consectetur facilisis, arcu elit pellentesque
-                                arcu, sed rutrum orci turpis pulvinar augue. Donec eget arcu mauris. Vestibulum tristique
-                                consequat lacus eget laoreet. Integer sed nisl sed nibh pulvinar ornare quis nec quam.
-                                Aenean rhoncus ligula ut lectus placerat a commodo quam vulputate. In eu metus turpis.</p>
-                            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                                Phasellus facilisis erat in nibh auctor at aliquet velit vestibulum. Curabitur turpis diam,
-                                malesuada eu consequat eget, ultricies sed nunc. Aenean sed odio massa. Lorem ipsum dolor
-                                sit amet, consectetur adipiscing elit. Vestibulum ornare vulputate congue. Quisque leo
-                                metus, condimentum nec molestie et, egestas luctus libero.</p>
+                        <div class="container-page">
+                            <div class="page visible-page">
+                                <h4>El componedor</h4>
+                                <p>Realiza el trabajo más delicado. A medida que lee el manuscrito coloca en
+                                    una cajita, una a una, todas las piezas de metal con letras y espacios que
+                                    forman una línea. Debe hacerlo en orden inverso. Y cajita a cajita,
+                                    confecciona toda una página.Eran operarios especializados.
+                                    <br><br>
+                                    Era fundamental que supieran
+                                    leer y escribir y tuvieran nociones de gramática y ortografía, valorándose más a los que
+                                    tenían una base cultural básica en aritmética, geografía y dibujo. Ellos eran los que se
+                                    encargaban de componer el texto original usando tipos móviles. El trabajo en sí era
+                                    sencillo. Tras leer un fragmento del texto y retenerlo en su memoria, cogían los tipos
+                                    uno a uno de la caja y los colocaban en el componedor. De esta forma completaban las
+                                    palabras y las frases del texto original.
+                                </p>
+                            </div>
+                            <div class="page">
+                                <h4>El tirador</h4>
+                                <p>Coloca papel sobre la superficie de letras entintadas y acciona la palanca
+                                    que hace bajar la prensa sobre los tipos metálicos que colocó el
+                                    componedor, de manera que quedan marcadas en el papel.
+                                    <br><br>
+                                    Para estos trabajos no era tan importante la formación
+                                    intelectual del trabajador como su desarrollo muscular, pues eran unas tareas rudas que
+                                    dependían de la fuerza física. Podría darse el caso que estos roles se cambiaran durante
+                                    el día para hacer el trabajo más llevadero.
+                                </p>
+                            </div>
+                            <div class="page">
+                                <h4>El entintador</h4>
+                                <p>Encargado de entintar la superficie de letras que ha elaborado el
+                                    componedor. Par ello utiliza dos tampones semiesféricos impregnados de
+                                    tinta, uno en cada mano.
+                                    <br><br>
+                                    Las entintaba en el tintero, repartiendo bien la tinta sobre su superficie mediante un
+                                    movimiento continuado para depositar una fina capa de tinta sobre los tipos metálicos.
+                                    Este proceso era necesario para la impresión de cada pliego. Como nota escatológica,
+                                    para soltar la lana con la que estaban rellenas las balas y que no se apelmazaran, el
+                                    batidor vertía sobre la misma su propia orina.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="mb-4">
+                <div class="mb-4 ">
                     <h2>Videos</h2>
                     <p>Se puede ver más información del proceso en estos vídeos:</p>
                     <div class="row">
@@ -115,3 +145,5 @@
         </div>
     </div>
 @endsection
+
+<script src="{{ asset('js/palancaAnimation.js') }}"></script>
