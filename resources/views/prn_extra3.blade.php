@@ -15,7 +15,7 @@
                     Segovia. Por su parte, los tres primeros impresos en València con el procedimiento de
                     Gutenberg fueron:</p>
 
-                <div class="ml-2 mr-1 row">
+                <div class="ml-2 mr-1 row bookshelf">
                     <div class="my-1 col-md-3 book-frame" data-toggle="modal" data-target="#book1">
                         <img class="img-fluid book-img " src="../img/12 les trobes.jpg" alt="">
                     </div>
@@ -39,12 +39,10 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <div class="img-zoom-container">
-                                    <img id="myimage" class="img-fluid" src="../img/12 les trobes.jpg">
-                                    <div id="myresult" class="img-zoom-result"></div>
-                                </div>
+                                <img class="img-fluid img-horizontal" src="../img/12 les trobes.jpg">
                             </div>
                             <div class="modal-footer">
+                                <span class="mr-5"><i>Mantener botón izquierdo para ampliar</i></span>
                                 <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
                             </div>
                         </div>
@@ -61,10 +59,11 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body img-zoom-container">
-                                <img class="img-fluid book-img " src="../img/13 el comprensorium.jpg" alt="">
+                            <div class="modal-body">
+                                <img class="img-fluid" src="../img/13 el comprensorium.jpg" alt="">
                             </div>
                             <div class="modal-footer">
+                                <span class="mr-5"><i>Mantener botón izquierdo para ampliar</i></span>
                                 <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
                             </div>
                         </div>
@@ -81,10 +80,11 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body img-zoom-container">
-                                <img class="img-fluid book-img " src="../img/14 valencian bible.jpg" alt="">
+                            <div class="modal-body">
+                                <img class="img-fluid img-horizontal" src="../img/14 valencian bible.jpg" alt="">
                             </div>
                             <div class="modal-footer">
+                                <span class="mr-5"><i>Mantener botón izquierdo para ampliar</i></span>
                                 <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
                             </div>
                         </div>
@@ -99,5 +99,3 @@
         </div>
     </div>
 @endsection
-
-<script src="{{ asset('js/zoom_img.js') }}"></script>

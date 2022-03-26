@@ -1,3 +1,15 @@
+:root {
+  --brown: #A87328;
+}
+
+.bookshelf {
+  margin: 0 auto;
+  border: 10px var(--brown) solid;
+  background-size: 10px;
+  background-color: #7A7668;
+  padding: 10px;
+}
+
 .book-frame {
   margin: auto;
   background: rgb(249, 242, 219);
@@ -15,39 +27,14 @@
   margin-bottom: 5px;
 }
 
-.book-frame:hover {
-  transform: scale(1.10);
+.img-horizontal {
+  max-height: 550px;
 }
 
-.img-zoom-container {
-  position: relative;
-  height: auto;
+.modal-body {
+  text-align: center;
 }
 
-.img-zoom-lens {
-  position: absolute;
-  border: 1px solid #d4d4d4;
-
-  /* set the size of the lens: */
-  width: 40px;
-  height: 40px;
-}
-
-.img-zoom-result {
-  border: 1px solid #d4d4d4;
-
-  /* set the size of the result div: */
-  width: 300px;
-  height: 300px;
-}
-
-#myimage {
-  position: absolute;
-  opacity: 1;
-  z-index: 1;
-}
-
-#myresult {
-  position: absolute;
-  z-index: -1
+.modal-body img:active {
+  transform: translate(0, 15px) scale(1.65);
 }
