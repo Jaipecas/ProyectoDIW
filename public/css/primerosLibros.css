@@ -1,26 +1,53 @@
-.carousel-inner > .carousel-item:nth-child(2n) > img {
-  max-width: 1200px;
-  height: 570px;
+.book-frame {
+  margin: auto;
+  background: rgb(249, 242, 219);
+  padding: 20px;
+  border: 15px solid;
+  border-top-color: #f8d393;
+  border-bottom-color: #f8d393;
+  border-right-color: #e2b05a;
+  border-left-color: #e2b05a;
+  box-shadow: 2px 2px 4px rgba;
 }
 
-.carousel-inner > .carousel-item:nth-child(2n + 1) > img {
-  max-width: 450px;
-  height: 570px;
+.book-img {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
-/* Las imagenes de dentro del carousel se adaptan segun el tamaño de la pantalla 
-dependiendo de las dimensioes de la imagen
-
-REPASAR EL EL TAMAÑO DE LA FOTO DEL MEDIO */
-
-@media all and (min-width: 0) and (max-width: 576px) {
-  .carousel-inner > .carousel-item:nth-child(2n) > img {
-    max-height: 200px;
-  }
+.book-frame:hover {
+  transform: scale(1.10);
 }
 
-@media all and (min-width: 576px) and (max-width: 800px) {
-  .carousel-inner > .carousel-item:nth-child(2n) > img {
-    max-height: 700px;
-  }
+.img-zoom-container {
+  position: relative;
+  height: auto;
+}
+
+.img-zoom-lens {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+
+  /* set the size of the lens: */
+  width: 40px;
+  height: 40px;
+}
+
+.img-zoom-result {
+  border: 1px solid #d4d4d4;
+
+  /* set the size of the result div: */
+  width: 300px;
+  height: 300px;
+}
+
+#myimage {
+  position: absolute;
+  opacity: 1;
+  z-index: 1;
+}
+
+#myresult {
+  position: absolute;
+  z-index: -1
 }

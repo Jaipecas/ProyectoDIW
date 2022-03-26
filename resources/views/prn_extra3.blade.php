@@ -15,45 +15,80 @@
                     Segovia. Por su parte, los tres primeros impresos en València con el procedimiento de
                     Gutenberg fueron:</p>
 
-                <div id="carouselPrimerosLibros" class="carousel slide" data-ride="carousel">
-                    <!--Indicadores-->
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselPrimerosLibros" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselPrimerosLibros" data-slide-to="1"></li>
-                        <li data-target="#carouselPrimerosLibros" data-slide-to="2"></li>
-                    </ol>
-                    <!-- imagenes -->
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="../img/12 les trobes.jpg" alt="First slide">
-                            <div class="carousel-caption">
-                                <h3>1474</h3>
-                                <p>Obres o trobes en laors de la Verge Maria</p>
+                <div class="ml-2 mr-1 row">
+                    <div class="my-1 col-md-3 book-frame" data-toggle="modal" data-target="#book1">
+                        <img class="img-fluid book-img " src="../img/12 les trobes.jpg" alt="">
+                    </div>
+                    <div class="my-1 offset-md-1 col-md-3 book-frame" data-toggle="modal" data-target="#book2">
+                        <img class="img-fluid book-img " src="../img/13 el comprensorium-recortada.jpg" alt="">
+                    </div>
+                    <div class="my-1 offset-md-1  col-md-3 book-frame" data-toggle="modal" data-target="#book3">
+                        <img class="img-fluid book-img " src="../img/14 valencian bible.jpg" alt="">
+                    </div>
+                </div>
+
+                <div class="modal fade" id="book1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Obres o trobes en laors de la Verge Maria
+                                    - 1474</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="../img/13 el comprensorium.jpg" alt="Second slide">
-                            <div class="carousel-caption">
-                                <h3>1475</h3>
-                                <p>Comprehensorium</p>
+                            <div class="modal-body">
+                                <div class="img-zoom-container">
+                                    <img id="myimage" class="img-fluid" src="../img/12 les trobes.jpg">
+                                    <div id="myresult" class="img-zoom-result"></div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="../img/14 valencian bible.jpg" alt="Third slide">
-                            <div class="carousel-caption">
-                                <h3>1478</h3>
-                                <p>Biblia valenciana</p>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
                             </div>
                         </div>
                     </div>
-                    <!-- botones -->
-                    <a class="carousel-control-prev" href="#carouselPrimerosLibros" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselPrimerosLibros" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    </a>
+                </div>
 
+                <div class="modal fade" id="book2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Comprehensorium - 1475</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body img-zoom-container">
+                                <img class="img-fluid book-img " src="../img/13 el comprensorium.jpg" alt="">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="book3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Biblia valenciana - 1478</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body img-zoom-container">
+                                <img class="img-fluid book-img " src="../img/14 valencian bible.jpg" alt="">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -64,3 +99,5 @@
         </div>
     </div>
 @endsection
+
+<script src="{{ asset('js/zoom_img.js') }}"></script>
