@@ -10,6 +10,7 @@
 .div-timeline {
   display: flex;
   flex-flow: column;
+  justify-content: center;
 }
 
 .div-timeline-right {
@@ -17,7 +18,7 @@
 }
 
 .line-time {
-  height: 60px;
+  height: 100px;
   width: 30px;
   border-radius: 20%;
 }
@@ -35,11 +36,11 @@
 }
 
 .line-time-margin-left {
-  margin-left: 30px;
+  margin-left: 41px;
 }
 
 .line-time-margin-right {
-  margin-right: 30px;
+  margin-right: 41px;
 }
 
 button {
@@ -55,11 +56,11 @@ button {
 }
 
 .button-margin-left {
-  margin-left: 10px;
+  margin-left: 20px;
 }
 
 .button-margin-right {
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 
@@ -67,11 +68,43 @@ button {
   border: 1px solid #000;
   border-radius: 30px;
   padding: 10px;
-  max-height: 200px;
 
 }
 
 .rules-game img {
   width: 100px;
   height: 100px;
+}
+
+
+@media all and (max-width: 1200px) and (min-width: 992px) {
+
+  .line-time-margin-left {
+    margin-left: 30px;
+  }
+
+  .line-time-margin-right {
+    margin-right: 30px;
+  }
+
+
+  .button-margin-left {
+    margin-left: 10px;
+  }
+
+  .button-margin-right {
+    margin-right: 10px;
+  }
+
+}
+
+@media all and (max-width: 992px) {
+  .div-timeline {
+    display: none;
+  }
+
+  .rules-game {
+    flex: 100%;
+    max-width: 100%;
+  }
 }

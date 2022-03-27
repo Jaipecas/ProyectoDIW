@@ -60,7 +60,7 @@
                     </p>
                 </div>
 
-                {{-- que invento timeline --}}
+                {{-- timeline --}}
                 <div>
                     <h2>¿Qué es lo que inventó?</h2>
                     <p>El nombre de Gutenberg lo asociamos a la invención de la imprenta, pero
@@ -69,7 +69,7 @@
 
 
                     <div class="row my-1">
-                        <div class="col-md-5 rules-game">
+                        <div class="col-md-5 col-sm-12 rules-game">
                             <div class="row">
                                 <div class="col-md-12">
                                     <p class="pr-4">2000 años antes de Gutenberg, en Roma se imprimían carteles
@@ -80,7 +80,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-7 div-timeline">
+                        <div class="col-md-7 col-sm-12 div-timeline">
                             <div class="line-time line-time-orange line-time-margin-left"></div>
                             <div class="my-1">
                                 <button id="button-time" class="button-margin-left line-time-orange">Click</button>
@@ -99,7 +99,7 @@
                             <div class="line-time line-time-red line-time-margin-right"></div>
 
                         </div>
-                        <div class="col-md-5 rules-game">
+                        <div class="col-md-5 col-sm-12 rules-game">
                             <div class="row">
                                 <div class="col-lg-7 col-md-12">
                                     <p class="pr-4">2000 años antes de Gutenberg, en Roma se imprimían carteles
@@ -114,7 +114,7 @@
 
 
                     <div class="row my-1">
-                        <div class="col-md-5 rules-game">
+                        <div class="col-md-5 col-sm-12 rules-game">
                             <div class="row">
                                 <div class="col-lg-7 col-md-12">
                                     <p class="pr-4">2000 años antes de Gutenberg, en Roma se imprimían carteles
