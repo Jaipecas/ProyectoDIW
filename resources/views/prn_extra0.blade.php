@@ -10,6 +10,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-9 col-md-8 mt-3">
+                {{-- Biografia --}}
                 <img class="img-fluid retratoguten mr-4" src="../img/01 Gutenberg.jpg" alt="retrato Gutenberg">
                 <div>
                     <h2>Biografía</h2>
@@ -59,23 +60,83 @@
                     </p>
                 </div>
 
+                {{-- que invento timeline --}}
                 <div>
                     <h2>¿Qué es lo que inventó?</h2>
                     <p>El nombre de Gutenberg lo asociamos a la invención de la imprenta, pero
                         mucho antes que él ya se imprimía sobre pergamino o papel. Un breve recorrido
                         histórico nos indica que:</p>
-                    <ul>
-                        <li>2000 años antes de Gutenberg, en Roma se imprimían carteles con signos
-                            grabados en arcilla.</li>
 
-                        <li>1400 años antes de Gutenberg, en China se imprimían carteles utilizando
-                            signos grabados en madera. Así en el año 686 se imprimió una
-                            publicación que se llamó “El sutra del diamante”, con signos grabados en
-                            una única madera.</li>
-                    </ul>
+
+                    <div class="row my-1">
+                        <div class="col-md-5 rules-game">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="pr-4">2000 años antes de Gutenberg, en Roma se imprimían carteles
+                                        con
+                                        signos
+                                        grabados en arcilla.</p>
+                                    <img src="../img/regla1.1.jpg" alt="regla juego 1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7 div-timeline">
+                            <div class="line-time line-time-orange line-time-margin-left"></div>
+                            <div class="my-1">
+                                <button id="button-time" class="button-margin-left line-time-orange">Click</button>
+                            </div>
+                            <div class="line-time line-time-orange line-time-margin-left"></div>
+                        </div>
+                    </div>
+
+                    <div class="row my-1">
+                        <div class="col-md-7 div-timeline div-timeline-right">
+
+                            <div class="line-time line-time-red line-time-margin-right"></div>
+                            <div class="my-1">
+                                <button id="button-time line-time-red" class="button-margin-right line-time-red">Click</button>
+                            </div>
+                            <div class="line-time line-time-red line-time-margin-right"></div>
+
+                        </div>
+                        <div class="col-md-5 rules-game">
+                            <div class="row">
+                                <div class="col-lg-7 col-md-12">
+                                    <p class="pr-4">2000 años antes de Gutenberg, en Roma se imprimían carteles
+                                        con signos
+                                        grabados en arcilla.</p>
+                                    <img src="../img/regla1.1.jpg" alt="regla juego 1">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row my-1">
+                        <div class="col-md-5 rules-game">
+                            <div class="row">
+                                <div class="col-lg-7 col-md-12">
+                                    <p class="pr-4">2000 años antes de Gutenberg, en Roma se imprimían carteles
+                                        con signos
+                                        grabados en arcilla.</p>
+                                    <img src="../img/regla1.1.jpg" alt="regla juego 1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7 div-timeline">
+                            <div class="line-time line-time-blue line-time-margin-left"></div>
+                            <div class="my-1">
+                                <button id="button-time" class="button-margin-left line-time-blue">Click</button>
+                            </div>
+                            <div class="line-time line-time-blue line-time-margin-left"></div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="row">
+
+
+                {{-- <div class="row">
                     <div class="col-md-6">
                         <img class="img-fluid" src="../img/02 Sutra del diamante.png" alt="Sutra de diamante">
                     </div>
@@ -95,7 +156,7 @@
                             alt="Tipos móviles metal">
                     </div>
 
-                </div>
+                </div> --}}
 
                 <div>
                     <p class="mt-3">
