@@ -53,7 +53,7 @@
     @endforeach
 
     {{-- Mis scripts --}}
-   
+    <script src="{{ asset('js/gutenberg.js') }}"></script>
     <script src="{{ asset('js/roadAnimation.js') }}"></script>
 
     @yield('internal_script')

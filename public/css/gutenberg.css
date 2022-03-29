@@ -1,8 +1,71 @@
-.retratoguten {
+/* BIOGRAFIA */
+
+.gradient-text {
+  position: relative;
+  margin-bottom: 0;
+}
+
+.gradient-text::after {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  content: "";
+  background: linear-gradient(to top,
+      #f5f8fa 10%,
+      rgba(255, 255, 255, 0) 80%);
+  pointer-events: none;
+}
+
+
+strong {
+  position: relative;
+}
+
+strong::after {
+  content: "";
+  position: absolute;
+  bottom: -0.425rem;
+  left: -0.5rem;
+  right: -0.5rem;
+  height: 0.75rem;
+  z-index: -1;
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/664131/underline.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+a:link,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+
+.img-gutenberg {
   width: 200px;
   height: 250px;
   float: left;
   border-radius: 50%;
+}
+
+.read-more {
+  display: flex;
+  justify-content: center;
+}
+
+.read-more button {
+  text-decoration: none;
+  padding: 10px;
+  display: inline-block;
+  border: 1px solid rgba(0, 0, 0, 0.21);
+  border-bottom: 4px solid rgba(0, 0, 0, 0.21);
+  border-radius: 50%;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+  width: 50px;
+  height: 50px;
+  font-size: 1.2em;
+  color: #FFF;
 }
 
 /* TIME-LINE */
@@ -36,14 +99,14 @@
 }
 
 .line-time-margin-left {
-  margin-left: 41px;
+  margin-left: 41.25px;
 }
 
 .line-time-margin-right {
-  margin-right: 41px;
+  margin-right: 41.25px;
 }
 
-button {
+.button-timeline {
   text-decoration: none;
   padding: 10px;
   display: inline-block;
@@ -53,27 +116,33 @@ button {
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
   width: 70px;
   height: 70px;
+  color: #FFF;
 }
 
 .button-margin-left {
-  margin-left: 20px;
+  margin-left: 22px;
 }
 
 .button-margin-right {
-  margin-right: 20px;
+  margin-right: 22px;
 }
 
 
 .rules-game {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
   border: 1px solid #000;
   border-radius: 30px;
   padding: 10px;
-
+  visibility: hidden;
 }
 
 .rules-game img {
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
 }
 
 
@@ -106,5 +175,6 @@ button {
   .rules-game {
     flex: 100%;
     max-width: 100%;
+    visibility: visible;
   }
 }
