@@ -4,6 +4,10 @@ path {
     stroke-width: 1.3px;
 }
 
+svg path .selected-map {
+    fill: var(--color-secondary);
+}
+
 .page-effect {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     height: 700px;
