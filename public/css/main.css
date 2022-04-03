@@ -1,7 +1,9 @@
 :root {
   /* Paleta de colores */
   --color-primary: #e1a462;
-  --color-primary2: #e8b589;
+
+  /* --color-primary2: #e8b58988; */
+  --color-primary2: rgba(232, 181, 137, 0.25);
   --color-secondary: #68aec9;
   --color-secondary2: #a9d8de;
 }

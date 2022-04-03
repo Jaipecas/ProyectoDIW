@@ -28,12 +28,12 @@ function showText() {
     if (countText % 2 === 0) {
         firstParrag.classList.remove('gradient-text');
         textHidden.classList.remove('d-none');
-        buttonRead.textContent = '&uarr;'
+        buttonRead.innerHTML = '&darr;'
 
     } else {
         firstParrag.classList.add('gradient-text');
         textHidden.classList.add('d-none');
-        buttonRead.textContent = '&darr;'
+        buttonRead.innerHTML = '&darr;'
     }
     countText++;
 }
