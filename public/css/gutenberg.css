@@ -127,16 +127,13 @@ a:active {
   margin-right: 22px;
 }
 
-
 .rules-game {
   display: flex;
   flex-flow: column;
-  justify-content: center;
   align-items: center;
   border: 1px solid #000;
   border-radius: 30px;
-  padding: 10px;
-  visibility: hidden;
+  padding: 15px;
 }
 
 .rules-game img {

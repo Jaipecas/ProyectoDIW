@@ -21,6 +21,7 @@ svg {
   justify-content: center;
 }
 
+
 .card-podium {
   justify-content: center;
   align-items: center;
@@ -97,28 +98,39 @@ svg {
   flex-direction: row;
 }
 
+.country-stats img {
+  width: 75px;
+  height: 75px;
+}
 
 
 /********
 ---$Reglas de juego---
 ********/
 
-.reglas-juego {
-  border: 1px solid #000;
-  border-radius: 30px;
-  padding: 10px;
+
+.rule {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 3px solid var(--color-secondary2);
+  padding: 15px;
 }
 
-.reglas-juego img {
-  border-radius: 30px;
+.rule-translate {
+  transform: translate(1000px);
 }
 
-.reglas-juego p::first-letter {
+.rule img {
+  max-width: 200px;
+  max-height: 150px;
+}
+
+.rule p::first-letter {
   color: #da452b;
   font-size: 300%;
   line-height: 10px;
 }
 
-.reglas-juego:hover {
-  background-color: #de9184;
-}
+
+/* Responsive */

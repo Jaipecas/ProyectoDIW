@@ -7,14 +7,15 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <!--Contenido principal-->
-            <div class="col-lg-10 col-md-12 mt-3">
+            <div class="col-lg-9 col-md-12 mt-3">
                 <h2>Estadísticas del juego</h2>
 
                 <!--Estadísticas variadas-->
                 <div class="row my-4">
+                    <h4 class="ml-3 mb-4">Estadísticas variadas</h4>
                     <div class="col-md-12">
                         <div class="card-deck">
                             <div class="card card-estadistica">
@@ -45,9 +46,11 @@
                     </div>
                 </div>
 
+
                 <!-- Podium -->
                 <div class="row my-4">
-                    <div class="col-md-12 podium mx-2">
+                    <h4 class="ml-3 my-4">Mejores jugadores</h4>
+                    <div class="col-md-12 podium">
 
                         <div class="podium-position">
                             <div class="card card-podium cardsilver">
@@ -87,10 +90,11 @@
 
                 {{-- mapa --}}
                 <div class="row my-4">
+                    <h4 class="ml-3 my-4">Nacionalidades de los jugadores</h4>
                     <div class="col-md-12 d-flex justify-content-center">
-                        <svg baseprofile="tiny" fill="#ececec" stroke="black"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width=".2" version="1.2"
-                            viewbox="0 0 2000 857" width="2000" xmlns="http://www.w3.org/2000/svg">
+                        <svg baseprofile="tiny" fill="#ececec" stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width=".2" version="1.2" viewbox="0 0 2000 857" width="2000"
+                            xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M1383 261.6l1.5 1.8-2.9 0.8-2.4 1.1-5.9 0.8-5.3 1.3-2.4 2.8 1.9 2.7 1.4 3.2-2 2.7 0.8 2.5-0.9 2.3-5.2-0.2 3.1 4.2-3.1 1.7-1.4 3.8 1.1 3.9-1.8 1.8-2.1-0.6-4 0.9-0.2 1.7-4.1 0-2.3 3.7 0.8 5.4-6.6 2.7-3.9-0.6-0.9 1.4-3.4-0.8-5.3 1-9.6-3.3 3.9-5.8-1.1-4.1-4.3-1.1-1.2-4.1-2.7-5.1 1.6-3.5-2.5-1 0.5-4.7 0.6-8 5.9 2.5 3.9-0.9 0.4-2.9 4-0.9 2.6-2-0.2-5.1 4.2-1.3 0.3-2.2 2.9 1.7 1.6 0.2 3 0 4.3 1.4 1.8 0.7 3.4-2 2.1 1.2 0.9-2.9 3.2 0.1 0.6-0.9-0.2-2.6 1.7-2.2 3.3 1.4-0.1 2 1.7 0.3 0.9 5.4 2.7 2.1 1.5-1.4 2.2-0.6 2.5-2.9 3.8 0.5 5.4 0z"
                                 id="AF" name="Afghanistan">
@@ -1632,156 +1636,78 @@
                 </div>
 
                 <div class="row my-4">
-                    <div class="col-lg-3 my-2">
-                        <div class="card country-stats justify-content-center">
+                    <div class="col-lg-3 my-2 px-1">
+                        <div class="card country-stats align-items-center">
                             <img class="m-2" src="../img/espana.png" alt="">
-                            <div class="m-2 d-flex flex-column align-items-center justify-content-center">
+                            <div class="m-2 d-flex flex-column justify-content-center">
                                 <p><strong>España</strong></p>
-                                <p>Usuarios: 10000</p>
+                                <p>Usuarios 10000</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 my-2">
-                        <div class="card country-stats justify-content-center">
+                    <div class="col-lg-3 my-2 px-1">
+                        <div class="card country-stats align-items-center">
                             <img class="m-2" src="../img/mexico.png" alt="">
-                            <div class="m-2 d-flex flex-column align-items-center justify-content-center">
+                            <div class="m-2 d-flex flex-column justify-content-center">
                                 <p><strong>México</strong></p>
-                                <p>Usuarios: 10000</p>
+                                <p>Usuarios 10000</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 my-2">
-                        <div class="card country-stats justify-content-center">
+                    <div class="col-lg-3 my-2 px-1">
+                        <div class="card country-stats align-items-center">
                             <img class="m-2" src="../img/argentina.png" alt="">
-                            <div class="m-2 d-flex flex-column align-items-center justify-content-center">
+                            <div class="m-2 d-flex flex-column  justify-content-center">
                                 <p><strong>Argentina</strong> </p>
-                                <p>Usuarios: 10000</p>
+                                <p>Usuarios 10000</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 my-2">
-                        <div class="card country-stats justify-content-center">
+                    <div class="col-lg-3 my-2 px-1">
+                        <div class="card country-stats align-items-center">
                             <img class="m-2" src="../img/francia.png" alt="">
-                            <div class="m-2 d-flex flex-column align-items-center justify-content-center">
+                            <div class="m-2 d-flex flex-column justify-content-center">
                                 <p><strong>Francia</strong></p>
-                                <p>Usuarios: 10000</p>
+                                <p>Usuarios 10000</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <h2>Reglas del juego</h2>
-
                 <p>A continuación se exponen las reglas del juego sacadas de la página WikiHow.</p>
 
                 <!--Reglas del juego-->
-                <div class="row my-4">
-                    <div class="container">
-                        <h4>Prepárate para jugar</h4>
-                        <div class="container reglas-juego my-3">
-                            <div class="row align-items-center text-justify">
-                                <div class="col-lg-7 col-md-11">
-                                    <p class="pr-4">1. Antes de empezar el juego, asegúrate de tener todo lo que
-                                        necesitas
-                                        para jugar Scrabble. Necesitarás
-                                        un tablero, 100 azulejos de letras, un estante de letras para cada jugador y una
-                                        bolsa
-                                        de
-                                        tela
-                                        para
-                                        guardar los azulejos de letras. También necesitarás 1 a 3 jugadores.</p>
-                                </div>
-                                <div class="col-lg-5 col-md-11">
-                                    <img class="img-fluid" src="../img/regla1.1.jpg" alt="regla juego 1">
-                                </div>
+                <div class="row my-4 mx-2">
+                  
+                        <div class="col-md-12 ">
+                            <div class="rules-container">
+                                <div>
+                                    <div>
+                                        <p><strong>1. Coloca la primera palabra.</strong> El jugador que escogió la letra
+                                            más
+                                            cercana a “A” debe colocar la primera palabra. La palabra debe tener al menos dos
+                                            azulejos y
+                                            debe colocarse a lo largo del cuadrado de estrella en el centro del tablero. La
+                                            palabra se
+                                            puede colocar en sentido vertical u horizontal, pero no diagonal. </p>
+                                    </div>
+                                    <div>
+                                        <img class="img-fluid" src="../img/regla2.1.jpg" alt="regla juego 1">
+                                    </div>
+                                </div>                               
                             </div>
+                                   
                         </div>
-                        <div class="container reglas-juego my-3">
-                            <div class="row align-items-center text-justify">
-                                <div class="col-lg-7 col-md-11">
-                                    <p class="pr-4">2. Escoge el diccionario que usarás para los desafíos. Es
-                                        posible
-                                        que,
-                                        durante el curso del juego, alguien juegue una palabra que otro jugador considere
-                                        inválida.
-                                        En una situación como esta, tendrás que buscar la palabra en un diccionario.
-                                        Asegúrate
-                                        de
-                                        tener un diccionario a la mano o un dispositivo móvil con una aplicación de
-                                        verificación
-                                        para Scrabble a fin de lidiar con los desafíos.</p>
-                                </div>
-                                <div class="col-lg-5 col-md-11">
-                                    <img class="img-fluid" src="../img/regla1.2.jpg" alt="regla juego 1">
-                                </div>
-                            </div>
-                        </div>
+                       
+                </div>
 
-                        <div class="container reglas-juego my-3">
-                            <div class="row align-items-center text-justify">
-                                <div class="col-lg-7 col-md-11">
-                                    <p class="pr-4">3. Coloca los azulejos en la bolsa y agítalos. Para
-                                        asegurarte
-                                        de
-                                        que
-                                        las letras estén distribuidas de forma justa, colócalas en la bolsa, ciérrala y
-                                        agítala
-                                        un
-                                        poco.</p>
-                                </div>
-                                <div class="col-lg-5 col-md-11">
-                                    <img class="img-fluid" src="../img/regla1.3.jpg" alt="regla juego 1">
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="container reglas-juego my-3">
-                            <div class="row align-items-center text-justify">
-                                <div class="col-lg-7 col-md-11">
-                                    <p class="pr-4">4. Determina quién empezará. Pasa la bolsa alrededor de la
-                                        mesa y
-                                        permite que cada jugador extraiga un azulejo. Luego, coloca los azulejos boca arriba
-                                        sobre
-                                        la mesa. El jugador con la letra más cercana a la letra “A” comienza. Coloca estas
-                                        letras de
-                                        regreso a la bolsa y agítala nuevamente antes de extraer los azulejos. Si algún
-                                        jugador
-                                        toma
-                                        una ficha en blanco, tendrá que empezar el juego.</p>
-                                </div>
-                                <div class="col-lg-5 col-md-11">
-                                    <img class="img-fluid" src="../img/regla1.4.jpg" alt="regla juego 1">
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="container reglas-juego my-3">
-                            <div class="row align-items-center text-justify">
-                                <div class="col-lg-7 col-md-11">
-                                    <p class="pr-4">5. Extrae tus azulejos. Empezando con la persona que obtuvo
-                                        la
-                                        ficha
-                                        más cercana a “A”, deja que los jugadores tomen 7 fichas. Sostén la bolsa sobre el
-                                        nivel
-                                        de
-                                        los ojos, de modo que no puedas ver las fichas. No muestres estos azulejos a los
-                                        jugadores.
-                                        Solo colócalos en tu estante y pasa la bolsa al siguiente jugador hasta que todos
-                                        hayan
-                                        extraído sus letras.</p>
-                                </div>
-                                <div class="col-lg-5 col-md-11">
-                                    <img class="img-fluid" src="../img/regla1.5.jpg" alt="regla juego 1">
-                                </div>
-                            </div>
-                        </div>
-
-                        <h4>Jugar al juego</h4>
-
-                        <div class="container reglas-juego my-3">
-                            <div class="row align-items-center text-justify">
-                                <div class="col-lg-7 col-md-11">
-                                    <p class="pr-4">1. Coloca la primera palabra. El jugador que escogió la letra
+                {{-- <div class="container reglas-juego my-3">
+                            <div class="row d-flex align-items-center">
+                                <div class="col-lg-7 col-md-11 slide-left">
+                                    <p class="pr-4"><strong>1. Coloca la primera palabra.</strong> El jugador que escogió la letra
                                         más
                                         cercana a “A” debe colocar la primera palabra. La palabra debe tener al menos dos
                                         azulejos y
@@ -1796,7 +1722,7 @@
                         </div>
 
                         <div class="container reglas-juego my-3">
-                            <div class="row align-items-center text-justify">
+                            <div class="row d-flex align-items-center">
                                 <div class="col-lg-7 col-md-11">
                                     <p class="pr-4">2. Cuenta tus puntos. Después de colocar una letra, asegúrate
                                         de
@@ -1812,7 +1738,7 @@
                         </div>
 
                         <div class="container reglas-juego my-3">
-                            <div class="row align-items-center text-justify">
+                            <div class="row d-flex align-items-center">
                                 <div class="col-lg-7 col-md-11">
                                     <p class="pr-4">3. Extrae nuevos azulejos. Después de cada turno, tendrás que
                                         extraer
@@ -1830,7 +1756,7 @@
                         </div>
 
                         <div class="container reglas-juego my-3">
-                            <div class="row align-items-center text-justify">
+                            <div class="row d-flex align-items-center">
                                 <div class="col-lg-7 col-md-11">
                                     <p class="pr-4">4. Construye sobre las palabras de otros jugadores. En tu
                                         siguiente
@@ -1846,7 +1772,7 @@
                         </div>
 
                         <div class="container reglas-juego my-3">
-                            <div class="row align-items-center text-justify">
+                            <div class="row d-flex align-items-center">
                                 <div class="col-lg-7 col-md-11">
                                     <p class="pr-4">5. Usa tus azulejos para obtener el puntaje más alto posible
                                         en cada
@@ -1863,7 +1789,7 @@
                         </div>
 
                         <div class="container reglas-juego my-3">
-                            <div class="row align-items-center text-justify">
+                            <div class="row d-flex align-items-center">
                                 <div class="col-lg-7 col-md-11">
                                     <p class="pr-4">6. Desafía a otros jugadores a debatir acerca de una palabra.
                                         Si
@@ -1880,7 +1806,7 @@
                         </div>
 
                         <div class="container reglas-juego my-3">
-                            <div class="row align-items-center text-justify">
+                            <div class="row d-flex align-items-center">
                                 <div class="col-lg-7 col-md-11">
                                     <p class="pr-4">7. Intercambia los azulejos que no desees. En algún punto
                                         durante el
@@ -1898,101 +1824,10 @@
                                     <img class="img-fluid" src="../img/regla2.7.jpg" alt="regla juego 1">
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
-                        <h4>Ganar puntos</h4>
 
-                        <div class="container reglas-juego my-3">
-                            <div class="row align-items-center text-justify">
-                                <div class="col-lg-7 col-md-11">
-                                    <p class="pr-4">1. Lleva un registro del puntaje a medida que avanzas. Es
-                                        importante
-                                        mantener un conteo cuidadoso del puntaje de cada jugador mientras juegas. Cada
-                                        jugador debe
-                                        anunciar su puntaje después de sumarlo y entonces el anotador debe escribirlo
-                                        inmediatamente.</p>
-                                </div>
-                                <div class="col-lg-5 col-md-11">
-                                    <img class="img-fluid" src="../img/regla3.1.jpg" alt="regla juego 1">
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="container reglas-juego my-3">
-                            <div class="row align-items-center text-justify">
-                                <div class="col-lg-7 col-md-11">
-                                    <p class="pr-4">2. Busca los cuadrados con mayor puntaje. Los cuadrados de
-                                        mayor
-                                        valor alterarán tu puntaje de palabras, así que presta atención a estos cuadrados
-                                        cuando
-                                        formes palabras. Solo puedes usar los bonos de un cuadrado de mayor valor si colocas
-                                        el
-                                        azulejo sobre ese cuadrado durante tu turno. No puedes incorporar los bonos de un
-                                        cuadrado
-                                        de mayor valor que ya has contado en otro turno o que ha sido contado por otro
-                                        jugador.</p>
-                                </div>
-                                <div class="col-lg-5 col-md-11">
-                                    <img class="img-fluid" src="../img/regla3.2.jpg" alt="regla juego 1">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="container reglas-juego my-3">
-                            <div class="row align-items-center text-justify">
-                                <div class="col-lg-7 col-md-11">
-                                    <p class="pr-4">3. Suma 50 puntos al puntaje de tu palabra si obtienes un
-                                        bingo,
-                                        también conocido como bonus. Un bingo se produce cuando usas tus siete azulejos para
-                                        formar
-                                        una palabra. Cuando esto sucede, debes sumar el valor total de la palabra (además de
-                                        cualquier bono ganado por los cuadrados de mayor valor) y luego sumar 50 puntos.</p>
-                                </div>
-                                <div class="col-lg-5 col-md-11">
-                                    <img class="img-fluid" src="../img/regla3.3.jpg" alt="regla juego 1">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="container reglas-juego my-3">
-                            <div class="row align-items-center text-justify">
-                                <div class="col-lg-7 col-md-11">
-                                    <p class="pr-4">4. Suma los puntajes de cada jugador al final del juego.
-                                        Después de
-                                        que todos los jugadores hayan agotado sus azulejos o no puedan jugar más palabras,
-                                        suma los
-                                        puntos totales de cada jugador. A medida que el anotador sume los totales, cada
-                                        jugador debe
-                                        hacerle saber el valor de los puntos de los azulejos que se quedaron (si este es el
-                                        caso).
-                                        Resta este valor del total de puntos de cada jugador para determinar el puntaje
-                                        final.</p>
-                                </div>
-                                <div class="col-lg-5 col-md-11">
-                                    <img class="img-fluid" src="../img/regla3.4.jpg" alt="regla juego 1">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="container reglas-juego my-3">
-                            <div class="row align-items-center text-justify">
-                                <div class="col-lg-7 col-md-11">
-                                    <p class="pr-4">5. Anuncia al ganador. Después de que el anotador haya sumado
-                                        los
-                                        puntajes de cada jugador y haya restado los valores de los azulejos que no se
-                                        usaron, puede
-                                        anunciar al ganador. La persona que tenga el puntaje más alto gana el juego. El
-                                        segundo
-                                        lugar lo obtiene la persona con el segundo puntaje más alto y así sucesivamente.</p>
-                                </div>
-                                <div class="col-lg-5 col-md-11">
-                                    <img class="img-fluid" src="../img/regla3.5.jpg" alt="regla juego 1">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
                 <!--Recursos extra-->
                 <h2>Recursos extra</h2>
                 <div class="row my-4">
@@ -2036,7 +1871,7 @@
                 </div>
             </div>
             <!--Noticas y Avisos-->
-            <div class="col-lg-2 col-md-12">
+            <div class="col-lg-3 col-md-12">
                 @include('alerts')
                 @include('news')
             </div>

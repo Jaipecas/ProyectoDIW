@@ -8,7 +8,7 @@
 
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-lg-9 col-md-12 mt-3">
                 <h2>Difusión de la imprenta</h2>
@@ -24,7 +24,7 @@
                                 <p>Venecia, la capital de la región de Véneto en el norte de Italia, abarca más de 100 islas
                                     pequeñas en una laguna del mar Adriático. No tiene caminos, sino solo canales, incluida
                                     la vía pública del Gran Canal, bordeada de palacios renacentistas y góticos.</p>
-                                <hr>
+                               
                                 <img class="img-fluid" src="../img/venecia.jpg" alt="Imagen Venecia">
                             </div>
                             <div class="page">
@@ -35,7 +35,7 @@
                                 <p>París es la capital de Francia y su ciudad más poblada. Capital de la región de Isla de
                                     Francia
                                     (o "Región Parisina"), constituye el único departamento unicomunal del país.</p>
-                                <hr>
+                                
                                 <img class="img-fluid" src="../img/paris.jpg" alt="Imagen Venecia">
                             </div>
                             <div class="page">
@@ -47,7 +47,7 @@
                                     en el
                                     extremo noroeste de Bélgica a 90 km de la capital, Bruselas, cuenta en su núcleo urbano
                                     con una población de 117 000 habitantes.</p>
-                                <hr>
+                               
                                 <img class="img-fluid" src="../img/brujas.jpg" alt="Imagen Venecia">
                             </div>
                             <div class="page">
@@ -58,7 +58,7 @@
                                 <p>Segovia es un municipio y ciudad española, capital de la provincia del mismo nombre, en
                                     la comunidad autónoma de Castilla y León. Se sitúa en la confluencia de los ríos Eresma
                                     y Clamores, al pie de la sierra de Guadarrama.</p>
-                                <hr>
+                               
                                 <img class="img-fluid" src="../img/segovia.jpg" alt="Imagen Venecia">
                             </div>
                             <div class="page">
@@ -68,10 +68,9 @@
                                 <hr>
                                 <p>Valencia es un municipio y
                                     una ciudad de España, capital de la provincia homónima y de la Comunidad Valenciana. Con
-                                    una población que sube a 1 581 057 habitantes (2020) si
-                                    se incluye su espacio urbano, es la tercera ciudad y área metropolitana más poblada
+                                    una población que sube a 1 581 057 habitantes es la tercera ciudad y área metropolitana más poblada
                                     de España, por detrás de Madrid y Barcelona.</p>
-                                <hr>
+                               
                                 <img class="img-fluid" src="../img/valencia.jpg" alt="Imagen Venecia">
                             </div>
                             <div class="page">
@@ -81,16 +80,16 @@
                                 <hr>
                                 <p>Westminster es un barrio del Centro de Londres, Inglaterra, dentro de la Ciudad de
                                     Westminster, la cual queda en la orilla norte del río Támesis.</p>
-                                <hr>
+                               
                                 <img class="img-fluid" src="../img/westminster.jpg" alt="Imagen Venecia">
                             </div>
                         </div>
 
                         <div>
-                            <button id="button-road">Comienza el viaje</button>
+                            <button id="button-road" class="button-road">Comienza el viaje</button>
                         </div>
                     </div>
-                    <svg class="col-lg-7 col-md-12 img-fluid" version="1.2" viewbox="0 0 1000 684"
+                    <svg class="col-lg-7 col-md-12 img-fluid" version="1.2" viewbox="260 0 740 684"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M654.7 528.1l0.5 0.4 2 2.9 1.4 0.5 1.9 1.3 1.4 3.2 0.1 2.2-0.5 2.6 0.3 2.1-0.8 0.8 0.7 2 0.2 1.9 1.2 2.2 1.2 1.1 1.3 2.4 1.6-0.2 1.3 1.1 0 1.1 1.1 1.8-0.8 2.6-1.7 0.8-1.2 3.1-0.3 2-0.6 0.5-1.9 0.3-1.7 1.3 1 2.2-0.9 0.7-0.3 1.5-0.7 0.7-2.7-0.9-0.7-2.5-1.7-2.7-4.9-2.6-1.2-1.1 0.4-1.5-0.1-1.4-1.4-2.4 0.3-2.6 0.8-2.2-0.3-2.7 0.1-2.1-0.7-2.9 0.5-2.1 0.9-1.3-0.2-2.2-1.5-1.1-1.6-0.2 0-3.1-0.3-0.6 1.7 0-1.7-2.8 3.2-5.3 1.1 0.3 0.8 2.1 3.4-1.2z"
