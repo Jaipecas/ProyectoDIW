@@ -108,22 +108,26 @@ svg {
 ---$Reglas de juego---
 ********/
 
+.rules {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 185px;
+  border: 3px solid var(--color-secondary2);
+}
 
 .rule {
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 3px solid var(--color-secondary2);
   padding: 15px;
 }
 
-.rule-translate {
-  transform: translate(1000px);
-}
-
-.rule img {
+.rule div img {
   max-width: 200px;
   max-height: 150px;
+  padding: 10px;
+
 }
 
 .rule p::first-letter {
@@ -132,5 +136,23 @@ svg {
   line-height: 10px;
 }
 
+.buttonrules {
+  display: flex;
+  justify-content: center;
+}
 
-/* Responsive */
+.buttonrules button {
+  text-decoration: none;
+  padding: 10px;
+  margin: 5px;
+  display: inline-block;
+  border: 1px solid rgba(0, 0, 0, 0.21);
+  border-bottom: 4px solid rgba(0, 0, 0, 0.21);
+  border-radius: 50%;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+  width: 50px;
+  height: 50px;
+  font-size: 1.2em;
+  color: #FFF;
+  background-color: #71b8d0;
+}

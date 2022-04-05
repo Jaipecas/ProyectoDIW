@@ -1679,35 +1679,11 @@
 
                 <!--Reglas del juego-->
                 <div class="row my-4 mx-2">
-                  
-                        <div class="col-md-12 ">
-                            <div class="rules-container">
+                    <div class="col-md-12 ">
+                        <div class="rules">
+                            <div class="rule">
                                 <div>
-                                    <div>
-                                        <p><strong>1. Coloca la primera palabra.</strong> El jugador que escogió la letra
-                                            más
-                                            cercana a “A” debe colocar la primera palabra. La palabra debe tener al menos dos
-                                            azulejos y
-                                            debe colocarse a lo largo del cuadrado de estrella en el centro del tablero. La
-                                            palabra se
-                                            puede colocar en sentido vertical u horizontal, pero no diagonal. </p>
-                                    </div>
-                                    <div>
-                                        <img class="img-fluid" src="../img/regla2.1.jpg" alt="regla juego 1">
-                                    </div>
-                                </div>                               
-                            </div>
-                                   
-                        </div>
-                       
-                </div>
-
-
-
-                {{-- <div class="container reglas-juego my-3">
-                            <div class="row d-flex align-items-center">
-                                <div class="col-lg-7 col-md-11 slide-left">
-                                    <p class="pr-4"><strong>1. Coloca la primera palabra.</strong> El jugador que escogió la letra
+                                    <p><strong>1. Coloca la primera palabra.</strong> El jugador que escogió la letra
                                         más
                                         cercana a “A” debe colocar la primera palabra. La palabra debe tener al menos dos
                                         azulejos y
@@ -1715,117 +1691,97 @@
                                         palabra se
                                         puede colocar en sentido vertical u horizontal, pero no diagonal. </p>
                                 </div>
-                                <div class="col-lg-5 col-md-11">
+                                <div>
                                     <img class="img-fluid" src="../img/regla2.1.jpg" alt="regla juego 1">
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="container reglas-juego my-3">
-                            <div class="row d-flex align-items-center">
-                                <div class="col-lg-7 col-md-11">
-                                    <p class="pr-4">2. Cuenta tus puntos. Después de colocar una letra, asegúrate
-                                        de
+                            <div class="rule">
+                                <div>
+                                    <p><strong>2. Cuenta tus puntos.</strong> Después de colocar una letra, asegúrate de
                                         contar tus puntos. Suma los puntos de la esquina inferior derecha de cada uno de los
                                         azulejos que has puesto. Si colocaste un azulejo en un cuadrado de mayor valor,
-                                        ajusta tu
-                                        puntaje como se indica en dicho cuadrado.</p>
+                                        ajusta tu puntaje como se indica en dicho cuadrado. </p>
                                 </div>
-                                <div class="col-lg-5 col-md-11">
+                                <div>
                                     <img class="img-fluid" src="../img/regla2.2.jpg" alt="regla juego 1">
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="container reglas-juego my-3">
-                            <div class="row d-flex align-items-center">
-                                <div class="col-lg-7 col-md-11">
-                                    <p class="pr-4">3. Extrae nuevos azulejos. Después de cada turno, tendrás que
-                                        extraer
-                                        tantos azulejos nuevos como los que acabas de jugar. Por ejemplo, si jugaste tres de
-                                        tus
-                                        azulejos para formar una palabra durante tu turno, entonces tendrás que sacar tres
-                                        más al
-                                        terminar. Coloca estos azulejos nuevos en tu estante y pasa la bolsa al siguiente
-                                        jugador.</p>
+                            <div class="rule">
+                                <div>
+                                    <p><strong>3. Extrae nuevos azulejos.</strong> Después de cada turno, tendrás que
+                                        extraer tantos azulejos nuevos como los que acabas de jugar. Por ejemplo, si jugaste
+                                        tres de tus azulejos para formar una palabra durante tu turno, entonces tendrás que
+                                        sacar tres más al terminar. Coloca estos azulejos nuevos en tu estante y pasa la
+                                        bolsa al siguiente jugador.</p>
                                 </div>
-                                <div class="col-lg-5 col-md-11">
+                                <div>
                                     <img class="img-fluid" src="../img/regla2.3.jpg" alt="regla juego 1">
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="container reglas-juego my-3">
-                            <div class="row d-flex align-items-center">
-                                <div class="col-lg-7 col-md-11">
-                                    <p class="pr-4">4. Construye sobre las palabras de otros jugadores. En tu
-                                        siguiente
+                            <div class="rule">
+                                <div>
+                                    <p><strong>4. Construye sobre las palabras de otros jugadores.</strong> En tu siguiente
                                         turno, tendrás que formar tu palabra a partir de las palabras que tus oponentes han
-                                        formado.
-                                        Eso significa que no puedes crear una palabra independiente en el tablero. Todos los
-                                        azulejos deben estar conectados.</p>
+                                        formado. Eso significa que no puedes crear una palabra independiente en el tablero.
+                                        Todos los azulejos deben estar conectados.</p>
                                 </div>
-                                <div class="col-lg-5 col-md-11">
+                                <div>
                                     <img class="img-fluid" src="../img/regla2.4.jpg" alt="regla juego 1">
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="container reglas-juego my-3">
-                            <div class="row d-flex align-items-center">
-                                <div class="col-lg-7 col-md-11">
-                                    <p class="pr-4">5. Usa tus azulejos para obtener el puntaje más alto posible
-                                        en cada
-                                        turno. Es una buena idea considerar varias jugadas durante cada uno de tus turnos y
-                                        hacer la
-                                        jugada que te hará ganar más puntos. Busca oportunidades para incorporar cuadrados
-                                        de mayor
-                                        valor y letras de mayor puntaje como “Z” y “Q” a tus jugadas.</p>
+                            <div class="rule">
+                                <div>
+                                    <p><strong>5. Usa tus azulejos para obtener el puntaje más alto posible en cada
+                                            turno.</strong> Es una buena idea considerar varias jugadas durante cada uno de
+                                        tus turnos y hacer la jugada que te hará ganar más puntos. Busca oportunidades para
+                                        incorporar cuadrados de mayor valor y letras de mayor puntaje como “Z” y “Q” a tus
+                                        jugadas.</p>
                                 </div>
-                                <div class="col-lg-5 col-md-11">
+                                <div>
                                     <img class="img-fluid" src="../img/regla2.5.jpg" alt="regla juego 1">
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="container reglas-juego my-3">
-                            <div class="row d-flex align-items-center">
-                                <div class="col-lg-7 col-md-11">
-                                    <p class="pr-4">6. Desafía a otros jugadores a debatir acerca de una palabra.
-                                        Si
+                            <div class="rule">
+                                <div>
+                                    <p><strong>6. Desafía a otros jugadores a debatir acerca de una palabra.</strong> Si
                                         crees que un jugador ha formado una palabra que no existe o que otro jugador ha
-                                        deletreado
-                                        mal una palabra, entonces puedes desafiar a ese jugador. Cuando desafíes a un
-                                        jugador, debes
-                                        buscar la palabra en el diccionario.</p>
+                                        deletreado mal una palabra, entonces puedes desafiar a ese jugador. Cuando desafíes
+                                        a un jugador, debes buscar la palabra en el diccionario.</p>
                                 </div>
-                                <div class="col-lg-5 col-md-11">
+                                <div>
                                     <img class="img-fluid" src="../img/regla2.6.jpg" alt="regla juego 1">
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="container reglas-juego my-3">
-                            <div class="row d-flex align-items-center">
-                                <div class="col-lg-7 col-md-11">
-                                    <p class="pr-4">7. Intercambia los azulejos que no desees. En algún punto
-                                        durante el
+                            <div class="rule">
+                                <div>
+                                    <p><strong>7. Intercambia los azulejos que no desees.</strong> En algún punto durante el
                                         juego, puedes decidir que deseas intercambiar algunos o todos tus azulejos por
-                                        nuevos.
-                                        Puedes usar un turno para obtener nuevos azulejos. Simplemente devuelve los azulejos
-                                        que ya
-                                        no deseas a la bolsa, agita la bolsa y extrae el número de azulejos que devolviste.
-                                        Solo ten
-                                        en cuenta que no puedes formar una palabra después de extraer nuevos azulejos, ya
-                                        que esta
-                                        operación contará como un turno.</p>
+                                        nuevos. Puedes usar un turno para obtener nuevos azulejos. Simplemente devuelve los
+                                        azulejos que ya no deseas a la bolsa, agita la bolsa y extrae el número de azulejos
+                                        que devolviste. Solo ten en cuenta que no puedes formar una palabra después de
+                                        extraer nuevos azulejos, ya que esta operación contará como un turno.</p>
                                 </div>
-                                <div class="col-lg-5 col-md-11">
+                                <div>
                                     <img class="img-fluid" src="../img/regla2.7.jpg" alt="regla juego 1">
                                 </div>
                             </div>
-                        </div> --}}
 
+                        </div>
+
+                    </div>
+                </div>
+
+                    <div class="row my-4">
+                        <div class="col-md-12 buttonrules">
+                            <button id="button-up">&darr;</button>
+                            <button id="button-down" >&uarr;</button>
+                        </div>
+                    </div>
 
 
                 <!--Recursos extra-->

@@ -16,10 +16,10 @@
                     <div class="col-md-12 col-lg-6 container-left">
                         <div class="d-flex justify-content-center">
                             <div class="img-frame">
-                                <img class="element-absolute visible-img" src="../img/08b Trabajadores imprenta 1.png"
+                                <img class="position-absolute visible-img" src="../img/08b Trabajadores imprenta 1.png"
                                     alt="">
-                                <img class="element-absolute" src="../img/10b Trabajadores imprenta 3.jpg" alt="">
-                                <img class="element-absolute" src="../img/09b Trabajadores imprenta 2 recortada.jpg" alt="">
+                                <img class="position-absolute" src="../img/10b Trabajadores imprenta 3.jpg" alt="">
+                                <img class="position-absolute" src="../img/09b Trabajadores imprenta 2 recortada.jpg" alt="">
                             </div>
                         </div>
 
@@ -67,8 +67,8 @@
                     </div>
 
                     {{-- información trabajo imprenta --}}
-                    <div class="col-lg-6 d-flex justify-content-center">
-                        <div class="container-page">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="container-page ">
                             <div class="page visible-page">
                                 <h4>El componedor</h4>
                                 <p>Realiza el trabajo más delicado. A medida que lee el manuscrito coloca en
