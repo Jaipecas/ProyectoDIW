@@ -3,7 +3,7 @@
   --color-primary: #e1a462;
 
   /* --color-primary2: #e8b58988; */
-  --color-primary2: rgba(232, 181, 137, 0.25);
+  --color-primary2: rgba(232, 181, 137, 0.4);
   --color-secondary: #68aec9;
   --color-secondary2: #a9d8de;
 }
@@ -21,6 +21,7 @@ h5 {
 
 .navbar {
   background-color: var(--color-primary2);
+  padding: 15px;
 }
 
 .navbar li {
@@ -34,14 +35,12 @@ h5 {
 }
 
 .navbar-nav li a:hover {
-  background-color: var(--color-secondary);
+  background-image: linear-gradient(#438d90, #72f6fa);
   color: #fff;
-  border-bottom: 3px solid var(--color-secondary2);
+  border-radius: 5%;
 }
 
-.navbar-nav li a:active {
-  border-bottom: 3px solid var(--color-secondary);
-}
+
 
 .navbar img {
   width: 120px;

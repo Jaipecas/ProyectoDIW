@@ -1826,23 +1826,24 @@
                     </div>
                 </div>
             </div>
-            <!--Noticas y Avisos-->
+            <!--Login, Noticas y Avisos-->
             <div class="col-lg-3 col-md-12">
                 <form class="card p-3 m-3">
                     <h1 class="h3 mb-3 font-weight-normal">Login</h1>
                     <label for="inputEmail" class="sr-only">Email address</label>
-                    <input type="email" id="inputEmail" class="form-control my-2" placeholder="Email address" required="" autofocus="">
+                    <input type="email" id="inputEmail" class="form-control my-2" placeholder="Email address" required=""
+                        autofocus="">
                     <label for="inputPassword" class="sr-only">Password</label>
                     <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
                     <div class="checkbox mb-3">
-                      <label>
-                        <input type="checkbox" value="remember-me" class="mt-4"> Recuerdame
-                      </label>
+                        <label>
+                            <input type="checkbox" value="remember-me" class="mt-4"> Recuerdame
+                        </label>
                     </div>
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Acceder</button>
                 </form>
-     
-    
+
+
                 @include('alerts')
                 @include('news')
             </div>

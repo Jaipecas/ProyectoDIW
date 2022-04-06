@@ -9,7 +9,7 @@
         <ul class="navbar-nav">
             <li class="nav-item active"><a class="nav-link" href="/gutenberg">Gutenberg</a></li>
             <li class="nav-item active"><a class="nav-link" href="/difusion-imprenta">Disfusión
-                    imprenta</a></li>
+                imprenta</a></li>
             <li class="nav-item active"><a class="nav-link" href="/trabajos-imprenta">Trabajos
                     imprenta</a></li>
             <li class="nav-item active"><a class="nav-link" href="/primeros-libros">Primeros libros</a>
