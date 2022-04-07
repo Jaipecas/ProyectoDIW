@@ -9,13 +9,13 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-lg-9 col-md-12 mt-3">
+            <div class="col-lg-9 col-md-12 mt-3 ">
                 <h2>Los primeros libros en España</h2>
                 <p>El primer libro impreso en España fue el El sinodal de Aguilafuente en 1472 en
                     Segovia. Por su parte, los tres primeros impresos en València con el procedimiento de
                     Gutenberg fueron:</p>
 
-                <div class="ml-2 mr-1 row bookshelf">
+                <div class="ml-2 mr-1 row bookshelf ">
                     <div class="my-1 col-md-3 book-frame" data-toggle="modal" data-target="#book1">
                         <img class="img-fluid book-img " src="../img/12 les trobes.jpg" alt="">
                     </div>

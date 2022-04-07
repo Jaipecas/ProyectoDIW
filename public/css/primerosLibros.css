@@ -1,8 +1,8 @@
 .bookshelf {
   margin: 0 auto;
-  border: 10px var(--brown) solid;
+  border: 15px #d69452 solid;
   background-size: 10px;
-  background-color: #7A7668;
+  background-color: #e4c5a6;
   padding: 10px;
 }
 
