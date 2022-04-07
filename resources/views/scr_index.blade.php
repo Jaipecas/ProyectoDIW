@@ -1635,6 +1635,7 @@
                     </div>
                 </div>
 
+                {{-- card paises --}}
                 <div class="row my-4">
                     <div class="col-lg-3 my-2 px-1">
                         <div class="card country-stats align-items-center">
@@ -1805,7 +1806,7 @@
                             </li>
                         </ul>
                         <h4>Videos</h4>
-                        <div class="row">
+                        <div class="row mb-4">
                             <div class="col-md-6">
                                 <div class="embed-responsive embed-responsive-16by9">
                                     <iframe width="894" height="503" src="https://www.youtube.com/embed/TSby2abyqZ4"

@@ -98,7 +98,7 @@
                                     carteles
                                     con
                                     signos
-                                    grabados en arcilla.</p>
+                                    grabados en arcilla. Como es el caso de las tablillas de Vindolanda.</p>
                             </div>
                             <div>
                                 <img data-toggle="modal" data-target="#img-time-1"
@@ -224,19 +224,22 @@
                     </div>
                 </div>
 
-                <div class="my-3">
-                    <h2>En resumen...</h2>
-                    <p>Gutenberg confeccionó un abecedario con letras y signos de
-                        plomo. Su idea fue eficaz porque la perfeccionó con:</p>
-                    <ul>
-                        <li>Letras móviles</li>
-                        <li>Molde de metal</li>
-                        <li>Fundidor de tipos o aparato de fundición manual</li>
-                        <li>Aleación especial de metales para fabricar los móviles (plomo, antimonio
-                            y bismuto)</li>
-                        <li>Prensa de madera anclada al suelo y al techo</li>
-                        <li>Tinta de imprimir en un determinado papel</li>
-                    </ul>
+                <div class="my-4">
+                    <div class=" card p-3">
+                        <h2>En resumen...</h2>
+                        <p>Gutenberg confeccionó un abecedario con letras y signos de
+                            plomo. Su idea fue eficaz porque la perfeccionó con:</p>
+                        <ul>
+                            <li>Letras móviles</li>
+                            <li>Molde de metal</li>
+                            <li>Fundidor de tipos o aparato de fundición manual</li>
+                            <li>Aleación especial de metales para fabricar los móviles (plomo, antimonio
+                                y bismuto)</li>
+                            <li>Prensa de madera anclada al suelo y al techo</li>
+                            <li>Tinta de imprimir en un determinado papel</li>
+                        </ul>
+                    </div>
+                   
                 </div>
             </div>
             <!--Avisos y Noticias-->

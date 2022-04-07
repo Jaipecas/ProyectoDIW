@@ -86,9 +86,9 @@ svg {
 /* DESCRIPCIONES */
 
 .container-page {
-  width: 600px;
   height: 700px;
   position: relative;
+  left: 40px;
 }
 
 .page {

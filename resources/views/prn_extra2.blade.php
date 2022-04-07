@@ -114,7 +114,7 @@
                     </div>
                 </div>
 
-                <div class="mb-4 ">
+                <div class="mb-4 my-4">
                     <h2>Videos</h2>
                     <p>Se puede ver más información del proceso en estos vídeos:</p>
                     <div class="row">
