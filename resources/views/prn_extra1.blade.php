@@ -344,5 +344,9 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('js/roadAnimation.js') }}"></script>
+  
+@endsection
+
+@section('scripts')
+<script src="{{ asset('js/roadAnimation.js') }}"></script>
 @endsection

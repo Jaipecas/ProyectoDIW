@@ -1838,7 +1838,7 @@
                     <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
                     <div class="checkbox mb-3">
                         <label>
-                            <input type="checkbox" value="remember-me" class="mt-4"> Recuerdame
+                            <input type="checkbox" value="remember-me" class="mt-4"> Recuérdame
                         </label>
                     </div>
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Acceder</button>
@@ -1850,4 +1850,8 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('js/scrabbleIndex.js') }}"></script>
 @endsection

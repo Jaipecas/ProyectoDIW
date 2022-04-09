@@ -250,3 +250,7 @@
         </div>
     </div>
 @endsection
+
+@section('scripts')
+<script src="{{ asset('js/gutenberg.js') }}"></script>
+@endsection

@@ -7,6 +7,6 @@
     <title>Error 500</title>
 </head>
 <body>
-    <p>Error interno del servido</p>
+    <p>Error interno del servidor</p>
 </body>
 </html>

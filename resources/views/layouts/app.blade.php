@@ -36,7 +36,7 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     
     <!--CSS específicos de cada vista-->
-    @yield('styles')
+    @yield('styles') 
 </head>
 
 <body>
@@ -52,12 +52,9 @@
         <script src="{{ asset('js/' . $file . '.js') }}"></script>
     @endforeach
 
-    {{-- Mis scripts --}}
-    <script src="{{ asset('js/gutenberg.js') }}"></script>
-    <script src="{{ asset('js/roadAnimation.js') }}"></script>
-    <script src="{{ asset('js/scrabbleIndex.js') }}"></script>
-
     @yield('internal_script')
+    {{-- Mis scripts --}}
+    @yield('scripts')
 </body>
 
 </html>
