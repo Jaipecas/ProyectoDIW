@@ -11,10 +11,19 @@
         <div class="row">
             <!--Contenido principal-->
             <div class="col-lg-9 col-md-12 mt-3">
+                <!--Registro-->
+                <img class="img-register img-fluid" src="./img/registroScrabble.png" alt="">
+                <img class="img-register2 img-fluid" src="./img/registroScrabble2.png" alt="">
+
+                <div class="sticky">
+                    <a href=""><strong>Regístrate</strong></a>
+                </div>
+
+
                 <h2>Estadísticas del juego</h2>
-                   
+
                 <!--Estadísticas variadas y podium-->
-                <div class="row my-4 stats">               
+                <div class="row my-4 stats">
                     <div class="col-md-6">
                         <div class="card-deck">
                             <div class="card">
@@ -45,27 +54,20 @@
                     </div>
 
                     <div class="col-md-6 podium">
-                        <div>
-                            <div class="card cardgold">
-                                <img src="../img/medalla-de-oro.png" alt="Medalla de oro">
-                                <h5 class="card-title ml-3">Jugador 1</h5>                                                            
-                            </div>                         
+                        <div class="card cardgold">
+                            <img src="../img/medalla-de-oro.png" alt="Medalla de oro">
+                            <h5 class="card-title ml-3">Jugador 1</h5>
                         </div>
 
-                        <div>
-                            <div class="card cardsilver">
-                                <img src="../img/medalla-de-plata.png" alt="Medalla de plata">
-                                <h5 class="card-title ml-3">Jugador 2</h5>                              
-                            </div>                         
+                        <div class="card cardsilver">
+                            <img src="../img/medalla-de-plata.png" alt="Medalla de plata">
+                            <h5 class="card-title ml-3">Jugador 2</h5>
                         </div>
 
-                        <div>
-                            <div class="card cardbronze">
-                                <img src="../img/medalla-de-bronce.png" alt="Medalla de bronce">
-                                <h5 class="card-title ml-3">Jugador 3</h5>                              
-                            </div>                        
+                        <div class="card cardbronze">
+                            <img src="../img/medalla-de-bronce.png" alt="Medalla de bronce">
+                            <h5 class="card-title ml-3">Jugador 3</h5>
                         </div>
-
                     </div>
                 </div>
 

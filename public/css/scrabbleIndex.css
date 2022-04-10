@@ -139,3 +139,39 @@ svg {
   width: 75px;
   height: 75px;
 }
+
+/********
+---$Registro----
+*********/
+.img-register {
+  background: #EB4667;
+}
+
+.img-register2 {
+  background: #164C4F;
+}
+
+.sticky {
+  position: sticky;
+  text-align: center;
+  top: 0;
+  left: 75%;
+  padding: 30px;
+  font-size: 20px;
+  z-index: 1;
+}
+
+.sticky a {
+  color: #fff;
+  margin: 5px;
+  padding: 20px;
+  background: #f857a6;
+  background: linear-gradient(to right, #ff5858, #f857a6);
+  background: linear-gradient(to right, #ff5858, #f857a6);
+  border-radius: 10px;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #fff;
+}
