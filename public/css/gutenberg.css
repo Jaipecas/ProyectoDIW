@@ -1,4 +1,6 @@
-/* BIOGRAFIA */
+/********
+---$BIOGRAFIA---
+********/
 
 .gradient-text {
   position: relative;
@@ -16,7 +18,6 @@
       rgba(255, 255, 255, 0) 80%);
   pointer-events: none;
 }
-
 
 strong {
   position: relative;
@@ -68,7 +69,9 @@ a:active {
   color: #FFF;
 }
 
-/* TIME-LINE */
+/********
+---$TIME-LINE---
+********/
 
 .div-timeline {
   display: flex;
@@ -80,29 +83,29 @@ a:active {
   align-items: flex-end;
 }
 
-.line-time {
+.time-line {
   height: 100px;
   width: 30px;
   border-radius: 20%;
 }
 
-.line-time-orange {
+.time-line-orange {
   background-color: #f4a45f;
 }
 
-.line-time-red {
+.time-line-red {
   background-color: #c25555;
 }
 
-.line-time-blue {
+.time-line-blue {
   background-color: #71b8d0;
 }
 
-.line-time-margin-left {
+.time-line-margin-left {
   margin-left: 41.25px;
 }
 
-.line-time-margin-right {
+.time-line-margin-right {
   margin-right: 41.25px;
 }
 
@@ -127,7 +130,7 @@ a:active {
   margin-right: 22px;
 }
 
-.rules-game {
+.time-line-card {
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -136,20 +139,23 @@ a:active {
   padding: 15px;
 }
 
-.rules-game img {
+.time-line-card img {
   width: 130px;
   height: 130px;
   border-radius: 50%;
 }
 
+/********
+---$MEDIA-QUERY---
+********/
 
 @media all and (max-width: 1200px) and (min-width: 992px) {
 
-  .line-time-margin-left {
+  .time-line-margin-left {
     margin-left: 30px;
   }
 
-  .line-time-margin-right {
+  .time-line-margin-right {
     margin-right: 30px;
   }
 
@@ -169,7 +175,7 @@ a:active {
     display: none;
   }
 
-  .rules-game {
+  .time-line-card {
     flex: 100%;
     max-width: 100%;
     visibility: visible;

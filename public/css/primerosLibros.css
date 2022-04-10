@@ -6,7 +6,8 @@
   padding: 10px;
 }
 
-.book-frame {
+
+.bookshelf>div {
   margin: auto;
   background: rgb(249, 242, 219);
   padding: 20px;
@@ -18,7 +19,7 @@
   box-shadow: 2px 2px 4px rgba;
 }
 
-.book-img {
+.bookshelf>div img {
   margin-top: 5px;
   margin-bottom: 5px;
 }

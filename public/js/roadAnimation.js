@@ -1,9 +1,15 @@
+/*
+Este script añade las animaciones al mapa de la difusión de la imprenta, 
+cambia la información de las ciudades, hace visible las marcas en el mapa y colorea
+los paises.
+*/
+
 let calls = [];
 
 function loadAnimation() {
     let elementsAnimation = Array.from(document.getElementById('path').children)
     let arrayCountries = Array.from(getMapCountries());
-    let pagesInfo = Array.from(document.getElementsByClassName('page'));
+    let pagesInfo = Array.from(document.querySelectorAll('.container-pages >div'));
 
     if (elementsAnimation[0].classList.contains('road-animation')) {
         removeAnimations(elementsAnimation, arrayCountries);

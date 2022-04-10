@@ -2,9 +2,6 @@
 ['title' => 'Info Imprenta', 'css_files' => [],
 'js_files' => []])
 
-@section('styles')
-    <link href="{{ asset('css/imprentaValenciana.css') }}" rel="stylesheet">
-@endsection
 
 @section('content')
     <div class="container">
@@ -24,4 +21,4 @@
                 @include('news')
             </div>
         </div>
-    @endsection
+@endsection

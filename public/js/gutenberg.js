@@ -1,6 +1,6 @@
 var countText = 0;
 
-const buttonRead = document.querySelector('button.line-time-blue');
+const buttonRead = document.querySelector('button.time-line-blue');
 const firstParrag = document.querySelector('p.gradient-text');
 const textHidden = document.getElementById('text-hidden');
 

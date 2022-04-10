@@ -13,10 +13,10 @@
             <div class="col-lg-9 col-md-12 mt-3">
                 <h2>Difusión de la imprenta</h2>
                 <p>El presente mapa muestra las principañes ciudades en donde se instalaron las primeras imprentas.</p>
-                <div class="row info-container mx-2">
+                <div class="row mx-2">
                     <div class="col-lg-4 col-md-12 page-effect">
                         <div class="container-pages">
-                            <div class="page visible-page">
+                            <div class="visible-page">
                                 <h1>1469</h1>
                                 <hr>
                                 <h4>Venecia (Italia)</h4>
@@ -27,7 +27,7 @@
                                
                                 <img class="img-fluid" src="../img/venecia.jpg" alt="Imagen Venecia">
                             </div>
-                            <div class="page">
+                            <div>
                                 <h1>1470</h1>
                                 <hr>
                                 <h4>París (Francia)</h4>
@@ -38,7 +38,7 @@
                                 
                                 <img class="img-fluid" src="../img/paris.jpg" alt="Imagen Venecia">
                             </div>
-                            <div class="page">
+                            <div>
                                 <h1>1471</h1>
                                 <hr>
                                 <h4>Brujas (Holanda)</h4>
@@ -50,7 +50,7 @@
                                
                                 <img class="img-fluid" src="../img/brujas.jpg" alt="Imagen Venecia">
                             </div>
-                            <div class="page">
+                            <div>
                                 <h1>1472</h1>
                                 <hr>
                                 <h4>Segovia (España)</h4>
@@ -61,7 +61,7 @@
                                
                                 <img class="img-fluid" src="../img/segovia.jpg" alt="Imagen Venecia">
                             </div>
-                            <div class="page">
+                            <div>
                                 <h1>1474</h1>
                                 <hr>
                                 <h4>Valencia (España)</h4>
@@ -73,7 +73,7 @@
                                
                                 <img class="img-fluid" src="../img/valencia.jpg" alt="Imagen Venecia">
                             </div>
-                            <div class="page">
+                            <div>
                                 <h1>1476</h1>
                                 <hr>
                                 <h4>Westminster (Gran Bretaña)</h4>
@@ -86,7 +86,7 @@
                         </div>
 
                         <div>
-                            <button id="button-road" class="button-road">Comienza el viaje</button>
+                            <button id="button-road">Comienza el viaje</button>
                         </div>
                     </div>
                     <svg class="col-lg-7 col-md-12 img-fluid" version="1.2" viewbox="260 0 740 684"
@@ -348,5 +348,5 @@
 @endsection
 
 @section('scripts')
-<script src="{{ asset('js/roadAnimation.js') }}"></script>
+    <script src="{{ asset('js/roadAnimation.js') }}"></script>
 @endsection

@@ -15,17 +15,21 @@
                     Segovia. Por su parte, los tres primeros impresos en València con el procedimiento de
                     Gutenberg fueron:</p>
 
+               {{--  estantería --}}
+               
                 <div class="ml-2 mr-1 row bookshelf ">
-                    <div class="my-1 col-md-3 book-frame" data-toggle="modal" data-target="#book1">
-                        <img class="img-fluid book-img " src="../img/12 les trobes.jpg" alt="">
+                    <div class="my-1 col-md-3" data-toggle="modal" data-target="#book1">
+                        <img class="img-fluid" src="../img/12 les trobes.jpg" alt="">
                     </div>
-                    <div class="my-1 offset-md-1 col-md-3 book-frame" data-toggle="modal" data-target="#book2">
-                        <img class="img-fluid book-img " src="../img/13 el comprensorium-recortada.jpg" alt="">
+                    <div class="my-1 offset-md-1 col-md-3" data-toggle="modal" data-target="#book2">
+                        <img class="img-fluid" src="../img/13 el comprensorium-recortada.jpg" alt="">
                     </div>
-                    <div class="my-1 offset-md-1  col-md-3 book-frame" data-toggle="modal" data-target="#book3">
-                        <img class="img-fluid book-img " src="../img/14 valencian bible.jpg" alt="">
+                    <div class="my-1 offset-md-1 col-md-3" data-toggle="modal" data-target="#book3">
+                        <img class="img-fluid" src="../img/14 valencian bible.jpg" alt="">
                     </div>
                 </div>
+
+                {{-- ventanas modales --}}
 
                 <div class="modal fade" id="book1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">

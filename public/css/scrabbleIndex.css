@@ -143,6 +143,7 @@ svg {
 /********
 ---$Registro----
 *********/
+
 .img-register {
   background: #EB4667;
 }
@@ -155,7 +156,6 @@ svg {
   position: sticky;
   text-align: center;
   top: 0;
-  left: 75%;
   padding: 30px;
   font-size: 20px;
   z-index: 1;

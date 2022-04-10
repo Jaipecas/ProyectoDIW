@@ -14,18 +14,14 @@
                 <div class="row">
                     {{-- cuadro, engranaje (fondo), palanca --}}
                     <div class="col-md-12 col-lg-6 container-left">
-                        <div class="d-flex justify-content-center">
-                            <div class="img-frame">
-                                <img class="position-absolute visible-img" src="../img/08b Trabajadores imprenta 1.png"
-                                    alt="">
-                                <img class="position-absolute" src="../img/10b Trabajadores imprenta 3.jpg" alt="">
-                                <img class="position-absolute" src="../img/09b Trabajadores imprenta 2 recortada.jpg" alt="">
-                            </div>
+
+                        <div class="img-frame">
+                            <img class="visible-img" src="../img/08b Trabajadores imprenta 1.png" alt="">
+                            <img src="../img/10b Trabajadores imprenta 3.jpg" alt="">
+                            <img src="../img/09b Trabajadores imprenta 2 recortada.jpg" alt="">
                         </div>
 
-                        <div class="d-flex justify-content-center">
-                            <img id="engranaje" class="img-engranaje" src="../img/engranaje.png" alt="">
-                        </div>
+                        <img id="engranaje" class="img-engranaje" src="../img/engranaje.png" alt="">
 
                         {{-- palanca --}}
                         <div class="d-flex justify-content-center">
@@ -69,7 +65,7 @@
                     {{-- información trabajo imprenta --}}
                     <div class="col-lg-6 col-md-12">
                         <div class="container-page ">
-                            <div class="page visible-page">
+                            <div class="visible-page">
                                 <h4>El componedor</h4>
                                 <p>Realiza el trabajo más delicado. A medida que lee el manuscrito coloca en
                                     una cajita, una a una, todas las piezas de metal con letras y espacios que
@@ -85,7 +81,7 @@
                                     palabras y las frases del texto original.
                                 </p>
                             </div>
-                            <div class="page">
+                            <div>
                                 <h4>El tirador</h4>
                                 <p>Coloca papel sobre la superficie de letras entintadas y acciona la palanca
                                     que hace bajar la prensa sobre los tipos metálicos que colocó el
@@ -97,7 +93,7 @@
                                     el día para hacer el trabajo más llevadero.
                                 </p>
                             </div>
-                            <div class="page">
+                            <div>
                                 <h4>El entintador</h4>
                                 <p>Encargado de entintar la superficie de letras que ha elaborado el
                                     componedor. Par ello utiliza dos tampones semiesféricos impregnados de
@@ -146,4 +142,6 @@
     </div>
 @endsection
 
-<script src="{{ asset('js/palancaAnimation.js') }}"></script>
+@section('scripts')
+    <script src="{{ asset('js/palancaAnimation.js') }}"></script>
+@endsection

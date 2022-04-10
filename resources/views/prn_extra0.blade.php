@@ -79,7 +79,7 @@
                         </p>
                     </div>
                     <div class="read-more mb-4">
-                        <button class="line-time-blue">&darr;</button>
+                        <button class="time-line-blue">&darr;</button>
                     </div>
                 </div>
 
@@ -92,7 +92,7 @@
 
 
                     <div class="row my-1">
-                        <div class="col-md-5 rules-game">
+                        <div class="col-md-5 time-line-card">
                             <div>
                                 <p><strong>En el siglo V a.C.</strong> 2000 años antes de Gutenberg, en Roma se imprimían
                                     carteles
@@ -106,24 +106,24 @@
                             </div>
                         </div>
                         <div class="col-md-7 div-timeline">
-                            <div class="line-time line-time-orange line-time-margin-left"></div>
+                            <div class="time-line time-line-orange time-line-margin-left"></div>
                             <div class="my-1">
-                                <button class="button-timeline button-margin-left line-time-orange">Siglo V a.C.</button>
+                                <button class="button-timeline button-margin-left time-line-orange">Siglo V a.C.</button>
                             </div>
-                            <div class="line-time line-time-orange line-time-margin-left"></div>
+                            <div class="time-line time-line-orange time-line-margin-left"></div>
                         </div>
                     </div>
 
                     <div class="row my-1">
                         <div class="col-md-7 div-timeline div-timeline-right">
-                            <div class="line-time line-time-red line-time-margin-right"></div>
+                            <div class="time-line time-line-red time-line-margin-right"></div>
                             <div class="my-1">
-                                <button class="button-timeline button-margin-right line-time-red">Siglo I d.C</button>
+                                <button class="button-timeline button-margin-right time-line-red">Siglo I d.C</button>
                             </div>
-                            <div class="line-time line-time-red line-time-margin-right"></div>
+                            <div class="time-line time-line-red time-line-margin-right"></div>
 
                         </div>
-                        <div class="col-md-5 col-sm-12 rules-game">
+                        <div class="col-md-5 col-sm-12 time-line-card">
                             <div>
                                 <p><strong>En el siglo I d.C.</strong> 1400 años antes de Gutenberg, en China se imprimían
                                     carteles utilizando
@@ -140,7 +140,7 @@
 
 
                     <div class="row my-1">
-                        <div class="col-md-5 col-sm-12 rules-game">
+                        <div class="col-md-5 col-sm-12 time-line-card">
                             <div>
                                 <p><strong>Ya en el siglo XV</strong> la gran idea de Gutenberg fue moldear piezas de metal
                                     para
@@ -152,11 +152,11 @@
                             </div>
                         </div>
                         <div class="col-md-7 div-timeline">
-                            <div class="line-time line-time-blue line-time-margin-left"></div>
+                            <div class="time-line time-line-blue time-line-margin-left"></div>
                             <div class="my-1">
-                                <button class="button-timeline button-margin-left line-time-blue">Siglo XV d.C.</button>
+                                <button class="button-timeline button-margin-left time-line-blue">Siglo XV d.C.</button>
                             </div>
-                            <div class="line-time line-time-blue line-time-margin-left"></div>
+                            <div class="time-line time-line-blue time-line-margin-left"></div>
                         </div>
                     </div>
                 </div>
@@ -224,6 +224,7 @@
                     </div>
                 </div>
 
+                {{-- resumen --}}
                 <div class="my-4">
                     <div class=" card p-3">
                         <h2>En resumen...</h2>

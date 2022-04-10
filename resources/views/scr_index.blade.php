@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row">
             <!--Contenido principal-->
-            <div class="col-lg-9 col-md-12 mt-3">
+            <div class="col-lg-9 col-md-12">
                 <!--Registro-->
                 <img class="img-register img-fluid" src="./img/registroScrabble.png" alt="">
                 <img class="img-register2 img-fluid" src="./img/registroScrabble2.png" alt="">
@@ -19,9 +19,7 @@
                     <a href=""><strong>Regístrate</strong></a>
                 </div>
 
-
                 <h2>Estadísticas del juego</h2>
-
                 <!--Estadísticas variadas y podium-->
                 <div class="row my-4 stats">
                     <div class="col-md-6">

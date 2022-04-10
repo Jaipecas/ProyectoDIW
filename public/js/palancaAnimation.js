@@ -1,3 +1,5 @@
+/*Añade la animación de movimiento a la palanca, y cambia tanto las imágenes del cuadro como los textos asociados*/
+
 window.addEventListener("load", loadAnimation);
 
 let count = 1;
@@ -9,7 +11,7 @@ function loadAnimation() {
 
 function changeInfo() {
     let imagenes = document.querySelectorAll(".img-frame img");
-    let pagesInfo = document.getElementsByClassName("page");
+    let pagesInfo = document.querySelectorAll(".container-page div");
     let palanca = document.querySelector(".palanca>svg");
     let engranaje = document.getElementById("engranaje");
 
