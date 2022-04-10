@@ -1,6 +1,6 @@
 const buttonUp = document.getElementById('button-up')
 const buttonDown = document.getElementById('button-down')
-const divsRules = Array.from(document.querySelectorAll('.rule div'))
+const divsRules = Array.from(document.querySelectorAll('.rules>div>div'))
 var position = 0
 var translate = 0;
 

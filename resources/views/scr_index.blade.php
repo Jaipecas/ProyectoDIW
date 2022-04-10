@@ -12,77 +12,58 @@
             <!--Contenido principal-->
             <div class="col-lg-9 col-md-12 mt-3">
                 <h2>Estadísticas del juego</h2>
-
-                <!--Estadísticas variadas-->
-                <div class="row my-4">
-                    <h4 class="ml-3 mb-4">Estadísticas variadas</h4>
-                    <div class="col-md-12">
+                   
+                <!--Estadísticas variadas y podium-->
+                <div class="row my-4 stats">               
+                    <div class="col-md-6">
                         <div class="card-deck">
-                            <div class="card card-estadistica">
-                                <div class="card-header">Total jugadores hoy</div>
+                            <div class="card">
+                                <div class="card-header fa fa-users"></div>
                                 <div class="card-body">
                                     <p class="card-text">5000</p>
                                 </div>
                             </div>
-                            <div class="card card-estadistica">
-                                <div class="card-header">Total partidas hoy</div>
+                            <div class="card">
+                                <div class="card-header fa fa-globe"></div>
                                 <div class="card-body border-secondary">
                                     <p class="card-text">5000</p>
                                 </div>
                             </div>
-                            <div class="card card-estadistica">
-                                <div class="card-header">Mejor partida</div>
+                            <div class="card">
+                                <div class="card-header fa fa-flag"></div>
                                 <div class="card-body">
                                     <p class="card-text">5000</p>
                                 </div>
                             </div>
-                            <div class="card card-estadistica">
-                                <div class="card-header">Jugador del día</div>
+                            <div class="card">
+                                <div class="card-header fa fa-play"></div>
                                 <div class="card-body">
                                     <p class="card-text">5000</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-
-                <!-- Podium -->
-                <div class="row my-4">
-                    <h4 class="ml-3 my-4">Mejores jugadores</h4>
-                    <div class="col-md-12 podium">
-
-                        <div class="podium-position">
-                            <div class="card card-podium cardsilver">
-                                <img src="../img/01 Gutenberg.jpg" alt="Monasterio de Santa María del Puig">
-                                <h5 class="card-title mt-2">Jugador 2</h5>
-                                <span>Puntuación</span>
-                                <span>11000</span>
-                            </div>
-                            <div class="podium1">
-                            </div>
+                    <div class="col-md-6 podium">
+                        <div>
+                            <div class="card cardgold">
+                                <img src="../img/medalla-de-oro.png" alt="Medalla de oro">
+                                <h5 class="card-title ml-3">Jugador 1</h5>                                                            
+                            </div>                         
                         </div>
 
-                        <div class="podium-position">
-                            <div class="card card-podium cardgold">
-                                <img src="../img/01 Gutenberg.jpg" alt="Monasterio de Santa María del Puig">
-                                <h5 class="card-title mt-2">Jugador 1</h5>
-                                <span>Puntuación</span>
-                                <span>12000</span>
-                            </div>
-                            <div class="podium2">
-                            </div>
+                        <div>
+                            <div class="card cardsilver">
+                                <img src="../img/medalla-de-plata.png" alt="Medalla de plata">
+                                <h5 class="card-title ml-3">Jugador 2</h5>                              
+                            </div>                         
                         </div>
 
-                        <div class="podium-position">
-                            <div class="card card-podium cardbronze">
-                                <img src="../img/01 Gutenberg.jpg" alt="Monasterio de Santa María del Puig">
-                                <h5 class="card-title mt-2">Jugador 3</h5>
-                                <span>Puntuación</span>
-                                <span>10000</span>
-                            </div>
-                            <div class="podium3">
-                            </div>
+                        <div>
+                            <div class="card cardbronze">
+                                <img src="../img/medalla-de-bronce.png" alt="Medalla de bronce">
+                                <h5 class="card-title ml-3">Jugador 3</h5>                              
+                            </div>                        
                         </div>
 
                     </div>
@@ -1682,7 +1663,7 @@
                 <div class="row my-4 mx-2">
                     <div class="col-md-12 ">
                         <div class="rules">
-                            <div class="rule">
+                            <div>
                                 <div>
                                     <p><strong>1. Coloca la primera palabra.</strong> El jugador que escogió la letra
                                         más
@@ -1696,7 +1677,7 @@
                                     <img class="img-fluid" src="../img/regla2.1.jpg" alt="regla juego 1">
                                 </div>
                             </div>
-                            <div class="rule">
+                            <div>
                                 <div>
                                     <p><strong>2. Cuenta tus puntos.</strong> Después de colocar una letra, asegúrate de
                                         contar tus puntos. Suma los puntos de la esquina inferior derecha de cada uno de los
@@ -1708,7 +1689,7 @@
                                 </div>
                             </div>
 
-                            <div class="rule">
+                            <div>
                                 <div>
                                     <p><strong>3. Extrae nuevos azulejos.</strong> Después de cada turno, tendrás que
                                         extraer tantos azulejos nuevos como los que acabas de jugar. Por ejemplo, si jugaste
@@ -1721,7 +1702,7 @@
                                 </div>
                             </div>
 
-                            <div class="rule">
+                            <div>
                                 <div>
                                     <p><strong>4. Construye sobre las palabras de otros jugadores.</strong> En tu siguiente
                                         turno, tendrás que formar tu palabra a partir de las palabras que tus oponentes han
@@ -1733,7 +1714,7 @@
                                 </div>
                             </div>
 
-                            <div class="rule">
+                            <div>
                                 <div>
                                     <p><strong>5. Usa tus azulejos para obtener el puntaje más alto posible en cada
                                             turno.</strong> Es una buena idea considerar varias jugadas durante cada uno de
@@ -1746,7 +1727,7 @@
                                 </div>
                             </div>
 
-                            <div class="rule">
+                            <div>
                                 <div>
                                     <p><strong>6. Desafía a otros jugadores a debatir acerca de una palabra.</strong> Si
                                         crees que un jugador ha formado una palabra que no existe o que otro jugador ha
@@ -1758,7 +1739,7 @@
                                 </div>
                             </div>
 
-                            <div class="rule">
+                            <div>
                                 <div>
                                     <p><strong>7. Intercambia los azulejos que no desees.</strong> En algún punto durante el
                                         juego, puedes decidir que deseas intercambiar algunos o todos tus azulejos por
@@ -1829,22 +1810,6 @@
             </div>
             <!--Login, Noticas y Avisos-->
             <div class="col-lg-3 col-md-12">
-                <form class="card p-3 m-3">
-                    <h1 class="h3 mb-3 font-weight-normal">Login</h1>
-                    <label for="inputEmail" class="sr-only">Email address</label>
-                    <input type="email" id="inputEmail" class="form-control my-2" placeholder="Email address" required=""
-                        autofocus="">
-                    <label for="inputPassword" class="sr-only">Password</label>
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-                    <div class="checkbox mb-3">
-                        <label>
-                            <input type="checkbox" value="remember-me" class="mt-4"> Recuérdame
-                        </label>
-                    </div>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Acceder</button>
-                </form>
-
-
                 @include('alerts')
                 @include('news')
             </div>

@@ -1,111 +1,3 @@
-/* stylelint-disable selector-no-qualifying-type */
-
-/********
----$Cartas estadíticas juego----
-*********/
-path {
-  fill: #D1BE9D;
-  stroke: #b4a488;
-  stroke-width: 1.3px;
-}
-
-svg {
-  background-color: #256d7b;
-  border-radius: 50%;
-  max-width: 1200px;
-  width: 100%;
-  height: auto;
-}
-
-.podium {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-
-.card-podium {
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-  margin: 15px;
-}
-
-.podium-position {
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-}
-
-.cardgold {
-  border: 2px solid #ffd700;
-  background-color: #e6e0bc;
-}
-
-.cardsilver {
-  border: 2px solid #c0c0c0;
-  background-color: #f0f0f0;
-}
-
-.cardbronze {
-  border: 2px solid #cd7f32;
-  background-color: #e0ba95;
-}
-
-.card img {
-  max-width: 100px;
-  max-height: 100px;
-  border-radius: 100%;
-}
-
-.selected-map {
-  fill: var(--color-secondary);
-}
-
-.podium1 {
-  width: 100%;
-  height: 150px;
-  background-color: #f0f0f0;
-}
-
-.podium2 {
-  width: 100%;
-  height: 200px;
-  background-color: #e6e0bc;
-}
-
-.podium3 {
-  width: 100%;
-  height: 100px;
-  background-color: #e0ba95;
-}
-
-.card-estadistica {
-  border-color: var(--color-secondary);
-  text-align: center;
-}
-
-.card-estadistica .card-header {
-  background-color: var(--color-secondary);
-}
-
-.card-estadistica:hover {
-  background-color: #e5fcfb;
-  border: 2.5px solid var(--color-secondary);
-  transform: scale(1.05);
-}
-
-.country-stats {
-  border: 2px solid var(--color-secondary);
-  flex-direction: row;
-}
-
-.country-stats img {
-  width: 75px;
-  height: 75px;
-}
-
-
 /********
 ---$Reglas de juego---
 ********/
@@ -118,21 +10,20 @@ svg {
   border: 3px solid var(--color-secondary2);
 }
 
-.rule {
+.rules>div {
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 15px;
 }
 
-.rule div img {
+.rules img {
   max-width: 200px;
   max-height: 150px;
   padding: 10px;
-
 }
 
-.rule p::first-letter {
+.rules p::first-letter {
   color: #da452b;
   font-size: 300%;
   line-height: 10px;
@@ -157,4 +48,94 @@ svg {
   font-size: 1.2em;
   color: #FFF;
   background-color: #71b8d0;
+}
+
+/*******
+---$SVG
+********/
+
+path {
+  fill: #D1BE9D;
+  stroke: #b4a488;
+  stroke-width: 1.3px;
+}
+
+svg {
+  background-color: #256d7b;
+  border-radius: 50%;
+  max-width: 1200px;
+  width: 100%;
+  height: auto;
+}
+
+.selected-map {
+  fill: var(--color-secondary);
+}
+
+/********
+---$Podium----
+*********/
+
+.podium .card {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  margin: 15px;
+}
+
+.cardgold {
+  border: 2px solid #ffd700;
+  background-color: #e6e0bc;
+}
+
+.cardsilver {
+  border: 2px solid #c0c0c0;
+  background-color: #f0f0f0;
+}
+
+.cardbronze {
+  border: 2px solid #cd7f32;
+  background-color: #e0ba95;
+}
+
+.card img {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+/********
+---$Cartas estadísticas----
+*********/
+.stats {
+  align-items: center;
+}
+
+.card-deck {
+  flex-flow: column;
+}
+
+.card-deck .card {
+  border-color: var(--color-secondary);
+  margin: 15px;
+  text-align: center;
+}
+
+.card .card-header {
+  background-color: var(--color-secondary);
+}
+
+
+/********
+---$Cartas nacionalidades----
+*********/
+
+.country-stats {
+  border: 2px solid var(--color-secondary);
+  flex-direction: row;
+}
+
+.country-stats img {
+  width: 75px;
+  height: 75px;
 }
