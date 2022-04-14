@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Error 401</title>
-</head>
-<body>
-    <p>No está autorizado para ver esta página. Prueba a loguearte</p>
-</body>
-</html>
+@extends('layouts.error',
+['title' => 'Info Imprenta', 'css_files' => [],
+'js_files' => []])
+
+
+@section('error')
+    <div>
+        <h2>Error 401</h2>
+    </div>
+    <div>
+        <p>No está autorizado para ver esta página. Prueba a loguearte</p>
+    </div>
+@endsection

@@ -11,16 +11,16 @@
 @section('content')
     <div class="register-grid">
 
-        <div class="">
+        <div class="gradient2">
             <h2>¿Ya estas registrado?</h2>
             <p>Pulsa el botón para acceder a tu cuenta y disfrutar del Scrabble</p>
             <button id="buttonLoginTemplate" type="submit" class="btn btn-primary">Login</button>
         </div>
 
         <div class="form">
-            <h2>Registro</h2>
-            <form method="POST" action="{{ route('register') }}">
-
+           
+            <form class="gradient" method="POST" action="{{ route('register') }}">
+                <h2>Registro</h2>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text fa fa-user" id="basic-addon1"></span>
@@ -54,7 +54,7 @@
                 </div>
 
                 <div class="form-group">
-                    <select class="form-control" name="pais">
+                    <select class="form-control" name="country">
                         <option value="AF">Afganistán</option>
                         <option value="AL">Albania</option>
                         <option value="DE">Alemania</option>
@@ -299,8 +299,9 @@
         </div>
 
         <div class="form d-none">
-            <h2>Login</h2>
-            <form method="POST" action="{{ route('login') }}">
+            
+            <form class="gradient" method="POST" action="{{ route('login') }}">
+                <h2>Login</h2>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text fa fa-at" id="basic-addon1"></span>
@@ -344,7 +345,7 @@
             <li class="input-menu"><a v-on:click="automatic_register" href="#">Registro automático</a></li>
             <li class="input-menu"><a v-on:click="wrong_register" href="#">Registro erróneo</a></li>
         </ul>
-    </aside> --}}
+    </aside>  --}}
 
 {{-- <div class="form">
         <h2>Registro manual</h2>
@@ -371,17 +372,17 @@
                 Registrar
             </button>
         </form>
-    </div>
+    </div> --}}
     @if ($errors->isNotEmpty())
         <div class="error">
-            <div>
+            {{-- <div>
                 <h4>Error modo 1</h4>
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
-            </div>
+            </div> --}}
             <div>
                 <h4>Error modo 2</h4>
                 @if ($errors->has('name'))
@@ -398,5 +399,5 @@
                 @endif
             </div>
         </div>
-    @endif --}}
+    @endif 
 @endsection
