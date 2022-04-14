@@ -1,44 +1,36 @@
-@extends('layouts.app', 
-    ['title' => 'Reinicio contraseña', 'css_files' => ['test_scr_login'],
-    'js_files' => ['test_scr_reset']])
+@extends('layouts.app',
+['title' => 'Reinicio contraseña', 'css_files' => ['test_scr_login'],
+'js_files' => ['test_scr_reset']])
+
+@section('styles')
+    <link href="{{ asset('css/loginRegister.css') }}" rel="stylesheet">
+@endsection
 
 @section('content')
     <div></div>
-    <div class="form">
-        <div class="card-body">
-            <form method="POST" action="{{ route('password.email') }}">
-                @csrf <!-- por razones educativas está desactivado -->
+    <div class="email-container">
 
-                <label for="email">Correo electrónico</label>
+        <form class="gradient" method="POST" action="{{ route('password.email') }}">
+            <h3>Indique su email para reiniciar su contraseña</h3>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text fa fa-at" id="basic-addon1"></span>
+                </div>
                 <input id="email" type="email" name="email" required>
-                <br>
-                <button type="submit">
-                    Envia enlace para el reinicio de contraseña
-                </button>
-             </form>
-        </div>    
+            </div>
+            @if ($errors->isNotEmpty() && $errors->has('email'))
+                <div class="alert alert-danger">
+                    <strong>{{ $errors->first('email') }}</strong>
+                </div>
+            @endif
+            <button type="submit" class="btn btn-primary">
+                Envia enlace para el reinicio de contraseña
+            </button>
+            @if (session('status'))
+                <div class="informacion">
+                    {{ session('status') }}
+                </div>
+            @endif
+        </form>
     </div>
-    @if ($errors->isNotEmpty())
-        <div class="error">
-            <div>
-                <h4>Error modo 1</h4>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            <div>
-                <h4>Error modo 2</h4>
-                @if ($errors->has('email'))
-                    <p><strong>email:</strong>{{ $errors->first('email') }}</p>
-                @endif
-            </div>
-        </div>
-    @endif
-    @if (session('status'))
-        <div class="informacion">
-            {{ session('status') }}       
-        </div>
-    @endif
 @endsection

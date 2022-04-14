@@ -1,6 +1,6 @@
 
 @extends('layouts.error',
-['title' => 'Info Imprenta', 'css_files' => [],
+['title' => '', 'css_files' => [],
 'js_files' => []])
 
 

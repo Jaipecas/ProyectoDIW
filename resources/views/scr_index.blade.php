@@ -16,7 +16,7 @@
                 <img class="img-register2 img-fluid" src="./img/registroScrabble2.png" alt="">
 
                 <div class="sticky">
-                    <a href=""><strong>Regístrate</strong></a>
+                    <a href="{{ route('register') }}"><strong>Regístrate</strong></a>
                 </div>
 
                 <h2>Estadísticas del juego</h2>

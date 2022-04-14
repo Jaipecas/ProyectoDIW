@@ -9,18 +9,13 @@
 @endsection
 
 @section('content')
-    <div class="register-grid">
+    <div class="register-grid register">
 
-        <div class="gradient2">
-            <h2>¿Ya estas registrado?</h2>
-            <p>Pulsa el botón para acceder a tu cuenta y disfrutar del Scrabble</p>
-            <button id="buttonLoginTemplate" type="submit" class="btn btn-primary">Login</button>
-        </div>
 
-        <div class="form">
-           
+        <div>
             <form class="gradient" method="POST" action="{{ route('register') }}">
                 <h2>Registro</h2>
+
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text fa fa-user" id="basic-addon1"></span>
@@ -28,6 +23,12 @@
                     <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus
                         class="form-control" placeholder="Nombre" aria-label="Nombre">
                 </div>
+                @if ($errors->isNotEmpty() && $errors->has('name'))
+                    <div class="alert alert-danger">
+                        <strong>{{ $errors->first('name') }}</strong>
+                    </div>
+                @endif
+
 
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -36,6 +37,11 @@
                     <input id="email" type="email" name="email" value="{{ old('email') }}" required class="form-control"
                         placeholder="Email" aria-label="Email">
                 </div>
+                @if ($errors->isNotEmpty() && $errors->has('email'))
+                    <div class="alert alert-danger">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </div>
+                @endif
 
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -52,6 +58,11 @@
                     <input id="password-confirm" type="password" name="password_confirmation" required
                         class="form-control" placeholder="Confirmar contraseña" aria-label="Contraseña">
                 </div>
+                @if ($errors->isNotEmpty() && $errors->has('password'))
+                    <div class="alert alert-danger">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </div>
+                @endif
 
                 <div class="form-group">
                     <select class="form-control" name="country">
@@ -291,113 +302,22 @@
                         <option value="ZW">Zimbabue</option>
                     </select>
                 </div>
+                @if ($errors->isNotEmpty() && $errors->has('country'))
+                    <div class="alert alert-danger">
+                        <strong>{{ $errors->first('country') }}</strong>
+                    </div>
+                @endif
 
                 <button type="submit" type="submit" class="btn btn-primary">
                     Registrar
                 </button>
             </form>
         </div>
-
-        <div class="form d-none">
-            
-            <form class="gradient" method="POST" action="{{ route('login') }}">
-                <h2>Login</h2>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text fa fa-at" id="basic-addon1"></span>
-                    </div>
-                    <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus
-                        class="form-control" placeholder="Email" aria-label="Email">
-                </div>
-
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text fa fa-key" id="basic-addon1"></span>
-                    </div>
-                    <input id="password" type="password"
-                        class="{{ $errors->has('password') ? ' is-invalid' : '' }} form-control" name="password" required
-                        placeholder="Contraseña" aria-label="Contraseña">
-                </div>
-
-                <div class="check-group">
-                    <input type="checkbox">
-                    <label>Recuérdame</label>
-                </div>
-
-                <button type="submit" type="submit" class="btn btn-primary">Login</button>
-            </form>
+        
+        <div>
+            <h2>¿Ya estas registrado?</h2>
+            <p><strong>Pulsa el botón para acceder a tu cuenta y disfrutar del Scrabble</strong></p>
+            <a href="{{ route('login') }}" id="buttonLoginTemplate" type="submit" class="btn btn-primary">Login</a>
         </div>
-
-        <div class="d-none">
-            <h2>¿Todavía no te ha registrado?</h2>
-            <p>Pulsa el botón para registrarte y disfrutar de inumerables partidas de Scrabble</p>
-            <button id="buttonRegisterTemplate" type="submit" class="btn btn-primary">Regístrate</button>
-        </div>
-
     </div>
-
-@section('scripts')
-    <script src="{{ asset('js/loginRegister.js') }}"></script>
-@endsection
-
-{{-- <aside class="sidebar">
-        <ul>
-            <li class="input-menu"><a v-on:click="automatic_register" href="#">Registro automático</a></li>
-            <li class="input-menu"><a v-on:click="wrong_register" href="#">Registro erróneo</a></li>
-        </ul>
-    </aside>  --}}
-
-{{-- <div class="form">
-        <h2>Registro manual</h2>
-        <form method="POST" action="{{ route('register') }}"> 
-            @csrf <!-- por razones educativas está desactivado -->      
-            <label for="name">Nombre</label>
-            <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus>
-            <br>
-            <label for="email">Correo electrónico</label>
-            <input id="email" type="email" name="email" value="{{ old('email') }}" required>
-            <br> 
-            <label for="password">Contraseña</label>
-            <input id="password" type="password" name="password" required>
-            <br>
-            <label for="password-confirm">Confirma la contraseña</label>
-            <!-- es obligatorio que el name sea XXXX_confirmation, donde XXXX es el 
-                 nombre del campo a confirmar -->
-            <input id="password-confirm" type="password" name="password_confirmation" required>            
-            <br>
-            <label for="country">País</label>
-            <input id="country" type="text" name="country" required>
-            <br>
-            <button type="submit">
-                Registrar
-            </button>
-        </form>
-    </div> --}}
-    @if ($errors->isNotEmpty())
-        <div class="error">
-            {{-- <div>
-                <h4>Error modo 1</h4>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div> --}}
-            <div>
-                <h4>Error modo 2</h4>
-                @if ($errors->has('name'))
-                    <p><strong>nombre:</strong>{{ $errors->first('name') }}</p>
-                @endif
-                @if ($errors->has('email'))
-                    <p><strong>Correo:</strong>{{ $errors->first('email') }}</p>
-                @endif
-                @if ($errors->has('password'))
-                    <p><strong>Contraseña:</strong>{{ $errors->first('password') }}</p>
-                @endif
-                @if ($errors->has('country'))
-                    <p><strong>País:</strong>{{ $errors->first('country') }}</p>
-                @endif
-            </div>
-        </div>
-    @endif 
 @endsection

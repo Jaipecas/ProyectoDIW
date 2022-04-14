@@ -16,25 +16,25 @@ function loadWindow() {
 function changeToRegisterTemplate(divsRegister, registerGrid) {
     registerGrid.style.gridTemplate = "1fr / 1fr 2fr";
 
-    divsRegister.forEach((div, index) => {
-        if (index < 2) {
-            div.classList.remove('d-none');
-        } else {
-            div.classList.add('d-none');
-        }
-    })
+    /*   divsRegister.forEach((div, index) => {
+          if (index < 2) {
+              div.classList.remove('d-none');
+          } else {
+              div.classList.add('d-none');
+          }
+      }) */
 }
 
 function changeToLoginTemplate(divsRegister, registerGrid) {
     registerGrid.style.gridTemplate = "1fr / 2fr 1fr";
 
-    divsRegister.forEach((div, index) => {
+    /* divsRegister.forEach((div, index) => {
         if (index >= 2) {
             div.classList.remove('d-none');
         } else {
             div.classList.add('d-none');
         }
-    })
+    }) */
 }
 
 window.onload = () => {
