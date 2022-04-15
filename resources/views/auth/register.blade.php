@@ -9,9 +9,7 @@
 @endsection
 
 @section('content')
-    <div class="register-grid register">
-
-
+    <div class="register-grid">
         <div>
             <form class="gradient" method="POST" action="{{ route('register') }}">
                 <h2>Registro</h2>
@@ -313,7 +311,7 @@
                 </button>
             </form>
         </div>
-        
+
         <div>
             <h2>¿Ya estas registrado?</h2>
             <p><strong>Pulsa el botón para acceder a tu cuenta y disfrutar del Scrabble</strong></p>

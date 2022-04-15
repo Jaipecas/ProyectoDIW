@@ -27,8 +27,10 @@
                 Envia enlace para el reinicio de contraseña
             </button>
             @if (session('status'))
-                <div class="informacion">
-                    {{ session('status') }}
+                <div class="informacion my-3">
+                    <div class="alert alert-success">
+                        <strong>  {{ session('status') }}</strong>
+                    </div>       
                 </div>
             @endif
         </form>
