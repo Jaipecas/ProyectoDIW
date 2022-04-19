@@ -3,7 +3,7 @@
 'js_files' => ['test_scr_reset']])
 
 @section('styles')
-    <link href="{{ asset('css/loginRegister.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/email.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')

@@ -4,7 +4,7 @@
     'js_files' => ['test_scr_reset']])
 
 @section('styles')
-    <link href="{{ asset('css/loginRegister.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -14,8 +14,7 @@
             <h3>Inserte su nueva contraseña</h3>
 
             <input type="hidden" name="token" value="{{ $token }}">
-
-     
+  
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text fa fa-at" id="basic-addon1"></span>

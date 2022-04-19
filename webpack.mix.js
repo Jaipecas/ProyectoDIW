@@ -28,4 +28,8 @@ mix
   .sass("resources/assets/sass/test_scr_index.scss", "public/css")
   .sass("resources/assets/sass/test_scr_login.scss", "public/css")
   .sass("resources/assets/sass/test_scr_dashboard.scss", "public/css")
-  .sass("resources/assets/sass/test_scr_tableboard.scss", "public/css");
+  .sass("resources/assets/sass/test_scr_tableboard.scss", "public/css")
+  .sass("resources/assets/sass/login.scss", "public/css")
+  .sass("resources/assets/sass/register.scss", "public/css")
+  .sass("resources/assets/sass/email.scss", "public/css")
+  .sass("resources/assets/sass/reset.scss", "public/css");

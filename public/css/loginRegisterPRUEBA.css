@@ -2,16 +2,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 400px;
+    min-height: 500px;
 }
 
 
 .register-grid>div {
     display: flex;
-    flex-flow: column;
-    text-align: center;
     justify-content: center;
     align-items: center;
+    flex-flow: column;
+    text-align: center;
     padding: 70px;
     color: rgb(255, 255, 255);
 }
@@ -25,6 +25,18 @@
     min-height: 500px;
 }
 
+
+.check-group {
+    margin-top: 10px;
+}
+
+a {
+    color: rgb(255, 255, 255);
+}
+
+
+
+
 .input-group {
     margin-bottom: 10px;
     border-radius: 10px;
@@ -34,20 +46,7 @@
     background-color: rgb(200, 252, 252);
 }
 
-.check-group {
-    margin-top: 10px;
-}
 
-@keyframes move-right {
-    from {
-        transform: translate(0);
-    }
-
-    to {
-        transform: translate(100px);
-    }
-
-}
 
 .gradient {
     background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
@@ -69,8 +68,4 @@
     100% {
         background-position: 0% 50%;
     }
-}
-
-a {
-    color: rgb(255, 255, 255);
 }

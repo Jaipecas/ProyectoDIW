@@ -1,0 +1,6 @@
+@import "auth";
+
+.email-container {
+  @include flex-center();
+  min-height: 500px;
+}

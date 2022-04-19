@@ -1,0 +1,64 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-grid {
+  > div {
+    @include flex-center();
+    flex-flow: column;
+    text-align: center;
+    padding: 70px;
+    color: rgb(255, 255, 255);
+
+    &:nth-child(1) {
+      background-color: #d9f6fa;
+      min-height: 500px;
+    }
+    &:nth-child(2) {
+      background: linear-gradient(#f79533, #f37055, #ef4e7b, #a166ab);
+    }
+  }
+}
+
+.input-group {
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.input-group-text {
+  background-color: rgb(200, 252, 252);
+}
+
+.gradient {
+  background: linear-gradient(
+    60deg,
+    #f79533,
+    #f37055,
+    #ef4e7b,
+    #a166ab,
+    #5073b8,
+    #1098ad,
+    #07b39b,
+    #6fba82
+  );
+  animation: animatedgradient 3s ease alternate infinite;
+  padding: 20px;
+  border-radius: 10px;
+  background-size: 300% 300%;
+}
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
