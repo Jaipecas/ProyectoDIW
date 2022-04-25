@@ -8,7 +8,16 @@
 <script>
 export default {
   name: "MenuItem",
-  props: ["icon", "title"],
+  props: {
+    icon: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+  },
 };
 </script>
 
