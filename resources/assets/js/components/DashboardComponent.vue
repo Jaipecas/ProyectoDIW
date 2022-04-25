@@ -2,9 +2,9 @@
   <div class="scr-grid">
     <header-dash class="header" />
     <menu-dash class="menu" />
-    <div class="games" />
+    <games-dash class="games" />
     <div class="area" />
-    <div class="friends" />
+    <friends-dash class="friends" />
     <div class="news" />
   </div>
 </template>
@@ -12,12 +12,16 @@
 <script>
 import HeaderComponent from "./HeaderDashComponent.vue";
 import MenuComponent from "./MenuDashComponent.vue";
+import GameComponent from "./GamesDashComponent.vue";
+import FriendsComponent from "./FriendsDashComponent.vue";
 
 export default {
   name: "DashboardComponent",
   components: {
     "header-dash": HeaderComponent,
     "menu-dash": MenuComponent,
+    "games-dash": GameComponent,
+    "friends-dash": FriendsComponent,
   },
 };
 </script>
@@ -25,7 +29,7 @@ export default {
 <style lang="scss" scoped>
 .scr-grid {
   display: grid;
-  grid-template: 1fr 2fr 1fr / minmax(172px, 250px) minmax(600px, auto) minmax(
+  grid-template: 0.5fr 2fr 1fr / minmax(172px, 250px) minmax(600px, auto) minmax(
       172px,
       250px
     );
@@ -48,11 +52,21 @@ export default {
 
   .games {
     grid-row: 3 / 4;
+    background-color: rgb(187, 254, 145);
   }
 
   .area {
-    height: 500px;
+    height: 750px;
     grid-row: 2 / 4;
+  }
+
+  .friends {
+    grid-row: 2 / 3;
+    background-color: rgb(243, 175, 245);
+  }
+
+  .news {
+    grid-row: 3/4;
   }
 }
 </style>

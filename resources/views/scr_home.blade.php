@@ -3,13 +3,8 @@
 'js_files' => ['scr_home']])
 
 @section('content')
-    
-    <dashboard-component >
-
+    <dashboard-component>
     </dashboard-component>
-
-
- 
 @endsection
 
 
