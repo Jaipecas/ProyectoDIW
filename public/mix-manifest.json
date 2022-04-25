@@ -10,6 +10,7 @@
     "/css/register.css": "/css/register.css",
     "/css/email.css": "/css/email.css",
     "/css/reset.css": "/css/reset.css",
+    "/js/scr_home.js": "/js/scr_home.js",
     "/js/test_scr_home.js": "/js/test_scr_home.js",
     "/js/test_scr_index.js": "/js/test_scr_index.js",
     "/js/test_scr_login.js": "/js/test_scr_login.js",

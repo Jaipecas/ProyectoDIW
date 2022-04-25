@@ -19,7 +19,8 @@ mix
   .js("resources/assets/js/test_scr_login.js", "public/js") // compilación de login de usuario
   .js("resources/assets/js/test_scr_index.js", "public/js")
   .js("resources/assets/js/test_scr_home.js", "public/js") // dashboard de usuario
-  .js("resources/assets/js/test_scr_tableboard.js", "public/js");
+  .js("resources/assets/js/test_scr_tableboard.js", "public/js")
+  .js("resources/assets/js/scr_home.js", "public/js");
 
 // Sass
 mix

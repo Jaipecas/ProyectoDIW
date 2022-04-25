@@ -1,8 +1,19 @@
 @extends('layouts.app',
-    ['title' => 'Dashboard', 'css_files' => ['test_scr_dashboard'], 
-    'js_files' => ['test_scr_home']])
+['title' => 'Dashboard', 'css_files' => ['scr_dashboard'],
+'js_files' => ['scr_home']])
 
 @section('content')
+    
+    <dashboard-component >
+
+    </dashboard-component>
+
+
+ 
+@endsection
+
+
+{{-- @section('content')
 
 @php
     if (is_null($user->avatar)) $avatar = "";
@@ -20,4 +31,4 @@
         @csrf
     </form>
 
-@endsection
+@endsection --}}

@@ -1,19 +1,19 @@
-.register-grid>div {
+.register-grid > div {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-flow: column;
   text-align: center;
   padding: 70px;
-  color: rgb(255, 255, 255);
+  color: white;
 }
 
-.register-grid>div:nth-child(1) {
+.register-grid > div:nth-child(1) {
   background-color: #d9f6fa;
   min-height: 500px;
 }
 
-.register-grid>div:nth-child(2) {
+.register-grid > div:nth-child(2) {
   background: linear-gradient(#f79533, #f37055, #ef4e7b, #a166ab);
 }
 
@@ -28,12 +28,26 @@
 
 .gradient {
   background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
-  animation: animatedgradient 3s ease alternate infinite;
+  -webkit-animation: animatedgradient 3s ease alternate infinite;
+          animation: animatedgradient 3s ease alternate infinite;
   padding: 20px;
   border-radius: 10px;
   background-size: 300% 300%;
 }
 
+@-webkit-keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 @keyframes animatedgradient {
   0% {
@@ -48,3 +62,4 @@
     background-position: 0% 50%;
   }
 }
+
