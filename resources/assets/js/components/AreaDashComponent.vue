@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import InputDash from "./InputGroupDash.vue";
 import ComboCountries from "./ComboCountriesComponent.vue";
+import InputDash from "./InputGroupComponent.vue";
 
 export default {
   name: "AreaDashComponent",
