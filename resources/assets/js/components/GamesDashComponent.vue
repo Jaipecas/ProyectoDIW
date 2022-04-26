@@ -27,7 +27,7 @@ export default {
 SACARLO EN UN MIXIN  */
 .pending-area {
   padding: 10px;
-  height: 195px;
+  height: 150px;
   overflow: auto;
   /* SACAR ESTO EN UN MIXIM PARA REUTILIZARLO */
   -ms-overflow-style: none;

@@ -3,7 +3,7 @@
     <header-dash class="header" />
     <menu-dash class="menu" />
     <games-dash class="games" />
-    <div class="area" />
+    <area-dash class="area" />
     <friends-dash class="friends" />
     <div class="news" />
   </div>
@@ -14,6 +14,7 @@ import HeaderComponent from "./HeaderDashComponent.vue";
 import MenuComponent from "./MenuDashComponent.vue";
 import GameComponent from "./GamesDashComponent.vue";
 import FriendsComponent from "./FriendsDashComponent.vue";
+import AreaComponent from "./AreaDashComponent.vue";
 
 export default {
   name: "DashboardComponent",
@@ -22,6 +23,7 @@ export default {
     "menu-dash": MenuComponent,
     "games-dash": GameComponent,
     "friends-dash": FriendsComponent,
+    "area-dash": AreaComponent,
   },
 };
 </script>
@@ -37,7 +39,7 @@ export default {
   margin: 20px;
 
   > * {
-    background-color: red;
+    border: 1px solid black;
   }
 
   .header {
@@ -56,7 +58,6 @@ export default {
   }
 
   .area {
-    height: 750px;
     grid-row: 2 / 4;
   }
 
