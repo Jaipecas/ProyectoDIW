@@ -14,7 +14,6 @@ export default {
 .header-dash {
   display: flex;
   align-items: center;
-  border: 1px solid black;
 
   p {
     margin-left: 30px;

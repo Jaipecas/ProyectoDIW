@@ -3,7 +3,7 @@
     <h2>Scrabble Dashboard</h2>
     <div class="menu-dash">
       <menu-item icon="fa fa-user" title="Perfil" />
-      <menu-item icon="fa fa-user" title="Partida pendientes" />
+      <menu-item icon="fa fa-user" title="Partidas" />
       <menu-item icon="fa fa-user" title="Notificaciones" />
       <menu-item icon="fa fa-users" title="Amigos" />
       <menu-item icon="fa fa-user" title="Estadísticas" />

@@ -1,10 +1,10 @@
 <template>
   <div class="scr-grid">
-    <header-dash class="header" />
-    <menu-dash class="menu" />
-    <games-dash class="games" />
+    <header-dash class="header gradient" />
+    <menu-dash class="menu gradient" />
+    <games-dash class="games gradient" />
     <area-dash class="area" />
-    <friends-dash class="friends" />
+    <friends-dash class="friends gradient" />
     <div class="news" />
   </div>
 </template>
@@ -29,41 +29,44 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "./resources/assets/sass/_dashboard_main.scss";
+
 .scr-grid {
   display: grid;
-  grid-template: 0.5fr 2fr 1fr / minmax(172px, 250px) minmax(600px, auto) minmax(
+  grid-template: 150px 400px 270px / minmax(172px, 250px) minmax(600px, auto) minmax(
       172px,
       250px
     );
   gap: 15px;
   margin: 20px;
+  background: $dash-gradient;
+  border-radius: $dash-panel-border;
+  padding: 15px;
 
   > * {
-    border: 1px solid black;
+    border: 0.2px solid rgb(97, 93, 93);
   }
 
   .header {
     grid-column: 2 / -1;
-    background-color: rgb(239, 159, 159);
   }
 
   .menu {
     grid-row: 1 / 3;
-    background-color: rgb(159, 206, 243);
   }
 
   .games {
     grid-row: 3 / 4;
-    background-color: rgb(187, 254, 145);
   }
 
   .area {
     grid-row: 2 / 4;
+    background: #bee2e8;
+    border-radius: $dash-panel-border;
   }
 
   .friends {
     grid-row: 2 / 3;
-    background-color: rgb(243, 175, 245);
   }
 
   .news {

@@ -35,7 +35,7 @@ h3 {
 
 .friends-conected {
   padding: 10px;
-  height: 400px;
+  height: 250px;
   overflow: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
