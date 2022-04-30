@@ -1,8 +1,8 @@
 <template>
   <div>
     <fieldset>
-      <legend>{{ name }}</legend>
-      <input :type="type" class="form-control" />
+      <legend>{{ tittleCard }}</legend>
+      <input :type="type" class="form-control" :value="content" />
     </fieldset>
   </div>
 </template>
@@ -11,11 +11,15 @@
 export default {
   name: "InputGroupDash",
   props: {
-    name: {
+    tittleCard: {
       type: String,
       required: true,
     },
     type: {
+      type: String,
+      required: true,
+    },
+    content: {
       type: String,
       required: true,
     },

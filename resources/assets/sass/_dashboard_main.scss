@@ -53,17 +53,12 @@ $dash-panel-border: 10px;
   border-radius: 10px;
   font-size: 1.5rem;
   text-align: center;
-  height: 100%;
+  background: #f79533;
   &:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   }
 
   .header {
     background: #f37055;
-  }
-
-  .content {
-    padding: 2px 16px;
-    background: #f79533;
   }
 }

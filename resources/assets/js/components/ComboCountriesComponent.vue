@@ -66,7 +66,7 @@
       <option value="AE">Emiratos Árabes Unidos</option>
       <option value="ER">Eritrea</option>
       <option value="SI">Eslovenia</option>
-      <option value="ES" selected>España</option>
+      <option value="ES">España</option>
       <option value="US">Estados Unidos</option>
       <option value="EE">Estonia</option>
       <option value="ET">Etiopía</option>
@@ -243,6 +243,18 @@
 <script>
 export default {
   name: "ComboCountriesComponent",
+  props: {
+    country: {
+      type: String,
+      required: true,
+    },
+  },
+  created() {
+    this.loadCombo();
+  },
+  methods: {
+    loadCombo() {},
+  },
 };
 </script>
 

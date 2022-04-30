@@ -1,9 +1,9 @@
 <template>
   <div class="scr-grid">
     <header-dash class="header gradient" />
-    <menu-dash class="menu gradient" />
+    <menu-dash class="menu gradient" @changeArea="changeArea" />
     <games-dash class="games gradient" />
-    <area-dash class="area" />
+    <area-dash class="area" :area="menuArea" :user="userDash" />
     <friends-dash class="friends gradient" />
     <div class="news" />
   </div>
@@ -15,6 +15,7 @@ import MenuComponent from "./MenuDashComponent.vue";
 import GameComponent from "./GamesDashComponent.vue";
 import FriendsComponent from "./FriendsDashComponent.vue";
 import AreaComponent from "./AreaDashComponent.vue";
+import User from "../../../classes/User";
 
 export default {
   name: "DashboardComponent",
@@ -24,6 +25,32 @@ export default {
     "games-dash": GameComponent,
     "friends-dash": FriendsComponent,
     "area-dash": AreaComponent,
+  },
+  props: {
+    user: {
+      type: Object,
+      required: true,
+    },
+  },
+
+  data: function () {
+    return {
+      menuArea: "",
+      userDash: User,
+    };
+  },
+
+  created() {
+    this.createUser();
+  },
+
+  methods: {
+    changeArea(area) {
+      this.menuArea = area;
+    },
+    createUser() {
+      this.userDash = User.createUser(this.user);
+    },
   },
 };
 </script>

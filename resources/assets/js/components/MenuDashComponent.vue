@@ -2,12 +2,20 @@
   <div>
     <h2>Scrabble Dashboard</h2>
     <div class="menu-dash">
-      <menu-item icon="fa fa-user" title="Perfil" />
-      <menu-item icon="fa fa-user" title="Partidas" />
-      <menu-item icon="fa fa-user" title="Notificaciones" />
-      <menu-item icon="fa fa-users" title="Amigos" />
-      <menu-item icon="fa fa-user" title="Estadísticas" />
-      <menu-item icon="fa fa-user" title="Ranking" />
+      <menu-item icon="fa fa-user" title="Perfil" @changeArea="changeArea" />
+      <menu-item icon="fa fa-user" title="Partidas" @changeArea="changeArea" />
+      <menu-item
+        icon="fa fa-user"
+        title="Notificaciones"
+        @changeArea="changeArea"
+      />
+      <menu-item icon="fa fa-users" title="Amigos" @changeArea="changeArea" />
+      <menu-item
+        icon="fa fa-user"
+        title="Estadisticas"
+        @changeArea="changeArea"
+      />
+      <menu-item icon="fa fa-user" title="Ranking" @changeArea="changeArea" />
     </div>
   </div>
 </template>
@@ -19,6 +27,11 @@ export default {
   name: "MenuDashComponent",
   components: {
     "menu-item": MenuItem,
+  },
+  methods: {
+    changeArea(area) {
+      this.$emit("changeArea", area);
+    },
   },
 };
 </script>

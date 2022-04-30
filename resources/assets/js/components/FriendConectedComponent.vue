@@ -11,6 +11,8 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+@import "./resources/assets/sass/_dashboard_main.scss";
+
 div {
   display: flex;
   align-items: center;
@@ -25,6 +27,10 @@ div {
     width: 60px;
     height: 60px;
     border-radius: 40px;
+  }
+
+  button {
+    @include dash-button($font-size: 1rem);
   }
 }
 </style>

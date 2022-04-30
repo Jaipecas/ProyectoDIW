@@ -1,7 +1,7 @@
 <template>
   <div>
-    <span :class="icon" />
-    <span>{{ title }}</span>
+    <a :class="icon" @click="changeArea" />
+    <a @click="changeArea">{{ title }}</a>
   </div>
 </template>
 
@@ -16,6 +16,11 @@ export default {
     title: {
       type: String,
       required: true,
+    },
+  },
+  methods: {
+    changeArea() {
+      this.$emit("changeArea", this.title);
     },
   },
 };
