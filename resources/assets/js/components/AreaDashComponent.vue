@@ -40,6 +40,10 @@
       <card-dash title="Partida mas corta" stat="250" />
       <card-dash title="Partida mas larga" stat="89" />
     </div>
+
+    <div v-show="area == 'Notificaciones'">
+      <notif-area />
+    </div>
   </div>
 </template>
 
@@ -48,6 +52,7 @@ import ComboCountries from "./ComboCountriesComponent.vue";
 import InputDash from "./InputGroupComponent.vue";
 import MatchDash from "./MatchDashComponent.vue";
 import CardDash from "./CardDashComponent.vue";
+import NotificationsAreaDashComponent from "./NorificationsAreaDashComponent.vue";
 
 import User from "../../../classes/User";
 import Game from "../../../classes/Game";
@@ -59,6 +64,7 @@ export default {
     "combo-countries": ComboCountries,
     "match-dash": MatchDash,
     "card-dash": CardDash,
+    "notif-area": NotificationsAreaDashComponent,
   },
   props: {
     area: {
@@ -77,7 +83,7 @@ export default {
     };
   },
 
-  beforeUpdate() {
+  created() {
     this.getGamesList();
   },
 
@@ -85,7 +91,6 @@ export default {
     async getGamesList() {
       let arrayGames = await Game.getPendingGames();
       this.gamesList = arrayGames;
-      console.log(this.gamesList);
     },
   },
 };

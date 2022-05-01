@@ -9,9 +9,4 @@ export default class User {
         this.language = language;
     }
 
-    static createUser(json) {
-        let user = new User(json.id, json.name, json.avatar, json.country, json.email, json.language);
-        return user;
-    }
-
 }
