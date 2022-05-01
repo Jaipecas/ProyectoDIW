@@ -1,13 +1,15 @@
 <template>
   <div class="container-match">
     <div>
-      <img src="../../../../public/img/01 Gutenberg.jpg" alt="" />
-      <span>{{ player }}</span>
-      <span>{{ score1 }}</span>
+      <img src="" alt="" />
+      <span>{{ game.language }}</span>
+      <span>{{ game.player1.name }}</span>
+      <span>{{ game.player2.name }}</span>
+      <span>{{ game.score1 }}</span>
       <span> - </span>
-      <span>{{ score2 }}</span>
+      <span>{{ game.score2 }}</span>
     </div>
-    <div>
+    <div v-show="game.state !== 'win_p1' && game.state !== 'win_p2'">
       <button class="dash-button">Continuar</button>
       <button class="dash-button">Abandonar</button>
     </div>
@@ -15,19 +17,12 @@
 </template>
 
 <script>
+import Game from "../../../../classes/Game";
 export default {
   name: "MatchDashComponent",
   props: {
-    player: {
-      type: String,
-      required: true,
-    },
-    score1: {
-      type: Number,
-      required: true,
-    },
-    score2: {
-      type: Number,
+    game: {
+      type: Game,
       required: true,
     },
   },

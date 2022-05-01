@@ -3,7 +3,7 @@ import Vue from "vue";
 
 Vue.component(
     "DashboardComponent",
-    require("./components/DashboardComponent.vue").default,
+    require("./components/dashboard/DashboardComponent.vue").default,
 );
 
 new Vue({

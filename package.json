@@ -47,6 +47,8 @@
     "dependencies": {
         "ajv": "^6.12.6",
         "bootstrap-icons": "^1.7.2",
+        "flag-icon": "^2.5.0",
+        "flag-icons": "^6.2.0",
         "hoek": "^5.0.4",
         "laravel-echo": "^1.9.0",
         "socket.io-client": "^2.3.1",

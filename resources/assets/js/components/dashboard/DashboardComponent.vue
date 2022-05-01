@@ -15,7 +15,7 @@ import MenuComponent from "./MenuDashComponent.vue";
 import GameComponent from "./GamesDashComponent.vue";
 import FriendsComponent from "./FriendsDashComponent.vue";
 import AreaComponent from "./AreaDashComponent.vue";
-import User from "../../../classes/User";
+import User from "../../../../classes/User";
 
 export default {
   name: "DashboardComponent",
@@ -49,7 +49,7 @@ export default {
       this.menuArea = area;
     },
     createUser() {
-      this.userDash = User.createUser(this.user);
+      this.userDash = Object.assign(new User(), this.user);
     },
   },
 };

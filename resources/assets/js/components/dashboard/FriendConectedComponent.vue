@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img src="../../../../public/img/01 Gutenberg.jpg" alt="" />
+    <img src="" alt="" />
     <span>Jugador 1</span>
     <button>Retar</button>
   </div>
