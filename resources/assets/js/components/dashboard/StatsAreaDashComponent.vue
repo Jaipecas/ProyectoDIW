@@ -3,18 +3,17 @@
     <h2>Estadísticas</h2>
     <h5>Idioma</h5>
     <div class="language">
-      <button name="before" @click="changeLanguage($event)">&#8672;</button>
+      <button name="before" @click="nextLanguage">&#8672;</button>
       <country-flag
         :country="statsList[statsLanguage].language_code"
         size="big"
         rounded="true"
-        shadow="true"
       />
-      <button name="next" @click="changeLanguage($event)">&#8674;</button>
+      <button name="next" @click="beforeLanguage">&#8674;</button>
     </div>
     <div>
       <div class="stats-dash">
-        <div class="level">
+        <div :class="onChangelevel">
           {{ statsList[statsLanguage].level }}
         </div>
         <card-dash
@@ -70,25 +69,46 @@ export default {
       statsLanguage: 0,
     };
   },
+  computed: {
+    onChangelevel: function () {
+      let levelClass = "";
+      if (
+        this.statsList[this.statsLanguage].level >= 0 &&
+        this.statsList[this.statsLanguage].level <= 5
+      ) {
+        levelClass = "level level-bronze";
+      } else if (
+        this.statsList[this.statsLanguage].level > 5 &&
+        this.statsList[this.statsLanguage].level <= 9
+      ) {
+        levelClass = "level level-silver";
+      } else if (this.statsList[this.statsLanguage].level > 9) {
+        levelClass = "level level-gold";
+      }
+
+      return levelClass;
+    },
+  },
   created() {
     this.getUserDashStats();
   },
   methods: {
     async getUserDashStats() {
       this.statsList = await UserStats.getUserStats();
-      console.log(this.statsList);
     },
-    changeLanguage(event) {
-      if (this.statsLanguage === this.statsList.length) {
+    nextLanguage() {
+      if (this.statsLanguage === this.statsList.length - 1) {
         this.statsLanguage = 0;
         return;
       }
-
-      if (event.target.name === "next") {
-        this.statsLanguage++;
-      } else {
-        this.statsLanguage--;
+      this.statsLanguage++;
+    },
+    beforeLanguage() {
+      if (this.statsLanguage === 0) {
+        this.statsLanguage = this.statsList.length - 1;
+        return;
       }
+      this.statsLanguage--;
     },
   },
 };
@@ -154,10 +174,24 @@ export default {
     }
 
     .level {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 110px;
       height: 110px;
-      background: blue;
       border-radius: 60px;
+      color: rgb(255, 255, 255);
+      font-size: 3rem;
+      border: 2px solid rgb(26, 23, 23);
+    }
+    .level-silver {
+      background: #c0c0c0;
+    }
+    .level-bronze {
+      background: #db9249;
+    }
+    .level-gold {
+      background: #ffd700;
     }
   }
 }

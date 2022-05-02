@@ -2994,7 +2994,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 
 
 
@@ -3009,6 +3008,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       statsList: Array,
       statsLanguage: 0
     };
+  },
+  computed: {
+    onChangelevel: function onChangelevel() {
+      var levelClass = "";
+
+      if (this.statsList[this.statsLanguage].level >= 0 && this.statsList[this.statsLanguage].level <= 5) {
+        levelClass = "level level-bronze";
+      } else if (this.statsList[this.statsLanguage].level > 5 && this.statsList[this.statsLanguage].level <= 9) {
+        levelClass = "level level-silver";
+      } else if (this.statsList[this.statsLanguage].level > 9) {
+        levelClass = "level level-gold";
+      }
+
+      return levelClass;
+    }
   },
   created: function created() {
     this.getUserDashStats();
@@ -3027,9 +3041,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
                 _this.statsList = _context.sent;
-                console.log(_this.statsList);
 
-              case 4:
+              case 3:
               case "end":
                 return _context.stop();
             }
@@ -3037,17 +3050,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
-    changeLanguage: function changeLanguage(event) {
-      if (this.statsLanguage === this.statsList.length) {
+    nextLanguage: function nextLanguage() {
+      if (this.statsLanguage === this.statsList.length - 1) {
         this.statsLanguage = 0;
         return;
       }
 
-      if (event.target.name === "next") {
-        this.statsLanguage++;
-      } else {
-        this.statsLanguage--;
+      this.statsLanguage++;
+    },
+    beforeLanguage: function beforeLanguage() {
+      if (this.statsLanguage === 0) {
+        this.statsLanguage = this.statsList.length - 1;
+        return;
       }
+
+      this.statsLanguage--;
     }
   }
 });
@@ -3351,7 +3368,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-8a23f79e] {\n  color: red;\n}\n.gradient[data-v-8a23f79e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-8a23f79e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-8a23f79e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-8a23f79e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-8a23f79e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-8a23f79e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-8a23f79e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-8a23f79e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-8a23f79e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.container-stats[data-v-8a23f79e] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.container-stats h2[data-v-8a23f79e] {\n  text-align: center;\n  margin-top: 20px;\n}\n.container-stats h5[data-v-8a23f79e] {\n  text-align: center;\n  margin-top: 20px;\n}\n.container-stats .language[data-v-8a23f79e] {\n  display: flex;\n  align-items: center;\n}\n.container-stats .language > *[data-v-8a23f79e] {\n  margin: 10px;\n}\n.container-stats .language button[data-v-8a23f79e] {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 45px;\n  height: 45px;\n  font-size: 1.5rem;\n  color: white;\n  background-color: #ef4e7b;\n}\n.container-stats .stats-dash[data-v-8a23f79e] {\n  display: grid;\n  grid-template: repeat(6, 1fr)/0.5fr 1fr 1fr 0.5fr;\n  gap: 20px;\n  overflow: auto;\n  -ms-overflow-style: none;\n  scrollbar-width: none;\n  height: 450px;\n}\n.container-stats .stats-dash[data-v-8a23f79e]::-webkit-scrollbar {\n  display: none;\n}\n.container-stats .stats-dash > *[data-v-8a23f79e] {\n  justify-self: center;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(1) {\n  grid-column: 1/-1;\n  align-self: center;\n  margin-top: 30px;\n  margin-bottom: 30px;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(2),\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(5),\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(7) {\n  grid-column: 2/3;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(3),\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(6) {\n  grid-column: 3/4;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(4) {\n  grid-column: 2/4;\n}\n.container-stats .stats-dash .level[data-v-8a23f79e] {\n  width: 110px;\n  height: 110px;\n  background: blue;\n  border-radius: 60px;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-8a23f79e] {\n  color: red;\n}\n.gradient[data-v-8a23f79e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-8a23f79e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-8a23f79e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-8a23f79e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-8a23f79e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-8a23f79e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-8a23f79e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-8a23f79e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-8a23f79e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.container-stats[data-v-8a23f79e] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.container-stats h2[data-v-8a23f79e] {\n  text-align: center;\n  margin-top: 20px;\n}\n.container-stats h5[data-v-8a23f79e] {\n  text-align: center;\n  margin-top: 20px;\n}\n.container-stats .language[data-v-8a23f79e] {\n  display: flex;\n  align-items: center;\n}\n.container-stats .language > *[data-v-8a23f79e] {\n  margin: 10px;\n}\n.container-stats .language button[data-v-8a23f79e] {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 45px;\n  height: 45px;\n  font-size: 1.5rem;\n  color: white;\n  background-color: #ef4e7b;\n}\n.container-stats .stats-dash[data-v-8a23f79e] {\n  display: grid;\n  grid-template: repeat(6, 1fr)/0.5fr 1fr 1fr 0.5fr;\n  gap: 20px;\n  overflow: auto;\n  -ms-overflow-style: none;\n  scrollbar-width: none;\n  height: 450px;\n}\n.container-stats .stats-dash[data-v-8a23f79e]::-webkit-scrollbar {\n  display: none;\n}\n.container-stats .stats-dash > *[data-v-8a23f79e] {\n  justify-self: center;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(1) {\n  grid-column: 1/-1;\n  align-self: center;\n  margin-top: 30px;\n  margin-bottom: 30px;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(2),\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(5),\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(7) {\n  grid-column: 2/3;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(3),\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(6) {\n  grid-column: 3/4;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(4) {\n  grid-column: 2/4;\n}\n.container-stats .stats-dash .level[data-v-8a23f79e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 110px;\n  height: 110px;\n  border-radius: 60px;\n  color: white;\n  font-size: 3rem;\n  border: 2px solid #1a1717;\n}\n.container-stats .stats-dash .level-silver[data-v-8a23f79e] {\n  background: #c0c0c0;\n}\n.container-stats .stats-dash .level-bronze[data-v-8a23f79e] {\n  background: #db9249;\n}\n.container-stats .stats-dash .level-gold[data-v-8a23f79e] {\n  background: #ffd700;\n}", ""]);
 
 // exports
 
@@ -7284,14 +7301,7 @@ var render = function() {
       [
         _c(
           "button",
-          {
-            attrs: { name: "before" },
-            on: {
-              click: function($event) {
-                return _vm.changeLanguage($event)
-              }
-            }
-          },
+          { attrs: { name: "before" }, on: { click: _vm.nextLanguage } },
           [_vm._v("⇠")]
         ),
         _vm._v(" "),
@@ -7299,21 +7309,13 @@ var render = function() {
           attrs: {
             country: _vm.statsList[_vm.statsLanguage].language_code,
             size: "big",
-            rounded: "true",
-            shadow: "true"
+            rounded: "true"
           }
         }),
         _vm._v(" "),
         _c(
           "button",
-          {
-            attrs: { name: "next" },
-            on: {
-              click: function($event) {
-                return _vm.changeLanguage($event)
-              }
-            }
-          },
+          { attrs: { name: "next" }, on: { click: _vm.beforeLanguage } },
           [_vm._v("⇢")]
         )
       ],
@@ -7325,7 +7327,7 @@ var render = function() {
         "div",
         { staticClass: "stats-dash" },
         [
-          _c("div", { staticClass: "level" }, [
+          _c("div", { class: _vm.onChangelevel }, [
             _vm._v(
               "\n        " +
                 _vm._s(_vm.statsList[_vm.statsLanguage].level) +
