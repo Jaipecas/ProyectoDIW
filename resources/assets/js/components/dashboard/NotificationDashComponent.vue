@@ -88,9 +88,4 @@ div {
     max-height: 28px;
   }
 }
-.icon-warning {
-  width: 50px;
-  height: 50px;
-  background-image: url("../../../../../public/img/warning.png");
-}
 </style>

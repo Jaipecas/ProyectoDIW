@@ -47,23 +47,55 @@ $dash-panel-border: 10px;
 }
 
 .dash-card {
+  display: grid;
+  grid-template: 0.5fr 1fr / 1fr;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
   width: 100%;
+  min-height: 120px;
   border-radius: 10px;
   font-size: 1.5rem;
   text-align: center;
   background: #f79533;
-  &:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  }
 
   .header {
     background: #f37055;
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
 .icon {
   max-width: 20px;
   max-height: 20px;
+}
+
+@mixin area-scroll($height) {
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  height: $height;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin round-button($width, $height, $color, $background, $font-size) {
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  border: 1px solid rgba(0, 0, 0, 0.21);
+  border-bottom: 4px solid rgba(0, 0, 0, 0.21);
+  border-radius: 50%;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+  width: $width;
+  height: $height;
+  font-size: $font-size;
+  color: $color;
+  background-color: $background;
 }

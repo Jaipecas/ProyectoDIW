@@ -17,10 +17,13 @@ export default class UserStats {
 
     static async getUserStats() {
         let url = "/scrabble/user/statistics"
-
+        let userStatsList = [];
         try {
             const promise = await Axios.get(url);
-            return promise.data;
+            Array.from(promise.data).forEach(stats => {
+                userStatsList.push(Object.assign(new UserStats, stats));
+            })
+            return userStatsList;
         } catch (error) {
             console.log("ERROR: " + error);
         }
