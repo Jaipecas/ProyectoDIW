@@ -2,28 +2,21 @@
   <div>
     <span>{{ dateFormat }}</span>
     <span>{{ timeFormat }}</span>
-    <span>{{ typeNotif }}</span>
+    <img :src="iconNotif" class="icon" />
     <div :class="changeOverflow" @click="showNotifText">
-      <span>{{ textNotif }}</span>
+      <span>{{ notif.notification }}</span>
     </div>
     <button>Eliminar</button>
   </div>
 </template>
 
 <script>
+import Notification from "../../../../classes/Notification";
 export default {
   name: "NotificationDashComponent",
   props: {
-    dateNotif: {
-      type: Date,
-      required: true,
-    },
-    typeNotif: {
-      type: String,
-      required: true,
-    },
-    textNotif: {
-      type: String,
+    notif: {
+      type: Notification,
       required: true,
     },
   },
@@ -33,6 +26,7 @@ export default {
       dateFormat: null,
       timeFormat: null,
       showText: false,
+      iconNotif: "",
     };
   },
   computed: {
@@ -42,22 +36,38 @@ export default {
   },
   created() {
     this.convertDate();
+    this.insertIcon();
   },
 
   methods: {
     convertDate() {
-      let date = new Date(this.dateNotif);
+      let date = new Date(this.notif.update_at);
       this.dateFormat = date.toLocaleDateString("es-ES");
       this.timeFormat = date.toLocaleTimeString("es-ES");
     },
     showNotifText() {
       this.showText = !this.showText;
     },
+    insertIcon() {
+      switch (this.notif.type) {
+        case "warning":
+          this.iconNotif = "/img/warning.png";
+          break;
+        case "info":
+          this.iconNotif = "/img/information.png";
+          break;
+        case "important":
+          this.iconNotif = "/img/exclamation-mark.png";
+          break;
+      }
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+@import "./resources/assets/sass/_dashboard_main.scss";
+
 div {
   display: flex;
   > * {
@@ -77,5 +87,10 @@ div {
     max-width: 70px;
     max-height: 28px;
   }
+}
+.icon-warning {
+  width: 50px;
+  height: 50px;
+  background-image: url("../../../../../public/img/warning.png");
 }
 </style>

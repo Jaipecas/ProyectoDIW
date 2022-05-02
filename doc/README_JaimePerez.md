@@ -170,5 +170,22 @@ https://www.flaticon.com/premium-icon/world-cup_1105421?term=world%20cup&page=1&
 Imágen propia con licencia Creative Commons
 
 
+--ICONOS NOTIFICACIONES--
+
+![Alt-Text](/public/img/warning.png)
+
+https://www.flaticon.com/free-icons/error
+
+![Alt-Text](/public/img/information.png)
+
+https://www.flaticon.com/free-icons/information
+
+![Alt-Text](/public/img/exclamation-mark.png)
+
+https://www.flaticon.com/free-icons/exclamation-mark
+
+
+
+
 
 

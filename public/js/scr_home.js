@@ -2775,12 +2775,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2836,6 +2830,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _classes_Notification__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../classes/Notification */ "./resources/classes/Notification.js");
 //
 //
 //
@@ -2848,19 +2843,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NotificationDashComponent",
   props: {
-    dateNotif: {
-      type: Date,
-      required: true
-    },
-    typeNotif: {
-      type: String,
-      required: true
-    },
-    textNotif: {
-      type: String,
+    notif: {
+      type: _classes_Notification__WEBPACK_IMPORTED_MODULE_0__["default"],
       required: true
     }
   },
@@ -2868,7 +2856,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       dateFormat: null,
       timeFormat: null,
-      showText: false
+      showText: false,
+      iconNotif: ""
     };
   },
   computed: {
@@ -2878,15 +2867,31 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.convertDate();
+    this.insertIcon();
   },
   methods: {
     convertDate: function convertDate() {
-      var date = new Date(this.dateNotif);
+      var date = new Date(this.notif.update_at);
       this.dateFormat = date.toLocaleDateString("es-ES");
       this.timeFormat = date.toLocaleTimeString("es-ES");
     },
     showNotifText: function showNotifText() {
       this.showText = !this.showText;
+    },
+    insertIcon: function insertIcon() {
+      switch (this.notif.type) {
+        case "warning":
+          this.iconNotif = "/img/warning.png";
+          break;
+
+        case "info":
+          this.iconNotif = "/img/information.png";
+          break;
+
+        case "important":
+          this.iconNotif = "/img/exclamation-mark.png";
+          break;
+      }
     }
   }
 });
@@ -2997,7 +3002,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".prueba[data-v-31ce29b4] {\n  color: red;\n}\n.gradient[data-v-31ce29b4] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-31ce29b4 10s ease alternate infinite;\n          animation: animatedgradient-data-v-31ce29b4 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-31ce29b4 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-31ce29b4 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-31ce29b4] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  transition: 0.3s;\n  width: 100%;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card[data-v-31ce29b4]:hover {\n  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);\n}\n.dash-card .header[data-v-31ce29b4] {\n  background: #f37055;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-31ce29b4] {\n  color: red;\n}\n.gradient[data-v-31ce29b4] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-31ce29b4 10s ease alternate infinite;\n          animation: animatedgradient-data-v-31ce29b4 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-31ce29b4 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-31ce29b4 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-31ce29b4] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  transition: 0.3s;\n  width: 100%;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card[data-v-31ce29b4]:hover {\n  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);\n}\n.dash-card .header[data-v-31ce29b4] {\n  background: #f37055;\n}\n.icon[data-v-31ce29b4] {\n  max-width: 20px;\n  max-height: 20px;\n}", ""]);
 
 // exports
 
@@ -3016,7 +3021,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-00c8df5c] {\n  color: red;\n}\n.gradient[data-v-00c8df5c] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-00c8df5c 10s ease alternate infinite;\n          animation: animatedgradient-data-v-00c8df5c 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-00c8df5c {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-00c8df5c {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-00c8df5c] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  transition: 0.3s;\n  width: 100%;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card[data-v-00c8df5c]:hover {\n  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);\n}\n.dash-card .header[data-v-00c8df5c] {\n  background: #f37055;\n}\n.user-dash[data-v-00c8df5c] {\n  display: grid;\n  grid-template: 1fr 1fr 1fr 1fr 1fr/0.5fr 1fr 1fr 0.5fr;\n}\n.user-dash div[data-v-00c8df5c] {\n  align-self: center;\n}\n.user-dash div[data-v-00c8df5c]:nth-child(even) {\n  grid-column: 2/3;\n}\n.user-dash div[data-v-00c8df5c]:nth-child(odd) {\n  grid-column: 3/4;\n}\n.user-dash div[data-v-00c8df5c]:nth-child(1) {\n  grid-column: 1/-1;\n  background: blue;\n  justify-self: center;\n  width: 130px;\n  height: 130px;\n  border-radius: 70px;\n  margin-top: 10px;\n}\n.user-dash div[data-v-00c8df5c]:last-child {\n  grid-column: 2/4;\n}\n.user-dash div:last-child button[data-v-00c8df5c] {\n  width: 100%;\n  height: 50px;\n}\n\n/* SE REPITE TAMBIEN EN AMIGOS  */\nh3[data-v-00c8df5c] {\n  margin-top: 10px;\n  text-align: center;\n}\nbutton[data-v-00c8df5c] {\n  color: #fff;\n  font-size: 1.5rem;\n  background: #f857a6;\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  border-radius: 10px;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-00c8df5c] {\n  color: red;\n}\n.gradient[data-v-00c8df5c] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-00c8df5c 10s ease alternate infinite;\n          animation: animatedgradient-data-v-00c8df5c 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-00c8df5c {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-00c8df5c {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-00c8df5c] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  transition: 0.3s;\n  width: 100%;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card[data-v-00c8df5c]:hover {\n  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);\n}\n.dash-card .header[data-v-00c8df5c] {\n  background: #f37055;\n}\n.icon[data-v-00c8df5c] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.user-dash[data-v-00c8df5c] {\n  display: grid;\n  grid-template: 1fr 1fr 1fr 1fr 1fr/0.5fr 1fr 1fr 0.5fr;\n}\n.user-dash div[data-v-00c8df5c] {\n  align-self: center;\n}\n.user-dash div[data-v-00c8df5c]:nth-child(even) {\n  grid-column: 2/3;\n}\n.user-dash div[data-v-00c8df5c]:nth-child(odd) {\n  grid-column: 3/4;\n}\n.user-dash div[data-v-00c8df5c]:nth-child(1) {\n  grid-column: 1/-1;\n  background: blue;\n  justify-self: center;\n  width: 130px;\n  height: 130px;\n  border-radius: 70px;\n  margin-top: 10px;\n}\n.user-dash div[data-v-00c8df5c]:last-child {\n  grid-column: 2/4;\n}\n.user-dash div:last-child button[data-v-00c8df5c] {\n  width: 100%;\n  height: 50px;\n}\n\n/* SE REPITE TAMBIEN EN AMIGOS  */\nh3[data-v-00c8df5c] {\n  margin-top: 10px;\n  text-align: center;\n}\nbutton[data-v-00c8df5c] {\n  color: #fff;\n  font-size: 1.5rem;\n  background: #f857a6;\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  border-radius: 10px;\n}", ""]);
 
 // exports
 
@@ -3054,7 +3059,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-14d4cc4a] {\n  color: red;\n}\n.gradient[data-v-14d4cc4a] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-14d4cc4a 10s ease alternate infinite;\n          animation: animatedgradient-data-v-14d4cc4a 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-14d4cc4a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-14d4cc4a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-14d4cc4a] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  transition: 0.3s;\n  width: 100%;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card[data-v-14d4cc4a]:hover {\n  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);\n}\n.dash-card .header[data-v-14d4cc4a] {\n  background: #f37055;\n}\n.scr-grid[data-v-14d4cc4a] {\n  display: grid;\n  grid-template: 150px 400px 270px/minmax(172px, 250px) minmax(600px, auto) minmax(172px, 250px);\n  gap: 15px;\n  margin: 20px;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  border-radius: 10px;\n  padding: 15px;\n}\n.scr-grid > *[data-v-14d4cc4a] {\n  border: 0.2px solid #615d5d;\n}\n.scr-grid .header[data-v-14d4cc4a] {\n  grid-column: 2/-1;\n}\n.scr-grid .menu[data-v-14d4cc4a] {\n  grid-row: 1/3;\n}\n.scr-grid .games[data-v-14d4cc4a] {\n  grid-row: 3/4;\n}\n.scr-grid .area[data-v-14d4cc4a] {\n  grid-row: 2/4;\n  background: #bee2e8;\n  border-radius: 10px;\n}\n.scr-grid .friends[data-v-14d4cc4a] {\n  grid-row: 2/3;\n}\n.scr-grid .news[data-v-14d4cc4a] {\n  grid-row: 3/4;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-14d4cc4a] {\n  color: red;\n}\n.gradient[data-v-14d4cc4a] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-14d4cc4a 10s ease alternate infinite;\n          animation: animatedgradient-data-v-14d4cc4a 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-14d4cc4a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-14d4cc4a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-14d4cc4a] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  transition: 0.3s;\n  width: 100%;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card[data-v-14d4cc4a]:hover {\n  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);\n}\n.dash-card .header[data-v-14d4cc4a] {\n  background: #f37055;\n}\n.icon[data-v-14d4cc4a] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.scr-grid[data-v-14d4cc4a] {\n  display: grid;\n  grid-template: 150px 400px 270px/minmax(172px, 250px) minmax(600px, auto) minmax(172px, 250px);\n  gap: 15px;\n  margin: 20px;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  border-radius: 10px;\n  padding: 15px;\n}\n.scr-grid > *[data-v-14d4cc4a] {\n  border: 0.2px solid #615d5d;\n}\n.scr-grid .header[data-v-14d4cc4a] {\n  grid-column: 2/-1;\n}\n.scr-grid .menu[data-v-14d4cc4a] {\n  grid-row: 1/3;\n}\n.scr-grid .games[data-v-14d4cc4a] {\n  grid-row: 3/4;\n}\n.scr-grid .area[data-v-14d4cc4a] {\n  grid-row: 2/4;\n  background: #bee2e8;\n  border-radius: 10px;\n}\n.scr-grid .friends[data-v-14d4cc4a] {\n  grid-row: 2/3;\n}\n.scr-grid .news[data-v-14d4cc4a] {\n  grid-row: 3/4;\n}", ""]);
 
 // exports
 
@@ -3073,7 +3078,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-89312aac] {\n  color: red;\n}\n.gradient[data-v-89312aac] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-89312aac 10s ease alternate infinite;\n          animation: animatedgradient-data-v-89312aac 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-89312aac {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-89312aac {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-89312aac] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  transition: 0.3s;\n  width: 100%;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card[data-v-89312aac]:hover {\n  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);\n}\n.dash-card .header[data-v-89312aac] {\n  background: #f37055;\n}\ndiv[data-v-89312aac] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 10px;\n}\ndiv > *[data-v-89312aac] {\n  padding: 8px;\n}\ndiv img[data-v-89312aac] {\n  width: 60px;\n  height: 60px;\n  border-radius: 40px;\n}\ndiv button[data-v-89312aac] {\n  color: #fff;\n  font-size: 1rem;\n  background: #f857a6;\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  border-radius: 10px;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-89312aac] {\n  color: red;\n}\n.gradient[data-v-89312aac] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-89312aac 10s ease alternate infinite;\n          animation: animatedgradient-data-v-89312aac 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-89312aac {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-89312aac {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-89312aac] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  transition: 0.3s;\n  width: 100%;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card[data-v-89312aac]:hover {\n  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);\n}\n.dash-card .header[data-v-89312aac] {\n  background: #f37055;\n}\n.icon[data-v-89312aac] {\n  max-width: 20px;\n  max-height: 20px;\n}\ndiv[data-v-89312aac] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 10px;\n}\ndiv > *[data-v-89312aac] {\n  padding: 8px;\n}\ndiv img[data-v-89312aac] {\n  width: 60px;\n  height: 60px;\n  border-radius: 40px;\n}\ndiv button[data-v-89312aac] {\n  color: #fff;\n  font-size: 1rem;\n  background: #f857a6;\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  border-radius: 10px;\n}", ""]);
 
 // exports
 
@@ -3187,7 +3192,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-f866ab50] {\n  color: red;\n}\n.gradient[data-v-f866ab50] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-f866ab50 10s ease alternate infinite;\n          animation: animatedgradient-data-v-f866ab50 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-f866ab50 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-f866ab50 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-f866ab50] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  transition: 0.3s;\n  width: 100%;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card[data-v-f866ab50]:hover {\n  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);\n}\n.dash-card .header[data-v-f866ab50] {\n  background: #f37055;\n}\n.container-match[data-v-f866ab50] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.container-match div[data-v-f866ab50]:nth-child(1) {\n  margin-right: 40px;\n}\n.container-match div:nth-child(1) > *[data-v-f866ab50] {\n  margin: 10px;\n}\n.container-match img[data-v-f866ab50] {\n  width: 60px;\n  height: 60px;\n  border-radius: 40px;\n}\n.container-match button[data-v-f866ab50] {\n  color: #fff;\n  font-size: 1rem;\n  background: #f857a6;\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  border-radius: 10px;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-f866ab50] {\n  color: red;\n}\n.gradient[data-v-f866ab50] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-f866ab50 10s ease alternate infinite;\n          animation: animatedgradient-data-v-f866ab50 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-f866ab50 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-f866ab50 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-f866ab50] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  transition: 0.3s;\n  width: 100%;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card[data-v-f866ab50]:hover {\n  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);\n}\n.dash-card .header[data-v-f866ab50] {\n  background: #f37055;\n}\n.icon[data-v-f866ab50] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.container-match[data-v-f866ab50] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.container-match div[data-v-f866ab50]:nth-child(1) {\n  margin-right: 40px;\n}\n.container-match div:nth-child(1) > *[data-v-f866ab50] {\n  margin: 10px;\n}\n.container-match img[data-v-f866ab50] {\n  width: 60px;\n  height: 60px;\n  border-radius: 40px;\n}\n.container-match button[data-v-f866ab50] {\n  color: #fff;\n  font-size: 1rem;\n  background: #f857a6;\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  border-radius: 10px;\n}", ""]);
 
 // exports
 
@@ -3239,12 +3244,13 @@ exports.push([module.i, "div[data-v-78fe9254] {\n  font-size: 1.2rem;\n  margin-
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+var escape = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
 exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
 // module
-exports.push([module.i, "div[data-v-727508be] {\n  display: flex;\n}\ndiv > *[data-v-727508be] {\n  margin: 10px;\n}\ndiv .text[data-v-727508be] {\n  margin: 0px;\n}\ndiv .text-hidden[data-v-727508be] {\n  overflow: hidden;\n  height: 30px;\n}\ndiv .text-show[data-v-727508be] {\n  overflow: visible;\n}\ndiv button[data-v-727508be] {\n  max-width: 70px;\n  max-height: 28px;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-727508be] {\n  color: red;\n}\n.gradient[data-v-727508be] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-727508be 10s ease alternate infinite;\n          animation: animatedgradient-data-v-727508be 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-727508be {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-727508be {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-727508be] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  transition: 0.3s;\n  width: 100%;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card[data-v-727508be]:hover {\n  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);\n}\n.dash-card .header[data-v-727508be] {\n  background: #f37055;\n}\n.icon[data-v-727508be] {\n  max-width: 20px;\n  max-height: 20px;\n}\ndiv[data-v-727508be] {\n  display: flex;\n}\ndiv > *[data-v-727508be] {\n  margin: 10px;\n}\ndiv .text[data-v-727508be] {\n  margin: 0px;\n}\ndiv .text-hidden[data-v-727508be] {\n  overflow: hidden;\n  height: 30px;\n}\ndiv .text-show[data-v-727508be] {\n  overflow: visible;\n}\ndiv button[data-v-727508be] {\n  max-width: 70px;\n  max-height: 28px;\n}\n.icon-warning[data-v-727508be] {\n  width: 50px;\n  height: 50px;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../../../public/img/warning.png */ "./public/img/warning.png")) + ");\n}", ""]);
 
 // exports
 
@@ -3263,7 +3269,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-681ec00d] {\n  color: red;\n}\n.gradient[data-v-681ec00d] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-681ec00d 10s ease alternate infinite;\n          animation: animatedgradient-data-v-681ec00d 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-681ec00d {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-681ec00d {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-681ec00d] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  transition: 0.3s;\n  width: 100%;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card[data-v-681ec00d]:hover {\n  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);\n}\n.dash-card .header[data-v-681ec00d] {\n  background: #f37055;\n}\ndiv[data-v-681ec00d] {\n  display: flex;\n  flex-flow: column;\n  align-items: center;\n  padding: 10px;\n}\ndiv button[data-v-681ec00d] {\n  color: #fff;\n  font-size: 1rem;\n  background: #f857a6;\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  border-radius: 10px;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-681ec00d] {\n  color: red;\n}\n.gradient[data-v-681ec00d] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-681ec00d 10s ease alternate infinite;\n          animation: animatedgradient-data-v-681ec00d 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-681ec00d {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-681ec00d {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-681ec00d] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  transition: 0.3s;\n  width: 100%;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card[data-v-681ec00d]:hover {\n  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);\n}\n.dash-card .header[data-v-681ec00d] {\n  background: #f37055;\n}\n.icon[data-v-681ec00d] {\n  max-width: 20px;\n  max-height: 20px;\n}\ndiv[data-v-681ec00d] {\n  display: flex;\n  flex-flow: column;\n  align-items: center;\n  padding: 10px;\n}\ndiv button[data-v-681ec00d] {\n  color: #fff;\n  font-size: 1rem;\n  background: #f857a6;\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  border-radius: 10px;\n}", ""]);
 
 // exports
 
@@ -3371,6 +3377,33 @@ function toComment(sourceMap) {
 	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
 
 	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/lib/url/escape.js":
+/*!***************************************************!*\
+  !*** ./node_modules/css-loader/lib/url/escape.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function escape(url) {
+    if (typeof url !== 'string') {
+        return url
+    }
+    // If url is already wrapped in quotes, remove them
+    if (/^['"].*['"]$/.test(url)) {
+        url = url.slice(1, -1);
+    }
+    // Should url be wrapped?
+    // See https://drafts.csswg.org/css-values-3/#urls
+    if (/["'() \t\n]/.test(url)) {
+        return '"' + url.replace(/"/g, '\\"').replace(/\n/g, '\\n') + '"'
+    }
+
+    return url
 }
 
 
@@ -6807,14 +6840,7 @@ var render = function() {
       ),
       _vm._v(" "),
       _vm._l(_vm.notifList, function(notif) {
-        return _c("notification", {
-          key: notif.id,
-          attrs: {
-            "date-notif": notif.updated_at,
-            "type-notif": notif.type,
-            "text-notif": notif.notification
-          }
-        })
+        return _c("notification", { key: notif.id, attrs: { notif: notif } })
       })
     ],
     2
@@ -6847,10 +6873,10 @@ var render = function() {
     _vm._v(" "),
     _c("span", [_vm._v(_vm._s(_vm.timeFormat))]),
     _vm._v(" "),
-    _c("span", [_vm._v(_vm._s(_vm.typeNotif))]),
+    _c("img", { staticClass: "icon", attrs: { src: _vm.iconNotif } }),
     _vm._v(" "),
     _c("div", { class: _vm.changeOverflow, on: { click: _vm.showNotifText } }, [
-      _c("span", [_vm._v(_vm._s(_vm.textNotif))])
+      _c("span", [_vm._v(_vm._s(_vm.notif.notification))])
     ]),
     _vm._v(" "),
     _c("button", [_vm._v("Eliminar")])
@@ -19059,6 +19085,17 @@ try {
 
 module.exports = g;
 
+
+/***/ }),
+
+/***/ "./public/img/warning.png":
+/*!********************************!*\
+  !*** ./public/img/warning.png ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/warning.png?fa659ce915c2e186b558969178e4c0f5";
 
 /***/ }),
 

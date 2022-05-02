@@ -6,13 +6,7 @@
       <option value="read">Leidos</option>
       <option value="delete">Eliminados</option>
     </select>
-    <notification
-      v-for="notif in notifList"
-      :key="notif.id"
-      :date-notif="notif.updated_at"
-      :type-notif="notif.type"
-      :text-notif="notif.notification"
-    />
+    <notification v-for="notif in notifList" :key="notif.id" :notif="notif" />
   </div>
 </template>
 
