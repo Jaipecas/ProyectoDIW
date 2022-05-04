@@ -6,7 +6,12 @@
       <option value="read">Leidos</option>
       <option value="delete">Eliminados</option>
     </select>
-    <notification v-for="notif in notifList" :key="notif.id" :notif="notif" />
+    <notification
+      v-for="notif in notifList"
+      :key="notif.id"
+      :notif="notif"
+      :state="state"
+    />
   </div>
 </template>
 
@@ -22,17 +27,20 @@ export default {
   data: function () {
     return {
       notifList: Array,
+      state: String,
     };
   },
   created() {
     this.loadNotifications("unread");
   },
   methods: {
-    async loadNotifications(status) {
-      this.notifList = await Notification.getNotifications(status);
+    async loadNotifications(state) {
+      this.notifList = await Notification.getNotifications(state);
+      this.state = state;
     },
     onChangeNotif(event) {
       this.loadNotifications(event.target.value);
+      this.state = event.target.value;
     },
   },
 };

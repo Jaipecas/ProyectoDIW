@@ -24,4 +24,12 @@ export default class Notification {
         }
 
     }
+
+    async updateState(state) {
+        try {
+            await Axios.put("/scrabble/notification/" + this.id + "/update/" + state)
+        } catch (error) {
+            console.log("ERROR: " + error);
+        }
+    }
 }

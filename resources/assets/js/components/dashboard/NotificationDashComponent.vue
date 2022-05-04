@@ -1,10 +1,12 @@
 <template>
-  <div>
-    <span>{{ dateFormat }}</span>
-    <span>{{ timeFormat }}</span>
-    <img :src="iconNotif" class="icon" />
-    <div :class="changeOverflow" @click="showNotifText">
-      <span>{{ notif.notification }}</span>
+  <div :class="notifFont" @click="showNotifText">
+    <div>
+      <span>{{ dateFormat }}</span>
+      <span>{{ timeFormat }}</span>
+      <img :src="iconNotif" class="icon" />
+      <div :class="changeOverflow">
+        <span>{{ notif.notification }}</span>
+      </div>
     </div>
     <button>Eliminar</button>
   </div>
@@ -19,6 +21,10 @@ export default {
       type: Notification,
       required: true,
     },
+    state: {
+      type: String,
+      required: true,
+    },
   },
 
   data: function () {
@@ -27,6 +33,7 @@ export default {
       timeFormat: null,
       showText: false,
       iconNotif: "",
+      notifFont: "",
     };
   },
   computed: {
@@ -35,18 +42,22 @@ export default {
     },
   },
   created() {
+    console.log("CREADO");
     this.convertDate();
     this.insertIcon();
+    this.insertFont();
   },
 
   methods: {
     convertDate() {
-      let date = new Date(this.notif.update_at);
+      let date = new Date(this.notif.updated_at);
       this.dateFormat = date.toLocaleDateString("es-ES");
       this.timeFormat = date.toLocaleTimeString("es-ES");
     },
     showNotifText() {
       this.showText = !this.showText;
+      this.notifFont = "notif-normal";
+      if (this.state === "unread") this.notif.updateState("read");
     },
     insertIcon() {
       switch (this.notif.type) {
@@ -61,6 +72,13 @@ export default {
           break;
       }
     },
+    insertFont() {
+      if (this.state === "unread") {
+        this.notifFont = "notif-bold";
+      } else {
+        this.notifFont = "notif-normal";
+      }
+    },
   },
 };
 </script>
@@ -69,9 +87,10 @@ export default {
 @import "./resources/assets/sass/_dashboard_main.scss";
 
 div {
+  cursor: pointer;
   display: flex;
   > * {
-    margin: 10px;
+    margin: 5px;
   }
   .text {
     margin: 0px;
@@ -87,5 +106,13 @@ div {
     max-width: 70px;
     max-height: 28px;
   }
+}
+
+.notif-bold {
+  font-weight: bold;
+}
+
+.notif-normal {
+  font-weight: normal;
 }
 </style>

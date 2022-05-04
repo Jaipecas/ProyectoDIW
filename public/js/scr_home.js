@@ -2775,6 +2775,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2784,14 +2789,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   data: function data() {
     return {
-      notifList: Array
+      notifList: Array,
+      state: String
     };
   },
   created: function created() {
     this.loadNotifications("unread");
   },
   methods: {
-    loadNotifications: function loadNotifications(status) {
+    loadNotifications: function loadNotifications(state) {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
@@ -2800,12 +2806,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _classes_Notification__WEBPACK_IMPORTED_MODULE_2__["default"].getNotifications(status);
+                return _classes_Notification__WEBPACK_IMPORTED_MODULE_2__["default"].getNotifications(state);
 
               case 2:
                 _this.notifList = _context.sent;
+                _this.state = state;
 
-              case 3:
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -2815,6 +2822,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     onChangeNotif: function onChangeNotif(event) {
       this.loadNotifications(event.target.value);
+      this.state = event.target.value;
     }
   }
 });
@@ -2843,12 +2851,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "NotificationDashComponent",
   props: {
     notif: {
       type: _classes_Notification__WEBPACK_IMPORTED_MODULE_0__["default"],
+      required: true
+    },
+    state: {
+      type: String,
       required: true
     }
   },
@@ -2857,7 +2871,8 @@ __webpack_require__.r(__webpack_exports__);
       dateFormat: null,
       timeFormat: null,
       showText: false,
-      iconNotif: ""
+      iconNotif: "",
+      notifFont: ""
     };
   },
   computed: {
@@ -2866,17 +2881,21 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
+    console.log("CREADO");
     this.convertDate();
     this.insertIcon();
+    this.insertFont();
   },
   methods: {
     convertDate: function convertDate() {
-      var date = new Date(this.notif.update_at);
+      var date = new Date(this.notif.updated_at);
       this.dateFormat = date.toLocaleDateString("es-ES");
       this.timeFormat = date.toLocaleTimeString("es-ES");
     },
     showNotifText: function showNotifText() {
       this.showText = !this.showText;
+      this.notifFont = "notif-normal";
+      if (this.state === "unread") this.notif.updateState("read");
     },
     insertIcon: function insertIcon() {
       switch (this.notif.type) {
@@ -2891,6 +2910,13 @@ __webpack_require__.r(__webpack_exports__);
         case "important":
           this.iconNotif = "/img/exclamation-mark.png";
           break;
+      }
+    },
+    insertFont: function insertFont() {
+      if (this.state === "unread") {
+        this.notifFont = "notif-bold";
+      } else {
+        this.notifFont = "notif-normal";
       }
     }
   }
@@ -3330,7 +3356,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-727508be] {\n  color: red;\n}\n.gradient[data-v-727508be] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-727508be 10s ease alternate infinite;\n          animation: animatedgradient-data-v-727508be 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-727508be {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-727508be {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-727508be] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-727508be] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-727508be] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-727508be] {\n  max-width: 20px;\n  max-height: 20px;\n}\ndiv[data-v-727508be] {\n  display: flex;\n}\ndiv > *[data-v-727508be] {\n  margin: 10px;\n}\ndiv .text[data-v-727508be] {\n  margin: 0px;\n}\ndiv .text-hidden[data-v-727508be] {\n  overflow: hidden;\n  height: 30px;\n}\ndiv .text-show[data-v-727508be] {\n  overflow: visible;\n}\ndiv button[data-v-727508be] {\n  max-width: 70px;\n  max-height: 28px;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-727508be] {\n  color: red;\n}\n.gradient[data-v-727508be] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-727508be 10s ease alternate infinite;\n          animation: animatedgradient-data-v-727508be 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-727508be {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-727508be {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-727508be] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-727508be] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-727508be] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-727508be] {\n  max-width: 20px;\n  max-height: 20px;\n}\ndiv[data-v-727508be] {\n  cursor: pointer;\n  display: flex;\n}\ndiv > *[data-v-727508be] {\n  margin: 5px;\n}\ndiv .text[data-v-727508be] {\n  margin: 0px;\n}\ndiv .text-hidden[data-v-727508be] {\n  overflow: hidden;\n  height: 30px;\n}\ndiv .text-show[data-v-727508be] {\n  overflow: visible;\n}\ndiv button[data-v-727508be] {\n  max-width: 70px;\n  max-height: 28px;\n}\n.notif-bold[data-v-727508be] {\n  font-weight: bold;\n}\n.notif-normal[data-v-727508be] {\n  font-weight: normal;\n}", ""]);
 
 // exports
 
@@ -7191,7 +7217,10 @@ var render = function() {
       ),
       _vm._v(" "),
       _vm._l(_vm.notifList, function(notif) {
-        return _c("notification", { key: notif.id, attrs: { notif: notif } })
+        return _c("notification", {
+          key: notif.id,
+          attrs: { notif: notif, state: _vm.state }
+        })
       })
     ],
     2
@@ -7219,15 +7248,17 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("span", [_vm._v(_vm._s(_vm.dateFormat))]),
-    _vm._v(" "),
-    _c("span", [_vm._v(_vm._s(_vm.timeFormat))]),
-    _vm._v(" "),
-    _c("img", { staticClass: "icon", attrs: { src: _vm.iconNotif } }),
-    _vm._v(" "),
-    _c("div", { class: _vm.changeOverflow, on: { click: _vm.showNotifText } }, [
-      _c("span", [_vm._v(_vm._s(_vm.notif.notification))])
+  return _c("div", { class: _vm.notifFont, on: { click: _vm.showNotifText } }, [
+    _c("div", [
+      _c("span", [_vm._v(_vm._s(_vm.dateFormat))]),
+      _vm._v(" "),
+      _c("span", [_vm._v(_vm._s(_vm.timeFormat))]),
+      _vm._v(" "),
+      _c("img", { staticClass: "icon", attrs: { src: _vm.iconNotif } }),
+      _vm._v(" "),
+      _c("div", { class: _vm.changeOverflow }, [
+        _c("span", [_vm._v(_vm._s(_vm.notif.notification))])
+      ])
     ]),
     _vm._v(" "),
     _c("button", [_vm._v("Eliminar")])
@@ -21184,41 +21215,76 @@ var Notification = /*#__PURE__*/function () {
   } //state: delete, read, unread
 
 
-  _createClass(Notification, null, [{
-    key: "getNotifications",
+  _createClass(Notification, [{
+    key: "updateState",
     value: function () {
-      var _getNotifications = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(state) {
-        var arrayNotifications, promise;
+      var _updateState = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(state) {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                arrayNotifications = [];
-                _context.prev = 1;
-                _context.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/scrabble/user/notifications/" + state);
+                _context.prev = 0;
+                _context.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.put("/scrabble/notification/" + this.id + "/update/" + state);
 
-              case 4:
-                promise = _context.sent;
-                Array.from(promise.data).forEach(function (notif) {
-                  arrayNotifications.push(Object.assign(new Notification(), notif));
-                });
-                return _context.abrupt("return", arrayNotifications);
+              case 3:
+                _context.next = 8;
+                break;
 
-              case 9:
-                _context.prev = 9;
-                _context.t0 = _context["catch"](1);
+              case 5:
+                _context.prev = 5;
+                _context.t0 = _context["catch"](0);
                 console.log("ERROR: " + _context.t0);
 
-              case 12:
+              case 8:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[1, 9]]);
+        }, _callee, this, [[0, 5]]);
       }));
 
-      function getNotifications(_x) {
+      function updateState(_x) {
+        return _updateState.apply(this, arguments);
+      }
+
+      return updateState;
+    }()
+  }], [{
+    key: "getNotifications",
+    value: function () {
+      var _getNotifications = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(state) {
+        var arrayNotifications, promise;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                arrayNotifications = [];
+                _context2.prev = 1;
+                _context2.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/scrabble/user/notifications/" + state);
+
+              case 4:
+                promise = _context2.sent;
+                Array.from(promise.data).forEach(function (notif) {
+                  arrayNotifications.push(Object.assign(new Notification(), notif));
+                });
+                return _context2.abrupt("return", arrayNotifications);
+
+              case 9:
+                _context2.prev = 9;
+                _context2.t0 = _context2["catch"](1);
+                console.log("ERROR: " + _context2.t0);
+
+              case 12:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[1, 9]]);
+      }));
+
+      function getNotifications(_x2) {
         return _getNotifications.apply(this, arguments);
       }
 
