@@ -184,10 +184,14 @@ https://www.flaticon.com/free-icons/information
 
 https://www.flaticon.com/free-icons/exclamation-mark
 
-![Alt-Text](/public/img/exclamation-mark.png)
+![Alt-Text](/public/img/gamer.png)
 https://www.flaticon.com/free-icons/avatar
 
+![Alt-Text](/public/img/papelera.png)
+https://www.flaticon.es/iconos-gratis/papelera
 
+![Alt-Text](/public/img/carpeta.png)
+https://www.flaticon.es/iconos-gratis/carpeta
 
 
 

@@ -15,7 +15,7 @@
     </div>
 
     <div v-show="area == 'Partidas'">
-      <games-area />
+      <games-area :user="user" />
     </div>
 
     <div v-show="area == 'Estadisticas'">

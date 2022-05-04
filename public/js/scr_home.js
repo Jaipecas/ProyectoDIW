@@ -2430,6 +2430,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _MatchDashComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MatchDashComponent.vue */ "./resources/assets/js/components/dashboard/MatchDashComponent.vue");
 /* harmony import */ var _classes_Game__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../classes/Game */ "./resources/classes/Game.js");
+/* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2449,12 +2450,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GameAreaDashComponent",
   components: {
     "match-dash": _MatchDashComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  props: {
+    user: _classes_User__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
@@ -2496,27 +2503,43 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                if (!(event.target.value === "pending")) {
-                  _context2.next = 6;
-                  break;
-                }
-
-                _context2.next = 3;
-                return _classes_Game__WEBPACK_IMPORTED_MODULE_2__["default"].getPendingGames();
-
-              case 3:
-                _this2.gamesList = _context2.sent;
-                _context2.next = 9;
+                _context2.t0 = event.target.value;
+                _context2.next = _context2.t0 === "pending" ? 3 : _context2.t0 === "won" ? 7 : _context2.t0 === "lose" ? 11 : _context2.t0 === "all" ? 15 : 19;
                 break;
 
-              case 6:
-                _context2.next = 8;
-                return _classes_Game__WEBPACK_IMPORTED_MODULE_2__["default"].getUserGames();
+              case 3:
+                _context2.next = 5;
+                return _classes_Game__WEBPACK_IMPORTED_MODULE_2__["default"].getPendingGames();
 
-              case 8:
+              case 5:
                 _this2.gamesList = _context2.sent;
+                return _context2.abrupt("break", 19);
+
+              case 7:
+                _context2.next = 9;
+                return _this2.user.getWonGames();
 
               case 9:
+                _this2.gamesList = _context2.sent;
+                return _context2.abrupt("break", 19);
+
+              case 11:
+                _context2.next = 13;
+                return _this2.user.getLoseGames();
+
+              case 13:
+                _this2.gamesList = _context2.sent;
+                return _context2.abrupt("break", 19);
+
+              case 15:
+                _context2.next = 17;
+                return _classes_Game__WEBPACK_IMPORTED_MODULE_2__["default"].getUserGames();
+
+              case 17:
+                _this2.gamesList = _context2.sent;
+                return _context2.abrupt("break", 19);
+
+              case 19:
               case "end":
                 return _context2.stop();
             }
@@ -2839,6 +2862,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2882,6 +2908,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     onChangeNotif: function onChangeNotif(event) {
       this.loadNotifications(event.target.value);
       this.state = event.target.value;
+    },
+    deleteNotif: function deleteNotif(id) {
+      this.notifList = this.notifList.filter(function (notif) {
+        return notif.id !== id;
+      });
     }
   }
 });
@@ -2898,6 +2929,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _classes_Notification__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../classes/Notification */ "./resources/classes/Notification.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2953,7 +2995,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     showNotifText: function showNotifText() {
       this.showText = !this.showText;
-      this.notifFont = "notif-normal";
+      this.notifFont = "notif notif-normal";
       if (this.state === "unread") this.notif.updateState("read");
     },
     insertIcon: function insertIcon() {
@@ -2973,10 +3015,18 @@ __webpack_require__.r(__webpack_exports__);
     },
     insertFont: function insertFont() {
       if (this.state === "unread") {
-        this.notifFont = "notif-bold";
+        this.notifFont = "notif notif-bold";
       } else {
-        this.notifFont = "notif-normal";
+        this.notifFont = "notif notif-normal";
       }
+    },
+    deleteNotification: function deleteNotification() {
+      this.notif.updateState("delete");
+      this.$emit("delete-notif", this.notif.id);
+    },
+    modifyNotification: function modifyNotification() {
+      this.notif.updateState("read");
+      this.$emit("delete-notif", this.notif.id);
     }
   }
 });
@@ -3168,7 +3218,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".prueba[data-v-31ce29b4] {\n  color: red;\n}\n.gradient[data-v-31ce29b4] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-31ce29b4 10s ease alternate infinite;\n          animation: animatedgradient-data-v-31ce29b4 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-31ce29b4 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-31ce29b4 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-31ce29b4] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-31ce29b4] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-31ce29b4] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-31ce29b4] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-31ce29b4] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-31ce29b4] {\n  width: 100px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-31ce29b4] {\n  color: red;\n}\n.gradient[data-v-31ce29b4] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-31ce29b4 10s ease alternate infinite;\n          animation: animatedgradient-data-v-31ce29b4 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-31ce29b4 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-31ce29b4 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-31ce29b4] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-31ce29b4] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-31ce29b4] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-31ce29b4] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-31ce29b4] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-31ce29b4] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}", ""]);
 
 // exports
 
@@ -3187,7 +3237,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-00c8df5c] {\n  color: red;\n}\n.gradient[data-v-00c8df5c] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-00c8df5c 10s ease alternate infinite;\n          animation: animatedgradient-data-v-00c8df5c 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-00c8df5c {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-00c8df5c {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-00c8df5c] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-00c8df5c] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-00c8df5c] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-00c8df5c] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-00c8df5c] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-00c8df5c] {\n  width: 100px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.user-dash[data-v-00c8df5c] {\n  display: grid;\n  grid-template: 1fr 1fr 1fr 1fr 1fr/0.5fr 1fr 1fr 0.5fr;\n}\n.user-dash div[data-v-00c8df5c] {\n  align-self: center;\n}\n.user-dash div[data-v-00c8df5c]:nth-child(even) {\n  grid-column: 2/3;\n}\n.user-dash div[data-v-00c8df5c]:nth-child(odd) {\n  grid-column: 3/4;\n}\n.user-dash div[data-v-00c8df5c]:nth-child(1) {\n  grid-column: 1/-1;\n  background: blue;\n  justify-self: center;\n  width: 130px;\n  height: 130px;\n  border-radius: 70px;\n  margin-top: 10px;\n}\n.user-dash div[data-v-00c8df5c]:last-child {\n  grid-column: 2/4;\n}\n.user-dash div:last-child button[data-v-00c8df5c] {\n  width: 100%;\n  height: 50px;\n}\n\n/* SE REPITE TAMBIEN EN AMIGOS  */\nh3[data-v-00c8df5c] {\n  margin-top: 10px;\n  text-align: center;\n}\nbutton[data-v-00c8df5c] {\n  color: #fff;\n  font-size: 1.5rem;\n  background: #f857a6;\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  border-radius: 10px;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-00c8df5c] {\n  color: red;\n}\n.gradient[data-v-00c8df5c] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-00c8df5c 10s ease alternate infinite;\n          animation: animatedgradient-data-v-00c8df5c 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-00c8df5c {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-00c8df5c {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-00c8df5c] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-00c8df5c] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-00c8df5c] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-00c8df5c] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-00c8df5c] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-00c8df5c] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.user-dash[data-v-00c8df5c] {\n  display: grid;\n  grid-template: 1fr 1fr 1fr 1fr 1fr/0.5fr 1fr 1fr 0.5fr;\n}\n.user-dash div[data-v-00c8df5c] {\n  align-self: center;\n}\n.user-dash div[data-v-00c8df5c]:nth-child(even) {\n  grid-column: 2/3;\n}\n.user-dash div[data-v-00c8df5c]:nth-child(odd) {\n  grid-column: 3/4;\n}\n.user-dash div[data-v-00c8df5c]:nth-child(1) {\n  grid-column: 1/-1;\n  background: blue;\n  justify-self: center;\n  width: 130px;\n  height: 130px;\n  border-radius: 70px;\n  margin-top: 10px;\n}\n.user-dash div[data-v-00c8df5c]:last-child {\n  grid-column: 2/4;\n}\n.user-dash div:last-child button[data-v-00c8df5c] {\n  width: 100%;\n  height: 50px;\n}\n\n/* SE REPITE TAMBIEN EN AMIGOS  */\nh3[data-v-00c8df5c] {\n  margin-top: 10px;\n  text-align: center;\n}\nbutton[data-v-00c8df5c] {\n  color: #fff;\n  font-size: 1.5rem;\n  background: #f857a6;\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  border-radius: 10px;\n}", ""]);
 
 // exports
 
@@ -3225,7 +3275,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-14d4cc4a] {\n  color: red;\n}\n.gradient[data-v-14d4cc4a] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-14d4cc4a 10s ease alternate infinite;\n          animation: animatedgradient-data-v-14d4cc4a 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-14d4cc4a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-14d4cc4a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-14d4cc4a] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-14d4cc4a] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-14d4cc4a] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-14d4cc4a] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-14d4cc4a] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-14d4cc4a] {\n  width: 100px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.scr-grid[data-v-14d4cc4a] {\n  display: grid;\n  grid-template: 150px 400px 270px/minmax(172px, 250px) minmax(600px, auto) minmax(172px, 250px);\n  gap: 15px;\n  margin: 20px;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  border-radius: 10px;\n  padding: 15px;\n}\n.scr-grid > *[data-v-14d4cc4a] {\n  border: 0.2px solid #615d5d;\n}\n.scr-grid .header[data-v-14d4cc4a] {\n  grid-column: 2/-1;\n}\n.scr-grid .menu[data-v-14d4cc4a] {\n  grid-row: 1/3;\n}\n.scr-grid .games[data-v-14d4cc4a] {\n  grid-row: 3/4;\n}\n.scr-grid .area[data-v-14d4cc4a] {\n  grid-row: 2/4;\n  background: #bee2e8;\n  border-radius: 10px;\n}\n.scr-grid .friends[data-v-14d4cc4a] {\n  grid-row: 2/3;\n}\n.scr-grid .news[data-v-14d4cc4a] {\n  grid-row: 3/4;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-14d4cc4a] {\n  color: red;\n}\n.gradient[data-v-14d4cc4a] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-14d4cc4a 10s ease alternate infinite;\n          animation: animatedgradient-data-v-14d4cc4a 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-14d4cc4a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-14d4cc4a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-14d4cc4a] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-14d4cc4a] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-14d4cc4a] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-14d4cc4a] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-14d4cc4a] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-14d4cc4a] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.scr-grid[data-v-14d4cc4a] {\n  display: grid;\n  grid-template: 150px 400px 270px/minmax(172px, 250px) minmax(600px, auto) minmax(172px, 250px);\n  gap: 15px;\n  margin: 20px;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  border-radius: 10px;\n  padding: 15px;\n}\n.scr-grid > *[data-v-14d4cc4a] {\n  border: 0.2px solid #615d5d;\n}\n.scr-grid .header[data-v-14d4cc4a] {\n  grid-column: 2/-1;\n}\n.scr-grid .menu[data-v-14d4cc4a] {\n  grid-row: 1/3;\n}\n.scr-grid .games[data-v-14d4cc4a] {\n  grid-row: 3/4;\n}\n.scr-grid .area[data-v-14d4cc4a] {\n  grid-row: 2/4;\n  background: #bee2e8;\n  border-radius: 10px;\n}\n.scr-grid .friends[data-v-14d4cc4a] {\n  grid-row: 2/3;\n}\n.scr-grid .news[data-v-14d4cc4a] {\n  grid-row: 3/4;\n}", ""]);
 
 // exports
 
@@ -3244,7 +3294,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-89312aac] {\n  color: red;\n}\n.gradient[data-v-89312aac] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-89312aac 10s ease alternate infinite;\n          animation: animatedgradient-data-v-89312aac 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-89312aac {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-89312aac {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-89312aac] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-89312aac] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-89312aac] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-89312aac] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-89312aac] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-89312aac] {\n  width: 100px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\ndiv[data-v-89312aac] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 10px;\n}\ndiv > *[data-v-89312aac] {\n  padding: 8px;\n}\ndiv img[data-v-89312aac] {\n  width: 60px;\n  height: 60px;\n  border-radius: 40px;\n}\ndiv button[data-v-89312aac] {\n  color: #fff;\n  font-size: 1rem;\n  background: #f857a6;\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  border-radius: 10px;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-89312aac] {\n  color: red;\n}\n.gradient[data-v-89312aac] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-89312aac 10s ease alternate infinite;\n          animation: animatedgradient-data-v-89312aac 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-89312aac {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-89312aac {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-89312aac] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-89312aac] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-89312aac] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-89312aac] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-89312aac] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-89312aac] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\ndiv[data-v-89312aac] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 10px;\n}\ndiv > *[data-v-89312aac] {\n  padding: 8px;\n}\ndiv img[data-v-89312aac] {\n  width: 60px;\n  height: 60px;\n  border-radius: 40px;\n}\ndiv button[data-v-89312aac] {\n  color: #fff;\n  font-size: 1rem;\n  background: #f857a6;\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  border-radius: 10px;\n}", ""]);
 
 // exports
 
@@ -3282,7 +3332,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-4c531f4f] {\n  color: red;\n}\n.gradient[data-v-4c531f4f] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-4c531f4f 10s ease alternate infinite;\n          animation: animatedgradient-data-v-4c531f4f 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-4c531f4f {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-4c531f4f {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-4c531f4f] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-4c531f4f] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-4c531f4f] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-4c531f4f] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-4c531f4f] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-4c531f4f] {\n  width: 100px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.match-area[data-v-4c531f4f] {\n  overflow: auto;\n  -ms-overflow-style: none;\n  scrollbar-width: none;\n  height: 600px;\n}\n.match-area[data-v-4c531f4f]::-webkit-scrollbar {\n  display: none;\n}\n.match-area .matches[data-v-4c531f4f] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.match-area .matches > *[data-v-4c531f4f] {\n  margin: 20px;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-4c531f4f] {\n  color: red;\n}\n.gradient[data-v-4c531f4f] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-4c531f4f 10s ease alternate infinite;\n          animation: animatedgradient-data-v-4c531f4f 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-4c531f4f {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-4c531f4f {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-4c531f4f] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-4c531f4f] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-4c531f4f] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-4c531f4f] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-4c531f4f] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-4c531f4f] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.match-area .matches[data-v-4c531f4f] {\n  overflow: auto;\n  -ms-overflow-style: none;\n  scrollbar-width: none;\n  height: 500px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.match-area .matches[data-v-4c531f4f]::-webkit-scrollbar {\n  display: none;\n}\n.match-area .matches > *[data-v-4c531f4f] {\n  margin: 20px;\n}", ""]);
 
 // exports
 
@@ -3358,7 +3408,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-f866ab50] {\n  color: red;\n}\n.gradient[data-v-f866ab50] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-f866ab50 10s ease alternate infinite;\n          animation: animatedgradient-data-v-f866ab50 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-f866ab50 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-f866ab50 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-f866ab50] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-f866ab50] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-f866ab50] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-f866ab50] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-f866ab50] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-f866ab50] {\n  width: 100px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.container-match[data-v-f866ab50] {\n  display: grid;\n  grid-template: repeat(4, 1fr)/repeat 3, 1fr;\n  padding: 20px;\n}\n.container-match > *[data-v-f866ab50] {\n  margin: 10px;\n  display: flex;\n  justify-content: center;\n}\n.container-match[data-v-f866ab50] :nth-child(1) {\n  grid-column: 1/-1;\n  margin-bottom: 10px;\n}\n.container-match[data-v-f866ab50] :nth-child(2) {\n  grid-column: 1/-1;\n}\n.container-match :nth-child(2) div.player-match[data-v-f866ab50] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 10px;\n}\n.container-match :nth-child(3) > *[data-v-f866ab50] {\n  margin-left: 10px;\n  margin-right: 10px;\n}\n.container-match :nth-child(4) > *[data-v-f866ab50] {\n  margin: 10px;\n}\n.container-match[data-v-f866ab50] :nth-child(4) :nth-child(1) {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 50px;\n  height: 50px;\n  font-size: 1.2rem;\n  color: white;\n  background-color: #55c27b;\n}\n.container-match[data-v-f866ab50] :nth-child(4) :nth-child(2) {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 50px;\n  height: 50px;\n  font-size: 1.2rem;\n  color: white;\n  background-color: #cd5545;\n}\n.card[data-v-f866ab50] {\n  background: #eb8d7b;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-f866ab50] {\n  color: red;\n}\n.gradient[data-v-f866ab50] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-f866ab50 10s ease alternate infinite;\n          animation: animatedgradient-data-v-f866ab50 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-f866ab50 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-f866ab50 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-f866ab50] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-f866ab50] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-f866ab50] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-f866ab50] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-f866ab50] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-f866ab50] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.container-match[data-v-f866ab50] {\n  display: grid;\n  grid-template: repeat(4, 1fr)/repeat 3, 1fr;\n  padding: 30px;\n}\n.container-match > *[data-v-f866ab50] {\n  margin: 10px;\n  display: flex;\n  justify-content: center;\n}\n.container-match[data-v-f866ab50] :nth-child(1) {\n  grid-column: 1/-1;\n  margin-bottom: 10px;\n}\n.container-match[data-v-f866ab50] :nth-child(2) {\n  grid-column: 1/-1;\n}\n.container-match :nth-child(2) div.player-match[data-v-f866ab50] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 10px;\n}\n.container-match :nth-child(3) > *[data-v-f866ab50] {\n  margin-left: 10px;\n  margin-right: 10px;\n}\n.container-match :nth-child(4) > *[data-v-f866ab50] {\n  margin: 10px;\n}\n.container-match[data-v-f866ab50] :nth-child(4) :nth-child(1) {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 50px;\n  height: 50px;\n  font-size: 1.2rem;\n  color: white;\n  background-color: #55c27b;\n}\n.container-match[data-v-f866ab50] :nth-child(4) :nth-child(2) {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 50px;\n  height: 50px;\n  font-size: 1.2rem;\n  color: white;\n  background-color: #cd5545;\n}\n.card[data-v-f866ab50] {\n  background: #eb8d7b;\n}", ""]);
 
 // exports
 
@@ -3403,6 +3453,25 @@ exports.push([module.i, "div[data-v-78fe9254] {\n  font-size: 1.2rem;\n  margin-
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/NorificationsAreaDashComponent.vue?vue&type=style&index=0&id=46fd51ca&lang=scss&scoped=true&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/NorificationsAreaDashComponent.vue?vue&type=style&index=0&id=46fd51ca&lang=scss&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".prueba[data-v-46fd51ca] {\n  color: red;\n}\n.gradient[data-v-46fd51ca] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-46fd51ca 10s ease alternate infinite;\n          animation: animatedgradient-data-v-46fd51ca 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-46fd51ca {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-46fd51ca {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-46fd51ca] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-46fd51ca] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-46fd51ca] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-46fd51ca] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-46fd51ca] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-46fd51ca] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.notifications[data-v-46fd51ca] {\n  margin-top: 20px;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/NotificationDashComponent.vue?vue&type=style&index=0&id=727508be&lang=scss&scoped=true&":
 /*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/NotificationDashComponent.vue?vue&type=style&index=0&id=727508be&lang=scss&scoped=true& ***!
@@ -3415,7 +3484,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-727508be] {\n  color: red;\n}\n.gradient[data-v-727508be] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-727508be 10s ease alternate infinite;\n          animation: animatedgradient-data-v-727508be 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-727508be {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-727508be {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-727508be] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-727508be] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-727508be] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-727508be] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-727508be] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-727508be] {\n  width: 100px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\ndiv[data-v-727508be] {\n  cursor: pointer;\n  display: flex;\n}\ndiv > *[data-v-727508be] {\n  margin: 5px;\n}\ndiv .text[data-v-727508be] {\n  margin: 0px;\n}\ndiv .text-hidden[data-v-727508be] {\n  overflow: hidden;\n  height: 30px;\n}\ndiv .text-show[data-v-727508be] {\n  overflow: visible;\n}\ndiv button[data-v-727508be] {\n  max-width: 70px;\n  max-height: 28px;\n}\n.notif-bold[data-v-727508be] {\n  font-weight: bold;\n}\n.notif-normal[data-v-727508be] {\n  font-weight: normal;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-727508be] {\n  color: red;\n}\n.gradient[data-v-727508be] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-727508be 10s ease alternate infinite;\n          animation: animatedgradient-data-v-727508be 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-727508be {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-727508be {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-727508be] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-727508be] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-727508be] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-727508be] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-727508be] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-727508be] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\ndiv[data-v-727508be] {\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n}\ndiv > *[data-v-727508be] {\n  margin: 5px;\n}\ndiv .text[data-v-727508be] {\n  margin: 0px;\n}\ndiv .text-hidden[data-v-727508be] {\n  overflow: hidden;\n  height: 30px;\n}\ndiv .text-show[data-v-727508be] {\n  overflow: visible;\n}\ndiv button[data-v-727508be] {\n  max-width: 70px;\n  max-height: 28px;\n}\ndiv img[data-v-727508be] {\n  width: 30px;\n  height: 30px;\n}\n.notif[data-v-727508be] {\n  border: 0.5px solid black;\n  background: #d3b0f6;\n  border-radius: 5px;\n}\n.notif-bold[data-v-727508be] {\n  font-weight: bold;\n}\n.notif-normal[data-v-727508be] {\n  font-weight: normal;\n}", ""]);
 
 // exports
 
@@ -3434,7 +3503,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-681ec00d] {\n  color: red;\n}\n.gradient[data-v-681ec00d] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-681ec00d 10s ease alternate infinite;\n          animation: animatedgradient-data-v-681ec00d 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-681ec00d {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-681ec00d {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-681ec00d] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-681ec00d] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-681ec00d] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-681ec00d] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-681ec00d] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-681ec00d] {\n  width: 100px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\ndiv[data-v-681ec00d] {\n  display: flex;\n  flex-flow: column;\n  align-items: center;\n  padding: 10px;\n}\ndiv button[data-v-681ec00d] {\n  color: #fff;\n  font-size: 1rem;\n  background: #f857a6;\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  border-radius: 10px;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-681ec00d] {\n  color: red;\n}\n.gradient[data-v-681ec00d] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-681ec00d 10s ease alternate infinite;\n          animation: animatedgradient-data-v-681ec00d 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-681ec00d {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-681ec00d {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-681ec00d] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-681ec00d] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-681ec00d] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-681ec00d] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-681ec00d] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-681ec00d] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\ndiv[data-v-681ec00d] {\n  display: flex;\n  flex-flow: column;\n  align-items: center;\n  padding: 10px;\n}\ndiv button[data-v-681ec00d] {\n  color: #fff;\n  font-size: 1rem;\n  background: #f857a6;\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  border-radius: 10px;\n}", ""]);
 
 // exports
 
@@ -3453,7 +3522,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-8a23f79e] {\n  color: red;\n}\n.gradient[data-v-8a23f79e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-8a23f79e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-8a23f79e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-8a23f79e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-8a23f79e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-8a23f79e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-8a23f79e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-8a23f79e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-8a23f79e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-8a23f79e] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-8a23f79e] {\n  width: 100px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.container-stats[data-v-8a23f79e] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.container-stats h5[data-v-8a23f79e] {\n  text-align: center;\n  margin-top: 20px;\n}\n.container-stats .language[data-v-8a23f79e] {\n  display: flex;\n  align-items: center;\n}\n.container-stats .language > *[data-v-8a23f79e] {\n  margin: 10px;\n}\n.container-stats .language button[data-v-8a23f79e] {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 45px;\n  height: 45px;\n  font-size: 1.5rem;\n  color: white;\n  background-color: #ef4e7b;\n}\n.container-stats .stats-dash[data-v-8a23f79e] {\n  display: grid;\n  grid-template: repeat(6, 1fr)/0.5fr 1fr 1fr 0.5fr;\n  gap: 20px;\n  overflow: auto;\n  -ms-overflow-style: none;\n  scrollbar-width: none;\n  height: 450px;\n}\n.container-stats .stats-dash[data-v-8a23f79e]::-webkit-scrollbar {\n  display: none;\n}\n.container-stats .stats-dash > *[data-v-8a23f79e] {\n  justify-self: center;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(1) {\n  grid-column: 1/-1;\n  align-self: center;\n  margin-top: 30px;\n  margin-bottom: 30px;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(2),\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(5),\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(7) {\n  grid-column: 2/3;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(3),\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(6) {\n  grid-column: 3/4;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(4) {\n  grid-column: 2/4;\n}\n.container-stats .stats-dash .level[data-v-8a23f79e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 110px;\n  height: 110px;\n  border-radius: 60px;\n  color: white;\n  font-size: 3rem;\n  border: 2px solid #1a1717;\n}\n.container-stats .stats-dash .level-silver[data-v-8a23f79e] {\n  background: #c0c0c0;\n}\n.container-stats .stats-dash .level-bronze[data-v-8a23f79e] {\n  background: #db9249;\n}\n.container-stats .stats-dash .level-gold[data-v-8a23f79e] {\n  background: #ffd700;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-8a23f79e] {\n  color: red;\n}\n.gradient[data-v-8a23f79e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-8a23f79e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-8a23f79e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-8a23f79e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-8a23f79e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-8a23f79e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-8a23f79e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-8a23f79e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-8a23f79e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-8a23f79e] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-8a23f79e] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.container-stats[data-v-8a23f79e] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.container-stats h5[data-v-8a23f79e] {\n  text-align: center;\n  margin-top: 20px;\n}\n.container-stats .language[data-v-8a23f79e] {\n  display: flex;\n  align-items: center;\n}\n.container-stats .language > *[data-v-8a23f79e] {\n  margin: 10px;\n}\n.container-stats .language button[data-v-8a23f79e] {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 45px;\n  height: 45px;\n  font-size: 1.5rem;\n  color: white;\n  background-color: #ef4e7b;\n}\n.container-stats .stats-dash[data-v-8a23f79e] {\n  display: grid;\n  grid-template: repeat(6, 1fr)/0.5fr 1fr 1fr 0.5fr;\n  gap: 20px;\n  overflow: auto;\n  -ms-overflow-style: none;\n  scrollbar-width: none;\n  height: 450px;\n}\n.container-stats .stats-dash[data-v-8a23f79e]::-webkit-scrollbar {\n  display: none;\n}\n.container-stats .stats-dash > *[data-v-8a23f79e] {\n  justify-self: center;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(1) {\n  grid-column: 1/-1;\n  align-self: center;\n  margin-top: 30px;\n  margin-bottom: 30px;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(2),\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(5),\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(7) {\n  grid-column: 2/3;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(3),\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(6) {\n  grid-column: 3/4;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(4) {\n  grid-column: 2/4;\n}\n.container-stats .stats-dash .level[data-v-8a23f79e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 110px;\n  height: 110px;\n  border-radius: 60px;\n  color: white;\n  font-size: 3rem;\n  border: 2px solid #1a1717;\n}\n.container-stats .stats-dash .level-silver[data-v-8a23f79e] {\n  background: #c0c0c0;\n}\n.container-stats .stats-dash .level-bronze[data-v-8a23f79e] {\n  background: #db9249;\n}\n.container-stats .stats-dash .level-gold[data-v-8a23f79e] {\n  background: #ffd700;\n}", ""]);
 
 // exports
 
@@ -5089,6 +5158,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/NorificationsAreaDashComponent.vue?vue&type=style&index=0&id=46fd51ca&lang=scss&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/NorificationsAreaDashComponent.vue?vue&type=style&index=0&id=46fd51ca&lang=scss&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--16-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--16-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./NorificationsAreaDashComponent.vue?vue&type=style&index=0&id=46fd51ca&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/NorificationsAreaDashComponent.vue?vue&type=style&index=0&id=46fd51ca&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/NotificationDashComponent.vue?vue&type=style&index=0&id=727508be&lang=scss&scoped=true&":
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/NotificationDashComponent.vue?vue&type=style&index=0&id=727508be&lang=scss&scoped=true& ***!
@@ -6173,7 +6272,7 @@ var render = function() {
           }
         ]
       },
-      [_c("games-area")],
+      [_c("games-area", { attrs: { user: _vm.user } })],
       1
     ),
     _vm._v(" "),
@@ -6951,6 +7050,10 @@ var render = function() {
           _vm._v("Pendientes")
         ]),
         _vm._v(" "),
+        _c("option", { attrs: { value: "won" } }, [_vm._v("Ganadas")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "lose" } }, [_vm._v("Perdidas")]),
+        _vm._v(" "),
         _c("option", { attrs: { value: "all" } }, [_vm._v("Todas")])
       ]
     ),
@@ -7277,10 +7380,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/NorificationsAreaDashComponent.vue?vue&type=template&id=46fd51ca&":
-/*!**************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/NorificationsAreaDashComponent.vue?vue&type=template&id=46fd51ca& ***!
-  \**************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/NorificationsAreaDashComponent.vue?vue&type=template&id=46fd51ca&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/NorificationsAreaDashComponent.vue?vue&type=template&id=46fd51ca&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -7292,41 +7395,43 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("h3", [_vm._v("Notificaciones")]),
-      _vm._v(" "),
-      _c(
-        "select",
-        {
-          staticClass: "form-select",
-          on: {
-            change: function($event) {
-              return _vm.onChangeNotif($event)
-            }
+  return _c("div", [
+    _c("h2", { staticClass: "header-area-dash" }, [_vm._v("Notificaciones")]),
+    _vm._v(" "),
+    _c(
+      "select",
+      {
+        staticClass: "form-select combo-area-dash",
+        on: {
+          change: function($event) {
+            return _vm.onChangeNotif($event)
           }
-        },
-        [
-          _c("option", { attrs: { value: "unread", selected: "" } }, [
-            _vm._v("No leidos")
-          ]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "read" } }, [_vm._v("Leidos")]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "delete" } }, [_vm._v("Eliminados")])
-        ]
-      ),
-      _vm._v(" "),
+        }
+      },
+      [
+        _c("option", { attrs: { value: "unread", selected: "" } }, [
+          _vm._v("No leidos")
+        ]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "read" } }, [_vm._v("Leidos")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "delete" } }, [_vm._v("Eliminados")])
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "notifications" },
       _vm._l(_vm.notifList, function(notif) {
         return _c("notification", {
           key: notif.id,
-          attrs: { notif: notif, state: _vm.state }
+          attrs: { notif: notif, state: _vm.state },
+          on: { "delete-notif": _vm.deleteNotif }
         })
-      })
-    ],
-    2
-  )
+      }),
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -7363,7 +7468,15 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("button", [_vm._v("Eliminar")])
+    _vm.state == "delete"
+      ? _c("img", {
+          attrs: { src: "/img/carpeta.png", alt: "carpeta" },
+          on: { click: _vm.modifyNotification }
+        })
+      : _c("img", {
+          attrs: { src: "/img/papelera.png", alt: "papelera" },
+          on: { click: _vm.deleteNotification }
+        })
   ])
 }
 var staticRenderFns = []
@@ -20801,9 +20914,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _NorificationsAreaDashComponent_vue_vue_type_template_id_46fd51ca___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NorificationsAreaDashComponent.vue?vue&type=template&id=46fd51ca& */ "./resources/assets/js/components/dashboard/NorificationsAreaDashComponent.vue?vue&type=template&id=46fd51ca&");
+/* harmony import */ var _NorificationsAreaDashComponent_vue_vue_type_template_id_46fd51ca_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NorificationsAreaDashComponent.vue?vue&type=template&id=46fd51ca&scoped=true& */ "./resources/assets/js/components/dashboard/NorificationsAreaDashComponent.vue?vue&type=template&id=46fd51ca&scoped=true&");
 /* harmony import */ var _NorificationsAreaDashComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NorificationsAreaDashComponent.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/dashboard/NorificationsAreaDashComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _NorificationsAreaDashComponent_vue_vue_type_style_index_0_id_46fd51ca_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NorificationsAreaDashComponent.vue?vue&type=style&index=0&id=46fd51ca&lang=scss&scoped=true& */ "./resources/assets/js/components/dashboard/NorificationsAreaDashComponent.vue?vue&type=style&index=0&id=46fd51ca&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -20811,13 +20926,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _NorificationsAreaDashComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _NorificationsAreaDashComponent_vue_vue_type_template_id_46fd51ca___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _NorificationsAreaDashComponent_vue_vue_type_template_id_46fd51ca___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _NorificationsAreaDashComponent_vue_vue_type_template_id_46fd51ca_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _NorificationsAreaDashComponent_vue_vue_type_template_id_46fd51ca_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  null,
+  "46fd51ca",
   null
   
 )
@@ -20843,19 +20958,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/assets/js/components/dashboard/NorificationsAreaDashComponent.vue?vue&type=template&id=46fd51ca&":
-/*!********************************************************************************************************************!*\
-  !*** ./resources/assets/js/components/dashboard/NorificationsAreaDashComponent.vue?vue&type=template&id=46fd51ca& ***!
-  \********************************************************************************************************************/
+/***/ "./resources/assets/js/components/dashboard/NorificationsAreaDashComponent.vue?vue&type=style&index=0&id=46fd51ca&lang=scss&scoped=true&":
+/*!***********************************************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/NorificationsAreaDashComponent.vue?vue&type=style&index=0&id=46fd51ca&lang=scss&scoped=true& ***!
+  \***********************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_NorificationsAreaDashComponent_vue_vue_type_style_index_0_id_46fd51ca_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--16-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--16-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./NorificationsAreaDashComponent.vue?vue&type=style&index=0&id=46fd51ca&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/NorificationsAreaDashComponent.vue?vue&type=style&index=0&id=46fd51ca&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_NorificationsAreaDashComponent_vue_vue_type_style_index_0_id_46fd51ca_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_NorificationsAreaDashComponent_vue_vue_type_style_index_0_id_46fd51ca_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_NorificationsAreaDashComponent_vue_vue_type_style_index_0_id_46fd51ca_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_NorificationsAreaDashComponent_vue_vue_type_style_index_0_id_46fd51ca_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/NorificationsAreaDashComponent.vue?vue&type=template&id=46fd51ca&scoped=true&":
+/*!********************************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/NorificationsAreaDashComponent.vue?vue&type=template&id=46fd51ca&scoped=true& ***!
+  \********************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NorificationsAreaDashComponent_vue_vue_type_template_id_46fd51ca___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./NorificationsAreaDashComponent.vue?vue&type=template&id=46fd51ca& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/NorificationsAreaDashComponent.vue?vue&type=template&id=46fd51ca&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NorificationsAreaDashComponent_vue_vue_type_template_id_46fd51ca___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NorificationsAreaDashComponent_vue_vue_type_template_id_46fd51ca_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./NorificationsAreaDashComponent.vue?vue&type=template&id=46fd51ca&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/NorificationsAreaDashComponent.vue?vue&type=template&id=46fd51ca&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NorificationsAreaDashComponent_vue_vue_type_template_id_46fd51ca_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NorificationsAreaDashComponent_vue_vue_type_template_id_46fd51ca___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NorificationsAreaDashComponent_vue_vue_type_template_id_46fd51ca_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -21411,21 +21542,112 @@ var Notification = /*#__PURE__*/function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return User; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Game__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Game */ "./resources/classes/Game.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var User = function User(id, name, email, type, state, country, created_at, favourite_language, avatar) {
-  _classCallCheck(this, User);
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
-  this.id = id;
-  this.name = name;
-  this.email = email;
-  this.type = type;
-  this.state = state;
-  this.country = country;
-  this.created_at = created_at;
-  this.favourite_language = favourite_language;
-  this.avatar = avatar;
-};
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+var User = /*#__PURE__*/function () {
+  function User(id, name, email, type, state, country, created_at, favourite_language, avatar) {
+    _classCallCheck(this, User);
+
+    this.id = id;
+    this.name = name;
+    this.email = email;
+    this.type = type;
+    this.state = state;
+    this.country = country;
+    this.created_at = created_at;
+    this.favourite_language = favourite_language;
+    this.avatar = avatar;
+  }
+
+  _createClass(User, [{
+    key: "getWonGames",
+    value: function () {
+      var _getWonGames = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var _this = this;
+
+        var arrayGames;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _Game__WEBPACK_IMPORTED_MODULE_1__["default"].getUserGames();
+
+              case 2:
+                arrayGames = _context.sent;
+                arrayGames = arrayGames.filter(function (game) {
+                  return game.player1.name === _this.name && game.score1 > game.score2 || game.player2.name === _this.name && game.score2 > game.score1;
+                });
+                return _context.abrupt("return", arrayGames);
+
+              case 5:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      function getWonGames() {
+        return _getWonGames.apply(this, arguments);
+      }
+
+      return getWonGames;
+    }()
+  }, {
+    key: "getLoseGames",
+    value: function () {
+      var _getLoseGames = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var _this2 = this;
+
+        var arrayGames;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return _Game__WEBPACK_IMPORTED_MODULE_1__["default"].getUserGames();
+
+              case 2:
+                arrayGames = _context2.sent;
+                arrayGames = arrayGames.filter(function (game) {
+                  return game.player1.name === _this2.name && game.score1 < game.score2 || game.player2.name === _this2.name && game.score2 < game.score1;
+                });
+                return _context2.abrupt("return", arrayGames);
+
+              case 5:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      function getLoseGames() {
+        return _getLoseGames.apply(this, arguments);
+      }
+
+      return getLoseGames;
+    }()
+  }]);
+
+  return User;
+}();
 
 
 

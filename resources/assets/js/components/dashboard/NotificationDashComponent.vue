@@ -8,7 +8,18 @@
         <span>{{ notif.notification }}</span>
       </div>
     </div>
-    <button>Eliminar</button>
+    <img
+      v-if="state == 'delete'"
+      src="/img/carpeta.png"
+      alt="carpeta"
+      @click="modifyNotification"
+    />
+    <img
+      v-else
+      src="/img/papelera.png"
+      alt="papelera"
+      @click="deleteNotification"
+    />
   </div>
 </template>
 
@@ -56,7 +67,7 @@ export default {
     },
     showNotifText() {
       this.showText = !this.showText;
-      this.notifFont = "notif-normal";
+      this.notifFont = "notif notif-normal";
       if (this.state === "unread") this.notif.updateState("read");
     },
     insertIcon() {
@@ -74,10 +85,18 @@ export default {
     },
     insertFont() {
       if (this.state === "unread") {
-        this.notifFont = "notif-bold";
+        this.notifFont = "notif notif-bold";
       } else {
-        this.notifFont = "notif-normal";
+        this.notifFont = "notif notif-normal";
       }
+    },
+    deleteNotification() {
+      this.notif.updateState("delete");
+      this.$emit("delete-notif", this.notif.id);
+    },
+    modifyNotification() {
+      this.notif.updateState("read");
+      this.$emit("delete-notif", this.notif.id);
     },
   },
 };
@@ -89,6 +108,7 @@ export default {
 div {
   cursor: pointer;
   display: flex;
+  justify-content: space-between;
   > * {
     margin: 5px;
   }
@@ -106,6 +126,16 @@ div {
     max-width: 70px;
     max-height: 28px;
   }
+  img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.notif {
+  border: 0.5px solid black;
+  background: #d3b0f6;
+  border-radius: 5px;
 }
 
 .notif-bold {

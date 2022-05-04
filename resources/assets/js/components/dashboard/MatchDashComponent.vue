@@ -92,7 +92,7 @@ export default {
 .container-match {
   display: grid;
   grid-template: repeat(4, 1fr) / repeat (3, 1fr);
-  padding: 20px;
+  padding: 30px;
 
   > * {
     margin: 10px;
