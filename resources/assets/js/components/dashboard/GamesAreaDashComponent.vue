@@ -1,11 +1,13 @@
 <template>
-  <div class="match-dash">
-    <h3>Partidas</h3>
-    <select class="form-select" @change="onChangeGame($event)">
+  <div class="match-area">
+    <h2 class="header-area-dash">Partidas</h2>
+    <select class="form-select combo-area-dash" @change="onChangeGame($event)">
       <option value="pending" selected>Pendientes</option>
       <option value="all">Todas</option>
     </select>
-    <match-dash v-for="game in gamesList" :key="game.id" :game="game" />
+    <div class="matches">
+      <match-dash v-for="game in gamesList" :key="game.id" :game="game" />
+    </div>
   </div>
 </template>
 
@@ -30,13 +32,13 @@ export default {
   methods: {
     async getGamesList() {
       this.gamesList = await Game.getPendingGames();
+      console.log(this.gamesList);
     },
     async onChangeGame(event) {
       if (event.target.value === "pending") {
         this.gamesList = await Game.getPendingGames();
       } else {
         this.gamesList = await Game.getUserGames();
-        console.log(this.gamesList);
       }
     },
   },
@@ -44,15 +46,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.match-dash {
-  height: 600px;
-  overflow: auto;
-  /* SACAR ESTO EN UN MIXIM PARA REUTILIZARLO */
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+@import "resources/assets/sass/_dashboard_main.scss";
 
-  &::-webkit-scrollbar {
-    display: none;
+.match-area {
+  @include area-scroll(600px);
+  .matches {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > * {
+      margin: 20px;
+    }
   }
 }
 </style>

@@ -2447,6 +2447,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2476,8 +2478,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
                 _this.gamesList = _context.sent;
+                console.log(_this.gamesList);
 
-              case 3:
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -2503,7 +2506,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 3:
                 _this2.gamesList = _context2.sent;
-                _context2.next = 10;
+                _context2.next = 9;
                 break;
 
               case 6:
@@ -2512,9 +2515,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 8:
                 _this2.gamesList = _context2.sent;
-                console.log(_this2.gamesList);
 
-              case 10:
+              case 9:
               case "end":
                 return _context2.stop();
             }
@@ -2629,6 +2631,32 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _classes_Game__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../classes/Game */ "./resources/classes/Game.js");
+/* harmony import */ var vue_country_flag__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-country-flag */ "./node_modules/vue-country-flag/dist/country-flag.esm.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2648,12 +2676,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MatchDashComponent",
+  components: {
+    "country-flag": vue_country_flag__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   props: {
     game: {
       type: _classes_Game__WEBPACK_IMPORTED_MODULE_0__["default"],
       required: true
+    }
+  },
+  data: function data() {
+    return {
+      avatar1: "",
+      avatar2: ""
+    };
+  },
+  created: function created() {
+    this.loadAvatar1(this.game.player1.avatar);
+    this.loadAvatar2(this.game.player2.avatar);
+  },
+  methods: {
+    //REPASAR ESTO NO ME COGE EL SEGUNO PARAMETRO
+    loadAvatar1: function loadAvatar1(ruta) {
+      if (ruta === "" || ruta === null) {
+        this.avatar1 = "/img/gamer.png";
+      } else {
+        this.avatar1 = ruta;
+      }
+    },
+    loadAvatar2: function loadAvatar2(ruta) {
+      if (ruta === "" || ruta === null) {
+        this.avatar2 = "/img/gamer.png";
+      } else {
+        this.avatar2 = ruta;
+      }
     }
   }
 });
@@ -3109,7 +3168,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".prueba[data-v-31ce29b4] {\n  color: red;\n}\n.gradient[data-v-31ce29b4] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-31ce29b4 10s ease alternate infinite;\n          animation: animatedgradient-data-v-31ce29b4 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-31ce29b4 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-31ce29b4 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-31ce29b4] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-31ce29b4] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-31ce29b4] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-31ce29b4] {\n  max-width: 20px;\n  max-height: 20px;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-31ce29b4] {\n  color: red;\n}\n.gradient[data-v-31ce29b4] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-31ce29b4 10s ease alternate infinite;\n          animation: animatedgradient-data-v-31ce29b4 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-31ce29b4 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-31ce29b4 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-31ce29b4] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-31ce29b4] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-31ce29b4] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-31ce29b4] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-31ce29b4] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-31ce29b4] {\n  width: 100px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}", ""]);
 
 // exports
 
@@ -3128,7 +3187,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-00c8df5c] {\n  color: red;\n}\n.gradient[data-v-00c8df5c] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-00c8df5c 10s ease alternate infinite;\n          animation: animatedgradient-data-v-00c8df5c 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-00c8df5c {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-00c8df5c {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-00c8df5c] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-00c8df5c] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-00c8df5c] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-00c8df5c] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.user-dash[data-v-00c8df5c] {\n  display: grid;\n  grid-template: 1fr 1fr 1fr 1fr 1fr/0.5fr 1fr 1fr 0.5fr;\n}\n.user-dash div[data-v-00c8df5c] {\n  align-self: center;\n}\n.user-dash div[data-v-00c8df5c]:nth-child(even) {\n  grid-column: 2/3;\n}\n.user-dash div[data-v-00c8df5c]:nth-child(odd) {\n  grid-column: 3/4;\n}\n.user-dash div[data-v-00c8df5c]:nth-child(1) {\n  grid-column: 1/-1;\n  background: blue;\n  justify-self: center;\n  width: 130px;\n  height: 130px;\n  border-radius: 70px;\n  margin-top: 10px;\n}\n.user-dash div[data-v-00c8df5c]:last-child {\n  grid-column: 2/4;\n}\n.user-dash div:last-child button[data-v-00c8df5c] {\n  width: 100%;\n  height: 50px;\n}\n\n/* SE REPITE TAMBIEN EN AMIGOS  */\nh3[data-v-00c8df5c] {\n  margin-top: 10px;\n  text-align: center;\n}\nbutton[data-v-00c8df5c] {\n  color: #fff;\n  font-size: 1.5rem;\n  background: #f857a6;\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  border-radius: 10px;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-00c8df5c] {\n  color: red;\n}\n.gradient[data-v-00c8df5c] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-00c8df5c 10s ease alternate infinite;\n          animation: animatedgradient-data-v-00c8df5c 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-00c8df5c {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-00c8df5c {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-00c8df5c] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-00c8df5c] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-00c8df5c] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-00c8df5c] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-00c8df5c] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-00c8df5c] {\n  width: 100px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.user-dash[data-v-00c8df5c] {\n  display: grid;\n  grid-template: 1fr 1fr 1fr 1fr 1fr/0.5fr 1fr 1fr 0.5fr;\n}\n.user-dash div[data-v-00c8df5c] {\n  align-self: center;\n}\n.user-dash div[data-v-00c8df5c]:nth-child(even) {\n  grid-column: 2/3;\n}\n.user-dash div[data-v-00c8df5c]:nth-child(odd) {\n  grid-column: 3/4;\n}\n.user-dash div[data-v-00c8df5c]:nth-child(1) {\n  grid-column: 1/-1;\n  background: blue;\n  justify-self: center;\n  width: 130px;\n  height: 130px;\n  border-radius: 70px;\n  margin-top: 10px;\n}\n.user-dash div[data-v-00c8df5c]:last-child {\n  grid-column: 2/4;\n}\n.user-dash div:last-child button[data-v-00c8df5c] {\n  width: 100%;\n  height: 50px;\n}\n\n/* SE REPITE TAMBIEN EN AMIGOS  */\nh3[data-v-00c8df5c] {\n  margin-top: 10px;\n  text-align: center;\n}\nbutton[data-v-00c8df5c] {\n  color: #fff;\n  font-size: 1.5rem;\n  background: #f857a6;\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  border-radius: 10px;\n}", ""]);
 
 // exports
 
@@ -3166,7 +3225,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-14d4cc4a] {\n  color: red;\n}\n.gradient[data-v-14d4cc4a] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-14d4cc4a 10s ease alternate infinite;\n          animation: animatedgradient-data-v-14d4cc4a 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-14d4cc4a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-14d4cc4a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-14d4cc4a] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-14d4cc4a] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-14d4cc4a] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-14d4cc4a] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.scr-grid[data-v-14d4cc4a] {\n  display: grid;\n  grid-template: 150px 400px 270px/minmax(172px, 250px) minmax(600px, auto) minmax(172px, 250px);\n  gap: 15px;\n  margin: 20px;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  border-radius: 10px;\n  padding: 15px;\n}\n.scr-grid > *[data-v-14d4cc4a] {\n  border: 0.2px solid #615d5d;\n}\n.scr-grid .header[data-v-14d4cc4a] {\n  grid-column: 2/-1;\n}\n.scr-grid .menu[data-v-14d4cc4a] {\n  grid-row: 1/3;\n}\n.scr-grid .games[data-v-14d4cc4a] {\n  grid-row: 3/4;\n}\n.scr-grid .area[data-v-14d4cc4a] {\n  grid-row: 2/4;\n  background: #bee2e8;\n  border-radius: 10px;\n}\n.scr-grid .friends[data-v-14d4cc4a] {\n  grid-row: 2/3;\n}\n.scr-grid .news[data-v-14d4cc4a] {\n  grid-row: 3/4;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-14d4cc4a] {\n  color: red;\n}\n.gradient[data-v-14d4cc4a] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-14d4cc4a 10s ease alternate infinite;\n          animation: animatedgradient-data-v-14d4cc4a 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-14d4cc4a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-14d4cc4a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-14d4cc4a] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-14d4cc4a] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-14d4cc4a] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-14d4cc4a] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-14d4cc4a] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-14d4cc4a] {\n  width: 100px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.scr-grid[data-v-14d4cc4a] {\n  display: grid;\n  grid-template: 150px 400px 270px/minmax(172px, 250px) minmax(600px, auto) minmax(172px, 250px);\n  gap: 15px;\n  margin: 20px;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  border-radius: 10px;\n  padding: 15px;\n}\n.scr-grid > *[data-v-14d4cc4a] {\n  border: 0.2px solid #615d5d;\n}\n.scr-grid .header[data-v-14d4cc4a] {\n  grid-column: 2/-1;\n}\n.scr-grid .menu[data-v-14d4cc4a] {\n  grid-row: 1/3;\n}\n.scr-grid .games[data-v-14d4cc4a] {\n  grid-row: 3/4;\n}\n.scr-grid .area[data-v-14d4cc4a] {\n  grid-row: 2/4;\n  background: #bee2e8;\n  border-radius: 10px;\n}\n.scr-grid .friends[data-v-14d4cc4a] {\n  grid-row: 2/3;\n}\n.scr-grid .news[data-v-14d4cc4a] {\n  grid-row: 3/4;\n}", ""]);
 
 // exports
 
@@ -3185,7 +3244,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-89312aac] {\n  color: red;\n}\n.gradient[data-v-89312aac] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-89312aac 10s ease alternate infinite;\n          animation: animatedgradient-data-v-89312aac 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-89312aac {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-89312aac {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-89312aac] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-89312aac] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-89312aac] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-89312aac] {\n  max-width: 20px;\n  max-height: 20px;\n}\ndiv[data-v-89312aac] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 10px;\n}\ndiv > *[data-v-89312aac] {\n  padding: 8px;\n}\ndiv img[data-v-89312aac] {\n  width: 60px;\n  height: 60px;\n  border-radius: 40px;\n}\ndiv button[data-v-89312aac] {\n  color: #fff;\n  font-size: 1rem;\n  background: #f857a6;\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  border-radius: 10px;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-89312aac] {\n  color: red;\n}\n.gradient[data-v-89312aac] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-89312aac 10s ease alternate infinite;\n          animation: animatedgradient-data-v-89312aac 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-89312aac {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-89312aac {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-89312aac] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-89312aac] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-89312aac] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-89312aac] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-89312aac] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-89312aac] {\n  width: 100px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\ndiv[data-v-89312aac] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 10px;\n}\ndiv > *[data-v-89312aac] {\n  padding: 8px;\n}\ndiv img[data-v-89312aac] {\n  width: 60px;\n  height: 60px;\n  border-radius: 40px;\n}\ndiv button[data-v-89312aac] {\n  color: #fff;\n  font-size: 1rem;\n  background: #f857a6;\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  border-radius: 10px;\n}", ""]);
 
 // exports
 
@@ -3223,7 +3282,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".match-dash[data-v-4c531f4f] {\n  height: 600px;\n  overflow: auto;\n  /* SACAR ESTO EN UN MIXIM PARA REUTILIZARLO */\n  -ms-overflow-style: none;\n  scrollbar-width: none;\n}\n.match-dash[data-v-4c531f4f]::-webkit-scrollbar {\n  display: none;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-4c531f4f] {\n  color: red;\n}\n.gradient[data-v-4c531f4f] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-4c531f4f 10s ease alternate infinite;\n          animation: animatedgradient-data-v-4c531f4f 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-4c531f4f {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-4c531f4f {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-4c531f4f] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-4c531f4f] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-4c531f4f] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-4c531f4f] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-4c531f4f] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-4c531f4f] {\n  width: 100px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.match-area[data-v-4c531f4f] {\n  overflow: auto;\n  -ms-overflow-style: none;\n  scrollbar-width: none;\n  height: 600px;\n}\n.match-area[data-v-4c531f4f]::-webkit-scrollbar {\n  display: none;\n}\n.match-area .matches[data-v-4c531f4f] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.match-area .matches > *[data-v-4c531f4f] {\n  margin: 20px;\n}", ""]);
 
 // exports
 
@@ -3299,7 +3358,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-f866ab50] {\n  color: red;\n}\n.gradient[data-v-f866ab50] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-f866ab50 10s ease alternate infinite;\n          animation: animatedgradient-data-v-f866ab50 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-f866ab50 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-f866ab50 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-f866ab50] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-f866ab50] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-f866ab50] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-f866ab50] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.container-match[data-v-f866ab50] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.container-match div[data-v-f866ab50]:nth-child(1) {\n  margin-right: 40px;\n}\n.container-match div:nth-child(1) > *[data-v-f866ab50] {\n  margin: 10px;\n}\n.container-match img[data-v-f866ab50] {\n  width: 60px;\n  height: 60px;\n  border-radius: 40px;\n}\n.container-match button[data-v-f866ab50] {\n  color: #fff;\n  font-size: 1rem;\n  background: #f857a6;\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  border-radius: 10px;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-f866ab50] {\n  color: red;\n}\n.gradient[data-v-f866ab50] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-f866ab50 10s ease alternate infinite;\n          animation: animatedgradient-data-v-f866ab50 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-f866ab50 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-f866ab50 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-f866ab50] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-f866ab50] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-f866ab50] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-f866ab50] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-f866ab50] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-f866ab50] {\n  width: 100px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.container-match[data-v-f866ab50] {\n  display: grid;\n  grid-template: repeat(4, 1fr)/repeat 3, 1fr;\n  padding: 20px;\n}\n.container-match > *[data-v-f866ab50] {\n  margin: 10px;\n  display: flex;\n  justify-content: center;\n}\n.container-match[data-v-f866ab50] :nth-child(1) {\n  grid-column: 1/-1;\n  margin-bottom: 10px;\n}\n.container-match[data-v-f866ab50] :nth-child(2) {\n  grid-column: 1/-1;\n}\n.container-match :nth-child(2) div.player-match[data-v-f866ab50] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 10px;\n}\n.container-match :nth-child(3) > *[data-v-f866ab50] {\n  margin-left: 10px;\n  margin-right: 10px;\n}\n.container-match :nth-child(4) > *[data-v-f866ab50] {\n  margin: 10px;\n}\n.container-match[data-v-f866ab50] :nth-child(4) :nth-child(1) {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 50px;\n  height: 50px;\n  font-size: 1.2rem;\n  color: white;\n  background-color: #55c27b;\n}\n.container-match[data-v-f866ab50] :nth-child(4) :nth-child(2) {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 50px;\n  height: 50px;\n  font-size: 1.2rem;\n  color: white;\n  background-color: #cd5545;\n}\n.card[data-v-f866ab50] {\n  background: #eb8d7b;\n}", ""]);
 
 // exports
 
@@ -3356,7 +3415,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-727508be] {\n  color: red;\n}\n.gradient[data-v-727508be] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-727508be 10s ease alternate infinite;\n          animation: animatedgradient-data-v-727508be 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-727508be {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-727508be {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-727508be] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-727508be] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-727508be] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-727508be] {\n  max-width: 20px;\n  max-height: 20px;\n}\ndiv[data-v-727508be] {\n  cursor: pointer;\n  display: flex;\n}\ndiv > *[data-v-727508be] {\n  margin: 5px;\n}\ndiv .text[data-v-727508be] {\n  margin: 0px;\n}\ndiv .text-hidden[data-v-727508be] {\n  overflow: hidden;\n  height: 30px;\n}\ndiv .text-show[data-v-727508be] {\n  overflow: visible;\n}\ndiv button[data-v-727508be] {\n  max-width: 70px;\n  max-height: 28px;\n}\n.notif-bold[data-v-727508be] {\n  font-weight: bold;\n}\n.notif-normal[data-v-727508be] {\n  font-weight: normal;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-727508be] {\n  color: red;\n}\n.gradient[data-v-727508be] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-727508be 10s ease alternate infinite;\n          animation: animatedgradient-data-v-727508be 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-727508be {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-727508be {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-727508be] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-727508be] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-727508be] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-727508be] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-727508be] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-727508be] {\n  width: 100px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\ndiv[data-v-727508be] {\n  cursor: pointer;\n  display: flex;\n}\ndiv > *[data-v-727508be] {\n  margin: 5px;\n}\ndiv .text[data-v-727508be] {\n  margin: 0px;\n}\ndiv .text-hidden[data-v-727508be] {\n  overflow: hidden;\n  height: 30px;\n}\ndiv .text-show[data-v-727508be] {\n  overflow: visible;\n}\ndiv button[data-v-727508be] {\n  max-width: 70px;\n  max-height: 28px;\n}\n.notif-bold[data-v-727508be] {\n  font-weight: bold;\n}\n.notif-normal[data-v-727508be] {\n  font-weight: normal;\n}", ""]);
 
 // exports
 
@@ -3375,7 +3434,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-681ec00d] {\n  color: red;\n}\n.gradient[data-v-681ec00d] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-681ec00d 10s ease alternate infinite;\n          animation: animatedgradient-data-v-681ec00d 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-681ec00d {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-681ec00d {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-681ec00d] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-681ec00d] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-681ec00d] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-681ec00d] {\n  max-width: 20px;\n  max-height: 20px;\n}\ndiv[data-v-681ec00d] {\n  display: flex;\n  flex-flow: column;\n  align-items: center;\n  padding: 10px;\n}\ndiv button[data-v-681ec00d] {\n  color: #fff;\n  font-size: 1rem;\n  background: #f857a6;\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  border-radius: 10px;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-681ec00d] {\n  color: red;\n}\n.gradient[data-v-681ec00d] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-681ec00d 10s ease alternate infinite;\n          animation: animatedgradient-data-v-681ec00d 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-681ec00d {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-681ec00d {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-681ec00d] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-681ec00d] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-681ec00d] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-681ec00d] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-681ec00d] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-681ec00d] {\n  width: 100px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\ndiv[data-v-681ec00d] {\n  display: flex;\n  flex-flow: column;\n  align-items: center;\n  padding: 10px;\n}\ndiv button[data-v-681ec00d] {\n  color: #fff;\n  font-size: 1rem;\n  background: #f857a6;\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  border-radius: 10px;\n}", ""]);
 
 // exports
 
@@ -3394,7 +3453,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-8a23f79e] {\n  color: red;\n}\n.gradient[data-v-8a23f79e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-8a23f79e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-8a23f79e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-8a23f79e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-8a23f79e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-8a23f79e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-8a23f79e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-8a23f79e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-8a23f79e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.container-stats[data-v-8a23f79e] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.container-stats h2[data-v-8a23f79e] {\n  text-align: center;\n  margin-top: 20px;\n}\n.container-stats h5[data-v-8a23f79e] {\n  text-align: center;\n  margin-top: 20px;\n}\n.container-stats .language[data-v-8a23f79e] {\n  display: flex;\n  align-items: center;\n}\n.container-stats .language > *[data-v-8a23f79e] {\n  margin: 10px;\n}\n.container-stats .language button[data-v-8a23f79e] {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 45px;\n  height: 45px;\n  font-size: 1.5rem;\n  color: white;\n  background-color: #ef4e7b;\n}\n.container-stats .stats-dash[data-v-8a23f79e] {\n  display: grid;\n  grid-template: repeat(6, 1fr)/0.5fr 1fr 1fr 0.5fr;\n  gap: 20px;\n  overflow: auto;\n  -ms-overflow-style: none;\n  scrollbar-width: none;\n  height: 450px;\n}\n.container-stats .stats-dash[data-v-8a23f79e]::-webkit-scrollbar {\n  display: none;\n}\n.container-stats .stats-dash > *[data-v-8a23f79e] {\n  justify-self: center;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(1) {\n  grid-column: 1/-1;\n  align-self: center;\n  margin-top: 30px;\n  margin-bottom: 30px;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(2),\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(5),\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(7) {\n  grid-column: 2/3;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(3),\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(6) {\n  grid-column: 3/4;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(4) {\n  grid-column: 2/4;\n}\n.container-stats .stats-dash .level[data-v-8a23f79e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 110px;\n  height: 110px;\n  border-radius: 60px;\n  color: white;\n  font-size: 3rem;\n  border: 2px solid #1a1717;\n}\n.container-stats .stats-dash .level-silver[data-v-8a23f79e] {\n  background: #c0c0c0;\n}\n.container-stats .stats-dash .level-bronze[data-v-8a23f79e] {\n  background: #db9249;\n}\n.container-stats .stats-dash .level-gold[data-v-8a23f79e] {\n  background: #ffd700;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-8a23f79e] {\n  color: red;\n}\n.gradient[data-v-8a23f79e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-8a23f79e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-8a23f79e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-8a23f79e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-8a23f79e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-8a23f79e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-8a23f79e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-8a23f79e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-8a23f79e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-8a23f79e] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-8a23f79e] {\n  width: 100px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.container-stats[data-v-8a23f79e] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.container-stats h5[data-v-8a23f79e] {\n  text-align: center;\n  margin-top: 20px;\n}\n.container-stats .language[data-v-8a23f79e] {\n  display: flex;\n  align-items: center;\n}\n.container-stats .language > *[data-v-8a23f79e] {\n  margin: 10px;\n}\n.container-stats .language button[data-v-8a23f79e] {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 45px;\n  height: 45px;\n  font-size: 1.5rem;\n  color: white;\n  background-color: #ef4e7b;\n}\n.container-stats .stats-dash[data-v-8a23f79e] {\n  display: grid;\n  grid-template: repeat(6, 1fr)/0.5fr 1fr 1fr 0.5fr;\n  gap: 20px;\n  overflow: auto;\n  -ms-overflow-style: none;\n  scrollbar-width: none;\n  height: 450px;\n}\n.container-stats .stats-dash[data-v-8a23f79e]::-webkit-scrollbar {\n  display: none;\n}\n.container-stats .stats-dash > *[data-v-8a23f79e] {\n  justify-self: center;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(1) {\n  grid-column: 1/-1;\n  align-self: center;\n  margin-top: 30px;\n  margin-bottom: 30px;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(2),\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(5),\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(7) {\n  grid-column: 2/3;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(3),\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(6) {\n  grid-column: 3/4;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(4) {\n  grid-column: 2/4;\n}\n.container-stats .stats-dash .level[data-v-8a23f79e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 110px;\n  height: 110px;\n  border-radius: 60px;\n  color: white;\n  font-size: 3rem;\n  border: 2px solid #1a1717;\n}\n.container-stats .stats-dash .level-silver[data-v-8a23f79e] {\n  background: #c0c0c0;\n}\n.container-stats .stats-dash .level-bronze[data-v-8a23f79e] {\n  background: #db9249;\n}\n.container-stats .stats-dash .level-gold[data-v-8a23f79e] {\n  background: #ffd700;\n}", ""]);
 
 // exports
 
@@ -6874,37 +6933,37 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "match-dash" },
-    [
-      _c("h3", [_vm._v("Partidas")]),
-      _vm._v(" "),
-      _c(
-        "select",
-        {
-          staticClass: "form-select",
-          on: {
-            change: function($event) {
-              return _vm.onChangeGame($event)
-            }
+  return _c("div", { staticClass: "match-area" }, [
+    _c("h2", { staticClass: "header-area-dash" }, [_vm._v("Partidas")]),
+    _vm._v(" "),
+    _c(
+      "select",
+      {
+        staticClass: "form-select combo-area-dash",
+        on: {
+          change: function($event) {
+            return _vm.onChangeGame($event)
           }
-        },
-        [
-          _c("option", { attrs: { value: "pending", selected: "" } }, [
-            _vm._v("Pendientes")
-          ]),
-          _vm._v(" "),
-          _c("option", { attrs: { value: "all" } }, [_vm._v("Todas")])
-        ]
-      ),
-      _vm._v(" "),
+        }
+      },
+      [
+        _c("option", { attrs: { value: "pending", selected: "" } }, [
+          _vm._v("Pendientes")
+        ]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "all" } }, [_vm._v("Todas")])
+      ]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "matches" },
       _vm._l(_vm.gamesList, function(game) {
         return _c("match-dash", { key: game.id, attrs: { game: game } })
-      })
-    ],
-    2
-  )
+      }),
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -7040,16 +7099,58 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container-match" }, [
+  return _c("div", { staticClass: "container-match card" }, [
+    _c(
+      "div",
+      [
+        _c("country-flag", {
+          attrs: { country: _vm.game.language, size: "big", rounded: "true" }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
     _c("div", [
-      _c("img", { attrs: { src: "", alt: "" } }),
+      _c(
+        "div",
+        { staticClass: "player-match" },
+        [
+          _c("img", { attrs: { src: _vm.avatar1, alt: "avatar usuario" } }),
+          _vm._v(" "),
+          _c("country-flag", {
+            attrs: {
+              country: _vm.game.player1.country,
+              size: "medium",
+              rounded: "true"
+            }
+          }),
+          _vm._v(" "),
+          _c("span", [_vm._v(_vm._s(_vm.game.player1.name))])
+        ],
+        1
+      ),
       _vm._v(" "),
-      _c("span", [_vm._v(_vm._s(_vm.game.language))]),
-      _vm._v(" "),
-      _c("span", [_vm._v(_vm._s(_vm.game.player1.name))]),
-      _vm._v(" "),
-      _c("span", [_vm._v(_vm._s(_vm.game.player2.name))]),
-      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "player-match" },
+        [
+          _c("img", { attrs: { src: _vm.avatar2, alt: "avatar usuario" } }),
+          _vm._v(" "),
+          _c("country-flag", {
+            attrs: {
+              country: _vm.game.player2.country,
+              size: "medium",
+              rounded: "true"
+            }
+          }),
+          _vm._v(" "),
+          _c("span", [_vm._v(_vm._s(_vm.game.player2.name))])
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", [
       _c("span", [_vm._v(_vm._s(_vm.game.score1))]),
       _vm._v(" "),
       _c("span", [_vm._v(" - ")]),
@@ -7067,12 +7168,13 @@ var render = function() {
             value: _vm.game.state !== "win_p1" && _vm.game.state !== "win_p2",
             expression: "game.state !== 'win_p1' && game.state !== 'win_p2'"
           }
-        ]
+        ],
+        staticClass: "game-buttons"
       },
       [
-        _c("button", { staticClass: "dash-button" }, [_vm._v("Continuar")]),
+        _c("button", { staticClass: "dash-button" }, [_vm._v("✓")]),
         _vm._v(" "),
-        _c("button", { staticClass: "dash-button" }, [_vm._v("Abandonar")])
+        _c("button", { staticClass: "dash-button" }, [_vm._v("✗")])
       ]
     )
   ])
@@ -7322,7 +7424,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-stats" }, [
-    _c("h2", [_vm._v("Estadísticas")]),
+    _c("h2", { staticClass: "header-area-dash" }, [_vm._v("Estadísticas")]),
     _vm._v(" "),
     _c("h5", [_vm._v("Idioma")]),
     _vm._v(" "),

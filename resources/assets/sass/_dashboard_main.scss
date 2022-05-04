@@ -99,3 +99,17 @@ $dash-panel-border: 10px;
   color: $color;
   background-color: $background;
 }
+
+.header-area-dash {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.combo-area-dash {
+  width: 100px;
+  height: 40px;
+  background-color: #22aec3;
+  border-radius: 5px;
+  margin-left: 20px;
+  padding: 10px;
+}

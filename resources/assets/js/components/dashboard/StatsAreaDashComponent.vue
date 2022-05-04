@@ -1,6 +1,6 @@
 <template>
   <div class="container-stats">
-    <h2>Estadísticas</h2>
+    <h2 class="header-area-dash">Estadísticas</h2>
     <h5>Idioma</h5>
     <div class="language">
       <button name="before" @click="nextLanguage">&#8672;</button>
@@ -121,11 +121,6 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  h2 {
-    text-align: center;
-    margin-top: 20px;
-  }
 
   h5 {
     text-align: center;
