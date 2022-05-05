@@ -32,7 +32,7 @@
     </div>
 
     <div
-      v-show="game.state !== 'win_p1' && game.state !== 'win_p2'"
+      v-if="game.state !== 'win_p1' && game.state !== 'win_p2'"
       class="game-buttons"
     >
       <button class="dash-button">&#10003;</button>

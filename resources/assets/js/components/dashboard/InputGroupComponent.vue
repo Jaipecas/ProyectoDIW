@@ -2,7 +2,13 @@
   <div>
     <fieldset>
       <legend>{{ tittleCard }}</legend>
-      <input :type="type" class="form-control" :value="content" />
+      <input
+        v-model="valueInput"
+        :type="type"
+        class="form-control"
+        :value="content"
+        @keyup="changeValue"
+      />
     </fieldset>
   </div>
 </template>
@@ -22,6 +28,22 @@ export default {
     content: {
       type: String,
       required: true,
+    },
+  },
+
+  data: function () {
+    return {
+      valueInput: "",
+    };
+  },
+
+  created() {
+    this.valueInput = this.content;
+  },
+
+  methods: {
+    changeValue() {
+      this.$emit("change-value", this.tittleCard, this.valueInput);
     },
   },
 };

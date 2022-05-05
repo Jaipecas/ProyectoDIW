@@ -1,12 +1,26 @@
 <template>
   <div class="header-dash">
-    <p>Bienvenido Jaime</p>
+    <p>{{ name }}</p>
   </div>
 </template>
 
 <script>
 export default {
   name: "HeaderDashComponent",
+  props: {
+    userName: {
+      type: String,
+      required: true,
+    },
+  },
+  data: function () {
+    return {
+      name: "",
+    };
+  },
+  created() {
+    this.name = "Bienvenido, " + this.userName;
+  },
 };
 </script>
 

@@ -1956,12 +1956,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ComboCountriesComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ComboCountriesComponent.vue */ "./resources/assets/js/components/dashboard/ComboCountriesComponent.vue");
-/* harmony import */ var _InputGroupComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./InputGroupComponent.vue */ "./resources/assets/js/components/dashboard/InputGroupComponent.vue");
-/* harmony import */ var _NorificationsAreaDashComponent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NorificationsAreaDashComponent.vue */ "./resources/assets/js/components/dashboard/NorificationsAreaDashComponent.vue");
-/* harmony import */ var _GamesAreaDashComponent_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./GamesAreaDashComponent.vue */ "./resources/assets/js/components/dashboard/GamesAreaDashComponent.vue");
-/* harmony import */ var _StatsAreaDashComponent_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./StatsAreaDashComponent.vue */ "./resources/assets/js/components/dashboard/StatsAreaDashComponent.vue");
-/* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
+/* harmony import */ var _UserAreaDashComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserAreaDashComponent.vue */ "./resources/assets/js/components/dashboard/UserAreaDashComponent.vue");
+/* harmony import */ var _NorificationsAreaDashComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NorificationsAreaDashComponent.vue */ "./resources/assets/js/components/dashboard/NorificationsAreaDashComponent.vue");
+/* harmony import */ var _GamesAreaDashComponent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GamesAreaDashComponent.vue */ "./resources/assets/js/components/dashboard/GamesAreaDashComponent.vue");
+/* harmony import */ var _StatsAreaDashComponent_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./StatsAreaDashComponent.vue */ "./resources/assets/js/components/dashboard/StatsAreaDashComponent.vue");
+/* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
 //
 //
 //
@@ -1971,28 +1970,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 
 
 
@@ -2001,19 +1978,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "AreaDashComponent",
   components: {
-    "input-dash": _InputGroupComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    "combo-countries": _ComboCountriesComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    "stats-area": _StatsAreaDashComponent_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
-    "notif-area": _NorificationsAreaDashComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    "games-area": _GamesAreaDashComponent_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    "user-area": _UserAreaDashComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    "stats-area": _StatsAreaDashComponent_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    "notif-area": _NorificationsAreaDashComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    "games-area": _GamesAreaDashComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   props: {
     area: {
       type: String,
-      required: true
+      required: true,
+      "default": "Partidas"
     },
     user: {
-      type: _classes_User__WEBPACK_IMPORTED_MODULE_5__["default"],
+      type: _classes_User__WEBPACK_IMPORTED_MODULE_4__["default"],
       required: true
     }
   }
@@ -2030,6 +2007,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_country_flag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-country-flag */ "./node_modules/vue-country-flag/dist/country-flag.esm.js");
 //
 //
 //
@@ -2046,245 +2024,289 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ComboCountriesComponent",
+  components: {
+    "country-flag": vue_country_flag__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   props: {
     country: {
       type: String,
       required: true
+    },
+    title: {
+      type: String,
+      required: true
     }
   },
+  data: function data() {
+    return {
+      countries: {
+        AF: "Afghanistan",
+        AX: "Åland Islands",
+        AL: "Albania",
+        DZ: "Algeria",
+        AS: "American Samoa",
+        AD: "Andorra",
+        AO: "Angola",
+        AI: "Anguilla",
+        AQ: "Antarctica",
+        AG: "Antigua and Barbuda",
+        AR: "Argentina",
+        AM: "Armenia",
+        AW: "Aruba",
+        AU: "Australia",
+        AT: "Austria",
+        AZ: "Azerbaijan",
+        BS: "Bahamas",
+        BH: "Bahrain",
+        BD: "Bangladesh",
+        BB: "Barbados",
+        BY: "Belarus",
+        BE: "Belgium",
+        BZ: "Belize",
+        BJ: "Benin",
+        BM: "Bermuda",
+        BT: "Bhutan",
+        BO: "Bolivia",
+        BA: "Bosnia and Herzegovina",
+        BW: "Botswana",
+        BV: "Bouvet Island",
+        BR: "Brazil",
+        IO: "British Indian Ocean Territory",
+        BN: "Brunei Darussalam",
+        BG: "Bulgaria",
+        BF: "Burkina Faso",
+        BI: "Burundi",
+        KH: "Cambodia",
+        CM: "Cameroon",
+        CA: "Canada",
+        CV: "Cape Verde",
+        KY: "Cayman Islands",
+        CF: "Central African Republic",
+        TD: "Chad",
+        CL: "Chile",
+        CN: "China",
+        CX: "Christmas Island",
+        CC: "Cocos (Keeling) Islands",
+        CO: "Colombia",
+        KM: "Comoros",
+        CG: "Congo",
+        CD: "Congo, The Democratic Republic of the",
+        CK: "Cook Islands",
+        CR: "Costa Rica",
+        CI: "Cote D'Ivoire",
+        HR: "Croatia",
+        CU: "Cuba",
+        CY: "Cyprus",
+        CZ: "Czech Republic",
+        DK: "Denmark",
+        DJ: "Djibouti",
+        DM: "Dominica",
+        DO: "Dominican Republic",
+        EC: "Ecuador",
+        EG: "Egypt",
+        SV: "El Salvador",
+        GQ: "Equatorial Guinea",
+        ER: "Eritrea",
+        EE: "Estonia",
+        ET: "Ethiopia",
+        FK: "Falkland Islands (Malvinas)",
+        FO: "Faroe Islands",
+        FJ: "Fiji",
+        FI: "Finland",
+        FR: "France",
+        GF: "French Guiana",
+        PF: "French Polynesia",
+        TF: "French Southern Territories",
+        GA: "Gabon",
+        GM: "Gambia",
+        GE: "Georgia",
+        DE: "Germany",
+        GH: "Ghana",
+        GI: "Gibraltar",
+        GR: "Greece",
+        GL: "Greenland",
+        GD: "Grenada",
+        GP: "Guadeloupe",
+        GU: "Guam",
+        GT: "Guatemala",
+        GG: "Guernsey",
+        GN: "Guinea",
+        GW: "Guinea-Bissau",
+        GY: "Guyana",
+        HT: "Haiti",
+        HM: "Heard Island and Mcdonald Islands",
+        VA: "Holy See (Vatican City State)",
+        HN: "Honduras",
+        HK: "Hong Kong",
+        HU: "Hungary",
+        IS: "Iceland",
+        IN: "India",
+        ID: "Indonesia",
+        IR: "Iran, Islamic Republic Of",
+        IQ: "Iraq",
+        IE: "Ireland",
+        IM: "Isle of Man",
+        IL: "Israel",
+        IT: "Italy",
+        JM: "Jamaica",
+        JP: "Japan",
+        JE: "Jersey",
+        JO: "Jordan",
+        KZ: "Kazakhstan",
+        KE: "Kenya",
+        KI: "Kiribati",
+        KP: "Korea, Democratic People'S Republic of",
+        KR: "Korea, Republic of",
+        KW: "Kuwait",
+        KG: "Kyrgyzstan",
+        LA: "Lao People'S Democratic Republic",
+        LV: "Latvia",
+        LB: "Lebanon",
+        LS: "Lesotho",
+        LR: "Liberia",
+        LY: "Libyan Arab Jamahiriya",
+        LI: "Liechtenstein",
+        LT: "Lithuania",
+        LU: "Luxembourg",
+        MO: "Macao",
+        MK: "Macedonia, The Former Yugoslav Republic of",
+        MG: "Madagascar",
+        MW: "Malawi",
+        MY: "Malaysia",
+        MV: "Maldives",
+        ML: "Mali",
+        MT: "Malta",
+        MH: "Marshall Islands",
+        MQ: "Martinique",
+        MR: "Mauritania",
+        MU: "Mauritius",
+        YT: "Mayotte",
+        MX: "Mexico",
+        FM: "Micronesia, Federated States of",
+        MD: "Moldova, Republic of",
+        MC: "Monaco",
+        MN: "Mongolia",
+        MS: "Montserrat",
+        MA: "Morocco",
+        MZ: "Mozambique",
+        MM: "Myanmar",
+        NA: "Namibia",
+        NR: "Nauru",
+        NP: "Nepal",
+        NL: "Netherlands",
+        AN: "Netherlands Antilles",
+        NC: "New Caledonia",
+        NZ: "New Zealand",
+        NI: "Nicaragua",
+        NE: "Niger",
+        NG: "Nigeria",
+        NU: "Niue",
+        NF: "Norfolk Island",
+        MP: "Northern Mariana Islands",
+        NO: "Norway",
+        OM: "Oman",
+        PK: "Pakistan",
+        PW: "Palau",
+        PS: "Palestinian Territory, Occupied",
+        PA: "Panama",
+        PG: "Papua New Guinea",
+        PY: "Paraguay",
+        PE: "Peru",
+        PH: "Philippines",
+        PN: "Pitcairn",
+        PL: "Poland",
+        PT: "Portugal",
+        PR: "Puerto Rico",
+        QA: "Qatar",
+        RE: "Reunion",
+        RO: "Romania",
+        RU: "Russian Federation",
+        RW: "RWANDA",
+        SH: "Saint Helena",
+        KN: "Saint Kitts and Nevis",
+        LC: "Saint Lucia",
+        PM: "Saint Pierre and Miquelon",
+        VC: "Saint Vincent and the Grenadines",
+        WS: "Samoa",
+        SM: "San Marino",
+        ST: "Sao Tome and Principe",
+        SA: "Saudi Arabia",
+        SN: "Senegal",
+        CS: "Serbia and Montenegro",
+        SC: "Seychelles",
+        SL: "Sierra Leone",
+        SG: "Singapore",
+        SK: "Slovakia",
+        SI: "Slovenia",
+        SB: "Solomon Islands",
+        SO: "Somalia",
+        ZA: "South Africa",
+        GS: "South Georgia and the South Sandwich Islands",
+        ES: "Spain",
+        LK: "Sri Lanka",
+        SD: "Sudan",
+        SR: "Suriname",
+        SJ: "Svalbard and Jan Mayen",
+        SZ: "Swaziland",
+        SE: "Sweden",
+        CH: "Switzerland",
+        SY: "Syrian Arab Republic",
+        TW: "Taiwan, Province of China",
+        TJ: "Tajikistan",
+        TZ: "Tanzania, United Republic of",
+        TH: "Thailand",
+        TL: "Timor-Leste",
+        TG: "Togo",
+        TK: "Tokelau",
+        TO: "Tonga",
+        TT: "Trinidad and Tobago",
+        TN: "Tunisia",
+        TR: "Turkey",
+        TM: "Turkmenistan",
+        TC: "Turks and Caicos Islands",
+        TV: "Tuvalu",
+        UG: "Uganda",
+        UA: "Ukraine",
+        AE: "United Arab Emirates",
+        GB: "United Kingdom",
+        US: "United States",
+        UM: "United States Minor Outlying Islands",
+        UY: "Uruguay",
+        UZ: "Uzbekistan",
+        VU: "Vanuatu",
+        VE: "Venezuela",
+        VN: "Viet Nam",
+        VG: "Virgin Islands, British",
+        VI: "Virgin Islands, U.S.",
+        WF: "Wallis and Futuna",
+        EH: "Western Sahara",
+        YE: "Yemen",
+        ZM: "Zambia",
+        ZW: "Zimbabwe"
+      },
+      selectedCountry: "Spain",
+      isoCode: "ES"
+    };
+  },
   created: function created() {
-    this.loadCombo();
+    this.loadValues();
   },
   methods: {
-    loadCombo: function loadCombo() {}
+    getISOCode: function getISOCode() {
+      var _this = this;
+
+      this.isoCode = Object.keys(this.countries).find(function (key) {
+        return _this.countries[key] === _this.selectedCountry;
+      });
+      this.$emit("change-value", this.title, this.isoCode);
+    },
+    loadValues: function loadValues() {
+      this.isoCode = this.country;
+      this.selectedCountry = this.countries[this.isoCode];
+    }
   }
 });
 
@@ -2601,7 +2623,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "HeaderDashComponent"
+  name: "HeaderDashComponent",
+  props: {
+    userName: {
+      type: String,
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      name: ""
+    };
+  },
+  created: function created() {
+    this.name = "Bienvenido, " + this.userName;
+  }
 });
 
 /***/ }),
@@ -2615,6 +2651,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2638,6 +2680,19 @@ __webpack_require__.r(__webpack_exports__);
     content: {
       type: String,
       required: true
+    }
+  },
+  data: function data() {
+    return {
+      valueInput: ""
+    };
+  },
+  created: function created() {
+    this.valueInput = this.content;
+  },
+  methods: {
+    changeValue: function changeValue() {
+      this.$emit("change-value", this.tittleCard, this.valueInput);
     }
   }
 });
@@ -3206,6 +3261,95 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/UserAreaDashComponent.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/UserAreaDashComponent.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _InputGroupComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./InputGroupComponent.vue */ "./resources/assets/js/components/dashboard/InputGroupComponent.vue");
+/* harmony import */ var _ComboCountriesComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ComboCountriesComponent.vue */ "./resources/assets/js/components/dashboard/ComboCountriesComponent.vue");
+/* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "UserAreaDashComponent",
+  components: {
+    "input-dash": _InputGroupComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    "combo-countries": _ComboCountriesComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  props: {
+    user: {
+      type: _classes_User__WEBPACK_IMPORTED_MODULE_2__["default"],
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      userData: _classes_User__WEBPACK_IMPORTED_MODULE_2__["default"]
+    };
+  },
+  created: function created() {
+    this.userData = this.user;
+  },
+  methods: {
+    updateUser: function updateUser(tittle, value) {
+      switch (tittle) {
+        case "Nombre":
+          this.userData.name = value;
+          break;
+
+        case "comboCountries":
+          this.userData.country = value;
+          break;
+      }
+    },
+    updateProfile: function updateProfile() {
+      this.userData.updateProfile();
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/CardDashComponent.vue?vue&type=style&index=0&id=31ce29b4&lang=scss&scoped=true&":
 /*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/CardDashComponent.vue?vue&type=style&index=0&id=31ce29b4&lang=scss&scoped=true& ***!
@@ -3219,25 +3363,6 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 // module
 exports.push([module.i, ".prueba[data-v-31ce29b4] {\n  color: red;\n}\n.gradient[data-v-31ce29b4] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-31ce29b4 10s ease alternate infinite;\n          animation: animatedgradient-data-v-31ce29b4 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-31ce29b4 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-31ce29b4 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-31ce29b4] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-31ce29b4] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-31ce29b4] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-31ce29b4] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-31ce29b4] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-31ce29b4] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=style&index=0&id=00c8df5c&lang=scss&scoped=true&":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=style&index=0&id=00c8df5c&lang=scss&scoped=true& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".prueba[data-v-00c8df5c] {\n  color: red;\n}\n.gradient[data-v-00c8df5c] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-00c8df5c 10s ease alternate infinite;\n          animation: animatedgradient-data-v-00c8df5c 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-00c8df5c {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-00c8df5c {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-00c8df5c] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-00c8df5c] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-00c8df5c] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-00c8df5c] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-00c8df5c] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-00c8df5c] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.user-dash[data-v-00c8df5c] {\n  display: grid;\n  grid-template: 1fr 1fr 1fr 1fr 1fr/0.5fr 1fr 1fr 0.5fr;\n}\n.user-dash div[data-v-00c8df5c] {\n  align-self: center;\n}\n.user-dash div[data-v-00c8df5c]:nth-child(even) {\n  grid-column: 2/3;\n}\n.user-dash div[data-v-00c8df5c]:nth-child(odd) {\n  grid-column: 3/4;\n}\n.user-dash div[data-v-00c8df5c]:nth-child(1) {\n  grid-column: 1/-1;\n  background: blue;\n  justify-self: center;\n  width: 130px;\n  height: 130px;\n  border-radius: 70px;\n  margin-top: 10px;\n}\n.user-dash div[data-v-00c8df5c]:last-child {\n  grid-column: 2/4;\n}\n.user-dash div:last-child button[data-v-00c8df5c] {\n  width: 100%;\n  height: 50px;\n}\n\n/* SE REPITE TAMBIEN EN AMIGOS  */\nh3[data-v-00c8df5c] {\n  margin-top: 10px;\n  text-align: center;\n}\nbutton[data-v-00c8df5c] {\n  color: #fff;\n  font-size: 1.5rem;\n  background: #f857a6;\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  border-radius: 10px;\n}", ""]);
 
 // exports
 
@@ -3523,6 +3648,25 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 // module
 exports.push([module.i, ".prueba[data-v-8a23f79e] {\n  color: red;\n}\n.gradient[data-v-8a23f79e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-8a23f79e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-8a23f79e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-8a23f79e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-8a23f79e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-8a23f79e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-8a23f79e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-8a23f79e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-8a23f79e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-8a23f79e] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-8a23f79e] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.container-stats[data-v-8a23f79e] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.container-stats h5[data-v-8a23f79e] {\n  text-align: center;\n  margin-top: 20px;\n}\n.container-stats .language[data-v-8a23f79e] {\n  display: flex;\n  align-items: center;\n}\n.container-stats .language > *[data-v-8a23f79e] {\n  margin: 10px;\n}\n.container-stats .language button[data-v-8a23f79e] {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 45px;\n  height: 45px;\n  font-size: 1.5rem;\n  color: white;\n  background-color: #ef4e7b;\n}\n.container-stats .stats-dash[data-v-8a23f79e] {\n  display: grid;\n  grid-template: repeat(6, 1fr)/0.5fr 1fr 1fr 0.5fr;\n  gap: 20px;\n  overflow: auto;\n  -ms-overflow-style: none;\n  scrollbar-width: none;\n  height: 450px;\n}\n.container-stats .stats-dash[data-v-8a23f79e]::-webkit-scrollbar {\n  display: none;\n}\n.container-stats .stats-dash > *[data-v-8a23f79e] {\n  justify-self: center;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(1) {\n  grid-column: 1/-1;\n  align-self: center;\n  margin-top: 30px;\n  margin-bottom: 30px;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(2),\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(5),\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(7) {\n  grid-column: 2/3;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(3),\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(6) {\n  grid-column: 3/4;\n}\n.container-stats .stats-dash div[data-v-8a23f79e]:nth-child(4) {\n  grid-column: 2/4;\n}\n.container-stats .stats-dash .level[data-v-8a23f79e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 110px;\n  height: 110px;\n  border-radius: 60px;\n  color: white;\n  font-size: 3rem;\n  border: 2px solid #1a1717;\n}\n.container-stats .stats-dash .level-silver[data-v-8a23f79e] {\n  background: #c0c0c0;\n}\n.container-stats .stats-dash .level-bronze[data-v-8a23f79e] {\n  background: #db9249;\n}\n.container-stats .stats-dash .level-gold[data-v-8a23f79e] {\n  background: #ffd700;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/UserAreaDashComponent.vue?vue&type=style&index=0&id=afe2655e&lang=scss&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/UserAreaDashComponent.vue?vue&type=style&index=0&id=afe2655e&lang=scss&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".prueba[data-v-afe2655e] {\n  color: red;\n}\n.gradient[data-v-afe2655e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-afe2655e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-afe2655e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-afe2655e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-afe2655e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-afe2655e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-afe2655e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-afe2655e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-afe2655e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-afe2655e] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-afe2655e] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.user-dash[data-v-afe2655e] {\n  display: grid;\n  grid-template: 1fr 1fr 1fr 1fr 1fr/0.5fr 1fr 1fr 0.5fr;\n  gap: 10px;\n  overflow: auto;\n  -ms-overflow-style: none;\n  scrollbar-width: none;\n  height: 500px;\n}\n.user-dash[data-v-afe2655e]::-webkit-scrollbar {\n  display: none;\n}\n.user-dash div[data-v-afe2655e] {\n  align-self: center;\n}\n.user-dash div[data-v-afe2655e]:nth-child(even) {\n  grid-column: 2/3;\n}\n.user-dash div[data-v-afe2655e]:nth-child(odd) {\n  grid-column: 3/4;\n}\n.user-dash div[data-v-afe2655e]:nth-child(1) {\n  grid-column: 1/-1;\n  background: blue;\n  justify-self: center;\n  width: 130px;\n  height: 130px;\n  border-radius: 70px;\n  margin-top: 10px;\n}\n.buttons[data-v-afe2655e] {\n  display: flex;\n  padding: 30px;\n}\n.buttons > *[data-v-afe2655e] {\n  color: #fff;\n  font-size: 1.5rem;\n  background: #f857a6;\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  background: linear-gradient(to right, #ff5858, #f857a6);\n  border-radius: 10px;\n  width: 50%;\n  height: 50px;\n  margin: 5px;\n}", ""]);
 
 // exports
 
@@ -4798,36 +4942,6 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=style&index=0&id=00c8df5c&lang=scss&scoped=true&":
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=style&index=0&id=00c8df5c&lang=scss&scoped=true& ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--16-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--16-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./AreaDashComponent.vue?vue&type=style&index=0&id=00c8df5c&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=style&index=0&id=00c8df5c&lang=scss&scoped=true&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/ComboCountriesComponent.vue?vue&type=style&index=0&id=7ae91335&lang=scss&scoped=true&":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/ComboCountriesComponent.vue?vue&type=style&index=0&id=7ae91335&lang=scss&scoped=true& ***!
@@ -5257,6 +5371,36 @@ if(false) {}
 
 
 var content = __webpack_require__(/*! !../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--16-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--16-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./StatsAreaDashComponent.vue?vue&type=style&index=0&id=8a23f79e&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/StatsAreaDashComponent.vue?vue&type=style&index=0&id=8a23f79e&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/UserAreaDashComponent.vue?vue&type=style&index=0&id=afe2655e&lang=scss&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/UserAreaDashComponent.vue?vue&type=style&index=0&id=afe2655e&lang=scss&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--16-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--16-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./UserAreaDashComponent.vue?vue&type=style&index=0&id=afe2655e&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/UserAreaDashComponent.vue?vue&type=style&index=0&id=afe2655e&lang=scss&scoped=true&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -6190,10 +6334,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=template&id=00c8df5c&scoped=true&":
-/*!*************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=template&id=00c8df5c&scoped=true& ***!
-  \*************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=template&id=00c8df5c&":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=template&id=00c8df5c& ***!
+  \*************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -6205,10 +6349,10 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      {
+  return _c(
+    "div",
+    [
+      _c("user-area", {
         directives: [
           {
             name: "show",
@@ -6217,52 +6361,10 @@ var render = function() {
             expression: "area == 'Perfil'"
           }
         ],
-        staticClass: "user-dash",
         attrs: { user: _vm.user }
-      },
-      [
-        _c("div"),
-        _vm._v(" "),
-        _c("input-dash", {
-          attrs: {
-            "tittle-card": "Nombre",
-            type: "text",
-            content: _vm.user.name
-          }
-        }),
-        _vm._v(" "),
-        _c("input-dash", {
-          attrs: {
-            "tittle-card": "Email",
-            type: "text",
-            content: _vm.user.email
-          }
-        }),
-        _vm._v(" "),
-        _c("combo-countries", { attrs: { country: _vm.user.country } }),
-        _vm._v(" "),
-        _c("input-dash", {
-          attrs: { "tittle-card": "Antigua contraseña", type: "password" }
-        }),
-        _vm._v(" "),
-        _c("input-dash", {
-          attrs: { "tittle-card": "Nueva contraseña", type: "password" }
-        }),
-        _vm._v(" "),
-        _c("input-dash", { attrs: { "tittle-card": "Nombre", type: "text" } }),
-        _vm._v(" "),
-        _c("input-dash", {
-          attrs: { "tittle-card": "Confirma contraseña", type: "password" }
-        }),
-        _vm._v(" "),
-        _vm._m(0)
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
+      }),
+      _vm._v(" "),
+      _c("games-area", {
         directives: [
           {
             name: "show",
@@ -6270,15 +6372,11 @@ var render = function() {
             value: _vm.area == "Partidas",
             expression: "area == 'Partidas'"
           }
-        ]
-      },
-      [_c("games-area", { attrs: { user: _vm.user } })],
-      1
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
+        ],
+        attrs: { user: _vm.user }
+      }),
+      _vm._v(" "),
+      _c("stats-area", {
         directives: [
           {
             name: "show",
@@ -6287,14 +6385,9 @@ var render = function() {
             expression: "area == 'Estadisticas'"
           }
         ]
-      },
-      [_c("stats-area")],
-      1
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      {
+      }),
+      _vm._v(" "),
+      _c("notif-area", {
         directives: [
           {
             name: "show",
@@ -6303,20 +6396,12 @@ var render = function() {
             expression: "area == 'Notificaciones'"
           }
         ]
-      },
-      [_c("notif-area")],
-      1
-    )
-  ])
+      })
+    ],
+    1
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("button", [_vm._v("Guardar")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -6338,542 +6423,60 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("label", [_vm._v("Elige un pais")]),
+  return _c(
+    "div",
+    [
+      _c("p", [_vm._v("Selecciona tu país")]),
       _vm._v(" "),
-      _c("select", { staticClass: "form-select" }, [
-        _c("option", { attrs: { value: "AF" } }, [_vm._v("Afganistán")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "AL" } }, [_vm._v("Albania")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "DE" } }, [_vm._v("Alemania")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "AD" } }, [_vm._v("Andorra")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "AO" } }, [_vm._v("Angola")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "AI" } }, [_vm._v("Anguilla")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "AQ" } }, [_vm._v("Antártida")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "AG" } }, [_vm._v("Antigua y Barbuda")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "AN" } }, [
-          _vm._v("Antillas Holandesas")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "SA" } }, [_vm._v("Arabia Saudí")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "DZ" } }, [_vm._v("Argelia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "AR" } }, [_vm._v("Argentina")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "AM" } }, [_vm._v("Armenia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "AW" } }, [_vm._v("Aruba")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "AU" } }, [_vm._v("Australia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "AT" } }, [_vm._v("Austria")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "AZ" } }, [_vm._v("Azerbaiyán")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "BS" } }, [_vm._v("Bahamas")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "BH" } }, [_vm._v("Bahrein")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "BD" } }, [_vm._v("Bangladesh")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "BB" } }, [_vm._v("Barbados")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "BE" } }, [_vm._v("Bélgica")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "BZ" } }, [_vm._v("Belice")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "BJ" } }, [_vm._v("Benin")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "BM" } }, [_vm._v("Bermudas")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "BY" } }, [_vm._v("Bielorrusia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "MM" } }, [_vm._v("Birmania")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "BO" } }, [_vm._v("Bolivia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "BA" } }, [
-          _vm._v("Bosnia y Herzegovina")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "BW" } }, [_vm._v("Botswana")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "BR" } }, [_vm._v("Brasil")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "BN" } }, [_vm._v("Brunei")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "BG" } }, [_vm._v("Bulgaria")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "BF" } }, [_vm._v("Burkina Faso")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "BI" } }, [_vm._v("Burundi")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "BT" } }, [_vm._v("Bután")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "CV" } }, [_vm._v("Cabo Verde")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "KH" } }, [_vm._v("Camboya")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "CM" } }, [_vm._v("Camerún")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "CA" } }, [_vm._v("Canadá")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "TD" } }, [_vm._v("Chad")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "CL" } }, [_vm._v("Chile")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "CN" } }, [_vm._v("China")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "CY" } }, [_vm._v("Chipre")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "VA" } }, [
-          _vm._v("Ciudad del Vaticano (Santa Sede)")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "CO" } }, [_vm._v("Colombia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "KM" } }, [_vm._v("Comores")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "CG" } }, [_vm._v("Congo")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "CD" } }, [
-          _vm._v("Congo, República Democrática del")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "KR" } }, [_vm._v("Corea")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "KP" } }, [_vm._v("Corea del Norte")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "CI" } }, [_vm._v("Costa de Marfíl")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "CR" } }, [_vm._v("Costa Rica")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "HR" } }, [
-          _vm._v("Croacia (Hrvatska)")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "CU" } }, [_vm._v("Cuba")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "DK" } }, [_vm._v("Dinamarca")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "DJ" } }, [_vm._v("Djibouti")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "DM" } }, [_vm._v("Dominica")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "EC" } }, [_vm._v("Ecuador")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "EG" } }, [_vm._v("Egipto")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "SV" } }, [_vm._v("El Salvador")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "AE" } }, [
-          _vm._v("Emiratos Árabes Unidos")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "ER" } }, [_vm._v("Eritrea")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "SI" } }, [_vm._v("Eslovenia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "ES" } }, [_vm._v("España")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "US" } }, [_vm._v("Estados Unidos")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "EE" } }, [_vm._v("Estonia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "ET" } }, [_vm._v("Etiopía")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "FJ" } }, [_vm._v("Fiji")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "PH" } }, [_vm._v("Filipinas")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "FI" } }, [_vm._v("Finlandia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "FR" } }, [_vm._v("Francia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "GA" } }, [_vm._v("Gabón")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "GM" } }, [_vm._v("Gambia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "GE" } }, [_vm._v("Georgia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "GH" } }, [_vm._v("Ghana")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "GI" } }, [_vm._v("Gibraltar")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "GD" } }, [_vm._v("Granada")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "GR" } }, [_vm._v("Grecia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "GL" } }, [_vm._v("Groenlandia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "GP" } }, [_vm._v("Guadalupe")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "GU" } }, [_vm._v("Guam")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "GT" } }, [_vm._v("Guatemala")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "GY" } }, [_vm._v("Guayana")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "GF" } }, [_vm._v("Guayana Francesa")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "GN" } }, [_vm._v("Guinea")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "GQ" } }, [_vm._v("Guinea Ecuatorial")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "GW" } }, [_vm._v("Guinea-Bissau")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "HT" } }, [_vm._v("Haití")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "HN" } }, [_vm._v("Honduras")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "HU" } }, [_vm._v("Hungría")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "IN" } }, [_vm._v("India")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "ID" } }, [_vm._v("Indonesia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "IQ" } }, [_vm._v("Irak")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "IR" } }, [_vm._v("Irán")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "IE" } }, [_vm._v("Irlanda")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "BV" } }, [_vm._v("Isla Bouvet")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "CX" } }, [_vm._v("Isla de Christmas")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "IS" } }, [_vm._v("Islandia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "KY" } }, [_vm._v("Islas Caimán")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "CK" } }, [_vm._v("Islas Cook")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "CC" } }, [
-          _vm._v("Islas de Cocos o Keeling")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "FO" } }, [_vm._v("Islas Faroe")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "HM" } }, [
-          _vm._v("Islas Heard y McDonald")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "FK" } }, [_vm._v("Islas Malvinas")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "MP" } }, [
-          _vm._v("Islas Marianas del Norte")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "MH" } }, [_vm._v("Islas Marshall")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "UM" } }, [
-          _vm._v("Islas menores de Estados Unidos")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "PW" } }, [_vm._v("Islas Palau")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "SB" } }, [_vm._v("Islas Salomón")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "SJ" } }, [
-          _vm._v("Islas Svalbard y Jan Mayen")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "TK" } }, [_vm._v("Islas Tokelau")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "TC" } }, [
-          _vm._v("Islas Turks y Caicos")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "VI" } }, [
-          _vm._v("Islas Vírgenes (EEUU)")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "VG" } }, [
-          _vm._v("Islas Vírgenes (Reino Unido)")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "WF" } }, [
-          _vm._v("Islas Wallis y Futuna")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "IL" } }, [_vm._v("Israel")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "IT" } }, [_vm._v("Italia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "JM" } }, [_vm._v("Jamaica")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "JP" } }, [_vm._v("Japón")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "JO" } }, [_vm._v("Jordania")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "KZ" } }, [_vm._v("Kazajistán")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "KE" } }, [_vm._v("Kenia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "KG" } }, [_vm._v("Kirguizistán")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "KI" } }, [_vm._v("Kiribati")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "KW" } }, [_vm._v("Kuwait")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "LA" } }, [_vm._v("Laos")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "LS" } }, [_vm._v("Lesotho")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "LV" } }, [_vm._v("Letonia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "LB" } }, [_vm._v("Líbano")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "LR" } }, [_vm._v("Liberia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "LY" } }, [_vm._v("Libia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "LI" } }, [_vm._v("Liechtenstein")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "LT" } }, [_vm._v("Lituania")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "LU" } }, [_vm._v("Luxemburgo")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "MK" } }, [
-          _vm._v("Macedonia, Ex-República Yugoslava de")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "MG" } }, [_vm._v("Madagascar")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "MY" } }, [_vm._v("Malasia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "MW" } }, [_vm._v("Malawi")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "MV" } }, [_vm._v("Maldivas")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "ML" } }, [_vm._v("Malí")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "MT" } }, [_vm._v("Malta")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "MA" } }, [_vm._v("Marruecos")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "MQ" } }, [_vm._v("Martinica")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "MU" } }, [_vm._v("Mauricio")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "MR" } }, [_vm._v("Mauritania")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "YT" } }, [_vm._v("Mayotte")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "MX" } }, [_vm._v("México")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "FM" } }, [_vm._v("Micronesia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "MD" } }, [_vm._v("Moldavia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "MC" } }, [_vm._v("Mónaco")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "MN" } }, [_vm._v("Mongolia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "MS" } }, [_vm._v("Montserrat")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "MZ" } }, [_vm._v("Mozambique")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "NA" } }, [_vm._v("Namibia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "NR" } }, [_vm._v("Nauru")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "NP" } }, [_vm._v("Nepal")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "NI" } }, [_vm._v("Nicaragua")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "NE" } }, [_vm._v("Níger")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "NG" } }, [_vm._v("Nigeria")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "NU" } }, [_vm._v("Niue")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "NF" } }, [_vm._v("Norfolk")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "NO" } }, [_vm._v("Noruega")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "NC" } }, [_vm._v("Nueva Caledonia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "NZ" } }, [_vm._v("Nueva Zelanda")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "OM" } }, [_vm._v("Omán")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "NL" } }, [_vm._v("Países Bajos")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "PA" } }, [_vm._v("Panamá")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "PG" } }, [
-          _vm._v("Papúa Nueva Guinea")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "PK" } }, [_vm._v("Paquistán")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "PY" } }, [_vm._v("Paraguay")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "PE" } }, [_vm._v("Perú")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "PN" } }, [_vm._v("Pitcairn")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "PF" } }, [
-          _vm._v("Polinesia Francesa")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "PL" } }, [_vm._v("Polonia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "PT" } }, [_vm._v("Portugal")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "PR" } }, [_vm._v("Puerto Rico")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "QA" } }, [_vm._v("Qatar")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "UK" } }, [_vm._v("Reino Unido")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "CF" } }, [
-          _vm._v("República Centroafricana")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "CZ" } }, [_vm._v("República Checa")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "ZA" } }, [
-          _vm._v("República de Sudáfrica")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "DO" } }, [
-          _vm._v("República Dominicana")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "SK" } }, [
-          _vm._v("República Eslovaca")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "RE" } }, [_vm._v("Reunión")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "RW" } }, [_vm._v("Ruanda")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "RO" } }, [_vm._v("Rumania")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "RU" } }, [_vm._v("Rusia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "EH" } }, [_vm._v("Sahara Occidental")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "KN" } }, [
-          _vm._v("Saint Kitts y Nevis")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "WS" } }, [_vm._v("Samoa")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "AS" } }, [_vm._v("Samoa Americana")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "SM" } }, [_vm._v("San Marino")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "VC" } }, [
-          _vm._v("San Vicente y Granadinas")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "SH" } }, [_vm._v("Santa Helena")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "LC" } }, [_vm._v("Santa Lucía")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "ST" } }, [
-          _vm._v("Santo Tomé y Príncipe")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "SN" } }, [_vm._v("Senegal")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "SC" } }, [_vm._v("Seychelles")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "SL" } }, [_vm._v("Sierra Leona")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "SG" } }, [_vm._v("Singapur")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "SY" } }, [_vm._v("Siria")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "SO" } }, [_vm._v("Somalia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "LK" } }, [_vm._v("Sri Lanka")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "PM" } }, [
-          _vm._v("St Pierre y Miquelon")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "SZ" } }, [_vm._v("Suazilandia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "SD" } }, [_vm._v("Sudán")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "SE" } }, [_vm._v("Suecia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "CH" } }, [_vm._v("Suiza")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "SR" } }, [_vm._v("Surinam")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "TH" } }, [_vm._v("Tailandia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "TW" } }, [_vm._v("Taiwán")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "TZ" } }, [_vm._v("Tanzania")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "TJ" } }, [_vm._v("Tayikistán")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "TF" } }, [
-          _vm._v("Territorios franceses del Sur")
-        ]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "TP" } }, [_vm._v("Timor Oriental")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "TG" } }, [_vm._v("Togo")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "TO" } }, [_vm._v("Tonga")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "TT" } }, [_vm._v("Trinidad y Tobago")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "TN" } }, [_vm._v("Túnez")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "TM" } }, [_vm._v("Turkmenistán")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "TR" } }, [_vm._v("Turquía")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "TV" } }, [_vm._v("Tuvalu")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "UA" } }, [_vm._v("Ucrania")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "UG" } }, [_vm._v("Uganda")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "UY" } }, [_vm._v("Uruguay")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "UZ" } }, [_vm._v("Uzbekistán")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "VU" } }, [_vm._v("Vanuatu")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "VE" } }, [_vm._v("Venezuela")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "VN" } }, [_vm._v("Vietnam")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "YE" } }, [_vm._v("Yemen")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "YU" } }, [_vm._v("Yugoslavia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "ZM" } }, [_vm._v("Zambia")]),
-        _vm._v(" "),
-        _c("option", { attrs: { value: "ZW" } }, [_vm._v("Zimbabue")])
-      ])
-    ])
-  }
-]
+      _c("country-flag", {
+        attrs: { country: _vm.isoCode, size: "big", rounded: "true" }
+      }),
+      _vm._v(" "),
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.selectedCountry,
+              expression: "selectedCountry"
+            }
+          ],
+          staticClass: "form-select",
+          on: {
+            change: [
+              function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.selectedCountry = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              },
+              _vm.getISOCode
+            ]
+          }
+        },
+        _vm._l(_vm.countries, function(countrySelect) {
+          return _c(
+            "option",
+            { key: countrySelect.key, domProps: { value: countrySelect } },
+            [_vm._v("\n      " + _vm._s(countrySelect) + "\n    ")]
+          )
+        }),
+        0
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -6899,7 +6502,10 @@ var render = function() {
     "div",
     { staticClass: "scr-grid" },
     [
-      _c("header-dash", { staticClass: "header gradient" }),
+      _c("header-dash", {
+        staticClass: "header gradient",
+        attrs: { "user-name": _vm.user.name }
+      }),
       _vm._v(" "),
       _c("menu-dash", {
         staticClass: "menu gradient",
@@ -7135,18 +6741,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "header-dash" }, [
+    _c("p", [_vm._v(_vm._s(_vm.name))])
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "header-dash" }, [
-      _c("p", [_vm._v("Bienvenido Jaime")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -7172,11 +6771,92 @@ var render = function() {
     _c("fieldset", [
       _c("legend", [_vm._v(_vm._s(_vm.tittleCard))]),
       _vm._v(" "),
-      _c("input", {
-        staticClass: "form-control",
-        attrs: { type: _vm.type },
-        domProps: { value: _vm.content }
-      })
+      _vm.type === "checkbox"
+        ? _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.valueInput,
+                expression: "valueInput"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "checkbox" },
+            domProps: {
+              value: _vm.content,
+              checked: Array.isArray(_vm.valueInput)
+                ? _vm._i(_vm.valueInput, _vm.content) > -1
+                : _vm.valueInput
+            },
+            on: {
+              keyup: _vm.changeValue,
+              change: function($event) {
+                var $$a = _vm.valueInput,
+                  $$el = $event.target,
+                  $$c = $$el.checked ? true : false
+                if (Array.isArray($$a)) {
+                  var $$v = _vm.content,
+                    $$i = _vm._i($$a, $$v)
+                  if ($$el.checked) {
+                    $$i < 0 && (_vm.valueInput = $$a.concat([$$v]))
+                  } else {
+                    $$i > -1 &&
+                      (_vm.valueInput = $$a
+                        .slice(0, $$i)
+                        .concat($$a.slice($$i + 1)))
+                  }
+                } else {
+                  _vm.valueInput = $$c
+                }
+              }
+            }
+          })
+        : _vm.type === "radio"
+        ? _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.valueInput,
+                expression: "valueInput"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "radio" },
+            domProps: {
+              value: _vm.content,
+              checked: _vm._q(_vm.valueInput, _vm.content)
+            },
+            on: {
+              keyup: _vm.changeValue,
+              change: function($event) {
+                _vm.valueInput = _vm.content
+              }
+            }
+          })
+        : _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.valueInput,
+                expression: "valueInput"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: _vm.type },
+            domProps: { value: _vm.content, value: _vm.valueInput },
+            on: {
+              keyup: _vm.changeValue,
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.valueInput = $event.target.value
+              }
+            }
+          })
     ])
   ])
 }
@@ -7261,25 +6941,13 @@ var render = function() {
       _c("span", [_vm._v(_vm._s(_vm.game.score2))])
     ]),
     _vm._v(" "),
-    _c(
-      "div",
-      {
-        directives: [
-          {
-            name: "show",
-            rawName: "v-show",
-            value: _vm.game.state !== "win_p1" && _vm.game.state !== "win_p2",
-            expression: "game.state !== 'win_p1' && game.state !== 'win_p2'"
-          }
-        ],
-        staticClass: "game-buttons"
-      },
-      [
-        _c("button", { staticClass: "dash-button" }, [_vm._v("✓")]),
-        _vm._v(" "),
-        _c("button", { staticClass: "dash-button" }, [_vm._v("✗")])
-      ]
-    )
+    _vm.game.state !== "win_p1" && _vm.game.state !== "win_p2"
+      ? _c("div", { staticClass: "game-buttons" }, [
+          _c("button", { staticClass: "dash-button" }, [_vm._v("✓")]),
+          _vm._v(" "),
+          _c("button", { staticClass: "dash-button" }, [_vm._v("✗")])
+        ])
+      : _vm._e()
   ])
 }
 var staticRenderFns = []
@@ -7635,6 +7303,86 @@ var render = function() {
         ],
         1
       )
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/UserAreaDashComponent.vue?vue&type=template&id=afe2655e&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/UserAreaDashComponent.vue?vue&type=template&id=afe2655e&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("h2", { staticClass: "header-area-dash" }, [_vm._v("Perfil Usuario")]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "user-dash" },
+      [
+        _c("div"),
+        _vm._v(" "),
+        _c("input-dash", {
+          attrs: {
+            "tittle-card": "Nombre",
+            type: "text",
+            content: _vm.user.name
+          },
+          on: { "change-value": _vm.updateUser }
+        }),
+        _vm._v(" "),
+        _c("input-dash", {
+          attrs: {
+            "tittle-card": "Email",
+            type: "text",
+            content: _vm.userData.email
+          },
+          on: { "change-value": _vm.updateUser }
+        }),
+        _vm._v(" "),
+        _c("combo-countries", {
+          attrs: { title: "comboCountries", country: _vm.userData.country },
+          on: { "change-value": _vm.updateUser }
+        }),
+        _vm._v(" "),
+        _c("input-dash", {
+          attrs: { "tittle-card": "Antigua contraseña", type: "password" }
+        }),
+        _vm._v(" "),
+        _c("input-dash", {
+          attrs: { "tittle-card": "Nueva contraseña", type: "password" }
+        }),
+        _vm._v(" "),
+        _c("input-dash", { attrs: { "tittle-card": "Nombre", type: "text" } }),
+        _vm._v(" "),
+        _c("input-dash", {
+          attrs: { "tittle-card": "Confirma contraseña", type: "password" }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "buttons" }, [
+      _c("button", { on: { click: _vm.updateProfile } }, [
+        _vm._v("Guardar cambios")
+      ]),
+      _vm._v(" "),
+      _c("button", [_vm._v("Borrar cuenta")])
     ])
   ])
 }
@@ -19870,11 +19618,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _AreaDashComponent_vue_vue_type_template_id_00c8df5c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AreaDashComponent.vue?vue&type=template&id=00c8df5c&scoped=true& */ "./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=template&id=00c8df5c&scoped=true&");
+/* harmony import */ var _AreaDashComponent_vue_vue_type_template_id_00c8df5c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AreaDashComponent.vue?vue&type=template&id=00c8df5c& */ "./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=template&id=00c8df5c&");
 /* harmony import */ var _AreaDashComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AreaDashComponent.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _AreaDashComponent_vue_vue_type_style_index_0_id_00c8df5c_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AreaDashComponent.vue?vue&type=style&index=0&id=00c8df5c&lang=scss&scoped=true& */ "./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=style&index=0&id=00c8df5c&lang=scss&scoped=true&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -19882,13 +19628,13 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _AreaDashComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _AreaDashComponent_vue_vue_type_template_id_00c8df5c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _AreaDashComponent_vue_vue_type_template_id_00c8df5c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _AreaDashComponent_vue_vue_type_template_id_00c8df5c___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AreaDashComponent_vue_vue_type_template_id_00c8df5c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "00c8df5c",
+  null,
   null
   
 )
@@ -19914,35 +19660,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=style&index=0&id=00c8df5c&lang=scss&scoped=true&":
-/*!**********************************************************************************************************************************!*\
-  !*** ./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=style&index=0&id=00c8df5c&lang=scss&scoped=true& ***!
-  \**********************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AreaDashComponent_vue_vue_type_style_index_0_id_00c8df5c_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--16-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--16-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./AreaDashComponent.vue?vue&type=style&index=0&id=00c8df5c&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=style&index=0&id=00c8df5c&lang=scss&scoped=true&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AreaDashComponent_vue_vue_type_style_index_0_id_00c8df5c_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AreaDashComponent_vue_vue_type_style_index_0_id_00c8df5c_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AreaDashComponent_vue_vue_type_style_index_0_id_00c8df5c_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AreaDashComponent_vue_vue_type_style_index_0_id_00c8df5c_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-
-
-/***/ }),
-
-/***/ "./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=template&id=00c8df5c&scoped=true&":
-/*!*******************************************************************************************************************!*\
-  !*** ./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=template&id=00c8df5c&scoped=true& ***!
-  \*******************************************************************************************************************/
+/***/ "./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=template&id=00c8df5c&":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=template&id=00c8df5c& ***!
+  \*******************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AreaDashComponent_vue_vue_type_template_id_00c8df5c_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./AreaDashComponent.vue?vue&type=template&id=00c8df5c&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=template&id=00c8df5c&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AreaDashComponent_vue_vue_type_template_id_00c8df5c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AreaDashComponent_vue_vue_type_template_id_00c8df5c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./AreaDashComponent.vue?vue&type=template&id=00c8df5c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=template&id=00c8df5c&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AreaDashComponent_vue_vue_type_template_id_00c8df5c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AreaDashComponent_vue_vue_type_template_id_00c8df5c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AreaDashComponent_vue_vue_type_template_id_00c8df5c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -21253,6 +20983,93 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/assets/js/components/dashboard/UserAreaDashComponent.vue":
+/*!****************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/UserAreaDashComponent.vue ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _UserAreaDashComponent_vue_vue_type_template_id_afe2655e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UserAreaDashComponent.vue?vue&type=template&id=afe2655e&scoped=true& */ "./resources/assets/js/components/dashboard/UserAreaDashComponent.vue?vue&type=template&id=afe2655e&scoped=true&");
+/* harmony import */ var _UserAreaDashComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserAreaDashComponent.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/dashboard/UserAreaDashComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _UserAreaDashComponent_vue_vue_type_style_index_0_id_afe2655e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserAreaDashComponent.vue?vue&type=style&index=0&id=afe2655e&lang=scss&scoped=true& */ "./resources/assets/js/components/dashboard/UserAreaDashComponent.vue?vue&type=style&index=0&id=afe2655e&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _UserAreaDashComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _UserAreaDashComponent_vue_vue_type_template_id_afe2655e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _UserAreaDashComponent_vue_vue_type_template_id_afe2655e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "afe2655e",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/js/components/dashboard/UserAreaDashComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/UserAreaDashComponent.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/UserAreaDashComponent.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserAreaDashComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./UserAreaDashComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/UserAreaDashComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_UserAreaDashComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/UserAreaDashComponent.vue?vue&type=style&index=0&id=afe2655e&lang=scss&scoped=true&":
+/*!**************************************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/UserAreaDashComponent.vue?vue&type=style&index=0&id=afe2655e&lang=scss&scoped=true& ***!
+  \**************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_UserAreaDashComponent_vue_vue_type_style_index_0_id_afe2655e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--16-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--16-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./UserAreaDashComponent.vue?vue&type=style&index=0&id=afe2655e&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/UserAreaDashComponent.vue?vue&type=style&index=0&id=afe2655e&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_UserAreaDashComponent_vue_vue_type_style_index_0_id_afe2655e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_UserAreaDashComponent_vue_vue_type_style_index_0_id_afe2655e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_UserAreaDashComponent_vue_vue_type_style_index_0_id_afe2655e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_UserAreaDashComponent_vue_vue_type_style_index_0_id_afe2655e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/UserAreaDashComponent.vue?vue&type=template&id=afe2655e&scoped=true&":
+/*!***********************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/UserAreaDashComponent.vue?vue&type=template&id=afe2655e&scoped=true& ***!
+  \***********************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserAreaDashComponent_vue_vue_type_template_id_afe2655e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./UserAreaDashComponent.vue?vue&type=template&id=afe2655e&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/UserAreaDashComponent.vue?vue&type=template&id=afe2655e&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserAreaDashComponent_vue_vue_type_template_id_afe2655e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserAreaDashComponent_vue_vue_type_template_id_afe2655e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/assets/js/scr_home.js":
 /*!*****************************************!*\
   !*** ./resources/assets/js/scr_home.js ***!
@@ -21544,7 +21361,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return User; });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Game__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Game */ "./resources/classes/Game.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Game__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Game */ "./resources/classes/Game.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -21556,6 +21375,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 
 
 
@@ -21586,7 +21406,7 @@ var User = /*#__PURE__*/function () {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _Game__WEBPACK_IMPORTED_MODULE_1__["default"].getUserGames();
+                return _Game__WEBPACK_IMPORTED_MODULE_2__["default"].getUserGames();
 
               case 2:
                 arrayGames = _context.sent;
@@ -21621,7 +21441,7 @@ var User = /*#__PURE__*/function () {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return _Game__WEBPACK_IMPORTED_MODULE_1__["default"].getUserGames();
+                return _Game__WEBPACK_IMPORTED_MODULE_2__["default"].getUserGames();
 
               case 2:
                 arrayGames = _context2.sent;
@@ -21643,6 +21463,49 @@ var User = /*#__PURE__*/function () {
       }
 
       return getLoseGames;
+    }()
+  }, {
+    key: "updateProfile",
+    value: function () {
+      var _updateProfile = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(new_password, new_password_confirmation, old_password) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                console.log("object" + this.country);
+                _context3.prev = 1;
+                _context3.next = 4;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.put("/scrabble/user/update", {
+                  name: this.name,
+                  country: this.country,
+                  favourite_language: this.favourite_language,
+                  new_password: new_password,
+                  new_password_confirmation: new_password_confirmation,
+                  old_password: old_password
+                });
+
+              case 4:
+                _context3.next = 9;
+                break;
+
+              case 6:
+                _context3.prev = 6;
+                _context3.t0 = _context3["catch"](1);
+                console.log("ERROR: " + _context3.t0);
+
+              case 9:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this, [[1, 6]]);
+      }));
+
+      function updateProfile(_x, _x2, _x3) {
+        return _updateProfile.apply(this, arguments);
+      }
+
+      return updateProfile;
     }()
   }]);
 

@@ -1,6 +1,6 @@
 <template>
   <div class="scr-grid">
-    <header-dash class="header gradient" />
+    <header-dash class="header gradient" :user-name="user.name" />
     <menu-dash class="menu gradient" @changeArea="changeArea" />
     <games-dash class="games gradient" />
     <area-dash class="area" :area="menuArea" :user="userDash" />
