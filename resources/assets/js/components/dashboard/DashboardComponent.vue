@@ -3,7 +3,7 @@
     <header-dash class="header gradient" :user-name="user.name" />
     <menu-dash class="menu gradient" @changeArea="changeArea" />
     <games-dash class="games gradient" />
-    <area-dash class="area" :area="menuArea" :user="userDash" />
+    <area-dash class="area" :area="menuArea" :user="userDash" :games="games" />
     <friends-dash class="friends gradient" />
     <div class="news" />
   </div>
@@ -29,6 +29,10 @@ export default {
   props: {
     user: {
       type: Object,
+      required: true,
+    },
+    games: {
+      type: Array,
       required: true,
     },
   },

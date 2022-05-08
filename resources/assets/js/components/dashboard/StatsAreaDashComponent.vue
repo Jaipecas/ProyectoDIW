@@ -7,7 +7,7 @@
       <country-flag
         :country="statsList[statsLanguage].language_code"
         size="big"
-        rounded="true"
+        :rounded="true"
       />
       <button name="next" @click="beforeLanguage">&#8674;</button>
     </div>
@@ -18,11 +18,11 @@
         </div>
         <card-dash
           title="Partidas ganadas"
-          :stat="statsList[statsLanguage].won"
+          :stat-integer="statsList[statsLanguage].won"
         />
         <card-dash
           title="Partidas perdidas"
-          :stat="statsList[statsLanguage].lost"
+          :stat-integer="statsList[statsLanguage].lost"
         />
         <card-dash
           title="Partidas más valiosa"
@@ -30,21 +30,21 @@
         />
         <card-dash
           title="Palabra más valiosa"
-          :stat="statsList[statsLanguage].most_valuable_word_points"
+          :stat-integer="statsList[statsLanguage].most_valuable_word_points"
         />
         <card-dash
           title="Partida mejor palabra"
-          :stat="statsList[statsLanguage].most_valuable_word_game"
+          :stat-integer="statsList[statsLanguage].most_valuable_word_game"
           div
         />
         <card-dash
           title="Partida más corta"
-          :stat="statsList[statsLanguage].shortest_game"
+          :stat-integer="statsList[statsLanguage].shortest_game"
           div
         />
         <card-dash
           title="Partida más larga"
-          :stat="statsList[statsLanguage].longest_game"
+          :stat-integer="statsList[statsLanguage].longest_game"
           div
         />
       </div>
@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import CardDash from "../CardDashComponent.vue";
+import CardDash from "./CardDashComponent.vue";
 import UserStats from "../../../../classes/UserStats";
 import CountryFlag from "vue-country-flag";
 

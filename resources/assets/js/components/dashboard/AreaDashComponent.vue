@@ -1,7 +1,11 @@
 <template>
   <div>
     <user-area v-show="area == 'Perfil'" :user="user" />
-    <games-area v-show="area == 'Partidas'" :user="user" />
+    <games-area
+      v-show="area == 'Partidas'"
+      :user="user"
+      :pending-games="games"
+    />
     <stats-area v-show="area == 'Estadisticas'" />
     <notif-area v-show="area == 'Notificaciones'" />
   </div>
@@ -31,6 +35,10 @@ export default {
     },
     user: {
       type: User,
+      required: true,
+    },
+    games: {
+      type: Array,
       required: true,
     },
   },

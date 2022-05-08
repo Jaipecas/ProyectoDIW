@@ -46,10 +46,12 @@ export default class Game {
         }
     }
 
-    static async getPendingGames(gamesPage) {
-        let arrayGames = await this.getUserGames(gamesPage);
-        arrayGames = arrayGames.filter(game => game.state !== "win_p1" && game.state !== "win_p2");
-        return arrayGames;
-    }
+    //POR AHORA USAMOS LA VARIABLE BLADE PARA LOS JUEGOS PENDIENTES
+
+    /*  static async getPendingGames(gamesPage) {
+         let arrayGames = await this.getUserGames(gamesPage);
+         arrayGames = arrayGames.filter(game => game.state !== "win_p1" && game.state !== "win_p2");
+         return arrayGames;
+     } */
 
 }

@@ -7,34 +7,22 @@
     <div>
       <div class="player-match">
         <img :src="avatar1" alt="avatar usuario" />
-        <country-flag
-          :country="game.player1.country"
-          size="medium"
-          rounded="true"
-        />
-        <span>{{ game.player1.name }}</span>
+        <country-flag :country="user.country" size="medium" rounded="true" />
+        <span>{{ user.name }}</span>
       </div>
       <div class="player-match">
         <img :src="avatar2" alt="avatar usuario" />
-        <country-flag
-          :country="game.player2.country"
-          size="medium"
-          rounded="true"
-        />
-        <span>{{ game.player2.name }}</span>
+        <span>{{ game.opponent.name }}</span>
       </div>
     </div>
 
     <div>
-      <span>{{ game.score1 }}</span>
+      <span>{{ game.player_score }}</span>
       <span> - </span>
-      <span>{{ game.score2 }}</span>
+      <span>{{ games.opponent_score }}</span>
     </div>
 
-    <div
-      v-if="game.state !== 'win_p1' && game.state !== 'win_p2'"
-      class="game-buttons"
-    >
+    <div class="game-buttons">
       <button class="dash-button">&#10003;</button>
       <button class="dash-button">&#10007;</button>
     </div>
@@ -44,6 +32,7 @@
 <script>
 import Game from "../../../../classes/Game";
 import CountryFlag from "vue-country-flag";
+import User from "../../../../classes/User";
 
 export default {
   name: "MatchDashComponent",
@@ -53,6 +42,10 @@ export default {
   props: {
     game: {
       type: Game,
+      required: true,
+    },
+    user: {
+      type: User,
       required: true,
     },
   },
@@ -65,6 +58,7 @@ export default {
   created() {
     this.loadAvatar1(this.game.player1.avatar);
     this.loadAvatar2(this.game.player2.avatar);
+    console.log("PAERIDAS" + this.game);
   },
   methods: {
     //REPASAR ESTO NO ME COGE EL SEGUNO PARAMETRO

@@ -3,7 +3,8 @@
 'js_files' => ['scr_home']])
 
 @section('content')
-    <dashboard-component :user="{{ json_encode($user) }}">
+    <dashboard-component :user="{{ json_encode($user) }}"
+    :games="{{ json_encode($games) }}">
     </dashboard-component>
 @endsection
 

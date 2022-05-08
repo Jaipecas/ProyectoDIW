@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>Selecciona tu país</p>
-    <country-flag :country="isoCode" size="big" rounded="true" />
+    <country-flag :country="isoCode" size="big" :rounded="true" />
     <select v-model="selectedCountry" class="form-select" @change="getISOCode">
       <option
         v-for="countrySelect in countries"

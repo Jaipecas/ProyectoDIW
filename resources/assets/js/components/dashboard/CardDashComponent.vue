@@ -17,9 +17,32 @@ export default {
       type: String,
       required: true,
     },
-    stat: {
+    statString: {
       type: String,
-      required: true,
+      required: false,
+      default: "",
+    },
+    statInteger: {
+      type: Number,
+      required: false,
+      default: 0,
+    },
+  },
+  data: function () {
+    return {
+      stat: "",
+    };
+  },
+  created() {
+    this.insertStat();
+  },
+  methods: {
+    insertStat() {
+      if (this.statString === "") {
+        this.stat = this.statInteger;
+      } else {
+        this.stat = this.statString;
+      }
     },
   },
 };

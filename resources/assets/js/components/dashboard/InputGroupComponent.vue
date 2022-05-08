@@ -24,6 +24,13 @@ export default {
     type: {
       type: String,
       required: true,
+      validator: function (value) {
+        return ["text", "email", "password"].indexOf(value) !== -1;
+      },
+    },
+    editable: {
+      type: Boolean,
+      default: true,
     },
     content: {
       type: String,

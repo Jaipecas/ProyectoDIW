@@ -8,14 +8,18 @@
       <option value="all">Todas</option>
     </select>
     <div class="matches">
-      <match-dash v-for="game in gamesList" :key="game.id" :game="game" />
+      <match-dash
+        v-for="game in gamesList"
+        :key="game.id"
+        :user="user"
+        :game="game"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import MatchDash from "./MatchDashComponent.vue";
-import Game from "../../../../classes/Game";
 import User from "../../../../classes/User";
 
 export default {
@@ -24,35 +28,35 @@ export default {
     "match-dash": MatchDash,
   },
   props: {
-    user: User,
+    user: {
+      type: User,
+      required: true,
+    },
+    pendingGames: {
+      type: Array,
+      required: true,
+    },
   },
   data: function () {
     return {
       gamesList: Array,
     };
   },
-  created() {
-    this.getGamesList();
-  },
 
   methods: {
-    async getGamesList() {
-      this.gamesList = await Game.getPendingGames();
-      console.log(this.gamesList);
-    },
     async onChangeGame(event) {
       switch (event.target.value) {
         case "pending":
-          this.gamesList = await Game.getPendingGames();
+          this.gamesList = this.pendingGames;
           break;
         case "won":
-          this.gamesList = await this.user.getWonGames();
+          //this.gamesList = await this.user.getWonGames();
           break;
         case "lose":
-          this.gamesList = await this.user.getLoseGames();
+          //this.gamesList = await this.user.getLoseGames();
           break;
         case "all":
-          this.gamesList = await Game.getUserGames();
+          //this.gamesList = await Game.getUserGames();
           break;
       }
     },

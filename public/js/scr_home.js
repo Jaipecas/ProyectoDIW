@@ -1911,42 +1911,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/CardDashComponent.vue?vue&type=script&lang=js&":
-/*!***********************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/CardDashComponent.vue?vue&type=script&lang=js& ***!
-  \***********************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "CardDashComponent",
-  props: {
-    title: {
-      type: String,
-      required: true
-    },
-    stat: {
-      type: String,
-      required: true
-    }
-  }
-});
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=script&lang=js& ***!
@@ -1961,6 +1925,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _GamesAreaDashComponent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GamesAreaDashComponent.vue */ "./resources/assets/js/components/dashboard/GamesAreaDashComponent.vue");
 /* harmony import */ var _StatsAreaDashComponent_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./StatsAreaDashComponent.vue */ "./resources/assets/js/components/dashboard/StatsAreaDashComponent.vue");
 /* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
+//
+//
+//
+//
 //
 //
 //
@@ -1992,6 +1960,69 @@ __webpack_require__.r(__webpack_exports__);
     user: {
       type: _classes_User__WEBPACK_IMPORTED_MODULE_4__["default"],
       required: true
+    },
+    games: {
+      type: Array,
+      required: true
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/CardDashComponent.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/CardDashComponent.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "CardDashComponent",
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    statString: {
+      type: String,
+      required: false,
+      "default": ""
+    },
+    statInteger: {
+      type: Number,
+      required: false,
+      "default": 0
+    }
+  },
+  data: function data() {
+    return {
+      stat: ""
+    };
+  },
+  created: function created() {
+    this.insertStat();
+  },
+  methods: {
+    insertStat: function insertStat() {
+      if (this.statString === "") {
+        this.stat = this.statInteger;
+      } else {
+        this.stat = this.statString;
+      }
     }
   }
 });
@@ -2357,6 +2388,10 @@ __webpack_require__.r(__webpack_exports__);
     user: {
       type: Object,
       required: true
+    },
+    games: {
+      type: Array,
+      required: true
     }
   },
   data: function data() {
@@ -2451,8 +2486,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _MatchDashComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MatchDashComponent.vue */ "./resources/assets/js/components/dashboard/MatchDashComponent.vue");
-/* harmony import */ var _classes_Game__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../classes/Game */ "./resources/classes/Game.js");
-/* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
+/* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2474,7 +2508,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2483,18 +2521,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     "match-dash": _MatchDashComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   props: {
-    user: _classes_User__WEBPACK_IMPORTED_MODULE_3__["default"]
+    user: {
+      type: _classes_User__WEBPACK_IMPORTED_MODULE_2__["default"],
+      required: true
+    },
+    pendingGames: {
+      type: Array,
+      required: true
+    }
   },
   data: function data() {
     return {
       gamesList: Array
     };
   },
-  created: function created() {
-    this.getGamesList();
-  },
   methods: {
-    getGamesList: function getGamesList() {
+    onChangeGame: function onChangeGame(event) {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
@@ -2502,71 +2544,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
-                return _classes_Game__WEBPACK_IMPORTED_MODULE_2__["default"].getPendingGames();
+                _context.t0 = event.target.value;
+                _context.next = _context.t0 === "pending" ? 3 : _context.t0 === "won" ? 5 : _context.t0 === "lose" ? 6 : _context.t0 === "all" ? 7 : 8;
+                break;
 
-              case 2:
-                _this.gamesList = _context.sent;
-                console.log(_this.gamesList);
+              case 3:
+                _this.gamesList = _this.pendingGames;
+                return _context.abrupt("break", 8);
 
-              case 4:
+              case 5:
+                return _context.abrupt("break", 8);
+
+              case 6:
+                return _context.abrupt("break", 8);
+
+              case 7:
+                return _context.abrupt("break", 8);
+
+              case 8:
               case "end":
                 return _context.stop();
             }
           }
         }, _callee);
-      }))();
-    },
-    onChangeGame: function onChangeGame(event) {
-      var _this2 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.t0 = event.target.value;
-                _context2.next = _context2.t0 === "pending" ? 3 : _context2.t0 === "won" ? 7 : _context2.t0 === "lose" ? 11 : _context2.t0 === "all" ? 15 : 19;
-                break;
-
-              case 3:
-                _context2.next = 5;
-                return _classes_Game__WEBPACK_IMPORTED_MODULE_2__["default"].getPendingGames();
-
-              case 5:
-                _this2.gamesList = _context2.sent;
-                return _context2.abrupt("break", 19);
-
-              case 7:
-                _context2.next = 9;
-                return _this2.user.getWonGames();
-
-              case 9:
-                _this2.gamesList = _context2.sent;
-                return _context2.abrupt("break", 19);
-
-              case 11:
-                _context2.next = 13;
-                return _this2.user.getLoseGames();
-
-              case 13:
-                _this2.gamesList = _context2.sent;
-                return _context2.abrupt("break", 19);
-
-              case 15:
-                _context2.next = 17;
-                return _classes_Game__WEBPACK_IMPORTED_MODULE_2__["default"].getUserGames();
-
-              case 17:
-                _this2.gamesList = _context2.sent;
-                return _context2.abrupt("break", 19);
-
-              case 19:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
       }))();
     }
   }
@@ -2675,7 +2675,14 @@ __webpack_require__.r(__webpack_exports__);
     },
     type: {
       type: String,
-      required: true
+      required: true,
+      validator: function validator(value) {
+        return ["text", "email", "password"].indexOf(value) !== -1;
+      }
+    },
+    editable: {
+      type: Boolean,
+      "default": true
     },
     content: {
       type: String,
@@ -2710,6 +2717,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _classes_Game__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../classes/Game */ "./resources/classes/Game.js");
 /* harmony import */ var vue_country_flag__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-country-flag */ "./node_modules/vue-country-flag/dist/country-flag.esm.js");
+/* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
 //
 //
 //
@@ -2741,18 +2749,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2763,6 +2760,10 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     game: {
       type: _classes_Game__WEBPACK_IMPORTED_MODULE_0__["default"],
+      required: true
+    },
+    user: {
+      type: _classes_User__WEBPACK_IMPORTED_MODULE_2__["default"],
       required: true
     }
   },
@@ -2775,6 +2776,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.loadAvatar1(this.game.player1.avatar);
     this.loadAvatar2(this.game.player2.avatar);
+    console.log("PAERIDAS" + this.game);
   },
   methods: {
     //REPASAR ESTO NO ME COGE EL SEGUNO PARAMETRO
@@ -3121,7 +3123,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _CardDashComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CardDashComponent.vue */ "./resources/assets/js/components/CardDashComponent.vue");
+/* harmony import */ var _CardDashComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CardDashComponent.vue */ "./resources/assets/js/components/dashboard/CardDashComponent.vue");
 /* harmony import */ var _classes_UserStats__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../classes/UserStats */ "./resources/classes/UserStats.js");
 /* harmony import */ var vue_country_flag__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-country-flag */ "./node_modules/vue-country-flag/dist/country-flag.esm.js");
 
@@ -3307,6 +3309,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -3350,19 +3357,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/CardDashComponent.vue?vue&type=style&index=0&id=31ce29b4&lang=scss&scoped=true&":
-/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/CardDashComponent.vue?vue&type=style&index=0&id=31ce29b4&lang=scss&scoped=true& ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/CardDashComponent.vue?vue&type=style&index=0&id=77982b39&lang=scss&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/CardDashComponent.vue?vue&type=style&index=0&id=77982b39&lang=scss&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
 // module
-exports.push([module.i, ".prueba[data-v-31ce29b4] {\n  color: red;\n}\n.gradient[data-v-31ce29b4] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-31ce29b4 10s ease alternate infinite;\n          animation: animatedgradient-data-v-31ce29b4 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-31ce29b4 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-31ce29b4 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-31ce29b4] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-31ce29b4] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-31ce29b4] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-31ce29b4] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-31ce29b4] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-31ce29b4] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-77982b39] {\n  color: red;\n}\n.gradient[data-v-77982b39] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-77982b39 10s ease alternate infinite;\n          animation: animatedgradient-data-v-77982b39 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-77982b39 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-77982b39 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-77982b39] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-77982b39] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-77982b39] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-77982b39] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-77982b39] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-77982b39] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}", ""]);
 
 // exports
 
@@ -4912,15 +4919,15 @@ try {
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/CardDashComponent.vue?vue&type=style&index=0&id=31ce29b4&lang=scss&scoped=true&":
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/CardDashComponent.vue?vue&type=style&index=0&id=31ce29b4&lang=scss&scoped=true& ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/CardDashComponent.vue?vue&type=style&index=0&id=77982b39&lang=scss&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/CardDashComponent.vue?vue&type=style&index=0&id=77982b39&lang=scss&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--16-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--16-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./CardDashComponent.vue?vue&type=style&index=0&id=31ce29b4&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/CardDashComponent.vue?vue&type=style&index=0&id=31ce29b4&lang=scss&scoped=true&");
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--16-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--16-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CardDashComponent.vue?vue&type=style&index=0&id=77982b39&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/CardDashComponent.vue?vue&type=style&index=0&id=77982b39&lang=scss&scoped=true&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -4934,7 +4941,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -6304,36 +6311,6 @@ var entry_esm = /*#__PURE__*/(() => {
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/CardDashComponent.vue?vue&type=template&id=31ce29b4&scoped=true&":
-/*!***************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/CardDashComponent.vue?vue&type=template&id=31ce29b4&scoped=true& ***!
-  \***************************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "dash-card" }, [
-    _c("div", { staticClass: "header" }, [
-      _vm._v("\n    " + _vm._s(_vm.title) + "\n  ")
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "content" }, [_c("p", [_vm._v(_vm._s(_vm.stat))])])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=template&id=00c8df5c&":
 /*!*************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=template&id=00c8df5c& ***!
@@ -6373,7 +6350,7 @@ var render = function() {
             expression: "area == 'Partidas'"
           }
         ],
-        attrs: { user: _vm.user }
+        attrs: { user: _vm.user, "pending-games": _vm.games }
       }),
       _vm._v(" "),
       _c("stats-area", {
@@ -6408,6 +6385,36 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/CardDashComponent.vue?vue&type=template&id=77982b39&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/CardDashComponent.vue?vue&type=template&id=77982b39&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "dash-card" }, [
+    _c("div", { staticClass: "header" }, [
+      _vm._v("\n    " + _vm._s(_vm.title) + "\n  ")
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "content" }, [_c("p", [_vm._v(_vm._s(_vm.stat))])])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/ComboCountriesComponent.vue?vue&type=template&id=7ae91335&scoped=true&":
 /*!*******************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/ComboCountriesComponent.vue?vue&type=template&id=7ae91335&scoped=true& ***!
@@ -6429,7 +6436,7 @@ var render = function() {
       _c("p", [_vm._v("Selecciona tu país")]),
       _vm._v(" "),
       _c("country-flag", {
-        attrs: { country: _vm.isoCode, size: "big", rounded: "true" }
+        attrs: { country: _vm.isoCode, size: "big", rounded: true }
       }),
       _vm._v(" "),
       _c(
@@ -6516,7 +6523,7 @@ var render = function() {
       _vm._v(" "),
       _c("area-dash", {
         staticClass: "area",
-        attrs: { area: _vm.menuArea, user: _vm.userDash }
+        attrs: { area: _vm.menuArea, user: _vm.userDash, games: _vm.games }
       }),
       _vm._v(" "),
       _c("friends-dash", { staticClass: "friends gradient" }),
@@ -6668,7 +6675,10 @@ var render = function() {
       "div",
       { staticClass: "matches" },
       _vm._l(_vm.gamesList, function(game) {
-        return _c("match-dash", { key: game.id, attrs: { game: game } })
+        return _c("match-dash", {
+          key: game.id,
+          attrs: { user: _vm.user, game: game }
+        })
       }),
       1
     )
@@ -6902,55 +6912,47 @@ var render = function() {
           _vm._v(" "),
           _c("country-flag", {
             attrs: {
-              country: _vm.game.player1.country,
+              country: _vm.user.country,
               size: "medium",
               rounded: "true"
             }
           }),
           _vm._v(" "),
-          _c("span", [_vm._v(_vm._s(_vm.game.player1.name))])
+          _c("span", [_vm._v(_vm._s(_vm.user.name))])
         ],
         1
       ),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "player-match" },
-        [
-          _c("img", { attrs: { src: _vm.avatar2, alt: "avatar usuario" } }),
-          _vm._v(" "),
-          _c("country-flag", {
-            attrs: {
-              country: _vm.game.player2.country,
-              size: "medium",
-              rounded: "true"
-            }
-          }),
-          _vm._v(" "),
-          _c("span", [_vm._v(_vm._s(_vm.game.player2.name))])
-        ],
-        1
-      )
+      _c("div", { staticClass: "player-match" }, [
+        _c("img", { attrs: { src: _vm.avatar2, alt: "avatar usuario" } }),
+        _vm._v(" "),
+        _c("span", [_vm._v(_vm._s(_vm.game.opponent.name))])
+      ])
     ]),
     _vm._v(" "),
     _c("div", [
-      _c("span", [_vm._v(_vm._s(_vm.game.score1))]),
+      _c("span", [_vm._v(_vm._s(_vm.game.player_score))]),
       _vm._v(" "),
       _c("span", [_vm._v(" - ")]),
       _vm._v(" "),
-      _c("span", [_vm._v(_vm._s(_vm.game.score2))])
+      _c("span", [_vm._v(_vm._s(_vm.games.opponent_score))])
     ]),
     _vm._v(" "),
-    _vm.game.state !== "win_p1" && _vm.game.state !== "win_p2"
-      ? _c("div", { staticClass: "game-buttons" }, [
-          _c("button", { staticClass: "dash-button" }, [_vm._v("✓")]),
-          _vm._v(" "),
-          _c("button", { staticClass: "dash-button" }, [_vm._v("✗")])
-        ])
-      : _vm._e()
+    _vm._m(0)
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "game-buttons" }, [
+      _c("button", { staticClass: "dash-button" }, [_vm._v("✓")]),
+      _vm._v(" "),
+      _c("button", { staticClass: "dash-button" }, [_vm._v("✗")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -7223,7 +7225,7 @@ var render = function() {
           attrs: {
             country: _vm.statsList[_vm.statsLanguage].language_code,
             size: "big",
-            rounded: "true"
+            rounded: true
           }
         }),
         _vm._v(" "),
@@ -7252,14 +7254,14 @@ var render = function() {
           _c("card-dash", {
             attrs: {
               title: "Partidas ganadas",
-              stat: _vm.statsList[_vm.statsLanguage].won
+              "stat-integer": _vm.statsList[_vm.statsLanguage].won
             }
           }),
           _vm._v(" "),
           _c("card-dash", {
             attrs: {
               title: "Partidas perdidas",
-              stat: _vm.statsList[_vm.statsLanguage].lost
+              "stat-integer": _vm.statsList[_vm.statsLanguage].lost
             }
           }),
           _vm._v(" "),
@@ -7273,14 +7275,16 @@ var render = function() {
           _c("card-dash", {
             attrs: {
               title: "Palabra más valiosa",
-              stat: _vm.statsList[_vm.statsLanguage].most_valuable_word_points
+              "stat-integer":
+                _vm.statsList[_vm.statsLanguage].most_valuable_word_points
             }
           }),
           _vm._v(" "),
           _c("card-dash", {
             attrs: {
               title: "Partida mejor palabra",
-              stat: _vm.statsList[_vm.statsLanguage].most_valuable_word_game,
+              "stat-integer":
+                _vm.statsList[_vm.statsLanguage].most_valuable_word_game,
               div: ""
             }
           }),
@@ -7288,7 +7292,7 @@ var render = function() {
           _c("card-dash", {
             attrs: {
               title: "Partida más corta",
-              stat: _vm.statsList[_vm.statsLanguage].shortest_game,
+              "stat-integer": _vm.statsList[_vm.statsLanguage].shortest_game,
               div: ""
             }
           }),
@@ -7296,7 +7300,7 @@ var render = function() {
           _c("card-dash", {
             attrs: {
               title: "Partida más larga",
-              stat: _vm.statsList[_vm.statsLanguage].longest_game,
+              "stat-integer": _vm.statsList[_vm.statsLanguage].longest_game,
               div: ""
             }
           })
@@ -7341,7 +7345,8 @@ var render = function() {
           attrs: {
             "tittle-card": "Nombre",
             type: "text",
-            content: _vm.user.name
+            content: _vm.user.name,
+            editable: ""
           },
           on: { "change-value": _vm.updateUser }
         }),
@@ -7361,17 +7366,31 @@ var render = function() {
         }),
         _vm._v(" "),
         _c("input-dash", {
-          attrs: { "tittle-card": "Antigua contraseña", type: "password" }
+          attrs: {
+            "tittle-card": "Antigua contraseña",
+            type: "password",
+            content: ""
+          }
         }),
         _vm._v(" "),
         _c("input-dash", {
-          attrs: { "tittle-card": "Nueva contraseña", type: "password" }
+          attrs: {
+            "tittle-card": "Nueva contraseña",
+            type: "password",
+            content: ""
+          }
         }),
         _vm._v(" "),
-        _c("input-dash", { attrs: { "tittle-card": "Nombre", type: "text" } }),
+        _c("input-dash", {
+          attrs: { "tittle-card": "Nombre", type: "text", content: "" }
+        }),
         _vm._v(" "),
         _c("input-dash", {
-          attrs: { "tittle-card": "Confirma contraseña", type: "password" }
+          attrs: {
+            "tittle-card": "Confirma contraseña",
+            type: "password",
+            content: ""
+          }
         })
       ],
       1
@@ -19522,93 +19541,6 @@ module.exports = g;
 
 /***/ }),
 
-/***/ "./resources/assets/js/components/CardDashComponent.vue":
-/*!**************************************************************!*\
-  !*** ./resources/assets/js/components/CardDashComponent.vue ***!
-  \**************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _CardDashComponent_vue_vue_type_template_id_31ce29b4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CardDashComponent.vue?vue&type=template&id=31ce29b4&scoped=true& */ "./resources/assets/js/components/CardDashComponent.vue?vue&type=template&id=31ce29b4&scoped=true&");
-/* harmony import */ var _CardDashComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CardDashComponent.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/CardDashComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _CardDashComponent_vue_vue_type_style_index_0_id_31ce29b4_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CardDashComponent.vue?vue&type=style&index=0&id=31ce29b4&lang=scss&scoped=true& */ "./resources/assets/js/components/CardDashComponent.vue?vue&type=style&index=0&id=31ce29b4&lang=scss&scoped=true&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _CardDashComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _CardDashComponent_vue_vue_type_template_id_31ce29b4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _CardDashComponent_vue_vue_type_template_id_31ce29b4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "31ce29b4",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/assets/js/components/CardDashComponent.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/assets/js/components/CardDashComponent.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************!*\
-  !*** ./resources/assets/js/components/CardDashComponent.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDashComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./CardDashComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/CardDashComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDashComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/assets/js/components/CardDashComponent.vue?vue&type=style&index=0&id=31ce29b4&lang=scss&scoped=true&":
-/*!************************************************************************************************************************!*\
-  !*** ./resources/assets/js/components/CardDashComponent.vue?vue&type=style&index=0&id=31ce29b4&lang=scss&scoped=true& ***!
-  \************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDashComponent_vue_vue_type_style_index_0_id_31ce29b4_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--16-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--16-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./CardDashComponent.vue?vue&type=style&index=0&id=31ce29b4&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/CardDashComponent.vue?vue&type=style&index=0&id=31ce29b4&lang=scss&scoped=true&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDashComponent_vue_vue_type_style_index_0_id_31ce29b4_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDashComponent_vue_vue_type_style_index_0_id_31ce29b4_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDashComponent_vue_vue_type_style_index_0_id_31ce29b4_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDashComponent_vue_vue_type_style_index_0_id_31ce29b4_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-
-
-/***/ }),
-
-/***/ "./resources/assets/js/components/CardDashComponent.vue?vue&type=template&id=31ce29b4&scoped=true&":
-/*!*********************************************************************************************************!*\
-  !*** ./resources/assets/js/components/CardDashComponent.vue?vue&type=template&id=31ce29b4&scoped=true& ***!
-  \*********************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDashComponent_vue_vue_type_template_id_31ce29b4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./CardDashComponent.vue?vue&type=template&id=31ce29b4&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/CardDashComponent.vue?vue&type=template&id=31ce29b4&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDashComponent_vue_vue_type_template_id_31ce29b4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDashComponent_vue_vue_type_template_id_31ce29b4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
 /***/ "./resources/assets/js/components/dashboard/AreaDashComponent.vue":
 /*!************************************************************************!*\
   !*** ./resources/assets/js/components/dashboard/AreaDashComponent.vue ***!
@@ -19673,6 +19605,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AreaDashComponent_vue_vue_type_template_id_00c8df5c___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AreaDashComponent_vue_vue_type_template_id_00c8df5c___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/CardDashComponent.vue":
+/*!************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/CardDashComponent.vue ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CardDashComponent_vue_vue_type_template_id_77982b39_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CardDashComponent.vue?vue&type=template&id=77982b39&scoped=true& */ "./resources/assets/js/components/dashboard/CardDashComponent.vue?vue&type=template&id=77982b39&scoped=true&");
+/* harmony import */ var _CardDashComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CardDashComponent.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/dashboard/CardDashComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _CardDashComponent_vue_vue_type_style_index_0_id_77982b39_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CardDashComponent.vue?vue&type=style&index=0&id=77982b39&lang=scss&scoped=true& */ "./resources/assets/js/components/dashboard/CardDashComponent.vue?vue&type=style&index=0&id=77982b39&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _CardDashComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CardDashComponent_vue_vue_type_template_id_77982b39_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CardDashComponent_vue_vue_type_template_id_77982b39_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "77982b39",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/js/components/dashboard/CardDashComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/CardDashComponent.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/CardDashComponent.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDashComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CardDashComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/CardDashComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDashComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/CardDashComponent.vue?vue&type=style&index=0&id=77982b39&lang=scss&scoped=true&":
+/*!**********************************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/CardDashComponent.vue?vue&type=style&index=0&id=77982b39&lang=scss&scoped=true& ***!
+  \**********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDashComponent_vue_vue_type_style_index_0_id_77982b39_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--16-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--16-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CardDashComponent.vue?vue&type=style&index=0&id=77982b39&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/CardDashComponent.vue?vue&type=style&index=0&id=77982b39&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDashComponent_vue_vue_type_style_index_0_id_77982b39_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDashComponent_vue_vue_type_style_index_0_id_77982b39_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDashComponent_vue_vue_type_style_index_0_id_77982b39_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDashComponent_vue_vue_type_style_index_0_id_77982b39_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/CardDashComponent.vue?vue&type=template&id=77982b39&scoped=true&":
+/*!*******************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/CardDashComponent.vue?vue&type=template&id=77982b39&scoped=true& ***!
+  \*******************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDashComponent_vue_vue_type_template_id_77982b39_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CardDashComponent.vue?vue&type=template&id=77982b39&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/CardDashComponent.vue?vue&type=template&id=77982b39&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDashComponent_vue_vue_type_template_id_77982b39_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CardDashComponent_vue_vue_type_template_id_77982b39_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -21183,40 +21202,14 @@ var Game = /*#__PURE__*/function () {
       }
 
       return getUserGames;
-    }()
-  }, {
-    key: "getPendingGames",
-    value: function () {
-      var _getPendingGames = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(gamesPage) {
-        var arrayGames;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.next = 2;
-                return this.getUserGames(gamesPage);
+    }() //POR AHORA USAMOS LA VARIABLE BLADE PARA LOS JUEGOS PENDIENTES
 
-              case 2:
-                arrayGames = _context2.sent;
-                arrayGames = arrayGames.filter(function (game) {
-                  return game.state !== "win_p1" && game.state !== "win_p2";
-                });
-                return _context2.abrupt("return", arrayGames);
+    /*  static async getPendingGames(gamesPage) {
+         let arrayGames = await this.getUserGames(gamesPage);
+         arrayGames = arrayGames.filter(game => game.state !== "win_p1" && game.state !== "win_p2");
+         return arrayGames;
+     } */
 
-              case 5:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2, this);
-      }));
-
-      function getPendingGames(_x2) {
-        return _getPendingGames.apply(this, arguments);
-      }
-
-      return getPendingGames;
-    }()
   }]);
 
   return Game;

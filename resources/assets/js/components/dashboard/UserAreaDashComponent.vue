@@ -7,6 +7,7 @@
         tittle-card="Nombre"
         type="text"
         :content="user.name"
+        editable
         @change-value="updateUser"
       />
       <input-dash
@@ -20,10 +21,14 @@
         :country="userData.country"
         @change-value="updateUser"
       />
-      <input-dash tittle-card="Antigua contraseña" type="password" />
-      <input-dash tittle-card="Nueva contraseña" type="password" />
-      <input-dash tittle-card="Nombre" type="text" />
-      <input-dash tittle-card="Confirma contraseña" type="password" />
+      <input-dash tittle-card="Antigua contraseña" type="password" content="" />
+      <input-dash tittle-card="Nueva contraseña" type="password" content="" />
+      <input-dash tittle-card="Nombre" type="text" content="" />
+      <input-dash
+        tittle-card="Confirma contraseña"
+        type="password"
+        content=""
+      />
     </div>
     <div class="buttons">
       <button @click="updateProfile">Guardar cambios</button>
