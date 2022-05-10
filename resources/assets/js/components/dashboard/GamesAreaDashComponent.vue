@@ -8,24 +8,35 @@
       <option value="all">Todas</option>
     </select>
     <div class="matches">
-      <match-dash
-        v-for="game in gamesList"
-        :key="game.id"
-        :user="user"
-        :game="game"
-      />
+      <start-area />
+      <div>
+        <div class="legend">
+          <span>Tu turno</span>
+          <span>Openente</span>
+          <span>Por confirmar</span>
+        </div>
+        <match-dash
+          v-for="game in gamesList"
+          :key="game.id"
+          :user="user"
+          :game="game"
+          @delete-game="deleteGame"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import MatchDash from "./MatchDashComponent.vue";
 import User from "../../../../classes/User";
+import MatchDash from "./MatchDashComponent.vue";
+import StartGameArea from "./StartGameAreaComponent.vue";
 
 export default {
   name: "GameAreaDashComponent",
   components: {
     "match-dash": MatchDash,
+    "start-area": StartGameArea,
   },
   props: {
     user: {
@@ -41,6 +52,10 @@ export default {
     return {
       gamesList: Array,
     };
+  },
+  created() {
+    this.gamesList = this.pendingGames;
+    this.reOrderGames();
   },
 
   methods: {
@@ -60,6 +75,15 @@ export default {
           break;
       }
     },
+    deleteGame(id) {
+      this.gamesList = this.gamesList.filter((game) => game.id !== id);
+    },
+    reOrderGames() {
+      let noStart = this.gamesList.filter((game) => game.state === 0);
+      let reOrderArray = this.gamesList.filter((game) => game.state !== 0);
+      reOrderArray = reOrderArray.sort((a, b) => a.state - b.state);
+      this.gamesList = reOrderArray.concat(noStart);
+    },
   },
 };
 </script>
@@ -67,15 +91,31 @@ export default {
 <style lang="scss" scoped>
 @import "resources/assets/sass/_dashboard_main.scss";
 
-.match-area {
-  .matches {
-    @include area-scroll(500px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.matches {
+  display: grid;
+  grid-template: 1fr / 1fr 1fr;
 
-    > * {
-      margin: 20px;
+  :nth-child(1) {
+    justify-self: center;
+  }
+
+  :nth-child(2) {
+    justify-self: center;
+
+    .legend {
+      margin: 10px;
+      > * {
+        padding: 5px;
+      }
+      :nth-child(1) {
+        background: $color-player-turn;
+      }
+      :nth-child(2) {
+        background: $color-oponent-turn;
+      }
+      :nth-child(3) {
+        background: $color-no-turn;
+      }
     }
   }
 }

@@ -2485,8 +2485,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _MatchDashComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MatchDashComponent.vue */ "./resources/assets/js/components/dashboard/MatchDashComponent.vue");
-/* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
+/* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
+/* harmony import */ var _MatchDashComponent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MatchDashComponent.vue */ "./resources/assets/js/components/dashboard/MatchDashComponent.vue");
+/* harmony import */ var _StartGameAreaComponent_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./StartGameAreaComponent.vue */ "./resources/assets/js/components/dashboard/StartGameAreaComponent.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2513,16 +2514,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GameAreaDashComponent",
   components: {
-    "match-dash": _MatchDashComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    "match-dash": _MatchDashComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    "start-area": _StartGameAreaComponent_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   props: {
     user: {
-      type: _classes_User__WEBPACK_IMPORTED_MODULE_2__["default"],
+      type: _classes_User__WEBPACK_IMPORTED_MODULE_1__["default"],
       required: true
     },
     pendingGames: {
@@ -2534,6 +2546,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       gamesList: Array
     };
+  },
+  created: function created() {
+    this.gamesList = this.pendingGames;
+    this.reOrderGames();
   },
   methods: {
     onChangeGame: function onChangeGame(event) {
@@ -2568,6 +2584,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee);
       }))();
+    },
+    deleteGame: function deleteGame(id) {
+      this.gamesList = this.gamesList.filter(function (game) {
+        return game.id !== id;
+      });
+    },
+    reOrderGames: function reOrderGames() {
+      var noStart = this.gamesList.filter(function (game) {
+        return game.state === 0;
+      });
+      var reOrderArray = this.gamesList.filter(function (game) {
+        return game.state !== 0;
+      });
+      reOrderArray = reOrderArray.sort(function (a, b) {
+        return a.state - b.state;
+      });
+      this.gamesList = reOrderArray.concat(noStart);
     }
   }
 });
@@ -2715,9 +2748,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _classes_Game__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../classes/Game */ "./resources/classes/Game.js");
-/* harmony import */ var vue_country_flag__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-country-flag */ "./node_modules/vue-country-flag/dist/country-flag.esm.js");
-/* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
+/* harmony import */ var vue_country_flag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-country-flag */ "./node_modules/vue-country-flag/dist/country-flag.esm.js");
+/* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
 //
 //
 //
@@ -2736,62 +2768,65 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MatchDashComponent",
   components: {
-    "country-flag": vue_country_flag__WEBPACK_IMPORTED_MODULE_1__["default"]
+    "country-flag": vue_country_flag__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   props: {
     game: {
-      type: _classes_Game__WEBPACK_IMPORTED_MODULE_0__["default"],
+      type: Object,
       required: true
     },
     user: {
-      type: _classes_User__WEBPACK_IMPORTED_MODULE_2__["default"],
+      type: _classes_User__WEBPACK_IMPORTED_MODULE_1__["default"],
       required: true
     }
   },
   data: function data() {
     return {
-      avatar1: "",
-      avatar2: ""
+      avatar: "",
+      date: "",
+      time: "",
+      containerStyle: "container-match "
     };
   },
   created: function created() {
-    this.loadAvatar1(this.game.player1.avatar);
-    this.loadAvatar2(this.game.player2.avatar);
-    console.log("PAERIDAS" + this.game);
+    this.loadAvatar(this.game.opponent[0].avatar);
+    this.getDateTime();
+    this.insertColor();
   },
   methods: {
-    //REPASAR ESTO NO ME COGE EL SEGUNO PARAMETRO
-    loadAvatar1: function loadAvatar1(ruta) {
+    loadAvatar: function loadAvatar(ruta) {
       if (ruta === "" || ruta === null) {
-        this.avatar1 = "/img/gamer.png";
+        this.avatar = "/img/gamer.png";
       } else {
-        this.avatar1 = ruta;
+        this.avatar = ruta;
       }
     },
-    loadAvatar2: function loadAvatar2(ruta) {
-      if (ruta === "" || ruta === null) {
-        this.avatar2 = "/img/gamer.png";
-      } else {
-        this.avatar2 = ruta;
+    getDateTime: function getDateTime() {
+      var date = new Date(this.game.updated_at);
+      this.date = date.toLocaleDateString("es-ES");
+      this.time = date.toLocaleTimeString("es-ES");
+    },
+    deleteGame: function deleteGame() {
+      this.$emit("delete-game", this.game.id);
+    },
+    insertColor: function insertColor() {
+      switch (this.game.state) {
+        case 0:
+          this.containerStyle += "game-grey";
+          break;
+
+        case 1:
+          this.containerStyle += "game-green";
+          break;
+
+        case 2:
+          this.containerStyle += "game-red";
+          break;
       }
     }
   }
@@ -3112,6 +3147,27 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/StartGameAreaComponent.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/StartGameAreaComponent.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "StartGameAreaComponent"
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/StatsAreaDashComponent.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/StatsAreaDashComponent.vue?vue&type=script&lang=js& ***!
@@ -3132,9 +3188,6 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-//
-//
-//
 //
 //
 //
@@ -3243,12 +3296,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     nextLanguage: function nextLanguage() {
+      console.log(this.statsList[this.statsLanguage]);
+
       if (this.statsLanguage === this.statsList.length - 1) {
         this.statsLanguage = 0;
         return;
       }
 
       this.statsLanguage++;
+      console.log(this.statsList[this.statsLanguage]);
     },
     beforeLanguage: function beforeLanguage() {
       if (this.statsLanguage === 0) {
@@ -3464,7 +3520,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-4c531f4f] {\n  color: red;\n}\n.gradient[data-v-4c531f4f] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-4c531f4f 10s ease alternate infinite;\n          animation: animatedgradient-data-v-4c531f4f 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-4c531f4f {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-4c531f4f {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-4c531f4f] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-4c531f4f] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-4c531f4f] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-4c531f4f] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-4c531f4f] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-4c531f4f] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.match-area .matches[data-v-4c531f4f] {\n  overflow: auto;\n  -ms-overflow-style: none;\n  scrollbar-width: none;\n  height: 500px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.match-area .matches[data-v-4c531f4f]::-webkit-scrollbar {\n  display: none;\n}\n.match-area .matches > *[data-v-4c531f4f] {\n  margin: 20px;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-4c531f4f] {\n  color: red;\n}\n.gradient[data-v-4c531f4f] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-4c531f4f 10s ease alternate infinite;\n          animation: animatedgradient-data-v-4c531f4f 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-4c531f4f {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-4c531f4f {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-4c531f4f] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-4c531f4f] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-4c531f4f] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-4c531f4f] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-4c531f4f] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-4c531f4f] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.matches[data-v-4c531f4f] {\n  display: grid;\n  grid-template: 1fr/1fr 1fr;\n}\n.matches[data-v-4c531f4f] :nth-child(1) {\n  justify-self: center;\n}\n.matches[data-v-4c531f4f] :nth-child(2) {\n  justify-self: center;\n}\n.matches :nth-child(2) .legend[data-v-4c531f4f] {\n  margin: 10px;\n}\n.matches :nth-child(2) .legend > *[data-v-4c531f4f] {\n  padding: 5px;\n}\n.matches :nth-child(2) .legend[data-v-4c531f4f] :nth-child(1) {\n  background: #a3dab8;\n}\n.matches :nth-child(2) .legend[data-v-4c531f4f] :nth-child(2) {\n  background: #fd7f63;\n}\n.matches :nth-child(2) .legend[data-v-4c531f4f] :nth-child(3) {\n  background: #afafaf;\n}", ""]);
 
 // exports
 
@@ -3540,7 +3596,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-f866ab50] {\n  color: red;\n}\n.gradient[data-v-f866ab50] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-f866ab50 10s ease alternate infinite;\n          animation: animatedgradient-data-v-f866ab50 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-f866ab50 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-f866ab50 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-f866ab50] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-f866ab50] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-f866ab50] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-f866ab50] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-f866ab50] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-f866ab50] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.container-match[data-v-f866ab50] {\n  display: grid;\n  grid-template: repeat(4, 1fr)/repeat 3, 1fr;\n  padding: 30px;\n}\n.container-match > *[data-v-f866ab50] {\n  margin: 10px;\n  display: flex;\n  justify-content: center;\n}\n.container-match[data-v-f866ab50] :nth-child(1) {\n  grid-column: 1/-1;\n  margin-bottom: 10px;\n}\n.container-match[data-v-f866ab50] :nth-child(2) {\n  grid-column: 1/-1;\n}\n.container-match :nth-child(2) div.player-match[data-v-f866ab50] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 10px;\n}\n.container-match :nth-child(3) > *[data-v-f866ab50] {\n  margin-left: 10px;\n  margin-right: 10px;\n}\n.container-match :nth-child(4) > *[data-v-f866ab50] {\n  margin: 10px;\n}\n.container-match[data-v-f866ab50] :nth-child(4) :nth-child(1) {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 50px;\n  height: 50px;\n  font-size: 1.2rem;\n  color: white;\n  background-color: #55c27b;\n}\n.container-match[data-v-f866ab50] :nth-child(4) :nth-child(2) {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 50px;\n  height: 50px;\n  font-size: 1.2rem;\n  color: white;\n  background-color: #cd5545;\n}\n.card[data-v-f866ab50] {\n  background: #eb8d7b;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-f866ab50] {\n  color: red;\n}\n.gradient[data-v-f866ab50] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-f866ab50 10s ease alternate infinite;\n          animation: animatedgradient-data-v-f866ab50 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-f866ab50 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-f866ab50 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-f866ab50] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-f866ab50] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-f866ab50] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-f866ab50] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-f866ab50] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-f866ab50] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.container-match[data-v-f866ab50] {\n  display: grid;\n  grid-template: 1fr/repeat(6, 1fr);\n  background: red;\n  padding: 4px;\n  margin: 10px;\n}\n.container-match > *[data-v-f866ab50] {\n  justify-self: center;\n  align-self: center;\n}\n.container-match img[alt=\"avatar usuario\"][data-v-f866ab50] {\n  width: 50px;\n  height: 50px;\n}\n.container-match .date[data-v-f866ab50] {\n  display: flex;\n  flex-direction: column;\n  padding: 5px;\n}\n.container-match img[alt=papelera][data-v-f866ab50] {\n  width: 35px;\n  height: 35px;\n}\n.game-green[data-v-f866ab50] {\n  background: #a3dab8;\n}\n.game-red[data-v-f866ab50] {\n  background: #fd7f63;\n}\n.game-grey[data-v-f866ab50] {\n  background: #afafaf;\n}", ""]);
 
 // exports
 
@@ -6674,17 +6730,43 @@ var render = function() {
     _c(
       "div",
       { staticClass: "matches" },
-      _vm._l(_vm.gamesList, function(game) {
-        return _c("match-dash", {
-          key: game.id,
-          attrs: { user: _vm.user, game: game }
-        })
-      }),
+      [
+        _c("start-area"),
+        _vm._v(" "),
+        _c(
+          "div",
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _vm._l(_vm.gamesList, function(game) {
+              return _c("match-dash", {
+                key: game.id,
+                attrs: { user: _vm.user, game: game },
+                on: { "delete-game": _vm.deleteGame }
+              })
+            })
+          ],
+          2
+        )
+      ],
       1
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "legend" }, [
+      _c("span", [_vm._v("Tu turno")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("Openente")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("Por confirmar")])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -6892,67 +6974,41 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container-match card" }, [
-    _c(
-      "div",
-      [
-        _c("country-flag", {
-          attrs: { country: _vm.game.language, size: "big", rounded: "true" }
-        })
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c("div", [
-      _c(
-        "div",
-        { staticClass: "player-match" },
-        [
-          _c("img", { attrs: { src: _vm.avatar1, alt: "avatar usuario" } }),
-          _vm._v(" "),
-          _c("country-flag", {
-            attrs: {
-              country: _vm.user.country,
-              size: "medium",
-              rounded: "true"
-            }
-          }),
-          _vm._v(" "),
-          _c("span", [_vm._v(_vm._s(_vm.user.name))])
-        ],
-        1
-      ),
+  return _c(
+    "div",
+    { class: _vm.containerStyle },
+    [
+      _c("country-flag", {
+        attrs: { country: _vm.game.language, size: "medium", rounded: true }
+      }),
       _vm._v(" "),
-      _c("div", { staticClass: "player-match" }, [
-        _c("img", { attrs: { src: _vm.avatar2, alt: "avatar usuario" } }),
+      _c("div", [
+        _c("span", [_vm._v(_vm._s(_vm.game.player_score))]),
         _vm._v(" "),
-        _c("span", [_vm._v(_vm._s(_vm.game.opponent.name))])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", [
-      _c("span", [_vm._v(_vm._s(_vm.game.player_score))]),
+        _c("span", [_vm._v("-")]),
+        _vm._v(" "),
+        _c("span", [_vm._v(_vm._s(_vm.game.opponent_score))])
+      ]),
       _vm._v(" "),
-      _c("span", [_vm._v(" - ")]),
+      _c("img", { attrs: { src: _vm.avatar, alt: "avatar usuario" } }),
       _vm._v(" "),
-      _c("span", [_vm._v(_vm._s(_vm.games.opponent_score))])
-    ]),
-    _vm._v(" "),
-    _vm._m(0)
-  ])
+      _c("span", [_vm._v(_vm._s(_vm.game.opponent[0].name))]),
+      _vm._v(" "),
+      _c("div", { staticClass: "date" }, [
+        _c("span", [_vm._v(_vm._s(_vm.date))]),
+        _vm._v(" "),
+        _c("span", [_vm._v(_vm._s(_vm.time))])
+      ]),
+      _vm._v(" "),
+      _c("img", {
+        attrs: { src: "/img/papelera.png", alt: "papelera" },
+        on: { click: _vm.deleteGame }
+      })
+    ],
+    1
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "game-buttons" }, [
-      _c("button", { staticClass: "dash-button" }, [_vm._v("✓")]),
-      _vm._v(" "),
-      _c("button", { staticClass: "dash-button" }, [_vm._v("✗")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -7191,6 +7247,37 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/StartGameAreaComponent.vue?vue&type=template&id=0823766e&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/StartGameAreaComponent.vue?vue&type=template&id=0823766e&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [_c("p", [_vm._v("Hola")])])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/StatsAreaDashComponent.vue?vue&type=template&id=8a23f79e&scoped=true&":
 /*!******************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/StatsAreaDashComponent.vue?vue&type=template&id=8a23f79e&scoped=true& ***!
@@ -7268,7 +7355,7 @@ var render = function() {
           _c("card-dash", {
             attrs: {
               title: "Partidas más valiosa",
-              stat: _vm.statsList[_vm.statsLanguage].most_valuable_word
+              "stat-string": _vm.statsList[_vm.statsLanguage].most_valuable_word
             }
           }),
           _vm._v(" "),
@@ -7284,24 +7371,21 @@ var render = function() {
             attrs: {
               title: "Partida mejor palabra",
               "stat-integer":
-                _vm.statsList[_vm.statsLanguage].most_valuable_word_game,
-              div: ""
+                _vm.statsList[_vm.statsLanguage].most_valuable_word_game
             }
           }),
           _vm._v(" "),
           _c("card-dash", {
             attrs: {
               title: "Partida más corta",
-              "stat-integer": _vm.statsList[_vm.statsLanguage].shortest_game,
-              div: ""
+              "stat-integer": _vm.statsList[_vm.statsLanguage].shortest_game
             }
           }),
           _vm._v(" "),
           _c("card-dash", {
             attrs: {
               title: "Partida más larga",
-              "stat-integer": _vm.statsList[_vm.statsLanguage].longest_game,
-              div: ""
+              "stat-integer": _vm.statsList[_vm.statsLanguage].longest_game
             }
           })
         ],
@@ -20915,6 +20999,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/assets/js/components/dashboard/StartGameAreaComponent.vue":
+/*!*****************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/StartGameAreaComponent.vue ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _StartGameAreaComponent_vue_vue_type_template_id_0823766e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StartGameAreaComponent.vue?vue&type=template&id=0823766e&scoped=true& */ "./resources/assets/js/components/dashboard/StartGameAreaComponent.vue?vue&type=template&id=0823766e&scoped=true&");
+/* harmony import */ var _StartGameAreaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StartGameAreaComponent.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/dashboard/StartGameAreaComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _StartGameAreaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _StartGameAreaComponent_vue_vue_type_template_id_0823766e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _StartGameAreaComponent_vue_vue_type_template_id_0823766e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "0823766e",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/js/components/dashboard/StartGameAreaComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/StartGameAreaComponent.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/StartGameAreaComponent.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StartGameAreaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./StartGameAreaComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/StartGameAreaComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StartGameAreaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/StartGameAreaComponent.vue?vue&type=template&id=0823766e&scoped=true&":
+/*!************************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/StartGameAreaComponent.vue?vue&type=template&id=0823766e&scoped=true& ***!
+  \************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StartGameAreaComponent_vue_vue_type_template_id_0823766e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./StartGameAreaComponent.vue?vue&type=template&id=0823766e&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/StartGameAreaComponent.vue?vue&type=template&id=0823766e&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StartGameAreaComponent_vue_vue_type_template_id_0823766e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StartGameAreaComponent_vue_vue_type_template_id_0823766e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/assets/js/components/dashboard/StatsAreaDashComponent.vue":
 /*!*****************************************************************************!*\
   !*** ./resources/assets/js/components/dashboard/StatsAreaDashComponent.vue ***!
@@ -21615,3 +21768,4 @@ module.exports = __webpack_require__(/*! /var/www/resources/assets/js/scr_home.j
 /***/ })
 
 /******/ });
+//# sourceMappingURL=scr_home.js.map

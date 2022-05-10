@@ -13,6 +13,12 @@ const mix = require("laravel-mix");
 
 // pipeline de compilación (js(origen, destino)/css(origen, destino)) / empaquetado script([origen], destino)
 // JS
+
+mix.webpackConfig({
+  devtool: 'source-map'
+});
+
+
 mix
   .js("resources/assets/js/app.js", "public/js") // compilación global
   .js("resources/assets/js/test_scr_register.js", "public/js")
@@ -20,7 +26,10 @@ mix
   .js("resources/assets/js/test_scr_index.js", "public/js")
   .js("resources/assets/js/test_scr_home.js", "public/js") // dashboard de usuario
   .js("resources/assets/js/test_scr_tableboard.js", "public/js")
-  .js("resources/assets/js/scr_home.js", "public/js");
+  .js("resources/assets/js/scr_home.js", "public/js")
+  .sourceMaps()
+  .version();
+
 
 // Sass
 mix

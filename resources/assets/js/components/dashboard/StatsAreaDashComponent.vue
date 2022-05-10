@@ -26,7 +26,7 @@
         />
         <card-dash
           title="Partidas más valiosa"
-          :stat="statsList[statsLanguage].most_valuable_word"
+          :stat-string="statsList[statsLanguage].most_valuable_word"
         />
         <card-dash
           title="Palabra más valiosa"
@@ -35,17 +35,14 @@
         <card-dash
           title="Partida mejor palabra"
           :stat-integer="statsList[statsLanguage].most_valuable_word_game"
-          div
         />
         <card-dash
           title="Partida más corta"
           :stat-integer="statsList[statsLanguage].shortest_game"
-          div
         />
         <card-dash
           title="Partida más larga"
           :stat-integer="statsList[statsLanguage].longest_game"
-          div
         />
       </div>
     </div>
@@ -97,11 +94,13 @@ export default {
       this.statsList = await UserStats.getUserStats();
     },
     nextLanguage() {
+      console.log(this.statsList[this.statsLanguage]);
       if (this.statsLanguage === this.statsList.length - 1) {
         this.statsLanguage = 0;
         return;
       }
       this.statsLanguage++;
+      console.log(this.statsList[this.statsLanguage]);
     },
     beforeLanguage() {
       if (this.statsLanguage === 0) {
