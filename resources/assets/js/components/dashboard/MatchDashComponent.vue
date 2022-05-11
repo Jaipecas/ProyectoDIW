@@ -1,6 +1,6 @@
 <template>
   <div :class="containerStyle">
-    <country-flag :country="game.language" size="medium" :rounded="true" />
+    <lang-flag :iso="game.language" :squared="false" />
     <div>
       <span>{{ game.player_score }}</span>
       <span>-</span>
@@ -17,13 +17,13 @@
 </template>
 
 <script>
-import CountryFlag from "vue-country-flag";
+import LangFlag from "vue-lang-code-flags";
 import User from "../../../../classes/User";
 
 export default {
   name: "MatchDashComponent",
   components: {
-    "country-flag": CountryFlag,
+    "lang-flag": LangFlag,
   },
   props: {
     game: {
@@ -62,9 +62,11 @@ export default {
       this.date = date.toLocaleDateString("es-ES");
       this.time = date.toLocaleTimeString("es-ES");
     },
+
     deleteGame() {
       this.$emit("delete-game", this.game.id);
     },
+
     insertColor() {
       switch (this.game.state) {
         case 0:
@@ -95,6 +97,11 @@ export default {
   > * {
     justify-self: center;
     align-self: center;
+  }
+
+  .flag-icon {
+    height: 35px;
+    width: 35px;
   }
 
   img[alt="avatar usuario"] {

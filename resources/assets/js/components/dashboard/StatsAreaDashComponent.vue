@@ -3,6 +3,7 @@
     <h2 class="header-area-dash">Estadísticas</h2>
     <h5>Idioma</h5>
     <div class="language">
+      <!-- quiza usar el componente creado en partidas -->
       <button name="before" @click="nextLanguage">&#8672;</button>
       <country-flag
         :country="statsList[statsLanguage].language_code"
@@ -60,12 +61,14 @@ export default {
     "card-dash": CardDash,
     "country-flag": CountryFlag,
   },
+
   data: function () {
     return {
       statsList: Array,
       statsLanguage: 0,
     };
   },
+
   computed: {
     onChangelevel: function () {
       let levelClass = "";

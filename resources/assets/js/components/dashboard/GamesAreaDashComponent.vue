@@ -1,7 +1,7 @@
 <template>
   <div class="match-area">
     <h2 class="header-area-dash">Partidas</h2>
-    <select class="form-select combo-area-dash" @change="onChangeGame($event)">
+    <select class="form-select combo-area-dash">
       <option value="pending" selected>Pendientes</option>
       <option value="won">Ganadas</option>
       <option value="lose">Perdidas</option>
@@ -59,22 +59,6 @@ export default {
   },
 
   methods: {
-    async onChangeGame(event) {
-      switch (event.target.value) {
-        case "pending":
-          this.gamesList = this.pendingGames;
-          break;
-        case "won":
-          //this.gamesList = await this.user.getWonGames();
-          break;
-        case "lose":
-          //this.gamesList = await this.user.getLoseGames();
-          break;
-        case "all":
-          //this.gamesList = await Game.getUserGames();
-          break;
-      }
-    },
     deleteGame(id) {
       this.gamesList = this.gamesList.filter((game) => game.id !== id);
     },
