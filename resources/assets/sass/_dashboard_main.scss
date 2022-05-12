@@ -9,6 +9,8 @@ $dash-gradient: linear-gradient(
   #07b39b,
   #6fba82
 );
+$dash-gradient1: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);
+$dash-gradient2: linear-gradient(60deg, #5073b8, #1098ad, #07b39b, #6fba82);
 $dash-panel-border: 10px;
 $color-player-turn: rgb(163, 218, 184);
 $color-oponent-turn: rgb(253, 127, 99);
@@ -43,10 +45,26 @@ $color-no-turn: rgb(175, 175, 175);
 @mixin dash-button($font-size) {
   color: #fff;
   font-size: $font-size;
-  background: #f857a6;
-  background: linear-gradient(to right, #ff5858, #f857a6);
-  background: linear-gradient(to right, #ff5858, #f857a6);
+  background: $dash-gradient1;
   border-radius: 10px;
+}
+
+@mixin dash-button2($font-size) {
+  color: #fff;
+  padding: 10px;
+  font-size: $font-size;
+  background: $dash-gradient2;
+  border-radius: 10px;
+}
+
+@mixin dash-card($background) {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 100%;
+  min-height: 120px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  text-align: center;
+  background: $background;
 }
 
 .dash-card {

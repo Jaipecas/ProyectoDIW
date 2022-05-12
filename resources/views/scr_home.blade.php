@@ -4,7 +4,8 @@
 
 @section('content')
     <dashboard-component :user="{{ json_encode($user) }}"
-    :games="{{ json_encode($games) }}">
+    :games="{{ json_encode($games) }}"
+    >
     </dashboard-component>
 @endsection
 
