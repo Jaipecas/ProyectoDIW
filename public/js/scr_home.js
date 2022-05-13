@@ -2509,12 +2509,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -3226,8 +3220,18 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _SelectLanguageComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SelectLanguageComponent.vue */ "./resources/assets/js/components/dashboard/SelectLanguageComponent.vue");
-/* harmony import */ var _SelectTextComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SelectTextComponent.vue */ "./resources/assets/js/components/dashboard/SelectTextComponent.vue");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _SelectLanguageComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SelectLanguageComponent.vue */ "./resources/assets/js/components/dashboard/SelectLanguageComponent.vue");
+/* harmony import */ var _SelectTextComponent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SelectTextComponent.vue */ "./resources/assets/js/components/dashboard/SelectTextComponent.vue");
+/* harmony import */ var vue_country_flag__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-country-flag */ "./node_modules/vue-country-flag/dist/country-flag.esm.js");
+/* harmony import */ var _classes_Info__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../classes/Info */ "./resources/classes/Info.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -3265,24 +3269,104 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "StartGameAreaComponent",
   components: {
-    "select-lang": _SelectLanguageComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    "select-text": _SelectTextComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    "select-lang": _SelectLanguageComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    "select-text": _SelectTextComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    "country-flag": vue_country_flag__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
       langList: ["es", "en"],
       arrayTexts: ["Partida aleatoria", "Partida contra usuario", "Partida por nivel"],
-      showArea: 0
+      showArea: 0,
+      usersSearched: null,
+      userSelected: null,
+      userAvatar: "/img/gamer.png",
+      inputWord: "",
+      levels: ["1", "2", "3", "4", "5"]
     };
   },
   methods: {
     changeArea: function changeArea(area) {
       this.showArea = area;
+    },
+    searchUsers: function searchUsers(event) {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                if (event.key === "Backspace") {
+                  _this.inputWord = _this.inputWord.slice(0, -1);
+                } else {
+                  _this.inputWord += event.key;
+                }
+
+                if (!(_this.inputWord !== "")) {
+                  _context.next = 8;
+                  break;
+                }
+
+                _context.next = 4;
+                return _classes_Info__WEBPACK_IMPORTED_MODULE_4__["default"].searchUsers(_this.inputWord);
+
+              case 4:
+                data = _context.sent;
+                _this.usersSearched = data;
+                _context.next = 9;
+                break;
+
+              case 8:
+                _this.usersSearched = null;
+
+              case 9:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    },
+    userClick: function userClick(user) {
+      this.usersSearched = null;
+      this.userSelected = user;
+
+      if (user.avatar !== null) {
+        this.userAvatar = user.avatar;
+      }
+    },
+    changeLevel: function changeLevel(levelSelected) {
+      var arrayLevels = Array.from(document.getElementsByClassName("levels")[0].childNodes);
+      arrayLevels.forEach(function (level, index) {
+        if (index < levelSelected) {
+          level.classList.add("level-active");
+          level.classList.remove("level-inactive");
+        } else {
+          level.classList.add("level-inactive");
+          level.classList.remove("level-active");
+        }
+      });
     }
   }
 });
@@ -3870,7 +3954,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-0823766e] {\n  color: red;\n}\n.gradient[data-v-0823766e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-0823766e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-0823766e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-0823766e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-0823766e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-0823766e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-0823766e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-0823766e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-0823766e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-0823766e] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-0823766e] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.start-area[data-v-0823766e] {\n  display: grid;\n  grid-template: 75px 75px 1fr/1fr;\n}\n.start-area .game[data-v-0823766e] {\n  justify-self: center;\n  margin: 20px;\n}\n.start-area .game .game-random[data-v-0823766e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  padding: 20px;\n}\n.start-area .game .game-random img[data-v-0823766e] {\n  max-width: 150px;\n  height: 150px;\n}\n.start-area .game .game-random button[data-v-0823766e] {\n  color: #fff;\n  padding: 10px;\n  font-size: 1.5rem;\n  background: linear-gradient(60deg, #5073b8, #1098ad, #07b39b, #6fba82);\n  border-radius: 10px;\n  margin-top: 10px;\n}\n.start-area .game .game-user[data-v-0823766e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: linear-gradient(60deg, #5073b8, #1098ad, #07b39b, #6fba82);\n}\n.start-area .game .game-level[data-v-0823766e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n}\n.start-area *[data-v-0823766e] {\n  box-sizing: border-box;\n}\n.start-area .searchInput[data-v-0823766e] {\n  background-image: url(\"/css/searchicon.png\");\n  background-position: 10px 12px;\n  background-repeat: no-repeat;\n  width: 100%;\n  font-size: 16px;\n  padding: 12px 20px 12px 40px;\n  border: 1px solid #ddd;\n}\n.start-area .listUsers[data-v-0823766e] {\n  list-style-type: none;\n  padding: 0;\n  margin: 0;\n}\n.start-area .listUsers li a[data-v-0823766e] {\n  border: 1px solid #ddd;\n  margin-top: -1px;\n  background-color: #f6f6f6;\n  padding: 12px;\n  text-decoration: none;\n  font-size: 18px;\n  color: black;\n  display: block;\n}\n.start-area .listUsers li a[data-v-0823766e]:hover:not(.header) {\n  background-color: #eee;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-0823766e] {\n  color: red;\n}\n.gradient[data-v-0823766e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-0823766e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-0823766e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-0823766e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-0823766e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-0823766e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-0823766e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-0823766e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-0823766e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-0823766e] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-0823766e] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.start-area[data-v-0823766e] {\n  display: grid;\n  grid-template: 75px 75px 1fr/1fr;\n  width: 100%;\n}\n.start-area .game[data-v-0823766e] {\n  justify-self: center;\n  margin: 20px;\n  width: 75%;\n}\n.start-area .game > *[data-v-0823766e] {\n  height: 400px;\n}\n.start-area .game .game-random[data-v-0823766e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 20px;\n}\n.start-area .game .game-random img[data-v-0823766e] {\n  max-width: 120px;\n  height: 120px;\n}\n.start-area .game .game-random button[data-v-0823766e] {\n  color: #fff;\n  padding: 10px;\n  font-size: 1.5rem;\n  background: linear-gradient(60deg, #5073b8, #1098ad, #07b39b, #6fba82);\n  border-radius: 10px;\n  margin-top: 5px;\n}\n.start-area .game .game-user[data-v-0823766e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: linear-gradient(60deg, #5073b8, #1098ad, #07b39b, #6fba82);\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n.start-area .game .game-user *[data-v-0823766e] {\n  box-sizing: border-box;\n}\n.start-area .game .game-user .searchInput[data-v-0823766e] {\n  background-image: url(\"/css/searchicon.png\");\n  background-position: 10px 12px;\n  background-repeat: no-repeat;\n  width: 100%;\n  font-size: 16px;\n  padding: 12px 20px 12px 40px;\n  border: 1px solid #ddd;\n}\n.start-area .game .game-user .listUsers[data-v-0823766e] {\n  list-style-type: none;\n  padding: 0;\n  margin: 0;\n  position: absolute;\n  z-index: 1;\n  margin-top: 52px;\n}\n.start-area .game .game-user .listUsers li a[data-v-0823766e] {\n  border: 1px solid #ddd;\n  margin-top: -1px;\n  background-color: #f6f6f6;\n  padding: 12px;\n  text-decoration: none;\n  font-size: 18px;\n  color: black;\n  display: block;\n}\n.start-area .game .game-user .listUsers li a[data-v-0823766e]:hover:not(.header) {\n  background-color: #eee;\n}\n.start-area .game .game-user .user-selected[data-v-0823766e] {\n  display: grid;\n  grid-template: 1fr 1fr/1fr 1fr;\n  padding: 20px;\n}\n.start-area .game .game-user .user-selected img[data-v-0823766e] {\n  grid-column: 1/-1;\n  width: 50px;\n  height: 50px;\n}\n.start-area .game .game-user .user-selected .flag[data-v-0823766e] {\n  align-self: center;\n  justify-self: self-end;\n  margin-right: 5px;\n}\n.start-area .game .game-user .user-selected span[data-v-0823766e] {\n  font-size: 1rem;\n  align-self: center;\n  justify-self: self-start;\n  margin-left: 5px;\n  padding-top: 10px;\n}\n.start-area .game .game-user button[data-v-0823766e] {\n  color: #fff;\n  padding: 10px;\n  font-size: 1.5rem;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  border-radius: 10px;\n  margin-top: 5px;\n}\n.start-area .game .game-level[data-v-0823766e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.start-area .game .game-level .levels[data-v-0823766e] {\n  display: flex;\n  justify-content: center;\n}\n.start-area .game .game-level .levels > *[data-v-0823766e] {\n  margin: 10px;\n  height: 40px;\n  width: 40px;\n  margin-bottom: 5px;\n  text-align: center;\n  font-size: 1.5rem;\n  background-color: #b3b3b3;\n  border-radius: 10px;\n  box-shadow: 0px 3px 8px black;\n}\n.start-area .game .game-level .levels .level-active[data-v-0823766e] {\n  background-color: #f9f4b8;\n}\n.start-area .game .game-level .levels .level-inactive[data-v-0823766e] {\n  background-color: #b3b3b3;\n}\n.start-area .game .game-level button[data-v-0823766e] {\n  color: #fff;\n  padding: 10px;\n  font-size: 1.5rem;\n  background: linear-gradient(60deg, #5073b8, #1098ad, #07b39b, #6fba82);\n  border-radius: 10px;\n  margin: 20px;\n}", ""]);
 
 // exports
 
@@ -12958,7 +13042,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "legend" }, [
       _c("span", [_vm._v("Tu turno")]),
       _vm._v(" "),
-      _c("span", [_vm._v("Openente")]),
+      _c("span", [_vm._v("Oponente")]),
       _vm._v(" "),
       _c("span", [_vm._v("Por confirmar")])
     ])
@@ -13592,10 +13676,59 @@ var render = function() {
                 type: "text",
                 placeholder: "Busca contrincante",
                 title: "Type in a name"
+              },
+              on: {
+                keyup: function($event) {
+                  return _vm.searchUsers($event)
+                }
               }
             }),
             _vm._v(" "),
-            _vm._m(0)
+            _c(
+              "ul",
+              { staticClass: "listUsers" },
+              _vm._l(_vm.usersSearched, function(user) {
+                return _c(
+                  "li",
+                  {
+                    key: user.id,
+                    on: {
+                      click: function($event) {
+                        return _vm.userClick(user)
+                      }
+                    }
+                  },
+                  [_c("a", [_vm._v(_vm._s(user.name))])]
+                )
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _vm.userSelected != null
+              ? _c(
+                  "div",
+                  { staticClass: "user-selected card" },
+                  [
+                    _c("img", {
+                      attrs: { src: _vm.userAvatar, alt: "user img" }
+                    }),
+                    _vm._v(" "),
+                    _c("country-flag", {
+                      attrs: {
+                        country: _vm.userSelected.country,
+                        size: "normal"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", [_vm._v(_vm._s(_vm.userSelected.name))])
+                  ],
+                  1
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _c("button", { staticClass: "start-game" }, [
+              _vm._v("Inicia una partida")
+            ])
           ]
         ),
         _vm._v(" "),
@@ -13612,35 +13745,36 @@ var render = function() {
             ],
             staticClass: "game-level"
           },
-          [_c("p", [_vm._v("Level")])]
+          [
+            _c(
+              "div",
+              { staticClass: "levels" },
+              _vm._l(_vm.levels, function(level) {
+                return _c(
+                  "div",
+                  {
+                    key: level,
+                    on: {
+                      click: function($event) {
+                        return _vm.changeLevel(level)
+                      }
+                    }
+                  },
+                  [_vm._v("\n          " + _vm._s(level) + "\n        ")]
+                )
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _c("button", [_vm._v("Inicia una partida")])
+          ]
         )
       ])
     ],
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("ul", { staticClass: "listUsers" }, [
-      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Adele")])]),
-      _vm._v(" "),
-      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Agnes")])]),
-      _vm._v(" "),
-      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Billy")])]),
-      _vm._v(" "),
-      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Bob")])]),
-      _vm._v(" "),
-      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Calvin")])]),
-      _vm._v(" "),
-      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Christina")])]),
-      _vm._v(" "),
-      _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Cindy")])])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -27372,15 +27506,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!******************************************************************************!*\
   !*** ./resources/assets/js/components/dashboard/SelectLanguageComponent.vue ***!
   \******************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SelectLanguageComponent_vue_vue_type_template_id_24a47647_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SelectLanguageComponent.vue?vue&type=template&id=24a47647&scoped=true& */ "./resources/assets/js/components/dashboard/SelectLanguageComponent.vue?vue&type=template&id=24a47647&scoped=true&");
 /* harmony import */ var _SelectLanguageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SelectLanguageComponent.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/dashboard/SelectLanguageComponent.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _SelectLanguageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _SelectLanguageComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _SelectLanguageComponent_vue_vue_type_style_index_0_id_24a47647_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SelectLanguageComponent.vue?vue&type=style&index=0&id=24a47647&lang=scss&scoped=true& */ "./resources/assets/js/components/dashboard/SelectLanguageComponent.vue?vue&type=style&index=0&id=24a47647&lang=scss&scoped=true&");
+/* empty/unused harmony star reexport *//* harmony import */ var _SelectLanguageComponent_vue_vue_type_style_index_0_id_24a47647_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SelectLanguageComponent.vue?vue&type=style&index=0&id=24a47647&lang=scss&scoped=true& */ "./resources/assets/js/components/dashboard/SelectLanguageComponent.vue?vue&type=style&index=0&id=24a47647&lang=scss&scoped=true&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -27412,7 +27545,7 @@ component.options.__file = "resources/assets/js/components/dashboard/SelectLangu
 /*!*******************************************************************************************************!*\
   !*** ./resources/assets/js/components/dashboard/SelectLanguageComponent.vue?vue&type=script&lang=js& ***!
   \*******************************************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -27928,6 +28061,232 @@ var Game = /*#__PURE__*/function () {
   }]);
 
   return Game;
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/classes/Info.js":
+/*!***********************************!*\
+  !*** ./resources/classes/Info.js ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Info; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+var Info = /*#__PURE__*/function () {
+  function Info() {
+    _classCallCheck(this, Info);
+  }
+
+  _createClass(Info, null, [{
+    key: "getGeneralInfo",
+    value: function () {
+      var _getGeneralInfo = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var promise;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/info/general");
+
+              case 3:
+                promise = _context.sent;
+                return _context.abrupt("return", promise.data);
+
+              case 7:
+                _context.prev = 7;
+                _context.t0 = _context["catch"](0);
+                console.log("ERROR: " + _context.t0);
+
+              case 10:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[0, 7]]);
+      }));
+
+      function getGeneralInfo() {
+        return _getGeneralInfo.apply(this, arguments);
+      }
+
+      return getGeneralInfo;
+    }()
+  }, {
+    key: "getCurrentGames",
+    value: function () {
+      var _getCurrentGames = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(number) {
+        var promise;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _context2.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/info/currentgames/" + number);
+
+              case 3:
+                promise = _context2.sent;
+                return _context2.abrupt("return", promise.data);
+
+              case 7:
+                _context2.prev = 7;
+                _context2.t0 = _context2["catch"](0);
+                console.log("ERROR: " + _context2.t0);
+
+              case 10:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 7]]);
+      }));
+
+      function getCurrentGames(_x) {
+        return _getCurrentGames.apply(this, arguments);
+      }
+
+      return getCurrentGames;
+    }()
+  }, {
+    key: "getRanking",
+    value: function () {
+      var _getRanking = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(lang, number) {
+        var promise;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                _context3.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/info/ranking/" + lang + "/" + number);
+
+              case 3:
+                promise = _context3.sent;
+                return _context3.abrupt("return", promise.data);
+
+              case 7:
+                _context3.prev = 7;
+                _context3.t0 = _context3["catch"](0);
+                console.log("ERROR: " + _context3.t0);
+
+              case 10:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[0, 7]]);
+      }));
+
+      function getRanking(_x2, _x3) {
+        return _getRanking.apply(this, arguments);
+      }
+
+      return getRanking;
+    }()
+  }, {
+    key: "getNews",
+    value: function () {
+      var _getNews = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(type) {
+        var promise;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.prev = 0;
+                _context4.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/info/news/" + type);
+
+              case 3:
+                promise = _context4.sent;
+                return _context4.abrupt("return", promise.data);
+
+              case 7:
+                _context4.prev = 7;
+                _context4.t0 = _context4["catch"](0);
+                console.log("ERROR: " + _context4.t0);
+
+              case 10:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4, null, [[0, 7]]);
+      }));
+
+      function getNews(_x4) {
+        return _getNews.apply(this, arguments);
+      }
+
+      return getNews;
+    }()
+  }, {
+    key: "searchUsers",
+    value: function () {
+      var _searchUsers = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(name) {
+        var promise;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _context5.prev = 0;
+                _context5.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/scrabble/search/user/live", {
+                  params: {
+                    name: name
+                  }
+                });
+
+              case 3:
+                promise = _context5.sent;
+                return _context5.abrupt("return", promise.data);
+
+              case 7:
+                _context5.prev = 7;
+                _context5.t0 = _context5["catch"](0);
+                console.log("ERROR: " + _context5.t0);
+
+              case 10:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5, null, [[0, 7]]);
+      }));
+
+      function searchUsers(_x5) {
+        return _searchUsers.apply(this, arguments);
+      }
+
+      return searchUsers;
+    }()
+  }]);
+
+  return Info;
 }();
 
 

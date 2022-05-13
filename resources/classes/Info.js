@@ -38,15 +38,6 @@ export default class Info {
         }
     }
 
-    async axiosGet(url) {
-        try {
-            const promise = await Axios.get(url);
-            return promise.data;
-        } catch (error) {
-            console.log("ERROR: " + error);
-        }
-    }
-
     static async searchUsers(name) {
         try {
             const promise = await Axios.get("/scrabble/search/user/live", {

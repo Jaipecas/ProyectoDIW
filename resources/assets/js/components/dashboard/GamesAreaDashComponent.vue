@@ -1,18 +1,12 @@
 <template>
   <div class="match-area">
     <h2 class="header-area-dash">Partidas</h2>
-    <!--  <select class="form-select combo-area-dash" @change="onChangeGame($event)">
-      <option value="pending" selected>Pendientes</option>
-      <option value="won">Ganadas</option>
-      <option value="lose">Perdidas</option>
-      <option value="all">Todas</option>
-    </select> -->
     <div class="matches">
       <start-area />
       <div>
         <div class="legend">
           <span>Tu turno</span>
-          <span>Openente</span>
+          <span>Oponente</span>
           <span>Por confirmar</span>
         </div>
         <match-dash

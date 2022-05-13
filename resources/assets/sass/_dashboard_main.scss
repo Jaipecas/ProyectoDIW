@@ -49,11 +49,17 @@ $color-no-turn: rgb(175, 175, 175);
   border-radius: 10px;
 }
 
-@mixin dash-button2($font-size) {
+@mixin dash-button2($font-size, $type) {
   color: #fff;
   padding: 10px;
   font-size: $font-size;
-  background: $dash-gradient2;
+
+  @if $type == "red" {
+    background: $dash-gradient1;
+  } @else if $type == "blue" {
+    background: $dash-gradient2;
+  }
+
   border-radius: 10px;
 }
 
