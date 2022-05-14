@@ -3,7 +3,13 @@
     <header-dash class="header gradient" :user-name="user.name" />
     <menu-dash class="menu gradient" @changeArea="changeArea" />
     <games-dash class="games gradient" />
-    <area-dash class="area" :area="menuArea" :user="userDash" :games="games" />
+    <area-dash
+      class="area"
+      :area="menuArea"
+      :user="userDash"
+      :games="games"
+      :stats="userStats"
+    />
     <friends-dash class="friends gradient" />
     <div class="news" />
   </div>
@@ -16,6 +22,7 @@ import GameComponent from "./GamesDashComponent.vue";
 import FriendsComponent from "./FriendsDashComponent.vue";
 import AreaComponent from "./AreaDashComponent.vue";
 import User from "../../../../classes/User";
+import Statistics from "../../../../classes/Statistics";
 
 export default {
   name: "DashboardComponent",
@@ -35,17 +42,23 @@ export default {
       type: Array,
       required: true,
     },
+    statistics: {
+      type: Array,
+      required: true,
+    },
   },
 
   data: function () {
     return {
       menuArea: "",
       userDash: User,
+      userStats: Array,
     };
   },
 
   created() {
     this.createUser();
+    this.createStats();
   },
 
   methods: {
@@ -54,6 +67,12 @@ export default {
     },
     createUser() {
       this.userDash = Object.assign(new User(), this.user);
+    },
+    createStats() {
+      let arrayStats = this.statistics;
+      this.userStats = arrayStats.map((stat) => {
+        return Object.assign(new Statistics(), stat);
+      });
     },
   },
 };

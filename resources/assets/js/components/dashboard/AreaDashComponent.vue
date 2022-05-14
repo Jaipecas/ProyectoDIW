@@ -6,7 +6,7 @@
       :user="user"
       :pending-games="games"
     />
-    <stats-area v-show="area == 'Estadisticas'" />
+    <stats-area v-show="area == 'Estadisticas'" :stats="stats" />
     <notif-area v-show="area == 'Notificaciones'" />
   </div>
 </template>
@@ -38,6 +38,10 @@ export default {
       required: true,
     },
     games: {
+      type: Array,
+      required: true,
+    },
+    stats: {
       type: Array,
       required: true,
     },

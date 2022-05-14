@@ -1,50 +1,53 @@
 <template>
-  <div class="container-stats">
+  <div class="container-main">
     <h2 class="header-area-dash">Estadísticas</h2>
-    <h5>Idioma</h5>
-    <div class="language">
-      <!-- quiza usar el componente creado en partidas -->
-      <button name="before" @click="nextLanguage">&#8672;</button>
-      <country-flag
-        :country="statsList[statsLanguage].language_code"
-        size="big"
-        :rounded="true"
-      />
-      <button name="next" @click="beforeLanguage">&#8674;</button>
-    </div>
-    <div>
-      <div class="stats-dash">
-        <div :class="onChangelevel">
-          {{ statsList[statsLanguage].level }}
+    <div class="container-stats">
+      <div class="container-cards">
+        <h5>Idioma</h5>
+        <div class="language">
+          <!-- quiza usar el componente creado en partidas -->
+          <button name="before" @click="nextLanguage">&#8672;</button>
+          <lang-flag :iso="statsUser[statsLanguage].language_code" />
+          <button name="next" @click="beforeLanguage">&#8674;</button>
         </div>
-        <card-dash
-          title="Partidas ganadas"
-          :stat-integer="statsList[statsLanguage].won"
-        />
-        <card-dash
-          title="Partidas perdidas"
-          :stat-integer="statsList[statsLanguage].lost"
-        />
-        <card-dash
-          title="Partidas más valiosa"
-          :stat-string="statsList[statsLanguage].most_valuable_word"
-        />
-        <card-dash
-          title="Palabra más valiosa"
-          :stat-integer="statsList[statsLanguage].most_valuable_word_points"
-        />
-        <card-dash
-          title="Partida mejor palabra"
-          :stat-integer="statsList[statsLanguage].most_valuable_word_game"
-        />
-        <card-dash
-          title="Partida más corta"
-          :stat-integer="statsList[statsLanguage].shortest_game"
-        />
-        <card-dash
-          title="Partida más larga"
-          :stat-integer="statsList[statsLanguage].longest_game"
-        />
+        <div>
+          <div class="stats-dash">
+            <div :class="onChangelevel">
+              {{ statsUser[statsLanguage].level }}
+            </div>
+            <card-dash
+              title="Partidas ganadas"
+              :stat-integer="statsUser[statsLanguage].won"
+            />
+            <card-dash
+              title="Partidas perdidas"
+              :stat-integer="statsUser[statsLanguage].lost"
+            />
+            <card-dash
+              title="Partidas más valiosa"
+              :stat-string="statsUser[statsLanguage].most_valuable_word"
+            />
+            <card-dash
+              title="Palabra más valiosa"
+              :stat-integer="statsUser[statsLanguage].most_valuable_word_points"
+            />
+            <card-dash
+              title="Partida mejor palabra"
+              :stat-integer="statsUser[statsLanguage].most_valuable_word_game"
+            />
+            <card-dash
+              title="Partida más corta"
+              :stat-integer="statsUser[statsLanguage].shortest_game"
+            />
+            <card-dash
+              title="Partida más larga"
+              :stat-integer="statsUser[statsLanguage].longest_game"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="container-graphs">
+        <p>Hola</p>
       </div>
     </div>
   </div>
@@ -52,37 +55,40 @@
 
 <script>
 import CardDash from "./CardDashComponent.vue";
-import UserStats from "../../../../classes/UserStats";
-import CountryFlag from "vue-country-flag";
+import LangFlag from "vue-lang-code-flags";
 
 export default {
   name: "StatsAreaDashComponent",
   components: {
     "card-dash": CardDash,
-    "country-flag": CountryFlag,
+    "lang-flag": LangFlag,
   },
-
+  props: {
+    stats: {
+      type: Array,
+      required: true,
+    },
+  },
   data: function () {
     return {
-      statsList: Array,
+      statsUser: null,
       statsLanguage: 0,
     };
   },
-
   computed: {
     onChangelevel: function () {
       let levelClass = "";
       if (
-        this.statsList[this.statsLanguage].level >= 0 &&
-        this.statsList[this.statsLanguage].level <= 5
+        this.stats[this.statsLanguage].level >= 0 &&
+        this.stats[this.statsLanguage].level <= 5
       ) {
         levelClass = "level level-bronze";
       } else if (
-        this.statsList[this.statsLanguage].level > 5 &&
-        this.statsList[this.statsLanguage].level <= 9
+        this.stats[this.statsLanguage].level > 5 &&
+        this.stats[this.statsLanguage].level <= 9
       ) {
         levelClass = "level level-silver";
-      } else if (this.statsList[this.statsLanguage].level > 9) {
+      } else if (this.stats[this.statsLanguage].level > 9) {
         levelClass = "level level-gold";
       }
 
@@ -90,27 +96,22 @@ export default {
     },
   },
   created() {
-    this.getUserDashStats();
+    this.statsUser = this.stats;
   },
   methods: {
-    async getUserDashStats() {
-      this.statsList = await UserStats.getUserStats();
-    },
     nextLanguage() {
-      console.log(this.statsList[this.statsLanguage]);
-      if (this.statsLanguage === this.statsList.length - 1) {
+      if (this.statsLanguage === this.stats.length - 1) {
         this.statsLanguage = 0;
-        return;
+      } else {
+        this.statsLanguage++;
       }
-      this.statsLanguage++;
-      console.log(this.statsList[this.statsLanguage]);
     },
     beforeLanguage() {
       if (this.statsLanguage === 0) {
-        this.statsLanguage = this.statsList.length - 1;
-        return;
+        this.statsLanguage = this.stats.length - 1;
+      } else {
+        this.statsLanguage--;
       }
-      this.statsLanguage--;
     },
   },
 };
@@ -119,7 +120,7 @@ export default {
 <style lang="scss" scoped>
 @import "resources/assets/sass/_dashboard_main.scss";
 
-.container-stats {
+.container-main {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -128,67 +129,77 @@ export default {
     text-align: center;
     margin-top: 20px;
   }
-
-  .language {
-    display: flex;
-    align-items: center;
-    > * {
-      margin: 10px;
-    }
-    button {
-      @include round-button(45px, 45px, white, #ef4e7b, 1.5rem);
-    }
-  }
-
-  .stats-dash {
+  .container-stats {
     display: grid;
-    grid-template: repeat(6, 1fr) / 0.5fr 1fr 1fr 0.5fr;
-    gap: 20px;
-    @include area-scroll(450px);
+    grid-template: 1fr / 1fr 1fr;
+    width: 100%;
 
-    > * {
-      justify-self: center;
-    }
+    .container-cards {
+      .language {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        > * {
+          margin: 10px;
+        }
+        button {
+          @include round-button(45px, 45px, white, #ef4e7b, 1.5rem);
+        }
+        .flag-icon {
+          width: 40px;
+          height: 40px;
+        }
+      }
 
-    div:nth-child(1) {
-      grid-column: 1/-1;
-      align-self: center;
-      margin-top: 30px;
-      margin-bottom: 30px;
-    }
+      .stats-dash {
+        display: grid;
+        grid-template: repeat(6, 1fr) / 1fr 1fr;
+        gap: 10px;
+        height: 400px;
+        margin-top: 5px;
+        padding: 10px;
 
-    div:nth-child(2),
-    div:nth-child(5),
-    div:nth-child(7) {
-      grid-column: 2 / 3;
-    }
-    div:nth-child(3),
-    div:nth-child(6) {
-      grid-column: 3 / 4;
-    }
-    div:nth-child(4) {
-      grid-column: 2 / 4;
-    }
+        > * {
+          justify-self: center;
+        }
 
-    .level {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 110px;
-      height: 110px;
-      border-radius: 60px;
-      color: rgb(255, 255, 255);
-      font-size: 3rem;
-      border: 2px solid rgb(26, 23, 23);
+        div:nth-child(even) {
+          grid-column: 1 / 2;
+          justify-self: flex-end;
+        }
+        div:nth-child(odd) {
+          grid-column: 2 / 3;
+          justify-self: flex-start;
+        }
+
+        div:nth-child(1) {
+          grid-column: 1/-1;
+          justify-self: center;
+        }
+
+        .level {
+          display: flex;
+          justify-content: center;
+          align-items: self-end;
+          width: 70px;
+          height: 70px;
+          border-radius: 60px;
+          color: rgb(255, 255, 255);
+          font-size: 3rem;
+          border: 2px solid rgb(26, 23, 23);
+        }
+        .level-silver {
+          background: #c0c0c0;
+        }
+        .level-bronze {
+          background: #db9249;
+        }
+        .level-gold {
+          background: #ffd700;
+        }
+      }
     }
-    .level-silver {
-      background: #c0c0c0;
-    }
-    .level-bronze {
-      background: #db9249;
-    }
-    .level-gold {
-      background: #ffd700;
+    .container-graphs {
     }
   }
 }

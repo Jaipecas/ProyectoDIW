@@ -1,5 +1,5 @@
 <template>
-  <div class="dash-card">
+  <div class="dash-header-card">
     <div class="header">
       {{ title }}
     </div>
@@ -25,13 +25,21 @@ export default {
     statInteger: {
       type: Number,
       required: false,
-      default: 0,
+      default: null,
     },
   },
   data: function () {
     return {
       stat: "",
     };
+  },
+  watch: {
+    statString: function () {
+      return this.insertStat();
+    },
+    statInteger: function () {
+      return this.insertStat();
+    },
   },
   created() {
     this.insertStat();
