@@ -3492,7 +3492,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }))();
     },
     createChallenge: function createChallenge() {
-      return new _classes_Challenge__WEBPACK_IMPORTED_MODULE_6__["default"](undefined, Date.now(), Date.now(), this.user, this.selectedLang, this.selectedLevel, this.userSelected);
+      var challenge = new _classes_Challenge__WEBPACK_IMPORTED_MODULE_6__["default"]();
+      challenge.language = this.selectedLang;
+      challenge.level = this.selectedLevel;
+      challenge.opposingPlayer = this.userSelected;
+      return challenge;
     }
   }
 });
@@ -28199,13 +28203,13 @@ var Challenge = /*#__PURE__*/function () {
   function Challenge(id, created, updated, requestingPlayer, language, level, opposingPlayer) {
     _classCallCheck(this, Challenge);
 
-    this.id = id;
-    this.created = created;
-    this.updated = updated;
-    this.requestingPlayer = requestingPlayer;
-    this.language = language;
-    this.level = level;
-    this.opposingPlayer = opposingPlayer;
+    this._id = id;
+    this._created = created;
+    this._updated = updated;
+    this._requestingPlayer = requestingPlayer;
+    this._language = language;
+    this._level = level;
+    this._opposingPlayer = opposingPlayer;
   }
 
   _createClass(Challenge, [{
@@ -28223,15 +28227,15 @@ var Challenge = /*#__PURE__*/function () {
                 break;
 
               case 4:
-                url = "/scrabble/challenge/request/".concat(this.language);
+                url = "/scrabble/challenge/request/".concat(this._language);
                 return _context.abrupt("break", 10);
 
               case 6:
-                url = "/scrabble/challenge/request/".concat(this.language, "/against/").concat(this.opposingPlayer.id);
+                url = "/scrabble/challenge/request/".concat(this._language, "/against/").concat(this._opposingPlayer.id);
                 return _context.abrupt("break", 10);
 
               case 8:
-                url = "/scrabble/challenge/request/".concat(this.language, "/level/").concat(this.level);
+                url = "/scrabble/challenge/request/".concat(this._language, "/level/").concat(this._level);
                 return _context.abrupt("break", 10);
 
               case 10:
@@ -28262,6 +28266,21 @@ var Challenge = /*#__PURE__*/function () {
 
       return postChallenge;
     }()
+  }, {
+    key: "language",
+    set: function set(newLang) {
+      this._language = newLang;
+    }
+  }, {
+    key: "level",
+    set: function set(newLevel) {
+      this._level = newLevel;
+    }
+  }, {
+    key: "opposingPlayer",
+    set: function set(newOpp) {
+      this._opposingPlayer = newOpp;
+    }
   }]);
 
   return Challenge;

@@ -179,15 +179,12 @@ export default {
     },
 
     createChallenge() {
-      return new Challenge(
-        undefined,
-        Date.now(),
-        Date.now(),
-        this.user,
-        this.selectedLang,
-        this.selectedLevel,
-        this.userSelected
-      );
+      let challenge = new Challenge();
+      challenge.language = this.selectedLang;
+      challenge.level = this.selectedLevel;
+      challenge.opposingPlayer = this.userSelected;
+
+      return challenge;
     },
   },
 };
