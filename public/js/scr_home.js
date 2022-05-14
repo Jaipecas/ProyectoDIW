@@ -3139,18 +3139,20 @@ __webpack_require__.r(__webpack_exports__);
     nextLanguage: function nextLanguage() {
       if (this.count === this.languages.length - 1) {
         this.count = 0;
-        return;
+      } else {
+        this.count++;
       }
 
-      this.count++;
+      this.$emit("selected-lang", this.languages[this.count]);
     },
     beforeLanguage: function beforeLanguage() {
       if (this.count === 0) {
         this.count = this.languages.length - 1;
-        return;
+      } else {
+        this.count--;
       }
 
-      this.count--;
+      this.$emit("selected-lang", this.languages[this.count]);
     }
   }
 });
@@ -3226,6 +3228,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SelectTextComponent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SelectTextComponent.vue */ "./resources/assets/js/components/dashboard/SelectTextComponent.vue");
 /* harmony import */ var vue_country_flag__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-country-flag */ "./node_modules/vue-country-flag/dist/country-flag.esm.js");
 /* harmony import */ var _classes_Info__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../classes/Info */ "./resources/classes/Info.js");
+/* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
+/* harmony import */ var _classes_Challenge__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../classes/Challenge */ "./resources/classes/Challenge.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -3281,6 +3285,23 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 
 
 
@@ -3292,6 +3313,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     "select-text": _SelectTextComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     "country-flag": vue_country_flag__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
+  props: {
+    user: {
+      type: _classes_User__WEBPACK_IMPORTED_MODULE_5__["default"],
+      required: true
+    }
+  },
   data: function data() {
     return {
       langList: ["es", "en"],
@@ -3301,12 +3328,22 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       userSelected: null,
       userAvatar: "/img/gamer.png",
       inputWord: "",
-      levels: ["1", "2", "3", "4", "5"]
+      levels: ["1", "2", "3", "4", "5"],
+      selectedLang: "es",
+      selectedLevel: null,
+      messageError: "",
+      messageSuccess: "¡Partida creada!",
+      createdChallenge: false
     };
   },
   methods: {
     changeArea: function changeArea(area) {
       this.showArea = area;
+      this.messageError = "";
+      this.createdChallenge = false;
+    },
+    selectLang: function selectLang(lang) {
+      this.selectedLang = lang;
     },
     searchUsers: function searchUsers(event) {
       var _this = this;
@@ -3351,12 +3388,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     userClick: function userClick(user) {
       this.usersSearched = null;
       this.userSelected = user;
+      this.messageError = "";
 
       if (user.avatar !== null) {
         this.userAvatar = user.avatar;
       }
     },
     changeLevel: function changeLevel(levelSelected) {
+      this.selectedLevel = levelSelected;
       var arrayLevels = Array.from(document.getElementsByClassName("levels")[0].childNodes);
       arrayLevels.forEach(function (level, index) {
         if (index < levelSelected) {
@@ -3367,6 +3406,93 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           level.classList.remove("level-active");
         }
       });
+    },
+    createRandomChallenge: function createRandomChallenge() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _this2.createChallenge().postChallenge("random");
+
+                _this2.createdChallenge = true;
+
+              case 2:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
+    createAgainstChallenge: function createAgainstChallenge() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                if (!(_this3.userSelected === null)) {
+                  _context3.next = 4;
+                  break;
+                }
+
+                _this3.messageError = "Debe seleccionar un contrincante";
+                _this3.createdChallenge = false;
+                return _context3.abrupt("return");
+
+              case 4:
+                _this3.messageError = "";
+
+                _this3.createChallenge().postChallenge("against");
+
+                _this3.createdChallenge = true;
+
+              case 7:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    },
+    createLevelChallenge: function createLevelChallenge() {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                if (!(_this4.selectedLevel === null)) {
+                  _context4.next = 4;
+                  break;
+                }
+
+                _this4.messageError = "Seleccione un nivel";
+                _this4.createdChallenge = false;
+                return _context4.abrupt("return");
+
+              case 4:
+                _this4.messageError = "";
+
+                _this4.createChallenge().postChallenge("level");
+
+                _this4.createdChallenge = true;
+
+              case 7:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }))();
+    },
+    createChallenge: function createChallenge() {
+      return new _classes_Challenge__WEBPACK_IMPORTED_MODULE_6__["default"](undefined, Date.now(), Date.now(), this.user, this.selectedLang, this.selectedLevel, this.userSelected);
     }
   }
 });
@@ -3954,7 +4080,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-0823766e] {\n  color: red;\n}\n.gradient[data-v-0823766e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-0823766e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-0823766e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-0823766e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-0823766e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-0823766e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-0823766e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-0823766e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-0823766e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-0823766e] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-0823766e] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.start-area[data-v-0823766e] {\n  display: grid;\n  grid-template: 75px 75px 1fr/1fr;\n  width: 100%;\n}\n.start-area .game[data-v-0823766e] {\n  justify-self: center;\n  margin: 20px;\n  width: 75%;\n}\n.start-area .game > *[data-v-0823766e] {\n  height: 400px;\n}\n.start-area .game .game-random[data-v-0823766e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 20px;\n}\n.start-area .game .game-random img[data-v-0823766e] {\n  max-width: 120px;\n  height: 120px;\n}\n.start-area .game .game-random button[data-v-0823766e] {\n  color: #fff;\n  padding: 10px;\n  font-size: 1.5rem;\n  background: linear-gradient(60deg, #5073b8, #1098ad, #07b39b, #6fba82);\n  border-radius: 10px;\n  margin-top: 5px;\n}\n.start-area .game .game-user[data-v-0823766e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: linear-gradient(60deg, #5073b8, #1098ad, #07b39b, #6fba82);\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n.start-area .game .game-user *[data-v-0823766e] {\n  box-sizing: border-box;\n}\n.start-area .game .game-user .searchInput[data-v-0823766e] {\n  background-image: url(\"/css/searchicon.png\");\n  background-position: 10px 12px;\n  background-repeat: no-repeat;\n  width: 100%;\n  font-size: 16px;\n  padding: 12px 20px 12px 40px;\n  border: 1px solid #ddd;\n}\n.start-area .game .game-user .listUsers[data-v-0823766e] {\n  list-style-type: none;\n  padding: 0;\n  margin: 0;\n  position: absolute;\n  z-index: 1;\n  margin-top: 52px;\n}\n.start-area .game .game-user .listUsers li a[data-v-0823766e] {\n  border: 1px solid #ddd;\n  margin-top: -1px;\n  background-color: #f6f6f6;\n  padding: 12px;\n  text-decoration: none;\n  font-size: 18px;\n  color: black;\n  display: block;\n}\n.start-area .game .game-user .listUsers li a[data-v-0823766e]:hover:not(.header) {\n  background-color: #eee;\n}\n.start-area .game .game-user .user-selected[data-v-0823766e] {\n  display: grid;\n  grid-template: 1fr 1fr/1fr 1fr;\n  padding: 20px;\n}\n.start-area .game .game-user .user-selected img[data-v-0823766e] {\n  grid-column: 1/-1;\n  width: 50px;\n  height: 50px;\n}\n.start-area .game .game-user .user-selected .flag[data-v-0823766e] {\n  align-self: center;\n  justify-self: self-end;\n  margin-right: 5px;\n}\n.start-area .game .game-user .user-selected span[data-v-0823766e] {\n  font-size: 1rem;\n  align-self: center;\n  justify-self: self-start;\n  margin-left: 5px;\n  padding-top: 10px;\n}\n.start-area .game .game-user button[data-v-0823766e] {\n  color: #fff;\n  padding: 10px;\n  font-size: 1.5rem;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  border-radius: 10px;\n  margin-top: 5px;\n}\n.start-area .game .game-level[data-v-0823766e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.start-area .game .game-level .levels[data-v-0823766e] {\n  display: flex;\n  justify-content: center;\n}\n.start-area .game .game-level .levels > *[data-v-0823766e] {\n  margin: 10px;\n  height: 40px;\n  width: 40px;\n  margin-bottom: 5px;\n  text-align: center;\n  font-size: 1.5rem;\n  background-color: #b3b3b3;\n  border-radius: 10px;\n  box-shadow: 0px 3px 8px black;\n}\n.start-area .game .game-level .levels .level-active[data-v-0823766e] {\n  background-color: #f9f4b8;\n}\n.start-area .game .game-level .levels .level-inactive[data-v-0823766e] {\n  background-color: #b3b3b3;\n}\n.start-area .game .game-level button[data-v-0823766e] {\n  color: #fff;\n  padding: 10px;\n  font-size: 1.5rem;\n  background: linear-gradient(60deg, #5073b8, #1098ad, #07b39b, #6fba82);\n  border-radius: 10px;\n  margin: 20px;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-0823766e] {\n  color: red;\n}\n.gradient[data-v-0823766e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-0823766e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-0823766e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-0823766e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-0823766e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-card[data-v-0823766e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-card .header[data-v-0823766e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-card .content[data-v-0823766e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-0823766e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-0823766e] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-0823766e] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.start-area[data-v-0823766e] {\n  display: grid;\n  grid-template: 75px 75px 1fr/1fr;\n  width: 100%;\n}\n.start-area .game[data-v-0823766e] {\n  justify-self: center;\n  margin: 20px;\n  width: 75%;\n  height: 400px;\n}\n.start-area .game > *[data-v-0823766e] {\n  height: 100%;\n}\n.start-area .game .game-random[data-v-0823766e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 20px;\n}\n.start-area .game .game-random img[data-v-0823766e] {\n  max-width: 120px;\n  height: 120px;\n}\n.start-area .game .game-random button[data-v-0823766e] {\n  color: #fff;\n  padding: 10px;\n  font-size: 1.5rem;\n  background: linear-gradient(60deg, #5073b8, #1098ad, #07b39b, #6fba82);\n  border-radius: 10px;\n  margin-top: 5px;\n}\n.start-area .game .game-user[data-v-0823766e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: linear-gradient(60deg, #5073b8, #1098ad, #07b39b, #6fba82);\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n.start-area .game .game-user *[data-v-0823766e] {\n  box-sizing: border-box;\n}\n.start-area .game .game-user .searchInput[data-v-0823766e] {\n  background-image: url(\"/css/searchicon.png\");\n  background-position: 10px 12px;\n  background-repeat: no-repeat;\n  width: 100%;\n  font-size: 16px;\n  padding: 12px 20px 12px 40px;\n  border: 1px solid #ddd;\n}\n.start-area .game .game-user .listUsers[data-v-0823766e] {\n  list-style-type: none;\n  padding: 0;\n  margin: 0;\n  position: absolute;\n  z-index: 1;\n  margin-top: 52px;\n}\n.start-area .game .game-user .listUsers li a[data-v-0823766e] {\n  border: 1px solid #ddd;\n  margin-top: -1px;\n  background-color: #f6f6f6;\n  padding: 12px;\n  text-decoration: none;\n  font-size: 18px;\n  color: black;\n  display: block;\n}\n.start-area .game .game-user .listUsers li a[data-v-0823766e]:hover:not(.header) {\n  background-color: #eee;\n}\n.start-area .game .game-user .user-selected[data-v-0823766e] {\n  display: grid;\n  grid-template: 1fr 1fr/1fr 1fr;\n  padding: 20px;\n}\n.start-area .game .game-user .user-selected img[data-v-0823766e] {\n  grid-column: 1/-1;\n  width: 50px;\n  height: 50px;\n}\n.start-area .game .game-user .user-selected .flag[data-v-0823766e] {\n  align-self: center;\n  justify-self: self-end;\n  margin-right: 5px;\n}\n.start-area .game .game-user .user-selected span[data-v-0823766e] {\n  font-size: 1rem;\n  align-self: center;\n  justify-self: self-start;\n  margin-left: 5px;\n  padding-top: 10px;\n}\n.start-area .game .game-user button[data-v-0823766e] {\n  color: #fff;\n  padding: 10px;\n  font-size: 1.5rem;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  border-radius: 10px;\n  margin-top: 5px;\n}\n.start-area .game .game-level[data-v-0823766e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.start-area .game .game-level .levels[data-v-0823766e] {\n  display: flex;\n  justify-content: center;\n}\n.start-area .game .game-level .levels > *[data-v-0823766e] {\n  margin: 10px;\n  height: 40px;\n  width: 40px;\n  margin-bottom: 5px;\n  text-align: center;\n  font-size: 1.5rem;\n  background-color: #b3b3b3;\n  border-radius: 10px;\n  box-shadow: 0px 3px 8px black;\n}\n.start-area .game .game-level .levels .level-active[data-v-0823766e] {\n  background-color: #f9f4b8;\n}\n.start-area .game .game-level .levels .level-inactive[data-v-0823766e] {\n  background-color: #b3b3b3;\n}\n.start-area .game .game-level button[data-v-0823766e] {\n  color: #fff;\n  padding: 10px;\n  font-size: 1.5rem;\n  background: linear-gradient(60deg, #5073b8, #1098ad, #07b39b, #6fba82);\n  border-radius: 10px;\n  margin: 20px;\n}\n.start-area .game .alert[data-v-0823766e] {\n  font-size: 1rem;\n  margin: 20px;\n}", ""]);
 
 // exports
 
@@ -13012,7 +13138,7 @@ var render = function() {
       "div",
       { staticClass: "matches" },
       [
-        _c("start-area"),
+        _c("start-area", { attrs: { user: _vm.user } }),
         _vm._v(" "),
         _c(
           "div",
@@ -13622,7 +13748,10 @@ var render = function() {
     "div",
     { staticClass: "start-area" },
     [
-      _c("select-lang", { attrs: { languages: _vm.langList } }),
+      _c("select-lang", {
+        attrs: { languages: _vm.langList },
+        on: { "selected-lang": _vm.selectLang }
+      }),
       _vm._v(" "),
       _c("select-text", {
         attrs: { texts: _vm.arrayTexts },
@@ -13650,7 +13779,23 @@ var render = function() {
             _vm._v(" "),
             _c("img", { attrs: { src: "/img/twinBlades.png", alt: "" } }),
             _vm._v(" "),
-            _c("button", { staticClass: "start-game" }, [
+            _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.createdChallenge,
+                    expression: "createdChallenge"
+                  }
+                ],
+                staticClass: "alert alert-success"
+              },
+              [_vm._v("\n        " + _vm._s(_vm.messageSuccess) + "\n      ")]
+            ),
+            _vm._v(" "),
+            _c("button", { on: { click: _vm.createRandomChallenge } }, [
               _vm._v("Inicia una partida")
             ])
           ]
@@ -13687,18 +13832,18 @@ var render = function() {
             _c(
               "ul",
               { staticClass: "listUsers" },
-              _vm._l(_vm.usersSearched, function(user) {
+              _vm._l(_vm.usersSearched, function(userS) {
                 return _c(
                   "li",
                   {
-                    key: user.id,
+                    key: userS.id,
                     on: {
                       click: function($event) {
-                        return _vm.userClick(user)
+                        return _vm.userClick(userS)
                       }
                     }
                   },
-                  [_c("a", [_vm._v(_vm._s(user.name))])]
+                  [_c("a", [_vm._v(_vm._s(userS.name))])]
                 )
               }),
               0
@@ -13726,7 +13871,39 @@ var render = function() {
                 )
               : _vm._e(),
             _vm._v(" "),
-            _c("button", { staticClass: "start-game" }, [
+            _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.messageError != "",
+                    expression: "messageError != ''"
+                  }
+                ],
+                staticClass: "alert alert-danger"
+              },
+              [_vm._v("\n        " + _vm._s(_vm.messageError) + "\n      ")]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.createdChallenge,
+                    expression: "createdChallenge"
+                  }
+                ],
+                staticClass: "alert alert-success"
+              },
+              [_vm._v("\n        " + _vm._s(_vm.messageSuccess) + "\n      ")]
+            ),
+            _vm._v(" "),
+            _c("button", { on: { click: _vm.createAgainstChallenge } }, [
               _vm._v("Inicia una partida")
             ])
           ]
@@ -13766,7 +13943,41 @@ var render = function() {
               0
             ),
             _vm._v(" "),
-            _c("button", [_vm._v("Inicia una partida")])
+            _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.messageError != "",
+                    expression: "messageError != ''"
+                  }
+                ],
+                staticClass: "alert alert-danger"
+              },
+              [_vm._v("\n        " + _vm._s(_vm.messageError) + "\n      ")]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
+                    value: _vm.createdChallenge,
+                    expression: "createdChallenge"
+                  }
+                ],
+                staticClass: "alert alert-success"
+              },
+              [_vm._v("\n        " + _vm._s(_vm.messageSuccess) + "\n      ")]
+            ),
+            _vm._v(" "),
+            _c("button", { on: { click: _vm.createLevelChallenge } }, [
+              _vm._v("Inicia una partida")
+            ])
           ]
         )
       ])
@@ -27956,6 +28167,110 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 
 /***/ }),
 
+/***/ "./resources/classes/Challenge.js":
+/*!****************************************!*\
+  !*** ./resources/classes/Challenge.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Challenge; });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+var Challenge = /*#__PURE__*/function () {
+  function Challenge(id, created, updated, requestingPlayer, language, level, opposingPlayer) {
+    _classCallCheck(this, Challenge);
+
+    this.id = id;
+    this.created = created;
+    this.updated = updated;
+    this.requestingPlayer = requestingPlayer;
+    this.language = language;
+    this.level = level;
+    this.opposingPlayer = opposingPlayer;
+  }
+
+  _createClass(Challenge, [{
+    key: "postChallenge",
+    value: function () {
+      var _postChallenge = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(type) {
+        var url;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                url = "";
+                _context.t0 = type;
+                _context.next = _context.t0 === 'random' ? 4 : _context.t0 === 'against' ? 6 : _context.t0 === 'level' ? 8 : 10;
+                break;
+
+              case 4:
+                url = "/scrabble/challenge/request/".concat(this.language);
+                return _context.abrupt("break", 10);
+
+              case 6:
+                url = "/scrabble/challenge/request/".concat(this.language, "/against/").concat(this.opposingPlayer.id);
+                return _context.abrupt("break", 10);
+
+              case 8:
+                url = "/scrabble/challenge/request/".concat(this.language, "/level/").concat(this.level);
+                return _context.abrupt("break", 10);
+
+              case 10:
+                _context.prev = 10;
+                _context.next = 13;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(url);
+
+              case 13:
+                _context.next = 18;
+                break;
+
+              case 15:
+                _context.prev = 15;
+                _context.t1 = _context["catch"](10);
+                console.log("ERROR: " + _context.t1);
+
+              case 18:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[10, 15]]);
+      }));
+
+      function postChallenge(_x) {
+        return _postChallenge.apply(this, arguments);
+      }
+
+      return postChallenge;
+    }()
+  }]);
+
+  return Challenge;
+}();
+
+
+
+/***/ }),
+
 /***/ "./resources/classes/Game.js":
 /*!***********************************!*\
   !*** ./resources/classes/Game.js ***!
@@ -28447,7 +28762,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
 var User = /*#__PURE__*/function () {
-  function User(id, name, email, type, state, country, created_at, favourite_language, avatar) {
+  function User(id, name, email, type, state, country, created_at, updated_at, favourite_language, avatar, avatar_type) {
     _classCallCheck(this, User);
 
     this.id = id;
@@ -28457,8 +28772,10 @@ var User = /*#__PURE__*/function () {
     this.state = state;
     this.country = country;
     this.created_at = created_at;
+    this.updated_at = updated_at;
     this.favourite_language = favourite_language;
     this.avatar = avatar;
+    this.avatar_type = avatar_type;
   }
 
   _createClass(User, [{

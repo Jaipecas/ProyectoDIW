@@ -2,7 +2,7 @@
   <div class="match-area">
     <h2 class="header-area-dash">Partidas</h2>
     <div class="matches">
-      <start-area />
+      <start-area :user="user" />
       <div>
         <div class="legend">
           <span>Tu turno</span>

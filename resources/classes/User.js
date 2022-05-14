@@ -2,7 +2,7 @@ import Axios from "axios";
 import Game from "./Game";
 export default class User {
 
-    constructor(id, name, email, type, state, country, created_at, favourite_language, avatar) {
+    constructor(id, name, email, type, state, country, created_at, updated_at, favourite_language, avatar, avatar_type) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -10,8 +10,10 @@ export default class User {
         this.state = state;
         this.country = country;
         this.created_at = created_at;
+        this.updated_at = updated_at;
         this.favourite_language = favourite_language;
         this.avatar = avatar;
+        this.avatar_type = avatar_type;
     }
 
     async getWonGames() {

@@ -29,16 +29,18 @@ export default {
     nextLanguage() {
       if (this.count === this.languages.length - 1) {
         this.count = 0;
-        return;
+      } else {
+        this.count++;
       }
-      this.count++;
+      this.$emit("selected-lang", this.languages[this.count]);
     },
     beforeLanguage() {
       if (this.count === 0) {
         this.count = this.languages.length - 1;
-        return;
+      } else {
+        this.count--;
       }
-      this.count--;
+      this.$emit("selected-lang", this.languages[this.count]);
     },
   },
 };
