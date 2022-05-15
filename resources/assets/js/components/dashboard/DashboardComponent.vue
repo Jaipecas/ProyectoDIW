@@ -11,7 +11,7 @@
       :stats="userStats"
     />
     <friends-dash class="friends gradient" />
-    <div class="news" />
+    <news-dash class="news gradient" />
   </div>
 </template>
 
@@ -21,6 +21,8 @@ import MenuComponent from "./MenuDashComponent.vue";
 import GameComponent from "./GamesDashComponent.vue";
 import FriendsComponent from "./FriendsDashComponent.vue";
 import AreaComponent from "./AreaDashComponent.vue";
+import NewsComponent from "./NewsAreaComponent.vue";
+
 import User from "../../../../classes/User";
 import Statistics from "../../../../classes/Statistics";
 
@@ -32,6 +34,7 @@ export default {
     "games-dash": GameComponent,
     "friends-dash": FriendsComponent,
     "area-dash": AreaComponent,
+    "news-dash": NewsComponent,
   },
   props: {
     user: {
@@ -95,6 +98,7 @@ export default {
 
   > * {
     border: 0.2px solid rgb(97, 93, 93);
+    border-radius: $dash-panel-border;
   }
 
   .header {
@@ -111,8 +115,6 @@ export default {
 
   .area {
     grid-row: 2 / 4;
-    background: #bee2e8;
-    border-radius: $dash-panel-border;
   }
 
   .friends {
