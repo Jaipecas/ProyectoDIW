@@ -2067,6 +2067,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "ComboCountriesComponent",
@@ -3798,7 +3804,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _InputGroupComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./InputGroupComponent.vue */ "./resources/assets/js/components/dashboard/InputGroupComponent.vue");
 /* harmony import */ var _ComboCountriesComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ComboCountriesComponent.vue */ "./resources/assets/js/components/dashboard/ComboCountriesComponent.vue");
-/* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
+/* harmony import */ var vue_lang_code_flags__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-lang-code-flags */ "./node_modules/vue-lang-code-flags/LangFlag.vue");
+/* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
 //
 //
 //
@@ -3838,6 +3845,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -3845,17 +3864,18 @@ __webpack_require__.r(__webpack_exports__);
   name: "UserAreaDashComponent",
   components: {
     "input-dash": _InputGroupComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    "combo-countries": _ComboCountriesComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    "combo-countries": _ComboCountriesComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    "lang-flag": vue_lang_code_flags__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   props: {
     user: {
-      type: _classes_User__WEBPACK_IMPORTED_MODULE_2__["default"],
+      type: _classes_User__WEBPACK_IMPORTED_MODULE_3__["default"],
       required: true
     }
   },
   data: function data() {
     return {
-      userData: _classes_User__WEBPACK_IMPORTED_MODULE_2__["default"]
+      userData: _classes_User__WEBPACK_IMPORTED_MODULE_3__["default"]
     };
   },
   created: function created() {
@@ -3912,7 +3932,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "div .form-select[data-v-7ae91335] {\n  height: 30px;\n  width: 100%;\n}", ""]);
+exports.push([module.i, ".container-combo div[data-v-7ae91335] {\n  display: flex;\n  align-items: center;\n  gap: 5px;\n}\n.container-combo .form-select[data-v-7ae91335] {\n  height: 30px;\n  width: 100%;\n}", ""]);
 
 // exports
 
@@ -4045,7 +4065,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "fieldset[data-v-62aa6286] {\n  margin: 8px;\n  border: 2px solid #ef4e7b;\n  padding: 8px;\n  border-radius: 4px;\n}\nlegend[data-v-62aa6286] {\n  font-size: 1.2rem;\n  width: auto;\n  padding: 2px;\n}", ""]);
+exports.push([module.i, "fieldset[data-v-62aa6286] {\n  border: 2px solid #ef4e7b;\n  padding: 8px;\n  border-radius: 4px;\n}\nlegend[data-v-62aa6286] {\n  font-size: 1.2rem;\n  width: auto;\n  padding: 2px;\n}", ""]);
 
 // exports
 
@@ -4254,7 +4274,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-afe2655e] {\n  color: red;\n}\n.gradient[data-v-afe2655e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-afe2655e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-afe2655e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-afe2655e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-afe2655e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-afe2655e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-afe2655e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-afe2655e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-afe2655e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-afe2655e] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-afe2655e] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.user-dash[data-v-afe2655e] {\n  display: grid;\n  grid-template: 1fr 1fr 1fr 1fr 1fr/0.5fr 1fr 1fr 0.5fr;\n  gap: 10px;\n  overflow: auto;\n  -ms-overflow-style: none;\n  scrollbar-width: none;\n  height: 500px;\n}\n.user-dash[data-v-afe2655e]::-webkit-scrollbar {\n  display: none;\n}\n.user-dash div[data-v-afe2655e] {\n  align-self: center;\n}\n.user-dash div[data-v-afe2655e]:nth-child(even) {\n  grid-column: 2/3;\n}\n.user-dash div[data-v-afe2655e]:nth-child(odd) {\n  grid-column: 3/4;\n}\n.user-dash div[data-v-afe2655e]:nth-child(1) {\n  grid-column: 1/-1;\n  background: blue;\n  justify-self: center;\n  width: 130px;\n  height: 130px;\n  border-radius: 70px;\n  margin-top: 10px;\n}\n.buttons[data-v-afe2655e] {\n  display: flex;\n  padding: 30px;\n}\n.buttons > *[data-v-afe2655e] {\n  color: #fff;\n  font-size: 1.5rem;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  border-radius: 10px;\n  width: 50%;\n  height: 50px;\n  margin: 5px;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-afe2655e] {\n  color: red;\n}\n.gradient[data-v-afe2655e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-afe2655e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-afe2655e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-afe2655e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-afe2655e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-afe2655e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-afe2655e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-afe2655e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-afe2655e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-afe2655e] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-afe2655e] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.user-dash[data-v-afe2655e] {\n  display: grid;\n  grid-template: repeat(3, 1fr)/repeat(2, 1fr);\n}\n.user-dash .avatar[data-v-afe2655e] {\n  grid-row: 1/-1;\n  background: blue;\n  justify-self: center;\n  width: 200px;\n  height: 200px;\n  border-radius: 70px;\n  margin-top: 10px;\n}\n.user-dash .user-data[data-v-afe2655e] {\n  grid-column: 2/-1;\n  display: grid;\n  grid-template: 50px repeat(2, 1fr)/repeat(2, 1fr);\n}\n.user-dash .user-data span[data-v-afe2655e] {\n  grid-column: 1/-1;\n}\n.user-dash .user-pass[data-v-afe2655e] {\n  grid-column: 2/-1;\n  display: grid;\n  grid-template: repeat(3, 1fr)/1fr;\n}\n.user-dash .buttons[data-v-afe2655e] {\n  grid-column: 2/-1;\n  display: grid;\n  grid-template: 1fr/1fr;\n}\n\n/* .user-dash {\n  display: grid;\n  grid-template: 1fr 1fr 1fr 1fr 1fr/ 0.5fr 1fr 1fr 0.5fr;\n  gap: 10px;\n  @include area-scroll(500px);\n  div {\n    align-self: center;\n\n    &:nth-child(even) {\n      grid-column: 2 / 3;\n    }\n\n    &:nth-child(odd) {\n      grid-column: 3 / 4;\n    }\n\n    &:nth-child(1) {\n      grid-column: 1 / -1;\n      background: blue;\n      justify-self: center;\n      width: 130px;\n      height: 130px;\n      border-radius: 70px;\n      margin-top: 10px;\n    }\n  }\n}\n\n.buttons {\n  display: flex;\n  padding: 30px;\n  > * {\n    @include dash-button($font-size: 1.5rem);\n    width: 50%;\n    height: 50px;\n    margin: 5px;\n  }\n} */", ""]);
 
 // exports
 
@@ -13053,58 +13073,60 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("p", [_vm._v("Selecciona tu país")]),
-      _vm._v(" "),
-      _c("country-flag", {
-        attrs: { country: _vm.isoCode, size: "big", rounded: true }
-      }),
-      _vm._v(" "),
-      _c(
-        "select",
-        {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.selectedCountry,
-              expression: "selectedCountry"
-            }
-          ],
-          staticClass: "form-select",
-          on: {
-            change: [
-              function($event) {
-                var $$selectedVal = Array.prototype.filter
-                  .call($event.target.options, function(o) {
-                    return o.selected
-                  })
-                  .map(function(o) {
-                    var val = "_value" in o ? o._value : o.value
-                    return val
-                  })
-                _vm.selectedCountry = $event.target.multiple
-                  ? $$selectedVal
-                  : $$selectedVal[0]
-              },
-              _vm.getISOCode
-            ]
-          }
-        },
-        _vm._l(_vm.countries, function(countrySelect) {
-          return _c(
-            "option",
-            { key: countrySelect.key, domProps: { value: countrySelect } },
-            [_vm._v("\n      " + _vm._s(countrySelect) + "\n    ")]
-          )
+  return _c("div", { staticClass: "container-combo" }, [
+    _c("p", [_vm._v("Selecciona tu país")]),
+    _vm._v(" "),
+    _c(
+      "div",
+      [
+        _c("country-flag", {
+          attrs: { country: _vm.isoCode, size: "medium", rounded: true }
         }),
-        0
-      )
-    ],
-    1
-  )
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.selectedCountry,
+                expression: "selectedCountry"
+              }
+            ],
+            staticClass: "form-select",
+            on: {
+              change: [
+                function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.selectedCountry = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+                _vm.getISOCode
+              ]
+            }
+          },
+          _vm._l(_vm.countries, function(countrySelect) {
+            return _c(
+              "option",
+              { key: countrySelect.key, domProps: { value: countrySelect } },
+              [_vm._v("\n        " + _vm._s(countrySelect) + "\n      ")]
+            )
+          }),
+          0
+        )
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -14313,73 +14335,86 @@ var render = function() {
   return _c("div", [
     _c("h2", { staticClass: "header-area-dash" }, [_vm._v("Perfil Usuario")]),
     _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "user-dash" },
-      [
-        _c("div"),
-        _vm._v(" "),
-        _c("input-dash", {
-          attrs: {
-            "tittle-card": "Nombre",
-            type: "text",
-            content: _vm.user.name,
-            editable: ""
-          },
-          on: { "change-value": _vm.updateUser }
-        }),
-        _vm._v(" "),
-        _c("input-dash", {
-          attrs: {
-            "tittle-card": "Email",
-            type: "text",
-            content: _vm.userData.email
-          },
-          on: { "change-value": _vm.updateUser }
-        }),
-        _vm._v(" "),
-        _c("combo-countries", {
-          attrs: { title: "comboCountries", country: _vm.userData.country },
-          on: { "change-value": _vm.updateUser }
-        }),
-        _vm._v(" "),
-        _c("input-dash", {
-          attrs: {
-            "tittle-card": "Antigua contraseña",
-            type: "password",
-            content: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("input-dash", {
-          attrs: {
-            "tittle-card": "Nueva contraseña",
-            type: "password",
-            content: ""
-          }
-        }),
-        _vm._v(" "),
-        _c("input-dash", {
-          attrs: { "tittle-card": "Nombre", type: "text", content: "" }
-        }),
-        _vm._v(" "),
-        _c("input-dash", {
-          attrs: {
-            "tittle-card": "Confirma contraseña",
-            type: "password",
-            content: ""
-          }
-        })
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c("div", { staticClass: "buttons" }, [
-      _c("button", { on: { click: _vm.updateProfile } }, [
-        _vm._v("Guardar cambios")
-      ]),
+    _c("div", { staticClass: "user-dash" }, [
+      _c("div", { staticClass: "avatar" }),
       _vm._v(" "),
-      _c("button", [_vm._v("Borrar cuenta")])
+      _c(
+        "div",
+        { staticClass: "user-data" },
+        [
+          _c("span", [_vm._v("Candado")]),
+          _vm._v(" "),
+          _c("input-dash", {
+            attrs: {
+              "tittle-card": "Nombre",
+              type: "text",
+              content: _vm.user.name,
+              editable: ""
+            },
+            on: { "change-value": _vm.updateUser }
+          }),
+          _vm._v(" "),
+          _c("input-dash", {
+            attrs: {
+              "tittle-card": "Email",
+              type: "text",
+              content: _vm.userData.email
+            },
+            on: { "change-value": _vm.updateUser }
+          }),
+          _vm._v(" "),
+          _c("combo-countries", {
+            attrs: { title: "comboCountries", country: _vm.userData.country },
+            on: { "change-value": _vm.updateUser }
+          }),
+          _vm._v(" "),
+          _c(
+            "div",
+            [_c("lang-flag", { attrs: { iso: _vm.user.favourite_language } })],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "user-pass" },
+        [
+          _c("input-dash", {
+            attrs: {
+              "tittle-card": "Antigua contraseña",
+              type: "password",
+              content: ""
+            }
+          }),
+          _vm._v(" "),
+          _c("input-dash", {
+            attrs: {
+              "tittle-card": "Nueva contraseña",
+              type: "password",
+              content: ""
+            }
+          }),
+          _vm._v(" "),
+          _c("input-dash", {
+            attrs: {
+              "tittle-card": "Confirma contraseña",
+              type: "password",
+              content: ""
+            }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "buttons" }, [
+        _c("button", { on: { click: _vm.updateProfile } }, [
+          _vm._v("Guardar cambios")
+        ]),
+        _vm._v(" "),
+        _c("button", [_vm._v("Borrar cuenta")])
+      ])
     ])
   ])
 }
@@ -28466,117 +28501,6 @@ var Challenge = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ "./resources/classes/Game.js":
-/*!***********************************!*\
-  !*** ./resources/classes/Game.js ***!
-  \***********************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Game; });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./User */ "./resources/classes/User.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-
-
-
-var Game = /*#__PURE__*/function () {
-  function Game(id, language, state, score1, score2, updated, player1, player2) {
-    _classCallCheck(this, Game);
-
-    this.id = id;
-    this.language = language;
-    this.state = state;
-    this.score1 = score1;
-    this.score2 = score2;
-    this.updated = updated;
-    this.player1 = player1;
-    this.player2 = player2;
-  }
-
-  _createClass(Game, null, [{
-    key: "createGame",
-    value: function createGame(json) {
-      var match = new Game(json.id, json.language, json.state, json.player_1_score, json.player_2_score, json.updated_at, Object.assign(new _User__WEBPACK_IMPORTED_MODULE_1__["default"](), json.player1), Object.assign(new _User__WEBPACK_IMPORTED_MODULE_1__["default"](), json.player2));
-      return match;
-    }
-  }, {
-    key: "getUserGames",
-    value: function () {
-      var _getUserGames = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(gamesPage) {
-        var _this = this;
-
-        var url, arrayGames, promise;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                url = "/scrabble/user/games/";
-                arrayGames = [];
-                if (gamesPage !== undefined) url += gamesPage;
-                _context.prev = 3;
-                _context.next = 6;
-                return axios__WEBPACK_IMPORTED_MODULE_2___default.a.get(url);
-
-              case 6:
-                promise = _context.sent;
-                //PREGUNTAR SOBRE SOVERSION DE JSON A OBJECT, LOS HIJOS NO SE CONVIERTEN
-                Array.from(promise.data.data).forEach(function (game) {
-                  arrayGames.push(_this.createGame(game));
-                });
-                return _context.abrupt("return", arrayGames);
-
-              case 11:
-                _context.prev = 11;
-                _context.t0 = _context["catch"](3);
-                console.log("ERROR: " + _context.t0);
-
-              case 14:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, null, [[3, 11]]);
-      }));
-
-      function getUserGames(_x) {
-        return _getUserGames.apply(this, arguments);
-      }
-
-      return getUserGames;
-    }() //POR AHORA USAMOS LA VARIABLE BLADE PARA LOS JUEGOS PENDIENTES
-
-    /*  static async getPendingGames(gamesPage) {
-         let arrayGames = await this.getUserGames(gamesPage);
-         arrayGames = arrayGames.filter(game => game.state !== "win_p1" && game.state !== "win_p2");
-         return arrayGames;
-     } */
-
-  }]);
-
-  return Game;
-}();
-
-
-
-/***/ }),
-
 /***/ "./resources/classes/Info.js":
 /*!***********************************!*\
   !*** ./resources/classes/Info.js ***!
@@ -29000,7 +28924,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Game__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Game */ "./resources/classes/Game.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -29012,7 +28935,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
 
 
 
@@ -29034,86 +28956,16 @@ var User = /*#__PURE__*/function () {
   }
 
   _createClass(User, [{
-    key: "getWonGames",
+    key: "updateProfile",
     value: function () {
-      var _getWonGames = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var _this = this;
-
-        var arrayGames;
+      var _updateProfile = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(new_password, new_password_confirmation, old_password) {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
-                return _Game__WEBPACK_IMPORTED_MODULE_2__["default"].getUserGames();
-
-              case 2:
-                arrayGames = _context.sent;
-                arrayGames = arrayGames.filter(function (game) {
-                  return game.player1.name === _this.name && game.score1 > game.score2 || game.player2.name === _this.name && game.score2 > game.score1;
-                });
-                return _context.abrupt("return", arrayGames);
-
-              case 5:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }));
-
-      function getWonGames() {
-        return _getWonGames.apply(this, arguments);
-      }
-
-      return getWonGames;
-    }()
-  }, {
-    key: "getLoseGames",
-    value: function () {
-      var _getLoseGames = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var _this2 = this;
-
-        var arrayGames;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                _context2.next = 2;
-                return _Game__WEBPACK_IMPORTED_MODULE_2__["default"].getUserGames();
-
-              case 2:
-                arrayGames = _context2.sent;
-                arrayGames = arrayGames.filter(function (game) {
-                  return game.player1.name === _this2.name && game.score1 < game.score2 || game.player2.name === _this2.name && game.score2 < game.score1;
-                });
-                return _context2.abrupt("return", arrayGames);
-
-              case 5:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
-      }));
-
-      function getLoseGames() {
-        return _getLoseGames.apply(this, arguments);
-      }
-
-      return getLoseGames;
-    }()
-  }, {
-    key: "updateProfile",
-    value: function () {
-      var _updateProfile = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(new_password, new_password_confirmation, old_password) {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
                 console.log("object" + this.country);
-                _context3.prev = 1;
-                _context3.next = 4;
+                _context.prev = 1;
+                _context.next = 4;
                 return axios__WEBPACK_IMPORTED_MODULE_1___default.a.put("/scrabble/user/update", {
                   name: this.name,
                   country: this.country,
@@ -29124,20 +28976,20 @@ var User = /*#__PURE__*/function () {
                 });
 
               case 4:
-                _context3.next = 9;
+                _context.next = 9;
                 break;
 
               case 6:
-                _context3.prev = 6;
-                _context3.t0 = _context3["catch"](1);
-                console.log("ERROR: " + _context3.t0);
+                _context.prev = 6;
+                _context.t0 = _context["catch"](1);
+                console.log("ERROR: " + _context.t0);
 
               case 9:
               case "end":
-                return _context3.stop();
+                return _context.stop();
             }
           }
-        }, _callee3, this, [[1, 6]]);
+        }, _callee, this, [[1, 6]]);
       }));
 
       function updateProfile(_x, _x2, _x3) {

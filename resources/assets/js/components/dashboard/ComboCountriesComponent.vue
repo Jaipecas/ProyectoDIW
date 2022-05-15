@@ -1,16 +1,22 @@
 <template>
-  <div>
+  <div class="container-combo">
     <p>Selecciona tu país</p>
-    <country-flag :country="isoCode" size="big" :rounded="true" />
-    <select v-model="selectedCountry" class="form-select" @change="getISOCode">
-      <option
-        v-for="countrySelect in countries"
-        :key="countrySelect.key"
-        :value="countrySelect"
+    <div>
+      <country-flag :country="isoCode" size="medium" :rounded="true" />
+      <select
+        v-model="selectedCountry"
+        class="form-select"
+        @change="getISOCode"
       >
-        {{ countrySelect }}
-      </option>
-    </select>
+        <option
+          v-for="countrySelect in countries"
+          :key="countrySelect.key"
+          :value="countrySelect"
+        >
+          {{ countrySelect }}
+        </option>
+      </select>
+    </div>
   </div>
 </template>
 
@@ -303,7 +309,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-div {
+.container-combo {
+  div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
   .form-select {
     height: 30px;
     width: 100%;

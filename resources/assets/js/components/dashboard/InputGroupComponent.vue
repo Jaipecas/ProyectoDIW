@@ -58,7 +58,6 @@ export default {
 
 <style lang="scss" scoped>
 fieldset {
-  margin: 8px;
   border: 2px solid #ef4e7b;
   padding: 8px;
   border-radius: 4px;
