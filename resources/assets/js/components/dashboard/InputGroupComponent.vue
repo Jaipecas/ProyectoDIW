@@ -1,15 +1,13 @@
 <template>
   <div>
-    <fieldset>
-      <legend>{{ tittleCard }}</legend>
-      <input
-        v-model="valueInput"
-        :type="type"
-        class="form-control"
-        :value="content"
-        @keyup="changeValue"
-      />
-    </fieldset>
+    <label>{{ title }}</label>
+    <input
+      v-model="valueInput"
+      :type="type"
+      class="form-control"
+      :value="content"
+      @keyup="changeValue"
+    />
   </div>
 </template>
 
@@ -17,7 +15,7 @@
 export default {
   name: "InputGroupDash",
   props: {
-    tittleCard: {
+    title: {
       type: String,
       required: true,
     },
@@ -27,10 +25,6 @@ export default {
       validator: function (value) {
         return ["text", "email", "password"].indexOf(value) !== -1;
       },
-    },
-    editable: {
-      type: Boolean,
-      default: true,
     },
     content: {
       type: String,
@@ -50,22 +44,10 @@ export default {
 
   methods: {
     changeValue() {
-      this.$emit("change-value", this.tittleCard, this.valueInput);
+      this.$emit("change-value", this.title, this.valueInput);
     },
   },
 };
 </script>
 
-<style lang="scss" scoped>
-fieldset {
-  border: 2px solid #ef4e7b;
-  padding: 8px;
-  border-radius: 4px;
-}
-
-legend {
-  font-size: 1.2rem;
-  width: auto;
-  padding: 2px;
-}
-</style>
+<style lang="scss" scoped></style>

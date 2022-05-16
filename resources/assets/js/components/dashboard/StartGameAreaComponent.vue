@@ -209,7 +209,7 @@ export default {
     }
 
     .game-random {
-      @include dash-card($dash-gradient1);
+      @include dash-card($dash-gradient1, 120px);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -226,7 +226,7 @@ export default {
       }
     }
     .game-user {
-      @include dash-card($dash-gradient2);
+      @include dash-card($dash-gradient2, 120px);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -300,7 +300,7 @@ export default {
     }
 
     .game-level {
-      @include dash-card($dash-gradient1);
+      @include dash-card($dash-gradient1, 120px);
       display: flex;
       flex-direction: column;
       justify-content: center;

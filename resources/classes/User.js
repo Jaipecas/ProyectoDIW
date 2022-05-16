@@ -15,8 +15,8 @@ export default class User {
         this.avatar_type = avatar_type;
     }
 
-    async updateProfile(new_password, new_password_confirmation, old_password) {
-        console.log("object" + this.country);
+    async updateProfile(old_password, new_password, new_password_confirmation) {
+
         try {
             await Axios.put("/scrabble/user/update", {
                 name: this.name,

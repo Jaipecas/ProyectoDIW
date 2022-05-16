@@ -2,14 +2,10 @@
   <div class="container-combo">
     <p>Selecciona tu país</p>
     <div>
-      <lang-flag :lang="isoCode" size="medium" :rounded="true" />
-      <select v-model="selectedLangs" class="form-select" @change="getISOCode">
-        <option
-          v-for="langSelect in isoLangs"
-          :key="langSelect.key"
-          :value="langSelect"
-        >
-          {{ langSelect }}
+      <lang-flag :iso="isoCode" />
+      <select v-model="selectedLang" class="form-select" @change="changeLang">
+        <option v-for="langIso in isoLangs" :key="langIso.key" :value="langIso">
+          {{ langIso.name }}
         </option>
       </select>
     </div>
@@ -17,25 +13,27 @@
 </template>
 
 <script>
-import langFlag from "vue-lang-flag";
+import LangFlag from "vue-lang-code-flags";
 
 export default {
   name: "ComboisoLangsComponent",
   components: {
-    "lang-flag": langFlag,
+    "lang-flag": LangFlag,
   },
   props: {
-    lang: {
+    title: {
       type: String,
       required: true,
     },
-    title: {
+    lang: {
       type: String,
       required: true,
     },
   },
   data: function () {
     return {
+      selectedLang: null,
+      isoCode: "",
       isoLangs: {
         ab: {
           name: "Abkhaz",
@@ -768,8 +766,6 @@ export default {
           nativeName: "Saɯ cueŋƅ, Saw cuengh",
         },
       },
-      selectedLangs: "español",
-      isoCode: "es",
     };
   },
   created() {
@@ -777,15 +773,15 @@ export default {
   },
 
   methods: {
-    getISOCode() {
+    changeLang() {
       this.isoCode = Object.keys(this.isoLangs).find(
-        (key) => this.isoLangs[key] === this.selectedLangs
+        (key) => this.isoLangs[key] === this.selectedLang
       );
       this.$emit("change-value", this.title, this.isoCode);
     },
     loadValues() {
       this.isoCode = this.lang;
-      this.selectedLangs = this.isoLangs[this.isoCode];
+      this.selectedLang = this.isoLangs[this.lang];
     },
   },
 };

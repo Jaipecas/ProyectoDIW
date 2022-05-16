@@ -63,10 +63,11 @@ $color-no-turn: rgb(175, 175, 175);
   border-radius: 10px;
 }
 
-@mixin dash-card($background) {
+@mixin dash-card($background, $min-height) {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   width: 100%;
-  min-height: 120px;
+  //min-height: 120px;
+  min-height: $min-height;
   border-radius: 10px;
   font-size: 1.5rem;
   text-align: center;

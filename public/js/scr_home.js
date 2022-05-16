@@ -2361,6 +2361,803 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/ComboLangsComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/ComboLangsComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_lang_code_flags__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-lang-code-flags */ "./node_modules/vue-lang-code-flags/LangFlag.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "ComboisoLangsComponent",
+  components: {
+    "lang-flag": vue_lang_code_flags__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    lang: {
+      type: String,
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      selectedLang: null,
+      isoCode: "",
+      isoLangs: {
+        ab: {
+          name: "Abkhaz",
+          nativeName: "аҧсуа"
+        },
+        aa: {
+          name: "Afar",
+          nativeName: "Afaraf"
+        },
+        af: {
+          name: "Afrikaans",
+          nativeName: "Afrikaans"
+        },
+        ak: {
+          name: "Akan",
+          nativeName: "Akan"
+        },
+        sq: {
+          name: "Albanian",
+          nativeName: "Shqip"
+        },
+        am: {
+          name: "Amharic",
+          nativeName: "አማርኛ"
+        },
+        ar: {
+          name: "Arabic",
+          nativeName: "العربية"
+        },
+        an: {
+          name: "Aragonese",
+          nativeName: "Aragonés"
+        },
+        hy: {
+          name: "Armenian",
+          nativeName: "Հայերեն"
+        },
+        as: {
+          name: "Assamese",
+          nativeName: "অসমীয়া"
+        },
+        av: {
+          name: "Avaric",
+          nativeName: "авар мацӀ, магӀарул мацӀ"
+        },
+        ae: {
+          name: "Avestan",
+          nativeName: "avesta"
+        },
+        ay: {
+          name: "Aymara",
+          nativeName: "aymar aru"
+        },
+        az: {
+          name: "Azerbaijani",
+          nativeName: "azərbaycan dili"
+        },
+        bm: {
+          name: "Bambara",
+          nativeName: "bamanankan"
+        },
+        ba: {
+          name: "Bashkir",
+          nativeName: "башҡорт теле"
+        },
+        eu: {
+          name: "Basque",
+          nativeName: "euskara, euskera"
+        },
+        be: {
+          name: "Belarusian",
+          nativeName: "Беларуская"
+        },
+        bn: {
+          name: "Bengali",
+          nativeName: "বাংলা"
+        },
+        bh: {
+          name: "Bihari",
+          nativeName: "भोजपुरी"
+        },
+        bi: {
+          name: "Bislama",
+          nativeName: "Bislama"
+        },
+        bs: {
+          name: "Bosnian",
+          nativeName: "bosanski jezik"
+        },
+        br: {
+          name: "Breton",
+          nativeName: "brezhoneg"
+        },
+        bg: {
+          name: "Bulgarian",
+          nativeName: "български език"
+        },
+        my: {
+          name: "Burmese",
+          nativeName: "ဗမာစာ"
+        },
+        ca: {
+          name: "Catalan; Valencian",
+          nativeName: "Català"
+        },
+        ch: {
+          name: "Chamorro",
+          nativeName: "Chamoru"
+        },
+        ce: {
+          name: "Chechen",
+          nativeName: "нохчийн мотт"
+        },
+        ny: {
+          name: "Chichewa; Chewa; Nyanja",
+          nativeName: "chiCheŵa, chinyanja"
+        },
+        zh: {
+          name: "Chinese",
+          nativeName: "中文 (Zhōngwén), 汉语, 漢語"
+        },
+        cv: {
+          name: "Chuvash",
+          nativeName: "чӑваш чӗлхи"
+        },
+        kw: {
+          name: "Cornish",
+          nativeName: "Kernewek"
+        },
+        co: {
+          name: "Corsican",
+          nativeName: "corsu, lingua corsa"
+        },
+        cr: {
+          name: "Cree",
+          nativeName: "ᓀᐦᐃᔭᐍᐏᐣ"
+        },
+        hr: {
+          name: "Croatian",
+          nativeName: "hrvatski"
+        },
+        cs: {
+          name: "Czech",
+          nativeName: "česky, čeština"
+        },
+        da: {
+          name: "Danish",
+          nativeName: "dansk"
+        },
+        dv: {
+          name: "Divehi; Dhivehi; Maldivian;",
+          nativeName: "ދިވެހި"
+        },
+        nl: {
+          name: "Dutch",
+          nativeName: "Nederlands, Vlaams"
+        },
+        en: {
+          name: "English",
+          nativeName: "English"
+        },
+        eo: {
+          name: "Esperanto",
+          nativeName: "Esperanto"
+        },
+        et: {
+          name: "Estonian",
+          nativeName: "eesti, eesti keel"
+        },
+        ee: {
+          name: "Ewe",
+          nativeName: "Eʋegbe"
+        },
+        fo: {
+          name: "Faroese",
+          nativeName: "føroyskt"
+        },
+        fj: {
+          name: "Fijian",
+          nativeName: "vosa Vakaviti"
+        },
+        fi: {
+          name: "Finnish",
+          nativeName: "suomi, suomen kieli"
+        },
+        fr: {
+          name: "French",
+          nativeName: "français, langue française"
+        },
+        ff: {
+          name: "Fula; Fulah; Pulaar; Pular",
+          nativeName: "Fulfulde, Pulaar, Pular"
+        },
+        gl: {
+          name: "Galician",
+          nativeName: "Galego"
+        },
+        ka: {
+          name: "Georgian",
+          nativeName: "ქართული"
+        },
+        de: {
+          name: "German",
+          nativeName: "Deutsch"
+        },
+        el: {
+          name: "Greek, Modern",
+          nativeName: "Ελληνικά"
+        },
+        gn: {
+          name: "Guaraní",
+          nativeName: "Avañeẽ"
+        },
+        gu: {
+          name: "Gujarati",
+          nativeName: "ગુજરાતી"
+        },
+        ht: {
+          name: "Haitian; Haitian Creole",
+          nativeName: "Kreyòl ayisyen"
+        },
+        ha: {
+          name: "Hausa",
+          nativeName: "Hausa, هَوُسَ"
+        },
+        he: {
+          name: "Hebrew (modern)",
+          nativeName: "עברית"
+        },
+        hz: {
+          name: "Herero",
+          nativeName: "Otjiherero"
+        },
+        hi: {
+          name: "Hindi",
+          nativeName: "हिन्दी, हिंदी"
+        },
+        ho: {
+          name: "Hiri Motu",
+          nativeName: "Hiri Motu"
+        },
+        hu: {
+          name: "Hungarian",
+          nativeName: "Magyar"
+        },
+        ia: {
+          name: "Interlingua",
+          nativeName: "Interlingua"
+        },
+        id: {
+          name: "Indonesian",
+          nativeName: "Bahasa Indonesia"
+        },
+        ie: {
+          name: "Interlingue",
+          nativeName: "Originally called Occidental; then Interlingue after WWII"
+        },
+        ga: {
+          name: "Irish",
+          nativeName: "Gaeilge"
+        },
+        ig: {
+          name: "Igbo",
+          nativeName: "Asụsụ Igbo"
+        },
+        ik: {
+          name: "Inupiaq",
+          nativeName: "Iñupiaq, Iñupiatun"
+        },
+        io: {
+          name: "Ido",
+          nativeName: "Ido"
+        },
+        is: {
+          name: "Icelandic",
+          nativeName: "Íslenska"
+        },
+        it: {
+          name: "Italian",
+          nativeName: "Italiano"
+        },
+        iu: {
+          name: "Inuktitut",
+          nativeName: "ᐃᓄᒃᑎᑐᑦ"
+        },
+        ja: {
+          name: "Japanese",
+          nativeName: "日本語 (にほんご／にっぽんご)"
+        },
+        jv: {
+          name: "Javanese",
+          nativeName: "basa Jawa"
+        },
+        kl: {
+          name: "Kalaallisut, Greenlandic",
+          nativeName: "kalaallisut, kalaallit oqaasii"
+        },
+        kn: {
+          name: "Kannada",
+          nativeName: "ಕನ್ನಡ"
+        },
+        kr: {
+          name: "Kanuri",
+          nativeName: "Kanuri"
+        },
+        ks: {
+          name: "Kashmiri",
+          nativeName: "कश्मीरी, كشميري‎"
+        },
+        kk: {
+          name: "Kazakh",
+          nativeName: "Қазақ тілі"
+        },
+        km: {
+          name: "Khmer",
+          nativeName: "ភាសាខ្មែរ"
+        },
+        ki: {
+          name: "Kikuyu, Gikuyu",
+          nativeName: "Gĩkũyũ"
+        },
+        rw: {
+          name: "Kinyarwanda",
+          nativeName: "Ikinyarwanda"
+        },
+        ky: {
+          name: "Kirghiz, Kyrgyz",
+          nativeName: "кыргыз тили"
+        },
+        kv: {
+          name: "Komi",
+          nativeName: "коми кыв"
+        },
+        kg: {
+          name: "Kongo",
+          nativeName: "KiKongo"
+        },
+        ko: {
+          name: "Korean",
+          nativeName: "한국어 (韓國語), 조선말 (朝鮮語)"
+        },
+        ku: {
+          name: "Kurdish",
+          nativeName: "Kurdî, كوردی‎"
+        },
+        kj: {
+          name: "Kwanyama, Kuanyama",
+          nativeName: "Kuanyama"
+        },
+        la: {
+          name: "Latin",
+          nativeName: "latine, lingua latina"
+        },
+        lb: {
+          name: "Luxembourgish, Letzeburgesch",
+          nativeName: "Lëtzebuergesch"
+        },
+        lg: {
+          name: "Luganda",
+          nativeName: "Luganda"
+        },
+        li: {
+          name: "Limburgish, Limburgan, Limburger",
+          nativeName: "Limburgs"
+        },
+        ln: {
+          name: "Lingala",
+          nativeName: "Lingála"
+        },
+        lo: {
+          name: "Lao",
+          nativeName: "ພາສາລາວ"
+        },
+        lt: {
+          name: "Lithuanian",
+          nativeName: "lietuvių kalba"
+        },
+        lu: {
+          name: "Luba-Katanga",
+          nativeName: ""
+        },
+        lv: {
+          name: "Latvian",
+          nativeName: "latviešu valoda"
+        },
+        gv: {
+          name: "Manx",
+          nativeName: "Gaelg, Gailck"
+        },
+        mk: {
+          name: "Macedonian",
+          nativeName: "македонски јазик"
+        },
+        mg: {
+          name: "Malagasy",
+          nativeName: "Malagasy fiteny"
+        },
+        ms: {
+          name: "Malay",
+          nativeName: "bahasa Melayu, بهاس ملايو‎"
+        },
+        ml: {
+          name: "Malayalam",
+          nativeName: "മലയാളം"
+        },
+        mt: {
+          name: "Maltese",
+          nativeName: "Malti"
+        },
+        mi: {
+          name: "Māori",
+          nativeName: "te reo Māori"
+        },
+        mr: {
+          name: "Marathi (Marāṭhī)",
+          nativeName: "मराठी"
+        },
+        mh: {
+          name: "Marshallese",
+          nativeName: "Kajin M̧ajeļ"
+        },
+        mn: {
+          name: "Mongolian",
+          nativeName: "монгол"
+        },
+        na: {
+          name: "Nauru",
+          nativeName: "Ekakairũ Naoero"
+        },
+        nv: {
+          name: "Navajo, Navaho",
+          nativeName: "Diné bizaad, Dinékʼehǰí"
+        },
+        nb: {
+          name: "Norwegian Bokmål",
+          nativeName: "Norsk bokmål"
+        },
+        nd: {
+          name: "North Ndebele",
+          nativeName: "isiNdebele"
+        },
+        ne: {
+          name: "Nepali",
+          nativeName: "नेपाली"
+        },
+        ng: {
+          name: "Ndonga",
+          nativeName: "Owambo"
+        },
+        nn: {
+          name: "Norwegian Nynorsk",
+          nativeName: "Norsk nynorsk"
+        },
+        no: {
+          name: "Norwegian",
+          nativeName: "Norsk"
+        },
+        ii: {
+          name: "Nuosu",
+          nativeName: "ꆈꌠ꒿ Nuosuhxop"
+        },
+        nr: {
+          name: "South Ndebele",
+          nativeName: "isiNdebele"
+        },
+        oc: {
+          name: "Occitan",
+          nativeName: "Occitan"
+        },
+        oj: {
+          name: "Ojibwe, Ojibwa",
+          nativeName: "ᐊᓂᔑᓈᐯᒧᐎᓐ"
+        },
+        cu: {
+          name: "Old Church Slavonic, Church Slavic, Church Slavonic, Old Bulgarian, Old Slavonic",
+          nativeName: "ѩзыкъ словѣньскъ"
+        },
+        om: {
+          name: "Oromo",
+          nativeName: "Afaan Oromoo"
+        },
+        or: {
+          name: "Oriya",
+          nativeName: "ଓଡ଼ିଆ"
+        },
+        os: {
+          name: "Ossetian, Ossetic",
+          nativeName: "ирон æвзаг"
+        },
+        pa: {
+          name: "Panjabi, Punjabi",
+          nativeName: "ਪੰਜਾਬੀ, پنجابی‎"
+        },
+        pi: {
+          name: "Pāli",
+          nativeName: "पाऴि"
+        },
+        fa: {
+          name: "Persian",
+          nativeName: "فارسی"
+        },
+        pl: {
+          name: "Polish",
+          nativeName: "polski"
+        },
+        ps: {
+          name: "Pashto, Pushto",
+          nativeName: "پښتو"
+        },
+        pt: {
+          name: "Portuguese",
+          nativeName: "Português"
+        },
+        qu: {
+          name: "Quechua",
+          nativeName: "Runa Simi, Kichwa"
+        },
+        rm: {
+          name: "Romansh",
+          nativeName: "rumantsch grischun"
+        },
+        rn: {
+          name: "Kirundi",
+          nativeName: "kiRundi"
+        },
+        ro: {
+          name: "Romanian, Moldavian, Moldovan",
+          nativeName: "română"
+        },
+        ru: {
+          name: "Russian",
+          nativeName: "русский язык"
+        },
+        sa: {
+          name: "Sanskrit (Saṁskṛta)",
+          nativeName: "संस्कृतम्"
+        },
+        sc: {
+          name: "Sardinian",
+          nativeName: "sardu"
+        },
+        sd: {
+          name: "Sindhi",
+          nativeName: "सिन्धी, سنڌي، سندھی‎"
+        },
+        se: {
+          name: "Northern Sami",
+          nativeName: "Davvisámegiella"
+        },
+        sm: {
+          name: "Samoan",
+          nativeName: "gagana faa Samoa"
+        },
+        sg: {
+          name: "Sango",
+          nativeName: "yângâ tî sängö"
+        },
+        sr: {
+          name: "Serbian",
+          nativeName: "српски језик"
+        },
+        gd: {
+          name: "Scottish Gaelic; Gaelic",
+          nativeName: "Gàidhlig"
+        },
+        sn: {
+          name: "Shona",
+          nativeName: "chiShona"
+        },
+        si: {
+          name: "Sinhala, Sinhalese",
+          nativeName: "සිංහල"
+        },
+        sk: {
+          name: "Slovak",
+          nativeName: "slovenčina"
+        },
+        sl: {
+          name: "Slovene",
+          nativeName: "slovenščina"
+        },
+        so: {
+          name: "Somali",
+          nativeName: "Soomaaliga, af Soomaali"
+        },
+        st: {
+          name: "Southern Sotho",
+          nativeName: "Sesotho"
+        },
+        es: {
+          name: "Spanish; Castilian",
+          nativeName: "español, castellano"
+        },
+        su: {
+          name: "Sundanese",
+          nativeName: "Basa Sunda"
+        },
+        sw: {
+          name: "Swahili",
+          nativeName: "Kiswahili"
+        },
+        ss: {
+          name: "Swati",
+          nativeName: "SiSwati"
+        },
+        sv: {
+          name: "Swedish",
+          nativeName: "svenska"
+        },
+        ta: {
+          name: "Tamil",
+          nativeName: "தமிழ்"
+        },
+        te: {
+          name: "Telugu",
+          nativeName: "తెలుగు"
+        },
+        tg: {
+          name: "Tajik",
+          nativeName: "тоҷикӣ, toğikī, تاجیکی‎"
+        },
+        th: {
+          name: "Thai",
+          nativeName: "ไทย"
+        },
+        ti: {
+          name: "Tigrinya",
+          nativeName: "ትግርኛ"
+        },
+        bo: {
+          name: "Tibetan Standard, Tibetan, Central",
+          nativeName: "བོད་ཡིག"
+        },
+        tk: {
+          name: "Turkmen",
+          nativeName: "Türkmen, Түркмен"
+        },
+        tl: {
+          name: "Tagalog",
+          nativeName: "Wikang Tagalog, ᜏᜒᜃᜅ᜔ ᜆᜄᜎᜓᜄ᜔"
+        },
+        tn: {
+          name: "Tswana",
+          nativeName: "Setswana"
+        },
+        to: {
+          name: "Tonga (Tonga Islands)",
+          nativeName: "faka Tonga"
+        },
+        tr: {
+          name: "Turkish",
+          nativeName: "Türkçe"
+        },
+        ts: {
+          name: "Tsonga",
+          nativeName: "Xitsonga"
+        },
+        tt: {
+          name: "Tatar",
+          nativeName: "татарча, tatarça, تاتارچا‎"
+        },
+        tw: {
+          name: "Twi",
+          nativeName: "Twi"
+        },
+        ty: {
+          name: "Tahitian",
+          nativeName: "Reo Tahiti"
+        },
+        ug: {
+          name: "Uighur, Uyghur",
+          nativeName: "Uyƣurqə, ئۇيغۇرچە‎"
+        },
+        uk: {
+          name: "Ukrainian",
+          nativeName: "українська"
+        },
+        ur: {
+          name: "Urdu",
+          nativeName: "اردو"
+        },
+        uz: {
+          name: "Uzbek",
+          nativeName: "zbek, Ўзбек, أۇزبېك‎"
+        },
+        ve: {
+          name: "Venda",
+          nativeName: "Tshivenḓa"
+        },
+        vi: {
+          name: "Vietnamese",
+          nativeName: "Tiếng Việt"
+        },
+        vo: {
+          name: "Volapük",
+          nativeName: "Volapük"
+        },
+        wa: {
+          name: "Walloon",
+          nativeName: "Walon"
+        },
+        cy: {
+          name: "Welsh",
+          nativeName: "Cymraeg"
+        },
+        wo: {
+          name: "Wolof",
+          nativeName: "Wollof"
+        },
+        fy: {
+          name: "Western Frisian",
+          nativeName: "Frysk"
+        },
+        xh: {
+          name: "Xhosa",
+          nativeName: "isiXhosa"
+        },
+        yi: {
+          name: "Yiddish",
+          nativeName: "ייִדיש"
+        },
+        yo: {
+          name: "Yoruba",
+          nativeName: "Yorùbá"
+        },
+        za: {
+          name: "Zhuang, Chuang",
+          nativeName: "Saɯ cueŋƅ, Saw cuengh"
+        }
+      }
+    };
+  },
+  created: function created() {
+    this.loadValues();
+  },
+  methods: {
+    changeLang: function changeLang() {
+      var _this = this;
+
+      this.isoCode = Object.keys(this.isoLangs).find(function (key) {
+        return _this.isoLangs[key] === _this.selectedLang;
+      });
+      this.$emit("change-value", this.title, this.isoCode);
+    },
+    loadValues: function loadValues() {
+      this.isoCode = this.lang;
+      this.selectedLang = this.isoLangs[this.lang];
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/DashboardComponent.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/DashboardComponent.vue?vue&type=script&lang=js& ***!
@@ -2737,12 +3534,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "InputGroupDash",
   props: {
-    tittleCard: {
+    title: {
       type: String,
       required: true
     },
@@ -2752,10 +3547,6 @@ __webpack_require__.r(__webpack_exports__);
       validator: function validator(value) {
         return ["text", "email", "password"].indexOf(value) !== -1;
       }
-    },
-    editable: {
-      type: Boolean,
-      "default": true
     },
     content: {
       type: String,
@@ -2772,7 +3563,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     changeValue: function changeValue() {
-      this.$emit("change-value", this.tittleCard, this.valueInput);
+      this.$emit("change-value", this.title, this.valueInput);
     }
   }
 });
@@ -3804,8 +4595,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _InputGroupComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./InputGroupComponent.vue */ "./resources/assets/js/components/dashboard/InputGroupComponent.vue");
 /* harmony import */ var _ComboCountriesComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ComboCountriesComponent.vue */ "./resources/assets/js/components/dashboard/ComboCountriesComponent.vue");
-/* harmony import */ var vue_lang_code_flags__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-lang-code-flags */ "./node_modules/vue-lang-code-flags/LangFlag.vue");
-/* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
+/* harmony import */ var _ComboLangsComponent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ComboLangsComponent.vue */ "./resources/assets/js/components/dashboard/ComboLangsComponent.vue");
+/* harmony import */ var vue_country_flag__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-country-flag */ "./node_modules/vue-country-flag/dist/country-flag.esm.js");
+/* harmony import */ var vue_lang_code_flags__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-lang-code-flags */ "./node_modules/vue-lang-code-flags/LangFlag.vue");
+/* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
 //
 //
 //
@@ -3856,6 +4649,50 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 
 
 
@@ -3865,17 +4702,24 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     "input-dash": _InputGroupComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     "combo-countries": _ComboCountriesComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    "lang-flag": vue_lang_code_flags__WEBPACK_IMPORTED_MODULE_2__["default"]
+    "combo-langs": _ComboLangsComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    "country-flag": vue_country_flag__WEBPACK_IMPORTED_MODULE_3__["default"],
+    "lang-flag": vue_lang_code_flags__WEBPACK_IMPORTED_MODULE_4__["default"]
   },
   props: {
     user: {
-      type: _classes_User__WEBPACK_IMPORTED_MODULE_3__["default"],
+      type: _classes_User__WEBPACK_IMPORTED_MODULE_5__["default"],
       required: true
     }
   },
   data: function data() {
     return {
-      userData: _classes_User__WEBPACK_IMPORTED_MODULE_3__["default"]
+      readOnly: true,
+      userData: _classes_User__WEBPACK_IMPORTED_MODULE_5__["default"],
+      pass1: null,
+      pass2: null,
+      pass3: null,
+      pathImg: "/img/padlockclose.png"
     };
   },
   created: function created() {
@@ -3891,10 +4735,34 @@ __webpack_require__.r(__webpack_exports__);
         case "comboCountries":
           this.userData.country = value;
           break;
+
+        case "comboLangs":
+          this.userData.favourite_language = value;
+          break;
+
+        case "Antigua contraseña":
+          this.pass1 = value;
+          break;
+
+        case "Nueva contraseña":
+          this.pass2 = value;
+          break;
+
+        case "Confirma contraseña":
+          this.pass3 = value;
+          break;
       }
     },
-    updateProfile: function updateProfile() {
-      this.userData.updateProfile();
+    updateProfile: function updateProfile() {//this.userData.updateProfile(this.pass1, this.pass2, this.pass3);
+    },
+    changeForm: function changeForm() {
+      this.readOnly = !this.readOnly;
+
+      if (this.readOnly) {
+        this.pathImg = "/img/padlockclose.png";
+      } else {
+        this.pathImg = "/img/padlockopen.png";
+      }
     }
   }
 });
@@ -3933,6 +4801,25 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 // module
 exports.push([module.i, ".container-combo div[data-v-7ae91335] {\n  display: flex;\n  align-items: center;\n  gap: 5px;\n}\n.container-combo .form-select[data-v-7ae91335] {\n  height: 30px;\n  width: 100%;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/ComboLangsComponent.vue?vue&type=style&index=0&id=267e2f44&lang=scss&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/ComboLangsComponent.vue?vue&type=style&index=0&id=267e2f44&lang=scss&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".container-combo div[data-v-267e2f44] {\n  display: flex;\n  align-items: center;\n  gap: 5px;\n}\n.container-combo .form-select[data-v-267e2f44] {\n  height: 30px;\n  width: 100%;\n}", ""]);
 
 // exports
 
@@ -4047,25 +4934,6 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 // module
 exports.push([module.i, ".prueba[data-v-54adf15b] {\n  color: red;\n}\n.gradient[data-v-54adf15b] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-54adf15b 10s ease alternate infinite;\n          animation: animatedgradient-data-v-54adf15b 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-54adf15b {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-54adf15b {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-54adf15b] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-54adf15b] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-54adf15b] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-54adf15b] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-54adf15b] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-54adf15b] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.vwrap[data-v-54adf15b] {\n  overflow: hidden;\n}\n.vwrap .vmove[data-v-54adf15b] {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  -webkit-animation-name: tickerv-data-v-54adf15b;\n          animation-name: tickerv-data-v-54adf15b;\n  -webkit-animation-duration: 15s;\n          animation-duration: 15s;\n  -webkit-animation-delay: 2s;\n          animation-delay: 2s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n}\n.vwrap .vmove .vitem[data-v-54adf15b] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  width: 200px;\n  height: 100px;\n  text-align: center;\n  margin-top: 50px;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f37055;\n}\n@-webkit-keyframes tickerv-data-v-54adf15b {\n0% {\n    bottom: 0;\n}\n30% {\n    bottom: 170px;\n}\n60% {\n    bottom: 350px;\n}\n90% {\n    bottom: 520px;\n}\n100% {\n    bottom: 0;\n}\n}\n@keyframes tickerv-data-v-54adf15b {\n0% {\n    bottom: 0;\n}\n30% {\n    bottom: 170px;\n}\n60% {\n    bottom: 350px;\n}\n90% {\n    bottom: 520px;\n}\n100% {\n    bottom: 0;\n}\n}", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/InputGroupComponent.vue?vue&type=style&index=0&id=62aa6286&lang=scss&scoped=true&":
-/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/InputGroupComponent.vue?vue&type=style&index=0&id=62aa6286&lang=scss&scoped=true& ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "fieldset[data-v-62aa6286] {\n  border: 2px solid #ef4e7b;\n  padding: 8px;\n  border-radius: 4px;\n}\nlegend[data-v-62aa6286] {\n  font-size: 1.2rem;\n  width: auto;\n  padding: 2px;\n}", ""]);
 
 // exports
 
@@ -4274,7 +5142,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-afe2655e] {\n  color: red;\n}\n.gradient[data-v-afe2655e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-afe2655e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-afe2655e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-afe2655e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-afe2655e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-afe2655e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-afe2655e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-afe2655e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-afe2655e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-afe2655e] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-afe2655e] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.user-dash[data-v-afe2655e] {\n  display: grid;\n  grid-template: repeat(3, 1fr)/repeat(2, 1fr);\n}\n.user-dash .avatar[data-v-afe2655e] {\n  grid-row: 1/-1;\n  background: blue;\n  justify-self: center;\n  width: 200px;\n  height: 200px;\n  border-radius: 70px;\n  margin-top: 10px;\n}\n.user-dash .user-data[data-v-afe2655e] {\n  grid-column: 2/-1;\n  display: grid;\n  grid-template: 50px repeat(2, 1fr)/repeat(2, 1fr);\n}\n.user-dash .user-data span[data-v-afe2655e] {\n  grid-column: 1/-1;\n}\n.user-dash .user-pass[data-v-afe2655e] {\n  grid-column: 2/-1;\n  display: grid;\n  grid-template: repeat(3, 1fr)/1fr;\n}\n.user-dash .buttons[data-v-afe2655e] {\n  grid-column: 2/-1;\n  display: grid;\n  grid-template: 1fr/1fr;\n}\n\n/* .user-dash {\n  display: grid;\n  grid-template: 1fr 1fr 1fr 1fr 1fr/ 0.5fr 1fr 1fr 0.5fr;\n  gap: 10px;\n  @include area-scroll(500px);\n  div {\n    align-self: center;\n\n    &:nth-child(even) {\n      grid-column: 2 / 3;\n    }\n\n    &:nth-child(odd) {\n      grid-column: 3 / 4;\n    }\n\n    &:nth-child(1) {\n      grid-column: 1 / -1;\n      background: blue;\n      justify-self: center;\n      width: 130px;\n      height: 130px;\n      border-radius: 70px;\n      margin-top: 10px;\n    }\n  }\n}\n\n.buttons {\n  display: flex;\n  padding: 30px;\n  > * {\n    @include dash-button($font-size: 1.5rem);\n    width: 50%;\n    height: 50px;\n    margin: 5px;\n  }\n} */", ""]);
+exports.push([module.i, ".prueba[data-v-afe2655e] {\n  color: red;\n}\n.gradient[data-v-afe2655e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-afe2655e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-afe2655e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-afe2655e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-afe2655e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-afe2655e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-afe2655e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-afe2655e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-afe2655e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-afe2655e] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-afe2655e] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.user-dash[data-v-afe2655e] {\n  display: grid;\n  grid-template: 0.5fr 1fr 30px/repeat(2, 1fr);\n}\n.user-dash .avatar[data-v-afe2655e] {\n  grid-row: 1/-1;\n  background: blue;\n  justify-self: center;\n  width: 200px;\n  height: 200px;\n  border-radius: 70px;\n  margin-top: 10px;\n}\n.user-dash > div[data-v-afe2655e] {\n  padding-right: 10px;\n}\n.user-dash .user-data[data-v-afe2655e] {\n  grid-column: 2/-1;\n}\n.user-dash .user-data .div-img[data-v-afe2655e] {\n  text-align: center;\n}\n.user-dash .user-data .div-img img[data-v-afe2655e] {\n  cursor: pointer;\n  width: 50px;\n  height: 50px;\n}\n.user-dash .user-data fieldset[data-v-afe2655e] {\n  display: grid;\n  grid-template: repeat(2, 1fr)/repeat(2, 1fr);\n  justify-items: center;\n}\n.user-dash .user-data fieldset > div[data-v-afe2655e] {\n  padding: 5px;\n}\n.user-dash .user-data fieldset .div-read[data-v-afe2655e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 50px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n  width: 85%;\n  height: 50px;\n}\n.user-dash .user-data fieldset .div-flag[data-v-afe2655e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 100px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n  width: 85%;\n}\n.user-dash .user-pass[data-v-afe2655e] {\n  grid-column: 2/-1;\n}\n.user-dash .user-pass fieldset[data-v-afe2655e] {\n  display: grid;\n  grid-template: repeat(3, 1fr)/1fr;\n  gap: 10px;\n}\n.user-dash .buttons[data-v-afe2655e] {\n  grid-column: 2/-1;\n  display: grid;\n  grid-template: 1fr/1fr 1fr;\n  padding: 20px;\n}\n.user-dash .buttons button[data-v-afe2655e] {\n  color: #fff;\n  font-size: 1rem;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  border-radius: 10px;\n  height: 50px;\n}\nfieldset[data-v-afe2655e] {\n  border: 2px solid #ef4e7b;\n  padding: 5px;\n  border-radius: 4px;\n}\nlegend[data-v-afe2655e] {\n  font-size: 1.2rem;\n  width: auto;\n}", ""]);
 
 // exports
 
@@ -11333,6 +12201,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/ComboLangsComponent.vue?vue&type=style&index=0&id=267e2f44&lang=scss&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/ComboLangsComponent.vue?vue&type=style&index=0&id=267e2f44&lang=scss&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--16-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--16-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ComboLangsComponent.vue?vue&type=style&index=0&id=267e2f44&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/ComboLangsComponent.vue?vue&type=style&index=0&id=267e2f44&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/DashboardComponent.vue?vue&type=style&index=0&id=14d4cc4a&lang=scss&scoped=true&":
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/DashboardComponent.vue?vue&type=style&index=0&id=14d4cc4a&lang=scss&scoped=true& ***!
@@ -11492,36 +12390,6 @@ if(false) {}
 
 
 var content = __webpack_require__(/*! !../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--16-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--16-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./InfoDashComponent.vue?vue&type=style&index=0&id=54adf15b&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/InfoDashComponent.vue?vue&type=style&index=0&id=54adf15b&lang=scss&scoped=true&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/InputGroupComponent.vue?vue&type=style&index=0&id=62aa6286&lang=scss&scoped=true&":
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/InputGroupComponent.vue?vue&type=style&index=0&id=62aa6286&lang=scss&scoped=true& ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--16-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--16-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./InputGroupComponent.vue?vue&type=style&index=0&id=62aa6286&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/InputGroupComponent.vue?vue&type=style&index=0&id=62aa6286&lang=scss&scoped=true&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -13135,6 +14003,81 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/ComboLangsComponent.vue?vue&type=template&id=267e2f44&scoped=true&":
+/*!***************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/ComboLangsComponent.vue?vue&type=template&id=267e2f44&scoped=true& ***!
+  \***************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container-combo" }, [
+    _c("p", [_vm._v("Selecciona tu país")]),
+    _vm._v(" "),
+    _c(
+      "div",
+      [
+        _c("lang-flag", { attrs: { iso: _vm.isoCode } }),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.selectedLang,
+                expression: "selectedLang"
+              }
+            ],
+            staticClass: "form-select",
+            on: {
+              change: [
+                function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.selectedLang = $event.target.multiple
+                    ? $$selectedVal
+                    : $$selectedVal[0]
+                },
+                _vm.changeLang
+              ]
+            }
+          },
+          _vm._l(_vm.isoLangs, function(langIso) {
+            return _c(
+              "option",
+              { key: langIso.key, domProps: { value: langIso } },
+              [_vm._v("\n        " + _vm._s(langIso.name) + "\n      ")]
+            )
+          }),
+          0
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/DashboardComponent.vue?vue&type=template&id=14d4cc4a&scoped=true&":
 /*!**************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/DashboardComponent.vue?vue&type=template&id=14d4cc4a&scoped=true& ***!
@@ -13436,96 +14379,94 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("fieldset", [
-      _c("legend", [_vm._v(_vm._s(_vm.tittleCard))]),
-      _vm._v(" "),
-      _vm.type === "checkbox"
-        ? _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.valueInput,
-                expression: "valueInput"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "checkbox" },
-            domProps: {
-              value: _vm.content,
-              checked: Array.isArray(_vm.valueInput)
-                ? _vm._i(_vm.valueInput, _vm.content) > -1
-                : _vm.valueInput
-            },
-            on: {
-              keyup: _vm.changeValue,
-              change: function($event) {
-                var $$a = _vm.valueInput,
-                  $$el = $event.target,
-                  $$c = $$el.checked ? true : false
-                if (Array.isArray($$a)) {
-                  var $$v = _vm.content,
-                    $$i = _vm._i($$a, $$v)
-                  if ($$el.checked) {
-                    $$i < 0 && (_vm.valueInput = $$a.concat([$$v]))
-                  } else {
-                    $$i > -1 &&
-                      (_vm.valueInput = $$a
-                        .slice(0, $$i)
-                        .concat($$a.slice($$i + 1)))
-                  }
+    _c("label", [_vm._v(_vm._s(_vm.title))]),
+    _vm._v(" "),
+    _vm.type === "checkbox"
+      ? _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.valueInput,
+              expression: "valueInput"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { type: "checkbox" },
+          domProps: {
+            value: _vm.content,
+            checked: Array.isArray(_vm.valueInput)
+              ? _vm._i(_vm.valueInput, _vm.content) > -1
+              : _vm.valueInput
+          },
+          on: {
+            keyup: _vm.changeValue,
+            change: function($event) {
+              var $$a = _vm.valueInput,
+                $$el = $event.target,
+                $$c = $$el.checked ? true : false
+              if (Array.isArray($$a)) {
+                var $$v = _vm.content,
+                  $$i = _vm._i($$a, $$v)
+                if ($$el.checked) {
+                  $$i < 0 && (_vm.valueInput = $$a.concat([$$v]))
                 } else {
-                  _vm.valueInput = $$c
+                  $$i > -1 &&
+                    (_vm.valueInput = $$a
+                      .slice(0, $$i)
+                      .concat($$a.slice($$i + 1)))
                 }
+              } else {
+                _vm.valueInput = $$c
               }
             }
-          })
-        : _vm.type === "radio"
-        ? _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.valueInput,
-                expression: "valueInput"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "radio" },
-            domProps: {
-              value: _vm.content,
-              checked: _vm._q(_vm.valueInput, _vm.content)
-            },
-            on: {
-              keyup: _vm.changeValue,
-              change: function($event) {
-                _vm.valueInput = _vm.content
-              }
+          }
+        })
+      : _vm.type === "radio"
+      ? _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.valueInput,
+              expression: "valueInput"
             }
-          })
-        : _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.valueInput,
-                expression: "valueInput"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: _vm.type },
-            domProps: { value: _vm.content, value: _vm.valueInput },
-            on: {
-              keyup: _vm.changeValue,
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.valueInput = $event.target.value
-              }
+          ],
+          staticClass: "form-control",
+          attrs: { type: "radio" },
+          domProps: {
+            value: _vm.content,
+            checked: _vm._q(_vm.valueInput, _vm.content)
+          },
+          on: {
+            keyup: _vm.changeValue,
+            change: function($event) {
+              _vm.valueInput = _vm.content
             }
-          })
-    ])
+          }
+        })
+      : _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.valueInput,
+              expression: "valueInput"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { type: _vm.type },
+          domProps: { value: _vm.content, value: _vm.valueInput },
+          on: {
+            keyup: _vm.changeValue,
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.valueInput = $event.target.value
+            }
+          }
+        })
   ])
 }
 var staticRenderFns = []
@@ -14335,87 +15276,180 @@ var render = function() {
   return _c("div", [
     _c("h2", { staticClass: "header-area-dash" }, [_vm._v("Perfil Usuario")]),
     _vm._v(" "),
-    _c("div", { staticClass: "user-dash" }, [
-      _c("div", { staticClass: "avatar" }),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "user-data" },
-        [
-          _c("span", [_vm._v("Candado")]),
-          _vm._v(" "),
-          _c("input-dash", {
-            attrs: {
-              "tittle-card": "Nombre",
-              type: "text",
-              content: _vm.user.name,
-              editable: ""
-            },
-            on: { "change-value": _vm.updateUser }
-          }),
-          _vm._v(" "),
-          _c("input-dash", {
-            attrs: {
-              "tittle-card": "Email",
-              type: "text",
-              content: _vm.userData.email
-            },
-            on: { "change-value": _vm.updateUser }
-          }),
-          _vm._v(" "),
-          _c("combo-countries", {
-            attrs: { title: "comboCountries", country: _vm.userData.country },
-            on: { "change-value": _vm.updateUser }
-          }),
+    _c(
+      "div",
+      { staticClass: "user-dash" },
+      [
+        _c("div", { staticClass: "avatar" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "user-data" }, [
+          _c("div", { staticClass: "div-img" }, [
+            _c("img", {
+              attrs: { src: _vm.pathImg, alt: "candado" },
+              on: { click: _vm.changeForm }
+            })
+          ]),
           _vm._v(" "),
           _c(
-            "div",
-            [_c("lang-flag", { attrs: { iso: _vm.user.favourite_language } })],
-            1
+            "fieldset",
+            [
+              _c("legend", [_vm._v("Datos")]),
+              _vm._v(" "),
+              _vm.readOnly
+                ? [
+                    _c("div", { staticClass: "div-read" }, [
+                      _vm._v(
+                        "\n            " +
+                          _vm._s(_vm.user.name) +
+                          "\n          "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "div-read" }, [
+                      _vm._v(
+                        "\n            " +
+                          _vm._s(_vm.user.email) +
+                          "\n          "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "div-flag" },
+                      [
+                        _c("country-flag", {
+                          attrs: {
+                            country: _vm.user.country,
+                            size: "big",
+                            rounded: true
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", [_vm._v(_vm._s(_vm.user.country))])
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "div-flag" },
+                      [
+                        _c("lang-flag", {
+                          attrs: { iso: _vm.user.favourite_language }
+                        }),
+                        _vm._v(" "),
+                        _c("span", [
+                          _vm._v(_vm._s(_vm.user.favourite_language))
+                        ])
+                      ],
+                      1
+                    )
+                  ]
+                : [
+                    _c("input-dash", {
+                      attrs: {
+                        title: "Nombre",
+                        type: "text",
+                        content: _vm.user.name,
+                        editable: ""
+                      },
+                      on: { "change-value": _vm.updateUser }
+                    }),
+                    _vm._v(" "),
+                    _c("input-dash", {
+                      attrs: {
+                        title: "Email",
+                        type: "text",
+                        content: _vm.user.email
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("combo-countries", {
+                      attrs: {
+                        title: "comboCountries",
+                        country: _vm.userData.country
+                      },
+                      on: { "change-value": _vm.updateUser }
+                    }),
+                    _vm._v(" "),
+                    _c("combo-langs", {
+                      attrs: {
+                        title: "comboLangs",
+                        lang: _vm.user.favourite_language
+                      },
+                      on: { "change-value": _vm.updateUser }
+                    })
+                  ]
+            ],
+            2
           )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "user-pass" },
-        [
-          _c("input-dash", {
-            attrs: {
-              "tittle-card": "Antigua contraseña",
-              type: "password",
-              content: ""
-            }
-          }),
-          _vm._v(" "),
-          _c("input-dash", {
-            attrs: {
-              "tittle-card": "Nueva contraseña",
-              type: "password",
-              content: ""
-            }
-          }),
-          _vm._v(" "),
-          _c("input-dash", {
-            attrs: {
-              "tittle-card": "Confirma contraseña",
-              type: "password",
-              content: ""
-            }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "buttons" }, [
-        _c("button", { on: { click: _vm.updateProfile } }, [
-          _vm._v("Guardar cambios")
         ]),
         _vm._v(" "),
-        _c("button", [_vm._v("Borrar cuenta")])
-      ])
-    ])
+        _vm.readOnly == false
+          ? [
+              _c("div", { staticClass: "user-pass" }, [
+                _c("fieldset", [
+                  _c("legend", [_vm._v("Contraseña")]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    [
+                      _c("input-dash", {
+                        attrs: {
+                          title: "Antigua contraseña",
+                          type: "password",
+                          content: ""
+                        },
+                        on: { "change-value": _vm.updateUser }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    [
+                      _c("input-dash", {
+                        attrs: {
+                          title: "Nueva contraseña",
+                          type: "password",
+                          content: ""
+                        },
+                        on: { "change-value": _vm.updateUser }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    [
+                      _c("input-dash", {
+                        attrs: {
+                          title: "Confirma contraseña",
+                          type: "password",
+                          content: ""
+                        },
+                        on: { "change-value": _vm.updateUser }
+                      })
+                    ],
+                    1
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "buttons" }, [
+                _c("button", { on: { click: _vm.updateProfile } }, [
+                  _vm._v("Guardar cambios")
+                ]),
+                _vm._v(" "),
+                _c("button", [_vm._v("Borrar cuenta")])
+              ])
+            ]
+          : _vm._e()
+      ],
+      2
+    )
   ])
 }
 var staticRenderFns = []
@@ -26797,6 +27831,93 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/assets/js/components/dashboard/ComboLangsComponent.vue":
+/*!**************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/ComboLangsComponent.vue ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ComboLangsComponent_vue_vue_type_template_id_267e2f44_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ComboLangsComponent.vue?vue&type=template&id=267e2f44&scoped=true& */ "./resources/assets/js/components/dashboard/ComboLangsComponent.vue?vue&type=template&id=267e2f44&scoped=true&");
+/* harmony import */ var _ComboLangsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ComboLangsComponent.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/dashboard/ComboLangsComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _ComboLangsComponent_vue_vue_type_style_index_0_id_267e2f44_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ComboLangsComponent.vue?vue&type=style&index=0&id=267e2f44&lang=scss&scoped=true& */ "./resources/assets/js/components/dashboard/ComboLangsComponent.vue?vue&type=style&index=0&id=267e2f44&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _ComboLangsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ComboLangsComponent_vue_vue_type_template_id_267e2f44_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ComboLangsComponent_vue_vue_type_template_id_267e2f44_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "267e2f44",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/js/components/dashboard/ComboLangsComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/ComboLangsComponent.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/ComboLangsComponent.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ComboLangsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ComboLangsComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/ComboLangsComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ComboLangsComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/ComboLangsComponent.vue?vue&type=style&index=0&id=267e2f44&lang=scss&scoped=true&":
+/*!************************************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/ComboLangsComponent.vue?vue&type=style&index=0&id=267e2f44&lang=scss&scoped=true& ***!
+  \************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ComboLangsComponent_vue_vue_type_style_index_0_id_267e2f44_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--16-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--16-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ComboLangsComponent.vue?vue&type=style&index=0&id=267e2f44&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/ComboLangsComponent.vue?vue&type=style&index=0&id=267e2f44&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ComboLangsComponent_vue_vue_type_style_index_0_id_267e2f44_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ComboLangsComponent_vue_vue_type_style_index_0_id_267e2f44_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ComboLangsComponent_vue_vue_type_style_index_0_id_267e2f44_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_ComboLangsComponent_vue_vue_type_style_index_0_id_267e2f44_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/ComboLangsComponent.vue?vue&type=template&id=267e2f44&scoped=true&":
+/*!*********************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/ComboLangsComponent.vue?vue&type=template&id=267e2f44&scoped=true& ***!
+  \*********************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ComboLangsComponent_vue_vue_type_template_id_267e2f44_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ComboLangsComponent.vue?vue&type=template&id=267e2f44&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/ComboLangsComponent.vue?vue&type=template&id=267e2f44&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ComboLangsComponent_vue_vue_type_template_id_267e2f44_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ComboLangsComponent_vue_vue_type_template_id_267e2f44_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/assets/js/components/dashboard/DashboardComponent.vue":
 /*!*************************************************************************!*\
   !*** ./resources/assets/js/components/dashboard/DashboardComponent.vue ***!
@@ -27330,9 +28451,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _InputGroupComponent_vue_vue_type_template_id_62aa6286_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./InputGroupComponent.vue?vue&type=template&id=62aa6286&scoped=true& */ "./resources/assets/js/components/dashboard/InputGroupComponent.vue?vue&type=template&id=62aa6286&scoped=true&");
 /* harmony import */ var _InputGroupComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./InputGroupComponent.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/dashboard/InputGroupComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _InputGroupComponent_vue_vue_type_style_index_0_id_62aa6286_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./InputGroupComponent.vue?vue&type=style&index=0&id=62aa6286&lang=scss&scoped=true& */ "./resources/assets/js/components/dashboard/InputGroupComponent.vue?vue&type=style&index=0&id=62aa6286&lang=scss&scoped=true&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -27340,7 +28459,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _InputGroupComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _InputGroupComponent_vue_vue_type_template_id_62aa6286_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _InputGroupComponent_vue_vue_type_template_id_62aa6286_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -27369,22 +28488,6 @@ component.options.__file = "resources/assets/js/components/dashboard/InputGroupC
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InputGroupComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./InputGroupComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/InputGroupComponent.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_InputGroupComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/assets/js/components/dashboard/InputGroupComponent.vue?vue&type=style&index=0&id=62aa6286&lang=scss&scoped=true&":
-/*!************************************************************************************************************************************!*\
-  !*** ./resources/assets/js/components/dashboard/InputGroupComponent.vue?vue&type=style&index=0&id=62aa6286&lang=scss&scoped=true& ***!
-  \************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_InputGroupComponent_vue_vue_type_style_index_0_id_62aa6286_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--16-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--16-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./InputGroupComponent.vue?vue&type=style&index=0&id=62aa6286&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/InputGroupComponent.vue?vue&type=style&index=0&id=62aa6286&lang=scss&scoped=true&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_InputGroupComponent_vue_vue_type_style_index_0_id_62aa6286_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_InputGroupComponent_vue_vue_type_style_index_0_id_62aa6286_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_InputGroupComponent_vue_vue_type_style_index_0_id_62aa6286_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_InputGroupComponent_vue_vue_type_style_index_0_id_62aa6286_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-
 
 /***/ }),
 
@@ -28958,14 +30061,13 @@ var User = /*#__PURE__*/function () {
   _createClass(User, [{
     key: "updateProfile",
     value: function () {
-      var _updateProfile = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(new_password, new_password_confirmation, old_password) {
+      var _updateProfile = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(old_password, new_password, new_password_confirmation) {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                console.log("object" + this.country);
-                _context.prev = 1;
-                _context.next = 4;
+                _context.prev = 0;
+                _context.next = 3;
                 return axios__WEBPACK_IMPORTED_MODULE_1___default.a.put("/scrabble/user/update", {
                   name: this.name,
                   country: this.country,
@@ -28975,21 +30077,21 @@ var User = /*#__PURE__*/function () {
                   old_password: old_password
                 });
 
-              case 4:
-                _context.next = 9;
+              case 3:
+                _context.next = 8;
                 break;
 
-              case 6:
-                _context.prev = 6;
-                _context.t0 = _context["catch"](1);
+              case 5:
+                _context.prev = 5;
+                _context.t0 = _context["catch"](0);
                 console.log("ERROR: " + _context.t0);
 
-              case 9:
+              case 8:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[1, 6]]);
+        }, _callee, this, [[0, 5]]);
       }));
 
       function updateProfile(_x, _x2, _x3) {
