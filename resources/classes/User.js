@@ -42,8 +42,6 @@ export default class User {
         } catch (error) {
             console.log("ERROR: " + error)
         }
-
-
     }
 
     async removeAvatar() {
@@ -53,8 +51,25 @@ export default class User {
         } catch (error) {
             console.log("ERROR: " + error)
         }
+    }
 
+    async getUserGames(gamesPage) {
+        let url = "/scrabble/user/games/"
+        //let arrayGames = [];
 
+        if (gamesPage !== undefined) url += gamesPage
+
+        try {
+            const response = await Axios.get(url);
+            //PREGUNTAR SOBRE SOVERSION DE JSON A OBJECT, LOS HIJOS NO SE CONVIERTEN
+
+            /* Array.from(response.data.data).forEach(game => {
+                arrayGames.push(this.createGame(game));
+            }) */
+            return response.data;
+        } catch (error) {
+            console.log("ERROR: " + error);
+        }
     }
 
 }

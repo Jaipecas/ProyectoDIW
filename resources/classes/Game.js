@@ -1,5 +1,4 @@
 import User from "./User";
-import axios from "axios";
 
 export default class Game {
 
@@ -28,30 +27,12 @@ export default class Game {
         return match;
     }
 
-    static async getUserGames(gamesPage) {
-        let url = "/scrabble/user/games/"
+    static setPrototypeGame(games) {
         let arrayGames = [];
-
-        if (gamesPage !== undefined) url += gamesPage
-
-        try {
-            const promise = await axios.get(url);
-            //PREGUNTAR SOBRE SOVERSION DE JSON A OBJECT, LOS HIJOS NO SE CONVIERTEN
-            Array.from(promise.data.data).forEach(game => {
-                arrayGames.push(this.createGame(game));
-            })
-            return arrayGames;
-        } catch (error) {
-            console.log("ERROR: " + error);
-        }
+        games.forEach(game => {
+            arrayGames.push(this.createGame(game));
+        });
+        return arrayGames;
     }
-
-    //POR AHORA USAMOS LA VARIABLE BLADE PARA LOS JUEGOS PENDIENTES
-
-    /*  static async getPendingGames(gamesPage) {
-         let arrayGames = await this.getUserGames(gamesPage);
-         arrayGames = arrayGames.filter(game => game.state !== "win_p1" && game.state !== "win_p2");
-         return arrayGames;
-     } */
 
 }

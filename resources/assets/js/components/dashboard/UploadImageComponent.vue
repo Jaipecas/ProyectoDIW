@@ -1,6 +1,6 @@
 <template>
   <div class="avatar-wrapper">
-    <img class="profile-pic" :src="userData.avatar" />
+    <img class="profile-pic" :src="insertAvatar" />
     <div class="upload-button" @click="openInput">
       <i class="fa fa-arrow-circle-up" aria-hidden="true" />
     </div>
@@ -30,6 +30,15 @@ export default {
       userData: null,
     };
   },
+  computed: {
+    insertAvatar() {
+      if (!this.userData.avatar) {
+        return "/img/gamer.png";
+      } else {
+        return this.userData.avatar;
+      }
+    },
+  },
   created() {
     this.userData = this.user;
   },
@@ -44,7 +53,7 @@ export default {
       if (!file) return;
 
       formData.append("avatar", file, file.name);
-      console.log(formData);
+      await this.userData.removeAvatar();
       this.userData.avatar = await this.userData.uploadAvatar(formData);
     },
   },

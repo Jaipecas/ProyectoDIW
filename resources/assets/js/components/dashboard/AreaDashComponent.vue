@@ -1,13 +1,14 @@
 <template>
   <div>
-    <user-area v-show="area == 'Perfil'" :user="user" />
+    <user-area v-if="area == 'Perfil'" :user="user" />
     <games-area
-      v-show="area == 'Partidas'"
+      v-else-if="area == 'Partidas'"
       :user="user"
       :pending-games="games"
     />
-    <stats-area v-show="area == 'Estadisticas'" :stats="stats" />
-    <notif-area v-show="area == 'Notificaciones'" />
+    <stats-area v-else-if="area == 'Estadisticas'" :stats="stats" />
+    <notif-area v-else-if="area == 'Notificaciones'" />
+    <history-area v-else-if="area == 'Historial'" :user="user" />
   </div>
 </template>
 
@@ -16,6 +17,7 @@ import UserDashArea from "./UserAreaDashComponent.vue";
 import NotificationsAreaDashComponent from "./NorificationsAreaDashComponent.vue";
 import GameAreaDashComponent from "./GamesAreaDashComponent.vue";
 import StatsArea from "./StatsAreaDashComponent.vue";
+import HistoryArea from "./HistoryAreaComponent.vue";
 
 import User from "../../../../classes/User";
 
@@ -26,6 +28,7 @@ export default {
     "stats-area": StatsArea,
     "notif-area": NotificationsAreaDashComponent,
     "games-area": GameAreaDashComponent,
+    "history-area": HistoryArea,
   },
   props: {
     area: {

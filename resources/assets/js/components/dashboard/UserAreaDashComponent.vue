@@ -175,7 +175,7 @@ export default {
 
 .user-dash {
   display: grid;
-  grid-template: 0.5fr 1fr 30px / repeat(2, 1fr);
+  grid-template: 1fr 1fr 30px / repeat(2, 1fr);
 
   .avatar {
     grid-row: 1 / -1;
@@ -186,12 +186,10 @@ export default {
     border-radius: 70px;
     margin-top: 10px;
   }
-  > div {
-    padding-right: 10px;
-  }
 
   .user-data {
     grid-column: 2 / -1;
+    padding-right: 10px;
 
     .div-img {
       text-align: center;
@@ -226,6 +224,7 @@ export default {
 
   .user-pass {
     grid-column: 2 / -1;
+    padding-right: 10px;
 
     fieldset {
       display: grid;

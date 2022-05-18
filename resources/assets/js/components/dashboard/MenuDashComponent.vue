@@ -2,20 +2,19 @@
   <div>
     <h2>Scrabble Dashboard</h2>
     <div class="menu-dash">
-      <menu-item icon="fa fa-user" title="Perfil" @changeArea="changeArea" />
       <menu-item icon="fa fa-user" title="Partidas" @changeArea="changeArea" />
+      <menu-item icon="fa fa-user" title="Perfil" @changeArea="changeArea" />
       <menu-item
         icon="fa fa-user"
         title="Notificaciones"
         @changeArea="changeArea"
       />
-      <menu-item icon="fa fa-users" title="Amigos" @changeArea="changeArea" />
       <menu-item
         icon="fa fa-user"
         title="Estadisticas"
         @changeArea="changeArea"
       />
-      <menu-item icon="fa fa-user" title="Ranking" @changeArea="changeArea" />
+      <menu-item icon="fa fa-user" title="Historial" @changeArea="changeArea" />
     </div>
   </div>
 </template>

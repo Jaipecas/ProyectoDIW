@@ -57,7 +57,7 @@ export default {
 
   data: function () {
     return {
-      menuArea: "",
+      menuArea: "Partidas",
       userDash: User,
       userStats: Array,
     };

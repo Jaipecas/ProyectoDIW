@@ -4,21 +4,25 @@
       <h3>{{ newsList[newsCount].header }}</h3>
       <p>{{ newsList[newsCount].updated_at }}</p>
     </div>
-    <div>
-      <button class="button-text" @click="firstNews">Primera</button>
-      <button class="button-arrow" @click="beforeNews">&#8672;</button>
-      <button class="button-arrow" @click="nextNews">&#8674;</button>
-      <button class="button-text" @click="lastNews">Ultima</button>
-    </div>
+    <move-buttons
+      :length-list="newsList.length"
+      size-buttons="S"
+      @change-count="changePage"
+    />
   </div>
 </template>
 
 <script>
+import MoveButtons from "./MoveButtonsComponent.vue";
+
 import Info from "../../../../classes/Info";
 import News from "../../../../classes/News";
 
 export default {
   name: "NewsAreaComponent",
+  components: {
+    "move-buttons": MoveButtons,
+  },
   data: function () {
     return {
       newsList: null,
@@ -40,21 +44,8 @@ export default {
       });
     },
 
-    nextNews() {
-      if (this.newsCount !== this.newsList.length - 1) {
-        this.newsCount++;
-      }
-    },
-    beforeNews() {
-      if (this.newsCount !== 0) {
-        this.newsCount--;
-      }
-    },
-    firstNews() {
-      this.newsCount = 0;
-    },
-    lastNews() {
-      this.newsCount = this.newsList.length - 1;
+    changePage(count) {
+      this.newsCount = count;
     },
   },
 };
@@ -82,18 +73,6 @@ export default {
 
     > * {
       text-align: center;
-    }
-  }
-
-  :nth-child(2) {
-    align-self: flex-end;
-    justify-self: center;
-
-    .button-text {
-      @include dash-button(0.8rem);
-    }
-    .button-arrow {
-      @include round-button(30px, 30px, white, #ef4e7b, 1rem);
     }
   }
 }
