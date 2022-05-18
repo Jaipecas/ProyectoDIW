@@ -34,4 +34,27 @@ export default class User {
 
     }
 
+    async uploadAvatar(formData) {
+        try {
+            const response = await Axios.post("/scrabble/upload/avatar", formData);
+            return response.data.path
+
+        } catch (error) {
+            console.log("ERROR: " + error)
+        }
+
+
+    }
+
+    async removeAvatar() {
+        try {
+            await Axios.post("/scrabble/user/avatar/remove");
+
+        } catch (error) {
+            console.log("ERROR: " + error)
+        }
+
+
+    }
+
 }

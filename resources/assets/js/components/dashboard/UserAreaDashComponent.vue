@@ -2,7 +2,7 @@
   <div>
     <h2 class="header-area-dash">Perfil Usuario</h2>
     <div class="user-dash">
-      <div class="avatar" />
+      <upload-avatar :user="userData" />
       <div class="user-data">
         <div class="div-img">
           <img :src="pathImg" alt="candado" @click="changeForm" />
@@ -96,6 +96,7 @@ import ComboCountries from "./ComboCountriesComponent.vue";
 import ComboLangs from "./ComboLangsComponent.vue";
 import CountryFlag from "vue-country-flag";
 import LangFlag from "vue-lang-code-flags";
+import UploadAvatar from "./UploadImageComponent.vue";
 
 import User from "../../../../classes/User";
 
@@ -107,6 +108,7 @@ export default {
     "combo-langs": ComboLangs,
     "country-flag": CountryFlag,
     "lang-flag": LangFlag,
+    "upload-avatar": UploadAvatar,
   },
   props: {
     user: {
@@ -160,6 +162,9 @@ export default {
       } else {
         this.pathImg = "/img/padlockopen.png";
       }
+    },
+    borrarAvatar() {
+      this.userData.removeAvatar();
     },
   },
 };

@@ -49,6 +49,10 @@ export default {
       type: Array,
       required: true,
     },
+    avatar: {
+      type: String,
+      required: true,
+    },
   },
 
   data: function () {
