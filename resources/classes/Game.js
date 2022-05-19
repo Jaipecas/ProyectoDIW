@@ -27,7 +27,7 @@ export default class Game {
         return match;
     }
 
-    static setPrototypeGame(games) {
+    static setPrototypeGames(games) {
         let arrayGames = [];
         games.forEach(game => {
             arrayGames.push(this.createGame(game));

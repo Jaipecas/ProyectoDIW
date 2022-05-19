@@ -3320,6 +3320,35 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/GameCardComponent.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/GameCardComponent.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _classes_Game__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../classes/Game */ "./resources/classes/Game.js");
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "GameCardComponent",
+  props: {
+    game: {
+      type: _classes_Game__WEBPACK_IMPORTED_MODULE_0__["default"],
+      required: true
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/GamesAreaDashComponent.vue?vue&type=script&lang=js&":
 /*!**************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/GamesAreaDashComponent.vue?vue&type=script&lang=js& ***!
@@ -3452,9 +3481,10 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
-/* harmony import */ var _classes_Game__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../classes/Game */ "./resources/classes/Game.js");
-/* harmony import */ var _MoveButtonsComponent_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MoveButtonsComponent.vue */ "./resources/assets/js/components/dashboard/MoveButtonsComponent.vue");
+/* harmony import */ var _MoveButtonsComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MoveButtonsComponent.vue */ "./resources/assets/js/components/dashboard/MoveButtonsComponent.vue");
+/* harmony import */ var _GameCardComponent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GameCardComponent.vue */ "./resources/assets/js/components/dashboard/GameCardComponent.vue");
+/* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
+/* harmony import */ var _classes_Game__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../classes/Game */ "./resources/classes/Game.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -3480,32 +3510,53 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "HistoryAreaComponent",
   components: {
-    "move-buttons": _MoveButtonsComponent_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    "move-buttons": _MoveButtonsComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    "game-card": _GameCardComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   props: {
     user: {
-      type: _classes_User__WEBPACK_IMPORTED_MODULE_1__["default"],
+      type: _classes_User__WEBPACK_IMPORTED_MODULE_3__["default"],
       required: true
     }
   },
   data: function data() {
     return {
-      pageNumber: 0,
       pages: null,
       gamesList: null,
-      userData: _classes_User__WEBPACK_IMPORTED_MODULE_1__["default"]
+      userData: _classes_User__WEBPACK_IMPORTED_MODULE_3__["default"],
+      url: "/scrabble/user/games/"
     };
   },
+  watch: {},
   created: function created() {
     this.userData = this.user;
-    this.getGames();
+    this.getGames(this.url);
   },
   methods: {
-    changePage: function changePage(count) {
-      this.pageNumber = count;
+    changePage: function changePage(count, id) {
+      switch (id) {
+        case "b-next":
+          this.url = this.pages.next_page_url;
+          break;
+
+        case "b-before":
+          this.url = this.pages.prev_page_url;
+          break;
+
+        case "b-first":
+          this.url = this.pages.first_page_url;
+          break;
+
+        case "b-last":
+          this.url = this.pages.last_page_url;
+          break;
+      }
+
+      this.getGames();
     },
     getGames: function getGames() {
       var _this = this;
@@ -3516,11 +3567,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return _this.userData.getUserGames();
+                return _this.userData.getUserGames(_this.url);
 
               case 2:
                 _this.pages = _context.sent;
-                _this.gamesList = _classes_Game__WEBPACK_IMPORTED_MODULE_2__["default"].setPrototypeGame(_this.pages.data);
+                _this.gamesList = _classes_Game__WEBPACK_IMPORTED_MODULE_4__["default"].setPrototypeGames(_this.pages.data);
 
               case 4:
               case "end":
@@ -3869,6 +3920,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MoveButtonsComponent",
   props: {
@@ -3912,25 +3967,25 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
-    next: function next() {
+    next: function next(event) {
       if (this.count < this.lengthList) {
         this.count++;
-        this.$emit("change-count", this.count);
+        this.$emit("change-count", this.count, event.target.id);
       }
     },
-    before: function before() {
+    before: function before(event) {
       if (this.count !== 0) {
         this.count--;
-        this.$emit("change-count", this.count);
+        this.$emit("change-count", this.count, event.target.id);
       }
     },
-    first: function first() {
+    first: function first(event) {
       this.count = 0;
-      this.$emit("change-count", this.count);
+      this.$emit("change-count", this.count, event.target.id);
     },
-    last: function last() {
+    last: function last(event) {
       this.count = this.lengthList;
-      this.$emit("change-count", this.count);
+      this.$emit("change-count", this.count, event.target.id);
     }
   }
 });
@@ -5226,7 +5281,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".prueba[data-v-f116a064] {\n  color: red;\n}\n.gradient[data-v-f116a064] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-f116a064 10s ease alternate infinite;\n          animation: animatedgradient-data-v-f116a064 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-f116a064 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-f116a064 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-f116a064] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-f116a064] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-f116a064] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-f116a064] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-f116a064] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-f116a064] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.history-wrapper[data-v-f116a064] {\n  display: grid;\n  grid-template: 100px 50px 1fr 100px/1fr;\n}\n.history-wrapper div[data-v-f116a064]:nth-child(1) {\n  grid-row: 1/2;\n  border: 1px solid red;\n}\n.history-wrapper div[data-v-f116a064]:nth-child(2) {\n  grid-row: 2/3;\n  border: 1px solid blue;\n}\n.history-wrapper div[data-v-f116a064]:nth-child(3) {\n  grid-row: 3/4;\n  padding: 10px;\n  border: 1px solid black;\n}", ""]);
+exports.push([module.i, ".prueba[data-v-f116a064] {\n  color: red;\n}\n.gradient[data-v-f116a064] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-f116a064 10s ease alternate infinite;\n          animation: animatedgradient-data-v-f116a064 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-f116a064 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-f116a064 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-f116a064] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-f116a064] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-f116a064] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-f116a064] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-f116a064] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-f116a064] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.history-wrapper[data-v-f116a064] {\n  display: grid;\n  grid-template: 100px 500px 70px/1fr;\n}\n.history-wrapper div[data-v-f116a064]:nth-child(1) {\n  grid-row: 1/2;\n}\n.history-wrapper div[data-v-f116a064]:nth-child(2) {\n  grid-row: 2/3;\n}\n.history-wrapper div[data-v-f116a064]:nth-child(3) {\n  grid-row: 3/4;\n  padding: 10px;\n}", ""]);
 
 // exports
 
@@ -14630,6 +14685,32 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/GameCardComponent.vue?vue&type=template&id=383d8bd9&":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/GameCardComponent.vue?vue&type=template&id=383d8bd9& ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "wrapper" }, [
+    _c("p", [_vm._v(_vm._s(_vm.game.id))])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/GamesAreaDashComponent.vue?vue&type=template&id=4c531f4f&scoped=true&":
 /*!******************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/GamesAreaDashComponent.vue?vue&type=template&id=4c531f4f&scoped=true& ***!
@@ -14741,10 +14822,16 @@ var render = function() {
     [
       _vm._m(0),
       _vm._v(" "),
-      _c("div", [_c("p", [_vm._v(_vm._s(_vm.pageNumber))])]),
+      _c(
+        "div",
+        _vm._l(_vm.gamesList, function(game) {
+          return _c("game-card", { key: game.id, attrs: { game: game } })
+        }),
+        1
+      ),
       _vm._v(" "),
       _c("move-buttons", {
-        attrs: { "length-list": 5, "size-buttons": "M" },
+        attrs: { "length-list": _vm.pages.last_page, "size-buttons": "M" },
         on: { "change-count": _vm.changePage }
       })
     ],
@@ -15086,23 +15173,51 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "wrapper" }, [
-    _c("button", { staticClass: "button-text", on: { click: _vm.first } }, [
-      _vm._v("Primera")
-    ]),
+    _c(
+      "button",
+      {
+        staticClass: "button-text",
+        attrs: { id: "b-first" },
+        on: { click: _vm.first }
+      },
+      [_vm._v("Primera")]
+    ),
     _vm._v(" "),
     _c("div", { staticClass: "buttons-center" }, [
-      _c("button", { class: _vm.setClassButton, on: { click: _vm.before } }, [
-        _vm._v("⇠")
-      ]),
+      _c(
+        "button",
+        {
+          class: _vm.setClassButton,
+          attrs: { id: "b-before" },
+          on: { click: _vm.before }
+        },
+        [_vm._v("\n      ⇠\n    ")]
+      ),
       _vm._v(" "),
-      _c("button", { class: _vm.setClassButton, on: { click: _vm.next } }, [
-        _vm._v("⇢")
-      ])
+      _c(
+        "button",
+        {
+          class: _vm.setClassButton,
+          attrs: { id: "b-next" },
+          on: {
+            click: function($event) {
+              return _vm.next($event)
+            }
+          }
+        },
+        [_vm._v("\n      ⇢\n    ")]
+      )
     ]),
     _vm._v(" "),
-    _c("button", { staticClass: "button-text", on: { click: _vm.last } }, [
-      _vm._v("Última")
-    ])
+    _c(
+      "button",
+      {
+        staticClass: "button-text",
+        attrs: { id: "b-last" },
+        on: { click: _vm.last }
+      },
+      [_vm._v("Última")]
+    )
   ])
 }
 var staticRenderFns = []
@@ -28111,15 +28226,14 @@ module.exports = g;
 /*!************************************************************************!*\
   !*** ./resources/assets/js/components/dashboard/AreaDashComponent.vue ***!
   \************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AreaDashComponent_vue_vue_type_template_id_00c8df5c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AreaDashComponent.vue?vue&type=template&id=00c8df5c& */ "./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=template&id=00c8df5c&");
 /* harmony import */ var _AreaDashComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AreaDashComponent.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _AreaDashComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _AreaDashComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -28149,7 +28263,7 @@ component.options.__file = "resources/assets/js/components/dashboard/AreaDashCom
 /*!*************************************************************************************************!*\
   !*** ./resources/assets/js/components/dashboard/AreaDashComponent.vue?vue&type=script&lang=js& ***!
   \*************************************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -28694,6 +28808,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendsDashComponent_vue_vue_type_template_id_78fffe08_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendsDashComponent_vue_vue_type_template_id_78fffe08_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/GameCardComponent.vue":
+/*!************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/GameCardComponent.vue ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _GameCardComponent_vue_vue_type_template_id_383d8bd9___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./GameCardComponent.vue?vue&type=template&id=383d8bd9& */ "./resources/assets/js/components/dashboard/GameCardComponent.vue?vue&type=template&id=383d8bd9&");
+/* harmony import */ var _GameCardComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GameCardComponent.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/dashboard/GameCardComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _GameCardComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _GameCardComponent_vue_vue_type_template_id_383d8bd9___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _GameCardComponent_vue_vue_type_template_id_383d8bd9___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/js/components/dashboard/GameCardComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/GameCardComponent.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/GameCardComponent.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GameCardComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./GameCardComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/GameCardComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_GameCardComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/GameCardComponent.vue?vue&type=template&id=383d8bd9&":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/GameCardComponent.vue?vue&type=template&id=383d8bd9& ***!
+  \*******************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GameCardComponent_vue_vue_type_template_id_383d8bd9___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./GameCardComponent.vue?vue&type=template&id=383d8bd9& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/GameCardComponent.vue?vue&type=template&id=383d8bd9&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GameCardComponent_vue_vue_type_template_id_383d8bd9___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_GameCardComponent_vue_vue_type_template_id_383d8bd9___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -30425,8 +30608,8 @@ var Game = /*#__PURE__*/function () {
       return match;
     }
   }, {
-    key: "setPrototypeGame",
-    value: function setPrototypeGame(games) {
+    key: "setPrototypeGames",
+    value: function setPrototypeGames(games) {
       var _this = this;
 
       var arrayGames = [];
@@ -31014,34 +31197,31 @@ var User = /*#__PURE__*/function () {
   }, {
     key: "getUserGames",
     value: function () {
-      var _getUserGames = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(gamesPage) {
-        var url, response;
+      var _getUserGames = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(url) {
+        var response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
               case 0:
-                url = "/scrabble/user/games/"; //let arrayGames = [];
-
-                if (gamesPage !== undefined) url += gamesPage;
-                _context4.prev = 2;
-                _context4.next = 5;
+                _context4.prev = 0;
+                _context4.next = 3;
                 return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(url);
 
-              case 5:
+              case 3:
                 response = _context4.sent;
                 return _context4.abrupt("return", response.data);
 
-              case 9:
-                _context4.prev = 9;
-                _context4.t0 = _context4["catch"](2);
+              case 7:
+                _context4.prev = 7;
+                _context4.t0 = _context4["catch"](0);
                 console.log("ERROR: " + _context4.t0);
 
-              case 12:
+              case 10:
               case "end":
                 return _context4.stop();
             }
           }
-        }, _callee4, null, [[2, 9]]);
+        }, _callee4, null, [[0, 7]]);
       }));
 
       function getUserGames(_x5) {

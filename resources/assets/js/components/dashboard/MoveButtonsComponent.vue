@@ -1,11 +1,15 @@
 <template>
   <div class="wrapper">
-    <button class="button-text" @click="first">Primera</button>
+    <button id="b-first" class="button-text" @click="first">Primera</button>
     <div class="buttons-center">
-      <button :class="setClassButton" @click="before">&#8672;</button>
-      <button :class="setClassButton" @click="next">&#8674;</button>
+      <button id="b-before" :class="setClassButton" @click="before">
+        &#8672;
+      </button>
+      <button id="b-next" :class="setClassButton" @click="next($event)">
+        &#8674;
+      </button>
     </div>
-    <button class="button-text" @click="last">Última</button>
+    <button id="b-last" class="button-text" @click="last">Última</button>
   </div>
 </template>
 <script>
@@ -47,25 +51,25 @@ export default {
     },
   },
   methods: {
-    next() {
+    next(event) {
       if (this.count < this.lengthList) {
         this.count++;
-        this.$emit("change-count", this.count);
+        this.$emit("change-count", this.count, event.target.id);
       }
     },
-    before() {
+    before(event) {
       if (this.count !== 0) {
         this.count--;
-        this.$emit("change-count", this.count);
+        this.$emit("change-count", this.count, event.target.id);
       }
     },
-    first() {
+    first(event) {
       this.count = 0;
-      this.$emit("change-count", this.count);
+      this.$emit("change-count", this.count, event.target.id);
     },
-    last() {
+    last(event) {
       this.count = this.lengthList;
-      this.$emit("change-count", this.count);
+      this.$emit("change-count", this.count, event.target.id);
     },
   },
 };

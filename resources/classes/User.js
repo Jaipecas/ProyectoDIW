@@ -53,19 +53,10 @@ export default class User {
         }
     }
 
-    async getUserGames(gamesPage) {
-        let url = "/scrabble/user/games/"
-        //let arrayGames = [];
-
-        if (gamesPage !== undefined) url += gamesPage
+    async getUserGames(url) {
 
         try {
             const response = await Axios.get(url);
-            //PREGUNTAR SOBRE SOVERSION DE JSON A OBJECT, LOS HIJOS NO SE CONVIERTEN
-
-            /* Array.from(response.data.data).forEach(game => {
-                arrayGames.push(this.createGame(game));
-            }) */
             return response.data;
         } catch (error) {
             console.log("ERROR: " + error);

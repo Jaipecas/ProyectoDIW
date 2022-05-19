@@ -4,10 +4,10 @@
       <h2 class="header-area-dash">Historial</h2>
     </div>
     <div>
-      <p>{{ pageNumber }}</p>
+      <game-card v-for="game in gamesList" :key="game.id" :game="game" />
     </div>
     <move-buttons
-      :length-list="5"
+      :length-list="pages.last_page"
       size-buttons="M"
       @change-count="changePage"
     />
@@ -15,14 +15,17 @@
 </template>
 
 <script>
+import MoveButtons from "./MoveButtonsComponent.vue";
+import GameCard from "./GameCardComponent.vue";
+
 import User from "../../../../classes/User";
 import Game from "../../../../classes/Game";
-import MoveButtons from "./MoveButtonsComponent.vue";
 
 export default {
   name: "HistoryAreaComponent",
   components: {
     "move-buttons": MoveButtons,
+    "game-card": GameCard,
   },
   props: {
     user: {
@@ -32,23 +35,38 @@ export default {
   },
   data: function () {
     return {
-      pageNumber: 0,
       pages: null,
       gamesList: null,
       userData: User,
+      url: "/scrabble/user/games/",
     };
   },
+  watch: {},
   created() {
     this.userData = this.user;
-    this.getGames();
+    this.getGames(this.url);
   },
   methods: {
-    changePage(count) {
-      this.pageNumber = count;
+    changePage(count, id) {
+      switch (id) {
+        case "b-next":
+          this.url = this.pages.next_page_url;
+          break;
+        case "b-before":
+          this.url = this.pages.prev_page_url;
+          break;
+        case "b-first":
+          this.url = this.pages.first_page_url;
+          break;
+        case "b-last":
+          this.url = this.pages.last_page_url;
+          break;
+      }
+      this.getGames();
     },
     async getGames() {
-      this.pages = await this.userData.getUserGames();
-      this.gamesList = Game.setPrototypeGame(this.pages.data);
+      this.pages = await this.userData.getUserGames(this.url);
+      this.gamesList = Game.setPrototypeGames(this.pages.data);
     },
   },
 };
@@ -58,21 +76,18 @@ export default {
 
 .history-wrapper {
   display: grid;
-  grid-template: 100px 50px 1fr 100px/ 1fr;
+  grid-template: 100px 500px 70px/ 1fr;
 
   div:nth-child(1) {
     grid-row: 1/2;
-    border: 1px solid red;
   }
 
   div:nth-child(2) {
     grid-row: 2/3;
-    border: 1px solid blue;
   }
   div:nth-child(3) {
     grid-row: 3/4;
     padding: 10px;
-    border: 1px solid black;
   }
 }
 </style>
