@@ -210,13 +210,13 @@ export default {
       }
 
       .div-read {
-        @include dash-card(#f79533, 50px);
+        @include dash-card(#f79533, 50px, 1.5rem);
         width: 85%;
         height: 50px;
       }
 
       .div-flag {
-        @include dash-card(#f79533, 100px);
+        @include dash-card(#f79533, 100px, 1.5rem);
         width: 85%;
       }
     }

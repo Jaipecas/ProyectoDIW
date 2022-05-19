@@ -5,9 +5,7 @@
       <button id="b-before" :class="setClassButton" @click="before">
         &#8672;
       </button>
-      <button id="b-next" :class="setClassButton" @click="next($event)">
-        &#8674;
-      </button>
+      <button id="b-next" :class="setClassButton" @click="next">&#8674;</button>
     </div>
     <button id="b-last" class="button-text" @click="last">Última</button>
   </div>

@@ -5,7 +5,7 @@
       <p>{{ newsList[newsCount].updated_at }}</p>
     </div>
     <move-buttons
-      :length-list="newsList.length"
+      :length-list="newsList.length - 1"
       size-buttons="S"
       @change-count="changePage"
     />

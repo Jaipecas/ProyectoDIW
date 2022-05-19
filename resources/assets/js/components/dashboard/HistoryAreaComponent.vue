@@ -4,7 +4,12 @@
       <h2 class="header-area-dash">Historial</h2>
     </div>
     <div>
-      <game-card v-for="game in gamesList" :key="game.id" :game="game" />
+      <game-card
+        v-for="game in gamesList"
+        :key="game.id"
+        :game="game"
+        :user-id="user.id"
+      />
     </div>
     <move-buttons
       :length-list="pages.last_page"
@@ -65,7 +70,7 @@ export default {
       this.getGames();
     },
     async getGames() {
-      this.pages = await this.userData.getUserGames(this.url);
+      if (this.url) this.pages = await this.userData.getUserGames(this.url);
       this.gamesList = Game.setPrototypeGames(this.pages.data);
     },
   },
@@ -84,6 +89,7 @@ export default {
 
   div:nth-child(2) {
     grid-row: 2/3;
+    padding: 10px;
   }
   div:nth-child(3) {
     grid-row: 3/4;

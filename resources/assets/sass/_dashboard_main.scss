@@ -12,9 +12,17 @@ $dash-gradient: linear-gradient(
 $dash-gradient1: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);
 $dash-gradient2: linear-gradient(60deg, #5073b8, #1098ad, #07b39b, #6fba82);
 $dash-panel-border: 10px;
+
+/* Colores juegos pedientes */
 $color-player-turn: rgb(163, 218, 184);
 $color-oponent-turn: rgb(253, 127, 99);
 $color-no-turn: rgb(175, 175, 175);
+
+/*Colores juegos historial */
+$color-winner: rgb(123, 221, 161);
+$color-loser: rgb(228, 101, 101);
+$color-turn: rgb(248, 145, 122);
+$color-no-start: rgb(175, 175, 175);
 
 .prueba {
   color: red;
@@ -63,13 +71,13 @@ $color-no-turn: rgb(175, 175, 175);
   border-radius: 10px;
 }
 
-@mixin dash-card($background, $min-height) {
+@mixin dash-card($background, $min-height, $font-size) {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   width: 100%;
   //min-height: 120px;
   min-height: $min-height;
   border-radius: 10px;
-  font-size: 1.5rem;
+  font-size: $font-size;
   text-align: center;
   background: $background;
 }

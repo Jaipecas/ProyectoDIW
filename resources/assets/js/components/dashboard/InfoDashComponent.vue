@@ -64,7 +64,7 @@ export default {
       height: 100px;
       text-align: center;
       margin-top: 50px;
-      @include dash-card(#f37055, 120px);
+      @include dash-card(#f37055, 120px, 1.5rem);
     }
   }
 }
