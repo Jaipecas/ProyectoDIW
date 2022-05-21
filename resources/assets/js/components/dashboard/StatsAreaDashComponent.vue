@@ -47,7 +47,9 @@
         </div>
       </div>
       <div class="container-graphs">
-        <p>Hola</p>
+        <div>
+          <bar-chart :chart-data="chartData" />
+        </div>
       </div>
     </div>
   </div>
@@ -56,12 +58,14 @@
 <script>
 import CardDash from "./CardDashComponent.vue";
 import LangFlag from "vue-lang-code-flags";
+import BarChart from "./BarChartComponent.vue";
 
 export default {
   name: "StatsAreaDashComponent",
   components: {
     "card-dash": CardDash,
     "lang-flag": LangFlag,
+    "bar-chart": BarChart,
   },
   props: {
     stats: {
@@ -73,6 +77,7 @@ export default {
     return {
       statsUser: null,
       statsLanguage: 0,
+      statsWinLose: null,
     };
   },
   computed: {
@@ -94,6 +99,27 @@ export default {
 
       return levelClass;
     },
+    chartData: function () {
+      return {
+        labels: [""],
+        datasets: [
+          {
+            label: "Partidas ganadas",
+            data: [this.statsUser[this.statsLanguage].won],
+            backgroundColor: ["rgba(255, 99, 132, 0.2)"],
+            borderColor: ["rgb(255, 99, 132)"],
+            borderWidth: 2,
+          },
+          {
+            label: "Partidas perdidas",
+            data: [this.statsUser[this.statsLanguage].lost],
+            backgroundColor: ["rgba(255, 159, 64, 0.2)"],
+            borderColor: ["rgb(255, 159, 64)"],
+            borderWidth: 2,
+          },
+        ],
+      };
+    },
   },
   created() {
     this.statsUser = this.stats;
@@ -112,6 +138,27 @@ export default {
       } else {
         this.statsLanguage--;
       }
+    },
+    getDataBarChart() {
+      this.statsWinLose = {
+        labels: [""],
+        datasets: [
+          {
+            label: "Partidas ganadas",
+            data: [this.statsUser[this.statsLanguage].won],
+            backgroundColor: ["rgba(255, 99, 132, 0.2)"],
+            borderColor: ["rgb(255, 99, 132)"],
+            borderWidth: 2,
+          },
+          {
+            label: "Partidas perdidas",
+            data: [this.statsUser[this.statsLanguage].lost],
+            backgroundColor: ["rgba(255, 159, 64, 0.2)"],
+            borderColor: ["rgb(255, 159, 64)"],
+            borderWidth: 2,
+          },
+        ],
+      };
     },
   },
 };
@@ -201,6 +248,10 @@ export default {
     }
     .container-graphs {
     }
+  }
+
+  .container-graphs {
+    @include dash-card(#a1bcf0, 300px, 1.2rem);
   }
 }
 </style>
