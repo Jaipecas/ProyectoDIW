@@ -6,7 +6,11 @@
       :user="user"
       :pending-games="games"
     />
-    <stats-area v-else-if="area == 'Estadisticas'" :stats="stats" />
+    <stats-area
+      v-else-if="area == 'Estadisticas'"
+      :stats="stats"
+      :user="user"
+    />
     <notif-area v-else-if="area == 'Notificaciones'" />
     <history-area v-else-if="area == 'Historial'" :user="user" />
   </div>

@@ -5,7 +5,6 @@
       <div class="container-cards">
         <h5>Idioma</h5>
         <div class="language">
-          <!-- quiza usar el componente creado en partidas -->
           <button name="before" @click="nextLanguage">&#8672;</button>
           <lang-flag :iso="statsUser[statsLanguage].language_code" />
           <button name="next" @click="beforeLanguage">&#8674;</button>
@@ -48,7 +47,8 @@
       </div>
       <div class="container-graphs">
         <div>
-          <bar-chart :chart-data="chartData" />
+          <!-- <bar-chart :chart-data="chartData" /> -->
+          <line-chart :chart-data="dataLineChart" />
         </div>
       </div>
     </div>
@@ -58,18 +58,25 @@
 <script>
 import CardDash from "./CardDashComponent.vue";
 import LangFlag from "vue-lang-code-flags";
-import BarChart from "./BarChartComponent.vue";
+/* import BarChart from "./BarChartComponent.vue"; */
+import LineChart from "./LineChartComponent.vue";
+import User from "../../../../classes/User";
 
 export default {
   name: "StatsAreaDashComponent",
   components: {
     "card-dash": CardDash,
     "lang-flag": LangFlag,
-    "bar-chart": BarChart,
+    /* "bar-chart": BarChart, */
+    "line-chart": LineChart,
   },
   props: {
     stats: {
       type: Array,
+      required: true,
+    },
+    user: {
+      type: User,
       required: true,
     },
   },
@@ -77,7 +84,8 @@ export default {
     return {
       statsUser: null,
       statsLanguage: 0,
-      statsWinLose: null,
+      langScores: null,
+      dataLineChart: null,
     };
   },
   computed: {
@@ -121,8 +129,18 @@ export default {
       };
     },
   },
+  watch: {
+    langScores() {
+      this.loadDataLineChart();
+    },
+    statsLanguage() {
+      this.loadDataLineChart();
+    },
+  },
+
   created() {
     this.statsUser = this.stats;
+    this.getUserScores();
   },
   methods: {
     nextLanguage() {
@@ -139,23 +157,26 @@ export default {
         this.statsLanguage--;
       }
     },
-    getDataBarChart() {
-      this.statsWinLose = {
-        labels: [""],
+    async getUserScores() {
+      let langScores = [];
+
+      this.stats.forEach(async (stats) => {
+        langScores.push(await this.user.getScoreHistory(stats.language_code));
+      });
+      this.langScores = langScores;
+    },
+
+    loadDataLineChart() {
+      this.dataLineChart = {
+        labels: this.langScores[this.statsLanguage].dates,
         datasets: [
           {
-            label: "Partidas ganadas",
-            data: [this.statsUser[this.statsLanguage].won],
-            backgroundColor: ["rgba(255, 99, 132, 0.2)"],
-            borderColor: ["rgb(255, 99, 132)"],
-            borderWidth: 2,
-          },
-          {
-            label: "Partidas perdidas",
-            data: [this.statsUser[this.statsLanguage].lost],
-            backgroundColor: ["rgba(255, 159, 64, 0.2)"],
-            borderColor: ["rgb(255, 159, 64)"],
-            borderWidth: 2,
+            label: "Puntuaciones",
+            backgroundColor: "#f87979",
+            data: this.langScores[this.statsLanguage].scores,
+            fill: false,
+            borderColor: "rgb(75, 192, 192)",
+            tension: 0.1,
           },
         ],
       };

@@ -54,13 +54,48 @@ export default class User {
     }
 
     async getUserGames(url) {
-
         try {
             const response = await Axios.get(url);
             return response.data;
         } catch (error) {
             console.log("ERROR: " + error);
         }
+    }
+
+    async getScoreHistory(lang) {
+        let page = await this.getUserGames("/scrabble/user/games/");
+        let scoresDates = {
+            dates: [],
+            scores: []
+        };
+        if (!page.data) return;
+
+        this.getScoreDates(page, scoresDates, lang)
+
+        while (page.next_page_url) {
+            page = await this.getUserGames(page.next_page_url);
+            this.getScoreDates(page, scoresDates, lang);
+        }
+        return scoresDates;
+    }
+
+    getScoreDates(page, scoreDates, lang) {
+        let date;
+
+        page.data.forEach(game => {
+            if (lang === game.language && (game.state === "win_p1" || game.state === "win_p2")) {
+                date = new Date(game.updated_at);
+                date = date.toLocaleDateString("es-ES");
+
+                scoreDates.dates.push(date);
+
+                if (this.id === game.player_1) {
+                    scoreDates.scores.push(game.player_1_score);
+                } else {
+                    scoreDates.scores.push(game.player_2_score);
+                }
+            }
+        })
     }
 
 }

@@ -1940,6 +1940,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -1972,92 +1976,6 @@ __webpack_require__.r(__webpack_exports__);
     stats: {
       type: Array,
       required: true
-    }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/BarChartComponent.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/BarChartComponent.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_chartjs_legacy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-chartjs/legacy */ "./node_modules/vue-chartjs/legacy/index.js");
-/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/chart.esm.js");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-chart_js__WEBPACK_IMPORTED_MODULE_1__["Chart"].register(chart_js__WEBPACK_IMPORTED_MODULE_1__["Title"], chart_js__WEBPACK_IMPORTED_MODULE_1__["Tooltip"], chart_js__WEBPACK_IMPORTED_MODULE_1__["Legend"], chart_js__WEBPACK_IMPORTED_MODULE_1__["BarElement"], chart_js__WEBPACK_IMPORTED_MODULE_1__["CategoryScale"], chart_js__WEBPACK_IMPORTED_MODULE_1__["LinearScale"]);
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "BarChart",
-  components: {
-    Bar: vue_chartjs_legacy__WEBPACK_IMPORTED_MODULE_0__["Bar"]
-  },
-  props: {
-    chartId: {
-      type: String,
-      "default": "bar-chart"
-    },
-    datasetIdKey: {
-      type: String,
-      "default": "label"
-    },
-    width: {
-      type: Number,
-      "default": 400
-    },
-    height: {
-      type: Number,
-      "default": 400
-    },
-    cssClasses: {
-      "default": "",
-      type: String
-    },
-    styles: {
-      type: Object,
-      "default": function _default() {}
-    },
-    plugins: {
-      type: Array,
-      "default": function _default() {
-        return [];
-      }
-    },
-    chartData: {
-      type: Object,
-      required: true
-    }
-  },
-  data: function data() {
-    return {
-      chartOptions: {
-        responsive: true,
-        maintainAspectRatio: false
-      }
-    };
-  },
-  computed: {
-    chartDataStat: function chartDataStat() {
-      return this.chartData;
     }
   }
 });
@@ -3916,6 +3834,92 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/LineChartComponent.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/LineChartComponent.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_chartjs_legacy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-chartjs/legacy */ "./node_modules/vue-chartjs/legacy/index.js");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/chart.esm.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+chart_js__WEBPACK_IMPORTED_MODULE_1__["Chart"].register(chart_js__WEBPACK_IMPORTED_MODULE_1__["Title"], chart_js__WEBPACK_IMPORTED_MODULE_1__["Tooltip"], chart_js__WEBPACK_IMPORTED_MODULE_1__["Legend"], chart_js__WEBPACK_IMPORTED_MODULE_1__["LineElement"], chart_js__WEBPACK_IMPORTED_MODULE_1__["LinearScale"], chart_js__WEBPACK_IMPORTED_MODULE_1__["CategoryScale"], chart_js__WEBPACK_IMPORTED_MODULE_1__["PointElement"]);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "LineChart",
+  components: {
+    LineChartGenerator: vue_chartjs_legacy__WEBPACK_IMPORTED_MODULE_0__["Line"]
+  },
+  props: {
+    chartId: {
+      type: String,
+      "default": "line-chart"
+    },
+    datasetIdKey: {
+      type: String,
+      "default": "label"
+    },
+    width: {
+      type: Number,
+      "default": 400
+    },
+    height: {
+      type: Number,
+      "default": 400
+    },
+    cssClasses: {
+      "default": "",
+      type: String
+    },
+    styles: {
+      type: Object,
+      "default": function _default() {}
+    },
+    plugins: {
+      type: Array,
+      "default": function _default() {
+        return [];
+      }
+    },
+    chartData: {
+      type: Object,
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      chartOptions: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    };
+  },
+  computed: {
+    chartDataStat: function chartDataStat() {
+      return this.chartData;
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/MatchDashComponent.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/MatchDashComponent.vue?vue&type=script&lang=js& ***!
@@ -4894,9 +4898,18 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _CardDashComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CardDashComponent.vue */ "./resources/assets/js/components/dashboard/CardDashComponent.vue");
-/* harmony import */ var vue_lang_code_flags__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-lang-code-flags */ "./node_modules/vue-lang-code-flags/LangFlag.vue");
-/* harmony import */ var _BarChartComponent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./BarChartComponent.vue */ "./resources/assets/js/components/dashboard/BarChartComponent.vue");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _CardDashComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CardDashComponent.vue */ "./resources/assets/js/components/dashboard/CardDashComponent.vue");
+/* harmony import */ var vue_lang_code_flags__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-lang-code-flags */ "./node_modules/vue-lang-code-flags/LangFlag.vue");
+/* harmony import */ var _LineChartComponent_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./LineChartComponent.vue */ "./resources/assets/js/components/dashboard/LineChartComponent.vue");
+/* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -4954,19 +4967,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
+
+/* import BarChart from "./BarChartComponent.vue"; */
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "StatsAreaDashComponent",
   components: {
-    "card-dash": _CardDashComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    "lang-flag": vue_lang_code_flags__WEBPACK_IMPORTED_MODULE_1__["default"],
-    "bar-chart": _BarChartComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    "card-dash": _CardDashComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    "lang-flag": vue_lang_code_flags__WEBPACK_IMPORTED_MODULE_2__["default"],
+
+    /* "bar-chart": BarChart, */
+    "line-chart": _LineChartComponent_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   props: {
     stats: {
       type: Array,
+      required: true
+    },
+    user: {
+      type: _classes_User__WEBPACK_IMPORTED_MODULE_4__["default"],
       required: true
     }
   },
@@ -4974,7 +4996,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       statsUser: null,
       statsLanguage: 0,
-      statsWinLose: null
+      langScores: null,
+      dataLineChart: null
     };
   },
   computed: {
@@ -5010,8 +5033,17 @@ __webpack_require__.r(__webpack_exports__);
       };
     }
   },
+  watch: {
+    langScores: function langScores() {
+      this.loadDataLineChart();
+    },
+    statsLanguage: function statsLanguage() {
+      this.loadDataLineChart();
+    }
+  },
   created: function created() {
     this.statsUser = this.stats;
+    this.getUserScores();
   },
   methods: {
     nextLanguage: function nextLanguage() {
@@ -5028,21 +5060,65 @@ __webpack_require__.r(__webpack_exports__);
         this.statsLanguage--;
       }
     },
-    getDataBarChart: function getDataBarChart() {
-      this.statsWinLose = {
-        labels: [""],
+    getUserScores: function getUserScores() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var langScores;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                langScores = [];
+
+                _this.stats.forEach( /*#__PURE__*/function () {
+                  var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(stats) {
+                    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+                      while (1) {
+                        switch (_context.prev = _context.next) {
+                          case 0:
+                            _context.t0 = langScores;
+                            _context.next = 3;
+                            return _this.user.getScoreHistory(stats.language_code);
+
+                          case 3:
+                            _context.t1 = _context.sent;
+
+                            _context.t0.push.call(_context.t0, _context.t1);
+
+                          case 5:
+                          case "end":
+                            return _context.stop();
+                        }
+                      }
+                    }, _callee);
+                  }));
+
+                  return function (_x) {
+                    return _ref.apply(this, arguments);
+                  };
+                }());
+
+                _this.langScores = langScores;
+
+              case 3:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    },
+    loadDataLineChart: function loadDataLineChart() {
+      this.dataLineChart = {
+        labels: this.langScores[this.statsLanguage].dates,
         datasets: [{
-          label: "Partidas ganadas",
-          data: [this.statsUser[this.statsLanguage].won],
-          backgroundColor: ["rgba(255, 99, 132, 0.2)"],
-          borderColor: ["rgb(255, 99, 132)"],
-          borderWidth: 2
-        }, {
-          label: "Partidas perdidas",
-          data: [this.statsUser[this.statsLanguage].lost],
-          backgroundColor: ["rgba(255, 159, 64, 0.2)"],
-          borderColor: ["rgb(255, 159, 64)"],
-          borderWidth: 2
+          label: "Puntuaciones",
+          backgroundColor: "#f87979",
+          data: this.langScores[this.statsLanguage].scores,
+          fill: false,
+          borderColor: "rgb(75, 192, 192)",
+          tension: 0.1
         }]
       };
     }
@@ -28241,7 +28317,7 @@ var render = function() {
             attrs: { user: _vm.user, "pending-games": _vm.games }
           })
         : _vm.area == "Estadisticas"
-        ? _c("stats-area", { attrs: { stats: _vm.stats } })
+        ? _c("stats-area", { attrs: { stats: _vm.stats, user: _vm.user } })
         : _vm.area == "Notificaciones"
         ? _c("notif-area")
         : _vm.area == "Historial"
@@ -28250,42 +28326,6 @@ var render = function() {
     ],
     1
   )
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/BarChartComponent.vue?vue&type=template&id=aec35de0&":
-/*!*************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/BarChartComponent.vue?vue&type=template&id=aec35de0& ***!
-  \*************************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("Bar", {
-    attrs: {
-      "chart-options": _vm.chartOptions,
-      "chart-data": _vm.chartDataStat,
-      "chart-id": _vm.chartId,
-      "dataset-id-key": _vm.datasetIdKey,
-      plugins: _vm.plugins,
-      "css-classes": _vm.cssClasses,
-      styles: _vm.styles,
-      width: _vm.width,
-      height: _vm.height
-    }
-  })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -29005,6 +29045,42 @@ var render = function() {
           }
         })
   ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/LineChartComponent.vue?vue&type=template&id=8a202836&":
+/*!**************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/LineChartComponent.vue?vue&type=template&id=8a202836& ***!
+  \**************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("LineChartGenerator", {
+    attrs: {
+      "chart-options": _vm.chartOptions,
+      "chart-data": _vm.chartDataStat,
+      "chart-id": _vm.chartId,
+      "dataset-id-key": _vm.datasetIdKey,
+      plugins: _vm.plugins,
+      "css-classes": _vm.cssClasses,
+      styles: _vm.styles,
+      width: _vm.width,
+      height: _vm.height
+    }
+  })
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -29823,7 +29899,7 @@ var render = function() {
       _c("div", { staticClass: "container-graphs" }, [
         _c(
           "div",
-          [_c("bar-chart", { attrs: { "chart-data": _vm.chartData } })],
+          [_c("line-chart", { attrs: { "chart-data": _vm.dataLineChart } })],
           1
         )
       ])
@@ -42280,75 +42356,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/assets/js/components/dashboard/BarChartComponent.vue":
-/*!************************************************************************!*\
-  !*** ./resources/assets/js/components/dashboard/BarChartComponent.vue ***!
-  \************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _BarChartComponent_vue_vue_type_template_id_aec35de0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BarChartComponent.vue?vue&type=template&id=aec35de0& */ "./resources/assets/js/components/dashboard/BarChartComponent.vue?vue&type=template&id=aec35de0&");
-/* harmony import */ var _BarChartComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BarChartComponent.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/dashboard/BarChartComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _BarChartComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _BarChartComponent_vue_vue_type_template_id_aec35de0___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _BarChartComponent_vue_vue_type_template_id_aec35de0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/assets/js/components/dashboard/BarChartComponent.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/assets/js/components/dashboard/BarChartComponent.vue?vue&type=script&lang=js&":
-/*!*************************************************************************************************!*\
-  !*** ./resources/assets/js/components/dashboard/BarChartComponent.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BarChartComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./BarChartComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/BarChartComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BarChartComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/assets/js/components/dashboard/BarChartComponent.vue?vue&type=template&id=aec35de0&":
-/*!*******************************************************************************************************!*\
-  !*** ./resources/assets/js/components/dashboard/BarChartComponent.vue?vue&type=template&id=aec35de0& ***!
-  \*******************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BarChartComponent_vue_vue_type_template_id_aec35de0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./BarChartComponent.vue?vue&type=template&id=aec35de0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/BarChartComponent.vue?vue&type=template&id=aec35de0&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BarChartComponent_vue_vue_type_template_id_aec35de0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BarChartComponent_vue_vue_type_template_id_aec35de0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
 /***/ "./resources/assets/js/components/dashboard/CardDashComponent.vue":
 /*!************************************************************************!*\
   !*** ./resources/assets/js/components/dashboard/CardDashComponent.vue ***!
@@ -43370,6 +43377,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InputGroupComponent_vue_vue_type_template_id_62aa6286_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_InputGroupComponent_vue_vue_type_template_id_62aa6286_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/LineChartComponent.vue":
+/*!*************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/LineChartComponent.vue ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _LineChartComponent_vue_vue_type_template_id_8a202836___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LineChartComponent.vue?vue&type=template&id=8a202836& */ "./resources/assets/js/components/dashboard/LineChartComponent.vue?vue&type=template&id=8a202836&");
+/* harmony import */ var _LineChartComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LineChartComponent.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/dashboard/LineChartComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _LineChartComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _LineChartComponent_vue_vue_type_template_id_8a202836___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _LineChartComponent_vue_vue_type_template_id_8a202836___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/js/components/dashboard/LineChartComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/LineChartComponent.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/LineChartComponent.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LineChartComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./LineChartComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/LineChartComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_LineChartComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/LineChartComponent.vue?vue&type=template&id=8a202836&":
+/*!********************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/LineChartComponent.vue?vue&type=template&id=8a202836& ***!
+  \********************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LineChartComponent_vue_vue_type_template_id_8a202836___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./LineChartComponent.vue?vue&type=template&id=8a202836& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/LineChartComponent.vue?vue&type=template&id=8a202836&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LineChartComponent_vue_vue_type_template_id_8a202836___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_LineChartComponent_vue_vue_type_template_id_8a202836___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -45306,6 +45382,87 @@ var User = /*#__PURE__*/function () {
 
       return getUserGames;
     }()
+  }, {
+    key: "getScoreHistory",
+    value: function () {
+      var _getScoreHistory = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(lang) {
+        var page, scoresDates;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _context5.next = 2;
+                return this.getUserGames("/scrabble/user/games/");
+
+              case 2:
+                page = _context5.sent;
+                scoresDates = {
+                  dates: [],
+                  scores: []
+                };
+
+                if (page.data) {
+                  _context5.next = 6;
+                  break;
+                }
+
+                return _context5.abrupt("return");
+
+              case 6:
+                this.getScoreDates(page, scoresDates, lang);
+
+              case 7:
+                if (!page.next_page_url) {
+                  _context5.next = 14;
+                  break;
+                }
+
+                _context5.next = 10;
+                return this.getUserGames(page.next_page_url);
+
+              case 10:
+                page = _context5.sent;
+                this.getScoreDates(page, scoresDates, lang);
+                _context5.next = 7;
+                break;
+
+              case 14:
+                return _context5.abrupt("return", scoresDates);
+
+              case 15:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5, this);
+      }));
+
+      function getScoreHistory(_x6) {
+        return _getScoreHistory.apply(this, arguments);
+      }
+
+      return getScoreHistory;
+    }()
+  }, {
+    key: "getScoreDates",
+    value: function getScoreDates(page, scoreDates, lang) {
+      var _this = this;
+
+      var date;
+      page.data.forEach(function (game) {
+        if (lang === game.language && (game.state === "win_p1" || game.state === "win_p2")) {
+          date = new Date(game.updated_at);
+          date = date.toLocaleDateString("es-ES");
+          scoreDates.dates.push(date);
+
+          if (_this.id === game.player_1) {
+            scoreDates.scores.push(game.player_1_score);
+          } else {
+            scoreDates.scores.push(game.player_2_score);
+          }
+        }
+      });
+    }
   }]);
 
   return User;
