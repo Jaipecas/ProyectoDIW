@@ -6,8 +6,8 @@
       <span>-</span>
       <span>{{ game.opponent_score }}</span>
     </div>
-    <img :src="avatar" alt="avatar usuario" />
-    <span>{{ game.opponent[0].name }}</span>
+    <img :src="opponent.avatar" alt="avatar usuario" />
+    <span>{{ opponent.name }}</span>
     <div class="date">
       <span>{{ date }}</span>
       <span>{{ time }}</span>
@@ -41,22 +41,15 @@ export default {
       date: "",
       time: "",
       containerStyle: "container-match ",
+      opponent: "",
     };
   },
   created() {
-    this.loadAvatar(this.game.opponent[0].avatar);
     this.getDateTime();
     this.insertColor();
+    this.opponent = Object.assign(new User(), this.game.opponent[0]);
   },
   methods: {
-    loadAvatar(ruta) {
-      if (ruta === "" || ruta === null) {
-        this.avatar = "/img/gamer.png";
-      } else {
-        this.avatar = ruta;
-      }
-    },
-
     getDateTime() {
       let date = new Date(this.game.updated_at);
       this.date = date.toLocaleDateString("es-ES");

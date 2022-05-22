@@ -11,8 +11,16 @@ export default class User {
         this.created_at = created_at;
         this.updated_at = updated_at;
         this.favourite_language = favourite_language;
-        this.avatar = avatar;
+        this._avatar = avatar;
         this.avatar_type = avatar_type;
+    }
+
+    get avatar() {
+        if (!this._avatar) return "/img/gamer.png"
+        return this._avatar;
+    }
+    set avatar(avatar) {
+        this._avatar = avatar;
     }
 
     async updateProfile(old_password, new_password, new_password_confirmation) {
@@ -97,5 +105,6 @@ export default class User {
             }
         })
     }
+
 
 }

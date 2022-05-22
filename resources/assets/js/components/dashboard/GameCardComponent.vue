@@ -3,7 +3,7 @@
     <span>{{ result }}</span>
     <lang-flag :iso="game.language" />
     <div class="user-container">
-      <img src="/img/gamer.png" alt="avatar" />
+      <img class="img-avatar" :src="game.player1.avatar" alt="avatar" />
       <div>
         <country-flag
           :country="game.player1.country"
@@ -15,7 +15,7 @@
     </div>
     <span>{{ game.score1 }} - {{ game.score2 }} </span>
     <div class="user-container">
-      <img src="/img/gamer.png" alt="avatar" />
+      <img class="img-avatar" :src="game.player2.avatar" alt="avatar" />
       <div>
         <country-flag
           :country="game.player2.country"

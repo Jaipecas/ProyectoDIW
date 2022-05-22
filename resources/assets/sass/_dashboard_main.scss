@@ -24,8 +24,10 @@ $color-loser: rgb(228, 101, 101);
 $color-turn: rgb(248, 145, 122);
 $color-no-start: rgb(175, 175, 175);
 
-.prueba {
-  color: red;
+.img-avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 40px;
 }
 
 .gradient {
@@ -137,7 +139,8 @@ $color-no-start: rgb(175, 175, 175);
 
 .header-area-dash {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .combo-area-dash {

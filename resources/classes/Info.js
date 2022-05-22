@@ -51,4 +51,13 @@ export default class Info {
         }
     }
 
+    static async getRecentChallenges() {
+        try {
+            const promise = await Axios.get("/api/info/currentgames/");
+            return promise.data;
+        } catch (error) {
+            console.log("ERROR: " + error);
+        }
+    }
+
 }

@@ -46,9 +46,10 @@
         </div>
       </div>
       <div class="container-graphs">
+        <select-text :texts="arrayTexts" @change-area="changeArea" />
         <div>
-          <!-- <bar-chart :chart-data="chartData" /> -->
-          <line-chart :chart-data="dataLineChart" />
+          <bar-chart v-if="chartShow == 0" :chart-data="chartData" />
+          <line-chart v-else-if="chartShow == 1" :chart-data="dataLineChart" />
         </div>
       </div>
     </div>
@@ -58,17 +59,19 @@
 <script>
 import CardDash from "./CardDashComponent.vue";
 import LangFlag from "vue-lang-code-flags";
-/* import BarChart from "./BarChartComponent.vue"; */
+import BarChart from "./BarChartComponent.vue";
 import LineChart from "./LineChartComponent.vue";
 import User from "../../../../classes/User";
+import SelectTextComponent from "./SelectTextComponent.vue";
 
 export default {
   name: "StatsAreaDashComponent",
   components: {
     "card-dash": CardDash,
     "lang-flag": LangFlag,
-    /* "bar-chart": BarChart, */
+    "bar-chart": BarChart,
     "line-chart": LineChart,
+    "select-text": SelectTextComponent,
   },
   props: {
     stats: {
@@ -86,6 +89,8 @@ export default {
       statsLanguage: 0,
       langScores: null,
       dataLineChart: null,
+      arrayTexts: ["Partidas ganadas/perdidas", "Progresión puntuaciones"],
+      chartShow: 0,
     };
   },
   computed: {
@@ -181,6 +186,9 @@ export default {
         ],
       };
     },
+    changeArea(count) {
+      this.chartShow = count;
+    },
   },
 };
 </script>
@@ -192,21 +200,23 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
 
-  h5 {
-    text-align: center;
-    margin-top: 20px;
-  }
   .container-stats {
+    @include dash-card(#bdd0f2, 300px, 1.2rem);
     display: grid;
     grid-template: 1fr / 1fr 1fr;
-    width: 100%;
+    width: 90%;
 
     .container-cards {
+      width: 80%;
+      justify-self: center;
+
       .language {
         display: flex;
         align-items: center;
         justify-content: center;
+
         > * {
           margin: 10px;
         }
@@ -268,11 +278,15 @@ export default {
       }
     }
     .container-graphs {
-    }
-  }
+      width: 80%;
+      justify-self: center;
+      display: grid;
+      grid-template: 0.2fr 1fr / 1fr;
 
-  .container-graphs {
-    @include dash-card(#a1bcf0, 300px, 1.2rem);
+      .select-text {
+        justify-self: center;
+      }
+    }
   }
 }
 </style>

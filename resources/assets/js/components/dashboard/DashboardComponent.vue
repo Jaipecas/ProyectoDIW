@@ -19,7 +19,7 @@
 import HeaderComponent from "./HeaderDashComponent.vue";
 import MenuComponent from "./MenuDashComponent.vue";
 import InfoComponent from "./InfoDashComponent.vue";
-import FriendsComponent from "./FriendsDashComponent.vue";
+import RecentChallenge from "./RecentChallengeAreaComponent.vue";
 import AreaComponent from "./AreaDashComponent.vue";
 import NewsComponent from "./NewsAreaComponent.vue";
 
@@ -32,7 +32,7 @@ export default {
     "header-dash": HeaderComponent,
     "menu-dash": MenuComponent,
     "info-dash": InfoComponent,
-    "friends-dash": FriendsComponent,
+    "friends-dash": RecentChallenge,
     "area-dash": AreaComponent,
     "news-dash": NewsComponent,
   },

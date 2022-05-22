@@ -81,7 +81,10 @@ export default {
 
 .history-wrapper {
   display: grid;
-  grid-template: 100px 500px 70px/ 1fr;
+  grid-template: 100px 1fr 70px/ 1fr;
+  background: #f8b26c;
+  height: 100%;
+  border-radius: 10px;
 
   div:nth-child(1) {
     grid-row: 1/2;

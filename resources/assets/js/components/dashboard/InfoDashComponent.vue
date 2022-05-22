@@ -55,6 +55,7 @@ export default {
     animation-duration: 15s;
     animation-delay: 2s;
     animation-iteration-count: infinite;
+    transform: translateY(250px);
 
     .vitem {
       display: flex;
@@ -73,17 +74,20 @@ export default {
   0% {
     bottom: 0;
   }
-  30% {
-    bottom: 170px;
+  20% {
+    bottom: 250px;
+  }
+  40% {
+    bottom: 450px;
   }
   60% {
-    bottom: 350px;
+    bottom: 620px;
   }
-  90% {
-    bottom: 520px;
+  80% {
+    bottom: 750px;
   }
   100% {
-    bottom: 0;
+    bottom: 1000px;
   }
 }
 </style>

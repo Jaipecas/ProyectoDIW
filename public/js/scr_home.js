@@ -1982,6 +1982,92 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/BarChartComponent.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/BarChartComponent.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_chartjs_legacy__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-chartjs/legacy */ "./node_modules/vue-chartjs/legacy/index.js");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/chart.esm.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+chart_js__WEBPACK_IMPORTED_MODULE_1__["Chart"].register(chart_js__WEBPACK_IMPORTED_MODULE_1__["Title"], chart_js__WEBPACK_IMPORTED_MODULE_1__["Tooltip"], chart_js__WEBPACK_IMPORTED_MODULE_1__["Legend"], chart_js__WEBPACK_IMPORTED_MODULE_1__["BarElement"], chart_js__WEBPACK_IMPORTED_MODULE_1__["CategoryScale"], chart_js__WEBPACK_IMPORTED_MODULE_1__["LinearScale"]);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "BarChart",
+  components: {
+    Bar: vue_chartjs_legacy__WEBPACK_IMPORTED_MODULE_0__["Bar"]
+  },
+  props: {
+    chartId: {
+      type: String,
+      "default": "bar-chart"
+    },
+    datasetIdKey: {
+      type: String,
+      "default": "label"
+    },
+    width: {
+      type: Number,
+      "default": 400
+    },
+    height: {
+      type: Number,
+      "default": 400
+    },
+    cssClasses: {
+      "default": "",
+      type: String
+    },
+    styles: {
+      type: Object,
+      "default": function _default() {}
+    },
+    plugins: {
+      type: Array,
+      "default": function _default() {
+        return [];
+      }
+    },
+    chartData: {
+      type: Object,
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      chartOptions: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    };
+  },
+  computed: {
+    chartDataStat: function chartDataStat() {
+      return this.chartData;
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/CardDashComponent.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/CardDashComponent.vue?vue&type=script&lang=js& ***!
@@ -3178,7 +3264,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _HeaderDashComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HeaderDashComponent.vue */ "./resources/assets/js/components/dashboard/HeaderDashComponent.vue");
 /* harmony import */ var _MenuDashComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MenuDashComponent.vue */ "./resources/assets/js/components/dashboard/MenuDashComponent.vue");
 /* harmony import */ var _InfoDashComponent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./InfoDashComponent.vue */ "./resources/assets/js/components/dashboard/InfoDashComponent.vue");
-/* harmony import */ var _FriendsDashComponent_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./FriendsDashComponent.vue */ "./resources/assets/js/components/dashboard/FriendsDashComponent.vue");
+/* harmony import */ var _RecentChallengeAreaComponent_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RecentChallengeAreaComponent.vue */ "./resources/assets/js/components/dashboard/RecentChallengeAreaComponent.vue");
 /* harmony import */ var _AreaDashComponent_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AreaDashComponent.vue */ "./resources/assets/js/components/dashboard/AreaDashComponent.vue");
 /* harmony import */ var _NewsAreaComponent_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./NewsAreaComponent.vue */ "./resources/assets/js/components/dashboard/NewsAreaComponent.vue");
 /* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
@@ -3214,7 +3300,7 @@ __webpack_require__.r(__webpack_exports__);
     "header-dash": _HeaderDashComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     "menu-dash": _MenuDashComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     "info-dash": _InfoDashComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    "friends-dash": _FriendsDashComponent_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    "friends-dash": _RecentChallengeAreaComponent_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     "area-dash": _AreaDashComponent_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
     "news-dash": _NewsAreaComponent_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
@@ -3260,65 +3346,6 @@ __webpack_require__.r(__webpack_exports__);
         return Object.assign(new _classes_Statistics__WEBPACK_IMPORTED_MODULE_7__["default"](), stat);
       });
     }
-  }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/FriendConectedComponent.vue?vue&type=script&lang=js&":
-/*!***************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/FriendConectedComponent.vue?vue&type=script&lang=js& ***!
-  \***************************************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ __webpack_exports__["default"] = ({});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/FriendsDashComponent.vue?vue&type=script&lang=js&":
-/*!************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/FriendsDashComponent.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _FriendConectedComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FriendConectedComponent.vue */ "./resources/assets/js/components/dashboard/FriendConectedComponent.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  name: "FriendConectedComponent",
-  components: {
-    "friend-conected": _FriendConectedComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   }
 });
 
@@ -3971,22 +3998,16 @@ __webpack_require__.r(__webpack_exports__);
       avatar: "",
       date: "",
       time: "",
-      containerStyle: "container-match "
+      containerStyle: "container-match ",
+      opponent: ""
     };
   },
   created: function created() {
-    this.loadAvatar(this.game.opponent[0].avatar);
     this.getDateTime();
     this.insertColor();
+    this.opponent = Object.assign(new _classes_User__WEBPACK_IMPORTED_MODULE_1__["default"](), this.game.opponent[0]);
   },
   methods: {
-    loadAvatar: function loadAvatar(ruta) {
-      if (ruta === "" || ruta === null) {
-        this.avatar = "/img/gamer.png";
-      } else {
-        this.avatar = ruta;
-      }
-    },
     getDateTime: function getDateTime() {
       var date = new Date(this.game.updated_at);
       this.date = date.toLocaleDateString("es-ES");
@@ -4486,6 +4507,144 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/RecentChallengeAreaComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/RecentChallengeAreaComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _classes_Game__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../classes/Game */ "./resources/classes/Game.js");
+/* harmony import */ var _classes_Info__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../classes/Info */ "./resources/classes/Info.js");
+/* harmony import */ var _RecentChallengeComponent_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RecentChallengeComponent.vue */ "./resources/assets/js/components/dashboard/RecentChallengeComponent.vue");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "FriendConectedComponent",
+  components: {
+    "recent-chall": _RecentChallengeComponent_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+  },
+  data: function data() {
+    return {
+      recentChall: null
+    };
+  },
+  created: function created() {
+    this.getRecentChallenges();
+  },
+  methods: {
+    getRecentChallenges: function getRecentChallenges() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var gamesArray;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return _classes_Info__WEBPACK_IMPORTED_MODULE_2__["default"].getRecentChallenges();
+
+              case 2:
+                gamesArray = _context.sent;
+                _this.recentChall = gamesArray.map(function (game, index) {
+                  game.id = index;
+                  return _classes_Game__WEBPACK_IMPORTED_MODULE_1__["default"].createGame(game);
+                });
+
+              case 4:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/RecentChallengeComponent.vue?vue&type=script&lang=js&":
+/*!****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/RecentChallengeComponent.vue?vue&type=script&lang=js& ***!
+  \****************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _classes_Game__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../classes/Game */ "./resources/classes/Game.js");
+/* harmony import */ var vue_country_flag__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-country-flag */ "./node_modules/vue-country-flag/dist/country-flag.esm.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: "RecentChallengesComponent",
+  components: {
+    "country-flag": vue_country_flag__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  props: {
+    challenge: {
+      type: _classes_Game__WEBPACK_IMPORTED_MODULE_0__["default"],
+      required: true
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/SelectLanguageComponent.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/SelectLanguageComponent.vue?vue&type=script&lang=js& ***!
@@ -4902,8 +5061,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _CardDashComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CardDashComponent.vue */ "./resources/assets/js/components/dashboard/CardDashComponent.vue");
 /* harmony import */ var vue_lang_code_flags__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-lang-code-flags */ "./node_modules/vue-lang-code-flags/LangFlag.vue");
-/* harmony import */ var _LineChartComponent_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./LineChartComponent.vue */ "./resources/assets/js/components/dashboard/LineChartComponent.vue");
-/* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
+/* harmony import */ var _BarChartComponent_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./BarChartComponent.vue */ "./resources/assets/js/components/dashboard/BarChartComponent.vue");
+/* harmony import */ var _LineChartComponent_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./LineChartComponent.vue */ "./resources/assets/js/components/dashboard/LineChartComponent.vue");
+/* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
+/* harmony import */ var _SelectTextComponent_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./SelectTextComponent.vue */ "./resources/assets/js/components/dashboard/SelectTextComponent.vue");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -4967,9 +5128,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 
-/* import BarChart from "./BarChartComponent.vue"; */
+
 
 
 
@@ -4978,9 +5140,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   components: {
     "card-dash": _CardDashComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
     "lang-flag": vue_lang_code_flags__WEBPACK_IMPORTED_MODULE_2__["default"],
-
-    /* "bar-chart": BarChart, */
-    "line-chart": _LineChartComponent_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    "bar-chart": _BarChartComponent_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    "line-chart": _LineChartComponent_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    "select-text": _SelectTextComponent_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
   props: {
     stats: {
@@ -4988,7 +5150,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       required: true
     },
     user: {
-      type: _classes_User__WEBPACK_IMPORTED_MODULE_4__["default"],
+      type: _classes_User__WEBPACK_IMPORTED_MODULE_5__["default"],
       required: true
     }
   },
@@ -4997,7 +5159,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       statsUser: null,
       statsLanguage: 0,
       langScores: null,
-      dataLineChart: null
+      dataLineChart: null,
+      arrayTexts: ["Partidas ganadas/perdidas", "Progresión puntuaciones"],
+      chartShow: 0
     };
   },
   computed: {
@@ -5121,6 +5285,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           tension: 0.1
         }]
       };
+    },
+    changeArea: function changeArea(count) {
+      this.chartShow = count;
     }
   }
 });
@@ -18760,7 +18927,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.prueba[data-v-77982b39] {\n  color: red;\n}\n.gradient[data-v-77982b39] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-77982b39 10s ease alternate infinite;\n          animation: animatedgradient-data-v-77982b39 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-77982b39 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-77982b39 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-77982b39] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-77982b39] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-77982b39] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-77982b39] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-77982b39] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-77982b39] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}", ""]);
+exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-77982b39] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-77982b39] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-77982b39 10s ease alternate infinite;\n          animation: animatedgradient-data-v-77982b39 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-77982b39 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-77982b39 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-77982b39] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-77982b39] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-77982b39] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-77982b39] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-77982b39] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-77982b39] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}", ""]);
 
 // exports
 
@@ -18817,45 +18984,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.prueba[data-v-14d4cc4a] {\n  color: red;\n}\n.gradient[data-v-14d4cc4a] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-14d4cc4a 10s ease alternate infinite;\n          animation: animatedgradient-data-v-14d4cc4a 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-14d4cc4a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-14d4cc4a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-14d4cc4a] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-14d4cc4a] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-14d4cc4a] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-14d4cc4a] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-14d4cc4a] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-14d4cc4a] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.scr-grid[data-v-14d4cc4a] {\n  display: grid;\n  grid-template: 150px 400px 270px/minmax(172px, 250px) minmax(600px, auto) minmax(172px, 250px);\n  gap: 15px;\n  margin: 20px;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  border-radius: 10px;\n  padding: 15px;\n}\n.scr-grid > *[data-v-14d4cc4a] {\n  border: 0.2px solid #615d5d;\n  border-radius: 10px;\n}\n.scr-grid .header[data-v-14d4cc4a] {\n  grid-column: 2/-1;\n}\n.scr-grid .menu[data-v-14d4cc4a] {\n  grid-row: 1/3;\n}\n.scr-grid .games[data-v-14d4cc4a] {\n  grid-row: 3/4;\n}\n.scr-grid .area[data-v-14d4cc4a] {\n  grid-row: 2/4;\n}\n.scr-grid .friends[data-v-14d4cc4a] {\n  grid-row: 2/3;\n}\n.scr-grid .news[data-v-14d4cc4a] {\n  grid-row: 3/4;\n}", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/FriendConectedComponent.vue?vue&type=style&index=0&id=89312aac&lang=scss&scoped=true&":
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/FriendConectedComponent.vue?vue&type=style&index=0&id=89312aac&lang=scss&scoped=true& ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.prueba[data-v-89312aac] {\n  color: red;\n}\n.gradient[data-v-89312aac] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-89312aac 10s ease alternate infinite;\n          animation: animatedgradient-data-v-89312aac 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-89312aac {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-89312aac {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-89312aac] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-89312aac] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-89312aac] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-89312aac] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-89312aac] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-89312aac] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\ndiv[data-v-89312aac] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 10px;\n}\ndiv > *[data-v-89312aac] {\n  padding: 8px;\n}\ndiv img[data-v-89312aac] {\n  width: 60px;\n  height: 60px;\n  border-radius: 40px;\n}\ndiv button[data-v-89312aac] {\n  color: #fff;\n  font-size: 1rem;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  border-radius: 10px;\n}", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/FriendsDashComponent.vue?vue&type=style&index=0&id=78fffe08&lang=scss&scoped=true&":
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/FriendsDashComponent.vue?vue&type=style&index=0&id=78fffe08&lang=scss&scoped=true& ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "h3[data-v-78fffe08] {\n  margin-top: 10px;\n  text-align: center;\n}\n.friends-conected[data-v-78fffe08] {\n  padding: 10px;\n  height: 250px;\n  overflow: auto;\n  -ms-overflow-style: none;\n  scrollbar-width: none;\n}\n.friends-conected[data-v-78fffe08]::-webkit-scrollbar {\n  display: none;\n}", ""]);
+exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-14d4cc4a] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-14d4cc4a] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-14d4cc4a 10s ease alternate infinite;\n          animation: animatedgradient-data-v-14d4cc4a 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-14d4cc4a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-14d4cc4a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-14d4cc4a] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-14d4cc4a] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-14d4cc4a] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-14d4cc4a] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-14d4cc4a] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-14d4cc4a] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.scr-grid[data-v-14d4cc4a] {\n  display: grid;\n  grid-template: 150px 400px 270px/minmax(172px, 250px) minmax(600px, auto) minmax(172px, 250px);\n  gap: 15px;\n  margin: 20px;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  border-radius: 10px;\n  padding: 15px;\n}\n.scr-grid > *[data-v-14d4cc4a] {\n  border: 0.2px solid #615d5d;\n  border-radius: 10px;\n}\n.scr-grid .header[data-v-14d4cc4a] {\n  grid-column: 2/-1;\n}\n.scr-grid .menu[data-v-14d4cc4a] {\n  grid-row: 1/3;\n}\n.scr-grid .games[data-v-14d4cc4a] {\n  grid-row: 3/4;\n}\n.scr-grid .area[data-v-14d4cc4a] {\n  grid-row: 2/4;\n}\n.scr-grid .friends[data-v-14d4cc4a] {\n  grid-row: 2/3;\n}\n.scr-grid .news[data-v-14d4cc4a] {\n  grid-row: 3/4;\n}", ""]);
 
 // exports
 
@@ -18874,7 +19003,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.prueba[data-v-383d8bd9] {\n  color: red;\n}\n.gradient[data-v-383d8bd9] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-383d8bd9 10s ease alternate infinite;\n          animation: animatedgradient-data-v-383d8bd9 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-383d8bd9 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-383d8bd9 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-383d8bd9] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-383d8bd9] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-383d8bd9] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-383d8bd9] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-383d8bd9] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-383d8bd9] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.wrapper[data-v-383d8bd9] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 50px;\n  border-radius: 10px;\n  font-size: 1rem;\n  text-align: center;\n  background: #e1b2e9;\n  display: grid;\n  grid-template: 1fr/repeat(6, 1fr);\n  margin-top: 5px;\n  margin-bottom: 5px;\n  padding: 10px;\n}\n.wrapper > *[data-v-383d8bd9] {\n  align-self: center;\n  justify-self: center;\n}\n.wrapper span[data-v-383d8bd9] {\n  font-weight: bold;\n}\n.wrapper .date-container[data-v-383d8bd9] {\n  display: flex;\n  flex-direction: column;\n}\n.wrapper span.flag-icon[data-v-383d8bd9] {\n  height: 30px;\n  width: 30px;\n}\n.color-win[data-v-383d8bd9] {\n  background: #7bdda1;\n}\n.color-lose[data-v-383d8bd9] {\n  background: #e46565;\n}\n.color-turn[data-v-383d8bd9] {\n  background: #f8917a;\n}\n.color-no-start[data-v-383d8bd9] {\n  background: #afafaf;\n}", ""]);
+exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-383d8bd9] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-383d8bd9] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-383d8bd9 10s ease alternate infinite;\n          animation: animatedgradient-data-v-383d8bd9 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-383d8bd9 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-383d8bd9 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-383d8bd9] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-383d8bd9] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-383d8bd9] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-383d8bd9] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-383d8bd9] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-383d8bd9] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.wrapper[data-v-383d8bd9] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 50px;\n  border-radius: 10px;\n  font-size: 1rem;\n  text-align: center;\n  background: #e1b2e9;\n  display: grid;\n  grid-template: 1fr/repeat(6, 1fr);\n  margin-top: 5px;\n  margin-bottom: 5px;\n  padding: 10px;\n}\n.wrapper > *[data-v-383d8bd9] {\n  align-self: center;\n  justify-self: center;\n}\n.wrapper span[data-v-383d8bd9] {\n  font-weight: bold;\n}\n.wrapper .date-container[data-v-383d8bd9] {\n  display: flex;\n  flex-direction: column;\n}\n.wrapper span.flag-icon[data-v-383d8bd9] {\n  height: 30px;\n  width: 30px;\n}\n.color-win[data-v-383d8bd9] {\n  background: #7bdda1;\n}\n.color-lose[data-v-383d8bd9] {\n  background: #e46565;\n}\n.color-turn[data-v-383d8bd9] {\n  background: #f8917a;\n}\n.color-no-start[data-v-383d8bd9] {\n  background: #afafaf;\n}", ""]);
 
 // exports
 
@@ -18893,7 +19022,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.prueba[data-v-4c531f4f] {\n  color: red;\n}\n.gradient[data-v-4c531f4f] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-4c531f4f 10s ease alternate infinite;\n          animation: animatedgradient-data-v-4c531f4f 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-4c531f4f {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-4c531f4f {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-4c531f4f] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-4c531f4f] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-4c531f4f] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-4c531f4f] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-4c531f4f] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-4c531f4f] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.matches[data-v-4c531f4f] {\n  display: grid;\n  grid-template: 1fr/1fr 1fr;\n}\n.matches[data-v-4c531f4f] :nth-child(1) {\n  justify-self: center;\n}\n.matches[data-v-4c531f4f] :nth-child(2) {\n  justify-self: center;\n}\n.matches :nth-child(2) .legend[data-v-4c531f4f] {\n  margin: 10px;\n}\n.matches :nth-child(2) .legend > *[data-v-4c531f4f] {\n  padding: 5px;\n}\n.matches :nth-child(2) .legend[data-v-4c531f4f] :nth-child(1) {\n  background: #a3dab8;\n}\n.matches :nth-child(2) .legend[data-v-4c531f4f] :nth-child(2) {\n  background: #fd7f63;\n}\n.matches :nth-child(2) .legend[data-v-4c531f4f] :nth-child(3) {\n  background: #afafaf;\n}", ""]);
+exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-4c531f4f] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-4c531f4f] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-4c531f4f 10s ease alternate infinite;\n          animation: animatedgradient-data-v-4c531f4f 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-4c531f4f {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-4c531f4f {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-4c531f4f] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-4c531f4f] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-4c531f4f] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-4c531f4f] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-4c531f4f] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-4c531f4f] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.matches[data-v-4c531f4f] {\n  display: grid;\n  grid-template: 1fr/1fr 1fr;\n}\n.matches[data-v-4c531f4f] :nth-child(1) {\n  justify-self: center;\n}\n.matches[data-v-4c531f4f] :nth-child(2) {\n  justify-self: center;\n}\n.matches :nth-child(2) .legend[data-v-4c531f4f] {\n  margin: 10px;\n}\n.matches :nth-child(2) .legend > *[data-v-4c531f4f] {\n  padding: 5px;\n}\n.matches :nth-child(2) .legend[data-v-4c531f4f] :nth-child(1) {\n  background: #a3dab8;\n}\n.matches :nth-child(2) .legend[data-v-4c531f4f] :nth-child(2) {\n  background: #fd7f63;\n}\n.matches :nth-child(2) .legend[data-v-4c531f4f] :nth-child(3) {\n  background: #afafaf;\n}", ""]);
 
 // exports
 
@@ -18931,7 +19060,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.prueba[data-v-f116a064] {\n  color: red;\n}\n.gradient[data-v-f116a064] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-f116a064 10s ease alternate infinite;\n          animation: animatedgradient-data-v-f116a064 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-f116a064 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-f116a064 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-f116a064] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-f116a064] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-f116a064] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-f116a064] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-f116a064] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-f116a064] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.history-wrapper[data-v-f116a064] {\n  display: grid;\n  grid-template: 100px 500px 70px/1fr;\n}\n.history-wrapper div[data-v-f116a064]:nth-child(1) {\n  grid-row: 1/2;\n}\n.history-wrapper div[data-v-f116a064]:nth-child(2) {\n  grid-row: 2/3;\n  padding: 10px;\n}\n.history-wrapper div[data-v-f116a064]:nth-child(3) {\n  grid-row: 3/4;\n  padding: 10px;\n}", ""]);
+exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-f116a064] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-f116a064] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-f116a064 10s ease alternate infinite;\n          animation: animatedgradient-data-v-f116a064 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-f116a064 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-f116a064 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-f116a064] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-f116a064] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-f116a064] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-f116a064] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-f116a064] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-f116a064] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.history-wrapper[data-v-f116a064] {\n  display: grid;\n  grid-template: 100px 1fr 70px/1fr;\n  background: #f8b26c;\n  height: 100%;\n  border-radius: 10px;\n}\n.history-wrapper div[data-v-f116a064]:nth-child(1) {\n  grid-row: 1/2;\n}\n.history-wrapper div[data-v-f116a064]:nth-child(2) {\n  grid-row: 2/3;\n  padding: 10px;\n}\n.history-wrapper div[data-v-f116a064]:nth-child(3) {\n  grid-row: 3/4;\n  padding: 10px;\n}", ""]);
 
 // exports
 
@@ -18950,7 +19079,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.prueba[data-v-54adf15b] {\n  color: red;\n}\n.gradient[data-v-54adf15b] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-54adf15b 10s ease alternate infinite;\n          animation: animatedgradient-data-v-54adf15b 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-54adf15b {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-54adf15b {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-54adf15b] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-54adf15b] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-54adf15b] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-54adf15b] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-54adf15b] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-54adf15b] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.vwrap[data-v-54adf15b] {\n  overflow: hidden;\n}\n.vwrap .vmove[data-v-54adf15b] {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  -webkit-animation-name: tickerv-data-v-54adf15b;\n          animation-name: tickerv-data-v-54adf15b;\n  -webkit-animation-duration: 15s;\n          animation-duration: 15s;\n  -webkit-animation-delay: 2s;\n          animation-delay: 2s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n}\n.vwrap .vmove .vitem[data-v-54adf15b] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  width: 200px;\n  height: 100px;\n  text-align: center;\n  margin-top: 50px;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f37055;\n}\n@-webkit-keyframes tickerv-data-v-54adf15b {\n0% {\n    bottom: 0;\n}\n30% {\n    bottom: 170px;\n}\n60% {\n    bottom: 350px;\n}\n90% {\n    bottom: 520px;\n}\n100% {\n    bottom: 0;\n}\n}\n@keyframes tickerv-data-v-54adf15b {\n0% {\n    bottom: 0;\n}\n30% {\n    bottom: 170px;\n}\n60% {\n    bottom: 350px;\n}\n90% {\n    bottom: 520px;\n}\n100% {\n    bottom: 0;\n}\n}", ""]);
+exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-54adf15b] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-54adf15b] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-54adf15b 10s ease alternate infinite;\n          animation: animatedgradient-data-v-54adf15b 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-54adf15b {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-54adf15b {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-54adf15b] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-54adf15b] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-54adf15b] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-54adf15b] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-54adf15b] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-54adf15b] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.vwrap[data-v-54adf15b] {\n  overflow: hidden;\n}\n.vwrap .vmove[data-v-54adf15b] {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  -webkit-animation-name: tickerv-data-v-54adf15b;\n          animation-name: tickerv-data-v-54adf15b;\n  -webkit-animation-duration: 15s;\n          animation-duration: 15s;\n  -webkit-animation-delay: 2s;\n          animation-delay: 2s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n  transform: translateY(250px);\n}\n.vwrap .vmove .vitem[data-v-54adf15b] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  width: 200px;\n  height: 100px;\n  text-align: center;\n  margin-top: 50px;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f37055;\n}\n@-webkit-keyframes tickerv-data-v-54adf15b {\n0% {\n    bottom: 0;\n}\n20% {\n    bottom: 250px;\n}\n40% {\n    bottom: 450px;\n}\n60% {\n    bottom: 620px;\n}\n80% {\n    bottom: 750px;\n}\n100% {\n    bottom: 1000px;\n}\n}\n@keyframes tickerv-data-v-54adf15b {\n0% {\n    bottom: 0;\n}\n20% {\n    bottom: 250px;\n}\n40% {\n    bottom: 450px;\n}\n60% {\n    bottom: 620px;\n}\n80% {\n    bottom: 750px;\n}\n100% {\n    bottom: 1000px;\n}\n}", ""]);
 
 // exports
 
@@ -18969,7 +19098,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.prueba[data-v-f866ab50] {\n  color: red;\n}\n.gradient[data-v-f866ab50] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-f866ab50 10s ease alternate infinite;\n          animation: animatedgradient-data-v-f866ab50 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-f866ab50 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-f866ab50 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-f866ab50] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-f866ab50] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-f866ab50] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-f866ab50] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-f866ab50] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-f866ab50] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.container-match[data-v-f866ab50] {\n  display: grid;\n  grid-template: 1fr/repeat(6, 1fr);\n  background: red;\n  padding: 4px;\n  margin: 10px;\n}\n.container-match > *[data-v-f866ab50] {\n  justify-self: center;\n  align-self: center;\n}\n.container-match .flag-icon[data-v-f866ab50] {\n  height: 35px;\n  width: 35px;\n}\n.container-match img[alt=\"avatar usuario\"][data-v-f866ab50] {\n  width: 50px;\n  height: 50px;\n}\n.container-match .date[data-v-f866ab50] {\n  display: flex;\n  flex-direction: column;\n  padding: 5px;\n}\n.container-match img[alt=papelera][data-v-f866ab50] {\n  width: 35px;\n  height: 35px;\n}\n.game-green[data-v-f866ab50] {\n  background: #a3dab8;\n}\n.game-red[data-v-f866ab50] {\n  background: #fd7f63;\n}\n.game-grey[data-v-f866ab50] {\n  background: #afafaf;\n}", ""]);
+exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-f866ab50] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-f866ab50] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-f866ab50 10s ease alternate infinite;\n          animation: animatedgradient-data-v-f866ab50 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-f866ab50 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-f866ab50 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-f866ab50] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-f866ab50] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-f866ab50] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-f866ab50] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-f866ab50] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-f866ab50] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.container-match[data-v-f866ab50] {\n  display: grid;\n  grid-template: 1fr/repeat(6, 1fr);\n  background: red;\n  padding: 4px;\n  margin: 10px;\n}\n.container-match > *[data-v-f866ab50] {\n  justify-self: center;\n  align-self: center;\n}\n.container-match .flag-icon[data-v-f866ab50] {\n  height: 35px;\n  width: 35px;\n}\n.container-match img[alt=\"avatar usuario\"][data-v-f866ab50] {\n  width: 50px;\n  height: 50px;\n}\n.container-match .date[data-v-f866ab50] {\n  display: flex;\n  flex-direction: column;\n  padding: 5px;\n}\n.container-match img[alt=papelera][data-v-f866ab50] {\n  width: 35px;\n  height: 35px;\n}\n.game-green[data-v-f866ab50] {\n  background: #a3dab8;\n}\n.game-red[data-v-f866ab50] {\n  background: #fd7f63;\n}\n.game-grey[data-v-f866ab50] {\n  background: #afafaf;\n}", ""]);
 
 // exports
 
@@ -19026,7 +19155,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.prueba[data-v-596474ff] {\n  color: red;\n}\n.gradient[data-v-596474ff] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-596474ff 10s ease alternate infinite;\n          animation: animatedgradient-data-v-596474ff 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-596474ff {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-596474ff {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-596474ff] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-596474ff] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-596474ff] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-596474ff] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-596474ff] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-596474ff] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.wrapper[data-v-596474ff] {\n  display: grid;\n  grid-template: 1fr/0.5fr 1fr 0.5fr;\n}\n.wrapper .button-text[data-v-596474ff] {\n  color: #fff;\n  font-size: 0.8rem;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  border-radius: 10px;\n}\n.wrapper .buttons-center[data-v-596474ff] {\n  justify-self: center;\n  align-self: center;\n}\n.wrapper .buttons-center .button-arrow-s[data-v-596474ff] {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 30px;\n  height: 30px;\n  font-size: 1rem;\n  color: white;\n  background-color: #ef4e7b;\n}\n.wrapper .buttons-center .button-arrow-m[data-v-596474ff] {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 50px;\n  height: 50px;\n  font-size: 1.3rem;\n  color: white;\n  background-color: #ef4e7b;\n}\n.wrapper .buttons-center .button-arrow-l[data-v-596474ff] {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 100px;\n  height: 100px;\n  font-size: 1rem;\n  color: white;\n  background-color: #ef4e7b;\n}\n.wrapper .buttons-center .button-arrow-xl[data-v-596474ff] {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 150px;\n  height: 150px;\n  font-size: 1rem;\n  color: white;\n  background-color: #ef4e7b;\n}", ""]);
+exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-596474ff] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-596474ff] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-596474ff 10s ease alternate infinite;\n          animation: animatedgradient-data-v-596474ff 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-596474ff {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-596474ff {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-596474ff] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-596474ff] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-596474ff] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-596474ff] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-596474ff] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-596474ff] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.wrapper[data-v-596474ff] {\n  display: grid;\n  grid-template: 1fr/0.5fr 1fr 0.5fr;\n}\n.wrapper .button-text[data-v-596474ff] {\n  color: #fff;\n  font-size: 0.8rem;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  border-radius: 10px;\n}\n.wrapper .buttons-center[data-v-596474ff] {\n  justify-self: center;\n  align-self: center;\n}\n.wrapper .buttons-center .button-arrow-s[data-v-596474ff] {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 30px;\n  height: 30px;\n  font-size: 1rem;\n  color: white;\n  background-color: #ef4e7b;\n}\n.wrapper .buttons-center .button-arrow-m[data-v-596474ff] {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 50px;\n  height: 50px;\n  font-size: 1.3rem;\n  color: white;\n  background-color: #ef4e7b;\n}\n.wrapper .buttons-center .button-arrow-l[data-v-596474ff] {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 100px;\n  height: 100px;\n  font-size: 1rem;\n  color: white;\n  background-color: #ef4e7b;\n}\n.wrapper .buttons-center .button-arrow-xl[data-v-596474ff] {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 150px;\n  height: 150px;\n  font-size: 1rem;\n  color: white;\n  background-color: #ef4e7b;\n}", ""]);
 
 // exports
 
@@ -19045,7 +19174,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.prueba[data-v-1b3408bb] {\n  color: red;\n}\n.gradient[data-v-1b3408bb] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-1b3408bb 10s ease alternate infinite;\n          animation: animatedgradient-data-v-1b3408bb 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-1b3408bb {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-1b3408bb {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-1b3408bb] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-1b3408bb] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-1b3408bb] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-1b3408bb] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-1b3408bb] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-1b3408bb] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.container-news[data-v-1b3408bb] {\n  display: grid;\n  grid-template: 200px 1fr/1fr;\n}\n.container-news[data-v-1b3408bb] :nth-child(1) {\n  justify-self: center;\n  cursor: pointer;\n}\n.container-news :nth-child(1) h3[data-v-1b3408bb] {\n  max-height: 150px;\n  overflow: hidden;\n  font-size: 1.3rem;\n}\n.container-news :nth-child(1) p[data-v-1b3408bb] {\n  font-size: 1rem;\n}\n.container-news :nth-child(1) > *[data-v-1b3408bb] {\n  text-align: center;\n}", ""]);
+exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-1b3408bb] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-1b3408bb] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-1b3408bb 10s ease alternate infinite;\n          animation: animatedgradient-data-v-1b3408bb 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-1b3408bb {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-1b3408bb {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-1b3408bb] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-1b3408bb] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-1b3408bb] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-1b3408bb] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-1b3408bb] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-1b3408bb] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.container-news[data-v-1b3408bb] {\n  display: grid;\n  grid-template: 200px 1fr/1fr;\n}\n.container-news[data-v-1b3408bb] :nth-child(1) {\n  justify-self: center;\n  cursor: pointer;\n}\n.container-news :nth-child(1) h3[data-v-1b3408bb] {\n  max-height: 150px;\n  overflow: hidden;\n  font-size: 1.3rem;\n}\n.container-news :nth-child(1) p[data-v-1b3408bb] {\n  font-size: 1rem;\n}\n.container-news :nth-child(1) > *[data-v-1b3408bb] {\n  text-align: center;\n}", ""]);
 
 // exports
 
@@ -19064,7 +19193,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.prueba[data-v-46fd51ca] {\n  color: red;\n}\n.gradient[data-v-46fd51ca] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-46fd51ca 10s ease alternate infinite;\n          animation: animatedgradient-data-v-46fd51ca 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-46fd51ca {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-46fd51ca {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-46fd51ca] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-46fd51ca] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-46fd51ca] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-46fd51ca] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-46fd51ca] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-46fd51ca] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.notifications[data-v-46fd51ca] {\n  margin-top: 20px;\n}", ""]);
+exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-46fd51ca] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-46fd51ca] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-46fd51ca 10s ease alternate infinite;\n          animation: animatedgradient-data-v-46fd51ca 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-46fd51ca {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-46fd51ca {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-46fd51ca] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-46fd51ca] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-46fd51ca] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-46fd51ca] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-46fd51ca] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-46fd51ca] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.notifications[data-v-46fd51ca] {\n  margin-top: 20px;\n}", ""]);
 
 // exports
 
@@ -19083,7 +19212,45 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.prueba[data-v-727508be] {\n  color: red;\n}\n.gradient[data-v-727508be] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-727508be 10s ease alternate infinite;\n          animation: animatedgradient-data-v-727508be 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-727508be {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-727508be {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-727508be] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-727508be] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-727508be] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-727508be] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-727508be] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-727508be] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\ndiv[data-v-727508be] {\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n}\ndiv > *[data-v-727508be] {\n  margin: 5px;\n}\ndiv .text[data-v-727508be] {\n  margin: 0px;\n}\ndiv .text-hidden[data-v-727508be] {\n  overflow: hidden;\n  height: 30px;\n}\ndiv .text-show[data-v-727508be] {\n  overflow: visible;\n}\ndiv button[data-v-727508be] {\n  max-width: 70px;\n  max-height: 28px;\n}\ndiv img[data-v-727508be] {\n  width: 30px;\n  height: 30px;\n}\n.notif[data-v-727508be] {\n  border: 0.5px solid black;\n  background: #d3b0f6;\n  border-radius: 5px;\n}\n.notif-bold[data-v-727508be] {\n  font-weight: bold;\n}\n.notif-normal[data-v-727508be] {\n  font-weight: normal;\n}", ""]);
+exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-727508be] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-727508be] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-727508be 10s ease alternate infinite;\n          animation: animatedgradient-data-v-727508be 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-727508be {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-727508be {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-727508be] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-727508be] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-727508be] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-727508be] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-727508be] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-727508be] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\ndiv[data-v-727508be] {\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n}\ndiv > *[data-v-727508be] {\n  margin: 5px;\n}\ndiv .text[data-v-727508be] {\n  margin: 0px;\n}\ndiv .text-hidden[data-v-727508be] {\n  overflow: hidden;\n  height: 30px;\n}\ndiv .text-show[data-v-727508be] {\n  overflow: visible;\n}\ndiv button[data-v-727508be] {\n  max-width: 70px;\n  max-height: 28px;\n}\ndiv img[data-v-727508be] {\n  width: 30px;\n  height: 30px;\n}\n.notif[data-v-727508be] {\n  border: 0.5px solid black;\n  background: #d3b0f6;\n  border-radius: 5px;\n}\n.notif-bold[data-v-727508be] {\n  font-weight: bold;\n}\n.notif-normal[data-v-727508be] {\n  font-weight: normal;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/RecentChallengeAreaComponent.vue?vue&type=style&index=0&id=306b0c9a&lang=scss&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/RecentChallengeAreaComponent.vue?vue&type=style&index=0&id=306b0c9a&lang=scss&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-306b0c9a] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-306b0c9a] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-306b0c9a 10s ease alternate infinite;\n          animation: animatedgradient-data-v-306b0c9a 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-306b0c9a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-306b0c9a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-306b0c9a] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-306b0c9a] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-306b0c9a] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-306b0c9a] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-306b0c9a] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-306b0c9a] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.wrapper[data-v-306b0c9a] {\n  overflow: hidden;\n}\n.wrapper .vmove[data-v-306b0c9a] {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  -webkit-animation-name: tickerv-data-v-306b0c9a;\n          animation-name: tickerv-data-v-306b0c9a;\n  -webkit-animation-duration: 15s;\n          animation-duration: 15s;\n  -webkit-animation-delay: 2s;\n          animation-delay: 2s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n  transform: translateY(450px);\n}\n.wrapper h3[data-v-306b0c9a] {\n  margin-top: 10px;\n  text-align: center;\n}\n@-webkit-keyframes tickerv-data-v-306b0c9a {\n0% {\n    bottom: 0;\n}\n17% {\n    bottom: 450px;\n}\n32% {\n    bottom: 750px;\n}\n47% {\n    bottom: 1050px;\n}\n62% {\n    bottom: 1400px;\n}\n77% {\n    bottom: 1700px;\n}\n100% {\n    bottom: 2100px;\n}\n}\n@keyframes tickerv-data-v-306b0c9a {\n0% {\n    bottom: 0;\n}\n17% {\n    bottom: 450px;\n}\n32% {\n    bottom: 750px;\n}\n47% {\n    bottom: 1050px;\n}\n62% {\n    bottom: 1400px;\n}\n77% {\n    bottom: 1700px;\n}\n100% {\n    bottom: 2100px;\n}\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/RecentChallengeComponent.vue?vue&type=style&index=0&id=104c0db2&lang=scss&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/RecentChallengeComponent.vue?vue&type=style&index=0&id=104c0db2&lang=scss&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-104c0db2] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-104c0db2] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-104c0db2 10s ease alternate infinite;\n          animation: animatedgradient-data-v-104c0db2 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-104c0db2 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-104c0db2 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-104c0db2] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-104c0db2] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-104c0db2] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-104c0db2] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-104c0db2] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-104c0db2] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.wrapper[data-v-104c0db2] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 150px;\n  border-radius: 10px;\n  font-size: 1rem;\n  text-align: center;\n  background: #07b39b;\n  display: grid;\n  grid-template: 1fr 0.5fr 2fr 0.5fr 1fr/1fr;\n  padding: 10px;\n  margin-top: 20px;\n  margin-bottom: 20px;\n}\n.wrapper > *[data-v-104c0db2] {\n  justify-self: center;\n}\n.wrapper img[data-v-104c0db2] {\n  width: 50px;\n  height: 50px;\n}\n.wrapper[data-v-104c0db2] :nth-child(3) {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n.wrapper[data-v-104c0db2] :nth-child(4) {\n  align-self: end;\n}\n.wrapper[data-v-104c0db2] :nth-child(5) {\n  align-self: end;\n}", ""]);
 
 // exports
 
@@ -19102,7 +19269,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.prueba[data-v-24a47647] {\n  color: red;\n}\n.gradient[data-v-24a47647] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-24a47647 10s ease alternate infinite;\n          animation: animatedgradient-data-v-24a47647 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-24a47647 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-24a47647 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-24a47647] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-24a47647] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-24a47647] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-24a47647] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-24a47647] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-24a47647] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.select-lang[data-v-24a47647] {\n  display: flex;\n  align-items: center;\n}\n.select-lang .flag-icon[data-v-24a47647] {\n  width: 60px;\n  height: 40px;\n}\n.select-lang button[data-v-24a47647] {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 45px;\n  height: 45px;\n  font-size: 1.5rem;\n  color: white;\n  background-color: #ef4e7b;\n}", ""]);
+exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-24a47647] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-24a47647] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-24a47647 10s ease alternate infinite;\n          animation: animatedgradient-data-v-24a47647 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-24a47647 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-24a47647 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-24a47647] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-24a47647] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-24a47647] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-24a47647] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-24a47647] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-24a47647] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.select-lang[data-v-24a47647] {\n  display: flex;\n  align-items: center;\n}\n.select-lang .flag-icon[data-v-24a47647] {\n  width: 60px;\n  height: 40px;\n}\n.select-lang button[data-v-24a47647] {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 45px;\n  height: 45px;\n  font-size: 1.5rem;\n  color: white;\n  background-color: #ef4e7b;\n}", ""]);
 
 // exports
 
@@ -19121,7 +19288,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.prueba[data-v-18288b92] {\n  color: red;\n}\n.gradient[data-v-18288b92] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-18288b92 10s ease alternate infinite;\n          animation: animatedgradient-data-v-18288b92 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-18288b92 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-18288b92 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-18288b92] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-18288b92] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-18288b92] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-18288b92] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-18288b92] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-18288b92] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.select-text[data-v-18288b92] {\n  display: grid;\n  grid-template: 1fr/1fr 4fr 1fr;\n}\n.select-text > *[data-v-18288b92] {\n  align-items: center;\n}\n.select-text span[data-v-18288b92] {\n  align-self: center;\n}\n.select-text button[data-v-18288b92] {\n  align-self: center;\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 45px;\n  height: 45px;\n  font-size: 1.5rem;\n  color: white;\n  background-color: #ef4e7b;\n}", ""]);
+exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-18288b92] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-18288b92] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-18288b92 10s ease alternate infinite;\n          animation: animatedgradient-data-v-18288b92 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-18288b92 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-18288b92 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-18288b92] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-18288b92] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-18288b92] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-18288b92] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-18288b92] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-18288b92] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.select-text[data-v-18288b92] {\n  display: grid;\n  grid-template: 1fr/1fr 4fr 1fr;\n}\n.select-text span[data-v-18288b92] {\n  justify-self: center;\n  align-self: center;\n}\n.select-text button[data-v-18288b92] {\n  justify-self: center;\n  align-self: center;\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 45px;\n  height: 45px;\n  font-size: 1.5rem;\n  color: white;\n  background-color: #ef4e7b;\n}", ""]);
 
 // exports
 
@@ -19140,7 +19307,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.prueba[data-v-0823766e] {\n  color: red;\n}\n.gradient[data-v-0823766e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-0823766e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-0823766e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-0823766e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-0823766e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-0823766e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-0823766e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-0823766e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-0823766e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-0823766e] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-0823766e] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.start-area[data-v-0823766e] {\n  display: grid;\n  grid-template: 75px 75px 1fr/1fr;\n  width: 100%;\n}\n.start-area .game[data-v-0823766e] {\n  justify-self: center;\n  margin: 20px;\n  width: 75%;\n  height: 400px;\n}\n.start-area .game > *[data-v-0823766e] {\n  height: 100%;\n}\n.start-area .game .game-random[data-v-0823766e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 20px;\n}\n.start-area .game .game-random img[data-v-0823766e] {\n  max-width: 120px;\n  height: 120px;\n}\n.start-area .game .game-random button[data-v-0823766e] {\n  color: #fff;\n  padding: 10px;\n  font-size: 1.5rem;\n  background: linear-gradient(60deg, #5073b8, #1098ad, #07b39b, #6fba82);\n  border-radius: 10px;\n  margin-top: 5px;\n}\n.start-area .game .game-user[data-v-0823766e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: linear-gradient(60deg, #5073b8, #1098ad, #07b39b, #6fba82);\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n.start-area .game .game-user *[data-v-0823766e] {\n  box-sizing: border-box;\n}\n.start-area .game .game-user .searchInput[data-v-0823766e] {\n  background-image: url(\"/css/searchicon.png\");\n  background-position: 10px 12px;\n  background-repeat: no-repeat;\n  width: 100%;\n  font-size: 16px;\n  padding: 12px 20px 12px 40px;\n  border: 1px solid #ddd;\n}\n.start-area .game .game-user .listUsers[data-v-0823766e] {\n  list-style-type: none;\n  padding: 0;\n  margin: 0;\n  position: absolute;\n  z-index: 1;\n  margin-top: 52px;\n}\n.start-area .game .game-user .listUsers li a[data-v-0823766e] {\n  border: 1px solid #ddd;\n  margin-top: -1px;\n  background-color: #f6f6f6;\n  padding: 12px;\n  text-decoration: none;\n  font-size: 18px;\n  color: black;\n  display: block;\n}\n.start-area .game .game-user .listUsers li a[data-v-0823766e]:hover:not(.header) {\n  background-color: #eee;\n}\n.start-area .game .game-user .user-selected[data-v-0823766e] {\n  display: grid;\n  grid-template: 1fr 1fr/1fr 1fr;\n  padding: 20px;\n}\n.start-area .game .game-user .user-selected img[data-v-0823766e] {\n  grid-column: 1/-1;\n  width: 50px;\n  height: 50px;\n}\n.start-area .game .game-user .user-selected .flag[data-v-0823766e] {\n  align-self: center;\n  justify-self: self-end;\n  margin-right: 5px;\n}\n.start-area .game .game-user .user-selected span[data-v-0823766e] {\n  font-size: 1rem;\n  align-self: center;\n  justify-self: self-start;\n  margin-left: 5px;\n  padding-top: 10px;\n}\n.start-area .game .game-user button[data-v-0823766e] {\n  color: #fff;\n  padding: 10px;\n  font-size: 1.5rem;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  border-radius: 10px;\n  margin-top: 5px;\n}\n.start-area .game .game-level[data-v-0823766e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.start-area .game .game-level .levels[data-v-0823766e] {\n  display: flex;\n  justify-content: center;\n}\n.start-area .game .game-level .levels > *[data-v-0823766e] {\n  margin: 10px;\n  height: 40px;\n  width: 40px;\n  margin-bottom: 5px;\n  text-align: center;\n  font-size: 1.5rem;\n  background-color: #b3b3b3;\n  border-radius: 10px;\n  box-shadow: 0px 3px 8px black;\n}\n.start-area .game .game-level .levels .level-active[data-v-0823766e] {\n  background-color: #f9f4b8;\n}\n.start-area .game .game-level .levels .level-inactive[data-v-0823766e] {\n  background-color: #b3b3b3;\n}\n.start-area .game .game-level button[data-v-0823766e] {\n  color: #fff;\n  padding: 10px;\n  font-size: 1.5rem;\n  background: linear-gradient(60deg, #5073b8, #1098ad, #07b39b, #6fba82);\n  border-radius: 10px;\n  margin: 20px;\n}\n.start-area .game .alert[data-v-0823766e] {\n  font-size: 1rem;\n  margin: 20px;\n}", ""]);
+exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-0823766e] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-0823766e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-0823766e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-0823766e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-0823766e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-0823766e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-0823766e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-0823766e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-0823766e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-0823766e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-0823766e] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-0823766e] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.start-area[data-v-0823766e] {\n  display: grid;\n  grid-template: 75px 75px 1fr/1fr;\n  width: 100%;\n}\n.start-area .game[data-v-0823766e] {\n  justify-self: center;\n  margin: 20px;\n  width: 75%;\n  height: 400px;\n}\n.start-area .game > *[data-v-0823766e] {\n  height: 100%;\n}\n.start-area .game .game-random[data-v-0823766e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 20px;\n}\n.start-area .game .game-random img[data-v-0823766e] {\n  max-width: 120px;\n  height: 120px;\n}\n.start-area .game .game-random button[data-v-0823766e] {\n  color: #fff;\n  padding: 10px;\n  font-size: 1.5rem;\n  background: linear-gradient(60deg, #5073b8, #1098ad, #07b39b, #6fba82);\n  border-radius: 10px;\n  margin-top: 5px;\n}\n.start-area .game .game-user[data-v-0823766e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: linear-gradient(60deg, #5073b8, #1098ad, #07b39b, #6fba82);\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n.start-area .game .game-user *[data-v-0823766e] {\n  box-sizing: border-box;\n}\n.start-area .game .game-user .searchInput[data-v-0823766e] {\n  background-image: url(\"/css/searchicon.png\");\n  background-position: 10px 12px;\n  background-repeat: no-repeat;\n  width: 100%;\n  font-size: 16px;\n  padding: 12px 20px 12px 40px;\n  border: 1px solid #ddd;\n}\n.start-area .game .game-user .listUsers[data-v-0823766e] {\n  list-style-type: none;\n  padding: 0;\n  margin: 0;\n  position: absolute;\n  z-index: 1;\n  margin-top: 52px;\n}\n.start-area .game .game-user .listUsers li a[data-v-0823766e] {\n  border: 1px solid #ddd;\n  margin-top: -1px;\n  background-color: #f6f6f6;\n  padding: 12px;\n  text-decoration: none;\n  font-size: 18px;\n  color: black;\n  display: block;\n}\n.start-area .game .game-user .listUsers li a[data-v-0823766e]:hover:not(.header) {\n  background-color: #eee;\n}\n.start-area .game .game-user .user-selected[data-v-0823766e] {\n  display: grid;\n  grid-template: 1fr 1fr/1fr 1fr;\n  padding: 20px;\n}\n.start-area .game .game-user .user-selected img[data-v-0823766e] {\n  grid-column: 1/-1;\n  width: 50px;\n  height: 50px;\n}\n.start-area .game .game-user .user-selected .flag[data-v-0823766e] {\n  align-self: center;\n  justify-self: self-end;\n  margin-right: 5px;\n}\n.start-area .game .game-user .user-selected span[data-v-0823766e] {\n  font-size: 1rem;\n  align-self: center;\n  justify-self: self-start;\n  margin-left: 5px;\n  padding-top: 10px;\n}\n.start-area .game .game-user button[data-v-0823766e] {\n  color: #fff;\n  padding: 10px;\n  font-size: 1.5rem;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  border-radius: 10px;\n  margin-top: 5px;\n}\n.start-area .game .game-level[data-v-0823766e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.start-area .game .game-level .levels[data-v-0823766e] {\n  display: flex;\n  justify-content: center;\n}\n.start-area .game .game-level .levels > *[data-v-0823766e] {\n  margin: 10px;\n  height: 40px;\n  width: 40px;\n  margin-bottom: 5px;\n  text-align: center;\n  font-size: 1.5rem;\n  background-color: #b3b3b3;\n  border-radius: 10px;\n  box-shadow: 0px 3px 8px black;\n}\n.start-area .game .game-level .levels .level-active[data-v-0823766e] {\n  background-color: #f9f4b8;\n}\n.start-area .game .game-level .levels .level-inactive[data-v-0823766e] {\n  background-color: #b3b3b3;\n}\n.start-area .game .game-level button[data-v-0823766e] {\n  color: #fff;\n  padding: 10px;\n  font-size: 1.5rem;\n  background: linear-gradient(60deg, #5073b8, #1098ad, #07b39b, #6fba82);\n  border-radius: 10px;\n  margin: 20px;\n}\n.start-area .game .alert[data-v-0823766e] {\n  font-size: 1rem;\n  margin: 20px;\n}", ""]);
 
 // exports
 
@@ -19159,7 +19326,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.prueba[data-v-8a23f79e] {\n  color: red;\n}\n.gradient[data-v-8a23f79e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-8a23f79e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-8a23f79e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-8a23f79e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-8a23f79e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-8a23f79e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-8a23f79e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-8a23f79e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-8a23f79e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-8a23f79e] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-8a23f79e] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.container-main[data-v-8a23f79e] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.container-main h5[data-v-8a23f79e] {\n  text-align: center;\n  margin-top: 20px;\n}\n.container-main .container-stats[data-v-8a23f79e] {\n  display: grid;\n  grid-template: 1fr/1fr 1fr;\n  width: 100%;\n}\n.container-main .container-stats .container-cards .language[data-v-8a23f79e] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.container-main .container-stats .container-cards .language > *[data-v-8a23f79e] {\n  margin: 10px;\n}\n.container-main .container-stats .container-cards .language button[data-v-8a23f79e] {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 45px;\n  height: 45px;\n  font-size: 1.5rem;\n  color: white;\n  background-color: #ef4e7b;\n}\n.container-main .container-stats .container-cards .language .flag-icon[data-v-8a23f79e] {\n  width: 40px;\n  height: 40px;\n}\n.container-main .container-stats .container-cards .stats-dash[data-v-8a23f79e] {\n  display: grid;\n  grid-template: repeat(6, 1fr)/1fr 1fr;\n  gap: 10px;\n  height: 400px;\n  margin-top: 5px;\n  padding: 10px;\n}\n.container-main .container-stats .container-cards .stats-dash > *[data-v-8a23f79e] {\n  justify-self: center;\n}\n.container-main .container-stats .container-cards .stats-dash div[data-v-8a23f79e]:nth-child(even) {\n  grid-column: 1/2;\n  justify-self: flex-end;\n}\n.container-main .container-stats .container-cards .stats-dash div[data-v-8a23f79e]:nth-child(odd) {\n  grid-column: 2/3;\n  justify-self: flex-start;\n}\n.container-main .container-stats .container-cards .stats-dash div[data-v-8a23f79e]:nth-child(1) {\n  grid-column: 1/-1;\n  justify-self: center;\n}\n.container-main .container-stats .container-cards .stats-dash .level[data-v-8a23f79e] {\n  display: flex;\n  justify-content: center;\n  align-items: self-end;\n  width: 70px;\n  height: 70px;\n  border-radius: 60px;\n  color: white;\n  font-size: 3rem;\n  border: 2px solid #1a1717;\n}\n.container-main .container-stats .container-cards .stats-dash .level-silver[data-v-8a23f79e] {\n  background: #c0c0c0;\n}\n.container-main .container-stats .container-cards .stats-dash .level-bronze[data-v-8a23f79e] {\n  background: #db9249;\n}\n.container-main .container-stats .container-cards .stats-dash .level-gold[data-v-8a23f79e] {\n  background: #ffd700;\n}\n.container-main .container-graphs[data-v-8a23f79e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 300px;\n  border-radius: 10px;\n  font-size: 1.2rem;\n  text-align: center;\n  background: #a1bcf0;\n}", ""]);
+exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-8a23f79e] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-8a23f79e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-8a23f79e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-8a23f79e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-8a23f79e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-8a23f79e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-8a23f79e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-8a23f79e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-8a23f79e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-8a23f79e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-8a23f79e] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-8a23f79e] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.container-main[data-v-8a23f79e] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  height: 100%;\n}\n.container-main .container-stats[data-v-8a23f79e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 300px;\n  border-radius: 10px;\n  font-size: 1.2rem;\n  text-align: center;\n  background: #bdd0f2;\n  display: grid;\n  grid-template: 1fr/1fr 1fr;\n  width: 90%;\n}\n.container-main .container-stats .container-cards[data-v-8a23f79e] {\n  width: 80%;\n  justify-self: center;\n}\n.container-main .container-stats .container-cards .language[data-v-8a23f79e] {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.container-main .container-stats .container-cards .language > *[data-v-8a23f79e] {\n  margin: 10px;\n}\n.container-main .container-stats .container-cards .language button[data-v-8a23f79e] {\n  text-decoration: none;\n  text-align: center;\n  display: inline-block;\n  border: 1px solid rgba(0, 0, 0, 0.21);\n  border-bottom: 4px solid rgba(0, 0, 0, 0.21);\n  border-radius: 50%;\n  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);\n  width: 45px;\n  height: 45px;\n  font-size: 1.5rem;\n  color: white;\n  background-color: #ef4e7b;\n}\n.container-main .container-stats .container-cards .language .flag-icon[data-v-8a23f79e] {\n  width: 40px;\n  height: 40px;\n}\n.container-main .container-stats .container-cards .stats-dash[data-v-8a23f79e] {\n  display: grid;\n  grid-template: repeat(6, 1fr)/1fr 1fr;\n  gap: 10px;\n  height: 400px;\n  margin-top: 5px;\n  padding: 10px;\n}\n.container-main .container-stats .container-cards .stats-dash > *[data-v-8a23f79e] {\n  justify-self: center;\n}\n.container-main .container-stats .container-cards .stats-dash div[data-v-8a23f79e]:nth-child(even) {\n  grid-column: 1/2;\n  justify-self: flex-end;\n}\n.container-main .container-stats .container-cards .stats-dash div[data-v-8a23f79e]:nth-child(odd) {\n  grid-column: 2/3;\n  justify-self: flex-start;\n}\n.container-main .container-stats .container-cards .stats-dash div[data-v-8a23f79e]:nth-child(1) {\n  grid-column: 1/-1;\n  justify-self: center;\n}\n.container-main .container-stats .container-cards .stats-dash .level[data-v-8a23f79e] {\n  display: flex;\n  justify-content: center;\n  align-items: self-end;\n  width: 70px;\n  height: 70px;\n  border-radius: 60px;\n  color: white;\n  font-size: 3rem;\n  border: 2px solid #1a1717;\n}\n.container-main .container-stats .container-cards .stats-dash .level-silver[data-v-8a23f79e] {\n  background: #c0c0c0;\n}\n.container-main .container-stats .container-cards .stats-dash .level-bronze[data-v-8a23f79e] {\n  background: #db9249;\n}\n.container-main .container-stats .container-cards .stats-dash .level-gold[data-v-8a23f79e] {\n  background: #ffd700;\n}\n.container-main .container-stats .container-graphs[data-v-8a23f79e] {\n  width: 80%;\n  justify-self: center;\n  display: grid;\n  grid-template: 0.2fr 1fr/1fr;\n}\n.container-main .container-stats .container-graphs .select-text[data-v-8a23f79e] {\n  justify-self: center;\n}", ""]);
 
 // exports
 
@@ -19197,7 +19364,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.prueba[data-v-afe2655e] {\n  color: red;\n}\n.gradient[data-v-afe2655e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-afe2655e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-afe2655e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-afe2655e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-afe2655e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-afe2655e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-afe2655e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-afe2655e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-afe2655e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-afe2655e] {\n  text-align: center;\n  margin-top: 30px;\n}\n.combo-area-dash[data-v-afe2655e] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.user-dash[data-v-afe2655e] {\n  display: grid;\n  grid-template: 1fr 1fr 30px/repeat(2, 1fr);\n}\n.user-dash .avatar[data-v-afe2655e] {\n  grid-row: 1/-1;\n  background: blue;\n  justify-self: center;\n  width: 200px;\n  height: 200px;\n  border-radius: 70px;\n  margin-top: 10px;\n}\n.user-dash .user-data[data-v-afe2655e] {\n  grid-column: 2/-1;\n  padding-right: 10px;\n}\n.user-dash .user-data .div-img[data-v-afe2655e] {\n  text-align: center;\n}\n.user-dash .user-data .div-img img[data-v-afe2655e] {\n  cursor: pointer;\n  width: 50px;\n  height: 50px;\n}\n.user-dash .user-data fieldset[data-v-afe2655e] {\n  display: grid;\n  grid-template: repeat(2, 1fr)/repeat(2, 1fr);\n  justify-items: center;\n}\n.user-dash .user-data fieldset > div[data-v-afe2655e] {\n  padding: 5px;\n}\n.user-dash .user-data fieldset .div-read[data-v-afe2655e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 50px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n  width: 85%;\n  height: 50px;\n}\n.user-dash .user-data fieldset .div-flag[data-v-afe2655e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 100px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n  width: 85%;\n}\n.user-dash .user-pass[data-v-afe2655e] {\n  grid-column: 2/-1;\n  padding-right: 10px;\n}\n.user-dash .user-pass fieldset[data-v-afe2655e] {\n  display: grid;\n  grid-template: repeat(3, 1fr)/1fr;\n  gap: 10px;\n}\n.user-dash .buttons[data-v-afe2655e] {\n  grid-column: 2/-1;\n  display: grid;\n  grid-template: 1fr/1fr 1fr;\n  padding: 20px;\n}\n.user-dash .buttons button[data-v-afe2655e] {\n  color: #fff;\n  font-size: 1rem;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  border-radius: 10px;\n  height: 50px;\n}\nfieldset[data-v-afe2655e] {\n  border: 2px solid #ef4e7b;\n  padding: 5px;\n  border-radius: 4px;\n}\nlegend[data-v-afe2655e] {\n  font-size: 1.2rem;\n  width: auto;\n}", ""]);
+exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-afe2655e] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-afe2655e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-afe2655e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-afe2655e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-afe2655e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-afe2655e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-afe2655e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-afe2655e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-afe2655e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-afe2655e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-afe2655e] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-afe2655e] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.user-dash[data-v-afe2655e] {\n  display: grid;\n  grid-template: 1fr 1fr 30px/repeat(2, 1fr);\n}\n.user-dash .avatar[data-v-afe2655e] {\n  grid-row: 1/-1;\n  background: blue;\n  justify-self: center;\n  width: 200px;\n  height: 200px;\n  border-radius: 70px;\n  margin-top: 10px;\n}\n.user-dash .user-data[data-v-afe2655e] {\n  grid-column: 2/-1;\n  padding-right: 10px;\n}\n.user-dash .user-data .div-img[data-v-afe2655e] {\n  text-align: center;\n}\n.user-dash .user-data .div-img img[data-v-afe2655e] {\n  cursor: pointer;\n  width: 50px;\n  height: 50px;\n}\n.user-dash .user-data fieldset[data-v-afe2655e] {\n  display: grid;\n  grid-template: repeat(2, 1fr)/repeat(2, 1fr);\n  justify-items: center;\n}\n.user-dash .user-data fieldset > div[data-v-afe2655e] {\n  padding: 5px;\n}\n.user-dash .user-data fieldset .div-read[data-v-afe2655e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 50px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n  width: 85%;\n  height: 50px;\n}\n.user-dash .user-data fieldset .div-flag[data-v-afe2655e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 100px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n  width: 85%;\n}\n.user-dash .user-pass[data-v-afe2655e] {\n  grid-column: 2/-1;\n  padding-right: 10px;\n}\n.user-dash .user-pass fieldset[data-v-afe2655e] {\n  display: grid;\n  grid-template: repeat(3, 1fr)/1fr;\n  gap: 10px;\n}\n.user-dash .buttons[data-v-afe2655e] {\n  grid-column: 2/-1;\n  display: grid;\n  grid-template: 1fr/1fr 1fr;\n  padding: 20px;\n}\n.user-dash .buttons button[data-v-afe2655e] {\n  color: #fff;\n  font-size: 1rem;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  border-radius: 10px;\n  height: 50px;\n}\nfieldset[data-v-afe2655e] {\n  border: 2px solid #ef4e7b;\n  padding: 5px;\n  border-radius: 4px;\n}\nlegend[data-v-afe2655e] {\n  font-size: 1.2rem;\n  width: auto;\n}", ""]);
 
 // exports
 
@@ -26316,66 +26483,6 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/FriendConectedComponent.vue?vue&type=style&index=0&id=89312aac&lang=scss&scoped=true&":
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/FriendConectedComponent.vue?vue&type=style&index=0&id=89312aac&lang=scss&scoped=true& ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--16-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--16-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./FriendConectedComponent.vue?vue&type=style&index=0&id=89312aac&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/FriendConectedComponent.vue?vue&type=style&index=0&id=89312aac&lang=scss&scoped=true&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/FriendsDashComponent.vue?vue&type=style&index=0&id=78fffe08&lang=scss&scoped=true&":
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/FriendsDashComponent.vue?vue&type=style&index=0&id=78fffe08&lang=scss&scoped=true& ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--16-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--16-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./FriendsDashComponent.vue?vue&type=style&index=0&id=78fffe08&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/FriendsDashComponent.vue?vue&type=style&index=0&id=78fffe08&lang=scss&scoped=true&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/GameCardComponent.vue?vue&type=style&index=0&id=383d8bd9&lang=scss&scoped=true&":
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/GameCardComponent.vue?vue&type=style&index=0&id=383d8bd9&lang=scss&scoped=true& ***!
@@ -26715,6 +26822,66 @@ if(false) {}
 
 
 var content = __webpack_require__(/*! !../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--16-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--16-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./NotificationDashComponent.vue?vue&type=style&index=0&id=727508be&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/NotificationDashComponent.vue?vue&type=style&index=0&id=727508be&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/RecentChallengeAreaComponent.vue?vue&type=style&index=0&id=306b0c9a&lang=scss&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/RecentChallengeAreaComponent.vue?vue&type=style&index=0&id=306b0c9a&lang=scss&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--16-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--16-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./RecentChallengeAreaComponent.vue?vue&type=style&index=0&id=306b0c9a&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/RecentChallengeAreaComponent.vue?vue&type=style&index=0&id=306b0c9a&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/RecentChallengeComponent.vue?vue&type=style&index=0&id=104c0db2&lang=scss&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--16-2!./node_modules/sass-loader/dist/cjs.js??ref--16-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/RecentChallengeComponent.vue?vue&type=style&index=0&id=104c0db2&lang=scss&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--16-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--16-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./RecentChallengeComponent.vue?vue&type=style&index=0&id=104c0db2&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/RecentChallengeComponent.vue?vue&type=style&index=0&id=104c0db2&lang=scss&scoped=true&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -28334,6 +28501,42 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/BarChartComponent.vue?vue&type=template&id=aec35de0&":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/BarChartComponent.vue?vue&type=template&id=aec35de0& ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("Bar", {
+    attrs: {
+      "chart-options": _vm.chartOptions,
+      "chart-data": _vm.chartDataStat,
+      "chart-id": _vm.chartId,
+      "dataset-id-key": _vm.datasetIdKey,
+      plugins: _vm.plugins,
+      "css-classes": _vm.cssClasses,
+      styles: _vm.styles,
+      width: _vm.width,
+      height: _vm.height
+    }
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/CardDashComponent.vue?vue&type=template&id=77982b39&scoped=true&":
 /*!*************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/CardDashComponent.vue?vue&type=template&id=77982b39&scoped=true& ***!
@@ -28571,96 +28774,6 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/FriendConectedComponent.vue?vue&type=template&id=89312aac&scoped=true&":
-/*!*******************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/FriendConectedComponent.vue?vue&type=template&id=89312aac&scoped=true& ***!
-  \*******************************************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("img", { attrs: { src: "", alt: "" } }),
-      _vm._v(" "),
-      _c("span", [_vm._v("Jugador 1")]),
-      _vm._v(" "),
-      _c("button", [_vm._v("Retar")])
-    ])
-  }
-]
-render._withStripped = true
-
-
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/FriendsDashComponent.vue?vue&type=template&id=78fffe08&scoped=true&":
-/*!****************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/FriendsDashComponent.vue?vue&type=template&id=78fffe08&scoped=true& ***!
-  \****************************************************************************************************************************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h3", [_vm._v("Amigos conectados")]),
-    _vm._v(" "),
-    _c(
-      "div",
-      { staticClass: "friends-conected" },
-      [
-        _c("friend-conected"),
-        _vm._v(" "),
-        _c("friend-conected"),
-        _vm._v(" "),
-        _c("friend-conected"),
-        _vm._v(" "),
-        _c("friend-conected"),
-        _vm._v(" "),
-        _c("friend-conected"),
-        _vm._v(" "),
-        _c("friend-conected"),
-        _vm._v(" "),
-        _c("friend-conected"),
-        _vm._v(" "),
-        _c("friend-conected"),
-        _vm._v(" "),
-        _c("friend-conected"),
-        _vm._v(" "),
-        _c("friend-conected")
-      ],
-      1
-    )
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-
-
-
-/***/ }),
-
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/GameCardComponent.vue?vue&type=template&id=383d8bd9&scoped=true&":
 /*!*************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/GameCardComponent.vue?vue&type=template&id=383d8bd9&scoped=true& ***!
@@ -28685,7 +28798,10 @@ var render = function() {
       _c("lang-flag", { attrs: { iso: _vm.game.language } }),
       _vm._v(" "),
       _c("div", { staticClass: "user-container" }, [
-        _c("img", { attrs: { src: "/img/gamer.png", alt: "avatar" } }),
+        _c("img", {
+          staticClass: "img-avatar",
+          attrs: { src: _vm.game.player1.avatar, alt: "avatar" }
+        }),
         _vm._v(" "),
         _c(
           "div",
@@ -28709,7 +28825,10 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "user-container" }, [
-        _c("img", { attrs: { src: "/img/gamer.png", alt: "avatar" } }),
+        _c("img", {
+          staticClass: "img-avatar",
+          attrs: { src: _vm.game.player2.avatar, alt: "avatar" }
+        }),
         _vm._v(" "),
         _c(
           "div",
@@ -29118,9 +29237,9 @@ var render = function() {
         _c("span", [_vm._v(_vm._s(_vm.game.opponent_score))])
       ]),
       _vm._v(" "),
-      _c("img", { attrs: { src: _vm.avatar, alt: "avatar usuario" } }),
+      _c("img", { attrs: { src: _vm.opponent.avatar, alt: "avatar usuario" } }),
       _vm._v(" "),
-      _c("span", [_vm._v(_vm._s(_vm.game.opponent[0].name))]),
+      _c("span", [_vm._v(_vm._s(_vm.opponent.name))]),
       _vm._v(" "),
       _c("div", { staticClass: "date" }, [
         _c("span", [_vm._v(_vm._s(_vm.date))]),
@@ -29432,6 +29551,117 @@ var render = function() {
           attrs: { src: "/img/papelera.png", alt: "papelera" },
           on: { click: _vm.deleteNotification }
         })
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/RecentChallengeAreaComponent.vue?vue&type=template&id=306b0c9a&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/RecentChallengeAreaComponent.vue?vue&type=template&id=306b0c9a&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "wrapper" }, [
+    _c(
+      "div",
+      { staticClass: "vmove" },
+      _vm._l(_vm.recentChall, function(chall) {
+        return _c("recent-chall", {
+          key: chall.id,
+          staticClass: "vitem",
+          attrs: { challenge: chall }
+        })
+      }),
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/RecentChallengeComponent.vue?vue&type=template&id=104c0db2&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/dashboard/RecentChallengeComponent.vue?vue&type=template&id=104c0db2&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "wrapper" }, [
+    _c("img", {
+      staticClass: "img-avatar",
+      attrs: { src: _vm.challenge.player1.avatar }
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      [
+        _c("country-flag", {
+          attrs: {
+            country: _vm.challenge.player1.country,
+            size: "small",
+            rounded: true
+          }
+        }),
+        _vm._v(" "),
+        _c("span", [_vm._v(_vm._s(_vm.challenge.player1.name))])
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("div", [
+      _c("span", [_vm._v(_vm._s(_vm.challenge.score1))]),
+      _vm._v(" "),
+      _c("span", [_vm._v("VS")]),
+      _vm._v(" "),
+      _c("span", [_vm._v(_vm._s(_vm.challenge.score2))])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      [
+        _c("country-flag", {
+          attrs: {
+            country: _vm.challenge.player2.country,
+            size: "small",
+            rounded: true
+          }
+        }),
+        _vm._v(" "),
+        _c("span", [_vm._v(_vm._s(_vm.challenge.player2.name))])
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c("img", {
+      staticClass: "img-avatar",
+      attrs: { src: _vm.challenge.player2.avatar }
+    })
   ])
 }
 var staticRenderFns = []
@@ -29896,13 +30126,31 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "container-graphs" }, [
-        _c(
-          "div",
-          [_c("line-chart", { attrs: { "chart-data": _vm.dataLineChart } })],
-          1
-        )
-      ])
+      _c(
+        "div",
+        { staticClass: "container-graphs" },
+        [
+          _c("select-text", {
+            attrs: { texts: _vm.arrayTexts },
+            on: { "change-area": _vm.changeArea }
+          }),
+          _vm._v(" "),
+          _c(
+            "div",
+            [
+              _vm.chartShow == 0
+                ? _c("bar-chart", { attrs: { "chart-data": _vm.chartData } })
+                : _vm.chartShow == 1
+                ? _c("line-chart", {
+                    attrs: { "chart-data": _vm.dataLineChart }
+                  })
+                : _vm._e()
+            ],
+            1
+          )
+        ],
+        1
+      )
     ])
   ])
 }
@@ -42356,6 +42604,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/assets/js/components/dashboard/BarChartComponent.vue":
+/*!************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/BarChartComponent.vue ***!
+  \************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _BarChartComponent_vue_vue_type_template_id_aec35de0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BarChartComponent.vue?vue&type=template&id=aec35de0& */ "./resources/assets/js/components/dashboard/BarChartComponent.vue?vue&type=template&id=aec35de0&");
+/* harmony import */ var _BarChartComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BarChartComponent.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/dashboard/BarChartComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _BarChartComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _BarChartComponent_vue_vue_type_template_id_aec35de0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _BarChartComponent_vue_vue_type_template_id_aec35de0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/js/components/dashboard/BarChartComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/BarChartComponent.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/BarChartComponent.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BarChartComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./BarChartComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/BarChartComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BarChartComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/BarChartComponent.vue?vue&type=template&id=aec35de0&":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/BarChartComponent.vue?vue&type=template&id=aec35de0& ***!
+  \*******************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BarChartComponent_vue_vue_type_template_id_aec35de0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./BarChartComponent.vue?vue&type=template&id=aec35de0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/BarChartComponent.vue?vue&type=template&id=aec35de0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BarChartComponent_vue_vue_type_template_id_aec35de0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_BarChartComponent_vue_vue_type_template_id_aec35de0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/assets/js/components/dashboard/CardDashComponent.vue":
 /*!************************************************************************!*\
   !*** ./resources/assets/js/components/dashboard/CardDashComponent.vue ***!
@@ -42699,180 +43016,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DashboardComponent_vue_vue_type_template_id_14d4cc4a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DashboardComponent_vue_vue_type_template_id_14d4cc4a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/assets/js/components/dashboard/FriendConectedComponent.vue":
-/*!******************************************************************************!*\
-  !*** ./resources/assets/js/components/dashboard/FriendConectedComponent.vue ***!
-  \******************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _FriendConectedComponent_vue_vue_type_template_id_89312aac_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FriendConectedComponent.vue?vue&type=template&id=89312aac&scoped=true& */ "./resources/assets/js/components/dashboard/FriendConectedComponent.vue?vue&type=template&id=89312aac&scoped=true&");
-/* harmony import */ var _FriendConectedComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FriendConectedComponent.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/dashboard/FriendConectedComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _FriendConectedComponent_vue_vue_type_style_index_0_id_89312aac_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FriendConectedComponent.vue?vue&type=style&index=0&id=89312aac&lang=scss&scoped=true& */ "./resources/assets/js/components/dashboard/FriendConectedComponent.vue?vue&type=style&index=0&id=89312aac&lang=scss&scoped=true&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _FriendConectedComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _FriendConectedComponent_vue_vue_type_template_id_89312aac_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _FriendConectedComponent_vue_vue_type_template_id_89312aac_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "89312aac",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/assets/js/components/dashboard/FriendConectedComponent.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/assets/js/components/dashboard/FriendConectedComponent.vue?vue&type=script&lang=js&":
-/*!*******************************************************************************************************!*\
-  !*** ./resources/assets/js/components/dashboard/FriendConectedComponent.vue?vue&type=script&lang=js& ***!
-  \*******************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendConectedComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./FriendConectedComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/FriendConectedComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendConectedComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/assets/js/components/dashboard/FriendConectedComponent.vue?vue&type=style&index=0&id=89312aac&lang=scss&scoped=true&":
-/*!****************************************************************************************************************************************!*\
-  !*** ./resources/assets/js/components/dashboard/FriendConectedComponent.vue?vue&type=style&index=0&id=89312aac&lang=scss&scoped=true& ***!
-  \****************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendConectedComponent_vue_vue_type_style_index_0_id_89312aac_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--16-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--16-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./FriendConectedComponent.vue?vue&type=style&index=0&id=89312aac&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/FriendConectedComponent.vue?vue&type=style&index=0&id=89312aac&lang=scss&scoped=true&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendConectedComponent_vue_vue_type_style_index_0_id_89312aac_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendConectedComponent_vue_vue_type_style_index_0_id_89312aac_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendConectedComponent_vue_vue_type_style_index_0_id_89312aac_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendConectedComponent_vue_vue_type_style_index_0_id_89312aac_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-
-
-/***/ }),
-
-/***/ "./resources/assets/js/components/dashboard/FriendConectedComponent.vue?vue&type=template&id=89312aac&scoped=true&":
-/*!*************************************************************************************************************************!*\
-  !*** ./resources/assets/js/components/dashboard/FriendConectedComponent.vue?vue&type=template&id=89312aac&scoped=true& ***!
-  \*************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendConectedComponent_vue_vue_type_template_id_89312aac_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./FriendConectedComponent.vue?vue&type=template&id=89312aac&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/FriendConectedComponent.vue?vue&type=template&id=89312aac&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendConectedComponent_vue_vue_type_template_id_89312aac_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendConectedComponent_vue_vue_type_template_id_89312aac_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./resources/assets/js/components/dashboard/FriendsDashComponent.vue":
-/*!***************************************************************************!*\
-  !*** ./resources/assets/js/components/dashboard/FriendsDashComponent.vue ***!
-  \***************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _FriendsDashComponent_vue_vue_type_template_id_78fffe08_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FriendsDashComponent.vue?vue&type=template&id=78fffe08&scoped=true& */ "./resources/assets/js/components/dashboard/FriendsDashComponent.vue?vue&type=template&id=78fffe08&scoped=true&");
-/* harmony import */ var _FriendsDashComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FriendsDashComponent.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/dashboard/FriendsDashComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _FriendsDashComponent_vue_vue_type_style_index_0_id_78fffe08_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FriendsDashComponent.vue?vue&type=style&index=0&id=78fffe08&lang=scss&scoped=true& */ "./resources/assets/js/components/dashboard/FriendsDashComponent.vue?vue&type=style&index=0&id=78fffe08&lang=scss&scoped=true&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _FriendsDashComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _FriendsDashComponent_vue_vue_type_template_id_78fffe08_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _FriendsDashComponent_vue_vue_type_template_id_78fffe08_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  "78fffe08",
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "resources/assets/js/components/dashboard/FriendsDashComponent.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "./resources/assets/js/components/dashboard/FriendsDashComponent.vue?vue&type=script&lang=js&":
-/*!****************************************************************************************************!*\
-  !*** ./resources/assets/js/components/dashboard/FriendsDashComponent.vue?vue&type=script&lang=js& ***!
-  \****************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendsDashComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./FriendsDashComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/FriendsDashComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendsDashComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/assets/js/components/dashboard/FriendsDashComponent.vue?vue&type=style&index=0&id=78fffe08&lang=scss&scoped=true&":
-/*!*************************************************************************************************************************************!*\
-  !*** ./resources/assets/js/components/dashboard/FriendsDashComponent.vue?vue&type=style&index=0&id=78fffe08&lang=scss&scoped=true& ***!
-  \*************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendsDashComponent_vue_vue_type_style_index_0_id_78fffe08_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--16-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--16-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./FriendsDashComponent.vue?vue&type=style&index=0&id=78fffe08&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/FriendsDashComponent.vue?vue&type=style&index=0&id=78fffe08&lang=scss&scoped=true&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendsDashComponent_vue_vue_type_style_index_0_id_78fffe08_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendsDashComponent_vue_vue_type_style_index_0_id_78fffe08_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendsDashComponent_vue_vue_type_style_index_0_id_78fffe08_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendsDashComponent_vue_vue_type_style_index_0_id_78fffe08_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-
-
-/***/ }),
-
-/***/ "./resources/assets/js/components/dashboard/FriendsDashComponent.vue?vue&type=template&id=78fffe08&scoped=true&":
-/*!**********************************************************************************************************************!*\
-  !*** ./resources/assets/js/components/dashboard/FriendsDashComponent.vue?vue&type=template&id=78fffe08&scoped=true& ***!
-  \**********************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendsDashComponent_vue_vue_type_template_id_78fffe08_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./FriendsDashComponent.vue?vue&type=template&id=78fffe08&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/FriendsDashComponent.vue?vue&type=template&id=78fffe08&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendsDashComponent_vue_vue_type_template_id_78fffe08_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FriendsDashComponent_vue_vue_type_template_id_78fffe08_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -44060,6 +44203,180 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/assets/js/components/dashboard/RecentChallengeAreaComponent.vue":
+/*!***********************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/RecentChallengeAreaComponent.vue ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _RecentChallengeAreaComponent_vue_vue_type_template_id_306b0c9a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RecentChallengeAreaComponent.vue?vue&type=template&id=306b0c9a&scoped=true& */ "./resources/assets/js/components/dashboard/RecentChallengeAreaComponent.vue?vue&type=template&id=306b0c9a&scoped=true&");
+/* harmony import */ var _RecentChallengeAreaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RecentChallengeAreaComponent.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/dashboard/RecentChallengeAreaComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _RecentChallengeAreaComponent_vue_vue_type_style_index_0_id_306b0c9a_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RecentChallengeAreaComponent.vue?vue&type=style&index=0&id=306b0c9a&lang=scss&scoped=true& */ "./resources/assets/js/components/dashboard/RecentChallengeAreaComponent.vue?vue&type=style&index=0&id=306b0c9a&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _RecentChallengeAreaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _RecentChallengeAreaComponent_vue_vue_type_template_id_306b0c9a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _RecentChallengeAreaComponent_vue_vue_type_template_id_306b0c9a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "306b0c9a",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/js/components/dashboard/RecentChallengeAreaComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/RecentChallengeAreaComponent.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/RecentChallengeAreaComponent.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentChallengeAreaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./RecentChallengeAreaComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/RecentChallengeAreaComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentChallengeAreaComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/RecentChallengeAreaComponent.vue?vue&type=style&index=0&id=306b0c9a&lang=scss&scoped=true&":
+/*!*********************************************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/RecentChallengeAreaComponent.vue?vue&type=style&index=0&id=306b0c9a&lang=scss&scoped=true& ***!
+  \*********************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentChallengeAreaComponent_vue_vue_type_style_index_0_id_306b0c9a_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--16-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--16-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./RecentChallengeAreaComponent.vue?vue&type=style&index=0&id=306b0c9a&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/RecentChallengeAreaComponent.vue?vue&type=style&index=0&id=306b0c9a&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentChallengeAreaComponent_vue_vue_type_style_index_0_id_306b0c9a_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentChallengeAreaComponent_vue_vue_type_style_index_0_id_306b0c9a_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentChallengeAreaComponent_vue_vue_type_style_index_0_id_306b0c9a_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentChallengeAreaComponent_vue_vue_type_style_index_0_id_306b0c9a_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/RecentChallengeAreaComponent.vue?vue&type=template&id=306b0c9a&scoped=true&":
+/*!******************************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/RecentChallengeAreaComponent.vue?vue&type=template&id=306b0c9a&scoped=true& ***!
+  \******************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentChallengeAreaComponent_vue_vue_type_template_id_306b0c9a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./RecentChallengeAreaComponent.vue?vue&type=template&id=306b0c9a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/RecentChallengeAreaComponent.vue?vue&type=template&id=306b0c9a&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentChallengeAreaComponent_vue_vue_type_template_id_306b0c9a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentChallengeAreaComponent_vue_vue_type_template_id_306b0c9a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/RecentChallengeComponent.vue":
+/*!*******************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/RecentChallengeComponent.vue ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _RecentChallengeComponent_vue_vue_type_template_id_104c0db2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RecentChallengeComponent.vue?vue&type=template&id=104c0db2&scoped=true& */ "./resources/assets/js/components/dashboard/RecentChallengeComponent.vue?vue&type=template&id=104c0db2&scoped=true&");
+/* harmony import */ var _RecentChallengeComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RecentChallengeComponent.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/dashboard/RecentChallengeComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _RecentChallengeComponent_vue_vue_type_style_index_0_id_104c0db2_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RecentChallengeComponent.vue?vue&type=style&index=0&id=104c0db2&lang=scss&scoped=true& */ "./resources/assets/js/components/dashboard/RecentChallengeComponent.vue?vue&type=style&index=0&id=104c0db2&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _RecentChallengeComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _RecentChallengeComponent_vue_vue_type_template_id_104c0db2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _RecentChallengeComponent_vue_vue_type_template_id_104c0db2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "104c0db2",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/js/components/dashboard/RecentChallengeComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/RecentChallengeComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/RecentChallengeComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentChallengeComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./RecentChallengeComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/RecentChallengeComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentChallengeComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/RecentChallengeComponent.vue?vue&type=style&index=0&id=104c0db2&lang=scss&scoped=true&":
+/*!*****************************************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/RecentChallengeComponent.vue?vue&type=style&index=0&id=104c0db2&lang=scss&scoped=true& ***!
+  \*****************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentChallengeComponent_vue_vue_type_style_index_0_id_104c0db2_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--16-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--16-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./RecentChallengeComponent.vue?vue&type=style&index=0&id=104c0db2&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/RecentChallengeComponent.vue?vue&type=style&index=0&id=104c0db2&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentChallengeComponent_vue_vue_type_style_index_0_id_104c0db2_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentChallengeComponent_vue_vue_type_style_index_0_id_104c0db2_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentChallengeComponent_vue_vue_type_style_index_0_id_104c0db2_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_16_2_node_modules_sass_loader_dist_cjs_js_ref_16_3_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentChallengeComponent_vue_vue_type_style_index_0_id_104c0db2_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/dashboard/RecentChallengeComponent.vue?vue&type=template&id=104c0db2&scoped=true&":
+/*!**************************************************************************************************************************!*\
+  !*** ./resources/assets/js/components/dashboard/RecentChallengeComponent.vue?vue&type=template&id=104c0db2&scoped=true& ***!
+  \**************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentChallengeComponent_vue_vue_type_template_id_104c0db2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./RecentChallengeComponent.vue?vue&type=template&id=104c0db2&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/dashboard/RecentChallengeComponent.vue?vue&type=template&id=104c0db2&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentChallengeComponent_vue_vue_type_template_id_104c0db2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RecentChallengeComponent_vue_vue_type_template_id_104c0db2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/assets/js/components/dashboard/SelectLanguageComponent.vue":
 /*!******************************************************************************!*\
   !*** ./resources/assets/js/components/dashboard/SelectLanguageComponent.vue ***!
@@ -44996,6 +45313,42 @@ var Info = /*#__PURE__*/function () {
 
       return searchUsers;
     }()
+  }, {
+    key: "getRecentChallenges",
+    value: function () {
+      var _getRecentChallenges = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
+        var promise;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                _context6.prev = 0;
+                _context6.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/info/currentgames/");
+
+              case 3:
+                promise = _context6.sent;
+                return _context6.abrupt("return", promise.data);
+
+              case 7:
+                _context6.prev = 7;
+                _context6.t0 = _context6["catch"](0);
+                console.log("ERROR: " + _context6.t0);
+
+              case 10:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6, null, [[0, 7]]);
+      }));
+
+      function getRecentChallenges() {
+        return _getRecentChallenges.apply(this, arguments);
+      }
+
+      return getRecentChallenges;
+    }()
   }]);
 
   return Info;
@@ -45229,7 +45582,7 @@ var User = /*#__PURE__*/function () {
     this.created_at = created_at;
     this.updated_at = updated_at;
     this.favourite_language = favourite_language;
-    this.avatar = avatar;
+    this._avatar = avatar;
     this.avatar_type = avatar_type;
   }
 
@@ -45462,6 +45815,15 @@ var User = /*#__PURE__*/function () {
           }
         }
       });
+    }
+  }, {
+    key: "avatar",
+    get: function get() {
+      if (!this._avatar) return "/img/gamer.png";
+      return this._avatar;
+    },
+    set: function set(avatar) {
+      this._avatar = avatar;
     }
   }]);
 

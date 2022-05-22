@@ -48,15 +48,13 @@ export default {
   display: grid;
   grid-template: 1fr / 1fr 4fr 1fr;
 
-  > * {
-    align-items: center;
-  }
-
   span {
+    justify-self: center;
     align-self: center;
   }
 
   button {
+    justify-self: center;
     align-self: center;
     @include round-button(45px, 45px, white, #ef4e7b, 1.5rem);
   }
