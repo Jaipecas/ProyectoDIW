@@ -54,7 +54,7 @@ export default {
     align-items: center;
 
     animation-name: tickerv;
-    animation-duration: 15s;
+    animation-duration: 20s;
     animation-delay: 2s;
     animation-iteration-count: infinite;
     transform: translateY(450px);
@@ -70,22 +70,22 @@ export default {
     bottom: 0;
   }
   17% {
-    bottom: 450px;
+    bottom: 420px;
   }
   32% {
-    bottom: 750px;
+    bottom: 720px;
   }
   47% {
-    bottom: 1050px;
+    bottom: 1030px;
   }
   62% {
-    bottom: 1400px;
+    bottom: 1350px;
   }
   77% {
-    bottom: 1700px;
+    bottom: 1650px;
   }
   100% {
-    bottom: 2100px;
+    bottom: 2050px;
   }
 }
 </style>

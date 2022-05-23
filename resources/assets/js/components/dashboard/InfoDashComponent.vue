@@ -75,13 +75,13 @@ export default {
     bottom: 0;
   }
   20% {
-    bottom: 250px;
+    bottom: 240px;
   }
   40% {
-    bottom: 450px;
+    bottom: 410px;
   }
   60% {
-    bottom: 620px;
+    bottom: 580px;
   }
   80% {
     bottom: 750px;

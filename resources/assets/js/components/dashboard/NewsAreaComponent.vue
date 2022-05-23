@@ -52,8 +52,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "./resources/assets/sass/_dashboard_main.scss";
-
 .container-news {
   display: grid;
   grid-template: 200px 1fr / 1fr;

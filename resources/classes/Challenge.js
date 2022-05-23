@@ -42,7 +42,7 @@ export default class Challenge {
         try {
             await axios.post(url);
         } catch (error) {
-            console.log("ERROR: " + error);
+            return Promise.reject(error);
         }
     }
 }

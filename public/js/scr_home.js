@@ -3269,6 +3269,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _NewsAreaComponent_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./NewsAreaComponent.vue */ "./resources/assets/js/components/dashboard/NewsAreaComponent.vue");
 /* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
 /* harmony import */ var _classes_Statistics__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../classes/Statistics */ "./resources/classes/Statistics.js");
+/* harmony import */ var _classes_Game__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../classes/Game */ "./resources/classes/Game.js");
 //
 //
 //
@@ -3286,6 +3287,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
@@ -3326,12 +3328,14 @@ __webpack_require__.r(__webpack_exports__);
     return {
       menuArea: "Partidas",
       userDash: _classes_User__WEBPACK_IMPORTED_MODULE_6__["default"],
-      userStats: Array
+      userStats: Array,
+      gamesData: Array
     };
   },
   created: function created() {
     this.createUser();
     this.createStats();
+    this.createGames();
   },
   methods: {
     changeArea: function changeArea(area) {
@@ -3344,6 +3348,12 @@ __webpack_require__.r(__webpack_exports__);
       var arrayStats = this.statistics;
       this.userStats = arrayStats.map(function (stat) {
         return Object.assign(new _classes_Statistics__WEBPACK_IMPORTED_MODULE_7__["default"](), stat);
+      });
+    },
+    createGames: function createGames() {
+      var arrayGames = this.games;
+      this.gamesData = arrayGames.map(function (game) {
+        return Object.assign(new _classes_Game__WEBPACK_IMPORTED_MODULE_8__["default"](), game);
       });
     }
   }
@@ -3484,9 +3494,19 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
-/* harmony import */ var _MatchDashComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MatchDashComponent.vue */ "./resources/assets/js/components/dashboard/MatchDashComponent.vue");
-/* harmony import */ var _StartGameAreaComponent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./StartGameAreaComponent.vue */ "./resources/assets/js/components/dashboard/StartGameAreaComponent.vue");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
+/* harmony import */ var _MatchDashComponent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MatchDashComponent.vue */ "./resources/assets/js/components/dashboard/MatchDashComponent.vue");
+/* harmony import */ var _StartGameAreaComponent_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./StartGameAreaComponent.vue */ "./resources/assets/js/components/dashboard/StartGameAreaComponent.vue");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
 //
 //
 //
@@ -3516,12 +3536,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "GameAreaDashComponent",
   components: {
-    "match-dash": _MatchDashComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    "start-area": _StartGameAreaComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+    "match-dash": _MatchDashComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    "start-area": _StartGameAreaComponent_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   props: {
     user: {
-      type: _classes_User__WEBPACK_IMPORTED_MODULE_0__["default"],
+      type: _classes_User__WEBPACK_IMPORTED_MODULE_1__["default"],
       required: true
     },
     pendingGames: {
@@ -3539,10 +3559,29 @@ __webpack_require__.r(__webpack_exports__);
     this.reOrderGames();
   },
   methods: {
-    deleteGame: function deleteGame(id) {
-      this.gamesList = this.gamesList.filter(function (game) {
-        return game.id !== id;
-      });
+    deleteGame: function deleteGame(gameSelect) {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return gameSelect.giveUp();
+
+              case 2:
+                _this.gamesList = _this.gamesList.filter(function (game) {
+                  return game.id !== gameSelect.id;
+                });
+
+              case 3:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
     },
     reOrderGames: function reOrderGames() {
       var noStart = this.gamesList.filter(function (game) {
@@ -4014,7 +4053,7 @@ __webpack_require__.r(__webpack_exports__);
       this.time = date.toLocaleTimeString("es-ES");
     },
     deleteGame: function deleteGame() {
-      this.$emit("delete-game", this.game.id);
+      this.$emit("delete-game", this.game);
     },
     insertColor: function insertColor() {
       switch (this.game.state) {
@@ -4845,6 +4884,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4871,7 +4917,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       showArea: 0,
       usersSearched: null,
       userSelected: null,
-      userAvatar: "/img/gamer.png",
       inputWord: "",
       levels: ["1", "2", "3", "4", "5"],
       selectedLang: "es",
@@ -4882,6 +4927,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   methods: {
+    //Eventos
     changeArea: function changeArea(area) {
       this.showArea = area;
       this.messageError = "";
@@ -4932,12 +4978,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     userClick: function userClick(user) {
       this.usersSearched = null;
-      this.userSelected = user;
+      this.userSelected = Object.assign(new _classes_User__WEBPACK_IMPORTED_MODULE_5__["default"](), user);
       this.messageError = "";
-
-      if (user.avatar !== null) {
-        this.userAvatar = user.avatar;
-      }
     },
     changeLevel: function changeLevel(levelSelected) {
       this.selectedLevel = levelSelected;
@@ -4952,6 +4994,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }
       });
     },
+    //Creación de partidas
     createRandomChallenge: function createRandomChallenge() {
       var _this2 = this;
 
@@ -4960,11 +5003,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _this2.createChallenge().postChallenge("random");
+                _this2.postChallenge("random");
 
-                _this2.createdChallenge = true;
-
-              case 2:
+              case 1:
               case "end":
                 return _context2.stop();
             }
@@ -4990,13 +5031,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context3.abrupt("return");
 
               case 4:
-                _this3.messageError = "";
+                _this3.postChallenge("against");
 
-                _this3.createChallenge().postChallenge("against");
-
-                _this3.createdChallenge = true;
-
-              case 7:
+              case 5:
               case "end":
                 return _context3.stop();
             }
@@ -5022,18 +5059,46 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return _context4.abrupt("return");
 
               case 4:
-                _this4.messageError = "";
+                _this4.postChallenge("level");
 
-                _this4.createChallenge().postChallenge("level");
-
-                _this4.createdChallenge = true;
-
-              case 7:
+              case 5:
               case "end":
                 return _context4.stop();
             }
           }
         }, _callee4);
+      }))();
+    },
+    postChallenge: function postChallenge(challengeType) {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _this5.messageError = "";
+                _context5.prev = 1;
+                _context5.next = 4;
+                return _this5.createChallenge().postChallenge(challengeType);
+
+              case 4:
+                _this5.createdChallenge = true;
+                _context5.next = 11;
+                break;
+
+              case 7:
+                _context5.prev = 7;
+                _context5.t0 = _context5["catch"](1);
+                _this5.messageError = _context5.t0;
+                _this5.createdChallenge = false;
+
+              case 11:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5, null, [[1, 7]]);
       }))();
     },
     createChallenge: function createChallenge() {
@@ -5227,59 +5292,48 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     getUserScores: function getUserScores() {
       var _this = this;
 
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var langScores;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var langScores, data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
-            switch (_context2.prev = _context2.next) {
+            switch (_context.prev = _context.next) {
               case 0:
-                langScores = [];
+                langScores = {};
+                data = []; //se lanzan las promesas en paralelo
 
-                _this.stats.forEach( /*#__PURE__*/function () {
-                  var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(stats) {
-                    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-                      while (1) {
-                        switch (_context.prev = _context.next) {
-                          case 0:
-                            _context.t0 = langScores;
-                            _context.next = 3;
-                            return _this.user.getScoreHistory(stats.language_code);
+                _this.stats.forEach(function (stats) {
+                  langScores[stats.language_code] = _this.user.getScoreHistory(stats.language_code);
+                }); //esperamos a que esten todas
 
-                          case 3:
-                            _context.t1 = _context.sent;
 
-                            _context.t0.push.call(_context.t0, _context.t1);
+                _context.next = 5;
+                return Promise.all(Object.values(langScores));
 
-                          case 5:
-                          case "end":
-                            return _context.stop();
-                        }
-                      }
-                    }, _callee);
-                  }));
+              case 5:
+                data = _context.sent;
 
-                  return function (_x) {
-                    return _ref.apply(this, arguments);
-                  };
-                }());
+                //asocaimos los datos a cada uno de los lenguajes
+                _this.stats.forEach(function (stats, index) {
+                  langScores[stats.language_code] = data[index];
+                });
 
                 _this.langScores = langScores;
 
-              case 3:
+              case 8:
               case "end":
-                return _context2.stop();
+                return _context.stop();
             }
           }
-        }, _callee2);
+        }, _callee);
       }))();
     },
     loadDataLineChart: function loadDataLineChart() {
       this.dataLineChart = {
-        labels: this.langScores[this.statsLanguage].dates,
+        labels: this.langScores[this.statsUser[this.statsLanguage].language_code].dates,
         datasets: [{
           label: "Puntuaciones",
           backgroundColor: "#f87979",
-          data: this.langScores[this.statsLanguage].scores,
+          data: this.langScores[this.statsUser[this.statsLanguage].language_code].scores,
           fill: false,
           borderColor: "rgb(75, 192, 192)",
           tension: 0.1
@@ -5411,13 +5465,35 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _InputGroupComponent_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./InputGroupComponent.vue */ "./resources/assets/js/components/dashboard/InputGroupComponent.vue");
-/* harmony import */ var _ComboCountriesComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ComboCountriesComponent.vue */ "./resources/assets/js/components/dashboard/ComboCountriesComponent.vue");
-/* harmony import */ var _ComboLangsComponent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ComboLangsComponent.vue */ "./resources/assets/js/components/dashboard/ComboLangsComponent.vue");
-/* harmony import */ var vue_country_flag__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-country-flag */ "./node_modules/vue-country-flag/dist/country-flag.esm.js");
-/* harmony import */ var vue_lang_code_flags__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-lang-code-flags */ "./node_modules/vue-lang-code-flags/LangFlag.vue");
-/* harmony import */ var _UploadImageComponent_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./UploadImageComponent.vue */ "./resources/assets/js/components/dashboard/UploadImageComponent.vue");
-/* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _InputGroupComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./InputGroupComponent.vue */ "./resources/assets/js/components/dashboard/InputGroupComponent.vue");
+/* harmony import */ var _ComboCountriesComponent_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ComboCountriesComponent.vue */ "./resources/assets/js/components/dashboard/ComboCountriesComponent.vue");
+/* harmony import */ var _ComboLangsComponent_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ComboLangsComponent.vue */ "./resources/assets/js/components/dashboard/ComboLangsComponent.vue");
+/* harmony import */ var vue_country_flag__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-country-flag */ "./node_modules/vue-country-flag/dist/country-flag.esm.js");
+/* harmony import */ var vue_lang_code_flags__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! vue-lang-code-flags */ "./node_modules/vue-lang-code-flags/LangFlag.vue");
+/* harmony import */ var _UploadImageComponent_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./UploadImageComponent.vue */ "./resources/assets/js/components/dashboard/UploadImageComponent.vue");
+/* harmony import */ var _classes_User__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../classes/User */ "./resources/classes/User.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -5520,27 +5596,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "UserAreaDashComponent",
   components: {
-    "input-dash": _InputGroupComponent_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    "combo-countries": _ComboCountriesComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    "combo-langs": _ComboLangsComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    "country-flag": vue_country_flag__WEBPACK_IMPORTED_MODULE_3__["default"],
-    "lang-flag": vue_lang_code_flags__WEBPACK_IMPORTED_MODULE_4__["default"],
-    "upload-avatar": _UploadImageComponent_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+    "input-dash": _InputGroupComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    "combo-countries": _ComboCountriesComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    "combo-langs": _ComboLangsComponent_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    "country-flag": vue_country_flag__WEBPACK_IMPORTED_MODULE_4__["default"],
+    "lang-flag": vue_lang_code_flags__WEBPACK_IMPORTED_MODULE_5__["default"],
+    "upload-avatar": _UploadImageComponent_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   },
   props: {
     user: {
-      type: _classes_User__WEBPACK_IMPORTED_MODULE_6__["default"],
+      type: _classes_User__WEBPACK_IMPORTED_MODULE_7__["default"],
       required: true
     }
   },
   data: function data() {
     return {
       readOnly: true,
-      userData: _classes_User__WEBPACK_IMPORTED_MODULE_6__["default"],
+      userData: _classes_User__WEBPACK_IMPORTED_MODULE_7__["default"],
       pass1: null,
       pass2: null,
       pass3: null,
-      pathImg: "/img/padlockclose.png"
+      pathImg: "/img/padlockclose.png",
+      error: null,
+      message: "Usuario actualizado"
     };
   },
   created: function created() {
@@ -5574,7 +5652,104 @@ __webpack_require__.r(__webpack_exports__);
           break;
       }
     },
-    updateProfile: function updateProfile() {//this.userData.updateProfile(this.pass1, this.pass2, this.pass3);
+    updateProfile: function updateProfile() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.next = 3;
+                return _this.userData.updateProfile();
+
+              case 3:
+                _this.error = false;
+                _this.message = "Usuario actualizado";
+                _context.next = 11;
+                break;
+
+              case 7:
+                _context.prev = 7;
+                _context.t0 = _context["catch"](0);
+                _this.error = true;
+
+                if (_context.t0 === 409) {
+                  _this.message = "Lenguaje no soportado";
+                } else if (_context.t0 === 404) {
+                  _this.message = "Usuario no encontrado";
+                } else {
+                  _this.message = "Error al actualizar";
+                }
+
+              case 11:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[0, 7]]);
+      }))();
+    },
+    updatePass: function updatePass() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                if (!(_this2.checkPass() === false)) {
+                  _context2.next = 2;
+                  break;
+                }
+
+                return _context2.abrupt("return");
+
+              case 2:
+                _context2.prev = 2;
+                _context2.next = 5;
+                return _this2.userData.updatePass(_this2.pass1, _this2.pass2, _this2.pass3);
+
+              case 5:
+                _this2.error = false;
+                _this2.message = "Usuario actualizado";
+                _context2.next = 13;
+                break;
+
+              case 9:
+                _context2.prev = 9;
+                _context2.t0 = _context2["catch"](2);
+                _this2.error = true;
+
+                if (_context2.t0 === 401) {
+                  _this2.message = "Contraseña incorrecta";
+                } else {
+                  _this2.message = "Error al actualizar";
+                }
+
+              case 13:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[2, 9]]);
+      }))();
+    },
+    checkPass: function checkPass() {
+      if (this.pass2 !== this.pass3) {
+        this.error = true;
+        this.message = "Error al confirmar la contraseña";
+        return false;
+      }
+
+      if (!this.pass1 || !this.pass2 || !this.pass3) {
+        this.error = true;
+        this.message = "Debe rellenar todos los campos de la contraseña";
+        return false;
+      }
+
+      return true;
     },
     changeForm: function changeForm() {
       this.readOnly = !this.readOnly;
@@ -19079,7 +19254,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-54adf15b] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-54adf15b] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-54adf15b 10s ease alternate infinite;\n          animation: animatedgradient-data-v-54adf15b 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-54adf15b {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-54adf15b {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-54adf15b] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-54adf15b] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-54adf15b] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-54adf15b] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-54adf15b] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-54adf15b] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.vwrap[data-v-54adf15b] {\n  overflow: hidden;\n}\n.vwrap .vmove[data-v-54adf15b] {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  -webkit-animation-name: tickerv-data-v-54adf15b;\n          animation-name: tickerv-data-v-54adf15b;\n  -webkit-animation-duration: 15s;\n          animation-duration: 15s;\n  -webkit-animation-delay: 2s;\n          animation-delay: 2s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n  transform: translateY(250px);\n}\n.vwrap .vmove .vitem[data-v-54adf15b] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  width: 200px;\n  height: 100px;\n  text-align: center;\n  margin-top: 50px;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f37055;\n}\n@-webkit-keyframes tickerv-data-v-54adf15b {\n0% {\n    bottom: 0;\n}\n20% {\n    bottom: 250px;\n}\n40% {\n    bottom: 450px;\n}\n60% {\n    bottom: 620px;\n}\n80% {\n    bottom: 750px;\n}\n100% {\n    bottom: 1000px;\n}\n}\n@keyframes tickerv-data-v-54adf15b {\n0% {\n    bottom: 0;\n}\n20% {\n    bottom: 250px;\n}\n40% {\n    bottom: 450px;\n}\n60% {\n    bottom: 620px;\n}\n80% {\n    bottom: 750px;\n}\n100% {\n    bottom: 1000px;\n}\n}", ""]);
+exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-54adf15b] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-54adf15b] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-54adf15b 10s ease alternate infinite;\n          animation: animatedgradient-data-v-54adf15b 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-54adf15b {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-54adf15b {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-54adf15b] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-54adf15b] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-54adf15b] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-54adf15b] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-54adf15b] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-54adf15b] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.vwrap[data-v-54adf15b] {\n  overflow: hidden;\n}\n.vwrap .vmove[data-v-54adf15b] {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  -webkit-animation-name: tickerv-data-v-54adf15b;\n          animation-name: tickerv-data-v-54adf15b;\n  -webkit-animation-duration: 15s;\n          animation-duration: 15s;\n  -webkit-animation-delay: 2s;\n          animation-delay: 2s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n  transform: translateY(250px);\n}\n.vwrap .vmove .vitem[data-v-54adf15b] {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  width: 200px;\n  height: 100px;\n  text-align: center;\n  margin-top: 50px;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f37055;\n}\n@-webkit-keyframes tickerv-data-v-54adf15b {\n0% {\n    bottom: 0;\n}\n20% {\n    bottom: 240px;\n}\n40% {\n    bottom: 410px;\n}\n60% {\n    bottom: 580px;\n}\n80% {\n    bottom: 750px;\n}\n100% {\n    bottom: 1000px;\n}\n}\n@keyframes tickerv-data-v-54adf15b {\n0% {\n    bottom: 0;\n}\n20% {\n    bottom: 240px;\n}\n40% {\n    bottom: 410px;\n}\n60% {\n    bottom: 580px;\n}\n80% {\n    bottom: 750px;\n}\n100% {\n    bottom: 1000px;\n}\n}", ""]);
 
 // exports
 
@@ -19098,7 +19273,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-f866ab50] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-f866ab50] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-f866ab50 10s ease alternate infinite;\n          animation: animatedgradient-data-v-f866ab50 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-f866ab50 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-f866ab50 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-f866ab50] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-f866ab50] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-f866ab50] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-f866ab50] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-f866ab50] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-f866ab50] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.container-match[data-v-f866ab50] {\n  display: grid;\n  grid-template: 1fr/repeat(6, 1fr);\n  background: red;\n  padding: 4px;\n  margin: 10px;\n}\n.container-match > *[data-v-f866ab50] {\n  justify-self: center;\n  align-self: center;\n}\n.container-match .flag-icon[data-v-f866ab50] {\n  height: 35px;\n  width: 35px;\n}\n.container-match img[alt=\"avatar usuario\"][data-v-f866ab50] {\n  width: 50px;\n  height: 50px;\n}\n.container-match .date[data-v-f866ab50] {\n  display: flex;\n  flex-direction: column;\n  padding: 5px;\n}\n.container-match img[alt=papelera][data-v-f866ab50] {\n  width: 35px;\n  height: 35px;\n}\n.game-green[data-v-f866ab50] {\n  background: #a3dab8;\n}\n.game-red[data-v-f866ab50] {\n  background: #fd7f63;\n}\n.game-grey[data-v-f866ab50] {\n  background: #afafaf;\n}", ""]);
+exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-f866ab50] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-f866ab50] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-f866ab50 10s ease alternate infinite;\n          animation: animatedgradient-data-v-f866ab50 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-f866ab50 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-f866ab50 {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-f866ab50] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-f866ab50] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-f866ab50] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-f866ab50] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-f866ab50] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-f866ab50] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.container-match[data-v-f866ab50] {\n  display: grid;\n  grid-template: 1fr/repeat(6, 1fr);\n  background: red;\n  padding: 4px;\n  margin: 10px;\n  cursor: pointer;\n}\n.container-match > *[data-v-f866ab50] {\n  justify-self: center;\n  align-self: center;\n}\n.container-match .flag-icon[data-v-f866ab50] {\n  height: 35px;\n  width: 35px;\n}\n.container-match img[alt=\"avatar usuario\"][data-v-f866ab50] {\n  width: 50px;\n  height: 50px;\n}\n.container-match .date[data-v-f866ab50] {\n  display: flex;\n  flex-direction: column;\n  padding: 5px;\n}\n.container-match img[alt=papelera][data-v-f866ab50] {\n  width: 35px;\n  height: 35px;\n}\n.game-green[data-v-f866ab50] {\n  background: #a3dab8;\n}\n.game-red[data-v-f866ab50] {\n  background: #fd7f63;\n}\n.game-grey[data-v-f866ab50] {\n  background: #afafaf;\n}", ""]);
 
 // exports
 
@@ -19174,7 +19349,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-1b3408bb] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-1b3408bb] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-1b3408bb 10s ease alternate infinite;\n          animation: animatedgradient-data-v-1b3408bb 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-1b3408bb {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-1b3408bb {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-1b3408bb] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-1b3408bb] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-1b3408bb] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-1b3408bb] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-1b3408bb] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-1b3408bb] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.container-news[data-v-1b3408bb] {\n  display: grid;\n  grid-template: 200px 1fr/1fr;\n}\n.container-news[data-v-1b3408bb] :nth-child(1) {\n  justify-self: center;\n  cursor: pointer;\n}\n.container-news :nth-child(1) h3[data-v-1b3408bb] {\n  max-height: 150px;\n  overflow: hidden;\n  font-size: 1.3rem;\n}\n.container-news :nth-child(1) p[data-v-1b3408bb] {\n  font-size: 1rem;\n}\n.container-news :nth-child(1) > *[data-v-1b3408bb] {\n  text-align: center;\n}", ""]);
+exports.push([module.i, ".container-news[data-v-1b3408bb] {\n  display: grid;\n  grid-template: 200px 1fr/1fr;\n}\n.container-news[data-v-1b3408bb] :nth-child(1) {\n  justify-self: center;\n  cursor: pointer;\n}\n.container-news :nth-child(1) h3[data-v-1b3408bb] {\n  max-height: 150px;\n  overflow: hidden;\n  font-size: 1.3rem;\n}\n.container-news :nth-child(1) p[data-v-1b3408bb] {\n  font-size: 1rem;\n}\n.container-news :nth-child(1) > *[data-v-1b3408bb] {\n  text-align: center;\n}", ""]);
 
 // exports
 
@@ -19231,7 +19406,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-306b0c9a] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-306b0c9a] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-306b0c9a 10s ease alternate infinite;\n          animation: animatedgradient-data-v-306b0c9a 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-306b0c9a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-306b0c9a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-306b0c9a] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-306b0c9a] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-306b0c9a] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-306b0c9a] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-306b0c9a] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-306b0c9a] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.wrapper[data-v-306b0c9a] {\n  overflow: hidden;\n}\n.wrapper .vmove[data-v-306b0c9a] {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  -webkit-animation-name: tickerv-data-v-306b0c9a;\n          animation-name: tickerv-data-v-306b0c9a;\n  -webkit-animation-duration: 15s;\n          animation-duration: 15s;\n  -webkit-animation-delay: 2s;\n          animation-delay: 2s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n  transform: translateY(450px);\n}\n.wrapper h3[data-v-306b0c9a] {\n  margin-top: 10px;\n  text-align: center;\n}\n@-webkit-keyframes tickerv-data-v-306b0c9a {\n0% {\n    bottom: 0;\n}\n17% {\n    bottom: 450px;\n}\n32% {\n    bottom: 750px;\n}\n47% {\n    bottom: 1050px;\n}\n62% {\n    bottom: 1400px;\n}\n77% {\n    bottom: 1700px;\n}\n100% {\n    bottom: 2100px;\n}\n}\n@keyframes tickerv-data-v-306b0c9a {\n0% {\n    bottom: 0;\n}\n17% {\n    bottom: 450px;\n}\n32% {\n    bottom: 750px;\n}\n47% {\n    bottom: 1050px;\n}\n62% {\n    bottom: 1400px;\n}\n77% {\n    bottom: 1700px;\n}\n100% {\n    bottom: 2100px;\n}\n}", ""]);
+exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-306b0c9a] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-306b0c9a] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-306b0c9a 10s ease alternate infinite;\n          animation: animatedgradient-data-v-306b0c9a 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-306b0c9a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-306b0c9a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-306b0c9a] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-306b0c9a] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-306b0c9a] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-306b0c9a] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-306b0c9a] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-306b0c9a] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.wrapper[data-v-306b0c9a] {\n  overflow: hidden;\n}\n.wrapper .vmove[data-v-306b0c9a] {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  -webkit-animation-name: tickerv-data-v-306b0c9a;\n          animation-name: tickerv-data-v-306b0c9a;\n  -webkit-animation-duration: 20s;\n          animation-duration: 20s;\n  -webkit-animation-delay: 2s;\n          animation-delay: 2s;\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n  transform: translateY(450px);\n}\n.wrapper h3[data-v-306b0c9a] {\n  margin-top: 10px;\n  text-align: center;\n}\n@-webkit-keyframes tickerv-data-v-306b0c9a {\n0% {\n    bottom: 0;\n}\n17% {\n    bottom: 420px;\n}\n32% {\n    bottom: 720px;\n}\n47% {\n    bottom: 1030px;\n}\n62% {\n    bottom: 1350px;\n}\n77% {\n    bottom: 1650px;\n}\n100% {\n    bottom: 2050px;\n}\n}\n@keyframes tickerv-data-v-306b0c9a {\n0% {\n    bottom: 0;\n}\n17% {\n    bottom: 420px;\n}\n32% {\n    bottom: 720px;\n}\n47% {\n    bottom: 1030px;\n}\n62% {\n    bottom: 1350px;\n}\n77% {\n    bottom: 1650px;\n}\n100% {\n    bottom: 2050px;\n}\n}", ""]);
 
 // exports
 
@@ -19307,7 +19482,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-0823766e] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-0823766e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-0823766e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-0823766e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-0823766e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-0823766e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-0823766e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-0823766e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-0823766e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-0823766e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-0823766e] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-0823766e] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.start-area[data-v-0823766e] {\n  display: grid;\n  grid-template: 75px 75px 1fr/1fr;\n  width: 100%;\n}\n.start-area .game[data-v-0823766e] {\n  justify-self: center;\n  margin: 20px;\n  width: 75%;\n  height: 400px;\n}\n.start-area .game > *[data-v-0823766e] {\n  height: 100%;\n}\n.start-area .game .game-random[data-v-0823766e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 20px;\n}\n.start-area .game .game-random img[data-v-0823766e] {\n  max-width: 120px;\n  height: 120px;\n}\n.start-area .game .game-random button[data-v-0823766e] {\n  color: #fff;\n  padding: 10px;\n  font-size: 1.5rem;\n  background: linear-gradient(60deg, #5073b8, #1098ad, #07b39b, #6fba82);\n  border-radius: 10px;\n  margin-top: 5px;\n}\n.start-area .game .game-user[data-v-0823766e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: linear-gradient(60deg, #5073b8, #1098ad, #07b39b, #6fba82);\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n.start-area .game .game-user *[data-v-0823766e] {\n  box-sizing: border-box;\n}\n.start-area .game .game-user .searchInput[data-v-0823766e] {\n  background-image: url(\"/css/searchicon.png\");\n  background-position: 10px 12px;\n  background-repeat: no-repeat;\n  width: 100%;\n  font-size: 16px;\n  padding: 12px 20px 12px 40px;\n  border: 1px solid #ddd;\n}\n.start-area .game .game-user .listUsers[data-v-0823766e] {\n  list-style-type: none;\n  padding: 0;\n  margin: 0;\n  position: absolute;\n  z-index: 1;\n  margin-top: 52px;\n}\n.start-area .game .game-user .listUsers li a[data-v-0823766e] {\n  border: 1px solid #ddd;\n  margin-top: -1px;\n  background-color: #f6f6f6;\n  padding: 12px;\n  text-decoration: none;\n  font-size: 18px;\n  color: black;\n  display: block;\n}\n.start-area .game .game-user .listUsers li a[data-v-0823766e]:hover:not(.header) {\n  background-color: #eee;\n}\n.start-area .game .game-user .user-selected[data-v-0823766e] {\n  display: grid;\n  grid-template: 1fr 1fr/1fr 1fr;\n  padding: 20px;\n}\n.start-area .game .game-user .user-selected img[data-v-0823766e] {\n  grid-column: 1/-1;\n  width: 50px;\n  height: 50px;\n}\n.start-area .game .game-user .user-selected .flag[data-v-0823766e] {\n  align-self: center;\n  justify-self: self-end;\n  margin-right: 5px;\n}\n.start-area .game .game-user .user-selected span[data-v-0823766e] {\n  font-size: 1rem;\n  align-self: center;\n  justify-self: self-start;\n  margin-left: 5px;\n  padding-top: 10px;\n}\n.start-area .game .game-user button[data-v-0823766e] {\n  color: #fff;\n  padding: 10px;\n  font-size: 1.5rem;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  border-radius: 10px;\n  margin-top: 5px;\n}\n.start-area .game .game-level[data-v-0823766e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.start-area .game .game-level .levels[data-v-0823766e] {\n  display: flex;\n  justify-content: center;\n}\n.start-area .game .game-level .levels > *[data-v-0823766e] {\n  margin: 10px;\n  height: 40px;\n  width: 40px;\n  margin-bottom: 5px;\n  text-align: center;\n  font-size: 1.5rem;\n  background-color: #b3b3b3;\n  border-radius: 10px;\n  box-shadow: 0px 3px 8px black;\n}\n.start-area .game .game-level .levels .level-active[data-v-0823766e] {\n  background-color: #f9f4b8;\n}\n.start-area .game .game-level .levels .level-inactive[data-v-0823766e] {\n  background-color: #b3b3b3;\n}\n.start-area .game .game-level button[data-v-0823766e] {\n  color: #fff;\n  padding: 10px;\n  font-size: 1.5rem;\n  background: linear-gradient(60deg, #5073b8, #1098ad, #07b39b, #6fba82);\n  border-radius: 10px;\n  margin: 20px;\n}\n.start-area .game .alert[data-v-0823766e] {\n  font-size: 1rem;\n  margin: 20px;\n}", ""]);
+exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-0823766e] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-0823766e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-0823766e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-0823766e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-0823766e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-0823766e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-0823766e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-0823766e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-0823766e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-0823766e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-0823766e] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-0823766e] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.start-area[data-v-0823766e] {\n  display: grid;\n  grid-template: 75px 75px 1fr/1fr;\n  width: 100%;\n}\n.start-area .game[data-v-0823766e] {\n  justify-self: center;\n  margin: 20px;\n  width: 75%;\n  height: 400px;\n}\n.start-area .game > *[data-v-0823766e] {\n  height: 100%;\n}\n.start-area .game .game-random[data-v-0823766e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: 20px;\n}\n.start-area .game .game-random p[data-v-0823766e] {\n  font-size: 1.2rem;\n}\n.start-area .game .game-random img[data-v-0823766e] {\n  max-width: 120px;\n  height: 120px;\n}\n.start-area .game .game-random button[data-v-0823766e] {\n  color: #fff;\n  padding: 10px;\n  font-size: 1.5rem;\n  background: linear-gradient(60deg, #5073b8, #1098ad, #07b39b, #6fba82);\n  border-radius: 10px;\n  margin-top: 5px;\n}\n.start-area .game .game-user[data-v-0823766e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: linear-gradient(60deg, #5073b8, #1098ad, #07b39b, #6fba82);\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n.start-area .game .game-user *[data-v-0823766e] {\n  box-sizing: border-box;\n}\n.start-area .game .game-user .searchInput[data-v-0823766e] {\n  background-image: url(\"/css/searchicon.png\");\n  background-position: 10px 12px;\n  background-repeat: no-repeat;\n  width: 100%;\n  font-size: 16px;\n  padding: 12px 20px 12px 40px;\n  border: 1px solid #ddd;\n}\n.start-area .game .game-user .listUsers[data-v-0823766e] {\n  list-style-type: none;\n  padding: 0;\n  margin: 0;\n  position: absolute;\n  z-index: 1;\n  margin-top: 52px;\n}\n.start-area .game .game-user .listUsers li a[data-v-0823766e] {\n  border: 1px solid #ddd;\n  margin-top: -1px;\n  background-color: #f6f6f6;\n  padding: 12px;\n  text-decoration: none;\n  font-size: 18px;\n  color: black;\n  display: block;\n}\n.start-area .game .game-user .listUsers li a[data-v-0823766e]:hover:not(.header) {\n  background-color: #eee;\n}\n.start-area .game .game-user .user-selected[data-v-0823766e] {\n  display: grid;\n  grid-template: 1fr 1fr/1fr 1fr;\n  padding: 20px;\n}\n.start-area .game .game-user .user-selected img[data-v-0823766e] {\n  grid-column: 1/-1;\n  width: 50px;\n  height: 50px;\n}\n.start-area .game .game-user .user-selected .flag[data-v-0823766e] {\n  align-self: center;\n  justify-self: self-end;\n  margin-right: 5px;\n}\n.start-area .game .game-user .user-selected span[data-v-0823766e] {\n  font-size: 1rem;\n  align-self: center;\n  justify-self: self-start;\n  margin-left: 5px;\n  padding-top: 10px;\n}\n.start-area .game .game-user button[data-v-0823766e] {\n  color: #fff;\n  padding: 10px;\n  font-size: 1.5rem;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  border-radius: 10px;\n  margin-top: 5px;\n}\n.start-area .game .game-level[data-v-0823766e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 120px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.start-area .game .game-level .levels[data-v-0823766e] {\n  display: flex;\n  justify-content: center;\n}\n.start-area .game .game-level .levels > *[data-v-0823766e] {\n  margin: 10px;\n  height: 40px;\n  width: 40px;\n  margin-bottom: 5px;\n  text-align: center;\n  font-size: 1.5rem;\n  background-color: #b3b3b3;\n  border-radius: 10px;\n  box-shadow: 0px 3px 8px black;\n}\n.start-area .game .game-level .levels .level-active[data-v-0823766e] {\n  background-color: #f9f4b8;\n}\n.start-area .game .game-level .levels .level-inactive[data-v-0823766e] {\n  background-color: #b3b3b3;\n}\n.start-area .game .game-level button[data-v-0823766e] {\n  color: #fff;\n  padding: 10px;\n  font-size: 1.5rem;\n  background: linear-gradient(60deg, #5073b8, #1098ad, #07b39b, #6fba82);\n  border-radius: 10px;\n  margin: 20px;\n}\n.start-area .game .alert[data-v-0823766e] {\n  font-size: 0.9rem;\n  margin: 20px;\n}", ""]);
 
 // exports
 
@@ -19364,7 +19539,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-afe2655e] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-afe2655e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-afe2655e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-afe2655e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-afe2655e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-afe2655e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-afe2655e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-afe2655e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-afe2655e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-afe2655e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-afe2655e] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-afe2655e] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.user-dash[data-v-afe2655e] {\n  display: grid;\n  grid-template: 1fr 1fr 30px/repeat(2, 1fr);\n}\n.user-dash .avatar[data-v-afe2655e] {\n  grid-row: 1/-1;\n  background: blue;\n  justify-self: center;\n  width: 200px;\n  height: 200px;\n  border-radius: 70px;\n  margin-top: 10px;\n}\n.user-dash .user-data[data-v-afe2655e] {\n  grid-column: 2/-1;\n  padding-right: 10px;\n}\n.user-dash .user-data .div-img[data-v-afe2655e] {\n  text-align: center;\n}\n.user-dash .user-data .div-img img[data-v-afe2655e] {\n  cursor: pointer;\n  width: 50px;\n  height: 50px;\n}\n.user-dash .user-data fieldset[data-v-afe2655e] {\n  display: grid;\n  grid-template: repeat(2, 1fr)/repeat(2, 1fr);\n  justify-items: center;\n}\n.user-dash .user-data fieldset > div[data-v-afe2655e] {\n  padding: 5px;\n}\n.user-dash .user-data fieldset .div-read[data-v-afe2655e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 50px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n  width: 85%;\n  height: 50px;\n}\n.user-dash .user-data fieldset .div-flag[data-v-afe2655e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 100px;\n  border-radius: 10px;\n  font-size: 1.5rem;\n  text-align: center;\n  background: #f79533;\n  width: 85%;\n}\n.user-dash .user-pass[data-v-afe2655e] {\n  grid-column: 2/-1;\n  padding-right: 10px;\n}\n.user-dash .user-pass fieldset[data-v-afe2655e] {\n  display: grid;\n  grid-template: repeat(3, 1fr)/1fr;\n  gap: 10px;\n}\n.user-dash .buttons[data-v-afe2655e] {\n  grid-column: 2/-1;\n  display: grid;\n  grid-template: 1fr/1fr 1fr;\n  padding: 20px;\n}\n.user-dash .buttons button[data-v-afe2655e] {\n  color: #fff;\n  font-size: 1rem;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  border-radius: 10px;\n  height: 50px;\n}\nfieldset[data-v-afe2655e] {\n  border: 2px solid #ef4e7b;\n  padding: 5px;\n  border-radius: 4px;\n}\nlegend[data-v-afe2655e] {\n  font-size: 1.2rem;\n  width: auto;\n}", ""]);
+exports.push([module.i, "/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-afe2655e] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n.gradient[data-v-afe2655e] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-afe2655e 10s ease alternate infinite;\n          animation: animatedgradient-data-v-afe2655e 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-afe2655e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-afe2655e {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-afe2655e] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-afe2655e] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-afe2655e] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-afe2655e] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-afe2655e] {\n  text-align: center;\n  margin-top: 15px;\n  margin-bottom: 15px;\n}\n.combo-area-dash[data-v-afe2655e] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n.user-dash[data-v-afe2655e] {\n  display: grid;\n  grid-template: 1fr 1fr 30px/repeat(2, 1fr);\n}\n.user-dash .avatar[data-v-afe2655e] {\n  grid-row: 1/-1;\n}\n.user-dash .avatar .messages[data-v-afe2655e] {\n  margin: 50px;\n}\n.user-dash .user-data[data-v-afe2655e] {\n  grid-column: 2/-1;\n  padding-right: 10px;\n}\n.user-dash .user-data .div-img[data-v-afe2655e] {\n  text-align: center;\n}\n.user-dash .user-data .div-img img[data-v-afe2655e] {\n  cursor: pointer;\n  width: 50px;\n  height: 50px;\n}\n.user-dash .user-data .data[data-v-afe2655e] {\n  display: grid;\n  grid-template: repeat(2, 1fr)/repeat(2, 1fr);\n  justify-items: center;\n  gap: 10px;\n  padding: 10px;\n}\n.user-dash .user-data .data .buttons[data-v-afe2655e] {\n  justify-self: center;\n  grid-column: 1/-1;\n}\n.user-dash .user-data .data .buttons > *[data-v-afe2655e] {\n  margin: 5px;\n}\n.user-dash .user-data .data .div-read[data-v-afe2655e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 50px;\n  border-radius: 10px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 50%;\n}\n.user-dash .user-data .data .div-flag[data-v-afe2655e] {\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  width: 100%;\n  min-height: 100px;\n  border-radius: 10px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: column;\n  height: 50%;\n}\n.user-dash .user-data .data .div-flag .flag-icon[data-v-afe2655e] {\n  width: 52px;\n  height: 39px;\n}\n.user-dash .user-pass[data-v-afe2655e] {\n  grid-column: 2/-1;\n  padding-right: 10px;\n  align-self: center;\n}\n.user-dash .user-pass .pass-area[data-v-afe2655e] {\n  display: grid;\n  grid-template: repeat(3, 1fr)/repeat(2, 1fr);\n  gap: 10px;\n}\n.user-dash .user-pass .pass-area input[data-v-afe2655e] {\n  width: 50%;\n}\n.user-dash .user-pass .pass-area button[data-v-afe2655e] {\n  align-self: end;\n}\n.user-dash .buttons[data-v-afe2655e] {\n  grid-column: 2/-1;\n  display: grid;\n  grid-template: 1fr/1fr 1fr;\n  padding: 20px;\n}\nfieldset[data-v-afe2655e] {\n  border: 2px solid #ef4e7b;\n  padding: 5px;\n  border-radius: 4px;\n}\nbutton[data-v-afe2655e] {\n  color: #fff;\n  font-size: 1rem;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab);\n  border-radius: 10px;\n  height: 50px;\n}\n.alert[data-v-afe2655e] {\n  text-align: center;\n}", ""]);
 
 // exports
 
@@ -28755,7 +28930,7 @@ var render = function() {
         attrs: {
           area: _vm.menuArea,
           user: _vm.userDash,
-          games: _vm.games,
+          games: _vm.gamesData,
           stats: _vm.userStats
         }
       }),
@@ -29805,6 +29980,22 @@ var render = function() {
                   {
                     name: "show",
                     rawName: "v-show",
+                    value: _vm.messageError != "",
+                    expression: "messageError != ''"
+                  }
+                ],
+                staticClass: "alert alert-danger"
+              },
+              [_vm._v("\n        " + _vm._s(_vm.messageError) + "\n      ")]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                directives: [
+                  {
+                    name: "show",
+                    rawName: "v-show",
                     value: _vm.createdChallenge,
                     expression: "createdChallenge"
                   }
@@ -29874,7 +30065,7 @@ var render = function() {
                   { staticClass: "user-selected card" },
                   [
                     _c("img", {
-                      attrs: { src: _vm.userAvatar, alt: "user img" }
+                      attrs: { src: _vm.userSelected.avatar, alt: "user img" }
                     }),
                     _vm._v(" "),
                     _c("country-flag", {
@@ -30227,7 +30418,26 @@ var render = function() {
       "div",
       { staticClass: "user-dash" },
       [
-        _c("upload-avatar", { attrs: { user: _vm.userData } }),
+        _c(
+          "div",
+          { staticClass: "avatar" },
+          [
+            _c("upload-avatar", { attrs: { user: _vm.userData } }),
+            _vm._v(" "),
+            _c("div", { staticClass: "messages" }, [
+              _vm.error == true
+                ? _c("div", { staticClass: "alert alert-danger" }, [
+                    _vm._v("\n          " + _vm._s(_vm.message) + "\n        ")
+                  ])
+                : _vm.error == false
+                ? _c("div", { staticClass: "alert alert-success" }, [
+                    _vm._v("\n          " + _vm._s(_vm.message) + "\n        ")
+                  ])
+                : _vm._e()
+            ])
+          ],
+          1
+        ),
         _vm._v(" "),
         _c("div", { staticClass: "user-data" }, [
           _c("div", { staticClass: "div-img" }, [
@@ -30238,41 +30448,32 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c(
-            "fieldset",
+            "div",
+            { staticClass: "data" },
             [
-              _c("legend", [_vm._v("Datos")]),
-              _vm._v(" "),
               _vm.readOnly
                 ? [
                     _c("div", { staticClass: "div-read" }, [
-                      _vm._v(
-                        "\n            " +
-                          _vm._s(_vm.user.name) +
-                          "\n          "
-                      )
+                      _c("span", [_vm._v(_vm._s(_vm.user.name))])
                     ]),
                     _vm._v(" "),
                     _c("div", { staticClass: "div-read" }, [
-                      _vm._v(
-                        "\n            " +
-                          _vm._s(_vm.user.email) +
-                          "\n          "
-                      )
+                      _c("span", [_vm._v(_vm._s(_vm.user.email))])
                     ]),
                     _vm._v(" "),
                     _c(
                       "div",
                       { staticClass: "div-flag" },
                       [
+                        _c("p", [_vm._v("País")]),
+                        _vm._v(" "),
                         _c("country-flag", {
                           attrs: {
                             country: _vm.user.country,
                             size: "big",
                             rounded: true
                           }
-                        }),
-                        _vm._v(" "),
-                        _c("span", [_vm._v(_vm._s(_vm.user.country))])
+                        })
                       ],
                       1
                     ),
@@ -30281,13 +30482,11 @@ var render = function() {
                       "div",
                       { staticClass: "div-flag" },
                       [
+                        _c("p", [_vm._v("Lenguaje favorito")]),
+                        _vm._v(" "),
                         _c("lang-flag", {
                           attrs: { iso: _vm.user.favourite_language }
-                        }),
-                        _vm._v(" "),
-                        _c("span", [
-                          _vm._v(_vm._s(_vm.user.favourite_language))
-                        ])
+                        })
                       ],
                       1
                     )
@@ -30325,7 +30524,15 @@ var render = function() {
                         lang: _vm.user.favourite_language
                       },
                       on: { "change-value": _vm.updateUser }
-                    })
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "buttons" }, [
+                      _c("button", { on: { click: _vm.updateProfile } }, [
+                        _vm._v("Guardar")
+                      ]),
+                      _vm._v(" "),
+                      _c("button", [_vm._v("Borrar cuenta")])
+                    ])
                   ]
             ],
             2
@@ -30335,9 +30542,7 @@ var render = function() {
         _vm.readOnly == false
           ? [
               _c("div", { staticClass: "user-pass" }, [
-                _c("fieldset", [
-                  _c("legend", [_vm._v("Contraseña")]),
-                  _vm._v(" "),
+                _c("div", { staticClass: "pass-area" }, [
                   _c(
                     "div",
                     [
@@ -30381,16 +30586,12 @@ var render = function() {
                       })
                     ],
                     1
-                  )
+                  ),
+                  _vm._v(" "),
+                  _c("button", { on: { click: _vm.updatePass } }, [
+                    _vm._v("Guardar")
+                  ])
                 ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "buttons" }, [
-                _c("button", { on: { click: _vm.updateProfile } }, [
-                  _vm._v("Guardar cambios")
-                ]),
-                _vm._v(" "),
-                _c("button", [_vm._v("Borrar cuenta")])
               ])
             ]
           : _vm._e()
@@ -44997,7 +45198,7 @@ var Challenge = /*#__PURE__*/function () {
               case 15:
                 _context.prev = 15;
                 _context.t1 = _context["catch"](10);
-                console.log("ERROR: " + _context.t1);
+                return _context.abrupt("return", Promise.reject(_context.t1));
 
               case 18:
               case "end":
@@ -45047,12 +45248,23 @@ var Challenge = /*#__PURE__*/function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Game; });
-/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./User */ "./resources/classes/User.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _User__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./User */ "./resources/classes/User.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 
 
 
@@ -45070,10 +45282,45 @@ var Game = /*#__PURE__*/function () {
     this.player2 = player2;
   }
 
-  _createClass(Game, null, [{
+  _createClass(Game, [{
+    key: "giveUp",
+    value: function () {
+      var _giveUp = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/scrabble/game/".concat(this.id, "/giveup"));
+
+              case 3:
+                _context.next = 8;
+                break;
+
+              case 5:
+                _context.prev = 5;
+                _context.t0 = _context["catch"](0);
+                console.log(_context.t0);
+
+              case 8:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this, [[0, 5]]);
+      }));
+
+      function giveUp() {
+        return _giveUp.apply(this, arguments);
+      }
+
+      return giveUp;
+    }()
+  }], [{
     key: "createGame",
     value: function createGame(json) {
-      var match = new Game(json.id, json.language, json.state, json.player_1_score, json.player_2_score, json.updated_at, Object.assign(new _User__WEBPACK_IMPORTED_MODULE_0__["default"](), json.player1), Object.assign(new _User__WEBPACK_IMPORTED_MODULE_0__["default"](), json.player2));
+      var match = new Game(json.id, json.language, json.state, json.player_1_score, json.player_2_score, json.updated_at, Object.assign(new _User__WEBPACK_IMPORTED_MODULE_2__["default"](), json.player1), Object.assign(new _User__WEBPACK_IMPORTED_MODULE_2__["default"](), json.player2));
       return match;
     }
   }, {
@@ -45589,7 +45836,7 @@ var User = /*#__PURE__*/function () {
   _createClass(User, [{
     key: "updateProfile",
     value: function () {
-      var _updateProfile = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(old_password, new_password, new_password_confirmation) {
+      var _updateProfile = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -45599,10 +45846,7 @@ var User = /*#__PURE__*/function () {
                 return axios__WEBPACK_IMPORTED_MODULE_1___default.a.put("/scrabble/user/update", {
                   name: this.name,
                   country: this.country,
-                  favourite_language: this.favourite_language,
-                  new_password: new_password,
-                  new_password_confirmation: new_password_confirmation,
-                  old_password: old_password
+                  favourite_language: this.favourite_language
                 });
 
               case 3:
@@ -45612,7 +45856,7 @@ var User = /*#__PURE__*/function () {
               case 5:
                 _context.prev = 5;
                 _context.t0 = _context["catch"](0);
-                console.log("ERROR: " + _context.t0);
+                return _context.abrupt("return", Promise.reject(_context.t0.response.status));
 
               case 8:
               case "end":
@@ -45622,40 +45866,79 @@ var User = /*#__PURE__*/function () {
         }, _callee, this, [[0, 5]]);
       }));
 
-      function updateProfile(_x, _x2, _x3) {
+      function updateProfile() {
         return _updateProfile.apply(this, arguments);
       }
 
       return updateProfile;
     }()
   }, {
-    key: "uploadAvatar",
+    key: "updatePass",
     value: function () {
-      var _uploadAvatar = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(formData) {
-        var response;
+      var _updatePass = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(old_password, new_password, new_password_confirmation) {
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.prev = 0;
                 _context2.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/scrabble/upload/avatar", formData);
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.put("/scrabble/user/update", {
+                  old_password: old_password,
+                  new_password: new_password,
+                  new_password_confirmation: new_password_confirmation
+                });
 
               case 3:
-                response = _context2.sent;
-                return _context2.abrupt("return", response.data.path);
+                _context2.next = 8;
+                break;
 
-              case 7:
-                _context2.prev = 7;
+              case 5:
+                _context2.prev = 5;
                 _context2.t0 = _context2["catch"](0);
-                console.log("ERROR: " + _context2.t0);
+                return _context2.abrupt("return", Promise.reject(_context2.t0.response.status));
 
-              case 10:
+              case 8:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[0, 7]]);
+        }, _callee2, null, [[0, 5]]);
+      }));
+
+      function updatePass(_x, _x2, _x3) {
+        return _updatePass.apply(this, arguments);
+      }
+
+      return updatePass;
+    }()
+  }, {
+    key: "uploadAvatar",
+    value: function () {
+      var _uploadAvatar = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(formData) {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                _context3.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/scrabble/upload/avatar", formData);
+
+              case 3:
+                response = _context3.sent;
+                return _context3.abrupt("return", response.data.path);
+
+              case 7:
+                _context3.prev = 7;
+                _context3.t0 = _context3["catch"](0);
+                console.log("ERROR: " + _context3.t0);
+
+              case 10:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[0, 7]]);
       }));
 
       function uploadAvatar(_x4) {
@@ -45667,30 +45950,30 @@ var User = /*#__PURE__*/function () {
   }, {
     key: "removeAvatar",
     value: function () {
-      var _removeAvatar = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+      var _removeAvatar = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
           while (1) {
-            switch (_context3.prev = _context3.next) {
+            switch (_context4.prev = _context4.next) {
               case 0:
-                _context3.prev = 0;
-                _context3.next = 3;
+                _context4.prev = 0;
+                _context4.next = 3;
                 return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/scrabble/user/avatar/remove");
 
               case 3:
-                _context3.next = 8;
+                _context4.next = 8;
                 break;
 
               case 5:
-                _context3.prev = 5;
-                _context3.t0 = _context3["catch"](0);
-                console.log("ERROR: " + _context3.t0);
+                _context4.prev = 5;
+                _context4.t0 = _context4["catch"](0);
+                console.log("ERROR: " + _context4.t0);
 
               case 8:
               case "end":
-                return _context3.stop();
+                return _context4.stop();
             }
           }
-        }, _callee3, null, [[0, 5]]);
+        }, _callee4, null, [[0, 5]]);
       }));
 
       function removeAvatar() {
@@ -45702,31 +45985,31 @@ var User = /*#__PURE__*/function () {
   }, {
     key: "getUserGames",
     value: function () {
-      var _getUserGames = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(url) {
+      var _getUserGames = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(url) {
         var response;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
           while (1) {
-            switch (_context4.prev = _context4.next) {
+            switch (_context5.prev = _context5.next) {
               case 0:
-                _context4.prev = 0;
-                _context4.next = 3;
+                _context5.prev = 0;
+                _context5.next = 3;
                 return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get(url);
 
               case 3:
-                response = _context4.sent;
-                return _context4.abrupt("return", response.data);
+                response = _context5.sent;
+                return _context5.abrupt("return", response.data);
 
               case 7:
-                _context4.prev = 7;
-                _context4.t0 = _context4["catch"](0);
-                console.log("ERROR: " + _context4.t0);
+                _context5.prev = 7;
+                _context5.t0 = _context5["catch"](0);
+                console.log("ERROR: " + _context5.t0);
 
               case 10:
               case "end":
-                return _context4.stop();
+                return _context5.stop();
             }
           }
-        }, _callee4, null, [[0, 7]]);
+        }, _callee5, null, [[0, 7]]);
       }));
 
       function getUserGames(_x5) {
@@ -45738,56 +46021,56 @@ var User = /*#__PURE__*/function () {
   }, {
     key: "getScoreHistory",
     value: function () {
-      var _getScoreHistory = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5(lang) {
+      var _getScoreHistory = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6(lang) {
         var page, scoresDates;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
           while (1) {
-            switch (_context5.prev = _context5.next) {
+            switch (_context6.prev = _context6.next) {
               case 0:
-                _context5.next = 2;
+                _context6.next = 2;
                 return this.getUserGames("/scrabble/user/games/");
 
               case 2:
-                page = _context5.sent;
+                page = _context6.sent;
                 scoresDates = {
                   dates: [],
                   scores: []
                 };
 
                 if (page.data) {
-                  _context5.next = 6;
+                  _context6.next = 6;
                   break;
                 }
 
-                return _context5.abrupt("return");
+                return _context6.abrupt("return");
 
               case 6:
                 this.getScoreDates(page, scoresDates, lang);
 
               case 7:
                 if (!page.next_page_url) {
-                  _context5.next = 14;
+                  _context6.next = 14;
                   break;
                 }
 
-                _context5.next = 10;
+                _context6.next = 10;
                 return this.getUserGames(page.next_page_url);
 
               case 10:
-                page = _context5.sent;
+                page = _context6.sent;
                 this.getScoreDates(page, scoresDates, lang);
-                _context5.next = 7;
+                _context6.next = 7;
                 break;
 
               case 14:
-                return _context5.abrupt("return", scoresDates);
+                return _context6.abrupt("return", scoresDates);
 
               case 15:
               case "end":
-                return _context5.stop();
+                return _context6.stop();
             }
           }
-        }, _callee5, this);
+        }, _callee6, this);
       }));
 
       function getScoreHistory(_x6) {

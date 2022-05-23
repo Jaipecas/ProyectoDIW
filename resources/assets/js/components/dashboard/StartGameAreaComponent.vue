@@ -2,15 +2,21 @@
   <div class="start-area">
     <select-lang :languages="langList" @selected-lang="selectLang" />
     <select-text :texts="arrayTexts" @change-area="changeArea" />
+    <!-- las cards con los tres tipos de juego -->
     <div class="game">
+      <!-- random -->
       <div v-show="showArea == 0" class="game-random">
         <p>Pulsa el botón y comienza una partida aleatoria</p>
         <img src="/img/twinBlades.png" alt="" />
+        <div v-show="messageError != ''" class="alert alert-danger">
+          {{ messageError }}
+        </div>
         <div v-show="createdChallenge" class="alert alert-success">
           {{ messageSuccess }}
         </div>
         <button @click="createRandomChallenge">Inicia una partida</button>
       </div>
+      <!-- against user -->
       <div v-show="showArea == 1" class="game-user">
         <input
           class="searchInput"
@@ -31,7 +37,7 @@
         </ul>
 
         <div v-if="userSelected != null" class="user-selected card">
-          <img :src="userAvatar" alt="user img" />
+          <img :src="userSelected.avatar" alt="user img" />
           <country-flag :country="userSelected.country" size="normal" />
           <span>{{ userSelected.name }}</span>
         </div>
@@ -44,6 +50,7 @@
         </div>
         <button @click="createAgainstChallenge">Inicia una partida</button>
       </div>
+      <!-- level -->
       <div v-show="showArea == 2" class="game-level">
         <div class="levels">
           <div v-for="level in levels" :key="level" @click="changeLevel(level)">
@@ -95,7 +102,6 @@ export default {
       showArea: 0,
       usersSearched: null,
       userSelected: null,
-      userAvatar: "/img/gamer.png",
       inputWord: "",
       levels: ["1", "2", "3", "4", "5"],
       selectedLang: "es",
@@ -106,6 +112,8 @@ export default {
     };
   },
   methods: {
+    //Eventos
+
     changeArea(area) {
       this.showArea = area;
       this.messageError = "";
@@ -130,11 +138,8 @@ export default {
     },
     userClick(user) {
       this.usersSearched = null;
-      this.userSelected = user;
+      this.userSelected = Object.assign(new User(), user);
       this.messageError = "";
-      if (user.avatar !== null) {
-        this.userAvatar = user.avatar;
-      }
     },
     changeLevel(levelSelected) {
       this.selectedLevel = levelSelected;
@@ -153,29 +158,40 @@ export default {
         }
       });
     },
+
+    //Creación de partidas
+
     async createRandomChallenge() {
-      this.createChallenge().postChallenge("random");
-      this.createdChallenge = true;
+      this.postChallenge("random");
     },
+
     async createAgainstChallenge() {
       if (this.userSelected === null) {
         this.messageError = "Debe seleccionar un contrincante";
         this.createdChallenge = false;
         return;
       }
-      this.messageError = "";
-      this.createChallenge().postChallenge("against");
-      this.createdChallenge = true;
+      this.postChallenge("against");
     },
+
     async createLevelChallenge() {
       if (this.selectedLevel === null) {
         this.messageError = "Seleccione un nivel";
         this.createdChallenge = false;
         return;
       }
+      this.postChallenge("level");
+    },
+
+    async postChallenge(challengeType) {
       this.messageError = "";
-      this.createChallenge().postChallenge("level");
-      this.createdChallenge = true;
+      try {
+        await this.createChallenge().postChallenge(challengeType);
+        this.createdChallenge = true;
+      } catch (error) {
+        this.messageError = error;
+        this.createdChallenge = false;
+      }
     },
 
     createChallenge() {
@@ -215,6 +231,10 @@ export default {
       align-items: center;
       justify-content: center;
       padding: 20px;
+
+      p {
+        font-size: 1.2rem;
+      }
 
       img {
         max-width: 120px;
@@ -337,7 +357,7 @@ export default {
     }
 
     .alert {
-      font-size: 1rem;
+      font-size: 0.9rem;
       margin: 20px;
     }
   }

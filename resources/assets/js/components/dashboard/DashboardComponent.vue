@@ -7,7 +7,7 @@
       class="area"
       :area="menuArea"
       :user="userDash"
-      :games="games"
+      :games="gamesData"
       :stats="userStats"
     />
     <friends-dash class="friends gradient" />
@@ -25,6 +25,7 @@ import NewsComponent from "./NewsAreaComponent.vue";
 
 import User from "../../../../classes/User";
 import Statistics from "../../../../classes/Statistics";
+import Game from "../../../../classes/Game";
 
 export default {
   name: "DashboardComponent",
@@ -60,12 +61,14 @@ export default {
       menuArea: "Partidas",
       userDash: User,
       userStats: Array,
+      gamesData: Array,
     };
   },
 
   created() {
     this.createUser();
     this.createStats();
+    this.createGames();
   },
 
   methods: {
@@ -79,6 +82,12 @@ export default {
       let arrayStats = this.statistics;
       this.userStats = arrayStats.map((stat) => {
         return Object.assign(new Statistics(), stat);
+      });
+    },
+    createGames() {
+      let arrayGames = this.games;
+      this.gamesData = arrayGames.map((game) => {
+        return Object.assign(new Game(), game);
       });
     },
   },

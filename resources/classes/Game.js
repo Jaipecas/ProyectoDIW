@@ -1,3 +1,4 @@
+import Axios from "axios";
 import User from "./User";
 
 export default class Game {
@@ -33,6 +34,14 @@ export default class Game {
             arrayGames.push(this.createGame(game));
         });
         return arrayGames;
+    }
+
+    async giveUp() {
+        try {
+            await Axios.post(`/scrabble/game/${this.id}/giveup`)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
 }

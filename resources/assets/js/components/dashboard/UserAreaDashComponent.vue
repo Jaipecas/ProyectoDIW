@@ -2,34 +2,47 @@
   <div>
     <h2 class="header-area-dash">Perfil Usuario</h2>
     <div class="user-dash">
-      <upload-avatar :user="userData" />
+      <div class="avatar">
+        <upload-avatar :user="userData" />
+        <div class="messages">
+          <div v-if="error == true" class="alert alert-danger">
+            {{ message }}
+          </div>
+          <div v-else-if="error == false" class="alert alert-success">
+            {{ message }}
+          </div>
+        </div>
+      </div>
+
       <div class="user-data">
         <div class="div-img">
           <img :src="pathImg" alt="candado" @click="changeForm" />
         </div>
-        <fieldset>
-          <legend>Datos</legend>
+        <!-- datos -->
+        <div class="data">
+          <!--  ReadOnly -->
           <template v-if="readOnly">
             <div class="div-read">
-              {{ user.name }}
+              <span>{{ user.name }}</span>
             </div>
             <div class="div-read">
-              {{ user.email }}
+              <span>{{ user.email }}</span>
             </div>
             <div class="div-flag">
+              <p>País</p>
               <country-flag
                 :country="user.country"
                 size="big"
                 :rounded="true"
               />
-              <span>{{ user.country }}</span>
             </div>
             <div class="div-flag">
+              <p>Lenguaje favorito</p>
               <lang-flag :iso="user.favourite_language" />
-              <span>{{ user.favourite_language }}</span>
             </div>
           </template>
-          <template v-else>
+          <!-- form -->
+          <template v-else class="form-data">
             <input-dash
               title="Nombre"
               type="text"
@@ -48,13 +61,17 @@
               :lang="user.favourite_language"
               @change-value="updateUser"
             />
+            <div class="buttons">
+              <button @click="updateProfile">Guardar</button>
+              <button>Borrar cuenta</button>
+            </div>
           </template>
-        </fieldset>
+        </div>
       </div>
+      <!-- pass -->
       <template v-if="readOnly == false">
         <div class="user-pass">
-          <fieldset>
-            <legend>Contraseña</legend>
+          <div class="pass-area">
             <div>
               <input-dash
                 title="Antigua contraseña"
@@ -79,11 +96,8 @@
                 @change-value="updateUser"
               />
             </div>
-          </fieldset>
-        </div>
-        <div class="buttons">
-          <button @click="updateProfile">Guardar cambios</button>
-          <button>Borrar cuenta</button>
+            <button @click="updatePass">Guardar</button>
+          </div>
         </div>
       </template>
     </div>
@@ -124,6 +138,8 @@ export default {
       pass2: null,
       pass3: null,
       pathImg: "/img/padlockclose.png",
+      error: null,
+      message: "Usuario actualizado",
     };
   },
   created() {
@@ -152,8 +168,52 @@ export default {
           break;
       }
     },
-    updateProfile() {
-      //this.userData.updateProfile(this.pass1, this.pass2, this.pass3);
+    async updateProfile() {
+      try {
+        await this.userData.updateProfile();
+        this.error = false;
+        this.message = "Usuario actualizado";
+      } catch (error) {
+        this.error = true;
+        if (error === 409) {
+          this.message = "Lenguaje no soportado";
+        } else if (error === 404) {
+          this.message = "Usuario no encontrado";
+        } else {
+          this.message = "Error al actualizar";
+        }
+      }
+    },
+
+    async updatePass() {
+      if (this.checkPass() === false) return;
+      try {
+        await this.userData.updatePass(this.pass1, this.pass2, this.pass3);
+        this.error = false;
+        this.message = "Usuario actualizado";
+      } catch (error) {
+        this.error = true;
+        if (error === 401) {
+          this.message = "Contraseña incorrecta";
+        } else {
+          this.message = "Error al actualizar";
+        }
+      }
+    },
+
+    checkPass() {
+      if (this.pass2 !== this.pass3) {
+        this.error = true;
+        this.message = "Error al confirmar la contraseña";
+        return false;
+      }
+
+      if (!this.pass1 || !this.pass2 || !this.pass3) {
+        this.error = true;
+        this.message = "Debe rellenar todos los campos de la contraseña";
+        return false;
+      }
+      return true;
     },
     changeForm() {
       this.readOnly = !this.readOnly;
@@ -179,12 +239,9 @@ export default {
 
   .avatar {
     grid-row: 1 / -1;
-    background: blue;
-    justify-self: center;
-    width: 200px;
-    height: 200px;
-    border-radius: 70px;
-    margin-top: 10px;
+    .messages {
+      margin: 50px;
+    }
   }
 
   .user-data {
@@ -200,24 +257,40 @@ export default {
       }
     }
 
-    fieldset {
+    .data {
       display: grid;
       grid-template: repeat(2, 1fr) / repeat(2, 1fr);
       justify-items: center;
+      gap: 10px;
+      padding: 10px;
 
-      > div {
-        padding: 5px;
+      .buttons {
+        justify-self: center;
+        grid-column: 1 /-1;
+        > * {
+          margin: 5px;
+        }
       }
-
       .div-read {
-        @include dash-card(#f79533, 50px, 1.5rem);
-        width: 85%;
-        height: 50px;
+        @include dash-card(#f79533, 50px, 1rem);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50%;
       }
 
       .div-flag {
-        @include dash-card(#f79533, 100px, 1.5rem);
-        width: 85%;
+        @include dash-card(#f79533, 100px, 1rem);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 50%;
+
+        .flag-icon {
+          width: 52px;
+          height: 39px;
+        }
       }
     }
   }
@@ -225,11 +298,18 @@ export default {
   .user-pass {
     grid-column: 2 / -1;
     padding-right: 10px;
+    align-self: center;
 
-    fieldset {
+    .pass-area {
       display: grid;
-      grid-template: repeat(3, 1fr) / 1fr;
+      grid-template: repeat(3, 1fr) / repeat(2, 1fr);
       gap: 10px;
+      input {
+        width: 50%;
+      }
+      button {
+        align-self: end;
+      }
     }
   }
 
@@ -238,11 +318,6 @@ export default {
     display: grid;
     grid-template: 1fr/1fr 1fr;
     padding: 20px;
-
-    button {
-      @include dash-button(1rem);
-      height: 50px;
-    }
   }
 }
 
@@ -252,8 +327,12 @@ fieldset {
   border-radius: 4px;
 }
 
-legend {
-  font-size: 1.2rem;
-  width: auto;
+button {
+  @include dash-button(1rem);
+  height: 50px;
+}
+
+.alert {
+  text-align: center;
 }
 </style>

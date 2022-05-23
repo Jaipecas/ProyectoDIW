@@ -2,7 +2,9 @@
   <div class="match-area">
     <h2 class="header-area-dash">Partidas</h2>
     <div class="matches">
+      <!-- area inicio de partida -->
       <start-area :user="user" />
+      <!-- area partidas pendientes -->
       <div>
         <div class="legend">
           <span>Tu turno</span>
@@ -53,8 +55,11 @@ export default {
   },
 
   methods: {
-    deleteGame(id) {
-      this.gamesList = this.gamesList.filter((game) => game.id !== id);
+    async deleteGame(gameSelect) {
+      await gameSelect.giveUp();
+      this.gamesList = this.gamesList.filter(
+        (game) => game.id !== gameSelect.id
+      );
     },
     reOrderGames() {
       let noStart = this.gamesList.filter((game) => game.state === 0);

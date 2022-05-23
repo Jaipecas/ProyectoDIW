@@ -23,23 +23,34 @@ export default class User {
         this._avatar = avatar;
     }
 
-    async updateProfile(old_password, new_password, new_password_confirmation) {
+    async updateProfile() {
 
         try {
             await Axios.put("/scrabble/user/update", {
                 name: this.name,
                 country: this.country,
                 favourite_language: this.favourite_language,
-                new_password: new_password,
-                new_password_confirmation: new_password_confirmation,
-                old_password: old_password,
             });
 
             /* falta hacer logout en el caso de que se cambie la contraseña  */
         } catch (error) {
-            console.log("ERROR: " + error)
+            return Promise.reject(error.response.status);
         }
+    }
 
+    async updatePass(old_password, new_password, new_password_confirmation) {
+
+        try {
+            await Axios.put("/scrabble/user/update", {
+                old_password: old_password,
+                new_password: new_password,
+                new_password_confirmation: new_password_confirmation
+            });
+
+            /* falta hacer logout en el caso de que se cambie la contraseña  */
+        } catch (error) {
+            return Promise.reject(error.response.status);
+        }
     }
 
     async uploadAvatar(formData) {

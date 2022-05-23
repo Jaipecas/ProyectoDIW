@@ -57,7 +57,7 @@ export default {
     },
 
     deleteGame() {
-      this.$emit("delete-game", this.game.id);
+      this.$emit("delete-game", this.game);
     },
 
     insertColor() {
@@ -86,6 +86,7 @@ export default {
   background: red;
   padding: 4px;
   margin: 10px;
+  cursor: pointer;
 
   > * {
     justify-self: center;

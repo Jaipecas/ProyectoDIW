@@ -163,22 +163,39 @@ export default {
       }
     },
     async getUserScores() {
-      let langScores = [];
+      let langScores = {};
+      let data = [];
 
-      this.stats.forEach(async (stats) => {
-        langScores.push(await this.user.getScoreHistory(stats.language_code));
+      //se lanzan las promesas en paralelo
+      this.stats.forEach((stats) => {
+        langScores[stats.language_code] = this.user.getScoreHistory(
+          stats.language_code
+        );
       });
+
+      //esperamos a que esten todas
+      data = await Promise.all(Object.values(langScores));
+
+      //asocaimos los datos a cada uno de los lenguajes
+      this.stats.forEach((stats, index) => {
+        langScores[stats.language_code] = data[index];
+      });
+
       this.langScores = langScores;
     },
 
     loadDataLineChart() {
       this.dataLineChart = {
-        labels: this.langScores[this.statsLanguage].dates,
+        labels: this.langScores[
+          this.statsUser[this.statsLanguage].language_code
+        ].dates,
         datasets: [
           {
             label: "Puntuaciones",
             backgroundColor: "#f87979",
-            data: this.langScores[this.statsLanguage].scores,
+            data: this.langScores[
+              this.statsUser[this.statsLanguage].language_code
+            ].scores,
             fill: false,
             borderColor: "rgb(75, 192, 192)",
             tension: 0.1,
