@@ -1,7 +1,6 @@
 <template>
   <div>
-    <a :class="icon" @click="changeArea" />
-    <a @click="changeArea">{{ title }}</a>
+    <span @click="changeArea">{{ title }}</span>
   </div>
 </template>
 
@@ -31,5 +30,6 @@ div {
   font-size: 1.2rem;
   margin-top: 10px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 </style>

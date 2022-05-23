@@ -2,19 +2,12 @@
   <div>
     <h2>Scrabble Dashboard</h2>
     <div class="menu-dash">
-      <menu-item icon="fa fa-user" title="Partidas" @changeArea="changeArea" />
-      <menu-item icon="fa fa-user" title="Perfil" @changeArea="changeArea" />
       <menu-item
-        icon="fa fa-user"
-        title="Notificaciones"
+        v-for="item in menu"
+        :key="item"
+        :title="item"
         @changeArea="changeArea"
       />
-      <menu-item
-        icon="fa fa-user"
-        title="Estadisticas"
-        @changeArea="changeArea"
-      />
-      <menu-item icon="fa fa-user" title="Historial" @changeArea="changeArea" />
     </div>
   </div>
 </template>
@@ -26,6 +19,17 @@ export default {
   name: "MenuDashComponent",
   components: {
     "menu-item": MenuItem,
+  },
+  data: function () {
+    return {
+      menu: [
+        "Partidas",
+        "Perfil",
+        "Notificaciones",
+        "Estadisticas",
+        "Historial",
+      ],
+    };
   },
   methods: {
     changeArea(area) {

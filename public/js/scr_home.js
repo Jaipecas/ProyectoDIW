@@ -4099,18 +4099,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MenuDashComponent",
   components: {
     "menu-item": _MenuItemDash_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      menu: ["Partidas", "Perfil", "Notificaciones", "Estadisticas", "Historial"]
+    };
   },
   methods: {
     changeArea: function changeArea(area) {
@@ -4130,7 +4128,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -19311,7 +19308,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "div[data-v-78fe9254] {\n  font-size: 1.2rem;\n  margin-top: 10px;\n  margin-bottom: 10px;\n}", ""]);
+exports.push([module.i, "div[data-v-78fe9254] {\n  font-size: 1.2rem;\n  margin-top: 10px;\n  margin-bottom: 10px;\n  cursor: pointer;\n}", ""]);
 
 // exports
 
@@ -29458,32 +29455,13 @@ var render = function() {
     _c(
       "div",
       { staticClass: "menu-dash" },
-      [
-        _c("menu-item", {
-          attrs: { icon: "fa fa-user", title: "Partidas" },
-          on: { changeArea: _vm.changeArea }
-        }),
-        _vm._v(" "),
-        _c("menu-item", {
-          attrs: { icon: "fa fa-user", title: "Perfil" },
-          on: { changeArea: _vm.changeArea }
-        }),
-        _vm._v(" "),
-        _c("menu-item", {
-          attrs: { icon: "fa fa-user", title: "Notificaciones" },
-          on: { changeArea: _vm.changeArea }
-        }),
-        _vm._v(" "),
-        _c("menu-item", {
-          attrs: { icon: "fa fa-user", title: "Estadisticas" },
-          on: { changeArea: _vm.changeArea }
-        }),
-        _vm._v(" "),
-        _c("menu-item", {
-          attrs: { icon: "fa fa-user", title: "Historial" },
+      _vm._l(_vm.menu, function(item) {
+        return _c("menu-item", {
+          key: item,
+          attrs: { title: item },
           on: { changeArea: _vm.changeArea }
         })
-      ],
+      }),
       1
     )
   ])
@@ -29511,9 +29489,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("a", { class: _vm.icon, on: { click: _vm.changeArea } }),
-    _vm._v(" "),
-    _c("a", { on: { click: _vm.changeArea } }, [_vm._v(_vm._s(_vm.title))])
+    _c("span", { on: { click: _vm.changeArea } }, [_vm._v(_vm._s(_vm.title))])
   ])
 }
 var staticRenderFns = []
