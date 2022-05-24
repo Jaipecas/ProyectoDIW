@@ -12,10 +12,10 @@
 </template>
 
 <script>
-import Game from "../../../../classes/Game";
-import Info from "../../../../classes/Info";
+import Game from "../../../../../classes/Game";
+import Info from "../../../../../classes/Info";
 
-import RecentChall from "./RecentChallengeComponent.vue";
+import RecentChall from "../components/RecentChallengeComponent.vue";
 
 export default {
   name: "FriendConectedComponent",

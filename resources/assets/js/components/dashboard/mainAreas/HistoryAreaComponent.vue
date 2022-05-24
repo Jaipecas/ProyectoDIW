@@ -20,11 +20,11 @@
 </template>
 
 <script>
-import MoveButtons from "./MoveButtonsComponent.vue";
-import GameCard from "./GameCardComponent.vue";
+import MoveButtons from "../components/MoveButtonsComponent.vue";
+import GameCard from "../components/GameCardComponent.vue";
 
-import User from "../../../../classes/User";
-import Game from "../../../../classes/Game";
+import User from "../../../../../classes/User";
+import Game from "../../../../../classes/Game";
 
 export default {
   name: "HistoryAreaComponent",

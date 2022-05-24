@@ -13,10 +13,10 @@
 </template>
 
 <script>
-import MoveButtons from "./MoveButtonsComponent.vue";
+import MoveButtons from "../components/MoveButtonsComponent.vue";
 
-import Info from "../../../../classes/Info";
-import News from "../../../../classes/News";
+import Info from "../../../../../classes/Info";
+import News from "../../../../../classes/News";
 
 export default {
   name: "NewsAreaComponent",

@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import Game from "../../../../classes/Game";
+import Game from "../../../../../classes/Game";
 import CountryFlag from "vue-country-flag";
 
 export default {

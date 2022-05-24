@@ -16,12 +16,12 @@
 </template>
 
 <script>
-import HeaderComponent from "./HeaderDashComponent.vue";
-import MenuComponent from "./MenuDashComponent.vue";
-import InfoComponent from "./InfoDashComponent.vue";
-import RecentChallenge from "./RecentChallengeAreaComponent.vue";
-import AreaComponent from "./AreaDashComponent.vue";
-import NewsComponent from "./NewsAreaComponent.vue";
+import HeaderComponent from "./estructure/HeaderDashComponent.vue";
+import MenuComponent from "./estructure/MenuDashComponent.vue";
+import InfoComponent from "./estructure/InfoDashComponent.vue";
+import RecentChallenge from "./estructure/RecentChallengeAreaComponent.vue";
+import AreaComponent from "./estructure/AreaDashComponent.vue";
+import NewsComponent from "./estructure/NewsAreaComponent.vue";
 
 import User from "../../../../classes/User";
 import Statistics from "../../../../classes/Statistics";

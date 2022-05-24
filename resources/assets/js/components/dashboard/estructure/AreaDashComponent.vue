@@ -17,13 +17,13 @@
 </template>
 
 <script>
-import UserDashArea from "./UserAreaDashComponent.vue";
-import NotificationsAreaDashComponent from "./NorificationsAreaDashComponent.vue";
-import GameAreaDashComponent from "./GamesAreaDashComponent.vue";
-import StatsArea from "./StatsAreaDashComponent.vue";
-import HistoryArea from "./HistoryAreaComponent.vue";
+import UserDashArea from "../mainAreas/UserAreaDashComponent.vue";
+import NotificationsAreaDashComponent from "../mainAreas/NorificationsAreaDashComponent.vue";
+import GameAreaDashComponent from "../mainAreas/GamesAreaDashComponent.vue";
+import StatsArea from "../mainAreas/StatsAreaDashComponent.vue";
+import HistoryArea from "../mainAreas/HistoryAreaComponent.vue";
 
-import User from "../../../../classes/User";
+import User from "../../../../../classes/User";
 
 export default {
   name: "AreaDashComponent",

@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import NotificationDash from "./NotificationDashComponent.vue";
-import Notification from "../../../../classes/Notification";
+import NotificationDash from "../components/NotificationDashComponent.vue";
+import Notification from "../../../../../classes/Notification";
 
 export default {
   name: "NotificationsAreaDashComponent",

@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import Notification from "../../../../classes/Notification";
+import Notification from "../../../../../classes/Notification";
 export default {
   name: "NotificationDashComponent",
   props: {

@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import MenuItem from "./MenuItemDash.vue";
+import MenuItem from "../components/MenuItemDash.vue";
 
 export default {
   name: "MenuDashComponent",

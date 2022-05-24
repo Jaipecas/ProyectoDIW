@@ -70,13 +70,13 @@
 </template>
 
 <script>
-import SelectLanguageComponent from "./SelectLanguageComponent.vue";
-import SelectTextComponent from "./SelectTextComponent.vue";
+import SelectLanguageComponent from "../components/SelectLanguageComponent.vue";
+import SelectTextComponent from "../components/SelectTextComponent.vue";
 import CountryFlag from "vue-country-flag";
 
-import Info from "../../../../classes/Info";
-import User from "../../../../classes/User";
-import Challenge from "../../../../classes/Challenge";
+import Info from "../../../../../classes/Info";
+import User from "../../../../../classes/User";
+import Challenge from "../../../../../classes/Challenge";
 
 export default {
   name: "StartGameAreaComponent",

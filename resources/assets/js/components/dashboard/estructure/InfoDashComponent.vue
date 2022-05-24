@@ -21,7 +21,7 @@
   </div>
 </template>
 <script>
-import Info from "../../../../classes/Info";
+import Info from "../../../../../classes/Info";
 export default {
   name: "GamesDashComponent",
   data: function () {

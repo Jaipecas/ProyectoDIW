@@ -105,14 +105,14 @@
 </template>
 
 <script>
-import InputDash from "./InputGroupComponent.vue";
-import ComboCountries from "./ComboCountriesComponent.vue";
-import ComboLangs from "./ComboLangsComponent.vue";
+import InputDash from "../components/InputGroupComponent.vue";
+import ComboCountries from "../components/ComboCountriesComponent.vue";
+import ComboLangs from "../components/ComboLangsComponent.vue";
 import CountryFlag from "vue-country-flag";
 import LangFlag from "vue-lang-code-flags";
-import UploadAvatar from "./UploadImageComponent.vue";
+import UploadAvatar from "../components/UploadImageComponent.vue";
 
-import User from "../../../../classes/User";
+import User from "../../../../../classes/User";
 
 export default {
   name: "UserAreaDashComponent",

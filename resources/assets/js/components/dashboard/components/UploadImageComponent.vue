@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import User from "../../../../classes/User";
+import User from "../../../../../classes/User";
 
 export default {
   name: "UploadImageComponent",

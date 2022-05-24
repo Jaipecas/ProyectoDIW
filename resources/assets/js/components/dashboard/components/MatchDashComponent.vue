@@ -18,7 +18,7 @@
 
 <script>
 import LangFlag from "vue-lang-code-flags";
-import User from "../../../../classes/User";
+import User from "../../../../../classes/User";
 
 export default {
   name: "MatchDashComponent",

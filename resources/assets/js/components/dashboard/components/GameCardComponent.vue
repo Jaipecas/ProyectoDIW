@@ -35,8 +35,7 @@
 <script>
 import CountryFlag from "vue-country-flag";
 import LangFlag from "vue-lang-code-flags";
-
-import Game from "../../../../classes/Game";
+import Game from "../../../../../classes/Game";
 
 export default {
   name: "GameCardComponent",

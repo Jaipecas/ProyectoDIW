@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import User from "../../../../classes/User";
-import MatchDash from "./MatchDashComponent.vue";
+import User from "../../../../../classes/User";
+import MatchDash from "../components/MatchDashComponent.vue";
 import StartGameArea from "./StartGameAreaComponent.vue";
 
 export default {

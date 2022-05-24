@@ -57,12 +57,12 @@
 </template>
 
 <script>
-import CardDash from "./CardDashComponent.vue";
+import CardDash from "../components/CardDashComponent.vue";
 import LangFlag from "vue-lang-code-flags";
-import BarChart from "./BarChartComponent.vue";
-import LineChart from "./LineChartComponent.vue";
-import User from "../../../../classes/User";
-import SelectTextComponent from "./SelectTextComponent.vue";
+import BarChart from "../components/BarChartComponent.vue";
+import LineChart from "../components/LineChartComponent.vue";
+import User from "../../../../../classes/User";
+import SelectTextComponent from "../components/SelectTextComponent.vue";
 
 export default {
   name: "StatsAreaDashComponent",
