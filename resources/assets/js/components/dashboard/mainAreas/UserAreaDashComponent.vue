@@ -234,7 +234,7 @@ export default {
 @import "./resources/assets/sass/_dashboard_main.scss";
 
 .wrapper {
-  background: #f8d3ff;
+  background-image: linear-gradient(#9f46af, #a899ab);
   border-radius: 10px;
   height: 100%;
 

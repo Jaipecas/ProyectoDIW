@@ -218,7 +218,7 @@ export default {
   grid-template: 80px 1fr /1fr;
   height: 100%;
   border-radius: 10px;
-  background: #d7e5fd;
+  background-image: linear-gradient(#b3ccfe, #ffffff);
 
   .container-stats {
     justify-self: center;

@@ -75,7 +75,7 @@ export default {
 @import "resources/assets/sass/_dashboard_main.scss";
 
 .match-area {
-  background: #ffbed0;
+  background-image: linear-gradient(#f79533, #fdd0a2);
   border-radius: 10px;
   height: 100%;
 
