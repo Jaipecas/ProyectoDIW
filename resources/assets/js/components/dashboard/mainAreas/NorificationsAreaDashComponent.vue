@@ -55,7 +55,7 @@ export default {
 @import "resources/assets/sass/_dashboard_main.scss";
 
 .wrapper {
-  background: #f6fff9;
+  background: #fdc9bf;
   border-radius: 10px;
   height: 100%;
 

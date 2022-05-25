@@ -234,13 +234,13 @@ export default {
 @import "./resources/assets/sass/_dashboard_main.scss";
 
 .wrapper {
-  background: #f4c1fd;
+  background: #f8d3ff;
   border-radius: 10px;
   height: 100%;
 
   .user-dash {
     display: grid;
-    grid-template: 1fr 1fr 30px / repeat(2, 1fr);
+    grid-template: repeat(3, 1fr) / 0.5fr 1fr;
 
     .avatar {
       grid-row: 1 / -1;

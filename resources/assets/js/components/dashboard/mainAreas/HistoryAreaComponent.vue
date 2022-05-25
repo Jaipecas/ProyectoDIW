@@ -81,7 +81,7 @@ export default {
 .history-wrapper {
   display: grid;
   grid-template: 100px 1fr 70px/ 1fr;
-  background: #f9cfa6;
+  background: #cdfff8;
   height: 100%;
   border-radius: 10px;
 
