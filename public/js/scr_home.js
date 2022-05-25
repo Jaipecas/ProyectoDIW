@@ -3641,6 +3641,10 @@ __webpack_require__.r(__webpack_exports__);
           this.containerStyle += "game-red";
           break;
       }
+    },
+    gotoGame: function gotoGame() {
+      var url = location.protocol + "//" + location.hostname + (location.port ? ":" + location.port : "");
+      window.location.href = url + "/scrabble/game/" + this.game.id;
     }
   }
 });
@@ -29158,7 +29162,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { class: _vm.containerStyle },
+    { class: _vm.containerStyle, on: { click: _vm.gotoGame } },
     [
       _c("lang-flag", { attrs: { iso: _vm.game.language, squared: false } }),
       _vm._v(" "),

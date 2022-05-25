@@ -1,5 +1,5 @@
 <template>
-  <div :class="containerStyle">
+  <div :class="containerStyle" @click="gotoGame">
     <lang-flag :iso="game.language" :squared="false" />
     <div>
       <span>{{ game.player_score }}</span>
@@ -72,6 +72,14 @@ export default {
           this.containerStyle += "game-red";
           break;
       }
+    },
+    gotoGame() {
+      let url =
+        location.protocol +
+        "//" +
+        location.hostname +
+        (location.port ? ":" + location.port : "");
+      window.location.href = url + "/scrabble/game/" + this.game.id;
     },
   },
 };
