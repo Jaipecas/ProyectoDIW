@@ -29186,7 +29186,12 @@ var render = function() {
       _vm._v(" "),
       _c("img", {
         attrs: { src: "/img/papelera.png", alt: "papelera" },
-        on: { click: _vm.deleteGame }
+        on: {
+          click: function($event) {
+            $event.stopPropagation()
+            return _vm.deleteGame($event)
+          }
+        }
       })
     ],
     1

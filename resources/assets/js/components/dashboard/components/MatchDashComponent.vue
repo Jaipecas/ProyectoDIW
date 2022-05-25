@@ -12,7 +12,7 @@
       <span>{{ date }}</span>
       <span>{{ time }}</span>
     </div>
-    <img src="/img/papelera.png" alt="papelera" @click="deleteGame" />
+    <img src="/img/papelera.png" alt="papelera" @click.stop="deleteGame" />
   </div>
 </template>
 
