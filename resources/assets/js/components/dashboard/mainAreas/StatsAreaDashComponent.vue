@@ -176,7 +176,7 @@ export default {
       //esperamos a que esten todas
       data = await Promise.all(Object.values(langScores));
 
-      //asocaimos los datos a cada uno de los lenguajes
+      //asociamos los datos a cada uno de los lenguajes
       this.stats.forEach((stats, index) => {
         langScores[stats.language_code] = data[index];
       });
@@ -214,13 +214,15 @@ export default {
 @import "resources/assets/sass/_dashboard_main.scss";
 
 .container-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template: 80px 1fr /1fr;
   height: 100%;
+  border-radius: 10px;
+  background: #d7e5fd;
 
   .container-stats {
-    @include dash-card(#bdd0f2, 300px, 1.2rem);
+    justify-self: center;
+    align-self: center;
     display: grid;
     grid-template: 1fr / 1fr 1fr;
     width: 90%;
@@ -228,6 +230,12 @@ export default {
     .container-cards {
       width: 80%;
       justify-self: center;
+      display: grid;
+      grid-template: 30px 60px 1fr / 1fr;
+
+      h5 {
+        justify-self: center;
+      }
 
       .language {
         display: flex;

@@ -51,6 +51,8 @@ export default {
   span {
     justify-self: center;
     align-self: center;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
   button {

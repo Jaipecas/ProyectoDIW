@@ -46,7 +46,6 @@ export default {
       url: "/scrabble/user/games/",
     };
   },
-  watch: {},
   created() {
     this.userData = this.user;
     this.getGames(this.url);
@@ -82,7 +81,7 @@ export default {
 .history-wrapper {
   display: grid;
   grid-template: 100px 1fr 70px/ 1fr;
-  background: #f8b26c;
+  background: #f9cfa6;
   height: 100%;
   border-radius: 10px;
 
