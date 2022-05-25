@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <h2 class="header-area-dash">Perfil Usuario</h2>
     <div class="user-dash">
       <div class="avatar">
@@ -233,106 +233,112 @@ export default {
 <style lang="scss" scoped>
 @import "./resources/assets/sass/_dashboard_main.scss";
 
-.user-dash {
-  display: grid;
-  grid-template: 1fr 1fr 30px / repeat(2, 1fr);
+.wrapper {
+  background: #f4c1fd;
+  border-radius: 10px;
+  height: 100%;
 
-  .avatar {
-    grid-row: 1 / -1;
-    .messages {
-      margin: 50px;
-    }
-  }
-
-  .user-data {
-    grid-column: 2 / -1;
-    padding-right: 10px;
-
-    .div-img {
-      text-align: center;
-      img {
-        cursor: pointer;
-        width: 50px;
-        height: 50px;
-      }
-    }
-
-    .data {
-      display: grid;
-      grid-template: repeat(2, 1fr) / repeat(2, 1fr);
-      justify-items: center;
-      gap: 10px;
-      padding: 10px;
-
-      .buttons {
-        justify-self: center;
-        grid-column: 1 /-1;
-        > * {
-          margin: 5px;
-        }
-      }
-      .div-read {
-        @include dash-card(#f79533, 50px, 1rem);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 50%;
-      }
-
-      .div-flag {
-        @include dash-card(#f79533, 100px, 1rem);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        height: 50%;
-
-        .flag-icon {
-          width: 52px;
-          height: 39px;
-        }
-      }
-    }
-  }
-
-  .user-pass {
-    grid-column: 2 / -1;
-    padding-right: 10px;
-    align-self: center;
-
-    .pass-area {
-      display: grid;
-      grid-template: repeat(3, 1fr) / repeat(2, 1fr);
-      gap: 10px;
-      input {
-        width: 50%;
-      }
-      button {
-        align-self: end;
-      }
-    }
-  }
-
-  .buttons {
-    grid-column: 2 / -1;
+  .user-dash {
     display: grid;
-    grid-template: 1fr/1fr 1fr;
-    padding: 20px;
+    grid-template: 1fr 1fr 30px / repeat(2, 1fr);
+
+    .avatar {
+      grid-row: 1 / -1;
+      .messages {
+        margin: 50px;
+      }
+    }
+
+    .user-data {
+      grid-column: 2 / -1;
+      padding-right: 10px;
+
+      .div-img {
+        text-align: center;
+        img {
+          cursor: pointer;
+          width: 50px;
+          height: 50px;
+        }
+      }
+
+      .data {
+        display: grid;
+        grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+        justify-items: center;
+        gap: 10px;
+        padding: 10px;
+
+        .buttons {
+          justify-self: center;
+          grid-column: 1 /-1;
+          > * {
+            margin: 5px;
+          }
+        }
+        .div-read {
+          @include dash-card(#f79533, 50px, 1rem);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 50%;
+        }
+
+        .div-flag {
+          @include dash-card(#f79533, 100px, 1rem);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          height: 50%;
+
+          .flag-icon {
+            width: 52px;
+            height: 39px;
+          }
+        }
+      }
+    }
+
+    .user-pass {
+      grid-column: 2 / -1;
+      padding-right: 10px;
+      align-self: center;
+
+      .pass-area {
+        display: grid;
+        grid-template: repeat(3, 1fr) / repeat(2, 1fr);
+        gap: 10px;
+        input {
+          width: 50%;
+        }
+        button {
+          align-self: end;
+        }
+      }
+    }
+
+    .buttons {
+      grid-column: 2 / -1;
+      display: grid;
+      grid-template: 1fr/1fr 1fr;
+      padding: 20px;
+    }
   }
-}
 
-fieldset {
-  border: 2px solid #ef4e7b;
-  padding: 5px;
-  border-radius: 4px;
-}
+  fieldset {
+    border: 2px solid #ef4e7b;
+    padding: 5px;
+    border-radius: 4px;
+  }
 
-button {
-  @include dash-button(1rem);
-  height: 50px;
-}
+  button {
+    @include dash-button(1rem);
+    height: 50px;
+  }
 
-.alert {
-  text-align: center;
+  .alert {
+    text-align: center;
+  }
 }
 </style>

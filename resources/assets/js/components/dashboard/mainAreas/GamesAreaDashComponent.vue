@@ -74,30 +74,36 @@ export default {
 <style lang="scss" scoped>
 @import "resources/assets/sass/_dashboard_main.scss";
 
-.matches {
-  display: grid;
-  grid-template: 1fr / 1fr 1fr;
+.match-area {
+  background: #ffbed0;
+  border-radius: 10px;
+  height: 100%;
 
-  :nth-child(1) {
-    justify-self: center;
-  }
+  .matches {
+    display: grid;
+    grid-template: 1fr / 1fr 1fr;
 
-  :nth-child(2) {
-    justify-self: center;
+    :nth-child(1) {
+      justify-self: center;
+    }
 
-    .legend {
-      margin: 10px;
-      > * {
-        padding: 5px;
-      }
-      :nth-child(1) {
-        background: $color-player-turn;
-      }
-      :nth-child(2) {
-        background: $color-oponent-turn;
-      }
-      :nth-child(3) {
-        background: $color-no-turn;
+    :nth-child(2) {
+      justify-self: center;
+
+      .legend {
+        margin: 10px;
+        > * {
+          padding: 5px;
+        }
+        :nth-child(1) {
+          background: $color-player-turn;
+        }
+        :nth-child(2) {
+          background: $color-oponent-turn;
+        }
+        :nth-child(3) {
+          background: $color-no-turn;
+        }
       }
     }
   }

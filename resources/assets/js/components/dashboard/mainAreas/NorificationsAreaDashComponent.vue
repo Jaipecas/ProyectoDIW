@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
     <h2 class="header-area-dash">Notificaciones</h2>
     <select class="form-select combo-area-dash" @change="onChangeNotif($event)">
       <option value="unread" selected>No leidos</option>
@@ -54,7 +54,13 @@ export default {
 <style lang="scss" scoped>
 @import "resources/assets/sass/_dashboard_main.scss";
 
-.notifications {
-  margin-top: 20px;
+.wrapper {
+  background: #f6fff9;
+  border-radius: 10px;
+  height: 100%;
+
+  .notifications {
+    margin-top: 20px;
+  }
 }
 </style>
