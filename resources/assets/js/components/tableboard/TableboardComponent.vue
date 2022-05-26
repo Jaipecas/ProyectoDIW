@@ -53,7 +53,7 @@ export default {
 .wrapper {
   display: grid;
   grid-template: 100px 1fr 200px 100px / 300px 1fr 300px;
-  height: 80vh;
+  height: 90vh;
   padding: 20px;
   gap: 15px;
 

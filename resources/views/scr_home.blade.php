@@ -1,14 +1,15 @@
-@extends('layouts.app',
-['title' => 'Dashboard', 'css_files' => ['scr_dashboard'],
-'js_files' => ['scr_home']])
+@extends('layouts.app', ['title' => 'Dashboard', 'css_files' => ['scr_dashboard'], 'js_files' => ['scr_home']])
 
 @section('content')
-
-    <dashboard-component :user="{{ json_encode($user) }}"
-    :games="{{ json_encode($games) }}"
-    :statistics="{{ json_encode($statistics) }}"
-    >
+    <dashboard-component :user="{{ json_encode($user) }}" :games="{{ json_encode($games) }}"
+        :statistics="{{ json_encode($statistics) }}">
     </dashboard-component>
+
+    <!-- form oculto para realizar el logout via POST de manera síncrona. Podría haber utilizado la función post
+            que está definida en test_helpers -->
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
 @endsection
 
 

@@ -4253,6 +4253,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "HeaderDashComponent",
   props: {
@@ -4268,6 +4269,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.name = "Bienvenido, " + this.userName;
+  },
+  methods: {
+    logout: function logout() {
+      window.location.replace("/scrabble");
+    }
   }
 });
 
@@ -5714,11 +5720,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 5:
                 _this2.error = false;
                 _this2.message = "Usuario actualizado";
-                _context2.next = 13;
+                setTimeout(function () {
+                  window.location.replace("/scrabble/login");
+                }, 2000);
+                _context2.next = 14;
                 break;
 
-              case 9:
-                _context2.prev = 9;
+              case 10:
+                _context2.prev = 10;
                 _context2.t0 = _context2["catch"](2);
                 _this2.error = true;
 
@@ -5728,12 +5737,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   _this2.message = "Error al actualizar";
                 }
 
-              case 13:
+              case 14:
               case "end":
                 return _context2.stop();
             }
           }
-        }, _callee2, null, [[2, 9]]);
+        }, _callee2, null, [[2, 10]]);
       }))();
     },
     checkPass: function checkPass() {
@@ -19349,7 +19358,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".header-dash[data-v-d4a74222] {\n  display: flex;\n  align-items: center;\n}\n.header-dash p[data-v-d4a74222] {\n  margin-left: 30px;\n  font-size: 2rem;\n}", ""]);
+exports.push([module.i, ".header-dash[data-v-d4a74222] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.header-dash p[data-v-d4a74222] {\n  margin-left: 30px;\n  font-size: 2rem;\n}\n.header-dash img[data-v-d4a74222] {\n  width: 50px;\n  height: 50px;\n  cursor: pointer;\n}", ""]);
 
 // exports
 
@@ -29595,7 +29604,12 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "header-dash" }, [
-    _c("p", [_vm._v(_vm._s(_vm.name))])
+    _c("p", [_vm._v(_vm._s(_vm.name))]),
+    _vm._v(" "),
+    _c("img", {
+      attrs: { src: "/img/power.png", alt: "apagar" },
+      on: { click: _vm.logout }
+    })
   ])
 }
 var staticRenderFns = []

@@ -4542,7 +4542,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".wrapper[data-v-3d513c05] {\n  display: grid;\n  grid-template: 100px 1fr 200px 100px/300px 1fr 300px;\n  height: 80vh;\n  padding: 20px;\n  gap: 15px;\n}\n.wrapper .lang-area[data-v-3d513c05] {\n  background: red;\n}\n.wrapper .users-area[data-v-3d513c05] {\n  background: #e2d773;\n}\n.wrapper .exit-area[data-v-3d513c05] {\n  background: #5eff00;\n}\n.wrapper .nose-area[data-v-3d513c05] {\n  background: #00ffea;\n}\n.wrapper .table-area[data-v-3d513c05] {\n  grid-row: 2/4;\n  grid-column: 2/3;\n  background: #2600ff;\n}\n.wrapper .notif-area[data-v-3d513c05] {\n  grid-row: 2/-1;\n  grid-column: 3/-1;\n  background: #e100ff;\n}\n.wrapper .icons-area[data-v-3d513c05] {\n  grid-row: 3/-1;\n  background: #ff00c3;\n}\n.wrapper .letters-area[data-v-3d513c05] {\n  background: #ff8000;\n}", ""]);
+exports.push([module.i, ".wrapper[data-v-3d513c05] {\n  display: grid;\n  grid-template: 100px 1fr 200px 100px/300px 1fr 300px;\n  height: 90vh;\n  padding: 20px;\n  gap: 15px;\n}\n.wrapper .lang-area[data-v-3d513c05] {\n  background: red;\n}\n.wrapper .users-area[data-v-3d513c05] {\n  background: #e2d773;\n}\n.wrapper .exit-area[data-v-3d513c05] {\n  background: #5eff00;\n}\n.wrapper .nose-area[data-v-3d513c05] {\n  background: #00ffea;\n}\n.wrapper .table-area[data-v-3d513c05] {\n  grid-row: 2/4;\n  grid-column: 2/3;\n  background: #2600ff;\n}\n.wrapper .notif-area[data-v-3d513c05] {\n  grid-row: 2/-1;\n  grid-column: 3/-1;\n  background: #e100ff;\n}\n.wrapper .icons-area[data-v-3d513c05] {\n  grid-row: 3/-1;\n  background: #ff00c3;\n}\n.wrapper .letters-area[data-v-3d513c05] {\n  background: #ff8000;\n}", ""]);
 
 // exports
 
