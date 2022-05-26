@@ -19102,7 +19102,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "@charset \"UTF-8\";\n/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-14d4cc4a] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n\n/* ANIMACIÓN GRADIENT  */\n.gradient[data-v-14d4cc4a] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-14d4cc4a 10s ease alternate infinite;\n          animation: animatedgradient-data-v-14d4cc4a 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-14d4cc4a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-14d4cc4a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-14d4cc4a] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-14d4cc4a] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-14d4cc4a] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-14d4cc4a] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-14d4cc4a] {\n  text-align: center;\n  padding-top: 20px;\n}\n.combo-area-dash[data-v-14d4cc4a] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n\n/* MIXINS */\n.scr-grid[data-v-14d4cc4a] {\n  display: grid;\n  grid-template: 150px 400px 270px/250px minmax(600px, auto) minmax(172px, 250px);\n  gap: 15px;\n  margin: 20px;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  border-radius: 10px;\n  padding: 15px;\n}\n.scr-grid > *[data-v-14d4cc4a] {\n  border: 0.2px solid #615d5d;\n  border-radius: 10px;\n}\n.scr-grid .header[data-v-14d4cc4a] {\n  grid-column: 2/-1;\n}\n.scr-grid .menu[data-v-14d4cc4a] {\n  grid-row: 1/3;\n}\n.scr-grid .games[data-v-14d4cc4a] {\n  grid-row: 3/4;\n}\n.scr-grid .area[data-v-14d4cc4a] {\n  grid-row: 2/4;\n}\n.scr-grid .friends[data-v-14d4cc4a] {\n  grid-row: 2/3;\n}\n.scr-grid .news[data-v-14d4cc4a] {\n  grid-row: 3/4;\n}", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n/* Colores juegos pedientes */\n/*Colores juegos historial */\n.img-avatar[data-v-14d4cc4a] {\n  height: 50px;\n  width: 50px;\n  border-radius: 40px;\n}\n\n/* ANIMACIÓN GRADIENT  */\n.gradient[data-v-14d4cc4a] {\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  -webkit-animation: animatedgradient-data-v-14d4cc4a 10s ease alternate infinite;\n          animation: animatedgradient-data-v-14d4cc4a 10s ease alternate infinite;\n  padding: 20px;\n  border-radius: 10px;\n  background-size: 300% 300%;\n}\n@-webkit-keyframes animatedgradient-data-v-14d4cc4a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n@keyframes animatedgradient-data-v-14d4cc4a {\n0% {\n    background-position: 0% 50%;\n}\n50% {\n    background-position: 100% 50%;\n}\n100% {\n    background-position: 0% 50%;\n}\n}\n.dash-header-card[data-v-14d4cc4a] {\n  display: grid;\n  grid-template: 0.5fr 1fr/1fr;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n  border-radius: 10px;\n  min-width: 180px;\n  font-size: 1rem;\n  text-align: center;\n  background: #f79533;\n}\n.dash-header-card .header[data-v-14d4cc4a] {\n  background: #f37055;\n  padding-left: 7px;\n  padding-right: 7px;\n}\n.dash-header-card .content[data-v-14d4cc4a] {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.icon[data-v-14d4cc4a] {\n  max-width: 20px;\n  max-height: 20px;\n}\n.header-area-dash[data-v-14d4cc4a] {\n  text-align: center;\n  padding-top: 20px;\n}\n.combo-area-dash[data-v-14d4cc4a] {\n  width: 120px;\n  height: 40px;\n  background-color: #22aec3;\n  border-radius: 5px;\n  margin-left: 20px;\n  padding: 10px;\n}\n\n/* MIXINS */\n.scr-grid[data-v-14d4cc4a] {\n  display: grid;\n  grid-template: min(150px) min(400px) min(270px)/250px minmax(600px, auto) minmax(172px, 250px);\n  gap: 15px;\n  margin: 20px;\n  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);\n  border-radius: 10px;\n  padding: 15px;\n}\n.scr-grid > *[data-v-14d4cc4a] {\n  border: 0.2px solid #615d5d;\n  border-radius: 10px;\n}\n.scr-grid .header[data-v-14d4cc4a] {\n  grid-column: 2/-1;\n}\n.scr-grid .menu[data-v-14d4cc4a] {\n  grid-row: 1/3;\n}\n.scr-grid .games[data-v-14d4cc4a] {\n  grid-row: 3/4;\n}\n.scr-grid .area[data-v-14d4cc4a] {\n  grid-row: 2/4;\n}\n.scr-grid .friends[data-v-14d4cc4a] {\n  grid-row: 2/3;\n}\n.scr-grid .news[data-v-14d4cc4a] {\n  grid-row: 3/4;\n}", ""]);
 
 // exports
 
@@ -45148,7 +45148,7 @@ var Challenge = /*#__PURE__*/function () {
     key: "postChallenge",
     value: function () {
       var _postChallenge = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(type) {
-        var url;
+        var url, response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -45176,20 +45176,22 @@ var Challenge = /*#__PURE__*/function () {
                 return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post(url);
 
               case 13:
-                _context.next = 18;
+                response = _context.sent;
+                console.log(response);
+                _context.next = 20;
                 break;
 
-              case 15:
-                _context.prev = 15;
+              case 17:
+                _context.prev = 17;
                 _context.t1 = _context["catch"](10);
                 return _context.abrupt("return", Promise.reject(_context.t1));
 
-              case 18:
+              case 20:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[10, 15]]);
+        }, _callee, this, [[10, 17]]);
       }));
 
       function postChallenge(_x) {
@@ -45364,7 +45366,7 @@ var Info = /*#__PURE__*/function () {
     key: "getGeneralInfo",
     value: function () {
       var _getGeneralInfo = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var promise;
+        var response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -45374,8 +45376,8 @@ var Info = /*#__PURE__*/function () {
                 return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/info/general");
 
               case 3:
-                promise = _context.sent;
-                return _context.abrupt("return", promise.data);
+                response = _context.sent;
+                return _context.abrupt("return", response.data);
 
               case 7:
                 _context.prev = 7;
@@ -45400,7 +45402,7 @@ var Info = /*#__PURE__*/function () {
     key: "getCurrentGames",
     value: function () {
       var _getCurrentGames = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(number) {
-        var promise;
+        var response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
@@ -45410,8 +45412,8 @@ var Info = /*#__PURE__*/function () {
                 return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/info/currentgames/" + number);
 
               case 3:
-                promise = _context2.sent;
-                return _context2.abrupt("return", promise.data);
+                response = _context2.sent;
+                return _context2.abrupt("return", response.data);
 
               case 7:
                 _context2.prev = 7;
@@ -45436,7 +45438,7 @@ var Info = /*#__PURE__*/function () {
     key: "getRanking",
     value: function () {
       var _getRanking = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(lang, number) {
-        var promise;
+        var response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
           while (1) {
             switch (_context3.prev = _context3.next) {
@@ -45446,8 +45448,8 @@ var Info = /*#__PURE__*/function () {
                 return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/info/ranking/" + lang + "/" + number);
 
               case 3:
-                promise = _context3.sent;
-                return _context3.abrupt("return", promise.data);
+                response = _context3.sent;
+                return _context3.abrupt("return", response.data);
 
               case 7:
                 _context3.prev = 7;
@@ -45472,7 +45474,7 @@ var Info = /*#__PURE__*/function () {
     key: "getNews",
     value: function () {
       var _getNews = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4(type) {
-        var promise;
+        var response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
@@ -45482,8 +45484,8 @@ var Info = /*#__PURE__*/function () {
                 return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/info/news/" + type);
 
               case 3:
-                promise = _context4.sent;
-                return _context4.abrupt("return", promise.data);
+                response = _context4.sent;
+                return _context4.abrupt("return", response.data);
 
               case 7:
                 _context4.prev = 7;

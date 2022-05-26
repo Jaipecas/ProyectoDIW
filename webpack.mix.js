@@ -27,6 +27,7 @@ mix
   .js("resources/assets/js/test_scr_home.js", "public/js") // dashboard de usuario
   .js("resources/assets/js/test_scr_tableboard.js", "public/js")
   .js("resources/assets/js/scr_home.js", "public/js")
+  .js("resources/assets/js/scr_tableboard.js", "public/js")
   .sourceMaps()
   .version();
 

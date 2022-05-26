@@ -4,8 +4,8 @@ export default class Info {
 
     static async getGeneralInfo() {
         try {
-            const promise = await Axios.get("/api/info/general");
-            return promise.data;
+            const response = await Axios.get("/api/info/general");
+            return response.data;
         } catch (error) {
             console.log("ERROR: " + error);
         }
@@ -13,8 +13,8 @@ export default class Info {
 
     static async getCurrentGames(number) {
         try {
-            const promise = await Axios.get("/api/info/currentgames/" + number);
-            return promise.data;
+            const response = await Axios.get("/api/info/currentgames/" + number);
+            return response.data;
         } catch (error) {
             console.log("ERROR: " + error);
         }
@@ -22,8 +22,8 @@ export default class Info {
 
     static async getRanking(lang, number) {
         try {
-            const promise = await Axios.get("/api/info/ranking/" + lang + "/" + number);
-            return promise.data;
+            const response = await Axios.get("/api/info/ranking/" + lang + "/" + number);
+            return response.data;
         } catch (error) {
             console.log("ERROR: " + error);
         }
@@ -31,8 +31,8 @@ export default class Info {
 
     static async getNews(type) {
         try {
-            const promise = await Axios.get("/api/info/news/" + type);
-            return promise.data;
+            const response = await Axios.get("/api/info/news/" + type);
+            return response.data;
         } catch (error) {
             console.log("ERROR: " + error);
         }

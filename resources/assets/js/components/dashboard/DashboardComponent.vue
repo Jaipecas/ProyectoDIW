@@ -99,7 +99,7 @@ export default {
 
 .scr-grid {
   display: grid;
-  grid-template: 150px 400px 270px / 250px minmax(600px, auto) minmax(
+  grid-template: min(150px) min(400px) min(270px) / 250px minmax(600px, auto) minmax(
       172px,
       250px
     );

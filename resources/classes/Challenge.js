@@ -40,7 +40,8 @@ export default class Challenge {
         }
 
         try {
-            await axios.post(url);
+            const response = await axios.post(url);
+            console.log(response)
         } catch (error) {
             return Promise.reject(error);
         }
