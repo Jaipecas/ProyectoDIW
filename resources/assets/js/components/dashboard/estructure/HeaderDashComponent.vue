@@ -37,6 +37,7 @@ export default {
   justify-content: space-between;
 
   p {
+    margin: 0px;
     margin-left: 30px;
     font-size: 2rem;
   }

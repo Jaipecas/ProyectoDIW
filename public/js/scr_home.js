@@ -19358,7 +19358,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".header-dash[data-v-d4a74222] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.header-dash p[data-v-d4a74222] {\n  margin-left: 30px;\n  font-size: 2rem;\n}\n.header-dash img[data-v-d4a74222] {\n  width: 50px;\n  height: 50px;\n  cursor: pointer;\n}", ""]);
+exports.push([module.i, ".header-dash[data-v-d4a74222] {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.header-dash p[data-v-d4a74222] {\n  margin: 0px;\n  margin-left: 30px;\n  font-size: 2rem;\n}\n.header-dash img[data-v-d4a74222] {\n  width: 50px;\n  height: 50px;\n  cursor: pointer;\n}", ""]);
 
 // exports
 
