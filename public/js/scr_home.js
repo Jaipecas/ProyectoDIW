@@ -30107,7 +30107,10 @@ var render = function() {
                   { staticClass: "user-selected card" },
                   [
                     _c("img", {
-                      attrs: { src: _vm.userSelected.avatar, alt: "user img" }
+                      attrs: {
+                        src: "/storage/" + _vm.userSelected.avatar,
+                        alt: "user img"
+                      }
                     }),
                     _vm._v(" "),
                     _c("country-flag", {

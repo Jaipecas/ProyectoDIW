@@ -37,7 +37,7 @@
         </ul>
 
         <div v-if="userSelected != null" class="user-selected card">
-          <img :src="userSelected.avatar" alt="user img" />
+          <img :src="'/storage/' + userSelected.avatar" alt="user img" />
           <country-flag :country="userSelected.country" size="normal" />
           <span>{{ userSelected.name }}</span>
         </div>

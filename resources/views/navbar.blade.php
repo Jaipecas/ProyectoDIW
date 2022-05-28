@@ -4,7 +4,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarImprenta">
         <a class="navbar-brand" href="/">
-            <img src="../img/logoceed2.png" width="100" height="30" alt="">
+            <img src="{{ asset('img/logoceed2.png')}}" width="100" height="30" alt="">
         </a>
         <ul class="navbar-nav">
             <li class="nav-item active"><a class="nav-link" href="/gutenberg">Gutenberg</a></li>
@@ -20,7 +20,7 @@
         </ul>
     </div>
     <div class="dropdown dropleft">
-        <a data-toggle="dropdown" href="#"><img src="../img/user.png" alt="accesoLogin"></a>
+        <a data-toggle="dropdown" href="#"><img src={{ asset('img/user.png')}} alt="accesoLogin"></a>
         <div class="dropdown-menu">
             <a class="dropdown-item" href="/scrabble/register">Registro</a>
             <a class="dropdown-item" href="/scrabble/login">Login</a>
