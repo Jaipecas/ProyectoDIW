@@ -191,9 +191,7 @@ export default {
         await this.userData.updatePass(this.pass1, this.pass2, this.pass3);
         this.error = false;
         this.message = "Usuario actualizado";
-        setTimeout(() => {
-          window.location.replace("/scrabble/login");
-        }, 2000);
+        this.exitlogin();
       } catch (error) {
         this.error = true;
         if (error === 401) {
@@ -218,6 +216,13 @@ export default {
       }
       return true;
     },
+
+    exitlogin() {
+      setTimeout(() => {
+        window.location.replace("/scrabble/login");
+      }, 2000);
+    },
+
     changeForm() {
       this.readOnly = !this.readOnly;
       if (this.readOnly) {

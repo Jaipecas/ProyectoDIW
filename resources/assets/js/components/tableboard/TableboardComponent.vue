@@ -21,14 +21,14 @@
     <div class="icons-area">
       <p>icons</p>
     </div>
-    <div class="letters-area">
-      <p>letters</p>
-    </div>
+
+    <letters-area />
   </div>
 </template>
 
 <script>
 import UserArea from "./estructure/UsersAreaComponent.vue";
+import LettersArea from "./estructure/LettersAreaComponent.vue";
 import LangFlag from "vue-lang-code-flags";
 
 import Game from "../../../../classes/Game";
@@ -39,6 +39,7 @@ export default {
   components: {
     "user-area": UserArea,
     "lang-flag": LangFlag,
+    "letters-area": LettersArea,
   },
   props: {
     user: {

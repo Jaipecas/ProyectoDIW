@@ -5726,9 +5726,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 5:
                 _this2.error = false;
                 _this2.message = "Usuario actualizado";
-                setTimeout(function () {
-                  window.location.replace("/scrabble/login");
-                }, 2000);
+
+                _this2.exitlogin();
+
                 _context2.next = 14;
                 break;
 
@@ -5765,6 +5765,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       return true;
+    },
+    exitlogin: function exitlogin() {
+      setTimeout(function () {
+        window.location.replace("/scrabble/login");
+      }, 2000);
     },
     changeForm: function changeForm() {
       this.readOnly = !this.readOnly;
