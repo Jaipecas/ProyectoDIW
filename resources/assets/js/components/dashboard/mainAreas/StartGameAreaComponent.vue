@@ -338,15 +338,10 @@ export default {
         justify-content: center;
 
         > * {
-          margin: 10px;
-          height: 40px;
-          width: 40px;
-          margin-bottom: 5px;
-          text-align: center;
-          font-size: 1.5rem;
+          @include token-tableboard(40px, 40px, 10px);
           background-color: #b3b3b3;
-          border-radius: 10px;
-          box-shadow: 0px 3px 8px black;
+          cursor: pointer;
+          margin-bottom: 5px;
         }
 
         .level-active {
