@@ -37,7 +37,7 @@
         </ul>
 
         <div v-if="userSelected != null" class="user-selected card">
-          <img :src="'/storage/' + userSelected.avatar" alt="user img" />
+          <img :src="setAvatar" alt="user img" />
           <country-flag :country="userSelected.country" size="normal" />
           <span>{{ userSelected.name }}</span>
         </div>
@@ -110,6 +110,14 @@ export default {
       messageSuccess: "¡Partida creada!",
       createdChallenge: false,
     };
+  },
+  computed: {
+    setAvatar: function () {
+      if (this.userSelected.avatar !== "/img/gamer.png")
+        return "/storage/" + this.userSelected.avatar;
+
+      return this.userSelected.avatar;
+    },
   },
   methods: {
     //Eventos

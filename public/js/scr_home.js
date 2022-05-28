@@ -5040,6 +5040,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       createdChallenge: false
     };
   },
+  computed: {
+    setAvatar: function setAvatar() {
+      if (this.userSelected.avatar !== "/img/gamer.png") return "/storage/" + this.userSelected.avatar;
+      return this.userSelected.avatar;
+    }
+  },
   methods: {
     //Eventos
     changeArea: function changeArea(area) {
@@ -30107,10 +30113,7 @@ var render = function() {
                   { staticClass: "user-selected card" },
                   [
                     _c("img", {
-                      attrs: {
-                        src: "/storage/" + _vm.userSelected.avatar,
-                        alt: "user img"
-                      }
+                      attrs: { src: _vm.setAvatar, alt: "user img" }
                     }),
                     _vm._v(" "),
                     _c("country-flag", {
